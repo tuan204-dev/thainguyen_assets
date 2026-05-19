@@ -35,10 +35,17 @@ Các quy tắc UI cần tuân thủ khi phát triển giao diện trong dự án
 
 - Sử dụng **TailwindCSS** cho toàn bộ styling.
 - **Bắt buộc dùng prefix `t:`** cho tất cả class Tailwind (ví dụ: `t:flex t:items-center t:gap-4`).
+- **Chỉ dùng CSS thường khi thực sự bắt buộc** (ví dụ: hiệu ứng phức tạp Tailwind không hỗ trợ, override thư viện third-party). Mặc định luôn ưu tiên TailwindCSS.
 - Cấu trúc thư mục và cách tổ chức code theo mẫu trong [home/](home/):
   - Tách riêng `desktop/` và `mobile/`.
 
-## 6. Fonts
+## 6. Responsive
+
+- **Responsive luôn được xử lý trong phiên bản desktop** ([home/desktop/](home/desktop/)).
+- Bản `mobile/` chỉ dành cho trường hợp layout mobile khác biệt hoàn toàn so với desktop, không thể đạt được bằng responsive utilities.
+- Dùng các breakpoint của Tailwind kèm prefix `t:` (ví dụ: `t:md:flex t:lg:grid-cols-3`) để điều chỉnh giao diện theo kích thước màn hình.
+
+## 7. Fonts
 
 - Nếu cần dùng font mới, **tải về và lưu cục bộ** trong [common/fonts/](common/fonts/) — không nhúng trực tiếp từ CDN.
 - Tổ chức theo nguồn font (ví dụ: [common/fonts/google/](common/fonts/google/) cho Google Fonts).
