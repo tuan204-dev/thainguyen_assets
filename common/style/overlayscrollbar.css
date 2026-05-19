@@ -1,0 +1,53 @@
+/* ═══════════════════════════════════════════════════════════
+   OverlayScrollbar — custom theme & layout helpers
+   Companion to: common/overlayscrollbar.js
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Scrollable container base ────────────────────────── */
+/* NOTE: Do NOT set overflow on [data-scroll].
+   OverlayScrollbars manages overflow internally on its viewport element.
+   Setting overflow here interferes with horizontal scrollbar detection. */
+
+/* ── Theme: os-theme-custom ───────────────────────────── */
+/* A minimal, modern custom theme.
+   Apply via data-scroll-theme="os-theme-custom" */
+
+.os-theme-custom {
+    --os-handle-bg: rgba(0, 0, 0, .30);
+    --os-handle-bg-hover: rgba(0, 0, 0, .45);
+    --os-handle-bg-active: rgba(0, 0, 0, .55);
+}
+
+/* ── Light theme variant ──────────────────────────────── */
+/* For dark backgrounds: data-scroll-theme="os-theme-light" */
+
+.os-theme-light {
+    --os-handle-bg: rgba(255, 255, 255, .30);
+    --os-handle-bg-hover: rgba(255, 255, 255, .45);
+    --os-handle-bg-active: rgba(255, 255, 255, .55);
+}
+
+/* ── Track & handle sizing ────────────────────────────── */
+
+.os-theme-custom .os-scrollbar-handle,
+.os-theme-light .os-scrollbar-handle {
+    border-radius: 10px;
+}
+
+.os-theme-custom.os-scrollbar-vertical,
+.os-theme-light.os-scrollbar-vertical {
+    width: 8px;
+    padding: 4px 0;
+}
+
+.os-theme-custom.os-scrollbar-horizontal,
+.os-theme-light.os-scrollbar-horizontal {
+    height: 8px;
+    padding: 0 4px;
+}
+
+/* ── Smooth scrolling ─────────────────────────────────── */
+
+[data-scroll] {
+    scroll-behavior: smooth;
+}
