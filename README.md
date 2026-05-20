@@ -41,9 +41,64 @@ Các quy tắc UI cần tuân thủ khi phát triển giao diện trong dự án
 
 ## 6. Responsive
 
+### 6.1. Cách làm chung
 - **Responsive luôn được xử lý trong phiên bản desktop** ([reference/desktop/](reference/desktop/)).
 - Bản `mobile/` chỉ dành cho trường hợp layout mobile khác biệt hoàn toàn so với desktop, không thể đạt được bằng responsive utilities.
-- Dùng các breakpoint của Tailwind kèm prefix `t:` (ví dụ: `t:md:flex t:lg:grid-cols-3`) để điều chỉnh giao diện theo kích thước màn hình.
+- Dùng các breakpoint của Tailwind kèm prefix `t:` (ví dụ: `t:md:flex t:pc:grid-cols-3`).
+
+### 6.2. Breakpoints
+Khai báo trong [home/desktop/source.css](home/desktop/source.css) (và file `source.css` tương ứng cho các page khác):
+
+| Prefix | Min-width | Mô tả |
+|---|---|---|
+| (mặc định) | 0 | Mobile-first base |
+| `md:` | 768px | Tablet |
+| `pc:` | 1000px | Desktop chính của dự án |
+| `bt-xl:` | 1200px | Desktop lớn |
+
+Có thể combine với `max-{breakpoint}:` để giới hạn class **chỉ áp dụng dưới** một breakpoint — ví dụ `t:max-pc:gap-y-5` chỉ chạy khi viewport `< 1000px`.
+
+### 6.3. Progressive responsive (mobile-first)
+Khi layout đổi số cột, luôn đi **từ ít cột → nhiều cột** theo viewport tăng dần:
+
+| Viewport | Số cột mẫu |
+|---|---|
+| `< 768px` (mobile) | 1 col stack |
+| `768-999px` (md / tablet) | 2 cols |
+| `≥ 1000px` (pc) | 3-4 cols full layout |
+
+**Anti-pattern**: tránh dùng `t:max-md:grid-cols-2` đơn lẻ → mobile 2 cols nhưng tablet rớt về 1 col mặc định (đi lùi). Số cột phải đơn điệu tăng theo viewport.
+
+### 6.4. Scope responsive utilities — không "rò rỉ" sang PC
+Layout PC là target ổn định. Khi thêm class cho mobile/tablet (gap, padding, grid-cols phụ…), **scope với `max-pc:`** để dừng ở 1000px, giữ PC y nguyên:
+
+```html
+<!-- Sai: gap-y-5 áp dụng cả ở PC dù single-row không cần -->
+<div class="t:grid t:gap-y-5 t:pc:grid-cols-4">...</div>
+
+<!-- Đúng: gap-y-5 chỉ chạy < pc -->
+<div class="t:grid t:max-pc:gap-y-5 t:pc:grid-cols-4">...</div>
+```
+
+Tương tự cho intermediate breakpoint — `t:md:max-pc:grid-cols-2` nghĩa là "2 cols ở khoảng `768-999px`, không động đến PC".
+
+### 6.5. Ví dụ — Grid responsive 3 cấp với divider
+Mẫu: [home/desktop/index.html:3692-3694](home/desktop/index.html#L3692-L3694)
+
+```html
+<div class="t:grid
+            t:max-pc:gap-y-5
+            t:md:max-pc:grid-cols-2 t:md:max-pc:gap-x-4
+            t:pc:grid-cols-4 t:pc:divide-x t:pc:divide-dashed t:pc:divide-[#DCDFE4]
+            t:pc:[&>*:first-child]:pl-0 t:pc:[&>*:last-child]:pr-0">
+    <div class="t:pc:px-4">...</div>
+    <!-- 4 items identical, theo Rule 8 -->
+</div>
+```
+
+- **Mobile (`< 768`)**: 1 col stack, `gap-y-5` giữa các hàng.
+- **Tablet (`768-999`)**: 2 cols × 2 rows, dùng `gap-x-4 + gap-y-5` (KHÔNG dùng `divide-x` vì wrap row sẽ vẽ border sai sang item đầu row 2).
+- **PC (`≥ 1000`)**: 4 cols single row, dashed divider giữa cột, items `px-4`, first/last bỏ padding mép.
 
 ## 7. Reference — Các loại block bài viết
 
