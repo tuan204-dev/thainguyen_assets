@@ -644,8 +644,8 @@
   .t\:border-\[\#acacac\] {
     border-color: #acacac;
   }
-  .t\:bg-\[\#0A64B4\] {
-    background-color: #0A64B4;
+  .t\:bg-\[\#30A14A\] {
+    background-color: #30A14A;
   }
   .t\:bg-\[\#2DAFA7\] {
     background-color: #2DAFA7;
@@ -738,8 +738,8 @@
     --tw-gradient-from: rgba(0,0,0,0);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
-  .t\:to-\[\#0A64B4\] {
-    --tw-gradient-to: #0A64B4;
+  .t\:to-\[\#30A14A\] {
+    --tw-gradient-to: #30A14A;
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
   .t\:to-\[\#F6FBFF\] {
@@ -933,8 +933,8 @@
   .t\:whitespace-nowrap {
     white-space: nowrap;
   }
-  .t\:text-\[\#0A64B4\] {
-    color: #0A64B4;
+  .t\:text-\[\#30A14A\] {
+    color: #30A14A;
   }
   .t\:text-\[\#5E5E5E\] {
     color: #5E5E5E;
@@ -972,9 +972,9 @@
   .t\:uppercase {
     text-transform: uppercase;
   }
-  .t\:placeholder-\[\#0A64B4\] {
+  .t\:placeholder-\[\#30A14A\] {
     &::placeholder {
-      color: #0A64B4;
+      color: #30A14A;
     }
   }
   .t\:shadow-md {
@@ -1449,9 +1449,9 @@
       background-color: #E3F3FF;
     }
   }
-  .t\:\[\&_\.swiper-button-next\]\:text-\[\#0A64B4\] {
+  .t\:\[\&_\.swiper-button-next\]\:text-\[\#30A14A\] {
     & .swiper-button-next {
-      color: #0A64B4;
+      color: #30A14A;
     }
   }
   .t\:\[\&_\.swiper-button-next\]\:shadow-lg {
@@ -1530,9 +1530,9 @@
       background-color: #E3F3FF;
     }
   }
-  .t\:\[\&_\.swiper-button-prev\]\:text-\[\#0A64B4\] {
+  .t\:\[\&_\.swiper-button-prev\]\:text-\[\#30A14A\] {
     & .swiper-button-prev {
-      color: #0A64B4;
+      color: #30A14A;
     }
   }
   .t\:\[\&_\.swiper-button-prev\]\:shadow-lg {
@@ -1732,7 +1732,7 @@
   background: #F9F9F9;
 }
 .mobile-menu-item.is-open > .mobile-menu-trigger {
-  color: #0A64B4;
+  color: #30A14A;
   background: #F0F7FF;
 }
 .mobile-menu-item--nested {
@@ -1752,7 +1752,7 @@
   font-size: 16px;
 }
 .mobile-menu-item--nested.is-open > .mobile-menu-trigger--nested {
-  color: #0A64B4;
+  color: #30A14A;
   background: #F0F7FF;
 }
 .mobile-menu-item--nested .mobile-menu-sub > a {

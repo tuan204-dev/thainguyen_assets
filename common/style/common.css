@@ -2,11 +2,15 @@
     --text-color: #090909;
     --text-color-soft: #444344;
     --text-primary-color: #1B75BC;
-    --highlight-color: rgb(10, 100, 180);
+    --highlight-color: #30A14A;
 }
 
 body {
     font-family: "Roboto", sans-serif;
+    /* Prevent stray 1-2px horizontal overflow from edge-bleed patterns like `-mx-4` on grids.
+       overflow-x: clip is used instead of overflow: hidden because it does NOT establish a
+       new scroll container — so `position: sticky` elements still work correctly. */
+    overflow-x: clip;
 }
 
 .merriweather {
@@ -37,19 +41,25 @@ body {
 
 @media (min-width: 992px) {
     .t\:container {
-        max-width: 960px !important;
+        max-width: 900px !important;
     }
 }
 
 @media (min-width: 1200px) {
     .t\:container {
-        max-width: 1140px !important;
+        max-width: 1100px !important;
     }
 }
 
 @media (min-width: 1400px) {
     .t\:container {
-        max-width: 1320px !important;
+        max-width: 1280px !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    .t\:container {
+        max-width: 1450px !important;
     }
 }
 
@@ -150,9 +160,142 @@ a:hover {
 }
 
 .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: #0A64B4;
+    background-color: #30A14A;
     width: 67px !important;
     border-radius: 9999px !important;
+}
+
+/* swiper-control — wrapper for prev/next buttons with fade-out gradient.
+   Usage:
+     <div class="swiper" data-swiper ...>
+       <div class="swiper-wrapper">...</div>
+       <div class="swiper-control">
+         <button type="button" class="swiper-button-prev"></button>
+         <button type="button" class="swiper-button-next"></button>
+       </div>
+     </div>
+*/
+
+/* Reserve right padding on the swiper so the last slide clears the wrapper.
+   !important needed because swiper-bundle.css's `.swiper { padding: 0 }` is loaded later. */
+.swiper:has(.swiper-control .swiper-button-next:not(.swiper-button-lock)) {
+    padding-right: 110px !important;
+}
+
+.swiper-control {
+    --swiper-navigation-color: #c4c4c4;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 40px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.5) 10%,
+        #fff 40%
+    );
+}
+
+/* Auto-hide the whole control when the swiper has no overflow (Swiper adds
+   .swiper-button-lock to both buttons in that case). */
+.swiper-control:has(.swiper-button-lock) {
+    display: none !important;
+}
+
+/* Override Swiper's default absolute positioning so the buttons flow inside
+   the flex wrapper as static items. */
+.swiper-control .swiper-button-prev,
+.swiper-control .swiper-button-next {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+}
+
+.swiper-control .swiper-button-prev {
+    margin-right: 6px;
+}
+
+.swiper-control .swiper-button-next {
+    margin-left: 6px;
+}
+
+.swiper-control .swiper-button-prev::after,
+.swiper-control .swiper-button-next::after {
+    font-size: 14px;
+}
+
+.swiper-control .swiper-button-prev:hover,
+.swiper-control .swiper-button-next:hover {
+    --swiper-navigation-color: #212636;
+}
+
+.swiper-control .swiper-button-prev:disabled,
+.swiper-control .swiper-button-next:disabled,
+.swiper-control .swiper-button-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* sub-cate-swiper — horizontal pill nav with left-border dividers.
+   Pair with .swiper-control for prev/next buttons.
+   Usage:
+     <div class="swiper sub-cate-swiper t:mt-2"
+          data-swiper data-swiper-slides-per-view="auto"
+          data-swiper-space-between="0" data-swiper-free-mode="true">
+       <div class="swiper-wrapper">
+         <div class="swiper-slide"><a href="" class="t:whitespace-nowrap">…</a></div>
+         …
+       </div>
+       <div class="swiper-control">
+         <button type="button" class="swiper-button-prev"></button>
+         <button type="button" class="swiper-button-next"></button>
+       </div>
+     </div>
+*/
+
+.sub-cate-swiper {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #8A94A6;
+}
+
+.sub-cate-swiper .swiper-wrapper {
+    align-items: center;
+}
+
+.sub-cate-swiper .swiper-slide {
+    width: auto !important;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-left: 1px solid #DCDFE4;
+}
+
+.sub-cate-swiper .swiper-slide:first-child {
+    padding-left: 0;
+    border-left: 0;
+}
+
+/* CSS Grid items default to min-width: auto, sized to their intrinsic min-content.
+   That min-content size includes the natural width of children like images or the
+   full slide chain of a swiper — which can push the column past its grid track and
+   cause horizontal page scroll on narrow viewports. Force min-width: 0 on every
+   grid item so columns respect the grid track sizing. */
+.t\:grid > * {
+    min-width: 0;
 }
 
 /* cate-label */
@@ -163,7 +306,7 @@ a:hover {
 }
 
 .cate-label h2, .cate-label h3 {
-    color: #0A64B4;
+    color: #30A14A;
     font-weight: 700;
     font-size: 1.35rem;
     text-transform: uppercase;

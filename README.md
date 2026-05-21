@@ -177,3 +177,93 @@ Tất cả đều có `max-width: 50%` và giữ tỉ lệ `16 / 9`, ảnh `obje
 - Nếu cần dùng font mới, **tải về và lưu cục bộ** trong [common/fonts/](common/fonts/) — không nhúng trực tiếp từ CDN.
 - Tổ chức theo nguồn font (ví dụ: [common/fonts/google/](common/fonts/google/) cho Google Fonts).
 - Khai báo `@font-face` trỏ tới file local đã lưu.
+
+## 12. Category Title (Tiêu đề danh mục)
+
+Mỗi section danh mục có **title chính** (tên danh mục) và **sub-titles** (danh sách danh mục con). Sub-titles dùng Swiper để scroll ngang khi quá dài. Mẫu đầy đủ: [home/desktop/index.html:3602-3697](home/desktop/index.html#L3602-L3697).
+
+### 12.1. Title chính
+
+- Thẻ `<h2>`, dùng font `merriweather`, `uppercase`, `font-semibold`.
+- Size: **`28px` ở desktop**, **`22px` ở mobile** (`t:max-pc:text-[22px]`).
+- Màu theo brand của section (ví dụ `#30A14A` cho khối "Thông tin - Quảng cáo").
+- Có thể có **chevron icon** đứng cạnh để link tới trang danh mục (dùng `material-symbols--arrow-forward-ios-rounded`, xem [common/style/icon.css](common/style/icon.css)).
+- Container tiêu đề thường có `border-t t:border-[#DCDFE4] t:pt-4` để ngăn cách với section trên.
+
+```html
+<div class="t:border-t t:border-[#DCDFE4] t:pt-4">
+    <div class="t:flex t:items-center t:gap-x-3 t:flex-wrap">
+        <h2 class="merriweather t:text-[28px] t:max-pc:text-[22px] t:font-semibold t:uppercase t:text-[#30A14A] t:leading-tight">
+            <a href="">Thông tin - Quảng cáo</a>
+        </h2>
+        <a href="" class="t:size-9 t:rounded-full t:bg-[#F7F7F7] t:inline-flex t:items-center t:justify-center t:shrink-0 t:hover:bg-[#E9E9E9]">
+            <i class="material-symbols--arrow-forward-ios-rounded t:text-[#212636]"></i>
+        </a>
+    </div>
+    <!-- sub-titles ở đây -->
+</div>
+```
+
+### 12.2. Sub-titles (Swiper)
+
+Sub-titles **luôn dùng Swiper** với `slidesPerView: "auto"` + `freeMode` — để khi có nhiều sub-category sẽ scroll ngang được, không xuống dòng.
+
+**Cấu hình bắt buộc**:
+- `data-swiper-slides-per-view="auto"` — mỗi pill rộng theo content.
+- `data-swiper-space-between="0"` — divider tự tạo bằng `border-l` thay vì gap.
+- `data-swiper-free-mode="true"` — kéo mượt theo chiều ngang.
+- `t:[&_.swiper-slide]:w-auto!` — override `width: 100%` default của Swiper (cần `!` vì cùng specificity).
+- `t:whitespace-nowrap` trên `<a>` — text trong từng pill không xuống dòng (Rule 1).
+
+**Styling theo Rule 8** — divider/padding chỉ áp ở thẻ cha qua arbitrary selectors:
+- `t:[&_.swiper-slide]:px-3 t:[&_.swiper-slide]:border-l t:[&_.swiper-slide]:border-[#DCDFE4]` cho tất cả slide.
+- `t:[&_.swiper-slide:first-child]:pl-0 t:[&_.swiper-slide:first-child]:border-l-0` tinh chỉnh slide đầu.
+
+**Prev/Next buttons** — dạng arrow đơn giản gom về mép phải, nền gradient trắng:
+- Cả hai `size-6!`, `mt-0!` (nullify margin-top mặc định của Swiper bundle CSS), `text-[#8A94A6]`, `after:text-[14px]!`, `top-1/2 -translate-y-1/2`.
+- `next`: `right-0!`, `bg-white`.
+- `prev`: `left-auto! right-6!` (dán sát cạnh next), `bg-linear-to-r from-white/0 to-white` (fade-in từ trong suốt sang trắng).
+- **Tự ẩn khi đến đầu/cuối**:
+  - `t:[&_.swiper-button-prev.swiper-button-disabled]:hidden!` — ẩn prev khi đang ở slide đầu.
+  - Swiper auto-thêm class `.swiper-button-lock` cho cả hai button khi không overflow → bundle CSS ẩn sẵn.
+- **Reserve padding-right có điều kiện**: `t:[&:has(.swiper-button-next:not(.swiper-button-lock))]:pr-14` — chỉ chừa 56px chỗ cho 2 button khi swiper thực sự scroll được.
+
+```html
+<div class="swiper t:relative t:mt-2 t:text-sm t:font-medium t:text-[#8A94A6]
+            t:[&:has(.swiper-button-next:not(.swiper-button-lock))]:pr-14
+            t:[&_.swiper-wrapper]:items-center
+            t:[&_.swiper-slide]:w-auto! t:[&_.swiper-slide]:px-3
+            t:[&_.swiper-slide]:border-l t:[&_.swiper-slide]:border-[#DCDFE4]
+            t:[&_.swiper-slide:first-child]:pl-0 t:[&_.swiper-slide:first-child]:border-l-0
+            t:[&_.swiper-button-next]:size-6! t:[&_.swiper-button-next]:mt-0!
+            t:[&_.swiper-button-next]:text-[#8A94A6] t:[&_.swiper-button-next]:bg-white
+            t:[&_.swiper-button-next]:right-0! t:[&_.swiper-button-next]:top-1/2 t:[&_.swiper-button-next]:-translate-y-1/2
+            t:[&_.swiper-button-next]:after:text-[14px]! t:[&_.swiper-button-next]:hover:text-[#212636]
+            t:[&_.swiper-button-prev]:size-6! t:[&_.swiper-button-prev]:mt-0!
+            t:[&_.swiper-button-prev]:text-[#8A94A6] t:[&_.swiper-button-prev]:bg-linear-to-r
+            t:[&_.swiper-button-prev]:from-white/0 t:[&_.swiper-button-prev]:to-white
+            t:[&_.swiper-button-prev]:left-auto! t:[&_.swiper-button-prev]:right-6!
+            t:[&_.swiper-button-prev]:top-1/2 t:[&_.swiper-button-prev]:-translate-y-1/2
+            t:[&_.swiper-button-prev]:after:text-[14px]! t:[&_.swiper-button-prev]:hover:text-[#212636]
+            t:[&_.swiper-button-prev.swiper-button-disabled]:hidden!"
+    data-swiper
+    data-swiper-slides-per-view="auto"
+    data-swiper-space-between="0"
+    data-swiper-free-mode="true">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <a href="" class="t:hover:text-[#30A14A] t:whitespace-nowrap">Sub-category 1</a>
+        </div>
+        <!-- … các slide khác, markup giống hệt nhau (Rule 8) -->
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+```
+
+### 12.3. Lưu ý
+
+- Sub-title swiper **không dùng pagination** — không cần dot, chỉ cần arrow + drag.
+- `mt-0!` trên 2 button là bắt buộc — bundle CSS có `margin-top: calc(0px - var(--swiper-navigation-size) / 2)` (~-22px) để center button cao 44px mặc định; khi override `size-6` (24px) thì margin-top âm vẫn còn → button bị đẩy lên trên vùng hiển thị.
+- Không hardcode width vào pill — `t:whitespace-nowrap` để pill tự co theo content, đúng Rule 9 (không fix cứng width/height).
+- Khi thêm danh mục mới chỉ cần copy 1 `.swiper-slide` thêm vào — không sửa class container, đúng Rule 8.

@@ -128,7 +128,7 @@
 }
 
 .mobile-menu-item.is-open > .mobile-menu-trigger {
-    color: #0A64B4;
+    color: #30A14A;
     background: #F0F7FF;
 }
 
@@ -155,7 +155,7 @@
 }
 
 .mobile-menu-item--nested.is-open > .mobile-menu-trigger--nested {
-    color: #0A64B4;
+    color: #30A14A;
     background: #F0F7FF;
 }
 
