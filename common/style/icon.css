@@ -474,3 +474,45 @@
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
 }
+
+.material-symbols--arrow-back-rounded {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M9.55 18q-.275 0-.512-.1t-.438-.3l-4.9-4.9q-.15-.15-.213-.325T3.426 12t.063-.375t.212-.325l4.9-4.9q.2-.2.438-.3t.512-.1t.525.113t.45.312t.3.45t.1.525t-.1.512t-.3.438L7.825 11H19q.425 0 .713.288T20 12t-.288.713T19 13H7.825l3.3 3.15q.2.175.3.438t.1.512t-.1.525t-.3.45t-.45.313t-.525.112'/%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+.material-symbols--expand-more-rounded {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 14.95q-.2 0-.375-.062T11.3 14.7l-4.6-4.6q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l3.9 3.9l3.9-3.9q.275-.275.7-.275t.7.275t.275.7t-.275.7l-4.6 4.6q-.15.15-.325.213t-.375.062'/%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+.material-symbols--arrow-back-ios-rounded {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='m10.875 12l4.6 4.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.3-5.3q-.15-.15-.213-.325T8.5 12t.063-.375t.212-.325l5.3-5.3q.275-.275.7-.275t.7.275t.275.7t-.275.7z'/%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}

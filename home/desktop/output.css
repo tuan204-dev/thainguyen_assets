@@ -477,9 +477,6 @@
   .t\:max-h-15 {
     max-height: calc(var(--t-spacing) * 15);
   }
-  .t\:max-h-\[360px\] {
-    max-height: 360px;
-  }
   .t\:max-h-\[550px\] {
     max-height: 550px;
   }
@@ -1330,11 +1327,6 @@
   }
   .t\:max-\[1600px\]\:max-h-\[470px\] {
     @media (width < 1600px) {
-      max-height: 470px;
-    }
-  }
-  .t\:max-\[1590px\]\:max-h-\[470px\] {
-    @media (width < 1590px) {
       max-height: 470px;
     }
   }

@@ -1,0 +1,142 @@
+<!-- ====== SECTION: HỎI-ĐÁP ====== -->
+<section class="t:py-6 t:pc:py-8">
+    <div class="t:container">
+        <!-- Q&A swiper wraps title bar + slides so swiper.js wires its nav buttons
+             (it queries .swiper-button-prev/next INSIDE the [data-swiper] element). -->
+        <div
+            class="swiper t:relative"
+            data-swiper
+            data-swiper-slides-per-view="1"
+            data-swiper-space-between="20"
+            data-swiper-breakpoints='{"768":{"slidesPerView":2},"1000":{"slidesPerView":3}}'
+        >
+            <!-- Title bar -->
+            <div class="t:flex t:items-center t:justify-between t:gap-x-4 t:mb-5 t:pc:mb-6">
+                <div class="t:flex t:items-center t:gap-x-2">
+                    <img
+                        src="./images/qa-title-flag.png"
+                        alt=""
+                        class="t:h-8 t:w-auto t:object-contain t:shrink-0"
+                    />
+                    <h2
+                        class="merriweather t:text-[20px] t:pc:text-[25px] t:font-semibold t:uppercase t:text-black t:leading-tight"
+                    >
+                        Hỏi-đáp
+                    </h2>
+                </div>
+                <!-- prev/next: bound by swiper.js via .swiper-button-prev/next -->
+                <div class="t:flex t:items-center t:gap-x-2.5 t:shrink-0">
+                    <button
+                        type="button"
+                        aria-label="Trước"
+                        class="swiper-button-prev qa-nav t:rotate-180"
+                    >
+                        <i class="material-symbols--arrow-forward-ios-rounded t:text-[16px]"></i>
+                    </button>
+                    <button
+                        type="button"
+                        aria-label="Sau"
+                        class="swiper-button-next qa-nav"
+                    >
+                        <i class="material-symbols--arrow-forward-ios-rounded t:text-[16px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slides: PC 3 cols, md 2, mobile 1 -->
+            <div class="swiper-wrapper">
+                <!-- Card 1 -->
+                <div class="swiper-slide t:h-auto">
+                    <article
+                        class="t:flex t:h-full t:flex-col t:gap-2.5 t:rounded-[12px] t:bg-gradient-to-t t:from-[#fff9f2]/0 t:to-[#fff9f2] t:p-5"
+                    >
+                        <div class="t:flex t:items-start t:gap-x-3.5 t:border-b t:border-[#f8bd55]/20 t:pb-3">
+                            <span
+                                class="t:shrink-0 t:flex t:items-center t:justify-center t:size-[42px] t:rounded-xl t:bg-[#ef2424] t:text-white t:text-[24px] t:font-bold t:leading-none"
+                                aria-hidden="true"
+                            >?</span>
+                            <h3 class="title t:flex-1 t:min-w-0 t:text-[20px] t:font-semibold t:leading-snug t:text-black">
+                                <a href="">Trang trí khánh tiết đại hội đảng bộ các cấp, nhiệm kỳ 2025-2030 thực hiện như thế nào?</a>
+                            </h3>
+                        </div>
+                        <p class="desc t:flex-1 t:text-[16px] t:text-[#5f5f5f] t:leading-normal">
+                            Trang trí khánh tiết đại hội đảng bộ các cấp, nhiệm kỳ 2025-2030 thực hiện như thế nào?
+                        </p>
+                        <div class="t:flex t:justify-end">
+                            <a href="" class="t:text-[16px] t:font-medium t:text-[#ef2424] t:hover:opacity-80">Xem chi tiết</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="swiper-slide t:h-auto">
+                    <article
+                        class="t:flex t:h-full t:flex-col t:gap-2.5 t:rounded-[12px] t:bg-gradient-to-t t:from-[#fff9f2]/0 t:to-[#fff9f2] t:p-5"
+                    >
+                        <div class="t:flex t:items-start t:gap-x-3.5 t:border-b t:border-[#f8bd55]/20 t:pb-3">
+                            <span
+                                class="t:shrink-0 t:flex t:items-center t:justify-center t:size-[42px] t:rounded-xl t:bg-[#ef2424] t:text-white t:text-[24px] t:font-bold t:leading-none"
+                                aria-hidden="true"
+                            >?</span>
+                            <h3 class="title t:flex-1 t:min-w-0 t:text-[20px] t:font-semibold t:leading-snug t:text-black">
+                                <a href="">Tiêu chuẩn riêng của cấp ủy viên đối với đảng bộ bộ phận và chi bộ trực thuộc ...</a>
+                            </h3>
+                        </div>
+                        <p class="desc t:flex-1 t:text-[16px] t:text-[#5f5f5f] t:leading-normal">
+                            Tiêu chuẩn riêng của cấp ủy viên đối với đảng bộ bộ phận và chi bộ trực thuộc ở loại hình cơ quan hành chính, doanh nghiệp nhà nước, đơn vị sự nghiệp quy định như thế nào?
+                        </p>
+                        <div class="t:flex t:justify-end">
+                            <a href="" class="t:text-[16px] t:font-medium t:text-[#ef2424] t:hover:opacity-80">Xem chi tiết</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="swiper-slide t:h-auto">
+                    <article
+                        class="t:flex t:h-full t:flex-col t:gap-2.5 t:rounded-[12px] t:bg-gradient-to-t t:from-[#fff9f2]/0 t:to-[#fff9f2] t:p-5"
+                    >
+                        <div class="t:flex t:items-start t:gap-x-3.5 t:border-b t:border-[#f8bd55]/20 t:pb-3">
+                            <span
+                                class="t:shrink-0 t:flex t:items-center t:justify-center t:size-[42px] t:rounded-xl t:bg-[#ef2424] t:text-white t:text-[24px] t:font-bold t:leading-none"
+                                aria-hidden="true"
+                            >?</span>
+                            <h3 class="title t:flex-1 t:min-w-0 t:text-[20px] t:font-semibold t:leading-snug t:text-black">
+                                <a href="">Cơ cấu, số lượng cấp ủy viên, bí thư, phó bí thư của đảng bộ bộ phận nhiệm kỳ 2025-2030 ...</a>
+                            </h3>
+                        </div>
+                        <p class="desc t:flex-1 t:text-[16px] t:text-[#5f5f5f] t:leading-normal">
+                            Cơ cấu, số lượng cấp ủy viên, bí thư, phó bí thư của đảng bộ bộ phận nhiệm kỳ 2025-2030, chi bộ trực thuộc đảng ủy cơ sở, chi bộ trực thuộc đảng bộ bộ phận (gọi tắt là chi bộ trực thuộc) nhiệm kỳ 2025-2027 quy định như thế nào?
+                        </p>
+                        <div class="t:flex t:justify-end">
+                            <a href="" class="t:text-[16px] t:font-medium t:text-[#ef2424] t:hover:opacity-80">Xem chi tiết</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="swiper-slide t:h-auto">
+                    <article
+                        class="t:flex t:h-full t:flex-col t:gap-2.5 t:rounded-[12px] t:bg-gradient-to-t t:from-[#fff9f2]/0 t:to-[#fff9f2] t:p-5"
+                    >
+                        <div class="t:flex t:items-start t:gap-x-3.5 t:border-b t:border-[#f8bd55]/20 t:pb-3">
+                            <span
+                                class="t:shrink-0 t:flex t:items-center t:justify-center t:size-[42px] t:rounded-xl t:bg-[#ef2424] t:text-white t:text-[24px] t:font-bold t:leading-none"
+                                aria-hidden="true"
+                            >?</span>
+                            <h3 class="title t:flex-1 t:min-w-0 t:text-[20px] t:font-semibold t:leading-snug t:text-black">
+                                <a href="">Việc kiện toàn, sắp xếp tổ chức đảng đồng bộ với việc sắp xếp đơn vị hành chính như thế nào?</a>
+                            </h3>
+                        </div>
+                        <p class="desc t:flex-1 t:text-[16px] t:text-[#5f5f5f] t:leading-normal">
+                            Việc kiện toàn, sắp xếp tổ chức đảng đồng bộ với việc sắp xếp đơn vị hành chính các cấp được thực hiện theo quy định nào?
+                        </p>
+                        <div class="t:flex t:justify-end">
+                            <a href="" class="t:text-[16px] t:font-medium t:text-[#ef2424] t:hover:opacity-80">Xem chi tiết</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

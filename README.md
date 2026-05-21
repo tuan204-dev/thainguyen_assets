@@ -140,7 +140,20 @@ Ví dụ thẻ cha đầy đủ:
 </div>
 ```
 
-## 9. Không fix cứng width / height
+## 9. Cấu trúc Section
+
+- **Mỗi section đều phải được bọc theo skeleton chuẩn**: thẻ `<section>` bao ngoài, bên trong là `<div class="t:container">` chứa nội dung:
+  ```html
+  <section>
+      <div class="t:container">
+          <!-- nội dung section -->
+      </div>
+  </section>
+  ```
+- Không đặt nội dung trực tiếp vào `<section>` mà bỏ qua `t:container`.
+- `t:container` ([common/style/common.css:29-54](common/style/common.css#L29-L54)) chịu trách nhiệm canh giữa và giới hạn `max-width` theo từng breakpoint — đảm bảo nội dung mọi section thẳng hàng.
+
+## 10. Không fix cứng width / height
 
 - **Trong mọi trường hợp, không được fix cứng `width` / `height` bằng giá trị tuyệt đối** (ví dụ: `w-[320px]`, `h-[200px]`, `width: 400px`, `height: 250px`).
 - Thay vào đó, dùng:
@@ -150,9 +163,9 @@ Ví dụ thẻ cha đầy đủ:
 - Lý do: đảm bảo responsive trên mọi kích thước màn hình và không bị vỡ layout khi nội dung thay đổi.
 - Ngoại lệ duy nhất: các phần tử bắt buộc phải có kích thước cố định theo thiết kế (icon nhỏ, logo có size chuẩn) — và phải có lý do rõ ràng.
 
-## 10. Size ảnh & Size title
+## 11. Size ảnh & Size title
 
-### 10.1. Size ảnh — `.img-block` ([common/style/common.css:57-92](common/style/common.css#L57-L92))
+### 11.1. Size ảnh — `.img-block` ([common/style/common.css:57-92](common/style/common.css#L57-L92))
 
 | Class | Width | Ghi chú |
 |---|---|---|
@@ -163,7 +176,7 @@ Ví dụ thẻ cha đầy đủ:
 
 Tất cả đều có `max-width: 50%` và giữ tỉ lệ `16 / 9`, ảnh `object-fit: cover` crop từ tâm.
 
-### 10.2. Size title — `.title` ([common/style/common.css:95-126](common/style/common.css#L95-L126))
+### 11.2. Size title — `.title` ([common/style/common.css:95-126](common/style/common.css#L95-L126))
 
 | Class | Desktop | Mobile (≤1000px) |
 |---|---|---|
@@ -172,7 +185,7 @@ Tất cả đều có `max-width: 50%` và giữ tỉ lệ `16 / 9`, ảnh `obje
 | `.title.l3` | 1rem | 1rem |
 | `.title.l4` | 0.875rem | 0.875rem |
 
-## 11. Fonts
+## 12. Fonts
 
 - Nếu cần dùng font mới, **tải về và lưu cục bộ** trong [common/fonts/](common/fonts/) — không nhúng trực tiếp từ CDN.
 - Tổ chức theo nguồn font (ví dụ: [common/fonts/google/](common/fonts/google/) cho Google Fonts).

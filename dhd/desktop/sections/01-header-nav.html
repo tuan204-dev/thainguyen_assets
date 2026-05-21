@@ -1,0 +1,116 @@
+<!-- ====== SECTION: Header + Nav ====== -->
+<header>
+    <!-- ===== Header band (red) ===== -->
+    <div class="t:bg-[#f71917]">
+        <div class="t:container">
+            <div class="t:flex t:items-center t:gap-3 t:py-2 t:pc:gap-6 t:pc:py-0">
+                <!-- Logo -->
+                <a href="./index.html" class="t:block t:shrink-0">
+                    <img
+                        src="./images/hdr-logo.gif"
+                        alt="Logo Đại hội Đảng"
+                        class="t:block t:h-[56px] t:w-auto t:pc:h-[120px]"
+                    />
+                </a>
+                <!-- Banner -->
+                <div class="t:flex-1 t:overflow-hidden">
+                    <img
+                        src="./images/hdr-bg_header.png"
+                        alt="Đại hội Đảng nhiệm kỳ 2025 - 2030 - Đại hội của kỷ nguyên vươn mình"
+                        class="t:block t:w-full t:h-auto"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Nav band (darker red) ===== -->
+    <nav class="t:bg-[#dd0201]">
+        <div class="t:container">
+            <div class="t:flex t:items-center t:justify-between t:gap-2 t:py-2">
+                <!-- Desktop menu -->
+                <ul
+                    class="t:hidden t:pc:flex t:items-center t:flex-wrap t:gap-x-1 t:gap-y-1 t:flex-1"
+                >
+                    <!-- Về trang chủ (pill) -->
+                    <li>
+                        <a
+                            href="./index.html"
+                            class="t:inline-flex t:items-center t:gap-2 t:rounded-lg t:px-3 t:py-[10px] t:bg-gradient-to-r t:from-[#ff0000] t:to-[#f8bd55] t:text-white t:text-[13px] t:font-normal t:uppercase t:whitespace-nowrap"
+                        >
+                            <i class="material-symbols--arrow-back-rounded t:size-4"></i>
+                            Về trang chủ
+                        </a>
+                    </li>
+                    <!-- Tin tức - Sự kiện -->
+                    <li>
+                        <a
+                            href="#"
+                            class="t:inline-flex t:items-center t:gap-2 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
+                        >
+                            <i class="material-symbols-light--home-rounded t:size-5"></i>
+                            Tin tức - Sự kiện
+                        </a>
+                    </li>
+                    <!-- Multimedia (dropdown) -->
+                    <li>
+                        <a
+                            href="#"
+                            class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
+                        >
+                            Multimedia
+                            <i class="material-symbols--expand-more-rounded t:size-4"></i>
+                        </a>
+                    </li>
+                    <!-- Hỏi-đáp -->
+                    <li>
+                        <a
+                            href="#"
+                            class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
+                        >
+                            Hỏi-đáp
+                        </a>
+                    </li>
+                    <!-- Các kỳ đại hội Đảng (dropdown) -->
+                    <li>
+                        <a
+                            href="#"
+                            class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
+                        >
+                            Các kỳ đại hội Đảng
+                            <i class="material-symbols--expand-more-rounded t:size-4"></i>
+                        </a>
+                    </li>
+                    <!-- Văn kiện - Văn bản -->
+                    <li>
+                        <a
+                            href="#"
+                            class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
+                        >
+                            Văn kiện - Văn bản
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Mobile hamburger (left), shown only below pc -->
+                <button
+                    type="button"
+                    class="t:pc:hidden t:inline-flex t:items-center t:justify-center t:p-2 t:text-white"
+                    aria-label="Mở menu"
+                    data-overlay-trigger="mobile-menu"
+                >
+                    <i class="material-symbols--menu-rounded t:size-7"></i>
+                </button>
+
+                <!-- Search (always end) -->
+                <button
+                    type="button"
+                    class="t:inline-flex t:items-center t:justify-center t:p-2 t:text-white t:shrink-0"
+                    aria-label="Tìm kiếm"
+                >
+                    <i class="majesticons--search-line t:size-5"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>

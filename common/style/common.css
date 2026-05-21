@@ -104,7 +104,7 @@ body {
 /* title */
 .title {
     color: var(--text-color);
-    font-weight: 700;
+    font-weight: 600;
     margin-top: 4px;
     font-family: "Merriweather", serif;
 }
@@ -335,7 +335,7 @@ a:hover {
 
 .article-date {
     font-size: 0.8rem;
-    color: var(--text-color-soft);
+    color: #999;
     display: flex;
     align-items: center;
     gap: 5px;
