@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Đại hội Đảng bộ tỉnh Thái Nguyên</title>
+        <link rel="stylesheet" href="./output.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-merriweather-vn.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-roboto-vn.css" />
+        <link rel="stylesheet" href="../../common/style/common.css" />
+        <link rel="stylesheet" href="../../common/style/dropdown.css" />
+        <link rel="stylesheet" href="../../common/style/icon.css" />
+        <link rel="stylesheet" href="../../common/style/overlay.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
+        />
+        <link rel="stylesheet" href="../../common/style/overlayscrollbar.css" />
+        <link rel="stylesheet" href="../../common/vendor/swiper-bundle.min.css" />
+    </head>
+
+    <body class="dhd-page">
+        <header>
+            <div class="t:bg-[#ffeccc] t:relative">
+                <div
+                    class="t:absolute t:right-0 t:top-0 t:bottom-0 t:w-1/2 t:bg-[#f71917] t:z-0"
+                ></div>
+
+                <div class="t:container t:relative t:z-[1]">
+                    <div class="t:flex t:items-center t:gap-3 t:py-2 t:pc:gap-6 t:pc:py-0">
+                        <a href="./index.html" class="t:block t:shrink-0">
+                            <img
+                                src="./images/hdr-logo.gif"
+                                alt="Logo Đại hội Đảng"
+                                class="t:block t:h-[56px] t:w-auto t:pc:h-[120px]"
+                            />
+                        </a>
+
+                        <div class="t:flex-1 t:overflow-hidden">
+                            <img
+                                src="./images/hdr-bg_header.png"
+                                alt="Đại hội Đảng nhiệm kỳ 2025 - 2030 - Đại hội của kỷ nguyên vươn mình"
+                                class="t:block t:w-full t:h-auto"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="t:bg-[#dd0201] t:sticky t:top-0 t:z-50">
+            <div class="t:container">
+                <div class="t:flex t:items-center t:justify-between t:gap-2 t:py-2">
+                    <ul
+                        class="t:hidden t:pc:flex t:items-center t:flex-wrap t:gap-x-1 t:gap-y-1 t:flex-1"
+                    >
+                        <li>
+                            <a
+                                href="../../home/desktop/index.html"
+                                class="t:inline-flex t:items-center t:gap-2 t:rounded-lg t:px-3 t:py-[10px] t:bg-gradient-to-r t:from-[#ff0000] t:to-[#f8bd55] t:text-white t:text-[13px] t:font-normal t:uppercase t:whitespace-nowrap"
+                            >
+                                <i class="material-symbols--arrow-back-rounded t:size-4"></i>
+                                Về trang chủ
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="./index.html"
+                                aria-label="Trang chủ Đại hội Đảng"
+                                class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white"
+                            >
+                                <i class="material-symbols-light--home-rounded t:size-6"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
+                            >
+                                Tin tức - Sự kiện
+                            </a>
+                        </li>
+
+                        <li>
+                            <div class="dropdown-block" data-floating-dropdown data-offset="4">
+                                <button
+                                    type="button"
+                                    data-floating-trigger
+                                    class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap t:bg-transparent t:border-0 t:cursor-pointer"
+                                >
+                                    Multimedia
+                                    <i
+                                        class="material-symbols--expand-more-rounded t:size-4 caret"
+                                    ></i>
+                                </button>
+                                <div role="menu" class="dropdown-menu is-hidden" data-floating-menu>
+                                    <a href="#" role="menuitem" class="dropdown-item">Video</a>
+                                    <a href="#" role="menuitem" class="dropdown-item">Ảnh</a>
+                                    <a href="#" role="menuitem" class="dropdown-item">
+                                        Infographic
+                                    </a>
+                                    <a href="#" role="menuitem" class="dropdown-item">Emagazine</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
+                            >
+                                Hỏi-đáp
+                            </a>
+                        </li>
+
+                        <li>
+                            <div class="dropdown-block" data-floating-dropdown data-offset="4">
+                                <button
+                                    type="button"
+                                    data-floating-trigger
+                                    class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap t:bg-transparent t:border-0 t:cursor-pointer"
+                                >
+                                    Các kỳ đại hội Đảng
+                                    <i
+                                        class="material-symbols--expand-more-rounded t:size-4 caret"
+                                    ></i>
+                                </button>
+                                <div role="menu" class="dropdown-menu is-hidden" data-floating-menu>
+                                    <div class="dropdown-submenu" data-floating-submenu>
+                                        <button
+                                            type="button"
+                                            role="menuitem"
+                                            class="dropdown-item submenu-trigger"
+                                            data-floating-submenu-trigger
+                                        >
+                                            Đại hội Đảng toàn quốc
+                                            <span class="submenu-caret" aria-hidden="true">›</span>
+                                        </button>
+                                        <div
+                                            role="menu"
+                                            class="dropdown-menu is-hidden submenu-menu"
+                                            data-floating-submenu-menu
+                                        >
+                                            <a href="#" role="menuitem" class="dropdown-item">
+                                                Các kỳ Đại hội
+                                            </a>
+                                            <a href="#" role="menuitem" class="dropdown-item">
+                                                Tổng Bí thư
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="dropdown-submenu" data-floating-submenu>
+                                        <button
+                                            type="button"
+                                            role="menuitem"
+                                            class="dropdown-item submenu-trigger"
+                                            data-floating-submenu-trigger
+                                        >
+                                            Đại hội Đảng bộ tỉnh Thái Nguyên
+                                            <span class="submenu-caret" aria-hidden="true">›</span>
+                                        </button>
+                                        <div
+                                            role="menu"
+                                            class="dropdown-menu is-hidden submenu-menu"
+                                            data-floating-submenu-menu
+                                        >
+                                            <a href="#" role="menuitem" class="dropdown-item">
+                                                Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời kỳ
+                                            </a>
+                                            <a href="#" role="menuitem" class="dropdown-item">
+                                                Bí thư Tỉnh ủy Bắc Kạn các thời kỳ
+                                            </a>
+                                            <a href="#" role="menuitem" class="dropdown-item">
+                                                Ban Thường vụ Tỉnh ủy đương nhiệm
+                                            </a>
+                                            <a href="#" role="menuitem" class="dropdown-item">
+                                                Ban Chấp hành Đảng bộ tỉnh đương nhiệm
+                                            </a>
+                                            <a href="#" role="menuitem" class="dropdown-item">
+                                                Các Công trình, dự án chào mừng Đại hội
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#"
+                                class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
+                            >
+                                Văn kiện - Văn bản
+                            </a>
+                        </li>
+                    </ul>
+
+                    <button
+                        type="button"
+                        class="t:pc:hidden t:inline-flex t:items-center t:justify-center t:p-2 t:text-white"
+                        aria-label="Mở menu"
+                        data-overlay-trigger="mobile-menu"
+                    >
+                        <i class="material-symbols--menu-rounded t:size-7"></i>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="t:inline-flex t:items-center t:justify-center t:p-2 t:text-white t:shrink-0"
+                        aria-label="Tìm kiếm"
+                    >
+                        <i class="majesticons--search-line t:size-5"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ====== SECTION: Timeline - Các kỳ đại hội Đảng ====== -->
+        <section class="t:py-[30px]">
+            <div class="t:container">
+                <div class="t:w-full t:max-w-[1200px] t:mx-auto t:px-[12px]">
+                    <!-- Title bar -->
+                    <div class="t:flex t:items-stretch t:justify-center t:mb-[30px]">
+                        <img
+                            src="./images/ky-title-left.gif"
+                            alt=""
+                            aria-hidden="true"
+                            class="t:block t:h-[52px] t:w-auto t:shrink-0"
+                        />
+                        <div
+                            class="t:flex t:items-center t:justify-center t:bg-[#ef2424] t:px-[16px] t:py-[13px] t:min-w-[260px]"
+                        >
+                            <h2
+                                class="merriweather t:text-white t:text-[20px] t:pc:text-[26px] t:font-semibold t:uppercase t:leading-[1] t:text-center"
+                            >
+                                Các kỳ đại hội Đảng
+                            </h2>
+                        </div>
+                        <img
+                            src="./images/ky-title-right.gif"
+                            alt=""
+                            aria-hidden="true"
+                            class="t:block t:h-[52px] t:w-auto t:shrink-0"
+                        />
+                    </div>
+
+                    <!-- Timeline -->
+                    <ul class="ky-timeline">
+                        <!-- Item 1: Bùi Văn Lương (no year ribbon) -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/btv-bui-van-luong.png"
+                                    alt="Đồng chí Bùi Văn Lương"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Bùi Văn Lương</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Phó Bí thư Tỉnh ủy
+                                    <br />
+                                    Chủ tịch HĐND tỉnh Thái Nguyên
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">1</span>
+                        </li>
+
+                        <!-- Item 2: 1930 - lần thứ I -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-1930-dh-i.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ nhất của Đảng"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ nhất của Đảng</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Đại hội lần thứ nhất của Đảng có ý nghĩa lịch sử quan trọng,
+                                    đánh dấu sự khôi phục được hệ thống tổ chức của Đảng từ Trung
+                                    ương đến địa phương, từ trong nước ra ngoài nước.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">2</span>
+                            <span class="ky-year" aria-hidden="true">1930</span>
+                        </li>
+
+                        <!-- Item 3: 1951 - lần thứ II -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-1951-dh-ii.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ II"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ II</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Từ năm 1950, phong trào cách mạng trên thế giới phát triển mạnh
+                                    mẽ. Hệ thống xã hội chủ nghĩa đã được củng cố và tăng cường về
+                                    mọi mặt. Phong trào giải phóng dân tộc vẫn tiếp tục phát triển
+                                    làm rung chuyển hậu phương của chủ nghĩa đế quốc. Phong trào bảo
+                                    vệ hoà bình thế giới trở thành phong trào quần chúng rộng rãi.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">3</span>
+                            <span class="ky-year" aria-hidden="true">1951</span>
+                        </li>
+
+                        <!-- Item 4: 1960 - lần thứ III -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-1960-dh-iii.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ III của Đảng"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ III của Đảng</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Trong tổng số các đại biểu tham dự Đại hội có 50% số đại biểu là
+                                    các đảng viên đã tham gia cách mạng từ khi Đảng còn hoạt động bí
+                                    mật, tất cả các đại biểu đã trải qua cuộc kháng chiến chống Pháp
+                                    xâm lược.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">4</span>
+                            <span class="ky-year" aria-hidden="true">1960</span>
+                        </li>
+
+                        <!-- Item 5: 1976 - lần thứ IV -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-1976-dh-iv.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ IV của Đảng"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ IV của Đảng</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Đảng Cộng sản Việt Nam đã tiến hành Đại hội đại biểu toàn quốc
+                                    lần thứ IV tại Thủ đô Hà Nội từ ngày 14 đến ngày 20/12/1976.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">5</span>
+                            <span class="ky-year" aria-hidden="true">1976</span>
+                        </li>
+
+                        <!-- Item 6: 1982 - lần thứ V -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-1982-dh-v.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ V của Đảng"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ V của Đảng</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Đại hội đại biểu toàn quốc lần thứ V của Đảng, họp từ ngày 27
+                                    đến ngày 31 tháng 3 năm 1982 tại Thủ đô Hà Nội.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">6</span>
+                            <span class="ky-year" aria-hidden="true">1982</span>
+                        </li>
+
+                        <!-- Item 7: 1986 - lần thứ VI -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-1986-dh-vi.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ VI của Đảng"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ VI của Đảng</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Đại hội đại biểu toàn quốc lần thứ VI của Đảng họp tại Hà Nội từ
+                                    ngày 15 đến 18-12-1986.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">7</span>
+                            <span class="ky-year" aria-hidden="true">1986</span>
+                        </li>
+
+                        <!-- Item 8: 1991 - lần thứ VII -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-1991-dh-vii.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ VII của Đảng"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ VII của Đảng</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Đại hội đại biểu toàn quốc lần thứ VII của Đảng Cộng sản Việt
+                                    Nam họp tại Thủ đô Hà Nội từ ngày 24 đến ngày 27/6/1991.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">8</span>
+                            <span class="ky-year" aria-hidden="true">1991</span>
+                        </li>
+
+                        <!-- Item 9: 1996 - lần thứ VIII -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-1996-dh-viii.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ VIII của Đảng"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ VIII của Đảng</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Đại hội đại biểu toàn quốc lần thứ VIII Đảng Cộng sản Việt Nam
+                                    diễn ra từ ngày 28-6 đến 1-7-1996, tại Hội trường Ba Đình, Hà
+                                    Nội.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">9</span>
+                            <span class="ky-year" aria-hidden="true">1996</span>
+                        </li>
+
+                        <!-- Item 10: 2001 - lần thứ IX -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-2001-dh-ix.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ IX của Đảng"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ IX của Đảng</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Đại hội đại biểu toàn quốc lần thứ IX của Đảng họp tại Hà Nội từ
+                                    ngày 19 đến 22 tháng 4 năm 2001, với sự tham gia của 1.168 đại
+                                    biểu.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">10</span>
+                            <span class="ky-year" aria-hidden="true">2001</span>
+                        </li>
+
+                        <!-- Item 11: 2006 - lần thứ X -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-2006-dh-x.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ X Đảng"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ X Đảng</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Đại hội đại biểu toàn quốc lần thứ X của Đảng đã bầu ra Ban Chấp
+                                    hành Trung ương Đảng khoá X gồm 160 Uỷ viên chính thức và 21 Uỷ
+                                    viên dự khuyết.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">11</span>
+                            <span class="ky-year" aria-hidden="true">2006</span>
+                        </li>
+
+                        <!-- Item 12: 2011 - lần thứ XI -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-2011-dh-xi.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ XI Đảng"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ XI Đảng</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Đại hội đại biểu toàn quốc lần thứ XI Đảng có tổng số đại biểu
+                                    tham dự là 1377 đại biểu.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">12</span>
+                            <span class="ky-year" aria-hidden="true">2011</span>
+                        </li>
+
+                        <!-- Item 13: 2016 - lần thứ XII -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-2016-dh-xii.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ XII của Đảng"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ XII của Đảng</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Số lượng đại biểu dự Đại hội lần thứ XII tăng 133 đại biểu so
+                                    với Đại hội XI.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">13</span>
+                            <span class="ky-year" aria-hidden="true">2016</span>
+                        </li>
+
+                        <!-- Item 14: 2021 - lần thứ XIII -->
+                        <li class="ky-row">
+                            <figure class="ky-media img-block">
+                                <img
+                                    src="./images/ky-2021-dh-xiii.jpg"
+                                    alt="Đại hội đại biểu toàn quốc lần thứ XIII của Đảng"
+                                />
+                            </figure>
+                            <div class="ky-body">
+                                <h3 class="ky-title merriweather">
+                                    <a href="#">Đại hội đại biểu toàn quốc lần thứ XIII của Đảng</a>
+                                </h3>
+                                <p class="ky-desc desc">
+                                    Đại hội đại biểu toàn quốc lần thứ XIII của Đảng họp tại Thủ đô
+                                    Hà Nội.
+                                </p>
+                            </div>
+                            <span class="ky-badge" aria-hidden="true">14</span>
+                            <span class="ky-year" aria-hidden="true">2021</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== SECTION: TIỂU SỬ CHỦ TỊCH HCM + DANH SÁCH TỔNG BÍ THƯ ====== -->
+        <section class="t:py-[30px]">
+            <div class="t:container">
+                <div
+                    class="t:flex t:flex-col t:items-center t:gap-[20px] t:w-full t:max-w-[1004px] t:mx-auto"
+                >
+                    <!-- Title bar: flag icon + heading -->
+                    <div class="t:flex t:items-center t:gap-[14px] t:w-full t:pb-[3px] t:px-[12px]">
+                        <img
+                            src="./images/hcm-title-flag.png"
+                            alt=""
+                            class="t:shrink-0 t:w-[42px] t:h-auto"
+                            aria-hidden="true"
+                            loading="lazy"
+                        />
+                        <h2
+                            class="t:text-[25px] t:leading-[32px] t:font-semibold t:uppercase t:text-black"
+                        >
+                            Danh sách Tổng Bí thư các thời kì
+                        </h2>
+                    </div>
+
+                    <!-- FEATURED card: Tiểu sử Chủ tịch Hồ Chí Minh (centered) -->
+                    <div class="t:flex t:justify-center t:w-full t:px-[12px]">
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px] t:w-full t:max-w-[200px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/hcm-bio-ho-chi-minh.png"
+                                    alt="Tiểu sử Chủ tịch Hồ Chí Minh"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Chủ tịch
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Tiểu sử Chủ tịch Hồ Chí Minh
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Grid 12 Tổng Bí thư: 1 → 2 → 4 columns -->
+                    <div
+                        class="t:grid t:grid-cols-1 t:md:max-pc:grid-cols-2 t:pc:grid-cols-4 t:gap-x-[24px] t:gap-y-[30px] t:w-full t:px-[12px]"
+                    >
+                        <!-- 1. Trần Phú -->
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/tbt-tran-phu.png"
+                                    alt="Đồng chí Trần Phú"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Tổng Bí thư
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Đồng chí Trần Phú
+                                </p>
+                            </div>
+                        </a>
+                        <!-- 2. Lê Hồng Phong -->
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/tbt-le-hong-phong.png"
+                                    alt="Đồng chí Lê Hồng Phong"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Tổng Bí thư
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Đồng chí Lê Hồng Phong
+                                </p>
+                            </div>
+                        </a>
+                        <!-- 3. Hà Huy Tập -->
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/tbt-ha-huy-tap.png"
+                                    alt="Đồng chí Hà Huy Tập"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Tổng Bí thư
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Đồng chí Hà Huy Tập
+                                </p>
+                            </div>
+                        </a>
+                        <!-- 4. Nguyễn Văn Cừ -->
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/tbt-nguyen-van-cu.png"
+                                    alt="Đồng chí Nguyễn Văn Cừ"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Tổng Bí thư
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Đồng chí Nguyễn Văn Cừ
+                                </p>
+                            </div>
+                        </a>
+                        <!-- 5. Trường Chinh -->
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/tbt-truong-chinh.png"
+                                    alt="Đồng chí Trường Chinh"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Tổng Bí thư
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Đồng chí Trường Chinh
+                                </p>
+                            </div>
+                        </a>
+                        <!-- 6. Lê Duẩn -->
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/tbt-le-duan.png"
+                                    alt="Đồng chí Lê Duẩn"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Tổng Bí thư
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Đồng chí Lê Duẩn
+                                </p>
+                            </div>
+                        </a>
+                        <!-- 7. Nguyễn Văn Linh -->
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/tbt-nguyen-van-linh.png"
+                                    alt="Đồng chí Nguyễn Văn Linh"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Tổng Bí thư
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Đồng chí Nguyễn Văn Linh
+                                </p>
+                            </div>
+                        </a>
+                        <!-- 8. Đỗ Mười -->
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/tbt-do-muoi.png"
+                                    alt="Đồng chí Đỗ Mười"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Tổng Bí thư
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Đồng chí Đỗ Mười
+                                </p>
+                            </div>
+                        </a>
+                        <!-- 9. Lê Khả Phiêu -->
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/tbt-le-kha-phieu.png"
+                                    alt="Đồng chí Lê Khả Phiêu"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Tổng Bí thư
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Đồng chí Lê Khả Phiêu
+                                </p>
+                            </div>
+                        </a>
+                        <!-- 10. Nông Đức Mạnh -->
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/tbt-nong-duc-manh.png"
+                                    alt="Đồng chí Nông Đức Mạnh"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Tổng Bí thư
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Đồng chí Nông Đức Mạnh
+                                </p>
+                            </div>
+                        </a>
+                        <!-- 11. Nguyễn Phú Trọng -->
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/tbt-nguyen-phu-trong.png"
+                                    alt="Đồng chí Nguyễn Phú Trọng"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Tổng Bí thư
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Đồng chí Nguyễn Phú Trọng
+                                </p>
+                            </div>
+                        </a>
+                        <!-- 12. Tô Lâm -->
+                        <a href="#" class="t:flex t:flex-col t:gap-[5px]">
+                            <figure class="t:overflow-hidden t:rounded-[8px] t:bg-white">
+                                <img
+                                    src="./images/tbt-to-lam.png"
+                                    alt="Đồng chí Tô Lâm"
+                                    class="t:block t:w-full t:h-auto"
+                                    loading="lazy"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:items-center">
+                                <p
+                                    class="t:text-[13px] t:leading-[19.5px] t:font-medium t:text-[#c28214] t:text-center"
+                                >
+                                    Tổng Bí thư
+                                </p>
+                                <p
+                                    class="t:text-[14px] t:leading-[21px] t:font-medium t:text-black t:text-center"
+                                >
+                                    Đồng chí Tô Lâm
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer
+            class="t:relative t:w-full t:bg-[#a80000] t:bg-cover t:bg-center t:py-[30px] t:text-white"
+            style="background-image: url(&quot;./images/ft-bg.png&quot;)"
+        >
+            <div class="t:container">
+                <div
+                    class="t:flex t:flex-col t:gap-[24px] t:w-full t:max-w-[1200px] t:mx-auto t:px-[12px]"
+                >
+                    <div class="t:flex t:justify-start t:max-pc:justify-center">
+                        <img
+                            src="./images/ft-logo.svg"
+                            alt="Báo và Phát thanh, Truyền hình Thái Nguyên điện tử"
+                            class="t:h-auto t:w-full t:max-w-[280px] t:object-contain"
+                        />
+                    </div>
+
+                    <div
+                        class="t:flex t:flex-row t:items-start t:justify-between t:gap-[40px] t:w-full t:max-pc:flex-col t:max-pc:gap-[18px]"
+                    >
+                        <div
+                            class="t:flex t:flex-col t:gap-[9.3px] t:text-[15px] t:leading-[22.5px]"
+                        >
+                            <p>
+                                Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT cấp ngày 20
+                                tháng 11 năm 2023.
+                            </p>
+                            <p class="t:font-bold">
+                                Báo và Phát thanh, Truyền hình Thái Nguyên điện tử.
+                            </p>
+                            <p class="t:font-bold">
+                                Ghi rõ nguồn &ldquo;&nbsp;https://baothainguyen.vn&nbsp;&rdquo; khi
+                                phát hành lại thông tin từ website này
+                            </p>
+                        </div>
+
+                        <div
+                            class="t:flex t:flex-col t:gap-[9.3px] t:text-[15px] t:leading-[22.5px] t:text-right t:max-pc:text-left"
+                        >
+                            <p>
+                                Tổng Biên tập Báo và Phát thanh, Truyền hình Thái Nguyên: Đỗ Xuân
+                                Hòa
+                            </p>
+                            <p>Điện thoại: 0208.3859.666</p>
+                            <p>
+                                Đường dây nóng: 0902006113 - 091 2039880 Email:&nbsp;
+                                <a
+                                    href="mailto:toasoan@baothainguyen.vn"
+                                    class="t:text-white t:underline"
+                                >
+                                    toasoan@baothainguyen.vn
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../../common/common.js"></script>
+        <script type="module" src="../../common/swiper.js"></script>
+        <script type="module" src="../../common/floating-dropdown.js"></script>
+        <script type="module" src="../../common/overlay.js"></script>
+        <script type="module" src="../../common/overlayscrollbar.js"></script>
+    </body>
+</html>

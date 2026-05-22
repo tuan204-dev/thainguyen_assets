@@ -147,8 +147,8 @@ figcaption:has(> p:empty) {
 
     .article-prose figure[data-align-image="bleed"], .article-prose [data-alignable="bleed"] {
         float: none;
-        margin-right: max(calc(880px - 100vw) / 2, -25%);
-        margin-left: max(calc(880px - 100vw) / 2, -25%);
+        margin-right: max(calc(880px - 1.5rem - 100vw) / 2, -25%);
+        margin-left: max(calc(880px - 1.5rem - 100vw) / 2, -25%);
     }
 }
 

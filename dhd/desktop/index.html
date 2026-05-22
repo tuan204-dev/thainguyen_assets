@@ -21,8 +21,12 @@
 
     <body class="dhd-page">
         <header>
-            <div class="t:bg-[#f71917]">
-                <div class="t:container">
+            <div class="t:bg-[#ffeccc] t:relative">
+                <div class="t:absolute t:right-0 t:top-0 t:bottom-0 t:w-1/2 t:bg-[#f71917] t:z-0">
+
+                </div>
+
+                <div class="t:container t:relative t:z-[1]">
                     <div class="t:flex t:items-center t:gap-3 t:py-2 t:pc:gap-6 t:pc:py-0">
                         <a href="./index.html" class="t:block t:shrink-0">
                             <img
@@ -42,8 +46,9 @@
                     </div>
                 </div>
             </div>
+        </header>
 
-            <nav class="t:bg-[#dd0201]">
+        <nav class="t:bg-[#dd0201] t:sticky t:top-0 t:z-50">
                 <div class="t:container">
                     <div class="t:flex t:items-center t:justify-between t:gap-2 t:py-2">
                         <ul
@@ -51,7 +56,7 @@
                         >
                             <li>
                                 <a
-                                    href="./index.html"
+                                    href="../../home/desktop/index.html"
                                     class="t:inline-flex t:items-center t:gap-2 t:rounded-lg t:px-3 t:py-[10px] t:bg-gradient-to-r t:from-[#ff0000] t:to-[#f8bd55] t:text-white t:text-[13px] t:font-normal t:uppercase t:whitespace-nowrap"
                                 >
                                     <i class="material-symbols--arrow-back-rounded t:size-4"></i>
@@ -61,22 +66,54 @@
 
                             <li>
                                 <a
-                                    href="#"
-                                    class="t:inline-flex t:items-center t:gap-2 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
+                                    href="./index.html"
+                                    aria-label="Trang chủ Đại hội Đảng"
+                                    class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white"
                                 >
-                                    <i class="material-symbols-light--home-rounded t:size-5"></i>
-                                    Tin tức - Sự kiện
+                                    <i class="material-symbols-light--home-rounded t:size-6"></i>
                                 </a>
                             </li>
 
                             <li>
                                 <a
                                     href="#"
-                                    class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
+                                    class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
                                 >
-                                    Multimedia
-                                    <i class="material-symbols--expand-more-rounded t:size-4"></i>
+                                    Tin tức - Sự kiện
                                 </a>
+                            </li>
+
+                            <li>
+                                <div
+                                    class="dropdown-block"
+                                    data-floating-dropdown
+                                    data-offset="4"
+                                >
+                                    <button
+                                        type="button"
+                                        data-floating-trigger
+                                        class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap t:bg-transparent t:border-0 t:cursor-pointer"
+                                    >
+                                        Multimedia
+                                        <i
+                                            class="material-symbols--expand-more-rounded t:size-4 caret"
+                                        ></i>
+                                    </button>
+                                    <div
+                                        role="menu"
+                                        class="dropdown-menu is-hidden"
+                                        data-floating-menu
+                                    >
+                                        <a href="#" role="menuitem" class="dropdown-item">Video</a>
+                                        <a href="#" role="menuitem" class="dropdown-item">Ảnh</a>
+                                        <a href="#" role="menuitem" class="dropdown-item"
+                                            >Infographic</a
+                                        >
+                                        <a href="#" role="menuitem" class="dropdown-item"
+                                            >Emagazine</a
+                                        >
+                                    </div>
+                                </div>
                             </li>
 
                             <li>
@@ -89,13 +126,89 @@
                             </li>
 
                             <li>
-                                <a
-                                    href="#"
-                                    class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
+                                <div
+                                    class="dropdown-block"
+                                    data-floating-dropdown
+                                    data-offset="4"
                                 >
-                                    Các kỳ đại hội Đảng
-                                    <i class="material-symbols--expand-more-rounded t:size-4"></i>
-                                </a>
+                                    <button
+                                        type="button"
+                                        data-floating-trigger
+                                        class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap t:bg-transparent t:border-0 t:cursor-pointer"
+                                    >
+                                        Các kỳ đại hội Đảng
+                                        <i
+                                            class="material-symbols--expand-more-rounded t:size-4 caret"
+                                        ></i>
+                                    </button>
+                                    <div
+                                        role="menu"
+                                        class="dropdown-menu is-hidden"
+                                        data-floating-menu
+                                    >
+                                        <div class="dropdown-submenu" data-floating-submenu>
+                                            <button
+                                                type="button"
+                                                role="menuitem"
+                                                class="dropdown-item submenu-trigger"
+                                                data-floating-submenu-trigger
+                                            >
+                                                Đại hội Đảng toàn quốc
+                                                <span class="submenu-caret" aria-hidden="true"
+                                                    >›</span
+                                                >
+                                            </button>
+                                            <div
+                                                role="menu"
+                                                class="dropdown-menu is-hidden submenu-menu"
+                                                data-floating-submenu-menu
+                                            >
+                                                <a href="#" role="menuitem" class="dropdown-item"
+                                                    >Các kỳ Đại hội</a
+                                                >
+                                                <a href="#" role="menuitem" class="dropdown-item"
+                                                    >Tổng Bí thư</a
+                                                >
+                                            </div>
+                                        </div>
+
+                                        <div class="dropdown-submenu" data-floating-submenu>
+                                            <button
+                                                type="button"
+                                                role="menuitem"
+                                                class="dropdown-item submenu-trigger"
+                                                data-floating-submenu-trigger
+                                            >
+                                                Đại hội Đảng bộ tỉnh Thái Nguyên
+                                                <span class="submenu-caret" aria-hidden="true"
+                                                    >›</span
+                                                >
+                                            </button>
+                                            <div
+                                                role="menu"
+                                                class="dropdown-menu is-hidden submenu-menu"
+                                                data-floating-submenu-menu
+                                            >
+                                                <a href="#" role="menuitem" class="dropdown-item"
+                                                    >Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời
+                                                    kỳ</a
+                                                >
+                                                <a href="#" role="menuitem" class="dropdown-item"
+                                                    >Bí thư Tỉnh ủy Bắc Kạn các thời kỳ</a
+                                                >
+                                                <a href="#" role="menuitem" class="dropdown-item"
+                                                    >Ban Thường vụ Tỉnh ủy đương nhiệm</a
+                                                >
+                                                <a href="#" role="menuitem" class="dropdown-item"
+                                                    >Ban Chấp hành Đảng bộ tỉnh đương nhiệm</a
+                                                >
+                                                <a href="#" role="menuitem" class="dropdown-item"
+                                                    >Các Công trình, dự án chào mừng Đại hội</a
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
 
                             <li>
@@ -127,7 +240,6 @@
                     </div>
                 </div>
             </nav>
-        </header>
 
         <section class="t:py-6">
             <div class="t:container">
@@ -296,7 +408,7 @@
             </div>
         </section>
 
-        <section class="t:bg-[#c8102e] t:py-8 t:pc:py-10">
+        <section class="t:bg-cover t:bg-no-repeat t:bg-bottom t:py-8 t:pc:py-10" style="background-image: url('./images/bg_multi.png')">
             <div class="t:container">
                 <div
                     class="t:flex t:flex-col t:gap-3 t:pc:flex-row t:pc:items-center t:pc:justify-between t:pc:gap-6"
@@ -376,89 +488,139 @@
                     </div>
                 </a>
 
-                <ul
-                    class="t:mt-6 t:grid t:grid-cols-1 t:sm:max-pc:grid-cols-2 t:pc:grid-cols-3 t:gap-4 t:pc:gap-6"
+                <div
+                    class="swiper mm-swiper t:mt-6"
+                    data-swiper
+                    data-swiper-loop="true"
+                    data-swiper-slides-per-view="1"
+                    data-swiper-space-between="16"
+                    data-swiper-breakpoints='{"640":{"slidesPerView":2,"spaceBetween":16},"1000":{"slidesPerView":3,"spaceBetween":24}}'
                 >
-                    <li>
-                        <a
-                            href=""
-                            class="t:flex t:flex-col t:overflow-hidden t:rounded-xl t:bg-[#940000] t:h-full t:group"
-                        >
-                            <figure class="img-block t:relative t:w-full">
-                                <img
-                                    src="./images/mm-grdp-2026-2030.png"
-                                    alt="Mục tiêu tăng trưởng GRDP giai đoạn 2026-2030 theo tỉnh, thành phố"
-                                    loading="lazy"
-                                />
-                                <span
-                                    class="t:absolute t:inset-0 t:flex t:items-center t:justify-center"
-                                >
-                                    <i
-                                        class="ph--play-circle t:text-white t:text-5xl t:drop-shadow-lg t:opacity-90 t:transition-transform t:group-hover:scale-110"
-                                    ></i>
-                                </span>
-                            </figure>
-                            <h4
-                                class="t:p-4 t:text-lg t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide t:h-auto">
+                            <a
+                                href=""
+                                class="t:flex t:flex-col t:overflow-hidden t:rounded-xl t:bg-[#940000] t:h-full t:group"
                             >
-                                Mục tiêu tăng trưởng GRDP giai đoạn 2026-2030 theo tỉnh, thành phố
-                            </h4>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href=""
-                            class="t:flex t:flex-col t:overflow-hidden t:rounded-xl t:bg-[#940000] t:h-full t:group"
-                        >
-                            <figure class="img-block t:relative t:w-full">
-                                <img
-                                    src="./images/mm-chan-dung-19-uy-vien.png"
-                                    alt="(Ảnh) Chân dung 19 đồng chí Ủy viên Bộ Chính trị khóa XIV"
-                                    loading="lazy"
-                                />
-                                <span
-                                    class="t:absolute t:inset-0 t:flex t:items-center t:justify-center"
+                                <figure class="img-block t:relative t:w-full">
+                                    <img
+                                        src="./images/mm-grdp-2026-2030.png"
+                                        alt="Mục tiêu tăng trưởng GRDP giai đoạn 2026-2030 theo tỉnh, thành phố"
+                                        loading="lazy"
+                                    />
+                                    <span
+                                        class="t:absolute t:inset-0 t:flex t:items-center t:justify-center"
+                                    >
+                                        <i
+                                            class="ph--play-circle t:text-white t:text-5xl t:drop-shadow-lg t:opacity-90 t:transition-transform t:group-hover:scale-110"
+                                        ></i>
+                                    </span>
+                                </figure>
+                                <h4
+                                    class="t:p-4 t:text-lg t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
                                 >
-                                    <i
-                                        class="ph--play-circle t:text-white t:text-5xl t:drop-shadow-lg t:opacity-90 t:transition-transform t:group-hover:scale-110"
-                                    ></i>
-                                </span>
-                            </figure>
-                            <h4
-                                class="t:p-4 t:text-lg t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
+                                    Mục tiêu tăng trưởng GRDP giai đoạn 2026-2030 theo tỉnh, thành phố
+                                </h4>
+                            </a>
+                        </div>
+                        <div class="swiper-slide t:h-auto">
+                            <a
+                                href=""
+                                class="t:flex t:flex-col t:overflow-hidden t:rounded-xl t:bg-[#940000] t:h-full t:group"
                             >
-                                (Ảnh) Chân dung 19 đồng chí Ủy viên Bộ Chính trị khóa XIV
-                            </h4>
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href=""
-                            class="t:flex t:flex-col t:overflow-hidden t:rounded-xl t:bg-[#940000] t:h-full t:group"
-                        >
-                            <figure class="img-block t:relative t:w-full">
-                                <img
-                                    src="./images/mm-doan-dai-bieu-thai-nguyen.png"
-                                    alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại hội XIV"
-                                    loading="lazy"
-                                />
-                                <span
-                                    class="t:absolute t:inset-0 t:flex t:items-center t:justify-center"
+                                <figure class="img-block t:relative t:w-full">
+                                    <img
+                                        src="./images/mm-chan-dung-19-uy-vien.png"
+                                        alt="(Ảnh) Chân dung 19 đồng chí Ủy viên Bộ Chính trị khóa XIV"
+                                        loading="lazy"
+                                    />
+                                    <span
+                                        class="t:absolute t:inset-0 t:flex t:items-center t:justify-center"
+                                    >
+                                        <i
+                                            class="ph--play-circle t:text-white t:text-5xl t:drop-shadow-lg t:opacity-90 t:transition-transform t:group-hover:scale-110"
+                                        ></i>
+                                    </span>
+                                </figure>
+                                <h4
+                                    class="t:p-4 t:text-lg t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
                                 >
-                                    <i
-                                        class="ph--play-circle t:text-white t:text-5xl t:drop-shadow-lg t:opacity-90 t:transition-transform t:group-hover:scale-110"
-                                    ></i>
-                                </span>
-                            </figure>
-                            <h4
-                                class="t:p-4 t:text-lg t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
+                                    (Ảnh) Chân dung 19 đồng chí Ủy viên Bộ Chính trị khóa XIV
+                                </h4>
+                            </a>
+                        </div>
+                        <div class="swiper-slide t:h-auto">
+                            <a
+                                href=""
+                                class="t:flex t:flex-col t:overflow-hidden t:rounded-xl t:bg-[#940000] t:h-full t:group"
                             >
-                                (Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại
-                                hội XIV
-                            </h4>
-                        </a>
-                    </li>
-                </ul>
+                                <figure class="img-block t:relative t:w-full">
+                                    <img
+                                        src="./images/mm-doan-dai-bieu-thai-nguyen.png"
+                                        alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại hội XIV"
+                                        loading="lazy"
+                                    />
+                                    <span
+                                        class="t:absolute t:inset-0 t:flex t:items-center t:justify-center"
+                                    >
+                                        <i
+                                            class="ph--play-circle t:text-white t:text-5xl t:drop-shadow-lg t:opacity-90 t:transition-transform t:group-hover:scale-110"
+                                        ></i>
+                                    </span>
+                                </figure>
+                                <h4
+                                    class="t:p-4 t:text-lg t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
+                                >
+                                    (Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại
+                                    hội XIV
+                                </h4>
+                            </a>
+                        </div>
+                        <div class="swiper-slide t:h-auto">
+                            <a
+                                href=""
+                                class="t:flex t:flex-col t:overflow-hidden t:rounded-xl t:bg-[#940000] t:h-full t:group"
+                            >
+                                <figure class="img-block t:relative t:w-full">
+                                    <img
+                                        src="./images/mm-doan-dai-bieu-thai-nguyen.png"
+                                        alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại hội XIV"
+                                        loading="lazy"
+                                    />
+                                    <span
+                                        class="t:absolute t:inset-0 t:flex t:items-center t:justify-center"
+                                    >
+                                        <i
+                                            class="ph--play-circle t:text-white t:text-5xl t:drop-shadow-lg t:opacity-90 t:transition-transform t:group-hover:scale-110"
+                                        ></i>
+                                    </span>
+                                </figure>
+                                <h4
+                                    class="t:p-4 t:text-lg t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
+                                >
+                                    (Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại
+                                    hội XIV
+                                </h4>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- prev / next: nút tròn viền đỏ, căn giữa theo ảnh -->
+                    <button
+                        type="button"
+                        class="mm-nav mm-nav--prev swiper-button-prev t:top-1/2!"
+                        aria-label="Trước"
+                    >
+                        <i class="material-symbols--arrow-back-ios-rounded"></i>
+                    </button>
+                    <button
+                        type="button"
+                        class="mm-nav mm-nav--next swiper-button-next t:top-1/2!"
+                        aria-label="Tiếp"
+                    >
+                        <i class="material-symbols--arrow-forward-ios-rounded"></i>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -467,6 +629,7 @@
                 <div
                     class="swiper t:relative"
                     data-swiper
+                    data-swiper-loop="true"
                     data-swiper-slides-per-view="1"
                     data-swiper-space-between="20"
                     data-swiper-breakpoints='{"768":{"slidesPerView":2},"1000":{"slidesPerView":3}}'
@@ -2616,6 +2779,22 @@
                     </div>
 
                     <div class="t:w-full t:bg-[#fef8f1] t:px-[40px] t:py-[10px] t:max-pc:px-[16px]">
+                        <!-- Decorative divider: woven dotted line + Đảng emblem -->
+                        <div class="t:flex t:items-center t:gap-[10px] t:mb-[10px]">
+                            <span
+                                class="t:flex-1 t:h-[14px] t:bg-repeat-x t:bg-center"
+                                style="background-image: url('./images/bg-dot.gif')"
+                                aria-hidden="true"
+                            ></span>
+                            <img
+                                src="./images/icon_dang.gif"
+                                alt=""
+                                class="t:h-[23px] t:w-auto t:shrink-0"
+                                aria-hidden="true"
+                            />
+                        </div>
+
+
                         <div
                             class="t:w-full t:max-h-[600px] t:max-[1280px]:max-h-[480px]"
                             data-scroll
@@ -3468,6 +3647,7 @@
                         <div
                             class="swiper vk-swiper t:relative t:flex t:flex-col t:gap-[16px]"
                             data-swiper
+                            data-swiper-loop="true"
                             data-swiper-slides-per-view="auto"
                             data-swiper-space-between="20"
                         >
@@ -3591,6 +3771,7 @@
                 <div
                     class="ct-swiper swiper t:relative t:w-full t:px-10 t:pc:px-12"
                     data-swiper
+                    data-swiper-loop="true"
                     data-swiper-slides-per-view="1"
                     data-swiper-space-between="20"
                     data-swiper-breakpoints='{"640":{"slidesPerView":2},"1000":{"slidesPerView":3},"1280":{"slidesPerView":4}}'

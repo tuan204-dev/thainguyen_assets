@@ -57,12 +57,6 @@ body {
     }
 }
 
-@media (min-width: 1600px) {
-    .t\:container {
-        max-width: 1450px !important;
-    }
-}
-
 /* img */
 
 .img-block {
