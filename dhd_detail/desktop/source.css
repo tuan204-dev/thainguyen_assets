@@ -1,7 +1,20 @@
-body,
-a,
+@import "tailwindcss" source(none) prefix(t);
+@source "./**/*.{html,js,jsx,ts,tsx}";
+@source "../../common/**/*.{js,ts}";
+
+@theme {
+    --color-tw-primary: #212636;
+    --color-tw-secondary: #667085;
+    --color-tw-border: #d0d5dd;
+
+    --breakpoint-bt-xl: 1200px;
+    --breakpoint-pc: 1000px;
+}
+
 #content,
-h1.head_title {
+h1.head_title,
+.detail_layout .block-news-right,
+.detail_layout .block-news-right a {
     font-family: "Noto Serif", serif !important;
 }
 
@@ -17,7 +30,7 @@ blockquote {
     border-left-width: 5px;
 }
 
-a {
+.detail_layout a {
     color: #242a2e;
     word-break: normal !important;
 }
@@ -237,5 +250,47 @@ tr:nth-child(even) {
 /* Alias Pro-only class to Free home glyph so .fa-home-alt still renders locally */
 .fas.fa-home-alt::before {
     content: "\f015";
+}
+
+/* ── Home header: override unlayered external CSS (main.css, Bootstrap)
+   Tailwind @layer utilities loses to unlayered rules, so we force-reset here ── */
+
+/* 1. Logo link — no underline, correct display */
+.home-header a,
+.home-header button {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: none !important;
+}
+
+/* 2. Nav bar links — inherit muted grey from parent nav */
+.home-header-nav a {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: none !important;
+}
+
+/* 3. Mobile header links */
+.home-mobile-header a,
+.home-mobile-header button {
+    color: inherit !important;
+    font-size: inherit !important;
+    text-decoration: none !important;
+}
+
+.home-mobile-header-nav a {
+    color: inherit !important;
+    font-size: inherit !important;
+    text-decoration: none !important;
+}
+
+/* 4. Force white color for header icons (menu, search) */
+.home-header .material-symbols--menu-rounded,
+.home-header .majesticons--search-line,
+.home-mobile-header .material-symbols--menu-rounded,
+.home-mobile-header .majesticons--search-line {
+     color: #fff !important;
 }
 

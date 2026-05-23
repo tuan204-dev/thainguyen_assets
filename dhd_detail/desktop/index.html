@@ -61,6 +61,19 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="./output.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-merriweather-vn.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-roboto-vn.css" />
+        <link rel="stylesheet" href="../../common/style/common.css" />
+        <link rel="stylesheet" href="../../common/style/dropdown.css" />
+        <link rel="stylesheet" href="../../common/style/icon.css" />
+        <link rel="stylesheet" href="../../common/style/icon.css" />
+        <link rel="stylesheet" href="../../common/style/overlay.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
+        />
+        <link rel="stylesheet" href="../../common/style/overlayscrollbar.css" />
+        <link rel="stylesheet" href="../../common/vendor/swiper-bundle.min.css" />
 
         <script
             src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -79,7 +92,7 @@
         <script src="https://baothainguyen.vn/common/v1/js/sticky.jquery.js"></script>
     </head>
 
-    <body>
+    <body class="home-page">
         <div id="page_info" style="display: none">
             <div id="site_id">e7837c027f6ecd14017ffa4e5f2a0e34</div>
             <div id="parent_site_id">ff8080815e5b41fb015e5b817a510004</div>
@@ -93,65 +106,260 @@
             <div id="cate_title">Thể thao</div>
         </div>
 
-        <div class="bg_grey">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6"><div class="now"></div></div>
-                    <div class="col-md-6 text-right">
-                        <a href="https://en.baothainguyen.vn/" title="English">English | </a>
-                        <a href="https://cn.baothainguyen.vn/" title="中文">中文 |</a>
-                        <a href="https://kr.baothainguyen.vn/" title="한국어">한국어</a>
-                        <a class="search_icon" href="/tim-kiem" style="padding-left: 20px">
-                            <i class="fas fa-search" aria-hidden="true"></i>
+        <header class="home-header t:max-md:hidden">
+            <div
+                class="home-header-main t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
+            >
+                <div class="t:bg-[#30A14A]">
+                    <div class="t:container">
+                        <div
+                            class="t:flex t:items-center t:justify-between t:gap-x-4 t:h-13 t:py-0.5"
+                        >
+                            <button
+                                type="button"
+                                data-overlay-target="desktop-main-menu"
+                                class="t:flex t:items-center t:gap-x-3 t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer roboto t:text-sm t:font-medium t:hover:opacity-80"
+                            >
+                                <i class="material-symbols--menu-rounded t:text-2xl"></i>
+                            </button>
+
+                            <a href="/" class="t:flex t:items-center t:shrink-0">
+                                <img
+                                    src="../../common/assets/logo-white.png"
+                                    alt="Báo Thái Nguyên"
+                                    class="logo-header t:max-h-10 t:w-auto t:transition-all t:duration-500"
+                                />
+                            </a>
+
+                            <div class="t:flex t:items-center t:gap-x-2.5">
+                                <div
+                                    class="t:flex t:items-center t:gap-x-2 t:text-white t:text-xs"
+                                >
+                                    <a href="" class="t:hover:opacity-80 t:transition-opacity">
+                                        English
+                                    </a>
+                                    <span
+                                        class="t:w-px t:h-3 t:bg-white/70"
+                                        aria-hidden="true"
+                                    ></span>
+                                    <a href="" class="t:hover:opacity-80 t:transition-opacity">
+                                        中文
+                                    </a>
+                                    <span
+                                        class="t:w-px t:h-3 t:bg-white/70"
+                                        aria-hidden="true"
+                                    ></span>
+                                    <a href="" class="t:hover:opacity-80 t:transition-opacity">
+                                        한국어
+                                    </a>
+                                </div>
+                                <button
+                                    type="button"
+                                    aria-label="Tìm kiếm"
+                                    class="t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:flex t:items-center t:hover:opacity-80"
+                                >
+                                    <i class="majesticons--search-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div
+            class="home-header-nav t:max-md:hidden t:bg-white t:border-b t:border-[#DCDFE4] t:sticky t:top-0 t:z-50 t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
+        >
+            <div class="t:container">
+                <nav
+                    aria-label="Danh mục nổi bật"
+                    class="t:flex t:items-center t:justify-center t:gap-x-6 t:h-9 merriweather t:text-xs t:font-medium t:text-[#8A94A6] t:whitespace-nowrap t:overflow-hidden"
+                >
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Tiêu điểm
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Thời sự Thái Nguyên
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Chính trị
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Nghị quyết 57
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Kinh tế
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Văn hóa
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Xã hội
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Y tế
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Giáo dục
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <header
+            class="home-mobile-header t:md:hidden t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
+        >
+            <div class="t:bg-[#30A14A]">
+                <div class="t:px-4">
+                    <div
+                        class="t:grid t:grid-cols-[auto_1fr_auto] t:items-center t:gap-x-3 t:h-13"
+                    >
+                        <button
+                            type="button"
+                            data-overlay-target="mobile-main-menu"
+                            aria-label="Mở menu"
+                            class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:opacity-80"
+                        >
+                            <i class="material-symbols--menu-rounded t:text-2xl"></i>
+                        </button>
+
+                        <a
+                            href="/"
+                            class="t:flex t:items-center t:justify-center t:min-w-0 t:overflow-hidden"
+                        >
+                            <img
+                                src="../../common/assets/logo-white.png"
+                                alt="Báo Thái Nguyên"
+                                class="t:h-9 t:max-w-[200px] t:w-auto t:object-contain"
+                            />
                         </a>
+
+                        <div class="t:flex t:items-center t:gap-x-2.5">
+                            <a
+                                href=""
+                                class="t:text-white t:text-xs t:font-medium t:hover:opacity-80 t:transition-opacity"
+                            >
+                                EN
+                            </a>
+                            <button
+                                type="button"
+                                aria-label="Tìm kiếm"
+                                class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:opacity-80"
+                            >
+                                <i class="majesticons--search-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div
+            class="home-mobile-header-nav t:md:hidden t:bg-white t:border-b t:border-[#DCDFE4] t:sticky t:top-0 t:z-50 t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
+        >
+            <div class="t:px-4">
+                <div
+                    class="swiper t:relative merriweather t:text-xs t:font-medium t:text-[#8A94A6]
+                            t:h-9
+                            t:[&_.swiper-wrapper]:items-center
+                            t:[&_.swiper-slide]:w-auto! t:[&_.swiper-slide]:px-3
+                            t:[&_.swiper-slide]:flex t:[&_.swiper-slide]:items-center"
+                    data-swiper
+                    data-swiper-slides-per-view="auto"
+                    data-swiper-space-between="0"
+                    data-swiper-free-mode="true"
+                >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a
+                                href=""
+                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                            >
+                                Tiêu điểm
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a
+                                href=""
+                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                            >
+                                Thời sự Thái Nguyên
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a
+                                href=""
+                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                            >
+                                Chính trị
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a
+                                href=""
+                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                            >
+                                Nghị quyết 57
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a
+                                href=""
+                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                            >
+                                Kinh tế
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a
+                                href=""
+                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                            >
+                                Văn hóa
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a
+                                href=""
+                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                            >
+                                Xã hội
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a
+                                href=""
+                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                            >
+                                Y tế
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a
+                                href=""
+                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                            >
+                                Giáo dục
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-control">
+                        <button
+                            type="button"
+                            aria-label="Trước"
+                            class="swiper-button-prev"
+                        ></button>
+                        <button
+                            type="button"
+                            aria-label="Sau"
+                            class="swiper-button-next"
+                        ></button>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="container detail_layout">
-            <div class="row header">
-                <div class="col-md-6">
-                    <a href="https://baothainguyen.vn/">
-                        <img
-                            class="logo_header"
-                            src="https://baothainguyen.vn/common/v1/images/logo.svg?1"
-                            alt="Báo Thái Nguyên"
-                            style="margin-bottom: 5px"
-                        />
-                    </a>
-                </div>
-            </div>
-
-            <div class="menutop">
-                <nav id="main-nav">
-                    <nav class="navbar container">
-                        <input id="main-menu-state" type="checkbox" />
-                        <label class="main-menu-btn" for="main-menu-state">
-                            <span class="main-menu-btn-icon"></span> Toggle main menu visibility
-                        </label>
-                        <a class="search_mobile" href="/tim-kiem" style="float: right; margin-right: 15px; display: none">
-                            <i class="fas fa-2x fa-search"></i>
-                        </a>
-                        <div class="clear"></div>
-                        <ul id="main-menu" class="sm sm-clean" data-toggle="collapse-nav" data-target="#more-menu-1">
-                            <li><a href="https://baothainguyen.vn/"><i class="fas fa-home-alt"></i></a></li>
-                            <li><a href="/tieu-diem/"><span class="bd">Tiêu điểm</span></a></li>
-                            <li><a href="/thoi-su-thai-nguyen/"><span class="bd">Thời sự Thái Nguyên</span></a></li>
-                            <li><a href="/chinh-tri/"><span class="bd">Chính trị</span></a></li>
-                            <li><a href="/nghi-quyet-57/"><span class="bd">Nghị Quyết 57</span></a></li>
-                            <li><a href="/kinh-te/"><span class="bd">Kinh tế</span></a></li>
-                            <li><a href="/van-hoa/"><span class="bd">Văn hóa</span></a></li>
-                            <li><a href="/xa-hoi/"><span class="bd">Xã hội</span></a></li>
-                            <li><a href="/y-te/"><span class="bd">Y tế</span></a></li>
-                            <li><a href="/giao-duc/"><span class="bd">Giáo dục</span></a></li>
-                            <li><a href="/the-thao/"><span class="bd">Thể thao</span></a></li>
-                            <li id="more-menu-1"></li>
-                        </ul>
-                    </nav>
-                </nav>
-            </div>
-
             <div class="row">
                 <div class="col-8">
                     <div class="cate_title_1">
@@ -463,6 +671,13 @@
         <script src="https://baothainguyen.vn/common/plugin/jquery.lazy.min.js"></script>
         <script src="https://baothainguyen.vn/common/v1/js/main.js?v=2.22"></script>
         <script src="https://baothainguyen.vn/common/v1/js/menu-resize.js"></script>
+        <script src="../../common/common.js"></script>
+        <script type="module" src="../../common/swiper.js"></script>
+        <script type="module" src="../../common/floating-dropdown.js"></script>
+        <script type="module" src="../../common/overlay.js"></script>
+        <script type="module" src="../../common/overlayscrollbar.js"></script>
+        <script type="module" src="../../common/header-sticky.js"></script>
+        <script type="module" src="../../common/header.js"></script>
         <script>
             $("#share-social").click(function () {
                 if (navigator.share) {
