@@ -289,6 +289,17 @@
 .mm-swiper {
     container-type: inline-size;
 }
+/* Các item cao bằng nhau: slide kéo giãn theo slide cao nhất, thẻ <a> lấp đầy */
+.mm-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+.mm-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+}
+.mm-swiper .swiper-slide > a {
+    width: 100%;
+}
 .mm-swiper .mm-nav {
     --mm-red: #e11718;
     position: absolute;

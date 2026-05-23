@@ -17,16 +17,359 @@
         />
         <link rel="stylesheet" href="../../common/style/overlayscrollbar.css" />
         <link rel="stylesheet" href="../../common/vendor/swiper-bundle.min.css" />
+        <style>
+            /* ── Nav: swiper danh mục trên mobile (kiểu trang home) ── */
+            /* Dùng .swiper-control của common.css; chỉnh màu cho nền đỏ */
+            .nav-swiper .swiper-control {
+                --swiper-navigation-color: #fff;
+                background: linear-gradient(
+                    90deg,
+                    rgba(221, 2, 1, 0),
+                    rgba(221, 2, 1, 0.6) 30%,
+                    #dd0201 70%
+                );
+            }
+            .nav-swiper .swiper-button-prev:hover,
+            .nav-swiper .swiper-button-next:hover {
+                --swiper-navigation-color: #ffd9a3;
+            }
+            /* Desktop (>= pc): swiper bị vô hiệu hoá -> menu thường */
+            @media (min-width: 1000px) {
+                .nav-swiper {
+                    overflow: visible;
+                }
+                .nav-swiper .swiper-wrapper {
+                    flex-wrap: wrap;
+                    gap: 4px;
+                }
+                .nav-swiper .swiper-control {
+                    display: none !important;
+                }
+                .nav-swiper.swiper:has(
+                        .swiper-control .swiper-button-next:not(.swiper-button-lock)
+                    ) {
+                    padding-right: 0 !important;
+                }
+            }
+            /* Icon 3 chấm dọc (kebab) cho nút menu mobile */
+            .material-symbols--more-vert-rounded {
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 20q-.825 0-1.413-.588T10 18t.588-1.412T12 16t1.413.588T14 18t-.588 1.412T12 20m0-6q-.825 0-1.413-.588T10 12t.588-1.412T12 10t1.413.588T14 12t-.588 1.412T12 14m0-6q-.825 0-1.413-.588T10 6t.588-1.412T12 4t1.413.588T14 6t-.588 1.412T12 8'/%3E%3C/svg%3E");
+                background-color: currentColor;
+                -webkit-mask-image: var(--svg);
+                mask-image: var(--svg);
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+                -webkit-mask-size: 100% 100%;
+                mask-size: 100% 100%;
+            }
+
+            /* ── Mobile menu overlay (dhd) ───────────────────────── */
+            .dhd-mobile-overlay .overlay__content {
+                padding: 0;
+                background: linear-gradient(180deg, #d81f1c 0%, #a4271f 100%);
+                color: #fff;
+                overflow-y: auto;
+            }
+            .dhd-menu__close {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                margin: 12px 0 4px 8px;
+                padding: 0;
+                font-size: 30px;
+                color: #fff;
+                background: transparent;
+                border: 0;
+                cursor: pointer;
+            }
+            .dhd-menu__nav {
+                display: flex;
+                flex-direction: column;
+                padding: 4px 16px 40px;
+            }
+            .dhd-menu__home {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 8px;
+                padding: 16px 18px;
+                border-radius: 8px;
+                font-size: 15px;
+                font-weight: 600;
+                text-transform: uppercase;
+                color: #fff;
+                background-image: linear-gradient(90deg, #ff0000 0%, #f8bd55 100%);
+            }
+            .dhd-menu__home i {
+                font-size: 20px;
+            }
+            .dhd-menu__row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 8px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            }
+            .dhd-menu__link {
+                flex: 1;
+                min-width: 0;
+                padding: 18px 4px;
+                font-size: 15px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #fff;
+            }
+            .dhd-menu__link--icon {
+                padding: 12px 4px;
+            }
+            .dhd-menu__link--icon i {
+                font-size: 28px;
+            }
+            .dhd-menu__row--sub {
+                padding-left: 16px;
+                background: rgba(0, 0, 0, 0.08);
+            }
+            .dhd-menu__row--sub .dhd-menu__link {
+                font-size: 14px;
+            }
+            .dhd-menu__row--sub2 {
+                padding-left: 32px;
+                background: rgba(0, 0, 0, 0.16);
+            }
+            .dhd-menu__row--sub2 .dhd-menu__link {
+                font-size: 13px;
+                font-weight: 600;
+            }
+            .dhd-menu__toggle {
+                position: relative;
+                flex-shrink: 0;
+                width: 40px;
+                height: 40px;
+                margin-right: 4px;
+                color: #fff;
+                background: rgba(255, 255, 255, 0.25);
+                border: 0;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+            .dhd-menu__toggle::before {
+                content: "+";
+                font-size: 22px;
+                line-height: 1;
+            }
+            .dhd-menu__group.is-open > .dhd-menu__row > .dhd-menu__toggle::before {
+                content: "−";
+            }
+            .dhd-menu__sub {
+                display: none;
+            }
+            .dhd-menu__group.is-open > .dhd-menu__sub {
+                display: block;
+            }
+
+            /* ── Info modal (card details) ───────────────────────── */
+            .info-card {
+                cursor: pointer;
+            }
+            .info-card--has-image {
+                position: relative;
+            }
+            .info-card__badge {
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                color: #fff;
+                background: #ef0004;
+                border-top-right-radius: 8px;
+                border-bottom-left-radius: 16px;
+                pointer-events: none;
+            }
+            .info-card__badge svg {
+                width: 18px;
+                height: 18px;
+            }
+            .info-modal {
+                position: fixed;
+                inset: 0;
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                opacity: 0;
+                visibility: hidden;
+                transition:
+                    opacity 0.25s ease,
+                    visibility 0.25s ease;
+            }
+            .info-modal.is-active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .info-modal__backdrop {
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.5);
+            }
+            .info-modal__panel {
+                position: relative;
+                z-index: 1;
+                display: flex;
+                gap: 32px;
+                width: 100%;
+                max-width: 1000px;
+                max-height: 90vh;
+                overflow: auto;
+                padding: 32px;
+                background: #fffaf4;
+                border-radius: 12px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+                opacity: 0;
+                transform: translateY(24px) scale(0.96);
+                transition:
+                    opacity 0.28s ease,
+                    transform 0.28s ease;
+            }
+            .info-modal.is-active .info-modal__panel {
+                opacity: 1;
+                transform: none;
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .info-modal,
+                .info-modal__panel {
+                    transition: none;
+                }
+            }
+            /* Thẻ có data-info-url: chỉ hiển thị ảnh, scroll nếu ảnh dài */
+            .info-modal__panel.is-image-only {
+                display: block;
+                max-width: 700px;
+                gap: 0;
+                padding: 16px;
+            }
+            .info-modal__panel.is-image-only .info-modal__content {
+                display: none;
+            }
+            .info-modal__panel.is-image-only .info-modal__figure {
+                width: 100%;
+                max-width: 100%;
+            }
+            .info-modal__panel.is-image-only .info-modal__close {
+                position: sticky;
+                float: right;
+                top: 0;
+                margin-bottom: -36px;
+                color: #c28214;
+            }
+            .info-modal__figure {
+                flex-shrink: 0;
+                width: 430px;
+                max-width: 45%;
+                margin: 0;
+                overflow: hidden;
+                border-radius: 8px;
+            }
+            .info-modal__img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+            .info-modal__content {
+                flex: 1;
+                min-width: 0;
+                padding-top: 8px;
+            }
+            .info-modal__name-bar {
+                display: block;
+                padding: 8px 24px;
+                margin-bottom: 24px;
+                text-align: center;
+                background-image: linear-gradient(
+                    90deg,
+                    rgba(255, 119, 0, 0) 0%,
+                    rgb(255, 119, 0) 20.5%,
+                    rgb(239, 0, 4) 50%,
+                    rgb(255, 119, 0) 81%,
+                    rgba(255, 119, 0, 0) 100%
+                );
+            }
+            .info-modal__name {
+                font-size: 24px;
+                line-height: 32px;
+                font-weight: 700;
+                color: #fff;
+            }
+            .info-modal__titles {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+            .info-modal__titles p {
+                margin: 0;
+                font-size: 20px;
+                line-height: 30px;
+                color: #333;
+            }
+            .info-modal__close {
+                position: absolute;
+                top: 12px;
+                right: 16px;
+                z-index: 2;
+                width: 36px;
+                height: 36px;
+                padding: 0;
+                font-size: 28px;
+                line-height: 1;
+                color: #333;
+                background: transparent;
+                border: 0;
+                cursor: pointer;
+            }
+            body.info-modal-open {
+                overflow: hidden;
+            }
+            @media (max-width: 768px) {
+                .info-modal__panel {
+                    flex-direction: column;
+                    gap: 20px;
+                    padding: 20px;
+                }
+                .info-modal__figure {
+                    width: 200px;
+                    max-width: 60%;
+                    margin: 0 auto;
+                }
+                .info-modal__name {
+                    font-size: 18px;
+                    line-height: 26px;
+                }
+                .info-modal__titles p {
+                    font-size: 15px;
+                    line-height: 23px;
+                }
+            }
+        </style>
     </head>
 
     <body class="dhd-page">
         <header>
             <div class="t:bg-[#ffeccc] t:relative">
-                <div class="t:absolute t:right-0 t:top-0 t:bottom-0 t:w-1/2 t:bg-[#f71917] t:z-0">
+                <div
+                    class="t:absolute t:right-0 t:top-0 t:bottom-0 t:w-1/2 t:bg-[#f71917] t:z-0"
+                ></div>
 
-                </div>
-
-                <div class="t:container t:relative t:z-[1]">
+                <div class="t:container t:relative t:z-1">
                     <div class="t:flex t:items-center t:gap-3 t:py-2 t:pc:gap-6 t:pc:py-0">
                         <a href="./index.html" class="t:block t:shrink-0">
                             <img
@@ -49,22 +392,37 @@
         </header>
 
         <nav class="t:bg-[#dd0201] t:sticky t:top-0 t:z-50">
-                <div class="t:container">
-                    <div class="t:flex t:items-center t:justify-between t:gap-2 t:py-2">
-                        <ul
-                            class="t:hidden t:pc:flex t:items-center t:flex-wrap t:gap-x-1 t:gap-y-1 t:flex-1"
-                        >
-                            <li>
+            <div class="t:container">
+                <div class="t:flex t:items-center t:justify-between t:gap-2 t:py-2">
+                    <button
+                        type="button"
+                        class="t:pc:hidden t:inline-flex t:items-center t:justify-center t:p-2 t:text-white t:shrink-0"
+                        aria-label="Mở menu"
+                        data-overlay-target="mobile-menu"
+                    >
+                        <i class="material-symbols--more-vert-rounded t:size-7"></i>
+                    </button>
+
+                    <div
+                        class="nav-swiper swiper t:flex-1 t:min-w-0"
+                        data-swiper
+                        data-swiper-slides-per-view="auto"
+                        data-swiper-space-between="4"
+                        data-swiper-free-mode="true"
+                        data-swiper-breakpoints='{"1000":{"enabled":false}}'
+                    >
+                        <ul class="swiper-wrapper t:items-center">
+                            <li class="swiper-slide t:w-auto! t:hidden t:pc:block">
                                 <a
                                     href="../../home/desktop/index.html"
-                                    class="t:inline-flex t:items-center t:gap-2 t:rounded-lg t:px-3 t:py-[10px] t:bg-gradient-to-r t:from-[#ff0000] t:to-[#f8bd55] t:text-white t:text-[13px] t:font-normal t:uppercase t:whitespace-nowrap"
+                                    class="t:inline-flex t:items-center t:gap-2 t:rounded-lg t:px-3 t:py-[10px] t:bg-gradient-to-r t:from-[#ff0000] t:to-[#f8bd55] t:text-white t:text-[13px] t:font-normal t:uppercase t:whitespace-nowrap t:max-pc:hidden"
                                 >
                                     <i class="material-symbols--arrow-back-rounded t:size-4"></i>
                                     Về trang chủ
                                 </a>
                             </li>
 
-                            <li>
+                            <li class="swiper-slide t:w-auto!">
                                 <a
                                     href="./index.html"
                                     aria-label="Trang chủ Đại hội Đảng"
@@ -74,7 +432,7 @@
                                 </a>
                             </li>
 
-                            <li>
+                            <li class="swiper-slide t:w-auto!">
                                 <a
                                     href="#"
                                     class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
@@ -83,12 +441,8 @@
                                 </a>
                             </li>
 
-                            <li>
-                                <div
-                                    class="dropdown-block"
-                                    data-floating-dropdown
-                                    data-offset="4"
-                                >
+                            <li class="swiper-slide t:w-auto!">
+                                <div class="dropdown-block" data-floating-dropdown data-offset="4">
                                     <button
                                         type="button"
                                         data-floating-trigger
@@ -96,7 +450,7 @@
                                     >
                                         Multimedia
                                         <i
-                                            class="material-symbols--expand-more-rounded t:size-4 caret"
+                                            class="material-symbols--expand-more-rounded t:size-4 caret t:hidden t:pc:inline-block"
                                         ></i>
                                     </button>
                                     <div
@@ -106,17 +460,17 @@
                                     >
                                         <a href="#" role="menuitem" class="dropdown-item">Video</a>
                                         <a href="#" role="menuitem" class="dropdown-item">Ảnh</a>
-                                        <a href="#" role="menuitem" class="dropdown-item"
-                                            >Infographic</a
-                                        >
-                                        <a href="#" role="menuitem" class="dropdown-item"
-                                            >Emagazine</a
-                                        >
+                                        <a href="#" role="menuitem" class="dropdown-item">
+                                            Infographic
+                                        </a>
+                                        <a href="#" role="menuitem" class="dropdown-item">
+                                            Emagazine
+                                        </a>
                                     </div>
                                 </div>
                             </li>
 
-                            <li>
+                            <li class="swiper-slide t:w-auto!">
                                 <a
                                     href="#"
                                     class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
@@ -125,12 +479,8 @@
                                 </a>
                             </li>
 
-                            <li>
-                                <div
-                                    class="dropdown-block"
-                                    data-floating-dropdown
-                                    data-offset="4"
-                                >
+                            <li class="swiper-slide t:w-auto!">
+                                <div class="dropdown-block" data-floating-dropdown data-offset="4">
                                     <button
                                         type="button"
                                         data-floating-trigger
@@ -138,7 +488,7 @@
                                     >
                                         Các kỳ đại hội Đảng
                                         <i
-                                            class="material-symbols--expand-more-rounded t:size-4 caret"
+                                            class="material-symbols--expand-more-rounded t:size-4 caret t:hidden t:pc:inline-block"
                                         ></i>
                                     </button>
                                     <div
@@ -154,21 +504,21 @@
                                                 data-floating-submenu-trigger
                                             >
                                                 Đại hội Đảng toàn quốc
-                                                <span class="submenu-caret" aria-hidden="true"
-                                                    >›</span
-                                                >
+                                                <span class="submenu-caret" aria-hidden="true">
+                                                    ›
+                                                </span>
                                             </button>
                                             <div
                                                 role="menu"
                                                 class="dropdown-menu is-hidden submenu-menu"
                                                 data-floating-submenu-menu
                                             >
-                                                <a href="#" role="menuitem" class="dropdown-item"
-                                                    >Các kỳ Đại hội</a
-                                                >
-                                                <a href="#" role="menuitem" class="dropdown-item"
-                                                    >Tổng Bí thư</a
-                                                >
+                                                <a href="#" role="menuitem" class="dropdown-item">
+                                                    Các kỳ Đại hội
+                                                </a>
+                                                <a href="#" role="menuitem" class="dropdown-item">
+                                                    Tổng Bí thư
+                                                </a>
                                             </div>
                                         </div>
 
@@ -180,38 +530,38 @@
                                                 data-floating-submenu-trigger
                                             >
                                                 Đại hội Đảng bộ tỉnh Thái Nguyên
-                                                <span class="submenu-caret" aria-hidden="true"
-                                                    >›</span
-                                                >
+                                                <span class="submenu-caret" aria-hidden="true">
+                                                    ›
+                                                </span>
                                             </button>
                                             <div
                                                 role="menu"
                                                 class="dropdown-menu is-hidden submenu-menu"
                                                 data-floating-submenu-menu
                                             >
-                                                <a href="#" role="menuitem" class="dropdown-item"
-                                                    >Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời
-                                                    kỳ</a
-                                                >
-                                                <a href="#" role="menuitem" class="dropdown-item"
-                                                    >Bí thư Tỉnh ủy Bắc Kạn các thời kỳ</a
-                                                >
-                                                <a href="#" role="menuitem" class="dropdown-item"
-                                                    >Ban Thường vụ Tỉnh ủy đương nhiệm</a
-                                                >
-                                                <a href="#" role="menuitem" class="dropdown-item"
-                                                    >Ban Chấp hành Đảng bộ tỉnh đương nhiệm</a
-                                                >
-                                                <a href="#" role="menuitem" class="dropdown-item"
-                                                    >Các Công trình, dự án chào mừng Đại hội</a
-                                                >
+                                                <a href="#" role="menuitem" class="dropdown-item">
+                                                    Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời
+                                                    kỳ
+                                                </a>
+                                                <a href="#" role="menuitem" class="dropdown-item">
+                                                    Bí thư Tỉnh ủy Bắc Kạn các thời kỳ
+                                                </a>
+                                                <a href="#" role="menuitem" class="dropdown-item">
+                                                    Ban Thường vụ Tỉnh ủy đương nhiệm
+                                                </a>
+                                                <a href="#" role="menuitem" class="dropdown-item">
+                                                    Ban Chấp hành Đảng bộ tỉnh đương nhiệm
+                                                </a>
+                                                <a href="#" role="menuitem" class="dropdown-item">
+                                                    Các Công trình, dự án chào mừng Đại hội
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
 
-                            <li>
+                            <li class="swiper-slide t:w-auto!">
                                 <a
                                     href="#"
                                     class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
@@ -221,25 +571,30 @@
                             </li>
                         </ul>
 
-                        <button
-                            type="button"
-                            class="t:pc:hidden t:inline-flex t:items-center t:justify-center t:p-2 t:text-white"
-                            aria-label="Mở menu"
-                            data-overlay-trigger="mobile-menu"
-                        >
-                            <i class="material-symbols--menu-rounded t:size-7"></i>
-                        </button>
-
-                        <button
-                            type="button"
-                            class="t:inline-flex t:items-center t:justify-center t:p-2 t:text-white t:shrink-0"
-                            aria-label="Tìm kiếm"
-                        >
-                            <i class="majesticons--search-line t:size-5"></i>
-                        </button>
+                        <div class="swiper-control">
+                            <button
+                                type="button"
+                                aria-label="Trước"
+                                class="swiper-button-prev"
+                            ></button>
+                            <button
+                                type="button"
+                                aria-label="Sau"
+                                class="swiper-button-next"
+                            ></button>
+                        </div>
                     </div>
+
+                    <button
+                        type="button"
+                        class="t:hidden t:pc:inline-flex t:items-center t:justify-center t:p-2 t:text-white t:shrink-0"
+                        aria-label="Tìm kiếm"
+                    >
+                        <i class="majesticons--search-line t:size-5"></i>
+                    </button>
                 </div>
-            </nav>
+            </div>
+        </nav>
 
         <section class="t:py-6">
             <div class="t:container">
@@ -321,7 +676,9 @@
                     </div>
 
                     <div class="t:w-full">
-                        <div class="t:relative t:flex t:items-center t:overflow-hidden">
+                        <div
+                            class="t:relative t:flex t:items-center t:overflow-hidden t:rounded-t-md"
+                        >
                             <img
                                 src="./images/hero-update-header.png"
                                 alt=""
@@ -408,7 +765,10 @@
             </div>
         </section>
 
-        <section class="t:bg-cover t:bg-no-repeat t:bg-bottom t:py-8 t:pc:py-10" style="background-image: url('./images/bg_multi.png')">
+        <section
+            class="t:bg-cover t:bg-no-repeat t:bg-bottom t:py-8 t:pc:py-10"
+            style="background-image: url(&quot;./images/bg_multi.png&quot;)"
+        >
             <div class="t:container">
                 <div
                     class="t:flex t:flex-col t:gap-3 t:pc:flex-row t:pc:items-center t:pc:justify-between t:pc:gap-6"
@@ -517,9 +877,10 @@
                                     </span>
                                 </figure>
                                 <h4
-                                    class="t:p-4 t:text-lg t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
+                                    class="t:p-4 t:text-xl t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
                                 >
-                                    Mục tiêu tăng trưởng GRDP giai đoạn 2026-2030 theo tỉnh, thành phố
+                                    Mục tiêu tăng trưởng GRDP giai đoạn 2026-2030 theo tỉnh, thành
+                                    phố
                                 </h4>
                             </a>
                         </div>
@@ -543,7 +904,7 @@
                                     </span>
                                 </figure>
                                 <h4
-                                    class="t:p-4 t:text-lg t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
+                                    class="t:p-4 t:text-xl t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
                                 >
                                     (Ảnh) Chân dung 19 đồng chí Ủy viên Bộ Chính trị khóa XIV
                                 </h4>
@@ -569,10 +930,10 @@
                                     </span>
                                 </figure>
                                 <h4
-                                    class="t:p-4 t:text-lg t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
+                                    class="t:p-4 t:text-xl t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
                                 >
-                                    (Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại
-                                    hội XIV
+                                    (Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc
+                                    Đại hội XIV
                                 </h4>
                             </a>
                         </div>
@@ -596,10 +957,10 @@
                                     </span>
                                 </figure>
                                 <h4
-                                    class="t:p-4 t:text-lg t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
+                                    class="t:p-4 t:text-xl t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
                                 >
-                                    (Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại
-                                    hội XIV
+                                    (Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc
+                                    Đại hội XIV
                                 </h4>
                             </a>
                         </div>
@@ -835,13 +1196,13 @@
                     <div class="t:flex t:flex-wrap t:justify-center t:gap-[16px] t:w-full">
                         <a
                             href="#"
-                            class="t:inline-flex t:items-center t:justify-center t:rounded-[24px] t:bg-[#c8102e] t:px-[40px] t:py-[12px] t:text-[16px] t:font-bold t:uppercase t:leading-[24px] t:text-white t:text-center t:no-underline t:transition-colors t:hover:bg-[#a90c25] t:max-pc:px-[24px] t:max-pc:text-[14px]"
+                            class="t:inline-flex t:items-center t:justify-center t:rounded-[24px] t:bg-[rgba(248,129,18,1)] t:px-[40px] t:py-[12px] t:text-[16px] t:font-bold t:uppercase t:leading-[24px] t:text-white t:text-center t:no-underline t:transition-colors t:hover:bg-[#a90c25] t:max-pc:px-[24px] t:max-pc:text-[14px]"
                         >
                             Đại hội Đảng Toàn quốc
                         </a>
                         <a
                             href="#"
-                            class="t:inline-flex t:items-center t:justify-center t:rounded-[24px] t:bg-[#c8102e] t:px-[40px] t:py-[12px] t:text-[16px] t:font-bold t:uppercase t:leading-[24px] t:text-white t:text-center t:no-underline t:transition-colors t:hover:bg-[#a90c25] t:max-pc:px-[24px] t:max-pc:text-[14px]"
+                            class="t:inline-flex t:items-center t:justify-center t:rounded-[24px] t:bg-[rgba(248,129,18,1)] t:px-[40px] t:py-[12px] t:text-[16px] t:font-bold t:uppercase t:leading-[24px] t:text-white t:text-center t:no-underline t:transition-colors t:hover:bg-[#a90c25] t:max-pc:px-[24px] t:max-pc:text-[14px]"
                         >
                             Đại hội Đảng bộ tỉnh Thái Nguyên
                         </a>
@@ -1692,7 +2053,7 @@
                     </div>
 
                     <div
-                        class="t:grid t:grid-cols-1 t:gap-[20px] t:w-full t:md:max-pc:grid-cols-2 t:pc:grid-cols-3"
+                        class="t:grid t:grid-cols-1 t:gap-5 t:w-full t:md:max-pc:grid-cols-2 t:pc:grid-cols-3"
                     >
                         <div
                             class="t:relative t:overflow-hidden t:rounded-[8px] t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:px-[8px] t:py-[20px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
@@ -2109,7 +2470,7 @@
         <section class="t:py-[30px]">
             <div class="t:container">
                 <div
-                    class="t:flex t:flex-col t:items-center t:gap-[20px] t:w-full t:max-w-[1200px] t:mx-auto"
+                    class="t:flex t:flex-col t:items-center t:gap-5 t:w-full t:max-w-[1200px] t:mx-auto"
                 >
                     <div class="t:flex t:justify-center t:w-full">
                         <div
@@ -2185,18 +2546,19 @@
                     </div>
 
                     <div
-                        class="t:grid t:grid-cols-1 t:md:max-pc:grid-cols-2 t:pc:grid-cols-4 t:gap-[24px] t:w-full"
+                        class="t:grid t:max-md:grid-cols-1 t:max-pc:grid-cols-2 t:max-[1200px]:grid-cols-3 t:grid-cols-4 t:gap-[24px] t:w-full"
                     >
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            data-info-url="https://baothainguyen.vn/file/e7837c027f6ecd14017ffa4e5f2a0e34/042026/bui-van-luong_20260405190647.jpg"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-vuong-quoc-tuan.png"
                                     alt="Đồng chí Vương Quốc Tuấn"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2222,15 +2584,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-nguyen-dang-binh.jpg"
                                     alt="Đồng chí Nguyễn Đăng Bình"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2253,15 +2615,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-bui-van-luong.png"
                                     alt="Đồng chí Bùi Văn Lương"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2284,15 +2646,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-dinh-quang-tuyen.jpg"
                                     alt="Đồng chí Đinh Quang Tuyên"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2313,21 +2675,17 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
 
-                    <div
-                        class="t:grid t:grid-cols-1 t:md:max-pc:grid-cols-2 t:pc:grid-cols-4 t:gap-[24px] t:w-full"
-                    >
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-do-duc-cong.jpg"
                                     alt="Đồng chí Đỗ Đức Công"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2352,15 +2710,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-bui-duc-hai.jpg"
                                     alt="Đồng chí Bùi Đức Hải"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2385,15 +2743,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-do-thi-minh-hoa.jpg"
                                     alt="Đồng chí Đỗ Thị Minh Hoa"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2418,15 +2776,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-vu-duy-hoang.jpg"
                                     alt="Đồng chí Vũ Duy Hoàng"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2451,15 +2809,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-tran-thi-loc.jpg"
                                     alt="Đồng chí Trần Thị Lộc"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2484,15 +2842,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-bui-van-luong-2.jpg"
                                     alt="Đồng chí Bùi Văn Lương"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2517,15 +2875,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-luong-duc-thang.jpg"
                                     alt="Đồng chí Lường Đức Thắng"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2550,15 +2908,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-pham-van-tho.jpg"
                                     alt="Đồng chí Phạm Văn Thọ"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2583,15 +2941,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-duong-van-tien.jpg"
                                     alt="Đồng chí Dương Văn Tiến"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2616,15 +2974,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-hoang-thi-thu-trang.jpg"
                                     alt="Đồng chí Hoàng Thị Thu Trang"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2649,15 +3007,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-nguyen-thanh-minh.jpg"
                                     alt="Đồng chí Nguyễn Thành Minh"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2682,15 +3040,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-ngo-tuan-anh.jpg"
                                     alt="Đồng chí Ngô Tuấn Anh"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2715,15 +3073,15 @@
                         </div>
 
                         <div
-                            class="t:flex t:items-start t:gap-[12px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
+                            class="t:flex t:items-start t:gap-3 t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:shadow-[0_0_20px_0_rgba(51,51,51,0.08)] t:px-[16px] t:py-[20px]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[62px] t:overflow-hidden t:rounded-[8px] t:bg-white"
+                                class="t:shrink-0 t:w-[62px] t:aspect-[3/4] t:overflow-hidden t:rounded-[8px] t:bg-white"
                             >
                                 <img
                                     src="./images/btv-nguyen-linh.png"
                                     alt="Đồng chí Nguyễn Linh"
-                                    class="t:block t:w-full t:h-auto"
+                                    class="t:block t:w-full t:h-full t:object-cover t:object-center"
                                     loading="lazy"
                                 />
                             </figure>
@@ -2754,7 +3112,7 @@
         <section class="t:py-[30px]">
             <div class="t:container">
                 <div
-                    class="t:flex t:flex-col t:gap-[20px] t:items-center t:w-full t:max-w-[1200px] t:mx-auto"
+                    class="t:flex t:flex-col t:gap-5 t:items-center t:w-full t:max-w-[1200px] t:mx-auto"
                 >
                     <div class="t:flex t:justify-center t:w-full">
                         <div
@@ -2783,7 +3141,7 @@
                         <div class="t:flex t:items-center t:gap-[10px] t:mb-[10px]">
                             <span
                                 class="t:flex-1 t:h-[14px] t:bg-repeat-x t:bg-center"
-                                style="background-image: url('./images/bg-dot.gif')"
+                                style="background-image: url(&quot;./images/bg-dot.gif&quot;)"
                                 aria-hidden="true"
                             ></span>
                             <img
@@ -2793,7 +3151,6 @@
                                 aria-hidden="true"
                             />
                         </div>
-
 
                         <div
                             class="t:w-full t:max-h-[600px] t:max-[1280px]:max-h-[480px]"
@@ -3690,59 +4047,109 @@
                             </div>
 
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide t:w-[295px]! t:max-w-full">
-                                    <a href="#" class="t:block t:no-underline">
-                                        <figure class="img-block t:rounded-[6px]">
+                                <div class="swiper-slide t:w-[295px]! t:max-w-full t:h-auto">
+                                    <a
+                                        href="#"
+                                        class="t:flex t:flex-col t:overflow-hidden t:rounded-[6px] t:bg-[#940000] t:h-full t:no-underline t:group"
+                                    >
+                                        <figure class="img-block t:w-full">
                                             <img
                                                 src="./images/vk-card-22.png"
                                                 alt="Kế hoạch thực hiện Đề án số 22-ĐA/TU về “Phát triển khoa học công nghệ, đổi mới sáng tạo, chuyển đổi số tỉnh Thái Nguyên giai đoạn 2026-2030” năm 2026 — ngày 17/12/2025"
                                                 loading="lazy"
                                             />
                                         </figure>
+                                        <h4
+                                            class="t:p-4 t:text-base t:font-semibold t:leading-snug t:text-white t:line-clamp-3"
+                                        >
+                                            Kế hoạch thực hiện Đề án số 22-ĐA/TU về “Phát triển khoa
+                                            học công nghệ, đổi mới sáng tạo, chuyển đổi số tỉnh Thái
+                                            Nguyên giai đoạn 2026-2030” năm 2026
+                                        </h4>
                                     </a>
                                 </div>
-                                <div class="swiper-slide t:w-[295px]! t:max-w-full">
-                                    <a href="#" class="t:block t:no-underline">
-                                        <figure class="img-block t:rounded-[6px]">
+                                <div class="swiper-slide t:w-[295px]! t:max-w-full t:h-auto">
+                                    <a
+                                        href="#"
+                                        class="t:flex t:flex-col t:overflow-hidden t:rounded-[6px] t:bg-[#940000] t:h-full t:no-underline t:group"
+                                    >
+                                        <figure class="img-block t:w-full">
                                             <img
                                                 src="./images/vk-card-21.png"
                                                 alt="Kế hoạch thực hiện Đề án số 21-ĐA/TU về “Phát triển kết cấu hạ tầng các xã khó khăn và đặc biệt khó khăn tỉnh Thái Nguyên giai đoạn 2026-2030” năm 2026 — ngày 17/12/2025"
                                                 loading="lazy"
                                             />
                                         </figure>
+                                        <h4
+                                            class="t:p-4 t:text-base t:font-semibold t:leading-snug t:text-white t:line-clamp-3"
+                                        >
+                                            Kế hoạch thực hiện Đề án số 21-ĐA/TU về “Phát triển kết
+                                            cấu hạ tầng các xã khó khăn và đặc biệt khó khăn tỉnh
+                                            Thái Nguyên giai đoạn 2026-2030” năm 2026
+                                        </h4>
                                     </a>
                                 </div>
-                                <div class="swiper-slide t:w-[295px]! t:max-w-full">
-                                    <a href="#" class="t:block t:no-underline">
-                                        <figure class="img-block t:rounded-[6px]">
+                                <div class="swiper-slide t:w-[295px]! t:max-w-full t:h-auto">
+                                    <a
+                                        href="#"
+                                        class="t:flex t:flex-col t:overflow-hidden t:rounded-[6px] t:bg-[#940000] t:h-full t:no-underline t:group"
+                                    >
+                                        <figure class="img-block t:w-full">
                                             <img
                                                 src="./images/vk-card-20.png"
                                                 alt="Kế hoạch thực hiện Đề án số 20-ĐA/TU về “Phát triển toàn diện khu vực nông thôn tỉnh Thái Nguyên giai đoạn 2026-2030” năm 2026 — ngày 17/12/2025"
                                                 loading="lazy"
                                             />
                                         </figure>
+                                        <h4
+                                            class="t:p-4 t:text-base t:font-semibold t:leading-snug t:text-white t:line-clamp-3"
+                                        >
+                                            Kế hoạch thực hiện Đề án số 20-ĐA/TU về “Phát triển toàn
+                                            diện khu vực nông thôn tỉnh Thái Nguyên giai đoạn
+                                            2026-2030” năm 2026
+                                        </h4>
                                     </a>
                                 </div>
-                                <div class="swiper-slide t:w-[295px]! t:max-w-full">
-                                    <a href="#" class="t:block t:no-underline">
-                                        <figure class="img-block t:rounded-[6px]">
+                                <div class="swiper-slide t:w-[295px]! t:max-w-full t:h-auto">
+                                    <a
+                                        href="#"
+                                        class="t:flex t:flex-col t:overflow-hidden t:rounded-[6px] t:bg-[#940000] t:h-full t:no-underline t:group"
+                                    >
+                                        <figure class="img-block t:w-full">
                                             <img
                                                 src="./images/vk-card-22.png"
                                                 alt="Kế hoạch thực hiện Đề án số 22-ĐA/TU về “Phát triển khoa học công nghệ, đổi mới sáng tạo, chuyển đổi số tỉnh Thái Nguyên giai đoạn 2026-2030” năm 2026 — ngày 17/12/2025"
                                                 loading="lazy"
                                             />
                                         </figure>
+                                        <h4
+                                            class="t:p-4 t:text-base t:font-semibold t:leading-snug t:text-white t:line-clamp-3"
+                                        >
+                                            Kế hoạch thực hiện Đề án số 22-ĐA/TU về “Phát triển khoa
+                                            học công nghệ, đổi mới sáng tạo, chuyển đổi số tỉnh Thái
+                                            Nguyên giai đoạn 2026-2030” năm 2026
+                                        </h4>
                                     </a>
                                 </div>
-                                <div class="swiper-slide t:w-[295px]! t:max-w-full">
-                                    <a href="#" class="t:block t:no-underline">
-                                        <figure class="img-block t:rounded-[6px]">
+                                <div class="swiper-slide t:w-[295px]! t:max-w-full t:h-auto">
+                                    <a
+                                        href="#"
+                                        class="t:flex t:flex-col t:overflow-hidden t:rounded-[6px] t:bg-[#940000] t:h-full t:no-underline t:group"
+                                    >
+                                        <figure class="img-block t:w-full">
                                             <img
                                                 src="./images/vk-card-21.png"
                                                 alt="Kế hoạch thực hiện Đề án số 21-ĐA/TU về “Phát triển kết cấu hạ tầng các xã khó khăn và đặc biệt khó khăn tỉnh Thái Nguyên giai đoạn 2026-2030” năm 2026 — ngày 17/12/2025"
                                                 loading="lazy"
                                             />
                                         </figure>
+                                        <h4
+                                            class="t:p-4 t:text-base t:font-semibold t:leading-snug t:text-white t:line-clamp-3"
+                                        >
+                                            Kế hoạch thực hiện Đề án số 21-ĐA/TU về “Phát triển kết
+                                            cấu hạ tầng các xã khó khăn và đặc biệt khó khăn tỉnh
+                                            Thái Nguyên giai đoạn 2026-2030” năm 2026
+                                        </h4>
                                     </a>
                                 </div>
                             </div>
@@ -3954,10 +4361,187 @@
             </div>
         </footer>
 
+        <aside class="t:pc:hidden">
+            <div
+                class="overlay dhd-mobile-overlay"
+                data-overlay-id="mobile-menu"
+                data-overlay-variant="fullscreen"
+            >
+                <div class="overlay__backdrop"></div>
+                <div class="overlay__content dhd-menu">
+                    <button
+                        type="button"
+                        class="dhd-menu__close"
+                        data-overlay-target="mobile-menu"
+                        aria-label="Đóng"
+                    >
+                        <i class="material-symbols--close-rounded"></i>
+                    </button>
+
+                    <nav class="dhd-menu__nav">
+                        <a href="../../home/desktop/index.html" class="dhd-menu__home">
+                            <i class="material-symbols--arrow-back-rounded"></i>
+                            Về trang chủ
+                        </a>
+
+                        <div class="dhd-menu__row">
+                            <a
+                                href="./index.html"
+                                class="dhd-menu__link dhd-menu__link--icon"
+                                aria-label="Trang chủ Đại hội Đảng"
+                            >
+                                <i class="material-symbols-light--home-rounded"></i>
+                            </a>
+                        </div>
+
+                        <div class="dhd-menu__row">
+                            <a href="#" class="dhd-menu__link">Tin tức - Sự kiện</a>
+                        </div>
+
+                        <div class="dhd-menu__group">
+                            <div class="dhd-menu__row">
+                                <a href="#" class="dhd-menu__link">Multimedia</a>
+                                <button
+                                    type="button"
+                                    class="dhd-menu__toggle"
+                                    data-menu-toggle
+                                    aria-expanded="false"
+                                    aria-label="Mở rộng"
+                                ></button>
+                            </div>
+                            <div class="dhd-menu__sub">
+                                <div class="dhd-menu__row dhd-menu__row--sub">
+                                    <a href="#" class="dhd-menu__link">Video</a>
+                                </div>
+                                <div class="dhd-menu__row dhd-menu__row--sub">
+                                    <a href="#" class="dhd-menu__link">Ảnh</a>
+                                </div>
+                                <div class="dhd-menu__row dhd-menu__row--sub">
+                                    <a href="#" class="dhd-menu__link">Infographic</a>
+                                </div>
+                                <div class="dhd-menu__row dhd-menu__row--sub">
+                                    <a href="#" class="dhd-menu__link">Emagazine</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dhd-menu__row">
+                            <a href="#" class="dhd-menu__link">Hỏi-đáp</a>
+                        </div>
+
+                        <div class="dhd-menu__group">
+                            <div class="dhd-menu__row">
+                                <span class="dhd-menu__link">Các kỳ đại hội Đảng</span>
+                                <button
+                                    type="button"
+                                    class="dhd-menu__toggle"
+                                    data-menu-toggle
+                                    aria-expanded="false"
+                                    aria-label="Mở rộng"
+                                ></button>
+                            </div>
+                            <div class="dhd-menu__sub">
+                                <div class="dhd-menu__group">
+                                    <div class="dhd-menu__row dhd-menu__row--sub">
+                                        <span class="dhd-menu__link">Đại hội Đảng toàn quốc</span>
+                                        <button
+                                            type="button"
+                                            class="dhd-menu__toggle"
+                                            data-menu-toggle
+                                            aria-expanded="false"
+                                            aria-label="Mở rộng"
+                                        ></button>
+                                    </div>
+                                    <div class="dhd-menu__sub">
+                                        <div class="dhd-menu__row dhd-menu__row--sub2">
+                                            <a href="#" class="dhd-menu__link">Các kỳ Đại hội</a>
+                                        </div>
+                                        <div class="dhd-menu__row dhd-menu__row--sub2">
+                                            <a href="#" class="dhd-menu__link">Tổng Bí thư</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dhd-menu__group">
+                                    <div class="dhd-menu__row dhd-menu__row--sub">
+                                        <span class="dhd-menu__link">
+                                            Đại hội Đảng bộ tỉnh Thái Nguyên
+                                        </span>
+                                        <button
+                                            type="button"
+                                            class="dhd-menu__toggle"
+                                            data-menu-toggle
+                                            aria-expanded="false"
+                                            aria-label="Mở rộng"
+                                        ></button>
+                                    </div>
+                                    <div class="dhd-menu__sub">
+                                        <div class="dhd-menu__row dhd-menu__row--sub2">
+                                            <a href="#" class="dhd-menu__link">
+                                                Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời kỳ
+                                            </a>
+                                        </div>
+                                        <div class="dhd-menu__row dhd-menu__row--sub2">
+                                            <a href="#" class="dhd-menu__link">
+                                                Bí thư Tỉnh ủy Bắc Kạn các thời kỳ
+                                            </a>
+                                        </div>
+                                        <div class="dhd-menu__row dhd-menu__row--sub2">
+                                            <a href="#" class="dhd-menu__link">
+                                                Ban Thường vụ Tỉnh ủy đương nhiệm
+                                            </a>
+                                        </div>
+                                        <div class="dhd-menu__row dhd-menu__row--sub2">
+                                            <a href="#" class="dhd-menu__link">
+                                                Ban Chấp hành Đảng bộ tỉnh đương nhiệm
+                                            </a>
+                                        </div>
+                                        <div class="dhd-menu__row dhd-menu__row--sub2">
+                                            <a href="#" class="dhd-menu__link">
+                                                Các Công trình, dự án chào mừng Đại hội
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dhd-menu__row">
+                            <a href="#" class="dhd-menu__link">Văn kiện - Văn bản</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </aside>
+
+        <div class="info-modal" id="infoModal" aria-hidden="true">
+            <div class="info-modal__backdrop" data-info-close></div>
+            <div
+                class="info-modal__panel"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="infoModalName"
+            >
+                <button type="button" class="info-modal__close" aria-label="Đóng" data-info-close>
+                    &times;
+                </button>
+                <figure class="info-modal__figure">
+                    <img class="info-modal__img" id="infoModalImg" src="" alt="" />
+                </figure>
+                <div class="info-modal__content">
+                    <div class="info-modal__name-bar">
+                        <span class="info-modal__name" id="infoModalName"></span>
+                    </div>
+                    <div class="info-modal__titles" id="infoModalTitles"></div>
+                </div>
+            </div>
+        </div>
+
         <script src="../../common/common.js"></script>
         <script type="module" src="../../common/swiper.js"></script>
         <script type="module" src="../../common/floating-dropdown.js"></script>
         <script type="module" src="../../common/overlay.js"></script>
         <script type="module" src="../../common/overlayscrollbar.js"></script>
+        <script type="module" src="./dhd.js"></script>
     </body>
 </html>
