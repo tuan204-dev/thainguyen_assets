@@ -1,0 +1,16 @@
+@import "tailwindcss" source(none) prefix(t);
+@source "./**/*.{html,js,jsx,ts,tsx}";
+@source "../common/**/*.{js,ts}";
+
+@theme {
+  --color-tw-primary: #212636;
+  --color-tw-secondary: #667085;
+  --color-tw-border: #d0d5dd;
+
+  --breakpoint-bt-xl: 1200px;
+  --breakpoint-pc: 1000px;
+}
+
+* {
+  box-sizing: border-box;
+}
