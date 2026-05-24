@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Số 299 ngày 27/4/2026 - Báo Thái Nguyên điện tử</title>
+
+  <link rel="stylesheet" href="./vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="./vendor/font-awesome.min.css">
+  <link rel="stylesheet" href="./vendor/dflip.css">
+  <link rel="stylesheet" href="./vendor/prism.css">
+  <link rel="stylesheet" href="./vendor/epaper.css">
+
+  <script src="./vendor/modernizr.min.js"></script>
+  <script src="./vendor/jquery.min.js"></script>
+
+  <style>
+    html, body { height: 100%; margin: 0; padding: 0; background: #1c1c1e; overflow: hidden; }
+
+    .header-epaper { position: sticky; top: 0; z-index: 9999; background: #1B4D3E; height: 50px; }
+    .header-content { display: flex; align-items: center; justify-content: space-between; height: 100%; padding: 0 16px; }
+    .header-left .btn-link { color: #fff !important; font-size: 14px; text-decoration: none; display: flex; align-items: center; gap: 6px; padding: 0; }
+    .header-left .btn-link:hover { opacity: 0.8; }
+    .header-mid h2 { color: #fff; font-size: 15px; font-weight: 600; margin: 0; white-space: nowrap; }
+    .header-right { min-width: 80px; }
+
+    #epaper_preview { width: 100%; height: calc(100vh - 50px); }
+  </style>
+</head>
+
+<body>
+  <div id="content_epaper" style="display:none">
+    <div class="xdata">
+      <a href="./data/20260426193157so_299_ngay_27-4.pdf">Nhấn vào đây để xem</a>
+    </div>
+  </div>
+
+  <script>
+    var theme_path = "";
+    var default_source = 'pdf';
+    var epaper_pages = [];
+  </script>
+
+  <section class="main main-epaper">
+    <header class="header-epaper sticky">
+      <div class="header-content">
+        <div class="header-left">
+          <a href="javascript:" onclick="goBack();" class="btn btn-link">
+            <i class="fa fa-long-arrow-left"></i> Trở lại
+          </a>
+        </div>
+        <div class="header-mid">
+          <section class="breadcrumbs">
+            <div class="breadcrumb-scroll-nav">
+              <h2 class="d-none d-mb-block d-lg-block breadcrumb-heading">
+                <span>Số 299 ngày 27/4/2026</span>
+              </h2>
+            </div>
+          </section>
+        </div>
+        <div class="header-right ml-auto"></div>
+      </div>
+    </header>
+    <div id="epaper_preview"></div>
+  </section>
+
+  <script>
+    function goBack() {
+      if (document.referrer === "") { location.href = '/'; } else { history.back(); }
+    }
+  </script>
+
+  <script src="./vendor/bootstrap.bundle.min.js"></script>
+  <script src="./vendor/three.min.js"></script>
+  <script src="./vendor/dflip.js"></script>
+  <script src="./vendor/prism.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(".xdata a").each(function () { epaper_pages.push($(this).attr('href')); });
+
+      var options = {
+        webgl: false,
+        height: window.innerHeight - 50,
+        duration: 800,
+        direction: DFLIP.DIRECTION.LTR,
+        autoEnableOutline: false,
+        autoEnableThumbnail: true,
+        maxTextureSize: 9800,
+        text: {
+          toggleSound: "Bật/Tắt Âm Thanh",
+          toggleThumbnails: "Ảnh nhỏ",
+          toggleOutline: "Viền/Dấu trang",
+          previousPage: "Trang trước",
+          nextPage: "Trang sau",
+          toggleFullscreen: "Toàn màn hình",
+          zoomIn: "Thu nhỏ",
+          zoomOut: "Phóng to",
+          toggleHelp: "Trợ giúp",
+          singlePageMode: "Chế độ 1 trang",
+          doublePageMode: "Chế độ 2 trang",
+          downloadPDFFile: "Tải file",
+          gotoFirstPage: "Chuyển về đầu",
+          gotoLastPage: "Chuyển về cuối",
+          play: "Bắt đầu tự chạy",
+          pause: "Dừng tự chạy",
+          share: "Chia sẻ"
+        }
+      };
+
+      if (default_source === 'pdf') {
+        flipBook = $("#epaper_preview").flipBook(epaper_pages[0], options);
+      } else {
+        flipBook = $("#epaper_preview").flipBook(epaper_pages, options);
+      }
+    });
+  </script>
+</body>
+</html>

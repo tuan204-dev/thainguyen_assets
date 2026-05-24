@@ -1,0 +1,86 @@
+.header-epaper {
+    background:#935f25;
+    color: #FFF;
+}
+
+.header-epaper a,
+.header-epaper a:hover,
+.header-epaper a:active {
+    color: #FFF;
+}
+
+.header-epaper .btn {
+    padding: 0.35rem 0;
+    margin-right: 1rem;
+    height: auto;
+}
+
+.header-epaper .header-content {
+    padding: 0 0.35rem;
+}
+
+.header-epaper .breadcrumbs h2 {
+    font-size: 1rem;
+    line-height: 38px;
+    margin: 0;
+}
+
+#epaper_preview {
+    padding-top: 40px;
+}
+
+.epaper-list .cols {
+    width: 20%;
+    padding: 0 0.625rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.epaper-list .card {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    padding: 0.2rem;
+    flex-direction: column;
+    flex: 1;
+    -webkit-transition: background-color .25s ease;
+    -moz-transition: background-color .25s ease;
+    -ms-transition: background-color .25s ease;
+    -o-transition: background-color .25s ease;
+    transition: background-color .25s ease;
+}
+
+.epaper-list .card:hover {
+    background-color: #da0000;
+}
+
+.epaper-list .card .card-content {
+    flex-direction: column;
+    display: flex;
+    flex: 1;
+}
+
+.epaper-list .card .card-body {
+    padding: 0.5rem;
+}
+
+.epaper-list .card .card-title {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 991px) {
+    .epaper-list .cols {
+        width: 25%;
+    }
+}
+
+@media (max-width: 768px) {
+    .epaper-list .cols {
+        width: 50%;
+    }
+}
+
+@media (max-width: 320px) {
+    .epaper-list .cols {
+        width: 100%;
+    }
+}

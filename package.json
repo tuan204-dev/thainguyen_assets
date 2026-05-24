@@ -23,6 +23,7 @@
     "tw:dhd_hoi_dap": "bun a_script/tw.ts dhd_hoi_dap",
     "tw:dhd_hoi_dap:desktop": "bun a_script/tw.ts dhd_hoi_dap/desktop",
     "tw:dhd_hoi_dap:mobile": "bun a_script/tw.ts dhd_hoi_dap/mobile",
+    "tw:search": "bun a_script/tw.ts search",
     "url": "bun a_script/build_url.ts",
     "format": "prettier --write \"**/*.{html,css,js,ts,json,md}\"",
     "format:check": "prettier --check \"**/*.{html,css,js,ts,json,md}\""
