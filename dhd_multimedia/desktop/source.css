@@ -1,0 +1,491 @@
+@import "tailwindcss" source(none) prefix(t);
+@source "./**/*.{html,js,jsx,ts,tsx}";
+@source "../../common/**/*.{js,ts}";
+
+@theme {
+  --color-tw-primary: #212636;
+  --color-tw-secondary: #667085;
+  --color-tw-border: #d0d5dd;
+
+  --breakpoint-bt-xl: 1200px;
+  --breakpoint-pc: 1000px;
+}
+
+:root {
+	color-scheme: light;
+	--bg: #f3f7fb;
+	--panel: #ffffff;
+	--ink: #132033;
+	--ink-soft: #506079;
+	--stroke: #d7dfeb;
+	--action: #1f3b68;
+	--action-hover: #142949;
+	--danger: #b91c1c;
+	--danger-bg: #fee2e2;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* mobile */
+
+.mobile-menu-item {
+    background: #fff;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.mobile-menu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 20px;
+    background: transparent;
+    border: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #151515;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mobile-menu-caret {
+    font-size: 20px;
+    color: #333;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+/* Only rotate the DIRECT trigger's caret, not nested ones */
+.mobile-menu-item.is-open > .mobile-menu-trigger > .mobile-menu-caret {
+    transform: rotate(90deg);
+}
+
+.mobile-menu-sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+/* Only expand the DIRECT child sub panel */
+.mobile-menu-item.is-open > .mobile-menu-sub {
+    max-height: 2000px;
+}
+
+.mobile-menu-sub > a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    border-top: 1px solid #F0F0F0;
+    text-decoration: none;
+}
+
+.mobile-menu-sub > a:hover {
+    background: #F9F9F9;
+}
+
+.mobile-menu-item.is-open > .mobile-menu-trigger {
+    color: #30A14A;
+    background: #F0F7FF;
+}
+
+/* ── Nested sub-items (level 3+) ── */
+
+.mobile-menu-item--nested {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid #F0F0F0;
+    overflow: hidden;
+}
+
+/* Trigger aligns with sibling <a> links at the SAME level (padding-left: 20px) */
+.mobile-menu-trigger--nested {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    font-weight: 400;
+}
+
+.mobile-menu-trigger--nested .mobile-menu-caret {
+    font-size: 16px;
+}
+
+.mobile-menu-item--nested.is-open > .mobile-menu-trigger--nested {
+    color: #30A14A;
+    background: #F0F7FF;
+}
+
+/* Children inside nested sub-panels get progressively more left padding */
+.mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 32px;
+    font-size: 13px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 56px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+    padding-left: 32px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+    padding-left: 56px;
+}
+
+/* Desktop overlay right column reuses mobile accordion UI */
+.desktop-overlay-menu-root {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.desktop-overlay-menu-root > .mobile-menu-sub {
+    max-height: none;
+}
+
+.article-date {
+    display: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Multimedia — Bootstrap-compatible grid + original CSS
+═══════════════════════════════════════════════════════ */
+
+/* ── Bootstrap minimal grid (mobile-first, pc = 1000px) ── */
+.multimedia_cate .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -12px;
+    margin-left: -12px;
+}
+
+.multimedia_cate .row > * {
+    box-sizing: border-box;
+    padding: 0 12px;
+    min-width: 0;
+}
+
+/* Default (mobile): full-width columns */
+.multimedia_cate .col-md-8,
+.multimedia_cate .col-md-4,
+.multimedia_cate .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+/* col-4 default: 2 per row on mobile */
+.multimedia_cate .col-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+/* Desktop ≥ 1000px */
+@media (min-width: 1000px) {
+    .multimedia_cate .col-md-8 { flex: 0 0 66.667%; max-width: 66.667%; }
+    .multimedia_cate .col-md-4 { flex: 0 0 33.333%; max-width: 33.333%; }
+    .multimedia_cate .col-md-6 { flex: 0 0 50%;     max-width: 50%;     }
+    .multimedia_cate .col-4    { flex: 0 0 33.333%; max-width: 33.333%; }
+}
+
+/* Small mobile ≤ 599px */
+@media (max-width: 599px) {
+    .multimedia_cate .col-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* ── Utilities ── */
+.clear { clear: both; }
+.pad20 { padding: 20px; }
+.row5  { margin-bottom: 10px; }
+
+/* ── Colors ── */
+.color1 { color: #30a14a; }
+.color2 { color: #935f25; }
+
+/* ── Category title bar ── */
+.cate_title_1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #DBD7D1;
+}
+
+.cate_title_1 .title {
+    font-size: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #30a14a;
+}
+
+/* ── Sub-nav pills ── */
+.cate_nav .submenu {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.cate_nav .submenu li a {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #444;
+    text-decoration: none;
+    padding: 3px 10px;
+    border: 1px solid #d0d5dd;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.cate_nav .submenu li a:hover {
+    background: #30a14a;
+    color: #fff;
+    border-color: #30a14a;
+}
+
+/* ── row30 spacing ── */
+.row30 { margin-bottom: 1.5rem; }
+
+/* ── cate_title_multi ── */
+.cate_title_multi {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #30a14a;
+    text-decoration: none;
+    margin-top: 4px;
+}
+
+.cate_title_multi:hover { text-decoration: underline; }
+
+/* ── cate_title_3 ── */
+.cate_title_3 {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid #30a14a;
+}
+
+.cate_title_3 .title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #212636;
+    text-decoration: none;
+}
+
+/* Main swiper */
+.mySwiper2 .swiper-slide a { display: block; }
+
+.mySwiper2 .swiper-slide img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.mySwiper2 .swiper-button-next,
+.mySwiper2 .swiper-button-prev {
+    color: #fff;
+    background: rgba(0,0,0,0.35);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.mySwiper2 .swiper-button-next::after,
+.mySwiper2 .swiper-button-prev::after { display: none; }
+
+.mySwiper2 .swiper-button-next { bottom: 12px; top: auto; right: 12px; }
+.mySwiper2 .swiper-button-prev { bottom: 56px; top: auto; right: 12px; }
+
+/* Thumb swiper */
+.mySwiper { height: 100%; }
+
+.mySwiper .swiper-slide {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    height: auto !important;
+    opacity: 0.55;
+    transition: opacity 0.2s;
+}
+
+.mySwiper .swiper-slide:last-child { border-bottom: none; }
+.mySwiper .swiper-slide-thumb-active { opacity: 1; }
+
+.mySwiper .swiper-slide .title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #212636;
+    text-decoration: none;
+    line-height: 1.45;
+}
+
+.mySwiper .swiper-slide .title:hover { color: #30a14a; }
+
+.mySwiper .swiper-slide .des {
+    font-size: 0.8125rem;
+    color: #667085;
+    margin-top: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+/* Mobile: thumb swiper auto-height when stacked */
+@media (max-width: 999px) {
+    .mySwiper { height: auto; }
+
+    .cate_child_multimedia .list-bd .item .img-wrap {
+        width: 110px;
+    }
+    .cate_child_multimedia .list-bd .item .img-wrap img {
+        width: 110px;
+    }
+}
+
+@media (max-width: 599px) {
+    .cate_child_multimedia .list-bd .item .img-wrap,
+    .cate_child_multimedia .list-bd .item .img-wrap img {
+        width: 90px;
+    }
+}
+
+/* ── 3-column items ── */
+.multimedia_cate .col-4 .img-wrap {
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.multimedia_cate .col-4 .img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.multimedia_cate .col-4 .img-wrap:hover img { transform: scale(1.04); }
+
+.multimedia_cate .col-4 .title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #212636;
+    text-decoration: none;
+    line-height: 1.4;
+}
+
+.multimedia_cate .col-4 .title:hover { color: #30a14a; }
+
+/* ── Article list ── */
+.list-bd .item {
+    border-top: 1px solid #ddd;
+    margin-top: 8px;
+    padding-top: 8px;
+    overflow: hidden;
+}
+
+.list-bd .item:first-child {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.cate_child_multimedia .list-bd .item .img-wrap {
+    float: left;
+    width: 130px;
+    margin-right: 10px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.cate_child_multimedia .list-bd .item .img-wrap img {
+    width: 130px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+}
+
+.list-bd .item .title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #222;
+    text-decoration: none;
+    line-height: 1.45;
+}
+
+.list-bd .item .title:hover { color: #30a14a; }
+
+.list-bd .item .des {
+    font-size: 0.8125rem;
+    color: #667085;
+    margin-top: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+/* ── Mostread sidebar ── */
+.mostread_box .list-bd .item {
+    overflow: visible;
+}
+
+.mostread_box .list-bd .item a {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #222;
+    text-decoration: none;
+    line-height: 1.45;
+}
+
+.mostread_box .list-bd .item a:hover { color: #30a14a; }

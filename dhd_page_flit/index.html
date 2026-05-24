@@ -1,0 +1,528 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-language" content="vi" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" />
+    <meta name='COPYRIGHT' content='&copy;' />
+    <meta name="robots" content="noodp,index,follow" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <link rel="shortcut icon" href="https://bhd.1cdn.vn/assets/images/faviconhp2.ico" />
+        <title>S&#244;́ 21045 - Tháng 5 - 2026 </title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <link rel="canonical" href="https://baohaiphong.vn/an-pham/so-21045-thang-5-2026-45489.html" />
+        <meta property="og:title" content="S&#244;́ 21045 - Tháng 5 - 2026 " />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="https://bhd.1cdn.vn/thumbs/600x315/2026/05/12/21045.png" />
+    <link href="https://asset.1cdn.vn/all/css/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="https://asset.1cdn.vn/all/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="./vendor/dflip.css">
+    <link rel="stylesheet" href="./vendor/themify-icons.css">
+    <link rel="stylesheet" href="./vendor/prism.css">
+    <link rel="stylesheet" href="./vendor/epaper.css">
+    <style>
+        /*Css chung*/
+        body {
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /*Header*/
+        .header {
+            display: flex;
+            justify-content: space-between;
+            background: #ED1C24;
+            color: #fff;
+            padding: 5px 15px;
+            height: 38px;
+        }
+
+            .header a {
+                color: #fff;
+            }
+
+        .header-title {
+            font-size: larger;
+        }
+
+        .dropdown {
+            position: absolute;
+            z-index: 2;
+            top: 100%;
+            left: 0;
+            width: 190px;
+            background-color: #fff;
+            display: none;
+        }
+
+            .dropdown ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+                .dropdown ul li a {
+                    display: block;
+                    color: #000;
+                    padding: 8px 15px !important;
+                    font-size: 14px;
+                }
+
+                    .dropdown ul li a:hover {
+                        color: red;
+                    }
+
+        .header-right > ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+            .header-right > ul > li {
+                margin-left: 10px;
+                position: relative;
+                z-index: 10;
+            }
+
+                .header-right > ul > li:first-child {
+                    margin-left: 0;
+                }
+
+                .header-right > ul > li a {
+                    display: block;
+                    padding: 3px 0 5px;
+                }
+
+                .header-right > ul > li:hover .dropdown {
+                    display: block;
+                }
+
+        @media(max-width:991px) {
+            .header-title {
+                display: none;
+            }
+
+            .btn-back-to-homepage span {
+                display: none;
+            }
+        }
+
+        /*Khung chứa công cụ xem pdf*/
+        .reading-view {
+            position: relative;
+            height: calc(100vh - 38px)
+        }
+
+            .reading-view iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+        /*Danh sách ấn phẩm*/
+        .book-list {
+            position: fixed;
+            top: 39px;
+            right: -300px;
+            bottom: 0;
+            overflow: auto;
+            width: 300px;
+            padding: 15px;
+            background: #ED1C24;
+            transition: all linear 0.3s;
+        }
+
+            .book-list.active {
+                right: 0;
+                bottom: 50px;
+            }
+
+        .book {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+            .book img {
+                width: 100%;
+            }
+
+        .search-panel {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+            .search-panel select,
+            .search-panel input[type=text] {
+                border: solid 1px #ddd;
+                padding: 0.25rem 0.75rem;
+            }
+
+            .search-panel select {
+                width: 60px;
+                padding-right: 0;
+                padding-left: 0.25rem;
+            }
+
+        .xemTheoNgay input {
+            height: 40px;
+            font: 16px/40px Roboto;
+            width: 100%;
+            display: inline-block;
+            margin: 0 5px;
+            background-color: transparent;
+            text-align: center;
+            color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: auto;
+            font-size: 0;
+        }
+
+        .xemTheoNgay {
+            height: 40px;
+            font: 16px/40px Roboto;
+            width: 100%;
+            display: inline-block;
+            margin: 0 5px;
+            background-color: #e5d8e2;
+            text-align: center;
+            color: #fff;
+            border-radius: 5px;
+            position: relative;
+        }
+
+            .xemTheoNgay i {
+                position: absolute;
+                top: 11px;
+                left: 10px;
+            }
+
+        #txtDate {
+            position: absolute;
+            left: -5px;
+            font-weight: 700;
+            color: #362c2c;
+            font-size: 14px;
+        }
+
+        .c-more {
+            text-align: center;
+            padding: 5px 0;
+        }
+
+            .c-more a {
+                display: inline-block;
+                min-width: 124px;
+                text-decoration: none;
+                border: 1px solid #E5E5E5;
+                padding: 8px 15px;
+                text-align: center;
+                color: #525252;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                background-color: #fff;
+            }
+
+        .books span {
+            color: #fff;
+        }
+
+        @media (min-width: 992px) {
+            .c-more a {
+                -webkit-transition: all .2s ease;
+                -moz-transition: all .2s ease;
+                transition: all .2s ease;
+            }
+        }
+        /* Remove page scrolling and keep reader fitting the viewport */
+        html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+        .reading-view { height: calc(100vh - 38px); overflow: hidden; }
+        #epaper_preview { height: 100% !important; }
+
+        /* Hide DFLIP outline and thumbnail panes for a clean single-view */
+        .df-outline-container, .df-thumb-container, .df-ui-thumbnail, .df-ui-outline { display: none !important; }
+
+        /* Make control bar fixed and always visible (centered top of the viewer) */
+        .df-ui-wrapper {
+            position: fixed !important;
+            bottom: 12px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            right: auto !important;
+            width: auto !important;
+            max-width: 760px;
+            background: rgba(255,255,255,0.95);
+            z-index: 99999;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        }
+        .df-ui { height: 56px; padding: 6px 10px 6px; }
+        .df-ui-controls { display: flex !important; align-items: center; justify-content: center; gap: 6px; white-space: nowrap; }
+        .df-ui-btn { flex: 0 0 auto; }
+
+        /* Ensure book stage doesn't create internal scrollbars */
+        .df-book-stage, .df-container { overflow: hidden !important; height: 100% !important; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a class="btn-back-to-homepage" href="/">← <span>Quay lại trang chủ</span></a>
+        <div class="header-title">S&#244;́ 21045 - Tháng 5 - 2026 </div>
+        <div class="header-right">
+            <ul>
+                
+                <li>
+                    <a class="btn-menu js-btn-menu" href="#">Chọn ấn phẩm ▸</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content_epaper" style="display:none">
+        <div class="xdata">
+            <a href="./data/20260426193157so_299_ngay_27-4.pdf">Nhấn vào đây để xem</a>
+        </div>
+    </div>
+
+    <div class="reading-view">
+        <div id="epaper_preview" style="width:100%;height:calc(100vh - 38px)"></div>
+    </div>
+
+    <div class="book-list js-bool-list">
+        <div class="search-panel js-search-panel">
+            <a class="xemTheoNgay">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <input id="txtDate" type="text" placeholder="Xem theo ngày" class="date-picker" value="">
+            </a>
+        </div>
+        <div class="books">
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21057-thang-5-2026-45503.html" pid="45503">
+                    <img alt=" S&#244;́ 21057 - Tháng 5 - 2026 " year="2026" title=" S&#244;́ 21057 - Tháng 5 - 2026 " loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/24/21057.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21056-thang-5-2026-45502.html" pid="45502">
+                    <img alt="S&#244;́ 21056 - Tháng 5 - 2026" year="2026" title="S&#244;́ 21056 - Tháng 5 - 2026" loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/23/23-5.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21055-thang-5-2026-45501.html" pid="45501">
+                    <img alt=" S&#244;́ 21055 - Tháng 5 - 2026 " year="2026" title=" S&#244;́ 21055 - Tháng 5 - 2026 " loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/22/21055.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/ct-495-thang-5-2026-45500.html" pid="45500">
+                    <img alt=" CT 495 - Th&#225;ng 5 - 2026 " year="2026" title=" CT 495 - Th&#225;ng 5 - 2026 " loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/21/495.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21054-thang-5-2026-45499.html" pid="45499">
+                    <img alt="S&#244;́ 21054 - Tháng 5 - 2026" year="2026" title="S&#244;́ 21054 - Tháng 5 - 2026" loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/21/21-5.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21053-thang-5-2026-45498.html" pid="45498">
+                    <img alt=" S&#244;́ 21053 - Tháng 5 - 2026 " year="2026" title=" S&#244;́ 21053 - Tháng 5 - 2026 " loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/20/21053.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21052-thang-5-2026-45497.html" pid="45497">
+                    <img alt="S&#244;́ 21052 - Tháng 5 - 2026" year="2026" title="S&#244;́ 21052 - Tháng 5 - 2026" loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/19/19-5.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21051-thang-5-2026-45496.html" pid="45496">
+                    <img alt="S&#244;́ 21051 - Tháng 5 - 2026" year="2026" title="S&#244;́ 21051 - Tháng 5 - 2026" loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/18/21051.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21050-thang-5-2026-45495.html" pid="45495">
+                    <img alt="S&#244;́ 21050 - Tháng 5 - 2026" year="2026" title="S&#244;́ 21050 - Tháng 5 - 2026" loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/17/17-5.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21049-thang-5-2026-45494.html" pid="45494">
+                    <img alt=" S&#244;́ 21049 - Tháng 5 - 2026 " year="2026" title=" S&#244;́ 21049 - Tháng 5 - 2026 " loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/16/21049.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21048-thang-5-2026-45493.html" pid="45493">
+                    <img alt="S&#244;́ 21048 - Tháng 5 - 2026" year="2026" title="S&#244;́ 21048 - Tháng 5 - 2026" loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/15/15-5.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21047-thang-5-2026-45492.html" pid="45492">
+                    <img alt=" S&#244;́ 21047 - Tháng 5 - 2026 " year="2026" title=" S&#244;́ 21047 - Tháng 5 - 2026 " loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/14/21047.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/ct-494-thang-5-2026-45491.html" pid="45491">
+                    <img alt="CT 494 - Th&#225;ng 5 - 2026" year="2026" title="CT 494 - Th&#225;ng 5 - 2026" loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/13/hpct-13-5.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21046-thang-5-2026-45490.html" pid="45490">
+                    <img alt="S&#244;́ 21046 - Tháng 5 - 2026" year="2026" title="S&#244;́ 21046 - Tháng 5 - 2026" loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/13/13-5.png" />
+                </a>
+                <a class="book" href="https://baohaiphong.vn/an-pham/so-21045-thang-5-2026-45489.html" pid="45489">
+                    <img alt="S&#244;́ 21045 - Tháng 5 - 2026 " year="2026" title="S&#244;́ 21045 - Tháng 5 - 2026 " loading="lazy" src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/12/21045.png" />
+                </a>
+        </div>
+        <div class="c-more onecms__loadmore"><a href="javascript:;">Xem thêm</a></div>
+    </div>
+
+    <script src="./vendor/modernizr.min.js"></script>
+    <script src="./vendor/jquery.min.js"></script>
+    <script src="https://asset.1cdn.vn/all/js/jquery.datetimepicker.full.min.js"></script>
+    <script type="text/javascript">
+        $(".js-btn-menu").click(function (e) {
+            e.preventDefault();
+            $(".js-bool-list").toggleClass("active");
+        });
+        let printversion_params = () => ({ type: 'new', printversionId: $('.book:last').attr('pid')  });
+        function loadDataPrint(apiUrl, type) {
+            $.ajax({
+                url: apiUrl,
+                type: "get",
+                success: function (data) {
+                    if (type == "time") {
+                        $('.books').html('');
+                        $('.onecms__loadmore').hide();
+                        if (data.length == 0) {
+                            $('.books:first').append(`<span>Không tìm thấy kết quả</span>`);
+                            return false;
+                        }
+                    }
+                    if (data.length == 0) {
+                        return false;
+                    }
+                    $.each(data, function (idx, item) {
+                        let html = `<a class="book" href="${item.LinkToMe}" pid="${item.PrintVersionId}">
+                                    <img alt = "${item.Title}"  title = "${item.Title}"  src ="${item.Thumbnail_480x697}" />
+                                    </a>`;
+                        $('.books:first').append(html);
+                    });
+                    if (type == "time") {
+                        $('.onecms__loadmore').hide();
+                    }
+                    else {
+                        $('.onecms__loadmore').show();
+                    }
+                }
+            })
+        }
+        $(window).ready(function () {
+            $.datetimepicker.setLocale('vi');
+            $('.date-picker').datetimepicker({
+                format: 'd-m-Y',
+                lang: 'vi',
+                time: false,
+                timepicker: false,
+            })
+            $('.date-picker').change(function () {
+                const dateA = $('#txtDate').val();
+                if (dateA === "") return false;
+                const url = `/api/getmoreprintversion/${dateA}`;
+                loadDataPrint(url, "time");
+            });
+
+            $('.onecms__loadmore').click(function () {
+                $('.onecms__loadmore').hide();
+                if (printversion_params().printversionId === undefined)
+                    return false;
+                const url = `/api/getmoreprintversion/${printversion_params().type}_${printversion_params().printversionId}`;
+                loadDataPrint(url);
+            })
+
+        });
+
+
+    </script>
+  
+    <script src="./vendor/bootstrap.bundle.min.js"></script>
+    <script src="./vendor/three.min.js"></script>
+    <script src="./vendor/pdf.min.js"></script>
+    <script src="./vendor/pdf.worker.min.js"></script>
+    <script>window.theme_path = "./";</script>
+    <script src="./vendor/dflip.js"></script>
+    <script src="./vendor/prism.js"></script>
+    <script src="./vendor/epaper.js"></script>
+
+    <script>
+        // configure DFLIP to use local vendor assets
+        var theme_path = "./";
+        var default_source = 'pdf';
+        var epaper_pages = [];
+
+        $(document).ready(function () {
+            // set defaults to local vendors
+            DFLIP.defaults.pdfjsSrc = './vendor/pdf.min.js';
+            DFLIP.defaults.pdfjsWorkerSrc = './vendor/pdf.worker.min.js';
+            DFLIP.defaults.imageResourcesPath = './vendor/images/';
+            DFLIP.defaults.threejsSrc = './vendor/three.min.js';
+            DFLIP.defaults.soundFile = './vendor/sound/turn2.mp3';
+
+            // collect pdf source from hidden content
+            $(".xdata a").each(function () { epaper_pages.push($(this).attr('href')); });
+
+            var options = {
+                webgl: false,
+                height: window.innerHeight - 38,
+                duration: 800,
+                direction: DFLIP.DIRECTION.LTR,
+                autoEnableOutline: false,
+                autoEnableThumbnail: false,
+                maxTextureSize: 9800,
+                // show only requested controls in the tabbar
+                allControls: "zoomIn,zoomOut,play,share,sound,fullScreen",
+                controlsPosition: DFLIP.CONTROLSPOSITION.BOTTOM,
+                paddingBottom: 10,
+                text: {
+                    toggleSound: "Bật/Tắt Âm Thanh",
+                    toggleThumbnails: "Ảnh nhỏ",
+                    toggleOutline: "Viền/Dấu trang",
+                    previousPage: "Trang trước",
+                    nextPage: "Trang sau",
+                    toggleFullscreen: "Toàn màn hình",
+                    zoomIn: "Thu nhỏ",
+                    zoomOut: "Phóng to",
+                    toggleHelp: "Trợ giúp",
+                    singlePageMode: "Chế độ 1 trang",
+                    doublePageMode: "Chế độ 2 trang",
+                    downloadPDFFile: "Tải file",
+                    gotoFirstPage: "Chuyển về đầu",
+                    gotoLastPage: "Chuyển về cuối",
+                    play: "Bắt đầu tự chạy",
+                    pause: "Dừng tự chạy",
+                    share: "Chia sẻ"
+                }
+            };
+
+            if (default_source === 'pdf') {
+                flipBook = $("#epaper_preview").flipBook(epaper_pages[0], options);
+            } else {
+                flipBook = $("#epaper_preview").flipBook(epaper_pages, options);
+            }
+
+            // Ensure autoplay control is configured and visible
+            setTimeout(function () {
+                try {
+                    if (window.flipBook && flipBook && flipBook.target) {
+                        // set default autoplay duration (ms) and keep it off initially
+                        flipBook.target.options.autoPlay = true;
+                        flipBook.target.options.autoPlayDuration = 3000;
+                        flipBook.target.setAutoPlay(false);
+                        // make sure play button is visible
+                        $('.df-ui-play').removeClass('disabled').show();
+                    }
+                } catch (e) {
+                    console.warn('Autoplay setup failed', e);
+                }
+            }, 600);
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"cc5596e86e024d52a5b1cbbf54b964a8","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
