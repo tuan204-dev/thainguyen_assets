@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'themify';
+    src: url('./fonts/themify.woff') format('woff'),
+         url('./fonts/themify.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .df-abs-center {
     top: 50%;
     left: 50%;
@@ -146,7 +154,7 @@
 
 .df-container.df-loading:after {
     content: " ";
-    background-image: url("../images/loading.gif");
+    background-image: url("./images/loading.gif");
     background-repeat: no-repeat;
     background-size: 32px;
     background-position: 50%;
@@ -1212,7 +1220,7 @@ section.linkAnnotation a.internalLink:hover {}
 }
 
 .df-page-loading:after {
-    background-image: url("../images/loading.gif");
+    background-image: url("./images/loading.gif");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 22px;
@@ -1233,7 +1241,7 @@ section.linkAnnotation a.internalLink:hover {}
 
 .df-thumb-container .df-vrow:before {
     content: "";
-    background-image: url("../images/loading.gif");
+    background-image: url("./images/loading.gif");
     background-size: 22px;
     height: 22px;
     width: 22px;
