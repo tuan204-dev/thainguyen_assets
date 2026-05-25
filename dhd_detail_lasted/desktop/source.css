@@ -1,0 +1,444 @@
+@import "tailwindcss" source(none) prefix(t);
+@source "./**/*.{html,js,jsx,ts,tsx}";
+@source "../../common/**/*.{js,ts}";
+
+@theme {
+    --color-tw-primary: #212636;
+    --color-tw-secondary: #667085;
+    --color-tw-border: #d0d5dd;
+
+    --breakpoint-bt-xl: 1200px;
+    --breakpoint-pc: 1000px;
+}
+
+:root {
+    color-scheme: light;
+    --bg: #f3f7fb;
+    --panel: #ffffff;
+    --ink: #132033;
+    --ink-soft: #506079;
+    --stroke: #d7dfeb;
+    --action: #1f3b68;
+    --action-hover: #142949;
+    --danger: #b91c1c;
+    --danger-bg: #fee2e2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* mobile */
+
+.mobile-menu-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.mobile-menu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 20px;
+    background: transparent;
+    border: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #151515;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mobile-menu-caret {
+    font-size: 20px;
+    color: #333;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+/* Only rotate the DIRECT trigger's caret, not nested ones */
+.mobile-menu-item.is-open > .mobile-menu-trigger > .mobile-menu-caret {
+    transform: rotate(90deg);
+}
+
+.mobile-menu-sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+/* Only expand the DIRECT child sub panel */
+.mobile-menu-item.is-open > .mobile-menu-sub {
+    max-height: 2000px;
+}
+
+.mobile-menu-sub > a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    border-top: 1px solid #f0f0f0;
+    text-decoration: none;
+}
+
+.mobile-menu-sub > a:hover {
+    background: #f9f9f9;
+}
+
+.mobile-menu-item.is-open > .mobile-menu-trigger {
+    color: #30a14a;
+    background: #f0f7ff;
+}
+
+/* ── Nested sub-items (level 3+) ── */
+
+.mobile-menu-item--nested {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+/* Trigger aligns with sibling <a> links at the SAME level (padding-left: 20px) */
+.mobile-menu-trigger--nested {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    font-weight: 400;
+}
+
+.mobile-menu-trigger--nested .mobile-menu-caret {
+    font-size: 16px;
+}
+
+.mobile-menu-item--nested.is-open > .mobile-menu-trigger--nested {
+    color: #30a14a;
+    background: #f0f7ff;
+}
+
+/* Children inside nested sub-panels get progressively more left padding */
+.mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 32px;
+    font-size: 13px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 56px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+    padding-left: 32px;
+}
+
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
+    padding-left: 56px;
+}
+
+/* Desktop overlay right column reuses mobile accordion UI */
+.desktop-overlay-menu-root {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.desktop-overlay-menu-root > .mobile-menu-sub {
+    max-height: none;
+}
+
+.article-date {
+    display: none !important;
+}
+
+/* ── Multimedia hero side panel ── */
+.hero-side-item {
+    flex: 1;
+    transition: background-color 0.25s;
+}
+
+.hero-side-item.is-active {
+    background-color: #1e1e1e !important;
+    border-left: 4px solid #935f25;
+    padding-left: calc(1rem - 4px) !important;
+}
+
+/* ── Section category title ── */
+.multimedia-section-title {
+    border-bottom: 2px solid #dcdfe4;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.article-prose {
+    color: #23262f;
+    font-family: "Merriweather", serif;
+    font-size: 18px;
+    line-height: 1.78;
+    overflow-wrap: anywhere;
+}
+
+main h1 {
+    overflow-wrap: anywhere;
+}
+
+.category-ribbon {
+    display: inline-flex;
+    align-items: center;
+    height: 40px;
+    background: #0a64b4;
+    clip-path: polygon(0% 0%, 90% 0, 100% 32%, 100% 100%, 0% 100%);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    padding: 0 32px 0 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.category-ribbon:hover {
+    background: #07528f;
+}
+
+.article-prose p {
+    margin: 0 0 18px;
+}
+
+.article-prose h2 {
+    margin: 30px 0 14px;
+    color: #151515;
+    font-family: "Merriweather", serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.tag-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    color: #151515;
+    font-weight: 400;
+}
+
+.tag-link::after {
+    color: #8a94a6;
+    content: "/";
+}
+
+.tag-link:last-child::after {
+    content: "";
+}
+
+.tag-link:hover {
+    color: #0a64b4;
+}
+
+.sidebar-tab-label {
+    color: #667085;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.sidebar-tab-label.is-active {
+    color: #0a64b4;
+}
+
+.sidebar-news-link {
+    display: block;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 14px;
+    color: #151515;
+    font-family: "Merriweather", serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.55;
+}
+
+.sidebar-ranked {
+    display: block;
+}
+
+.ranked-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    color: #0a64b4;
+}
+
+.ranked-title i {
+    color: #ea2736;
+    font-size: 28px;
+}
+
+.ranked-title .sidebar-tab-label {
+    color: #0a64b4;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.ranked-title .sidebar-tab-label.is-active:first-of-type {
+    color: #ea2736;
+}
+
+.ranked-title span {
+    color: #0a64b4;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.ranked-list {
+    display: flex;
+    flex-direction: column;
+}
+
+[data-detail-panel].t\:hidden {
+    display: none !important;
+}
+
+.ranked-item {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 15px 0;
+}
+
+.ranked-item > span {
+    color: #0a64b4;
+    font-family: "Merriweather", serif;
+    font-size: 34px;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.ranked-item a {
+    color: #151515;
+    font-family: "Merriweather", serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.ranked-item a:hover {
+    color: #0a64b4;
+}
+
+.ranked-item p {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 7px;
+    color: #344054;
+    font-size: 12px;
+}
+
+.ranked-item p i {
+    color: #2dbaef;
+    font-size: 14px;
+}
+
+.related-news-item {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 14px;
+}
+
+.related-news-thumb {
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #eef2f6;
+}
+
+.related-news-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.related-news-title {
+    margin: 0 0 10px;
+    color: #151515;
+    font-family: "Merriweather", serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.related-news-title a:hover {
+    color: #0a64b4;
+}
+
+.related-news-date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 10px;
+    color: #344054;
+    font-size: 14px;
+}
+
+.related-news-desc {
+    margin: 0;
+    color: #344054;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.sidebar-news-link:hover {
+    color: #0a64b4;
+}
+
+@media (max-width: 767px) {
+    .article-prose {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .article-prose h2 {
+        font-size: 21px;
+    }
+
+    .related-news-item {
+        grid-template-columns: 1fr;
+    }
+
+    .related-news-title {
+        font-size: 18px;
+    }
+
+    .ranked-title .sidebar-tab-label,
+    .ranked-title span {
+        font-size: 28px;
+    }
+
+    .ranked-item {
+        grid-template-columns: 52px minmax(0, 1fr);
+    }
+
+    .ranked-item > span {
+        font-size: 30px;
+    }
+}
