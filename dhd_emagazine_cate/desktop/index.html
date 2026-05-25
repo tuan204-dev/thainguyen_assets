@@ -1,0 +1,1683 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>E-Magazine - Báo Thái Nguyên</title>
+        <link rel="stylesheet" href="./output.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-merriweather-vn.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-roboto-vn.css" />
+        <link rel="stylesheet" href="../../common/style/common.css" />
+        <link rel="stylesheet" href="../../common/style/dropdown.css" />
+        <link rel="stylesheet" href="../../common/style/icon.css" />
+        <link rel="stylesheet" href="../../common/style/overlay.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
+        />
+        <link rel="stylesheet" href="../../common/style/overlayscrollbar.css" />
+        <link rel="stylesheet" href="../../common/vendor/swiper-bundle.min.css" />
+    </head>
+
+    <body class="home-page">
+        <header class="home-header t:max-md:hidden">
+            <div
+                class="home-header-main t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
+            >
+                <div class="t:bg-[#30A14A]">
+                    <div class="t:container">
+                        <div
+                            class="t:flex t:items-center t:justify-between t:gap-x-4 t:h-13 t:py-0.5"
+                        >
+                            <button
+                                type="button"
+                                data-overlay-target="desktop-main-menu"
+                                class="t:flex t:items-center t:gap-x-3 t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer roboto t:text-sm t:font-medium t:hover:opacity-80"
+                            >
+                                <i class="material-symbols--menu-rounded t:text-2xl"></i>
+                            </button>
+
+                            <a href="/" class="t:flex t:items-center t:shrink-0">
+                                <img
+                                    src="../../common/assets/logo-white.png"
+                                    alt="Báo Thái Nguyên"
+                                    class="logo-header t:max-h-10 t:w-auto t:transition-all t:duration-500"
+                                />
+                            </a>
+
+                            <div class="t:flex t:items-center t:gap-x-2.5">
+                                <div
+                                    class="t:flex t:items-center t:gap-x-2 t:text-white t:text-xs"
+                                >
+                                    <a href="" class="t:hover:opacity-80 t:transition-opacity">
+                                        English
+                                    </a>
+                                    <span
+                                        class="t:w-px t:h-3 t:bg-white/70"
+                                        aria-hidden="true"
+                                    ></span>
+                                    <a href="" class="t:hover:opacity-80 t:transition-opacity">
+                                        中文
+                                    </a>
+                                    <span
+                                        class="t:w-px t:h-3 t:bg-white/70"
+                                        aria-hidden="true"
+                                    ></span>
+                                    <a href="" class="t:hover:opacity-80 t:transition-opacity">
+                                        한국어
+                                    </a>
+                                </div>
+                                <button
+                                    type="button"
+                                    aria-label="Tìm kiếm"
+                                    class="t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:flex t:items-center t:hover:opacity-80"
+                                >
+                                    <i class="majesticons--search-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div
+            class="home-header-nav t:max-md:hidden t:bg-white t:border-b t:border-[#DCDFE4] t:sticky t:top-0 t:z-50 t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
+        >
+            <div class="t:container">
+                <nav
+                    aria-label="Danh mục nổi bật"
+                    class="t:flex t:items-center t:justify-center t:gap-x-6 t:h-9 merriweather t:text-xs t:font-medium t:text-[#8A94A6] t:whitespace-nowrap t:overflow-hidden"
+                >
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Tiêu điểm
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Thời sự Thái Nguyên
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Chính trị
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Nghị quyết 57
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Kinh tế
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Văn hóa
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Xã hội
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Y tế
+                    </a>
+                    <a href="" class="t:uppercase t:transition-colors t:hover:text-[#30A14A]">
+                        Giáo dục
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <aside class="home-menu-aside t:max-md:hidden">
+            <div
+                class="overlay home-main-overlay"
+                data-overlay-id="desktop-main-menu"
+                data-overlay-variant="fullscreen"
+            >
+                <div class="overlay__backdrop"></div>
+
+                <div
+                    class="overlay__content t:p-0! t:w-full t:bg-[#F7F7F7] t:overflow-y-auto home-main-overlay-content"
+                >
+                    <div class="t:bg-white">
+                        <div class="t:container">
+                            <div class="t:flex t:items-center t:justify-center t:h-[70px]">
+                                <a href="/" class="t:flex t:items-center">
+                                    <img
+                                        src="../../common/assets/logo.png"
+                                        alt="Báo Thái Nguyên"
+                                        class="t:max-h-15 t:w-auto"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="t:bg-[#F7F7F7] t:py-5">
+                        <div class="t:container">
+                            <div
+                                class="t:flex t:items-end t:justify-between t:gap-x-4 t:border-b t:border-black/10 t:pb-2.5 t:mb-5"
+                            >
+                                <h2
+                                    class="merriweather t:text-xl t:font-bold t:text-[#212636] t:leading-tight"
+                                >
+                                    Tất cả chuyên mục
+                                </h2>
+                                <button
+                                    type="button"
+                                    data-overlay-target="desktop-main-menu"
+                                    aria-label="Đóng"
+                                    class="t:size-6 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-[#212636] t:hover:text-[#30A14A]"
+                                >
+                                    <i class="material-symbols--close-rounded t:text-xl"></i>
+                                </button>
+                            </div>
+
+                            <div
+                                class="t:grid t:grid-cols-1 t:pc:grid-cols-[minmax(0,1fr)_320px] t:gap-x-8 t:gap-y-6"
+                            >
+                                <div
+                                    class="t:grid t:grid-cols-2 t:md:grid-cols-3 t:pc:grid-cols-4 t:gap-x-8 t:gap-y-5"
+                                >
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">Chính trị</a>
+                                        </h3>
+                                        <ul data-collapsible-list
+                                            class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                        >
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Đưa Nghị quyết của Đảng vào cuộc sống
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Bầu cử ĐBQH và đại biểu HĐND các cấp
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Lịch sử - Truyền thống
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Đại hội Đảng
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Đại hội Đảng
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Đại hội Đảng
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Đại hội Đảng
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Đại hội Đảng
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href=""
+                                                    class="t:text-[13px] t:text-[#888] t:underline t:hover:text-[#30A14A]"
+                                                 data-collapsible-toggle>
+                                                    Xem...
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">Kinh tế</a>
+                                        </h3>
+                                        <ul data-collapsible-list
+                                            class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                        >
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Công nghiệp
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Công nghiệp
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Công nghiệp
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Công nghiệp
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Công nghiệp
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Đầu tư
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Nông nghiệp - Nông thôn
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Tài chính
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href=""
+                                                    class="t:text-[13px] t:text-[#888] t:underline t:hover:text-[#30A14A]"
+                                                 data-collapsible-toggle>
+                                                    Xem...
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">Văn hóa - Xã hội</a>
+                                        </h3>
+                                        <ul data-collapsible-list
+                                            class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                        >
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Giáo dục
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">Y tế</a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Chính sách xã hội
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Chính sách BHXH-BHYT
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href=""
+                                                    class="t:text-[13px] t:text-[#888] t:underline t:hover:text-[#30A14A]"
+                                                 data-collapsible-toggle>
+                                                    Xem...
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">Đất và người</a>
+                                        </h3>
+                                        <ul
+                                            class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                        >
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Thái Nguyên Online
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">Multimedia</a>
+                                        </h3>
+                                        <ul
+                                            class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                        >
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">Video</a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    E-Magazine
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Infographic
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">
+                                                Khoa học - Công nghệ - Chuyển đổi số
+                                            </a>
+                                        </h3>
+                                        <ul
+                                            class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                        >
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Môi trường
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">Đô thị</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">Quốc tế</a>
+                                        </h3>
+                                        <ul
+                                            class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                        >
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Cộng đồng ASEAN
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">Thời sự</a>
+                                        </h3>
+                                        <ul
+                                            class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                        >
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Sự kiện - Bình luận
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Chuyên đề
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Khắc phục hậu quả mưa lũ
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Cải cách hành chính
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">
+                                                Trang tin địa phương
+                                            </a>
+                                        </h3>
+                                        <ul
+                                            class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                        >
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    Xã Hòa Xuân
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="t:hover:text-[#30A14A]">
+                                                    60 ngày đêm giải phóng mặt bằng
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">
+                                                Doanh nghiệp giới thiệu
+                                            </a>
+                                        </h3>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">
+                                                Phóng sự - Ký sự
+                                            </a>
+                                        </h3>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">Đọc báo in</a>
+                                        </h3>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">
+                                                Tòa soạn - Bạn đọc
+                                            </a>
+                                        </h3>
+                                    </div>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5">
+                                        <h3
+                                            class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                        >
+                                            <a href="" class="t:hover:opacity-80">
+                                                Vấn đề bạn đọc quan tâm
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="t:flex t:flex-col t:gap-y-5 t:pc:border-l t:pc:border-[#D4D4D4] t:pc:pl-8"
+                                >
+                                    <div class="t:border-b t:border-[#D4D4D4] t:pb-5">
+                                        <label
+                                            class="t:block t:text-base t:font-medium t:text-[#212636] t:mb-2"
+                                            for="overlay-search"
+                                        >
+                                            Tìm kiếm
+                                        </label>
+                                        <form action="" class="t:flex t:items-stretch">
+                                            <input
+                                                id="overlay-search"
+                                                type="text"
+                                                placeholder="Nhập từ khoá..."
+                                                class="t:flex-1 t:min-w-0 t:bg-white t:border t:border-[#DCDCDC] t:rounded-l t:px-4 t:py-2 t:text-sm t:text-[#212636] t:placeholder-[#AAAEB2] t:outline-none t:focus:border-[#BC0000]"
+                                            />
+                                            <button
+                                                type="submit"
+                                                aria-label="Tìm kiếm"
+                                                class="t:w-10 t:shrink-0 t:bg-[#BC0000] t:border t:border-[#BC0000] t:rounded-r t:flex t:items-center t:justify-center t:text-white t:cursor-pointer t:hover:opacity-90"
+                                            >
+                                                <i class="majesticons--search-line t:text-base"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <ul
+                                        class="t:flex t:flex-col t:gap-y-2.5 t:text-base t:font-medium t:text-[#212636] t:border-b t:border-[#D4D4D4] t:pb-5"
+                                    >
+                                        <li>
+                                            <a href="" class="t:hover:text-[#30A14A]">Tiếng Anh</a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="t:hover:text-[#30A14A]">Tâm điểm</a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="t:hover:text-[#30A14A]">
+                                                Truyền hình
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="t:flex t:flex-col t:gap-y-2.5 t:text-sm t:text-[#212636]">
+                                        <h4
+                                            class="merriweather t:text-lg t:font-bold t:text-[#BC0000] t:uppercase"
+                                        >
+                                            Báo và Phát thanh, Truyền hình Thái Nguyên điện tử
+                                        </h4>
+                                        <p>
+                                            Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT
+                                            cấp ngày 20 tháng 11 năm 2023.
+                                        </p>
+                                        <p>
+                                            <strong>Giám đốc:</strong>
+                                            Đỗ Xuân Hòa
+                                        </p>
+                                        <p>
+                                            <strong>Phó Giám đốc phụ trách:</strong>
+                                            Nguyễn Ngọc Sơn
+                                        </p>
+                                        <p class="t:pt-3">
+                                            <strong>Trụ sở:</strong>
+                                            Cơ sở 1 số 226 đường Bến Oánh; Cơ sở 2 số 19 phố Nhị
+                                            Quý, phường Phan Đình Phùng, tỉnh Thái Nguyên
+                                        </p>
+                                        <p>
+                                            <strong>Điện thoại:</strong>
+                                            0208.3859.666
+                                        </p>
+                                        <p>
+                                            <strong>Đường dây nóng:</strong>
+                                            0902006113 - 091 2039880
+                                        </p>
+                                        <p class="t:break-all">
+                                            <strong>Email:</strong>
+                                            toasoan@baothainguyen.vn;
+                                            toasoan@baothainguyen.com.vn
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <header
+            class="home-mobile-header t:md:hidden t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
+        >
+            <div class="t:bg-[#30A14A]">
+                <div class="t:px-4">
+                    <div
+                        class="t:grid t:grid-cols-[auto_1fr_auto] t:items-center t:gap-x-3 t:h-13"
+                    >
+                        <button
+                            type="button"
+                            data-overlay-target="mobile-main-menu"
+                            aria-label="Mở menu"
+                            class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:opacity-80"
+                        >
+                            <i class="material-symbols--menu-rounded t:text-2xl"></i>
+                        </button>
+
+                        <a
+                            href="/"
+                            class="t:flex t:items-center t:justify-center t:min-w-0 t:overflow-hidden"
+                        >
+                            <img
+                                src="../../common/assets/logo-white.png"
+                                alt="Báo Thái Nguyên"
+                                class="t:h-9 t:max-w-[200px] t:w-auto t:object-contain"
+                            />
+                        </a>
+
+                        <div class="t:flex t:items-center t:gap-x-2.5">
+                            <a
+                                href=""
+                                class="t:text-white t:text-xs t:font-medium t:hover:opacity-80 t:transition-opacity"
+                            >
+                                EN
+                            </a>
+                            <button
+                                type="button"
+                                aria-label="Tìm kiếm"
+                                class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:opacity-80"
+                            >
+                                <i class="majesticons--search-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <div
+            class="home-mobile-header-nav t:md:hidden t:bg-white t:border-b t:border-[#DCDFE4] t:sticky t:top-0 t:z-50 t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
+        >
+            <div class="t:px-4">
+                    <div
+                        class="swiper t:relative merriweather t:text-xs t:font-medium t:text-[#8A94A6]
+                               t:h-9
+                               t:[&_.swiper-wrapper]:items-center
+                               t:[&_.swiper-slide]:w-auto! t:[&_.swiper-slide]:px-3
+                               t:[&_.swiper-slide]:flex t:[&_.swiper-slide]:items-center"
+                        data-swiper
+                        data-swiper-slides-per-view="auto"
+                        data-swiper-space-between="0"
+                        data-swiper-free-mode="true"
+                    >
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a
+                                    href=""
+                                    class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                                >
+                                    Tiêu điểm
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a
+                                    href=""
+                                    class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                                >
+                                    Thời sự Thái Nguyên
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a
+                                    href=""
+                                    class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                                >
+                                    Chính trị
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a
+                                    href=""
+                                    class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                                >
+                                    Nghị quyết 57
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a
+                                    href=""
+                                    class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                                >
+                                    Kinh tế
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a
+                                    href=""
+                                    class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                                >
+                                    Văn hóa
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a
+                                    href=""
+                                    class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                                >
+                                    Xã hội
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a
+                                    href=""
+                                    class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                                >
+                                    Y tế
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a
+                                    href=""
+                                    class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
+                                >
+                                    Giáo dục
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-control">
+                            <button
+                                type="button"
+                                aria-label="Trước"
+                                class="swiper-button-prev"
+                            ></button>
+                            <button
+                                type="button"
+                                aria-label="Sau"
+                                class="swiper-button-next"
+                            ></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="home-mobile-menu-aside t:md:hidden">
+            <div
+                class="overlay home-mobile-overlay"
+                data-overlay-id="mobile-main-menu"
+                data-overlay-variant="fullscreen"
+            >
+                <div class="overlay__backdrop"></div>
+
+                <div
+                    class="overlay__content t:p-0! t:w-full t:bg-[#F7F7F7] t:overflow-y-auto"
+                >
+                    <div class="t:bg-white t:px-5">
+                        <div class="t:relative t:flex t:items-center t:justify-center t:h-[70px]">
+                            <button
+                                type="button"
+                                data-overlay-target="mobile-main-menu"
+                                aria-label="Đóng"
+                                class="t:absolute t:left-0 t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-[#212636] t:hover:text-[#BC0000]"
+                            >
+                                <i class="material-symbols--close-rounded t:text-2xl"></i>
+                            </button>
+                            <a href="/" class="t:flex t:items-center">
+                                <img
+                                    src="../../common/assets/logo.png"
+                                    alt="Báo Thái Nguyên"
+                                    class="t:max-h-12 t:w-auto"
+                                />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="t:bg-[#F7F7F7] t:px-5 t:py-5 t:flex t:flex-col t:gap-y-5">
+                        <div>
+                            <label
+                                for="mobile-overlay-search"
+                                class="t:block t:text-sm t:font-medium t:text-[#212636] t:mb-2"
+                            >
+                                Tìm kiếm
+                            </label>
+                            <form action="" class="t:flex t:items-stretch t:relative">
+                                <input
+                                    id="mobile-overlay-search"
+                                    type="text"
+                                    placeholder="Nhập từ khoá..."
+                                    class="t:flex-1 t:min-w-0 t:bg-white t:border t:border-[#DCDCDC] t:rounded-l t:px-4 t:py-2 t:text-sm t:text-[#212636] t:placeholder-[#AAAEB2] t:outline-none t:focus:border-[#BC0000]"
+                                />
+                                <button
+                                    type="submit"
+                                    aria-label="Tìm kiếm"
+                                    class="t:w-10 t:shrink-0 t:bg-[#BC0000] t:border t:border-[#BC0000] t:rounded-r t:flex t:items-center t:justify-center t:text-white t:cursor-pointer t:hover:opacity-90"
+                                >
+                                    <i class="majesticons--search-line t:text-base"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="t:bg-black/5 t:rounded t:py-3 t:px-4 t:text-center">
+                            <h2 class="merriweather t:text-lg t:font-bold t:text-[#212636]">
+                                Tất cả chuyên mục
+                            </h2>
+                        </div>
+
+                        <div class="t:flex t:flex-col t:gap-y-5">
+                            <div class="t:flex t:flex-col t:gap-y-2.5">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Chính trị</a>
+                                </h3>
+                                <ul
+                                    data-collapsible-list
+                                    data-collapsible-limit="2"
+                                    class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                >
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            Đưa Nghị quyết của Đảng vào cuộc sống
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            Bầu cử ĐBQH và đại biểu HĐND các cấp
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            Lịch sử - Truyền thống
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            Đại hội Đảng
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href=""
+                                            data-collapsible-toggle
+                                            class="t:text-[13px] t:text-[#888] t:underline t:hover:text-[#30A14A]"
+                                        >
+                                            Xem...
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="t:flex t:flex-col t:gap-y-2.5">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Kinh tế</a>
+                                </h3>
+                                <ul
+                                    data-collapsible-list
+                                    data-collapsible-limit="2"
+                                    class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                >
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">Công nghiệp</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">Đầu tư</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            Nông nghiệp - Nông thôn
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">Tài chính</a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href=""
+                                            data-collapsible-toggle
+                                            class="t:text-[13px] t:text-[#888] t:underline t:hover:text-[#30A14A]"
+                                        >
+                                            Xem...
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="t:flex t:flex-col t:gap-y-2.5">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Văn hóa - Xã hội</a>
+                                </h3>
+                                <ul
+                                    data-collapsible-list
+                                    data-collapsible-limit="2"
+                                    class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                >
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">Giáo dục</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">Y tế</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            Chính sách xã hội
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            Chính sách BHXH-BHYT
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href=""
+                                            data-collapsible-toggle
+                                            class="t:text-[13px] t:text-[#888] t:underline t:hover:text-[#30A14A]"
+                                        >
+                                            Xem...
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="t:flex t:flex-col t:gap-y-2.5">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Đất và người</a>
+                                </h3>
+                                <ul class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]">
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            Thái Nguyên Online
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="t:flex t:flex-col t:gap-y-2.5">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Multimedia</a>
+                                </h3>
+                                <ul
+                                    data-collapsible-list
+                                    data-collapsible-limit="2"
+                                    class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                >
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">Video</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">E-Magazine</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">Infographic</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="t:flex t:flex-col t:gap-y-2.5">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">
+                                        Khoa học - Công nghệ - Chuyển đổi số
+                                    </a>
+                                </h3>
+                                <ul class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]">
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">Môi trường</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">Đô thị</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="t:flex t:flex-col t:gap-y-2.5">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Quốc tế</a>
+                                </h3>
+                                <ul class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]">
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            Cộng đồng ASEAN
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="t:flex t:flex-col t:gap-y-2.5">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Thời sự</a>
+                                </h3>
+                                <ul
+                                    data-collapsible-list
+                                    data-collapsible-limit="2"
+                                    class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]"
+                                >
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            Sự kiện - Bình luận
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">Chuyên đề</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            Khắc phục hậu quả mưa lũ
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            Cải cách hành chính
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href=""
+                                            data-collapsible-toggle
+                                            class="t:text-[13px] t:text-[#888] t:underline t:hover:text-[#30A14A]"
+                                        >
+                                            Xem...
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="t:flex t:flex-col t:gap-y-2.5">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Trang tin địa phương</a>
+                                </h3>
+                                <ul class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]">
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">Xã Hòa Xuân</a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="t:hover:text-[#30A14A]">
+                                            60 ngày đêm giải phóng mặt bằng
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="t:flex t:flex-col">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Doanh nghiệp giới thiệu</a>
+                                </h3>
+                            </div>
+
+                            <div class="t:flex t:flex-col">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Phóng sự - Ký sự</a>
+                                </h3>
+                            </div>
+
+                            <div class="t:flex t:flex-col">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Đọc báo in</a>
+                                </h3>
+                            </div>
+
+                            <div class="t:flex t:flex-col">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Tòa soạn - Bạn đọc</a>
+                                </h3>
+                            </div>
+
+                            <div class="t:flex t:flex-col">
+                                <h3
+                                    class="merriweather t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5"
+                                >
+                                    <a href="" class="t:hover:opacity-80">Vấn đề bạn đọc quan tâm</a>
+                                </h3>
+                            </div>
+                        </div>
+
+                        <ul
+                            class="t:flex t:flex-col t:gap-y-2.5 t:text-base t:font-medium t:text-[#212636] t:border-y t:border-[#D4D4D4] t:py-5"
+                        >
+                            <li>
+                                <a href="" class="t:hover:text-[#30A14A]">Tiếng Anh</a>
+                            </li>
+                            <li>
+                                <a href="" class="t:hover:text-[#30A14A]">Tâm điểm</a>
+                            </li>
+                            <li>
+                                <a href="" class="t:hover:text-[#30A14A]">Truyền hình</a>
+                            </li>
+                        </ul>
+
+                        <div class="t:flex t:flex-col t:gap-y-2.5 t:text-sm t:text-[#212636]">
+                            <h4
+                                class="merriweather t:text-base t:font-bold t:text-[#BC0000] t:uppercase"
+                            >
+                                Báo và Phát thanh, Truyền hình Thái Nguyên điện tử
+                            </h4>
+                            <p>
+                                Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT cấp ngày
+                                20 tháng 11 năm 2023.
+                            </p>
+                            <p>
+                                <strong>Giám đốc:</strong>
+                                Đỗ Xuân Hòa
+                            </p>
+                            <p>
+                                <strong>Phó Giám đốc phụ trách:</strong>
+                                Nguyễn Ngọc Sơn
+                            </p>
+                            <p class="t:pt-2">
+                                <strong>Trụ sở:</strong>
+                                Cơ sở 1 số 226 đường Bến Oánh; Cơ sở 2 số 19 phố Nhị Quý,
+                                phường Phan Đình Phùng, tỉnh Thái Nguyên
+                            </p>
+                            <p>
+                                <strong>Điện thoại:</strong>
+                                0208.3859.666
+                            </p>
+                            <p>
+                                <strong>Đường dây nóng:</strong>
+                                0902006113 - 091 2039880
+                            </p>
+                            <p class="t:break-all">
+                                <strong>Email:</strong>
+                                toasoan@baothainguyen.vn; toasoan@baothainguyen.com.vn
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- main content  -->
+
+                <main class="t:bg-white t:min-h-[60vh]">
+            <div class="t:max-w-[940px] t:mx-auto t:w-full t:px-4 t:py-5 t:pc:py-6">
+
+                <!-- MULTIMEDIA header + sub-tabs -->
+                <div class="t:border-b t:border-[#E0E0E0] t:pb-3 t:mb-5">
+                    <h1 class="merriweather t:text-2xl t:md:text-3xl t:font-bold t:text-[#8B5E0A] t:uppercase t:tracking-widest t:mb-1.5">
+                        Multimedia
+                    </h1>
+                    <nav class="t:flex t:items-center t:flex-wrap t:text-sm roboto t:gap-y-1">
+                        <a href="" class="t:text-[#BC0000] t:font-semibold t:hover:opacity-80">Emagazine</a>
+                        <span class="t:text-[#D0D0D0] t:mx-2" aria-hidden="true">|</span>
+                        <a href="" class="t:text-[#666] t:hover:text-[#BC0000] t:transition-colors">Infographic</a>
+                        <span class="t:text-[#D0D0D0] t:mx-2" aria-hidden="true">|</span>
+                        <a href="" class="t:text-[#666] t:hover:text-[#BC0000] t:transition-colors">Phóng sự ảnh</a>
+                        <span class="t:text-[#D0D0D0] t:mx-2" aria-hidden="true">|</span>
+                        <a href="" class="t:text-[#666] t:hover:text-[#BC0000] t:transition-colors">Clip số</a>
+                    </nav>
+                </div>
+
+                <!-- ==================== ROW 1: col-9 + col-3 ==================== -->
+                <div class="t:grid t:pc:grid-cols-[minmax(0,1fr)_240px] t:gap-x-6 t:items-start t:mb-8">
+
+                    <!-- col-9: featured + hr + grid 3 cols -->
+                    <div class="t:min-w-0">
+
+                        <!-- Featured: left image (col-6) + right text (col-6) -->
+                        <div class="t:flex t:gap-x-5 t:mb-4">
+                            <a href="" class="t:group t:block t:shrink-0 t:w-[48%] t:overflow-hidden">
+                                <img
+                                    src="./images/featured.jpg"
+                                    alt="'Trà trong mây' - Hành trình đánh thức tinh hoa chè Thái Nguyên"
+                                    class="t:w-full t:aspect-[4/3] t:object-cover t:group-hover:scale-105 t:transition-transform t:duration-500"
+                                />
+                            </a>
+                            <div class="t:flex t:flex-col t:gap-y-3 t:min-w-0 t:justify-center">
+                                <a href="" class="t:group">
+                                    <h2 class="merriweather t:text-[1.15rem] t:font-bold t:text-[#212636] t:leading-snug t:group-hover:text-[#BC0000] t:transition-colors">
+                                        'Trà trong mây' - Hành trình đánh thức tinh hoa chè Thái Nguyên
+                                    </h2>
+                                </a>
+                                <p class="roboto t:text-sm t:text-[#555] t:leading-relaxed t:line-clamp-5">
+                                    Trà trong mây 2026 không chỉ là sản phẩm du lịch mới, mà còn là hướng đi để Thái Nguyên kết nối giá trị chè truyền thống với trải nghiệm sinh thái, văn hóa và nghỉ dưỡng, đưa du khách đến gần hơn với vùng chè, với người làm chè và ...
+                                </p>
+                                <a href="" class="roboto t:text-sm t:text-[#BC0000] t:font-medium t:hover:underline t:w-fit">
+                                    Xem thêm →
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- HR divider -->
+                        <hr class="t:border-0 t:border-t t:border-[#E0E0E0] t:my-4" />
+
+                        <!-- Grid 3 cols (col-4 × 3) -->
+                        <div class="t:grid t:grid-cols-3 t:gap-x-4 t:gap-y-3">
+                            <div>
+                                <a href="" class="t:group t:block t:overflow-hidden t:mb-2">
+                                    <img src="./images/article-02.jpg" alt="Sức mạnh của niềm tin và khát vọng vươn mình" class="t:w-full t:aspect-[4/3] t:object-cover t:group-hover:scale-105 t:transition-transform t:duration-500" />
+                                </a>
+                                <a href="" class="t:group t:block">
+                                    <h3 class="merriweather t:text-sm t:font-semibold t:text-[#BC0000] t:leading-snug t:line-clamp-2 t:group-hover:opacity-75 t:transition-opacity">
+                                        Sức mạnh của niềm tin và khát vọng vươn mình
+                                    </h3>
+                                </a>
+                                <div class="roboto t:text-xs t:text-[#8A94A6] t:mt-1">08:57, 07/05/2026</div>
+                            </div>
+                            <div>
+                                <a href="" class="t:group t:block t:overflow-hidden t:mb-2">
+                                    <img src="./images/article-03.jpg" alt="Thái Nguyên: Gỡ nút thắt mặt bằng, mở đường bứt phá - kỳ 3" class="t:w-full t:aspect-[4/3] t:object-cover t:group-hover:scale-105 t:transition-transform t:duration-500" />
+                                </a>
+                                <a href="" class="t:group t:block">
+                                    <h3 class="merriweather t:text-sm t:font-semibold t:text-[#BC0000] t:leading-snug t:line-clamp-2 t:group-hover:opacity-75 t:transition-opacity">
+                                        Thái Nguyên: Gỡ nút thắt mặt bằng, mở đường bứt phá - kỳ 3: Lợi thế cạnh tranh trong thu hút đầu tư
+                                    </h3>
+                                </a>
+                                <div class="roboto t:text-xs t:text-[#8A94A6] t:mt-1">16:19, 14/04/2026</div>
+                            </div>
+                            <div>
+                                <a href="" class="t:group t:block t:overflow-hidden t:mb-2">
+                                    <img src="./images/article-04.jpg" alt="Thái Nguyên: Gỡ nút thắt mặt bằng, mở đường bứt phá - kỳ 2" class="t:w-full t:aspect-[4/3] t:object-cover t:group-hover:scale-105 t:transition-transform t:duration-500" />
+                                </a>
+                                <a href="" class="t:group t:block">
+                                    <h3 class="merriweather t:text-sm t:font-semibold t:text-[#BC0000] t:leading-snug t:line-clamp-2 t:group-hover:opacity-75 t:transition-opacity">
+                                        Thái Nguyên: Gỡ nút thắt mặt bằng, mở đường bứt phá - kỳ 2: Nguồn lực mềm quyết định thành công
+                                    </h3>
+                                </a>
+                                <div class="roboto t:text-xs t:text-[#8A94A6] t:mt-1">10:20, 14/04/2026</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- col-3 (240px fixed): sidebar recent articles -->
+                    <aside class="t:min-w-0 t:hidden t:pc:block t:border-l t:border-[#E0E0E0] t:pl-5">
+                        <div class="t:py-3 t:border-b t:border-[#E8E8E8]">
+                            <a href="" class="t:group t:block">
+                                <h3 class="merriweather t:text-sm t:font-semibold t:text-[#BC0000] t:leading-snug t:line-clamp-3 t:group-hover:opacity-75 t:transition-opacity">
+                                    Thái Nguyên: Gỡ nút thắt mặt bằng, mở đường bứt phá - kỳ 1
+                                </h3>
+                                <div class="roboto t:text-xs t:text-[#8A94A6] t:mt-1">15:20, 13/04/2026</div>
+                            </a>
+                        </div>
+                        <div class="t:py-3 t:border-b t:border-[#E8E8E8]">
+                            <a href="" class="t:group t:block">
+                                <h3 class="merriweather t:text-sm t:font-semibold t:text-[#BC0000] t:leading-snug t:line-clamp-3 t:group-hover:opacity-75 t:transition-opacity">
+                                    Tiếng nói Việt Nam: Chuyển tải tiếng Đảng, lòng Dân, giữ nhịp thông tin cho đất nước
+                                </h3>
+                                <div class="roboto t:text-xs t:text-[#8A94A6] t:mt-1">21:39, 25/03/2026</div>
+                            </a>
+                        </div>
+                        <div class="t:py-3 t:border-b t:border-[#E8E8E8]">
+                            <a href="" class="t:group t:block">
+                                <h3 class="merriweather t:text-sm t:font-semibold t:text-[#BC0000] t:leading-snug t:line-clamp-3 t:group-hover:opacity-75 t:transition-opacity">
+                                    Nông nghiệp 4.0: Khi nông dân chè làm kinh tế số
+                                </h3>
+                                <div class="roboto t:text-xs t:text-[#8A94A6] t:mt-1">11:14, 15/01/2026</div>
+                            </a>
+                        </div>
+                        <div class="t:py-3 t:border-b t:border-[#E8E8E8]">
+                            <a href="" class="t:group t:block">
+                                <h3 class="merriweather t:text-sm t:font-semibold t:text-[#BC0000] t:leading-snug t:line-clamp-3 t:group-hover:opacity-75 t:transition-opacity">
+                                    Hương vị núi rừng trong từng sợi miến
+                                </h3>
+                                <div class="roboto t:text-xs t:text-[#8A94A6] t:mt-1">12:19, 22/12/2025</div>
+                            </a>
+                        </div>
+                        <div class="t:py-3">
+                            <a href="" class="t:group t:block">
+                                <h3 class="merriweather t:text-sm t:font-semibold t:text-[#BC0000] t:leading-snug t:line-clamp-3 t:group-hover:opacity-75 t:transition-opacity">
+                                    Đánh thức di sản, khai mở hành trình mới
+                                </h3>
+                                <div class="roboto t:text-xs t:text-[#8A94A6] t:mt-1">11:42, 13/09/2025</div>
+                            </a>
+                        </div>
+                    </aside>
+
+                </div>
+                <!-- ==================== END ROW 1 ==================== -->
+
+                <!-- ==================== ROW 2: col-9 + col-3 ==================== -->
+                <div class="t:grid t:pc:grid-cols-[minmax(0,1fr)_240px] t:gap-x-6 t:items-start">
+
+                    <!-- col-9: horizontal article list + pagination -->
+                    <div class="t:min-w-0">
+
+                        <!-- Horizontal article list -->
+                        <div class="t:flex t:flex-col">
+
+                            <a href="" class="t:group t:flex t:gap-x-4 t:py-4 t:border-b t:border-[#E8E8E8]">
+                                <div class="t:shrink-0 t:w-[155px] t:overflow-hidden">
+                                    <img src="./images/article-05.jpg" alt="Người giữ hồn Việt trên đất Trà" class="t:w-full t:aspect-[4/3] t:object-cover t:group-hover:scale-105 t:transition-transform t:duration-500" />
+                                </div>
+                                <div class="t:flex t:flex-col t:gap-y-1.5 t:min-w-0">
+                                    <h3 class="merriweather t:text-base t:font-bold t:text-[#212636] t:leading-snug t:line-clamp-2 t:group-hover:text-[#BC0000] t:transition-colors">
+                                        Người giữ hồn Việt trên đất Trà
+                                    </h3>
+                                    <p class="roboto t:text-sm t:text-[#555] t:leading-relaxed t:line-clamp-3">
+                                        Từ một thợ làm tóc nơi phố núi, chàng trai trẻ Phạm Văn Tuân (sinh năm 1994, hiện trú tại phường Phan Đình Phùng) đã chắp đôi cánh cho đam mê qua từng nét bút lửa và từng đường cơ vẽ.
+                                    </p>
+                                </div>
+                            </a>
+
+                            <a href="" class="t:group t:flex t:gap-x-4 t:py-4 t:border-b t:border-[#E8E8E8]">
+                                <div class="t:shrink-0 t:w-[155px] t:overflow-hidden">
+                                    <img src="./images/article-06.jpg" alt="Khi hai mặt nước soi chung bầu trời" class="t:w-full t:aspect-[4/3] t:object-cover t:group-hover:scale-105 t:transition-transform t:duration-500" />
+                                </div>
+                                <div class="t:flex t:flex-col t:gap-y-1.5 t:min-w-0">
+                                    <h3 class="merriweather t:text-base t:font-bold t:text-[#212636] t:leading-snug t:line-clamp-2 t:group-hover:text-[#BC0000] t:transition-colors">
+                                        Khi hai mặt nước soi chung bầu trời
+                                    </h3>
+                                    <p class="roboto t:text-sm t:text-[#555] t:leading-relaxed t:line-clamp-3">
+                                        Người ta bảo, nếu ai ngồi thuyền giữa hồ Ba Bể vào buổi sớm, sẽ thấy đâu đó thấp thoáng bóng đồi chè Thái Nguyên.
+                                    </p>
+                                </div>
+                            </a>
+
+                            <a href="" class="t:group t:flex t:gap-x-4 t:py-4 t:border-b t:border-[#E8E8E8]">
+                                <div class="t:shrink-0 t:w-[155px] t:overflow-hidden">
+                                    <img src="./images/article-07.jpg" alt="Nhạc sĩ Doãn Nho và những dư âm mùa Hè từ Thái Nguyên xưa" class="t:w-full t:aspect-[4/3] t:object-cover t:group-hover:scale-105 t:transition-transform t:duration-500" />
+                                </div>
+                                <div class="t:flex t:flex-col t:gap-y-1.5 t:min-w-0">
+                                    <h3 class="merriweather t:text-base t:font-bold t:text-[#212636] t:leading-snug t:line-clamp-2 t:group-hover:text-[#BC0000] t:transition-colors">
+                                        Nhạc sĩ Doãn Nho và những dư âm mùa Hè từ Thái Nguyên xưa
+                                    </h3>
+                                    <p class="roboto t:text-sm t:text-[#555] t:leading-relaxed t:line-clamp-3">
+                                        Đã là lần thứ hai chúng tôi tìm đến nhà nhạc sĩ Doãn Nho. Ấy vậy mà "ngõ nhỏ, phố nhỏ" của Hà Nội vẫn làm khó những vị khách phương xa.
+                                    </p>
+                                </div>
+                            </a>
+
+                            <a href="" class="t:group t:flex t:gap-x-4 t:py-4 t:border-b t:border-[#E8E8E8]">
+                                <div class="t:shrink-0 t:w-[155px] t:overflow-hidden">
+                                    <img src="./images/article-08.jpg" alt="Tinh hoa chợ chè Thái Nguyên" class="t:w-full t:aspect-[4/3] t:object-cover t:group-hover:scale-105 t:transition-transform t:duration-500" />
+                                </div>
+                                <div class="t:flex t:flex-col t:gap-y-1.5 t:min-w-0">
+                                    <h3 class="merriweather t:text-base t:font-bold t:text-[#212636] t:leading-snug t:line-clamp-2 t:group-hover:text-[#BC0000] t:transition-colors">
+                                        Tinh hoa chợ chè Thái Nguyên
+                                    </h3>
+                                    <p class="roboto t:text-sm t:text-[#555] t:leading-relaxed t:line-clamp-3">
+                                        Chợ chè Thái Nguyên không đơn thuần là nơi mua bán, mà còn là nơi hương chè quyện vào tình người, thấm đẫm ân tình của vùng đất "Đệ nhất danh trà".
+                                    </p>
+                                </div>
+                            </a>
+
+                            <a href="" class="t:group t:flex t:gap-x-4 t:py-4 t:border-b t:border-[#E8E8E8]">
+                                <div class="t:shrink-0 t:w-[155px] t:overflow-hidden">
+                                    <img src="./images/article-09.jpg" alt="Thái Nguyên sẵn sàng cùng cả nước vươn tầm phát triển" class="t:w-full t:aspect-[4/3] t:object-cover t:group-hover:scale-105 t:transition-transform t:duration-500" />
+                                </div>
+                                <div class="t:flex t:flex-col t:gap-y-1.5 t:min-w-0">
+                                    <h3 class="merriweather t:text-base t:font-bold t:text-[#212636] t:leading-snug t:line-clamp-2 t:group-hover:text-[#BC0000] t:transition-colors">
+                                        Thái Nguyên sẵn sàng cùng cả nước vươn tầm phát triển
+                                    </h3>
+                                    <p class="roboto t:text-sm t:text-[#555] t:leading-relaxed t:line-clamp-3">
+                                        Sự hợp nhất hai tỉnh Thái Nguyên và Bắc Kạn thành tỉnh Thái Nguyên mới là một bước ngoặt trong chặng đường phát triển.
+                                    </p>
+                                </div>
+                            </a>
+
+                            <a href="" class="t:group t:flex t:gap-x-4 t:py-4 t:border-b t:border-[#E8E8E8]">
+                                <div class="t:shrink-0 t:w-[155px] t:overflow-hidden">
+                                    <img src="./images/article-10.jpg" alt="Hành trình xây dựng nông thôn mới tại Thái Nguyên" class="t:w-full t:aspect-[4/3] t:object-cover t:group-hover:scale-105 t:transition-transform t:duration-500" />
+                                </div>
+                                <div class="t:flex t:flex-col t:gap-y-1.5 t:min-w-0">
+                                    <h3 class="merriweather t:text-base t:font-bold t:text-[#212636] t:leading-snug t:line-clamp-2 t:group-hover:text-[#BC0000] t:transition-colors">
+                                        Hành trình xây dựng nông thôn mới tại Thái Nguyên
+                                    </h3>
+                                    <p class="roboto t:text-sm t:text-[#555] t:leading-relaxed t:line-clamp-3">
+                                        Chương trình mục tiêu quốc gia xây dựng nông thôn mới đã tạo ra những chuyển biến sâu sắc trong diện mạo nông thôn và đời sống người dân tỉnh Thái Nguyên.
+                                    </p>
+                                </div>
+                            </a>
+
+                            <a href="" class="t:group t:flex t:gap-x-4 t:py-4 t:border-b t:border-[#E8E8E8]">
+                                <div class="t:shrink-0 t:w-[155px] t:overflow-hidden">
+                                    <img src="./images/article-11.jpg" alt="Nông nghiệp 4.0: Khi nông dân chè làm kinh tế số" class="t:w-full t:aspect-[4/3] t:object-cover t:group-hover:scale-105 t:transition-transform t:duration-500" />
+                                </div>
+                                <div class="t:flex t:flex-col t:gap-y-1.5 t:min-w-0">
+                                    <h3 class="merriweather t:text-base t:font-bold t:text-[#212636] t:leading-snug t:line-clamp-2 t:group-hover:text-[#BC0000] t:transition-colors">
+                                        Nông nghiệp 4.0: Khi nông dân chè làm kinh tế số
+                                    </h3>
+                                    <p class="roboto t:text-sm t:text-[#555] t:leading-relaxed t:line-clamp-3">
+                                        Ứng dụng công nghệ 4.0 vào sản xuất chè không còn là điều xa lạ ở Thái Nguyên. Nhiều hộ nông dân, hợp tác xã đã đổi mới cách làm, nâng cao giá trị sản phẩm.
+                                    </p>
+                                </div>
+                            </a>
+
+                            <a href="" class="t:group t:flex t:gap-x-4 t:py-4 t:border-b t:border-[#E8E8E8]">
+                                <div class="t:shrink-0 t:w-[155px] t:overflow-hidden">
+                                    <img src="./images/article-12.jpg" alt="Người lính trở về và khát vọng làm giàu trên quê hương" class="t:w-full t:aspect-[4/3] t:object-cover t:group-hover:scale-105 t:transition-transform t:duration-500" />
+                                </div>
+                                <div class="t:flex t:flex-col t:gap-y-1.5 t:min-w-0">
+                                    <h3 class="merriweather t:text-base t:font-bold t:text-[#212636] t:leading-snug t:line-clamp-2 t:group-hover:text-[#BC0000] t:transition-colors">
+                                        Người lính trở về và khát vọng làm giàu trên quê hương
+                                    </h3>
+                                    <p class="roboto t:text-sm t:text-[#555] t:leading-relaxed t:line-clamp-3">
+                                        Trở về từ quân ngũ, ông Ngô Văn Hùng (ở xóm Tè, xã Tân Hòa, Phú Bình) mang theo khát vọng làm giàu trên chính mảnh đất quê hương.
+                                    </p>
+                                </div>
+                            </a>
+
+                        </div>
+
+                        <!-- Pagination -->
+                        <nav class="t:flex t:items-center t:gap-x-1 roboto t:pt-5 t:mt-1" aria-label="Phân trang">
+                            <a href="" aria-label="Trang trước" class="t:flex t:items-center t:justify-center t:w-8 t:h-8 t:border t:border-[#DCDFE4] t:bg-white t:text-[#666] t:hover:border-[#BC0000] t:hover:text-[#BC0000] t:transition-colors t:text-sm t:rounded-sm">&lt;</a>
+                            <a href="" aria-current="page" class="t:flex t:items-center t:justify-center t:w-8 t:h-8 t:border t:border-[#212636] t:bg-[#212636] t:text-white t:text-sm t:font-medium t:rounded-sm">1</a>
+                            <a href="" class="t:flex t:items-center t:justify-center t:w-8 t:h-8 t:border t:border-[#DCDFE4] t:bg-white t:text-[#212636] t:hover:border-[#BC0000] t:hover:text-[#BC0000] t:transition-colors t:text-sm t:rounded-sm">2</a>
+                            <a href="" class="t:flex t:items-center t:justify-center t:w-8 t:h-8 t:border t:border-[#DCDFE4] t:bg-white t:text-[#212636] t:hover:border-[#BC0000] t:hover:text-[#BC0000] t:transition-colors t:text-sm t:rounded-sm">3</a>
+                            <a href="" class="t:flex t:items-center t:justify-center t:w-8 t:h-8 t:border t:border-[#DCDFE4] t:bg-white t:text-[#212636] t:hover:border-[#BC0000] t:hover:text-[#BC0000] t:transition-colors t:text-sm t:rounded-sm">4</a>
+                            <a href="" class="t:flex t:items-center t:justify-center t:w-8 t:h-8 t:border t:border-[#DCDFE4] t:bg-white t:text-[#212636] t:hover:border-[#BC0000] t:hover:text-[#BC0000] t:transition-colors t:text-sm t:rounded-sm">5</a>
+                            <a href="" aria-label="Trang sau" class="t:flex t:items-center t:justify-center t:w-8 t:h-8 t:border t:border-[#DCDFE4] t:bg-white t:text-[#666] t:hover:border-[#BC0000] t:hover:text-[#BC0000] t:transition-colors t:text-sm t:rounded-sm">&gt;</a>
+                        </nav>
+
+                    </div>
+
+                    <!-- col-3 (240px fixed): Xem nhiều + quảng cáo -->
+                    <aside class="t:min-w-0 t:hidden t:pc:block t:border-l t:border-[#E0E0E0] t:pl-5">
+
+                        <!-- Xem nhiều header -->
+                        <div class="t:mb-3 t:pb-1 t:border-b-2 t:border-[#212636]">
+                            <span class="merriweather t:text-base t:font-bold t:text-[#212636] t:underline">
+                                Xem nhiều
+                            </span>
+                        </div>
+
+                        <!-- Xem nhiều articles -->
+                        <div class="t:flex t:flex-col t:gap-y-4 t:mb-5">
+
+                            <div>
+                                <a href="" class="t:group t:block t:mb-1.5">
+                                    <h3 class="merriweather t:text-sm t:font-semibold t:text-[#212636] t:leading-snug t:line-clamp-3 t:group-hover:text-[#BC0000] t:transition-colors">
+                                        Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027 trên địa bàn tỉnh Thái Nguyên
+                                    </h3>
+                                    <div class="roboto t:text-xs t:text-[#30A14A] t:mt-1">09:14, 21/05/2026</div>
+                                </a>
+                                <a href="" class="t:block t:overflow-hidden">
+                                    <img src="./images/article-13.jpg" alt="Kế hoạch tuyển sinh" class="t:w-full t:aspect-[4/3] t:object-cover t:hover:scale-105 t:transition-transform t:duration-500" />
+                                </a>
+                            </div>
+
+                            <div>
+                                <a href="" class="t:group t:block t:mb-1.5">
+                                    <h3 class="merriweather t:text-sm t:font-semibold t:text-[#212636] t:leading-snug t:line-clamp-3 t:group-hover:text-[#BC0000] t:transition-colors">
+                                        Đường cao tốc Hà Nội - Thái Nguyên mở rộng - Bước đột phá hạ tầng giao thông
+                                    </h3>
+                                    <div class="roboto t:text-xs t:text-[#30A14A] t:mt-1">07:30, 19/05/2026</div>
+                                </a>
+                                <a href="" class="t:block t:overflow-hidden">
+                                    <img src="./images/article-14.jpg" alt="Cao tốc Hà Nội Thái Nguyên" class="t:w-full t:aspect-[4/3] t:object-cover t:hover:scale-105 t:transition-transform t:duration-500" />
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- Ad placeholder -->
+                        <div class="t:border t:border-[#E0E0E0] t:rounded t:flex t:items-center t:justify-center t:h-[180px] t:text-[#BDBDBD] roboto t:text-xs t:tracking-[0.15em] t:uppercase t:bg-[#F8F8F8]">
+                            Dành cho quảng cáo
+                        </div>
+
+                    </aside>
+
+                </div>
+                <!-- ==================== END ROW 2 ==================== -->
+
+            </div>
+        </main>
+
+        <footer class="t:bg-[#F8F8F8] t:pt-10 t:pb-6 home-footer roboto">
+            <div class="t:container t:mx-auto">
+                <div
+                    class="t:grid t:gap-y-6 t:pc:grid-cols-[1fr_auto] t:min-[1200px]:grid-cols-[auto_1fr_auto] t:pc:gap-x-20 t:items-start"
+                >
+                    <div class="t:my-auto t:min-[1200px]:mt-0">
+                        <img
+                            src="../../common/assets/logo.png"
+                            alt="Báo Thái Nguyên"
+                            class="t:object-contain t:max-w-[450px] t:min-[1200px]:max-w-[350px] t:w-full"
+                        />
+                    </div>
+
+                    <div class="t:flex t:flex-col t:gap-y-2 t:text-xs t:leading-[1.5] t:pc:order-9 t:pc:col-span-2 t:min-[1200px]:col-span-1 t:min-[1200px]:order-none">
+                        <div class="t:flex t:gap-x-4 t:items-start">
+                            <p class="t:w-25 t:shrink-0 t:text-[#667085]">Trụ sở:</p>
+                            <p class="t:flex-1 t:font-semibold t:text-[#212636]">
+                                Cơ sở 1 số 226 đường Bến Oánh; Cơ sở 2 số 19 phố Nhị Quý, phường
+                                Phan Đình Phùng, tỉnh Thái Nguyên
+                            </p>
+                        </div>
+                        <div class="t:flex t:gap-x-4 t:items-start">
+                            <p class="t:w-25 t:shrink-0 t:text-[#667085]">Giám đốc:</p>
+                            <p class="t:flex-1 t:font-semibold t:text-[#212636]">Đỗ Xuân Hòa</p>
+                        </div>
+                        <div class="t:flex t:gap-x-4 t:items-start">
+                            <p class="t:w-25 t:shrink-0 t:text-[#667085]">Phó Giám đốc:</p>
+                            <p class="t:flex-1 t:font-semibold t:text-[#212636]">Nguyễn Ngọc Sơn</p>
+                        </div>
+                        <div class="t:flex t:gap-x-4 t:items-start">
+                            <p class="t:w-25 t:shrink-0 t:text-[#667085]">Điện thoại:</p>
+                            <p class="t:flex-1 t:font-semibold t:text-[#212636]">
+                                <a href="tel:02083859666">0208.3859.666</a>
+                            </p>
+                        </div>
+                        <div class="t:flex t:gap-x-4 t:items-start">
+                            <p class="t:w-25 t:shrink-0 t:text-[#667085]">Đường dây nóng:</p>
+                            <p class="t:flex-1 t:font-semibold t:text-[#212636]">
+                                <a href="tel:0902006113">0902006113</a>
+                                -
+                                <a href="tel:0912039880">091 2039880</a>
+                            </p>
+                        </div>
+                        <div class="t:flex t:gap-x-4 t:items-start">
+                            <p class="t:w-25 t:shrink-0 t:text-[#667085]">Email:</p>
+                            <p class="t:flex-1 t:font-semibold t:text-[#212636] t:break-all">
+                                <a href="mailto:toasoan@baothainguyen.vn">
+                                    toasoan@baothainguyen.vn
+                                </a>
+                                ;
+                                <a href="mailto:toasoan@baothainguyen.com.vn">
+                                    toasoan@baothainguyen.com.vn
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="t:flex t:flex-col t:gap-y-3 t:w-fit t:ml-auto">
+                        <p class="t:text-xs t:text-[#212636]">Quét mã tải ứng dụng tại:</p>
+                        <div class="t:flex t:gap-x-4">
+                            <div class="t:flex t:flex-col t:items-center t:gap-y-1">
+                                <img
+                                    src="../../common/assets/android.jpg"
+                                    alt="Tải bản Android"
+                                    class="t:size-26 t:object-contain"
+                                />
+                                <span class="t:text-xs t:text-[#212636]">Bản Android</span>
+                            </div>
+                            <div class="t:flex t:flex-col t:items-center t:gap-y-1">
+                                <img
+                                    src="../../common/assets/ios.jpg"
+                                    alt="Tải bản iOS"
+                                    class="t:size-26 t:object-contain"
+                                />
+                                <span class="t:text-xs t:text-[#212636]">Bản IOS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="t:my-4 t:border-0 t:border-t t:border-[#DCDFE4]" />
+
+                <div
+                    class="t:flex t:flex-col t:gap-y-1 t:text-xs t:font-semibold t:text-[#212636] t:leading-[1.5]"
+                >
+                    <p>
+                        Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT cấp ngày 20 tháng 11
+                        năm 2023.
+                    </p>
+                    <p>
+                        Bản quyền thuộc về Báo và Phát thanh, Truyền hình Thái Nguyên. Ghi rõ nguồn
+                        “
+                        <a href="https://baothainguyen.vn">https://baothainguyen.vn</a>
+                        ” khi phát hành lại thông tin từ website này
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <button
+            type="button"
+            id="scrollToTopBtn"
+            aria-label="Lên đầu trang"
+            class="t:max-md:hidden"
+            style="
+                position: fixed;
+                right: 24px;
+                bottom: 24px;
+                width: 44px;
+                height: 44px;
+                border: none;
+                border-radius: 9999px;
+                background: #30A14A;
+                color: #fff;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-size: 18px;
+                line-height: 1;
+                z-index: 120;
+                box-shadow: 0 8px 24px rgba(10, 100, 180, 0.35);
+                opacity: 0;
+                transform: translateY(8px);
+                transition:
+                    opacity 0.25s ease,
+                    transform 0.25s ease,
+                    background-color 0.25s ease;
+            "
+        >
+            ↑
+        </button>
+
+        <script>
+            (function () {
+                const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+                if (!scrollToTopBtn) return;
+
+                const toggleVisibility = () => {
+                    const isVisible = window.scrollY > 280;
+                    if (isVisible) {
+                        if (scrollToTopBtn.style.display !== "flex") {
+                            scrollToTopBtn.style.display = "flex";
+                            requestAnimationFrame(() => {
+                                scrollToTopBtn.style.opacity = "1";
+                                scrollToTopBtn.style.transform = "translateY(0)";
+                            });
+                        }
+                    } else {
+                        scrollToTopBtn.style.opacity = "0";
+                        scrollToTopBtn.style.transform = "translateY(8px)";
+                        setTimeout(() => {
+                            if (window.scrollY <= 280) {
+                                scrollToTopBtn.style.display = "none";
+                            }
+                        }, 250);
+                    }
+                };
+
+                window.addEventListener("scroll", toggleVisibility, { passive: true });
+                scrollToTopBtn.addEventListener("click", () => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+
+                scrollToTopBtn.addEventListener("mouseenter", () => {
+                    scrollToTopBtn.style.background = "#07528F";
+                });
+
+                scrollToTopBtn.addEventListener("mouseleave", () => {
+                    scrollToTopBtn.style.background = "#30A14A";
+                });
+
+                toggleVisibility();
+            })();
+        </script>
+
+        <script src="../../common/common.js"></script>
+        <script type="module" src="../../common/swiper.js"></script>
+        <script type="module" src="../../common/floating-dropdown.js"></script>
+        <script type="module" src="../../common/overlay.js"></script>
+        <script type="module" src="../../common/overlayscrollbar.js"></script>
+        <script type="module" src="../../common/short-video.js"></script>
+        <script type="module" src="../../common/header-sticky.js"></script>
+        <script type="module" src="../../common/header.js"></script>
+        <script type="module" src="./home.js"></script>
+    </body>
+</html>
