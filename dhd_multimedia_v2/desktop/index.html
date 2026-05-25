@@ -53,9 +53,9 @@
                 .featured-nav-btn--next { right: 6%; }
                 .featured-nav-btn { width: 34px; height: 34px; font-size: 15px; }
             }
-            /* Fixed height — all slides equal regardless of image ratio */
+            /* Tỉ lệ 16:9 — giữ đúng tỉ lệ trên mọi kích thước màn hình (Rule 10) */
             .featured-clip-swiper {
-                height: 420px;
+                aspect-ratio: 16 / 9;
             }
             .featured-clip-swiper .swiper-slide,
             .featured-clip-swiper .swiper-slide > a {
@@ -66,12 +66,6 @@
                 height: 100%;
                 object-fit: cover;
                 display: block;
-            }
-            @media (max-width: 1023px) {
-                .featured-clip-swiper { height: 300px; }
-            }
-            @media (max-width: 639px) {
-                .featured-clip-swiper { height: 200px; }
             }
         </style>
         <link rel="stylesheet" href="./output.css" />
@@ -824,7 +818,6 @@
                             ></button>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
 
@@ -1239,10 +1232,9 @@
         <!-- Main content -->
         <main class="t:bg-white t:min-h-screen">
 
-            <div class="t:container t:py-6 t:md:py-8">
-                <div class="t:flex t:flex-col t:gap-y-6">
-
-                    <!-- Page title + sub-tabs (MULTIMEDIA header style) -->
+            <!-- Page title + sub-tabs (MULTIMEDIA header style) -->
+            <section class="t:pt-6 t:md:pt-8">
+                <div class="t:container">
                     <div class="t:text-center t:border-b t:border-[#E0E0E0] t:pb-4">
                         <h1 class="merriweather t:text-2xl t:md:text-3xl t:font-bold t:text-[#8B5E0A] t:uppercase t:tracking-widest t:mb-2">
                             Multimedia
@@ -1257,8 +1249,12 @@
                             <a href="" class="t:px-3 t:text-[#BC0000] t:font-semibold t:whitespace-nowrap">Clip số</a>
                         </nav>
                     </div>
+                </div>
+            </section>
 
-                    <!-- Featured slider -->
+            <!-- Featured slider -->
+            <section class="t:mt-6">
+                <div class="t:container">
                     <div class="t:relative">
                         <!-- Swiper: centeredSlides + loop, no built-in nav buttons -->
                         <div
@@ -1366,11 +1362,15 @@
                             </p>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <!-- Clip grid – 4 columns -->
+            <!-- Clip grid + Pagination -->
+            <section class="t:mt-6 t:pb-6 t:md:pb-8">
+                <div class="t:container">
                     <div
                         id="clipGrid"
-                        class="t:grid t:grid-cols-2 t:md:grid-cols-4 t:gap-x-4 t:gap-y-6"
+                        class="t:grid t:grid-cols-2 t:pc:grid-cols-4 t:gap-x-4 t:gap-y-6"
                     >
 
                         <!-- Card 1 – first card title in red -->
@@ -1383,7 +1383,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#BC0000] t:leading-snug t:line-clamp-3 t:hover:underline roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#BC0000] t:leading-snug t:hover:underline roboto">
                                 Diễn biến trận đấu giữa Thể Công Viettel và Hoàng Anh Gia Lai
                             </a>
                         </article>
@@ -1398,7 +1398,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Chia điểm kịch tính, Thể Công Viettel hòa PVF CAND 1-1
                             </a>
                         </article>
@@ -1413,7 +1413,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Giải Bóng đá Tứ hùng - Thái Nguyên 2025: Hoàng Anh Gia Lai 4-1 Câu lạc bộ Hà Nội
                             </a>
                         </article>
@@ -1428,7 +1428,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Diễn biến hiệp 1 trận đấu giữa Câu lạc bộ Hà Nội và Hoàng Anh Gia Lai trên Sân vận động Thái Nguyên
                             </a>
                         </article>
@@ -1443,7 +1443,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Tân Cương: Hành trình gìn giữ và nâng tầm Đệ nhất danh trà Việt
                             </a>
                         </article>
@@ -1458,7 +1458,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Chè Shan tuyết Bảng Phúc: Hành trình gìn giữ di sản
                             </a>
                         </article>
@@ -1473,7 +1473,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Đội bóng Hà Nội FC - Bản lĩnh Thủ đô tại Tứ hùng Thái Nguyên 2025
                             </a>
                         </article>
@@ -1488,7 +1488,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Thể Công Viettel - Quyết chiến Tứ hùng 2025
                             </a>
                         </article>
@@ -1503,7 +1503,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 PVF Công an nhân dân sẵn sàng tham gia Giải Bóng đá Tứ hùng - Thái Nguyên 2025
                             </a>
                         </article>
@@ -1518,7 +1518,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Lời chào từ đội bóng Hoàng Anh Gia Lai đến Thái Nguyên
                             </a>
                         </article>
@@ -1533,7 +1533,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Sinh viên công nghệ và hành trình sáng tạo khoa học
                             </a>
                         </article>
@@ -1548,7 +1548,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Hậu phương của 'Cương Ghềnh Chè'
                             </a>
                         </article>
@@ -1563,7 +1563,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Khám phá Sân vận động Thái Nguyên
                             </a>
                         </article>
@@ -1578,7 +1578,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Khi sinh viên Thái Nguyên chạm đến tương lai giao thông số
                             </a>
                         </article>
@@ -1593,7 +1593,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Đại hội đại biểu Hội Phụ nữ tỉnh Thái Nguyên lần thứ I, nhiệm kỳ 2025-2030
                             </a>
                         </article>
@@ -1608,7 +1608,7 @@
                                     loading="lazy"
                                 />
                             </a>
-                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:hover:text-[#BC0000] t:transition-colors roboto">
                                 Sân vận động Thái Nguyên – niềm tự hào mới của vùng Việt Bắc
                             </a>
                         </article>
@@ -1644,9 +1644,8 @@
                             class="t:flex t:items-center t:justify-center t:h-8 t:border t:border-[#D0D0D0] t:text-[#555] t:text-sm t:hover:border-[#935f25] t:hover:text-[#935f25] t:transition-colors t:shrink-0 t:bg-white t:px-2"
                         >&gt;</a>
                     </div>
-
                 </div>
-            </div>
+            </section>
         </main>
 
         <footer class="t:bg-[#F8F8F8] t:pt-10 t:pb-6 home-footer roboto">
