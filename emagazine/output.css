@@ -320,9 +320,6 @@
   .t\:w-full {
     width: 100%;
   }
-  .t\:w-screen {
-    width: 100vw;
-  }
   .t\:max-w-\[392px\] {
     max-width: 392px;
   }
@@ -331,9 +328,6 @@
   }
   .t\:max-w-\[900px\] {
     max-width: 900px;
-  }
-  .t\:max-w-none {
-    max-width: none;
   }
   .t\:flex-1 {
     flex: 1;
@@ -398,11 +392,6 @@
   }
   .t\:gap-y-6 {
     row-gap: calc(var(--t-spacing) * 6);
-  }
-  .t\:truncate {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
   .t\:overflow-hidden {
     overflow: hidden;
@@ -511,6 +500,9 @@
   .t\:object-cover {
     object-fit: cover;
   }
+  .t\:object-center {
+    object-position: center;
+  }
   .t\:p-0\! {
     padding: calc(var(--t-spacing) * 0) !important;
   }
@@ -597,6 +589,9 @@
     --tw-font-weight: var(--t-font-weight-semibold);
     font-weight: var(--t-font-weight-semibold);
   }
+  .t\:break-words {
+    overflow-wrap: break-word;
+  }
   .t\:break-all {
     word-break: break-all;
   }
@@ -671,6 +666,16 @@
       column-gap: calc(var(--t-spacing) * 20);
     }
   }
+  .t\:md\:flex {
+    @media (width >= 48rem) {
+      display: flex;
+    }
+  }
+  .t\:md\:inline {
+    @media (width >= 48rem) {
+      display: inline;
+    }
+  }
   .t\:md\:py-10 {
     @media (width >= 48rem) {
       padding-block: calc(var(--t-spacing) * 10);
@@ -695,6 +700,44 @@
 }
 * {
   box-sizing: border-box;
+}
+.t\:container.emagazine-bleed {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.scroll-top-button {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 120;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 9999px;
+  background: #30a14a;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.125rem;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.5rem);
+  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+  box-shadow: 0 0.5rem 1.5rem rgba(10, 100, 180, 0.35);
+}
+.scroll-top-button.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.scroll-top-button:hover {
+  background: #07528f;
 }
 @property --tw-translate-x {
   syntax: "*";
