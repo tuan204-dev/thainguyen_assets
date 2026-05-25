@@ -66,13 +66,15 @@
             position: absolute;
             top: 12px;
             left: 14px;
-            color: rgba(255,255,255,0.88);
+            color: #fff;
             font-size: 13px;
             font-weight: 500;
             letter-spacing: 0.4px;
             z-index: 9990;
             pointer-events: none;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.52);
+            padding: 3px 10px;
+            border-radius: 20px;
         }
 
         /* ── Side navigation arrows ── */
@@ -346,6 +348,17 @@
         var soundOn   = true;
         var playTimer = null;
 
+        /* ─── Custom flip sound (tránh DFlip's built-in bị browser block) ─── */
+        var flipSound = new Audio('./vendor/sound/flip-page.mp3');
+        flipSound.preload = 'auto';
+        flipSound.volume  = 0.7;
+
+        function playFlipSound() {
+            if (!soundOn) return;
+            flipSound.currentTime = 0;
+            flipSound.play().catch(function () {});
+        }
+
         function openSidebar()  { $('#book-sidebar, #sidebar-backdrop').addClass('open'); }
         function closeSidebar() { $('#book-sidebar, #sidebar-backdrop').removeClass('open'); }
 
@@ -415,8 +428,14 @@
             if (!info) return;
             var cur = info.cur, total = info.total, mode = info.mode;
             var label;
-            if (mode === 2 && cur > 1 && cur + 1 <= total) {
-                label = cur + '-' + (cur + 1) + ' / ' + total;
+            /*
+             * DFlip báo _activePage là trang PHẢI của spread (right page).
+             * Ví dụ đang xem spread 2-3 → _activePage = 3.
+             * Công thức đúng: hiển thị (cur-1) - cur, không phải cur - (cur+1).
+             * Trang bìa (cur === 1) luôn hiển thị đơn.
+             */
+            if (mode === 2 && cur > 1 && cur < total) {
+                label = (cur - 1) + '-' + cur + ' / ' + total;
             } else {
                 label = cur + ' / ' + total;
             }
@@ -433,7 +452,7 @@
             DFLIP.defaults.pdfjsWorkerSrc     = './vendor/pdf.worker.min.js';
             DFLIP.defaults.imageResourcesPath = './vendor/images/';
             DFLIP.defaults.threejsSrc         = './vendor/three.min.js';
-            DFLIP.defaults.soundFile          = './vendor/sound/turn2.mp3';
+            DFLIP.defaults.soundFile          = ''; /* tắt DFlip built-in sound, dùng custom */
 
             var opts = {
                 webgl              : false,
@@ -452,6 +471,7 @@
                 onReady: function (fb) { updateCounter(); },
                 onFlip:  function (fb) {
                     /* fb là FlipBook object — đọc trang từ fb.target */
+                    playFlipSound();
                     setTimeout(updateCounter, 50);
                 },
                 text: {
@@ -522,7 +542,6 @@
                 soundOn = !soundOn;
                 $(this).find('i').toggleClass('fa-volume-up', soundOn).toggleClass('fa-volume-off', !soundOn);
                 $(this).toggleClass('is-active', !soundOn);
-                dfClick('.df-ui-sound');
             });
 
             /* ── Fullscreen ── */
