@@ -323,9 +323,6 @@
   .t\:mt-6 {
     margin-top: calc(var(--t-spacing) * 6);
   }
-  .t\:mt-10 {
-    margin-top: calc(var(--t-spacing) * 10);
-  }
   .t\:mr-2 {
     margin-right: calc(var(--t-spacing) * 2);
   }
@@ -382,9 +379,6 @@
   }
   .t\:aspect-\[9\/16\] {
     aspect-ratio: 9/16;
-  }
-  .t\:aspect-\[9\/16s\] {
-    aspect-ratio: 9/16s;
   }
   .t\:aspect-\[16\/9\] {
     aspect-ratio: 16/9;
@@ -528,17 +522,8 @@
   .t\:max-w-\[200px\] {
     max-width: 200px;
   }
-  .t\:max-w-\[392px\] {
-    max-width: 392px;
-  }
   .t\:max-w-\[450px\] {
     max-width: 450px;
-  }
-  .t\:max-w-\[452px\] {
-    max-width: 452px;
-  }
-  .t\:max-w-\[492px\] {
-    max-width: 492px;
   }
   .t\:max-w-none {
     max-width: none;
@@ -1051,6 +1036,9 @@
   }
   .t\:pb-8 {
     padding-bottom: calc(var(--t-spacing) * 8);
+  }
+  .t\:pb-10 {
+    padding-bottom: calc(var(--t-spacing) * 10);
   }
   .t\:pl-1\.5 {
     padding-left: calc(var(--t-spacing) * 1.5);
@@ -1618,11 +1606,6 @@
       order: 9;
     }
   }
-  .t\:pc\:order-999 {
-    @media (width >= 1000px) {
-      order: 999;
-    }
-  }
   .t\:pc\:col-span-2 {
     @media (width >= 1000px) {
       grid-column: span 2 / span 2;
@@ -1678,6 +1661,11 @@
       display: flex;
     }
   }
+  .t\:pc\:w-fit {
+    @media (width >= 1000px) {
+      width: fit-content;
+    }
+  }
   .t\:pc\:grid-cols-2 {
     @media (width >= 1000px) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1716,11 +1704,6 @@
   .t\:pc\:grid-cols-\[2fr_1fr\] {
     @media (width >= 1000px) {
       grid-template-columns: 2fr 1fr;
-    }
-  }
-  .t\:pc\:grid-cols-\[auto_1fr_auto\] {
-    @media (width >= 1000px) {
-      grid-template-columns: auto 1fr auto;
     }
   }
   .t\:pc\:grid-cols-\[minmax\(0\,1\.5fr\)_auto_minmax\(0\,2\.5fr\)\] {
@@ -1941,11 +1924,6 @@
   .t\:md\:grid-cols-\[1fr_1\.5fr\] {
     @media (width >= 48rem) {
       grid-template-columns: 1fr 1.5fr;
-    }
-  }
-  .t\:md\:grid-cols-\[minmax\(0\,1fr\)_minmax\(0\,2fr\)\] {
-    @media (width >= 48rem) {
-      grid-template-columns: minmax(0,1fr) minmax(0,2fr);
     }
   }
   .t\:md\:grid-cols-\[minmax\(0\,2fr\)_minmax\(0\,3fr\)\] {
