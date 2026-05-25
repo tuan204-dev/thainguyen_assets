@@ -1,9 +1,79 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Clip số - Multimedia | Báo Thái Nguyên</title>
+        <style>
+            /* Featured clip slider */
+            .featured-clip-swiper .swiper-slide {
+                filter: brightness(0.28);
+                transition: filter 0.35s ease;
+            }
+            .featured-clip-swiper .swiper-slide.swiper-slide-active {
+                filter: brightness(1);
+            }
+            .featured-clip-swiper .slide-play-btn {
+                opacity: 0;
+                transition: opacity 0.35s ease;
+                pointer-events: none;
+            }
+            .featured-clip-swiper .swiper-slide-active .slide-play-btn {
+                opacity: 1;
+                pointer-events: auto;
+            }
+            /* Custom nav buttons */
+            .featured-nav-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 20;
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.85);
+                border: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                color: #333;
+                transition: background 0.2s, transform 0.2s;
+            }
+            .featured-nav-btn:hover {
+                background: #fff;
+                transform: translateY(-50%) scale(1.08);
+            }
+            /* With slidesPerView ≈ 1.75, each side dimmed ≈ 22% → arrows at ~11% from edge */
+            .featured-nav-btn--prev { left: 11%; }
+            .featured-nav-btn--next { right: 11%; }
+            @media (max-width: 767px) {
+                .featured-nav-btn--prev { left: 6%; }
+                .featured-nav-btn--next { right: 6%; }
+                .featured-nav-btn { width: 34px; height: 34px; font-size: 15px; }
+            }
+            /* Fixed height — all slides equal regardless of image ratio */
+            .featured-clip-swiper {
+                height: 420px;
+            }
+            .featured-clip-swiper .swiper-slide,
+            .featured-clip-swiper .swiper-slide > a {
+                height: 100% !important;
+            }
+            .featured-clip-swiper .swiper-slide img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+            @media (max-width: 1023px) {
+                .featured-clip-swiper { height: 300px; }
+            }
+            @media (max-width: 639px) {
+                .featured-clip-swiper { height: 200px; }
+            }
+        </style>
         <link rel="stylesheet" href="./output.css" />
         <link rel="stylesheet" href="../../common/style/fonts-merriweather-vn.css" />
         <link rel="stylesheet" href="../../common/style/fonts-roboto-vn.css" />
@@ -1166,13 +1236,418 @@
             </div>
         </aside>
 
-      <!-- Main content -->
-       <main>
-        <div class="cate_title_1 ">
-	<div class="nav_e7837c02811fa974018150e83afa53fd"><a href="/multimedia/" class="title color1">Multimedia</a><div class="cate_nav"><ul class="submenu"><li class="e7837c02811fa97401815aaf8b6c7171"><a href="/multimedia/emagazine/">Emagazine</a></li><li class="DFBEFAB3B60D09EAE05382FC036713AC"><a href="/multimedia/infographic/">Infographic</a></li><li class="e7837c02811fa9740181332b22844453"><a href="/multimedia/phong-su-anh/">Phóng sự ảnh</a></li><li class="e7837c0283e0f864018411d6944a1da6 active"><a href="/multimedia/clip-so/">Clip số</a></li></ul></div></div>
-	<div class="clear"></div>
-</div>
-       </main>
+        <!-- Main content -->
+        <main class="t:bg-white t:min-h-screen">
+
+            <div class="t:container t:py-6 t:md:py-8">
+                <div class="t:flex t:flex-col t:gap-y-6">
+
+                    <!-- Page title + sub-tabs (MULTIMEDIA header style) -->
+                    <div class="t:text-center t:border-b t:border-[#E0E0E0] t:pb-4">
+                        <h1 class="merriweather t:text-2xl t:md:text-3xl t:font-bold t:text-[#8B5E0A] t:uppercase t:tracking-widest t:mb-2">
+                            Multimedia
+                        </h1>
+                        <nav class="t:flex t:items-center t:justify-center t:flex-wrap t:gap-x-0 t:text-sm t:text-[#555]">
+                            <a href="" class="t:px-3 t:hover:text-[#BC0000] t:transition-colors t:whitespace-nowrap">Emagazine</a>
+                            <span class="t:text-[#BDBDBD]">|</span>
+                            <a href="" class="t:px-3 t:hover:text-[#BC0000] t:transition-colors t:whitespace-nowrap">Infographic</a>
+                            <span class="t:text-[#BDBDBD]">|</span>
+                            <a href="" class="t:px-3 t:hover:text-[#BC0000] t:transition-colors t:whitespace-nowrap">Phóng sự ảnh</a>
+                            <span class="t:text-[#BDBDBD]">|</span>
+                            <a href="" class="t:px-3 t:text-[#BC0000] t:font-semibold t:whitespace-nowrap">Clip số</a>
+                        </nav>
+                    </div>
+
+                    <!-- Featured slider -->
+                    <div class="t:relative">
+                        <!-- Swiper: centeredSlides + loop, no built-in nav buttons -->
+                        <div
+                            class="swiper featured-clip-swiper t:overflow-hidden"
+                            id="featuredClipSwiper"
+                            data-swiper
+                            data-swiper-slides-per-view="1.75"
+                            data-swiper-centered-slides="true"
+                            data-swiper-space-between="0"
+                            data-swiper-loop="true"
+                            data-swiper-breakpoints='{"0":{"slidesPerView":1.15},"640":{"slidesPerView":1.4},"1024":{"slidesPerView":1.75}}'
+                        >
+                            <div class="swiper-wrapper">
+
+                                <!-- Slide 1 -->
+                                <div class="swiper-slide">
+                                    <a href="" class="t:block t:relative t:overflow-hidden t:bg-black">
+                                        <img
+                                            src="images/featured-1.jpg"
+                                            alt="Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận cuối"
+                                            class="t:w-full t:h-full t:object-cover"
+                                        />
+                                        <!-- Play button bottom-left (only on active slide via CSS) -->
+                                        <span class="slide-play-btn t:absolute t:bottom-3 t:left-3 t:size-9 t:rounded-full t:bg-white/80 t:flex t:items-center t:justify-center">
+                                            <svg class="t:w-4 t:h-4 t:text-[#333] t:translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <!-- Slide 2 -->
+                                <div class="swiper-slide">
+                                    <a href="" class="t:block t:relative t:overflow-hidden t:bg-black">
+                                        <img
+                                            src="images/featured-2.jpg"
+                                            alt="Giải Tứ hùng: PVF Công an nhân dân 1 - 0 Hoàng Anh Gia Lai"
+                                            class="t:w-full t:h-full t:object-cover"
+                                        />
+                                        <span class="slide-play-btn t:absolute t:bottom-3 t:left-3 t:size-9 t:rounded-full t:bg-white/80 t:flex t:items-center t:justify-center">
+                                            <svg class="t:w-4 t:h-4 t:text-[#333] t:translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <!-- Slide 3 -->
+                                <div class="swiper-slide">
+                                    <a href="" class="t:block t:relative t:overflow-hidden t:bg-black">
+                                        <img
+                                            src="images/featured-3.jpg"
+                                            alt="Màn lội ngược dòng bản lĩnh của đội bóng Thủ đô"
+                                            class="t:w-full t:h-full t:object-cover"
+                                        />
+                                        <span class="slide-play-btn t:absolute t:bottom-3 t:left-3 t:size-9 t:rounded-full t:bg-white/80 t:flex t:items-center t:justify-center">
+                                            <svg class="t:w-4 t:h-4 t:text-[#333] t:translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <!-- Slide 4 -->
+                                <div class="swiper-slide">
+                                    <a href="" class="t:block t:relative t:overflow-hidden t:bg-black">
+                                        <img
+                                            src="images/featured-4.jpg"
+                                            alt="Diễn biến trận đấu giữa Thể Công Viettel và Hoàng Anh Gia Lai"
+                                            class="t:w-full t:h-full t:object-cover"
+                                        />
+                                        <span class="slide-play-btn t:absolute t:bottom-3 t:left-3 t:size-9 t:rounded-full t:bg-white/80 t:flex t:items-center t:justify-center">
+                                            <svg class="t:w-4 t:h-4 t:text-[#333] t:translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                        </span>
+                                    </a>
+                                </div>
+
+                                <!-- Slide 5 -->
+                                <div class="swiper-slide">
+                                    <a href="" class="t:block t:relative t:overflow-hidden t:bg-black">
+                                        <img
+                                            src="images/featured-5.jpg"
+                                            alt="Chia điểm kịch tính, Thể Công Viettel hòa PVF CAND 1-1"
+                                            class="t:w-full t:h-full t:object-cover"
+                                        />
+                                        <span class="slide-play-btn t:absolute t:bottom-3 t:left-3 t:size-9 t:rounded-full t:bg-white/80 t:flex t:items-center t:justify-center">
+                                            <svg class="t:w-4 t:h-4 t:text-[#333] t:translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                        </span>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Custom nav buttons (at edges of center slide) -->
+                        <button type="button" id="featPrevBtn" class="featured-nav-btn featured-nav-btn--prev" aria-label="Trước">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M15 18l-6-6 6-6"/>
+                            </svg>
+                        </button>
+                        <button type="button" id="featNextBtn" class="featured-nav-btn featured-nav-btn--next" aria-label="Sau">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </button>
+
+                        <!-- Caption dưới slider -->
+                        <div class="t:mt-3 t:text-center t:px-4">
+                            <p id="featuredCaption" class="t:text-sm t:md:text-base t:text-[#212636] t:font-medium merriweather t:leading-snug">
+                                Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận cuối
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Clip grid – 4 columns -->
+                    <div
+                        id="clipGrid"
+                        class="t:grid t:grid-cols-2 t:md:grid-cols-4 t:gap-x-4 t:gap-y-6"
+                    >
+
+                        <!-- Card 1 – first card title in red -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-01.jpg"
+                                                                        alt="Diễn biến trận đấu giữa Thể Công Viettel và Hoàng Anh Gia Lai"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#BC0000] t:leading-snug t:line-clamp-3 t:hover:underline roboto">
+                                Diễn biến trận đấu giữa Thể Công Viettel và Hoàng Anh Gia Lai
+                            </a>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-02.jpg"
+                                                                        alt="Chia điểm kịch tính, Thể Công Viettel hòa PVF CAND 1-1"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Chia điểm kịch tính, Thể Công Viettel hòa PVF CAND 1-1
+                            </a>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-03.jpg"
+                                    alt="Giải Bóng đá Tứ hùng - Thái Nguyên 2025: Hoàng Anh Gia Lai 4-1 Câu lạc bộ Hà Nội"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Giải Bóng đá Tứ hùng - Thái Nguyên 2025: Hoàng Anh Gia Lai 4-1 Câu lạc bộ Hà Nội
+                            </a>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-04.jpg"
+                                    alt="Diễn biến hiệp 1 trận đấu giữa Câu lạc bộ Hà Nội và Hoàng Anh Gia Lai trên Sân vận động Thái Nguyên"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Diễn biến hiệp 1 trận đấu giữa Câu lạc bộ Hà Nội và Hoàng Anh Gia Lai trên Sân vận động Thái Nguyên
+                            </a>
+                        </article>
+
+                        <!-- Card 5 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-05.jpg"
+                                    alt="Tân Cương: Hành trình gìn giữ và nâng tầm Đệ nhất danh trà Việt"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Tân Cương: Hành trình gìn giữ và nâng tầm Đệ nhất danh trà Việt
+                            </a>
+                        </article>
+
+                        <!-- Card 6 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-06.jpg"
+                                    alt="Chè Shan tuyết Bảng Phúc: Hành trình gìn giữ di sản"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Chè Shan tuyết Bảng Phúc: Hành trình gìn giữ di sản
+                            </a>
+                        </article>
+
+                        <!-- Card 7 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-07.jpg"
+                                    alt="Đội bóng Hà Nội FC - Bản lĩnh Thủ đô tại Tứ hùng Thái Nguyên 2025"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Đội bóng Hà Nội FC - Bản lĩnh Thủ đô tại Tứ hùng Thái Nguyên 2025
+                            </a>
+                        </article>
+
+                        <!-- Card 8 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-08.jpg"
+                                    alt="Thể Công Viettel - Quyết chiến Tứ hùng 2025"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Thể Công Viettel - Quyết chiến Tứ hùng 2025
+                            </a>
+                        </article>
+
+                        <!-- Card 9 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-09.jpg"
+                                    alt="PVF Công an nhân dân sẵn sàng tham gia Giải Bóng đá Tứ hùng - Thái Nguyên 2025"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                PVF Công an nhân dân sẵn sàng tham gia Giải Bóng đá Tứ hùng - Thái Nguyên 2025
+                            </a>
+                        </article>
+
+                        <!-- Card 10 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-10.jpg"
+                                    alt="Lời chào từ đội bóng Hoàng Anh Gia Lai đến Thái Nguyên"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Lời chào từ đội bóng Hoàng Anh Gia Lai đến Thái Nguyên
+                            </a>
+                        </article>
+
+                        <!-- Card 11 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-11.jpg"
+                                    alt="Sinh viên công nghệ và hành trình sáng tạo khoa học"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Sinh viên công nghệ và hành trình sáng tạo khoa học
+                            </a>
+                        </article>
+
+                        <!-- Card 12 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-12.jpg"
+                                    alt="Hậu phương của 'Cương Ghềnh Chè'"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Hậu phương của 'Cương Ghềnh Chè'
+                            </a>
+                        </article>
+
+                        <!-- Card 13 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-13.jpg"
+                                    alt="Khám phá Sân vận động Thái Nguyên"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Khám phá Sân vận động Thái Nguyên
+                            </a>
+                        </article>
+
+                        <!-- Card 14 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-14.jpg"
+                                    alt="Khi sinh viên Thái Nguyên chạm đến tương lai giao thông số"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Khi sinh viên Thái Nguyên chạm đến tương lai giao thông số
+                            </a>
+                        </article>
+
+                        <!-- Card 15 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-15.jpg"
+                                    alt="Đại hội đại biểu Hội Phụ nữ tỉnh Thái Nguyên lần thứ I, nhiệm kỳ 2025-2030"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Đại hội đại biểu Hội Phụ nữ tỉnh Thái Nguyên lần thứ I, nhiệm kỳ 2025-2030
+                            </a>
+                        </article>
+
+                        <!-- Card 16 -->
+                        <article class="t:group t:flex t:flex-col t:gap-y-2">
+                            <a href="" class="t:block t:overflow-hidden t:bg-gray-100 t:aspect-video">
+                                <img
+                                    src="images/clip-16.jpg"
+                                    alt="Sân vận động Thái Nguyên – niềm tự hào mới của vùng Việt Bắc"
+                                    class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <a href="" class="t:text-sm t:font-medium t:text-[#212636] t:leading-snug t:line-clamp-3 t:hover:text-[#BC0000] t:transition-colors roboto">
+                                Sân vận động Thái Nguyên – niềm tự hào mới của vùng Việt Bắc
+                            </a>
+                        </article>
+
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="t:flex t:items-center t:justify-start t:gap-x-1.5 t:pt-2 t:pb-6 roboto">
+                        <!-- Prev -->
+                        <a href="" aria-label="Trang trước"
+                            class="t:flex t:items-center t:justify-center t:h-8 t:border t:border-[#D0D0D0] t:text-[#555] t:text-sm t:hover:border-[#935f25] t:hover:text-[#935f25] t:transition-colors t:shrink-0 t:bg-white t:px-2"
+                        >&lt;</a>
+                        <!-- Page 1 – active -->
+                        <a href="" aria-current="page"
+                            class="t:flex t:items-center t:justify-center t:h-8 t:text-sm t:font-medium t:text-white t:shrink-0 t:px-2"
+                            style="background:#935f25;"
+                        >1</a>
+                        <!-- Pages 2-5 -->
+                        <a href=""
+                            class="t:flex t:items-center t:justify-center t:h-8 t:border t:border-[#D0D0D0] t:text-[#555] t:text-sm t:hover:border-[#935f25] t:hover:text-[#935f25] t:transition-colors t:shrink-0 t:bg-white t:px-2"
+                        >2</a>
+                        <a href=""
+                            class="t:flex t:items-center t:justify-center t:h-8 t:border t:border-[#D0D0D0] t:text-[#555] t:text-sm t:hover:border-[#935f25] t:hover:text-[#935f25] t:transition-colors t:shrink-0 t:bg-white t:px-2"
+                        >3</a>
+                        <a href=""
+                            class="t:flex t:items-center t:justify-center t:h-8 t:border t:border-[#D0D0D0] t:text-[#555] t:text-sm t:hover:border-[#935f25] t:hover:text-[#935f25] t:transition-colors t:shrink-0 t:bg-white t:px-2"
+                        >4</a>
+                        <a href=""
+                            class="t:flex t:items-center t:justify-center t:h-8 t:border t:border-[#D0D0D0] t:text-[#555] t:text-sm t:hover:border-[#935f25] t:hover:text-[#935f25] t:transition-colors t:shrink-0 t:bg-white t:px-2"
+                        >5</a>
+                        <!-- Next -->
+                        <a href="" aria-label="Trang sau"
+                            class="t:flex t:items-center t:justify-center t:h-8 t:border t:border-[#D0D0D0] t:text-[#555] t:text-sm t:hover:border-[#935f25] t:hover:text-[#935f25] t:transition-colors t:shrink-0 t:bg-white t:px-2"
+                        >&gt;</a>
+                    </div>
+
+                </div>
+            </div>
+        </main>
 
         <footer class="t:bg-[#F8F8F8] t:pt-10 t:pb-6 home-footer roboto">
             <div class="t:container t:mx-auto">
@@ -1359,5 +1834,6 @@
         <script type="module" src="../../common/header-sticky.js"></script>
         <script type="module" src="../../common/header.js"></script>
         <script type="module" src="./home.js"></script>
+        <script type="module" src="./script/clip-so.js"></script>
     </body>
 </html>
