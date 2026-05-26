@@ -7,6 +7,15 @@
             if (ul.querySelectorAll('li').length === 0) ul.remove();
         });
 
+        // Wrap submenu children in .submenu-inner for CSS grid collapse animation
+        menu.querySelectorAll('li > ul').forEach(function (ul) {
+            if (ul.querySelector(':scope > .submenu-inner')) return;
+            var inner = document.createElement('div');
+            inner.className = 'submenu-inner';
+            while (ul.firstChild) inner.appendChild(ul.firstChild);
+            ul.appendChild(inner);
+        });
+
         // Thêm class has-submenu và span.sub-arrow cho các link có submenu
         menu.querySelectorAll('li').forEach(function (li) {
             var sub = li.querySelector(':scope > ul');
@@ -19,7 +28,7 @@
             a.appendChild(arrow);
         });
 
-        var isMobile = function () { return window.innerWidth < 768; };
+        var isMobile = function () { return window.innerWidth < 1024; };
 
         function closeSiblings(li) {
             if (!li.parentElement) return;
@@ -84,10 +93,13 @@
         var sectionNav = document.querySelector('.section_nav_v2');
         var navbar = document.querySelector('.menutop .navbar');
         if (!menuState) return;
+
         menuState.addEventListener('change', function () {
             var open = this.checked;
             if (sectionNav) sectionNav.classList.toggle('menu-open', open);
             if (navbar) navbar.classList.toggle('menu-open', open);
+            // Prevent page scroll while menu is open (no layout shift)
+            document.documentElement.classList.toggle('menu-is-open', open);
         });
     }
 

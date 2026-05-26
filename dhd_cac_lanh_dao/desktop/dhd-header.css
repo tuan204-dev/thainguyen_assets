@@ -1,9 +1,3 @@
-/* =============================================
-   DHD Header & Menutop Styles
-   Source: baothainguyen.vn/common/dhd/css/main.css + sm-clean.css
-   ============================================= */
-
-/* Bootstrap container */
 .container {
     width: 100%;
     padding-right: 15px;
@@ -11,13 +5,12 @@
     margin-right: auto;
     margin-left: auto;
 }
-@media (min-width: 576px) { .container { max-width: 540px; } }
+@media (min-width: 576px) { .container { max-width: 676px; } }
 @media (min-width: 768px) { .container { max-width: 720px; } }
 @media (min-width: 992px) { .container { max-width: 960px; } }
 @media (min-width: 1200px) { .container { max-width: 1140px; } }
 @media (min-width: 1400px) { .container { max-width: 1200px; } }
 
-/* Bootstrap navbar base (needed since we don't load Bootstrap CSS) */
 .navbar {
     position: relative;
     display: flex;
@@ -192,7 +185,6 @@
 /* SmartMenus desktop */
 @media (min-width: 768px) {
     .sm-clean ul { position: absolute; width: 12em; }
-    /* Nested submenu: xuất hiện bên phải */
     .sm-clean ul ul { left: 100%; top: 0; }
     .sm-clean li { float: left; }
     .sm-clean.sm-rtl li { float: right; }
@@ -377,8 +369,17 @@
 /* ---- Clear ---- */
 .clear { clear: both; color: #fff; font-size: 0; height: 0; line-height: 0; margin: 0; padding: 0; }
 
-/* ---- Desktop: căn giữa menu ---- */
-@media (min-width: 769px) {
+/* ---- Tablet 768–1023px: undo sm-clean desktop, giữ hamburger ---- */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .main-menu-btn { position: relative !important; top: 0 !important; }
+    #main-menu-state:not(:checked) ~ #main-menu { display: none !important; }
+    .section_nav_v2 { display: block !important; }
+    .sm-clean li { float: none !important; }
+    .sm-clean a { white-space: normal !important; }
+}
+
+/* ---- Desktop ≥1024px ---- */
+@media (min-width: 1024px) {
     .menutop .navbar {
         position: relative;
         padding: 0;
@@ -413,21 +414,49 @@
         padding: 10px 14px !important;
         line-height: normal !important;
     }
+    #main-menu li a img {
+        width: 20px;
+        height: 20px;
+        display: block;
+        object-fit: contain;
+    }
+    #main-menu .home_menu a i {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
 }
 
-/* ---- Mobile overrides ---- */
-@media screen and (max-width: 768px) {
+@media (min-width: 1024px) and (max-width: 1280px) {
+    .menutop #main-menu > li > a {
+        font-size: 14px !important;
+        padding: 10px 8px !important;
+    }
+    #main-menu {
+        padding-left: 135px;
+    }
+}
+
+/* ---- Mobile + Tablet overrides (≤1023px) ---- */
+@media screen and (max-width: 1023px) {
     .section_nav_v2 { display: block; }
     .header .container { padding: 0; }
     .menutop { height: auto; position: relative; }
+
+    /* Open menu: cap height to viewport, enable internal scroll */
+    #main-menu-state:checked ~ #main-menu {
+        max-height: calc(100vh - 50px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+
     .menutop .main-menu-btn-icon,
     .menutop .main-menu-btn-icon:before,
     .menutop .main-menu-btn-icon:after { background: #fff; }
     .menutop #main-menu li { display: block; }
     #main-menu .home_menu { position: unset; }
     .menutop #main-menu li a { color: #fff; }
-
-    /* Home menu button trên mobile: có margin trái/phải để tạo padding quanh button */
     #main-menu .home_menu {
         margin: 8px 16px;
     }
@@ -442,15 +471,19 @@
         border-radius: 8px;
     }
 
-    /* Submenu animation mobile */
+    /* Grid collapse trick: transitions at actual content height, always smooth */
     #main-menu li > ul {
+        display: grid !important;
+        grid-template-rows: 0fr;
         overflow: hidden;
-        max-height: 0;
-        display: block !important;
-        transition: max-height 0.3s ease;
+        transition: grid-template-rows 0.35s ease;
+    }
+    #main-menu li > ul > .submenu-inner {
+        overflow: hidden;
+        min-height: 0;
     }
     #main-menu li > ul.open {
-        max-height: 800px;
+        grid-template-rows: 1fr;
     }
 
     /* Indent submenu theo cấp */
@@ -478,8 +511,14 @@
         height: 50px;
         line-height: 50px;
         margin-top: -50px;
-        padding-left: 50px;
+        padding-left: 0;
         background: transparent;
+    }
+    /* Container inside section_nav aligns with navbar container;
+       padding-left 65px = 60px hamburger footprint + 5px gap */
+    .section_nav_v2 .container {
+        padding-left: 45px;
+        box-sizing: border-box;
     }
     .section_nav_v2 .wrap-scroll-nav {
         height: 50px;
@@ -529,7 +568,7 @@
     }
     .menutop .main-menu-btn {
         float: none;
-        margin: 0 10px;
+        margin: 0 22px -2px !important;
         height: 50px;
         display: flex;
         align-items: center;
@@ -545,6 +584,12 @@
     .section_nav_v2.menu-open {
         display: none !important;
     }
+}
+
+/* Prevent body scroll while mobile menu open — no layout shift, no stacking issues */
+html.menu-is-open,
+html.menu-is-open body {
+    overflow: hidden;
 }
 
 /* Sticky override — phải đặt SAU mobile block để không bị ghi đè */
