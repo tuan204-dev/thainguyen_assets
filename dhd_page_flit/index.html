@@ -104,15 +104,16 @@
         /* ── Bottom toolbar ── */
         #toolbar {
             position: absolute;
-            bottom: 18px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 0;
+            left: 0;
+            right: 0;
             display: flex;
             align-items: center;
-            background: rgba(255,255,255,0.93);
-            border-radius: 32px;
+            justify-content: center;
+            background: #fff;
+            border-radius: 0;
             padding: 5px 14px;
-            box-shadow: 0 4px 22px rgba(0,0,0,0.45);
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.12);
             z-index: 9990;
             gap: 0;
             white-space: nowrap;
@@ -129,10 +130,20 @@
         }
         .tb-btn:hover { background: rgba(0,0,0,0.08); color: #111; }
         .tb-btn.is-active { color: #d0021b; }
+
         .tb-sep {
             width: 1px; height: 22px;
             background: rgba(0,0,0,0.13);
             margin: 0 4px; flex-shrink: 0;
+        }
+
+        /* ── Fullscreen mode ── */
+        body.fs-mode .header { display: none !important; }
+        body.fs-mode .reading-area {
+            height: 100vh;
+        }
+        body.fs-mode #epaper_preview {
+            height: calc(100vh - 48px) !important;
         }
 
         /* ── Book list sidebar ── */
@@ -176,6 +187,55 @@
             white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         }
         .bs-item:hover span { color: #fff; }
+
+        /* ── TOC sidebar ── */
+        #toc-backdrop {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 99990;
+        }
+        #toc-backdrop.open { display: block; }
+
+        #toc-sidebar {
+            position: fixed;
+            top: 38px; left: -260px; bottom: 0;
+            width: 240px;
+            background: #fff;
+            overflow-y: auto; overflow-x: hidden;
+            transition: left 0.28s ease;
+            z-index: 99991;
+            box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+        }
+        #toc-sidebar.open { left: 0; }
+        body.fs-mode #toc-sidebar { top: 0; }
+
+        .toc-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 16px 10px;
+            border-bottom: 1px solid #eee;
+            position: sticky; top: 0;
+            background: #fff;
+            z-index: 1;
+        }
+        .toc-title { font-size: 14px; font-weight: 600; color: #c0392b; }
+        .toc-close {
+            background: none; border: none;
+            color: #aaa; font-size: 18px; cursor: pointer; line-height: 1; padding: 0;
+        }
+        .toc-close:hover { color: #333; }
+
+        .toc-item {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 9px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background 0.12s;
+            color: #333; font-size: 13px;
+        }
+        .toc-item:hover { background: #f7f7f7; }
+        .toc-item.active { background: #fef0f0; color: #c0392b; font-weight: 600; }
+        .toc-item span { color: #aaa; font-size: 12px; }
 
         /* ── Share modal ── */
         #share-modal {
@@ -234,7 +294,7 @@
             <button class="tb-btn" id="tb-zoom-out"   title="Thu nhỏ"><i class="fa fa-minus"></i></button>
             <div class="tb-sep"></div>
             <button class="tb-btn" id="tb-play"       title="Tự chạy"><i class="fa fa-play"></i></button>
-            <button class="tb-btn" id="tb-list"       title="Danh sách ấn phẩm"><i class="fa fa-bars"></i></button>
+            <button class="tb-btn" id="tb-list"       title="Mục lục"><i class="fa fa-list-ol"></i></button>
             <button class="tb-btn" id="tb-share"      title="Chia sẻ"><i class="fa fa-share-alt"></i></button>
             <button class="tb-btn" id="tb-sound"      title="Âm thanh"><i class="fa fa-volume-up"></i></button>
             <button class="tb-btn" id="tb-fullscreen" title="Toàn màn hình"><i class="fa fa-expand"></i></button>
@@ -320,6 +380,18 @@
         </div>
     </div>
 
+    <!-- TOC backdrop -->
+    <div id="toc-backdrop"></div>
+
+    <!-- TOC sidebar -->
+    <div id="toc-sidebar">
+        <div class="toc-header">
+            <span class="toc-title">Mục lục</span>
+            <button class="toc-close" id="toc-close-btn">✕</button>
+        </div>
+        <div id="toc-list"></div>
+    </div>
+
     <!-- Share modal -->
     <div id="share-modal">
         <div class="share-box">
@@ -347,6 +419,8 @@
         var isPlaying = false;
         var soundOn   = true;
         var playTimer = null;
+        var isZooming = false;
+        var zoomTimer = null;
 
         /* ─── Custom flip sound (tránh DFlip's built-in bị browser block) ─── */
         var flipSound = new Audio('./vendor/sound/flip-page.mp3');
@@ -354,13 +428,52 @@
         flipSound.volume  = 0.7;
 
         function playFlipSound() {
-            if (!soundOn) return;
+            if (!soundOn || isZooming) return;
             flipSound.currentTime = 0;
             flipSound.play().catch(function () {});
         }
 
+        function markZooming() {
+            isZooming = true;
+            clearTimeout(zoomTimer);
+            zoomTimer = setTimeout(function () { isZooming = false; }, 600);
+        }
+
         function openSidebar()  { $('#book-sidebar, #sidebar-backdrop').addClass('open'); }
         function closeSidebar() { $('#book-sidebar, #sidebar-backdrop').removeClass('open'); }
+
+        function openToc() {
+            buildToc();
+            $('#toc-sidebar, #toc-backdrop').addClass('open');
+        }
+        function closeToc() { $('#toc-sidebar, #toc-backdrop').removeClass('open'); }
+
+        function buildToc() {
+            var info = readPageInfo();
+            var total = info ? info.total : 0;
+            if (!total) return;
+            var cur = info ? info.cur : 1;
+            var $list = $('#toc-list').empty();
+            for (var p = 1; p <= total; p++) {
+                var active = (p === cur || (cur > 1 && p === cur - 1)) ? ' active' : '';
+                $list.append(
+                    '<div class="toc-item' + active + '" data-page="' + p + '">' +
+                        '<span style="color:#333">Trang ' + p + '</span>' +
+                        '<span>' + p + '</span>' +
+                    '</div>'
+                );
+            }
+            $list.on('click', '.toc-item', function () {
+                var page = parseInt($(this).data('page'), 10);
+                if (typeof flipBook.gotoPage === 'function') {
+                    flipBook.gotoPage(page);
+                } else {
+                    dfClick('.df-ui-next'); /* fallback */
+                }
+                setTimeout(updateCounter, 400);
+                closeToc();
+            });
+        }
 
         function dfClick(selector) {
             var $btn = $(selector);
@@ -429,13 +542,21 @@
             var cur = info.cur, total = info.total, mode = info.mode;
             var label;
             /*
-             * DFlip báo _activePage là trang PHẢI của spread (right page).
-             * Ví dụ đang xem spread 2-3 → _activePage = 3.
-             * Công thức đúng: hiển thị (cur-1) - cur, không phải cur - (cur+1).
-             * Trang bìa (cur === 1) luôn hiển thị đơn.
+             * _activePage không nhất quán:
+             *   - Lật tự nhiên  → right page (số lẻ: 3, 5, 7…)
+             *   - gotoPage(n)   → left  page (số chẵn: 2, 4, 6…)
+             * Dùng chẵn/lẻ để suy ra cặp trang đang hiển thị.
+             * Trang 1 (bìa) và trang cuối nếu lẻ hiển thị đơn.
              */
-            if (mode === 2 && cur > 1 && cur < total) {
-                label = (cur - 1) + '-' + cur + ' / ' + total;
+            if (mode === 2 && cur > 1) {
+                var isLeft = (cur % 2 === 0);
+                if (isLeft && cur + 1 <= total) {
+                    label = cur + '-' + (cur + 1) + ' / ' + total;
+                } else if (!isLeft && cur - 1 >= 2) {
+                    label = (cur - 1) + '-' + cur + ' / ' + total;
+                } else {
+                    label = cur + ' / ' + total;
+                }
             } else {
                 label = cur + ' / ' + total;
             }
@@ -503,16 +624,20 @@
             $('#btn-next').on('click', function () { dfClick('.df-ui-next'); setTimeout(updateCounter, 900); });
 
             /* ── Zoom ── */
-            $('#tb-zoom-in').on('click',  function () { dfClick('.df-ui-zoomin');  });
-            $('#tb-zoom-out').on('click', function () { dfClick('.df-ui-zoomout'); });
+            $('#tb-zoom-in').on('click',  function () { markZooming(); dfClick('.df-ui-zoomin');  });
+            $('#tb-zoom-out').on('click', function () { markZooming(); dfClick('.df-ui-zoomout'); });
 
             /* ── Play: manual looping timer ── */
             $('#tb-play').on('click', function () {
                 if (isPlaying) stopPlay(); else startPlay();
             });
 
-            /* ── Book list ── */
-            $('#tb-list, #btn-toggle-booklist').on('click', function (e) {
+            /* ── Mục lục ── */
+            $('#tb-list').on('click', function () { openToc(); });
+            $('#toc-close-btn, #toc-backdrop').on('click', closeToc);
+
+            /* ── Book list (header link) ── */
+            $('#btn-toggle-booklist').on('click', function (e) {
                 e.preventDefault();
                 openSidebar();
             });
@@ -546,15 +671,33 @@
 
             /* ── Fullscreen ── */
             $('#tb-fullscreen').on('click', function () {
-                if (!dfClick('.df-ui-fullscreen')) {
-                    if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(function(){});
-                    else document.exitFullscreen();
+                if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                    var el = document.documentElement;
+                    (el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen).call(el);
+                } else {
+                    (document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen).call(document);
                 }
             });
-            document.addEventListener('fullscreenchange', function () {
-                var isFs = !!document.fullscreenElement;
+            function onFullscreenChange() {
+                var isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
                 $('#tb-fullscreen .fa').toggleClass('fa-expand', !isFs).toggleClass('fa-compress', isFs);
-            });
+                $('body').toggleClass('fs-mode', isFs);
+
+                /* Sau khi CSS áp dụng, window.innerHeight đã là chiều cao fullscreen
+                   → trigger DFlip resize để nó vẽ lại với kích thước mới */
+                setTimeout(function () {
+                    try {
+                        var toolbarH = $('#toolbar').outerHeight() || 48;
+                        var headerH  = isFs ? 0 : 38;
+                        var newH     = window.innerHeight - headerH - toolbarH;
+                        var fb = flipBook && flipBook.target;
+                        if (fb && fb.options) fb.options.height = newH;
+                        window.dispatchEvent(new Event('resize'));
+                    } catch(e) {}
+                }, 150);
+            }
+            document.addEventListener('fullscreenchange',       onFullscreenChange);
+            document.addEventListener('webkitfullscreenchange', onFullscreenChange);
 
             /* ── Close ── */
             $('#tb-close').on('click', function () {
@@ -572,8 +715,11 @@
             /* ── Resize ── */
             $(window).on('resize', function () {
                 try {
+                    var isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
+                    var toolbarH = $('#toolbar').outerHeight() || 48;
+                    var headerH  = isFs ? 0 : 38;
                     var fb = flipBook && flipBook.target;
-                    if (fb && fb.options) fb.options.height = window.innerHeight - 38;
+                    if (fb && fb.options) fb.options.height = window.innerHeight - headerH - toolbarH;
                 } catch(e) {}
             });
         });
