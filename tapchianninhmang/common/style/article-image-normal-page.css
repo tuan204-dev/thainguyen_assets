@@ -1,0 +1,30 @@
+.article-prose figure[data-align-image="full"],
+.article-prose [data-alignable="full"],
+.article-prose figure[data-align-image="bleed"],
+.article-prose [data-alignable="bleed"] {
+  width: 100%;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  .article-prose figure[data-align-image="bleed-left"],
+  .article-prose [data-alignable="bleed-left"] {
+    width: 50%;
+    float: left;
+    margin-right: 1rem;
+    margin-left: 0;
+    margin-top: 12px;
+  }
+
+  .article-prose figure[data-align-image="bleed-right"],
+  .article-prose [data-alignable="bleed-right"] {
+    width: 50%;
+    float: right;
+    margin-left: 1rem;
+    margin-right: 0;
+    margin-top: 12px;
+  }
+}

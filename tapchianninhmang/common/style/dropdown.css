@@ -1,0 +1,164 @@
+/* ─── Floating Dropdown – shared styles ─────────────────────── */
+
+.dropdown-block {
+	position: relative;
+}
+
+.dropdown-trigger {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	border: 0;
+	border-radius: 12px;
+	padding: 12px 16px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #fff;
+	background: linear-gradient(140deg, var(--action, #1f3b68), #2b4c80);
+	box-shadow: 0 10px 24px rgba(20, 41, 73, 0.25);
+	cursor: pointer;
+	text-transform: uppercase;
+	transition:
+		transform 0.15s ease,
+		box-shadow 0.2s ease,
+		background-color 0.2s ease;
+}
+
+.dropdown-trigger:hover {
+	background: linear-gradient(
+		140deg,
+		var(--action-hover, #142949),
+		var(--action, #1f3b68)
+	);
+	transform: translateY(-1px);
+}
+
+.dropdown-trigger:focus-visible {
+	outline: 3px solid #93c5fd;
+	outline-offset: 3px;
+}
+
+.caret {
+	font-size: 12px;
+	transition: transform 0.2s ease;
+}
+
+/* Rotate caret when menu is open */
+[data-floating-dropdown]:has([data-floating-menu][data-open="true"]) > .dropdown-trigger .caret {
+	transform: rotate(180deg);
+}
+
+.dropdown-menu {
+	z-index: 50;
+	width: 224px;
+	border-radius: 14px;
+	border: 1px solid var(--stroke, #d7dfeb);
+	background: var(--panel, #ffffff);
+	padding: 6px;
+	box-shadow: 0 22px 44px rgba(15, 23, 42, 0.16);
+	transform-origin: top left;
+}
+
+/* Invisible bridge that spans the offset gap between trigger and menu.
+   --bridge-pad is set dynamically by the JS positioning logic. */
+.dropdown-menu[data-open="true"]::before {
+	content: "";
+	position: absolute;
+	inset: calc(-1 * var(--bridge-pad, 12px));
+	z-index: -1;
+}
+
+/* For submenus opening to the right, extend bridge to the left only */
+.submenu-menu[data-open="true"]::before {
+	content: "";
+	position: absolute;
+	inset: -6px;
+	left: calc(-1 * var(--bridge-pad, 10px));
+	z-index: -1;
+}
+
+/* ─── open / close animation ────────────────────────────────── */
+
+.dropdown-menu[data-open="true"] {
+	animation: menu-enter 0.18s ease-out forwards;
+}
+
+.is-hidden {
+	display: none;
+}
+
+/* ─── menu items ────────────────────────────────────────────── */
+
+.dropdown-item {
+	display: block;
+	width: 100%;
+	border: 0;
+	border-radius: 10px;
+	padding: 10px 12px;
+	font-size: 14px;
+	text-transform: uppercase;
+	text-align: left;
+	color: var(--ink, #132033);
+	background: transparent;
+	cursor: pointer;
+	transition: background-color 0.12s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus-visible {
+	background: #eef3fb;
+	outline: none;
+}
+
+.dropdown-item.danger {
+	color: var(--danger, #b91c1c);
+}
+
+.dropdown-item.danger:hover,
+.dropdown-item.danger:focus-visible {
+	background: var(--danger-bg, #fee2e2);
+}
+
+/* ─── submenu ───────────────────────────────────────────────── */
+
+.dropdown-submenu {
+	position: relative;
+}
+
+.submenu-trigger {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.submenu-caret {
+	color: var(--ink-soft, #506079);
+	font-size: 13px;
+	line-height: 1;
+}
+
+.submenu-menu {
+	width: 200px;
+}
+
+/* ─── separator ─────────────────────────────────────────────── */
+
+.dropdown-separator {
+	height: 1px;
+	margin: 4px 6px;
+	background: var(--stroke, #d7dfeb);
+}
+
+/* ─── keyframes ─────────────────────────────────────────────── */
+
+@keyframes menu-enter {
+	0% {
+		opacity: 0;
+		transform: translateY(-4px) scale(0.98);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}

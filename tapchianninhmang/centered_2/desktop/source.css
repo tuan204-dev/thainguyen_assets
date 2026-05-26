@@ -1,0 +1,155 @@
+@import "tailwindcss" source(none) prefix(t);
+@plugin "@tailwindcss/typography";
+@source "./**/*.{html,js,jsx,ts,tsx}";
+
+@theme {
+  --color-tw-primary: #212636;
+  --color-tw-secondary: #667085;
+  --color-tw-border: #d0d5dd;
+
+  --breakpoint-bt-xl: 1200px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Centered Layout v2 — single column article (TCA brand)
+   Mirrors `centered`. Inherits base styles from common.css.
+   ══════════════════════════════════════════════════════════════ */
+
+.noto-font {
+  font-family: "Noto Serif", serif;
+}
+
+.title {
+  font-family: "Noto Serif", serif;
+  font-weight: 500;
+}
+
+/* Category badge — clip-path label, brand blue */
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #0A64B4;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 40px;
+  padding: 0 32px 0 15px;
+  clip-path: polygon(0% 0%, 90% 0, 100% 32%, 100% 100%, 0% 100%);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.category-badge:hover {
+  color: white;
+  background: #07528F;
+}
+
+/* Article main title */
+.header-title .title.l1 {
+  font-size: 2.1875rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.article-date {
+  font-size: 0.8rem;
+  color: var(--text-color-soft, #5E5E5E);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Roboto", sans-serif;
+}
+
+#content {
+  @apply t:prose t:max-w-none t:text-lg;
+}
+
+.article-prose {
+  line-height: 1.6;
+  color: var(--text-color, #1A1A1A);
+  font-size: 1.125rem;
+}
+
+.article-prose p { margin-bottom: 1.1rem; }
+.article-prose figure { margin: 2rem 0; }
+.article-prose figcaption {
+  font-size: 0.875rem;
+  color: #444343;
+  text-align: left !important;
+  font-style: italic;
+  margin-top: 0;
+  padding: 8px 0 0 0;
+}
+/* Override article-image.css centering for this layout */
+.article-prose figcaption p,
+.article-prose figcaption .Image,
+#content .tplCaption figcaption p,
+#content .tplCaption figcaption .Image {
+  text-align: left !important;
+}
+.article-prose img { width: 100%; height: auto; }
+.article-prose strong { font-weight: 700; }
+.article-prose h2 { font-size: 1.375rem; font-weight: 700; margin: 1.75rem 0 0.75rem; }
+.article-prose h3 { font-size: 1.125rem; font-weight: 700; margin: 1.25rem 0 0.5rem; }
+
+/* Drop cap — first paragraph of article + paragraph immediately after each H2 */
+.article-prose .has-dropcap::first-letter,
+.article-prose h2 + p::first-letter {
+  float: left;
+  font-size: 3.75rem;
+  line-height: 0.95;
+  font-weight: 700;
+  color: #0A64B4;
+  padding: 0.25rem 0.5rem 0 0;
+}
+
+/* Share buttons */
+.share-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #F0F0F0;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.share-icon-btn:hover {
+  background: #E0E0E0;
+  color: #333;
+}
+
+.info-cate-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0A64B4;
+}
+
+.info-cate-link:hover { color: var(--highlight-color, #07528F); }
+
+.tag-link {
+  font-size: 0.8rem;
+  color: #0A64B4;
+  text-decoration: none;
+}
+
+.tag-link:hover { color: var(--highlight-color, #07528F); }
+
+img {
+  max-width: 100%;
+}
+
+.detail-main-column {
+  display: flex;
+  flex-direction: column;
+}

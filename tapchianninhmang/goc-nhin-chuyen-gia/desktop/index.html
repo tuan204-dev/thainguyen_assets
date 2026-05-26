@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góc nhìn chuyên gia — Tạp chí An ninh mạng Việt Nam</title>
+    <link rel="stylesheet" href="../../common/style/fonts-inter-vn.css">
+    <link rel="stylesheet" href="../../common/style/fonts-lora-vn.css">
+    <link rel="stylesheet" href="../../common/style/fonts-merriweather-vn.css">
+    <link rel="stylesheet" href="../../common/style/fonts-roboto-vn.css">
+    <link rel="stylesheet" href="../../common/style/fonts-chakra-petch-vn.css">
+    <link rel="stylesheet" href="../../common/style/fonts-noto-serif-vn.css">
+    <link rel="stylesheet" href="../../common/style/common.css">
+    <link rel="stylesheet" href="../../common/style/dropdown.css">
+    <link rel="stylesheet" href="../../common/style/icon.css">
+    <link rel="stylesheet" href="../../common/style/overlay.css">
+    <link rel="stylesheet" href="../../common/style/article-image.css">
+    <link rel="stylesheet" href="./output.css">
+</head>
+
+<body>
+
+    <!-- desktop header -->
+    <header class="home-header t:max-md:hidden">
+        <div
+            class="t:w-full t:transition-all header-main t:duration-500 t:h-20 t:fixed t:bg-white t:top-0 t:left-0 t:z-50 home-header-main">
+            <div class="t:container">
+                <div class="t:flex t:items-center t:py-2">
+                    <button type="button" data-overlay-target="desktop-main-menu" aria-label="Mở menu"
+                        class="t:flex t:items-center t:gap-2 t:bg-[#E02D3A] t:text-white t:border-0 t:rounded-full t:px-5 t:py-2.5 t:text-base t:font-medium t:cursor-pointer t:transition-colors t:hover:bg-[#c81e2b] home-menu-toggle roboto">
+                        <i class="material-symbols--menu-rounded t:text-xl"></i>
+                        Menu
+                    </button>
+                    <div class="t:flex-1 t:flex t:justify-center">
+                        <img src="../../common/assets/logo.png" alt=""
+                            class="t:max-h-[64px] logo-header t:transition-all t:duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="t:h-20"></div>
+    </header>
+
+    <aside class="home-menu-aside roboto t:max-md:hidden">
+        <div class="overlay home-main-overlay" data-overlay-id="desktop-main-menu">
+            <div class="overlay__backdrop"></div>
+
+            <div class="overlay__content t:p-0 home-main-overlay-content"
+                style="max-width: 1120px; margin-top: 54px; border-radius: 0; overflow: visible;">
+                <div class="t:grid t:grid-cols-[320px_1fr]" style="min-height: 640px;">
+                    <div class="t:border-r t:border-[#D9D9D9] t:bg-[#FAFAFA] home-overlay-sidebar">
+                        <nav aria-label="Danh mục mở rộng" class="t:h-full home-overlay-nav">
+                            <ul class="t:list-none t:m-0 t:p-0 t:text-[17px] t:font-bold t:text-[#151515]">
+                                <li class="t:border-b t:border-[#D9D9D9]">
+                                    <a href="#" data-menu-item="trang-chu"
+                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1] is-active">
+                                        <span data-menu-indicator
+                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
+                                        Trang chủ
+                                    </a>
+                                </li>
+                                <li class="t:border-b t:border-[#D9D9D9]">
+                                    <a href="#" data-menu-item="su-kien"
+                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
+                                        <span data-menu-indicator
+                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
+                                        Sự kiện &amp; Quan điểm
+                                    </a>
+                                </li>
+                                <li class="t:border-b t:border-[#D9D9D9]">
+                                    <a href="#" data-menu-item="canh-bao"
+                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
+                                        <span data-menu-indicator
+                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
+                                        Cảnh báo lừa đảo
+                                    </a>
+                                </li>
+                                <li class="t:border-b t:border-[#D9D9D9]">
+                                    <a href="#" data-menu-item="bao-ve"
+                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
+                                        <span data-menu-indicator
+                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
+                                        Bảo vệ dữ liệu
+                                    </a>
+                                </li>
+                                <li class="t:border-b t:border-[#D9D9D9]">
+                                    <a href="#" data-menu-item="phong-chong"
+                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
+                                        <span data-menu-indicator
+                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
+                                        Phòng và chống tấn công
+                                    </a>
+                                </li>
+                                <li class="t:border-b t:border-[#D9D9D9]">
+                                    <a href="#" data-menu-item="ho-so"
+                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
+                                        <span data-menu-indicator
+                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
+                                        Hồ sơ tội phạm mạng
+                                    </a>
+                                </li>
+                                <li class="t:border-b t:border-[#D9D9D9]">
+                                    <a href="#" data-menu-item="an-ninh"
+                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
+                                        <span data-menu-indicator
+                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
+                                        An ninh mạng
+                                    </a>
+                                </li>
+                                <li class="t:border-b t:border-[#D9D9D9]">
+                                    <a href="#" data-menu-item="chuyen-doi"
+                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
+                                        <span data-menu-indicator
+                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
+                                        Chuyển đổi số
+                                    </a>
+                                </li>
+                                <li class="t:border-b t:border-[#D9D9D9]">
+                                    <a href="#" data-menu-item="da-phuong-tien"
+                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
+                                        <span data-menu-indicator
+                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
+                                        Đa phương tiện
+                                    </a>
+                                </li>
+                                <li class="t:border-b t:border-[#D9D9D9]">
+                                    <a href="#" data-menu-item="hanh-lang"
+                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
+                                        <span data-menu-indicator
+                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
+                                        Hành lang pháp lý
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="t:bg-white t:pt-8 t:px-8 home-overlay-content">
+                        <!-- Trang chủ -->
+                        <div data-menu-panel="trang-chu" class="overlay-menu-panel">
+                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Trang chủ</h3>
+                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                <div class="mobile-menu-sub" data-accordion-panel>
+                                    <a href="#">Tin mới</a>
+                                    <a href="#">Nổi bật</a>
+                                    <a href="#">Đọc nhiều</a>
+                                    <a href="#">Dòng sự kiện</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sự kiện & Quan điểm -->
+                        <div data-menu-panel="su-kien" class="overlay-menu-panel t:hidden">
+                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Sự kiện &amp; Quan điểm</h3>
+                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                <div class="mobile-menu-sub" data-accordion-panel>
+                                    <a href="#">Sự kiện nóng</a>
+                                    <a href="#">Bình luận</a>
+                                    <a href="#">Phỏng vấn</a>
+                                    <div class="mobile-menu-item mobile-menu-item--nested">
+                                        <button type="button" class="mobile-menu-trigger mobile-menu-trigger--nested" data-accordion-trigger>
+                                            <span>Góc nhìn chuyên gia</span>
+                                            <span class="mobile-menu-caret">›</span>
+                                        </button>
+                                        <div class="mobile-menu-sub" data-accordion-panel>
+                                            <a href="#">Chính sách</a>
+                                            <a href="#">Công nghệ</a>
+                                            <div class="mobile-menu-item mobile-menu-item--nested">
+                                                <button type="button" class="mobile-menu-trigger mobile-menu-trigger--nested" data-accordion-trigger>
+                                                    <span>Phân tích sâu</span>
+                                                    <span class="mobile-menu-caret">›</span>
+                                                </button>
+                                                <div class="mobile-menu-sub" data-accordion-panel>
+                                                    <a href="#">Xu hướng tấn công</a>
+                                                    <a href="#">Giám sát dữ liệu</a>
+                                                    <div class="mobile-menu-item mobile-menu-item--nested">
+                                                        <button type="button" class="mobile-menu-trigger mobile-menu-trigger--nested" data-accordion-trigger>
+                                                            <span>Chuyên đề</span>
+                                                            <span class="mobile-menu-caret">›</span>
+                                                        </button>
+                                                        <div class="mobile-menu-sub" data-accordion-panel>
+                                                            <a href="#">Zero-day</a>
+                                                            <a href="#">Supply chain</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cảnh báo lừa đảo -->
+                        <div data-menu-panel="canh-bao" class="overlay-menu-panel t:hidden">
+                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Cảnh báo lừa đảo</h3>
+                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                <div class="mobile-menu-sub" data-accordion-panel>
+                                    <a href="#">Chiêu trò mới</a>
+                                    <div class="mobile-menu-item mobile-menu-item--nested">
+                                        <button type="button" class="mobile-menu-trigger mobile-menu-trigger--nested" data-accordion-trigger>
+                                            <span>Lừa đảo tài chính</span>
+                                            <span class="mobile-menu-caret">›</span>
+                                        </button>
+                                        <div class="mobile-menu-sub" data-accordion-panel>
+                                            <a href="#">Ngân hàng giả</a>
+                                            <a href="#">Tiền ảo</a>
+                                            <a href="#">Đầu tư đa cấp</a>
+                                        </div>
+                                    </div>
+                                    <a href="#">Lừa đảo AI</a>
+                                    <a href="#">Tự bảo vệ</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bảo vệ dữ liệu -->
+                        <div data-menu-panel="bao-ve" class="overlay-menu-panel t:hidden">
+                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Bảo vệ dữ liệu</h3>
+                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                <div class="mobile-menu-sub" data-accordion-panel>
+                                    <a href="#">Dữ liệu cá nhân</a>
+                                    <a href="#">Dữ liệu doanh nghiệp</a>
+                                    <a href="#">Sao lưu</a>
+                                    <a href="#">Khôi phục</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phòng và chống tấn công -->
+                        <div data-menu-panel="phong-chong" class="overlay-menu-panel t:hidden">
+                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Phòng và chống tấn công</h3>
+                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                <div class="mobile-menu-sub" data-accordion-panel>
+                                    <a href="#">Ransomware</a>
+                                    <a href="#">APT</a>
+                                    <a href="#">SOC</a>
+                                    <a href="#">Incident Response</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hồ sơ tội phạm mạng -->
+                        <div data-menu-panel="ho-so" class="overlay-menu-panel t:hidden">
+                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Hồ sơ tội phạm mạng</h3>
+                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                <div class="mobile-menu-sub" data-accordion-panel>
+                                    <a href="#">Nhân vật</a>
+                                    <a href="#">Băng nhóm</a>
+                                    <a href="#">Chiến dịch</a>
+                                    <a href="#">Phân tích hành vi</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- An ninh mạng -->
+                        <div data-menu-panel="an-ninh" class="overlay-menu-panel t:hidden">
+                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">An ninh mạng</h3>
+                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                <div class="mobile-menu-sub" data-accordion-panel>
+                                    <a href="#">Tin quốc tế</a>
+                                    <a href="#">Tin trong nước</a>
+                                    <a href="#">Nghiên cứu</a>
+                                    <a href="#">Văn bản mới</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chuyển đổi số -->
+                        <div data-menu-panel="chuyen-doi" class="overlay-menu-panel t:hidden">
+                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Chuyển đổi số</h3>
+                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                <div class="mobile-menu-sub" data-accordion-panel>
+                                    <a href="#">Chính phủ số</a>
+                                    <a href="#">Doanh nghiệp số</a>
+                                    <a href="#">Dữ liệu mở</a>
+                                    <a href="#">Hạ tầng số</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Đa phương tiện -->
+                        <div data-menu-panel="da-phuong-tien" class="overlay-menu-panel t:hidden">
+                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Đa phương tiện</h3>
+                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                <div class="mobile-menu-sub" data-accordion-panel>
+                                    <a href="#">Tin ảnh</a>
+                                    <a href="#">Infographic</a>
+                                    <a href="#">MAGAZINE</a>
+                                    <a href="#">Audio</a>
+                                    <a href="#">Video</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hành lang pháp lý -->
+                        <div data-menu-panel="hanh-lang" class="overlay-menu-panel t:hidden">
+                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Hành lang pháp lý</h3>
+                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                <div class="mobile-menu-sub" data-accordion-panel>
+                                    <a href="#">Luật An ninh mạng</a>
+                                    <a href="#">Nghị định mới</a>
+                                    <a href="#">Tiêu chuẩn</a>
+                                    <a href="#">Hỏi đáp pháp lý</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <script>
+        // Desktop overlay menu – level 1 sidebar switching
+        document.addEventListener("click", (event) => {
+            const menuItem = event.target.closest("[data-menu-item]");
+            if (!menuItem) return;
+
+            event.preventDefault();
+            const overlay = menuItem.closest("[data-overlay-id='desktop-main-menu']");
+            if (!overlay) return;
+
+            const targetKey = menuItem.dataset.menuItem;
+            const allItems = overlay.querySelectorAll("[data-menu-item]");
+            const allPanels = overlay.querySelectorAll("[data-menu-panel]");
+
+            allItems.forEach((item) => {
+                const isActive = item.dataset.menuItem === targetKey;
+                item.classList.toggle("is-active", isActive);
+            });
+
+            allPanels.forEach((panel) => {
+                const isTarget = panel.dataset.menuPanel === targetKey;
+                panel.classList.toggle("t:hidden", !isTarget);
+
+                if (isTarget) {
+                    panel.classList.remove("is-entering");
+                    void panel.offsetWidth;
+                    panel.classList.add("is-entering");
+                } else {
+                    panel.classList.remove("is-entering");
+                }
+            });
+
+            // Close all open submenus when switching panels
+            overlay.querySelectorAll("[data-menu-panel] .mobile-menu-item.is-open").forEach((item) => {
+                if (!item.classList.contains("desktop-overlay-menu-root")) {
+                    item.classList.remove("is-open");
+                }
+            });
+        });
+    </script>
+
+    <!-- mobile header -->
+    <header class="t:bg-[#0A64B4] t:fixed t:top-0 t:left-0 t:right-0 t:h-15 t:z-50 t:md:hidden">
+        <div class="t:px-3.75 t:flex t:items-center t:justify-between t:py-2">
+            <a href="/">
+                <img src="../../common/assets/logo-mobile.png" alt="" class="t:object-contain t:h-11">
+            </a>
+            <button type="button" data-overlay-target="mobile-main-menu" aria-label="Mở menu"
+                class="t:bg-transparent t:border-0 t:p-0 t:leading-none">
+                <i class="material-symbols--menu-rounded t:text-white"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="t:h-15 t:md:hidden"></div>
+
+    <aside class="roboto t:md:hidden">
+        <div class="overlay" data-overlay-id="mobile-main-menu" data-overlay-variant="fullscreen">
+            <div class="overlay__backdrop"></div>
+
+            <div class="overlay__content t:p-0! t:overflow-y-auto mobile-menu-overlay-content"
+                style="background: #F5F5F5;">
+
+                <!-- overlay header -->
+                <div class="t:bg-[#0A64B4] t:px-3.75 t:flex t:items-center t:justify-between t:py-2 t:h-15">
+                    <a href="/">
+                        <img src="../../common/assets/logo-mobile.png" alt="" class="t:object-contain t:h-11">
+                    </a>
+                    <button type="button" data-overlay-target="mobile-main-menu" aria-label="Đóng menu"
+                        class="t:bg-transparent t:border-0 t:p-0 t:leading-none t:text-white t:text-2xl">
+                        ✕
+                    </button>
+                </div>
+
+                <!-- menu items -->
+                <nav aria-label="Menu chính" class="t:px-4 t:pt-4 t:pb-8">
+                    <ul class="t:list-none t:m-0 t:p-0 t:flex t:flex-col t:gap-2" data-mobile-accordion>
+
+                        <!-- Trang chủ -->
+                        <li class="mobile-menu-item">
+                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
+                                <span>Trang chủ</span>
+                                <span class="mobile-menu-caret">›</span>
+                            </button>
+                            <div class="mobile-menu-sub" data-accordion-panel>
+                                <a href="#">Tin mới</a>
+                                <a href="#">Nổi bật</a>
+                                <a href="#">Đọc nhiều</a>
+                                <a href="#">Dòng sự kiện</a>
+                            </div>
+                        </li>
+
+                        <!-- Sự kiện & Quan điểm (multi-level) -->
+                        <li class="mobile-menu-item">
+                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
+                                <span>Sự kiện &amp; Quan điểm</span>
+                                <span class="mobile-menu-caret">›</span>
+                            </button>
+                            <div class="mobile-menu-sub" data-accordion-panel>
+                                <a href="#">Sự kiện nóng</a>
+                                <a href="#">Bình luận</a>
+                                <a href="#">Phỏng vấn</a>
+                                <!-- nested level 3 -->
+                                <div class="mobile-menu-item mobile-menu-item--nested">
+                                    <button type="button" class="mobile-menu-trigger mobile-menu-trigger--nested" data-accordion-trigger>
+                                        <span>Góc nhìn chuyên gia</span>
+                                        <span class="mobile-menu-caret">›</span>
+                                    </button>
+                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                        <a href="#">Chính sách</a>
+                                        <a href="#">Công nghệ</a>
+                                        <!-- nested level 4 -->
+                                        <div class="mobile-menu-item mobile-menu-item--nested">
+                                            <button type="button" class="mobile-menu-trigger mobile-menu-trigger--nested" data-accordion-trigger>
+                                                <span>Phân tích sâu</span>
+                                                <span class="mobile-menu-caret">›</span>
+                                            </button>
+                                            <div class="mobile-menu-sub" data-accordion-panel>
+                                                <a href="#">Xu hướng tấn công</a>
+                                                <a href="#">Giám sát dữ liệu</a>
+                                                <!-- nested level 5 -->
+                                                <div class="mobile-menu-item mobile-menu-item--nested">
+                                                    <button type="button" class="mobile-menu-trigger mobile-menu-trigger--nested" data-accordion-trigger>
+                                                        <span>Chuyên đề</span>
+                                                        <span class="mobile-menu-caret">›</span>
+                                                    </button>
+                                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                                        <a href="#">Zero-day</a>
+                                                        <a href="#">Supply chain</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Cảnh báo lừa đảo (multi-level) -->
+                        <li class="mobile-menu-item">
+                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
+                                <span>Cảnh báo lừa đảo</span>
+                                <span class="mobile-menu-caret">›</span>
+                            </button>
+                            <div class="mobile-menu-sub" data-accordion-panel>
+                                <a href="#">Chiêu trò mới</a>
+                                <!-- nested level 3 -->
+                                <div class="mobile-menu-item mobile-menu-item--nested">
+                                    <button type="button" class="mobile-menu-trigger mobile-menu-trigger--nested" data-accordion-trigger>
+                                        <span>Lừa đảo tài chính</span>
+                                        <span class="mobile-menu-caret">›</span>
+                                    </button>
+                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                        <a href="#">Ngân hàng giả</a>
+                                        <a href="#">Tiền ảo</a>
+                                        <a href="#">Đầu tư đa cấp</a>
+                                    </div>
+                                </div>
+                                <a href="#">Lừa đảo AI</a>
+                                <a href="#">Tự bảo vệ</a>
+                            </div>
+                        </li>
+
+                        <!-- Bảo vệ dữ liệu -->
+                        <li class="mobile-menu-item">
+                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
+                                <span>Bảo vệ dữ liệu</span>
+                                <span class="mobile-menu-caret">›</span>
+                            </button>
+                            <div class="mobile-menu-sub" data-accordion-panel>
+                                <a href="#">Dữ liệu cá nhân</a>
+                                <a href="#">Dữ liệu doanh nghiệp</a>
+                                <a href="#">Sao lưu</a>
+                                <a href="#">Khôi phục</a>
+                            </div>
+                        </li>
+
+                        <!-- Phòng và chống tấn công -->
+                        <li class="mobile-menu-item">
+                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
+                                <span>Phòng và chống tấn công</span>
+                                <span class="mobile-menu-caret">›</span>
+                            </button>
+                            <div class="mobile-menu-sub" data-accordion-panel>
+                                <a href="#">Ransomware</a>
+                                <a href="#">APT</a>
+                                <a href="#">SOC</a>
+                                <a href="#">Incident Response</a>
+                            </div>
+                        </li>
+
+                        <!-- Hồ sơ tội phạm mạng -->
+                        <li class="mobile-menu-item">
+                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
+                                <span>Hồ sơ tội phạm mạng</span>
+                                <span class="mobile-menu-caret">›</span>
+                            </button>
+                            <div class="mobile-menu-sub" data-accordion-panel>
+                                <a href="#">Nhân vật</a>
+                                <a href="#">Băng nhóm</a>
+                                <a href="#">Chiến dịch</a>
+                                <a href="#">Phân tích hành vi</a>
+                            </div>
+                        </li>
+
+                        <!-- An ninh mạng -->
+                        <li class="mobile-menu-item">
+                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
+                                <span>An ninh mạng</span>
+                                <span class="mobile-menu-caret">›</span>
+                            </button>
+                            <div class="mobile-menu-sub" data-accordion-panel>
+                                <a href="#">Tin quốc tế</a>
+                                <a href="#">Tin trong nước</a>
+                                <a href="#">Nghiên cứu</a>
+                                <a href="#">Văn bản mới</a>
+                            </div>
+                        </li>
+
+                        <!-- Chuyển đổi số -->
+                        <li class="mobile-menu-item">
+                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
+                                <span>Chuyển đổi số</span>
+                                <span class="mobile-menu-caret">›</span>
+                            </button>
+                            <div class="mobile-menu-sub" data-accordion-panel>
+                                <a href="#">Chính phủ số</a>
+                                <a href="#">Doanh nghiệp số</a>
+                                <a href="#">Dữ liệu mở</a>
+                                <a href="#">Hạ tầng số</a>
+                            </div>
+                        </li>
+
+                        <!-- Đa phương tiện -->
+                        <li class="mobile-menu-item">
+                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
+                                <span>Đa phương tiện</span>
+                                <span class="mobile-menu-caret">›</span>
+                            </button>
+                            <div class="mobile-menu-sub" data-accordion-panel>
+                                <a href="#">Tin ảnh</a>
+                                <a href="#">Infographic</a>
+                                <a href="#">MAGAZINE</a>
+                                <a href="#">Audio</a>
+                                <a href="#">Video</a>
+                            </div>
+                        </li>
+
+                        <!-- Hành lang pháp lý -->
+                        <li class="mobile-menu-item">
+                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
+                                <span>Hành lang pháp lý</span>
+                                <span class="mobile-menu-caret">›</span>
+                            </button>
+                            <div class="mobile-menu-sub" data-accordion-panel>
+                                <a href="#">Luật An ninh mạng</a>
+                                <a href="#">Nghị định mới</a>
+                                <a href="#">Tiêu chuẩn</a>
+                                <a href="#">Hỏi đáp pháp lý</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </aside>
+
+    <script>
+        document.addEventListener('click', function (e) {
+            const trigger = e.target.closest('[data-accordion-trigger]');
+            if (!trigger) return;
+
+            e.stopPropagation();
+
+            const item = trigger.closest('.mobile-menu-item');
+            if (!item) return;
+
+            // Close only direct sibling items at the same nesting level
+            const parent = item.parentElement;
+            if (parent) {
+                // Get direct children mobile-menu-item elements (not nested ones)
+                var siblings = parent.querySelectorAll(':scope > .mobile-menu-item, :scope > li.mobile-menu-item');
+                siblings.forEach(function (sibling) {
+                    if (sibling !== item && sibling.classList.contains('is-open')) {
+                        // Close sibling and all its nested open items
+                        sibling.classList.remove('is-open');
+                        sibling.querySelectorAll('.mobile-menu-item.is-open').forEach(function (nested) {
+                            nested.classList.remove('is-open');
+                        });
+                    }
+                });
+            }
+
+            // Toggle current
+            item.classList.toggle('is-open');
+        });
+    </script>
+
+
+    <div class="content">
+
+    <section class="gnc-hero">
+        <div class="gnc-hero__image"
+            style="background-image: url('https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/102025/2_20251029152603.jpg');">
+        </div>
+        <div class="gnc-hero__text">
+            <div class="gnc-hero__category">Góc nhìn chuyên gia</div>
+            <div class="gnc-hero__subtitle">
+                Ủy viên Bộ Chính trị, Đại tướng, Bộ trưởng Bộ Công an,
+                Chủ tịch Hiệp hội An ninh mạng Quốc gia
+            </div>
+            <div class="gnc-hero__name">Lương Tam Quang</div>
+            <div class="gnc-hero__desc">
+                Từ Hà Nội – nơi Công ước Liên Hợp Quốc về chống tội phạm mạng được mở ký, Bộ trưởng Bộ Công an
+                Lương Tam Quang khẳng định đây là bước ngoặt chiến lược, đưa hợp tác quốc tế về an ninh mạng từ
+                cam kết tự nguyện sang ràng buộc pháp lý, khẳng định chủ quyền số là tuyến phòng thủ mới của quốc gia.
+            </div>
+        </div>
+    </section>
+
+    <div class="real-content bigger-container">
+
+    <article class="gnc-content article-prose">
+
+        <p>Trong bối cảnh các mối đe dọa an ninh mạng ngày càng phức tạp và mang tính xuyên biên giới, việc Công ước
+            Liên Hợp Quốc về chống tội phạm mạng được chính thức mở ký tại Hà Nội đánh dấu một dấu mốc quan trọng
+            không chỉ với khu vực mà còn với Việt Nam – quốc gia đang đặt an ninh mạng vào trung tâm của chiến lược
+            bảo vệ Tổ quốc.</p>
+
+        <figure class="tplCaption" itemprop="associatedMedia image" itemscope=""
+            itemtype="http://schema.org/ImageObject" data-size="true" data-align-image="bleed">
+            <div class="fig-picture" data-width="1800">
+                <picture>
+                    <source
+                        data-srcset="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/102025/z7152328493077_838d7ae62f2a9bb4813f891faa986ff0_20251024215322.jpg">
+                    <img class="lazy" itemprop="contentUrl"
+                        src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/102025/z7152328493077_838d7ae62f2a9bb4813f891faa986ff0_20251024215322.jpg"
+                        alt="Đại tướng Lương Tam Quang" width="100%" loading="lazy"
+                        data-src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/102025/z7152328493077_838d7ae62f2a9bb4813f891faa986ff0_20251024215322.jpg">
+                </picture>
+            </div>
+            <figcaption>
+                <p class="Image"><em>Đại tướng Lương Tam Quang - Ủy viên Bộ Chính trị, Bí thư Đảng ủy Công an Trung
+                        ương, Bộ trưởng Bộ Công an, Chủ tịch Hiệp hội An ninh mạng Quốc gia.</em></p>
+            </figcaption>
+        </figure>
+
+        <p>Nhân sự kiện này, phóng viên Tạp chí An ninh mạng Việt Nam đã có buổi phỏng vấn Đại tướng Lương Tam Quang
+            - Ủy viên Bộ Chính trị, Bí thư Đảng ủy Công an Trung ương, Bộ trưởng Bộ Công an, Chủ tịch Hiệp hội An
+            ninh mạng Quốc gia, xoay quanh ý nghĩa của Công ước Hà Nội đối với chiến lược bảo vệ an ninh quốc gia
+            trên không gian mạng, cũng như những định hướng, bước đi cụ thể của Việt Nam trong giai đoạn tới.</p>
+
+        <p><strong>Phóng viên:</strong> Thưa Bộ trưởng, Công ước Liên Hợp Quốc về chống tội phạm mạng vừa được mở ký
+            tại Hà Nội. Sự kiện này có ý nghĩa như thế nào đối với Việt Nam nói riêng và cộng đồng quốc tế nói
+            chung?</p>
+
+        <p><strong>Bộ trưởng Lương Tam Quang:</strong> Công ước Liên Hợp Quốc về chống tội phạm mạng là văn kiện pháp
+            lý quốc tế đầu tiên và toàn diện nhất về phòng, chống tội phạm mạng. Việc Công ước được mở ký tại Hà Nội
+            là sự kiện có ý nghĩa lịch sử, thể hiện vai trò và vị thế ngày càng cao của Việt Nam trong các vấn đề an
+            ninh mạng toàn cầu.</p>
+
+        <p>Đây là bước ngoặt chiến lược, đưa hợp tác quốc tế về an ninh mạng từ cam kết tự nguyện sang ràng buộc pháp
+            lý. Công ước tạo ra khuôn khổ pháp lý chung, cho phép các quốc gia hợp tác chặt chẽ hơn trong điều tra,
+            truy tố và xét xử tội phạm mạng xuyên biên giới.</p>
+
+        <p>Xin trân thành cảm ơn Bộ trưởng về cuộc trao đổi này!</p>
+
+    </article>
+
+
+    <div class="gnc-bottom">
+        <div class="t:text-right t:mt-8 t:mb-8" style="font-family:'Noto Serif',serif;font-size:16pt;">
+            <strong>Thu Uyên</strong>
+        </div>
+    </div>
+
+
+    <div class="related-post t:flex t:flex-col t:gap-y-6">
+        <p class="related-post-title big-header">Tin liên quan</p>
+
+        <div class="t:grid grid-cols-1 t:sm:grid-cols-2 t:md:grid-cols-3 t:gap-6">
+            <div>
+                <figure class="img-block">
+                    <a href="">
+                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/blue_and_black_modern_cyber_security_presentation_6_20260323091243.jpg?width=600&amp;height=-&amp;type=resize" alt="" loading="lazy">
+                    </a>
+                </figure>
+                <div class="t:mt-2">
+                    <h3 class="title l2">
+                        <a href="">
+                            Lỗ hổng Copilot mở đường cho tấn công phishing qua email
+                        </a>
+                    </h3>
+                    <time class="article-date t:mt-2">
+                        <i class="material-symbols--calendar-month-rounded"></i> 20:43, 21/03/2026
+                    </time>
+                    <p class="desc" data-original-text="Một lỗ hổng bảo mật mới được phát hiện trong Microsoft 365 Copilot cho phép tin tặc chèn nội dung lừa đảo vào bản tóm tắt email do AI tạo ra. Điều này khiến các thông">Một lỗ hổng bảo mật mới được phát hiện trong Microsoft 365 Copilot cho phép tin tặc chèn…</p>
+                </div>
+            </div>
+            <div>
+                <figure class="img-block">
+                    <a href="">
+                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/blue_and_black_modern_cyber_security_presentation_6_20260323091243.jpg?width=600&amp;height=-&amp;type=resize" alt="" loading="lazy">
+                    </a>
+                </figure>
+                <div class="t:mt-2">
+                    <h3 class="title l2">
+                        <a href="">
+                            Lỗ hổng Copilot mở đường cho tấn công phishing qua email
+                        </a>
+                    </h3>
+                    <time class="article-date t:mt-2">
+                        <i class="material-symbols--calendar-month-rounded"></i> 20:43, 21/03/2026
+                    </time>
+                    <p class="desc" data-original-text="Một lỗ hổng bảo mật mới được phát hiện trong Microsoft 365 Copilot cho phép tin tặc chèn nội dung lừa đảo vào bản tóm tắt email do AI tạo ra. Điều này khiến các thông">Một lỗ hổng bảo mật mới được phát hiện trong Microsoft 365 Copilot cho phép tin tặc chèn…</p>
+                </div>
+            </div>
+            <div>
+                <figure class="img-block">
+                    <a href="">
+                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/blue_and_black_modern_cyber_security_presentation_6_20260323091243.jpg?width=600&amp;height=-&amp;type=resize" alt="" loading="lazy">
+                    </a>
+                </figure>
+                <div class="t:mt-2">
+                    <h3 class="title l2">
+                        <a href="">
+                            Lỗ hổng Copilot mở đường cho tấn công phishing qua email
+                        </a>
+                    </h3>
+                    <time class="article-date t:mt-2">
+                        <i class="material-symbols--calendar-month-rounded"></i> 20:43, 21/03/2026
+                    </time>
+                    <p class="desc" data-original-text="Một lỗ hổng bảo mật mới được phát hiện trong Microsoft 365 Copilot cho phép tin tặc chèn nội dung lừa đảo vào bản tóm tắt email do AI tạo ra. Điều này khiến các thông">Một lỗ hổng bảo mật mới được phát hiện trong Microsoft 365 Copilot cho phép tin tặc chèn…</p>
+                </div>
+            </div>
+            <div>
+                <figure class="img-block">
+                    <a href="">
+                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/blue_and_black_modern_cyber_security_presentation_6_20260323091243.jpg?width=600&amp;height=-&amp;type=resize" alt="" loading="lazy">
+                    </a>
+                </figure>
+                <div class="t:mt-2">
+                    <h3 class="title l2">
+                        <a href="">
+                            Lỗ hổng Copilot mở đường cho tấn công phishing qua email
+                        </a>
+                    </h3>
+                    <time class="article-date t:mt-2">
+                        <i class="material-symbols--calendar-month-rounded"></i> 20:43, 21/03/2026
+                    </time>
+                    <p class="desc" data-original-text="Một lỗ hổng bảo mật mới được phát hiện trong Microsoft 365 Copilot cho phép tin tặc chèn nội dung lừa đảo vào bản tóm tắt email do AI tạo ra. Điều này khiến các thông">Một lỗ hổng bảo mật mới được phát hiện trong Microsoft 365 Copilot cho phép tin tặc chèn…</p>
+                </div>
+            </div>
+            <div>
+                <figure class="img-block">
+                    <a href="">
+                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/blue_and_black_modern_cyber_security_presentation_6_20260323091243.jpg?width=600&amp;height=-&amp;type=resize" alt="" loading="lazy">
+                    </a>
+                </figure>
+                <div class="t:mt-2">
+                    <h3 class="title l2">
+                        <a href="">
+                            Lỗ hổng Copilot mở đường cho tấn công phishing qua email
+                        </a>
+                    </h3>
+                    <time class="article-date t:mt-2">
+                        <i class="material-symbols--calendar-month-rounded"></i> 20:43, 21/03/2026
+                    </time>
+                    <p class="desc" data-original-text="Một lỗ hổng bảo mật mới được phát hiện trong Microsoft 365 Copilot cho phép tin tặc chèn nội dung lừa đảo vào bản tóm tắt email do AI tạo ra. Điều này khiến các thông">Một lỗ hổng bảo mật mới được phát hiện trong Microsoft 365 Copilot cho phép tin tặc chèn…</p>
+                </div>
+            </div>
+            <div>
+                <figure class="img-block">
+                    <a href="">
+                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/blue_and_black_modern_cyber_security_presentation_6_20260323091243.jpg?width=600&amp;height=-&amp;type=resize" alt="" loading="lazy">
+                    </a>
+                </figure>
+                <div class="t:mt-2">
+                    <h3 class="title l2">
+                        <a href="">
+                            Lỗ hổng Copilot mở đường cho tấn công phishing qua email
+                        </a>
+                    </h3>
+                    <time class="article-date t:mt-2">
+                        <i class="material-symbols--calendar-month-rounded"></i> 20:43, 21/03/2026
+                    </time>
+                    <p class="desc" data-original-text="Một lỗ hổng bảo mật mới được phát hiện trong Microsoft 365 Copilot cho phép tin tặc chèn nội dung lừa đảo vào bản tóm tắt email do AI tạo ra. Điều này khiến các thông">Một lỗ hổng bảo mật mới được phát hiện trong Microsoft 365 Copilot cho phép tin tặc chèn…</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+
+    <footer class="t:py-5 t:bg-linear-to-b t:from-[#4696D2] t:to-[#0A64B4] t:text-white home-footer merriweather">
+        <div class="t:container t:mx-auto">
+            <div class="t:grid t:md:grid-cols-2 t:gap-x-7 t:gap-y-3 t:pc:gap-y-5">
+                <div>
+                    <img src="../../common/assets/logo-white.png" alt="" class="t:object-contain t:max-w-82.5">
+                </div>
+                <div class="t:row-span-2 t:max-md:order-3">
+                    <div class="t:flex t:flex-col t:gap-y-2 t:w-fit t:md:ml-auto t:mt-3">
+                        <h3 class="t:font-bold t:text-lg">
+                            Tổng biên tập: Nguyễn Tất Hồng Dương
+                        </h3>
+                        <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
+                            <p class="t:whitespace-nowrap t:font-medium">Địa chỉ:</p>
+                            <strong>38 Phan Đình Phùng, Ba Đình, Hà Nội</strong>
+                        </div>
+                        <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
+                            <p class="t:whitespace-nowrap t:font-medium">Email:</p>
+                            <strong><a href="mailto:toasoan@tcanninhmang.vn">toasoan@tcanninhmang.vn</a></strong>
+                        </div>
+                        <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
+                            <p class="t:whitespace-nowrap t:font-medium">Điện thoại:</p>
+                            <strong>
+                                <a href="tel:024.626.00.626">024.626.00.626</a> -
+                                <a href="tel:0928.77.3838">0928.77.3838</a>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="t:flex t:flex-col t:text-sm t:gap-y-1.5">
+                    <p>Cơ quan chủ quản: Hiệp hội An ninh mạng quốc gia</p>
+                    <p>Số giấy phép: 42/GP-BVHTTDL do Bộ Văn hóa Thể thao và Du lịch cấp ngày 20/05/2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <button type="button" id="scrollToTopBtn" aria-label="Lên đầu trang"
+        style="position:fixed;right:24px;bottom:24px;width:44px;height:44px;border:none;border-radius:9999px;background:#0A64B4;color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer;font-size:18px;line-height:1;z-index:120;box-shadow:0 8px 24px rgba(10,100,180,0.35);opacity:0;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease,background-color .25s ease;">
+        ↑
+    </button>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('scrollToTopBtn');
+            if (!btn) return;
+            window.addEventListener('scroll', () => {
+                const show = window.scrollY > 280;
+                if (show) {
+                    btn.style.display = 'flex';
+                    requestAnimationFrame(() => { btn.style.opacity = '1'; btn.style.transform = 'translateY(0)'; });
+                } else {
+                    btn.style.opacity = '0';
+                    btn.style.transform = 'translateY(8px)';
+                    setTimeout(() => { if (window.scrollY <= 280) btn.style.display = 'none'; }, 250);
+                }
+            }, { passive: true });
+            btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        })();
+    </script>
+
+    <script src="../../common/common.js"></script>
+    <script type="module" src="../../common/floating-dropdown.js"></script>
+    <script type="module" src="../../common/overlay.js"></script>
+    <script type="module" src="../../common/header-sticky.js"></script>
+
+</body>
+
+</html>

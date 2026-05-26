@@ -1,0 +1,144 @@
+<%
+function formatDate(dateString, format) {
+  if (!dateString) return '';
+
+  var d = new Date(dateString);
+  if (isNaN(d.getTime())) return '';
+
+  d = new Date(d.getTime() + 7 * 60 * 60 * 1000);
+
+  format = format || 'DD/MM/YYYY';
+
+  var pad = function(n) { return n < 10 ? '0' + n : '' + n; };
+
+  var tokens = {
+    'DD':   pad(d.getUTCDate()),
+    'MM':   pad(d.getUTCMonth() + 1),
+    'YYYY': '' + d.getUTCFullYear(),
+    'HH':   pad(d.getUTCHours()),
+    'mm':   pad(d.getUTCMinutes()),
+    'ss':   pad(d.getUTCSeconds())
+  };
+
+  var result = format;
+  var keys = ['YYYY', 'DD', 'MM', 'HH', 'mm', 'ss'];
+  for (var i = 0; i < keys.length; i++) {
+    result = result.split(keys[i]).join(tokens[keys[i]]);
+  }
+
+  return result;
+}
+
+function joinUrl(parts) {
+  if (!Array.isArray(parts) || parts.length === 0) return '';
+
+  var rawParts = [];
+  for (var i = 0; i < parts.length; i++) {
+    var part = parts[i];
+    if (part === null || part === undefined) continue;
+
+    var value = String(part);
+    if (value === '') continue;
+    rawParts.push(value);
+  }
+
+  if (rawParts.length === 0) return '';
+
+  var first = rawParts[0];
+  var protocol = '';
+
+  var protocolMatch = first.match(/^([a-zA-Z][a-zA-Z\d+\-.]*:\/\/)(.*)$/);
+  if (protocolMatch) {
+    protocol = protocolMatch[1];
+    first = protocolMatch[2];
+  }
+
+  var normalized = [];
+
+  var normalizedFirst = first.replace(/^\/+|\/+$/g, '');
+  if (normalizedFirst !== '') normalized.push(normalizedFirst);
+
+  for (var j = 1; j < rawParts.length; j++) {
+    var cleaned = rawParts[j].replace(/^\/+|\/+$/g, '');
+    if (cleaned === '') continue;
+    normalized.push(cleaned);
+  }
+
+  var joined = protocol + normalized.join('/');
+
+  joined = joined.replace(/([^:]\/)\/+?/g, '$1');
+
+  if (rawParts.length === 1 && !protocol && joined.charAt(0) !== '/') {
+    joined = '/' + joined;
+  }
+
+  return joined;
+}
+
+function joinUrlAdvanced(parts, options) {
+  options = options || {};
+
+  var url = joinUrl(parts);
+
+  if (options.query && typeof options.query === 'object') {
+    var params = new URLSearchParams();
+    var query = options.query;
+
+    for (var key in query) {
+      if (!Object.prototype.hasOwnProperty.call(query, key)) continue;
+
+      var value = query[key];
+      if (value === null || value === undefined) continue;
+
+      if (Array.isArray(value)) {
+        for (var k = 0; k < value.length; k++) {
+          if (value[k] === null || value[k] === undefined) continue;
+          params.append(key, String(value[k]));
+        }
+      } else {
+        params.append(key, String(value));
+      }
+    }
+
+    var queryString = params.toString();
+    if (queryString) {
+      url += (url.indexOf('?') === -1 ? '?' : '&') + queryString;
+    }
+  }
+
+  if (options.hash !== null && options.hash !== undefined && options.hash !== '') {
+    var hash = String(options.hash).replace(/^#+/, '');
+    if (hash !== '') {
+      url = url.split('#')[0] + '#' + hash;
+    }
+  }
+
+  return url;
+}
+
+
+function getImageUrl(path, width) {
+  if (!path) return "";
+
+  const value = String(path).trim();
+  if (value === "") return "";
+
+  if (/^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(value)) return value;
+
+  if (value.indexOf("//") === 0) return "https:" + value;
+
+  if (value.indexOf("data:") === 0 || value.indexOf("blob:") === 0) return value;
+
+  const CDN_BASE_URL = (typeof SYS_CONFIG !== "undefined" && SYS_CONFIG)
+    ? (SYS_CONFIG.find(function (i) { return i.code === "cdn_url"; }) || {}).content || ""
+    : "";
+
+  if (!CDN_BASE_URL) return value;
+
+  const w = parseInt(width, 10);
+  const sizeSegment = (!isNaN(w) && w > 0) ? ("w" + w) : "original";
+
+  return joinUrl([CDN_BASE_URL, sizeSegment, value]);
+}
+
+%>

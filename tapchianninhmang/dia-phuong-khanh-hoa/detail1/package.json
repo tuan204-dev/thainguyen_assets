@@ -1,0 +1,16 @@
+{
+  "name": "html-phuyenonline",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./custom.css -o ./output.css --watch --content ./index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/cli": "4.1.12",
+    "tailwindcss": "4.1.12"
+  }
+}

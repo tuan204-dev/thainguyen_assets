@@ -990,11 +990,6 @@
       border-color: #BC0000;
     }
   }
-  .t\:max-pc\:gap-y-6 {
-    @media (width < 1000px) {
-      row-gap: calc(var(--t-spacing) * 6);
-    }
-  }
   .t\:max-pc\:divide-y {
     @media (width < 1000px) {
       :where(& > :not(:last-child)) {
@@ -1083,11 +1078,6 @@
       grid-template-columns: minmax(0,1fr) 320px;
     }
   }
-  .t\:pc\:gap-x-0 {
-    @media (width >= 1000px) {
-      column-gap: calc(var(--t-spacing) * 0);
-    }
-  }
   .t\:pc\:gap-x-20 {
     @media (width >= 1000px) {
       column-gap: calc(var(--t-spacing) * 20);
@@ -1096,11 +1086,6 @@
   .t\:pc\:gap-y-3 {
     @media (width >= 1000px) {
       row-gap: calc(var(--t-spacing) * 3);
-    }
-  }
-  .t\:pc\:gap-y-8 {
-    @media (width >= 1000px) {
-      row-gap: calc(var(--t-spacing) * 8);
     }
   }
   .t\:pc\:divide-x {
@@ -1175,13 +1160,6 @@
       }
     }
   }
-  .t\:md\:max-pc\:gap-x-6 {
-    @media (width >= 48rem) {
-      @media (width < 1000px) {
-        column-gap: calc(var(--t-spacing) * 6);
-      }
-    }
-  }
   .t\:md\:max-pc\:divide-y-0 {
     @media (width >= 48rem) {
       @media (width < 1000px) {
@@ -1224,13 +1202,6 @@
     @media (width < 1000px) {
       &>* {
         padding-block: calc(var(--t-spacing) * 6);
-      }
-    }
-  }
-  .t\:pc\:\[\&\>\*\]\:px-5 {
-    @media (width >= 1000px) {
-      &>* {
-        padding-inline: calc(var(--t-spacing) * 5);
       }
     }
   }
@@ -1278,21 +1249,6 @@
       }
     }
   }
-  .t\:pc\:\[\&\>\*\:not\(\:nth-child\(4n\+1\)\)\]\:border-l {
-    @media (width >= 1000px) {
-      &>*:not(:nth-child(4n+1)) {
-        border-left-style: var(--tw-border-style);
-        border-left-width: 1px;
-      }
-    }
-  }
-  .t\:pc\:\[\&\>\*\:not\(\:nth-child\(4n\+1\)\)\]\:border-\[\#E5E5E5\] {
-    @media (width >= 1000px) {
-      &>*:not(:nth-child(4n+1)) {
-        border-color: #E5E5E5;
-      }
-    }
-  }
   .t\:md\:max-pc\:\[\&\>\*\:nth-child\(1\)\]\:border-t-0 {
     @media (width >= 48rem) {
       @media (width < 1000px) {
@@ -1328,42 +1284,6 @@
         &>*:nth-child(2) {
           padding-top: calc(var(--t-spacing) * 0);
         }
-      }
-    }
-  }
-  .t\:pc\:\[\&\>\*\:nth-child\(4n\)\]\:pr-0 {
-    @media (width >= 1000px) {
-      &>*:nth-child(4n) {
-        padding-right: calc(var(--t-spacing) * 0);
-      }
-    }
-  }
-  .t\:pc\:\[\&\>\*\:nth-child\(4n\+1\)\]\:pl-0 {
-    @media (width >= 1000px) {
-      &>*:nth-child(4n+1) {
-        padding-left: calc(var(--t-spacing) * 0);
-      }
-    }
-  }
-  .t\:pc\:\[\&\>\*\:nth-child\(n\+5\)\]\:border-t {
-    @media (width >= 1000px) {
-      &>*:nth-child(n+5) {
-        border-top-style: var(--tw-border-style);
-        border-top-width: 1px;
-      }
-    }
-  }
-  .t\:pc\:\[\&\>\*\:nth-child\(n\+5\)\]\:border-\[\#E5E5E5\] {
-    @media (width >= 1000px) {
-      &>*:nth-child(n+5) {
-        border-color: #E5E5E5;
-      }
-    }
-  }
-  .t\:pc\:\[\&\>\*\:nth-child\(n\+5\)\]\:pt-8 {
-    @media (width >= 1000px) {
-      &>*:nth-child(n+5) {
-        padding-top: calc(var(--t-spacing) * 8);
       }
     }
   }
