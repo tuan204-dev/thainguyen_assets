@@ -1195,35 +1195,46 @@
                     <div
                         class="t:grid t:grid-cols-1 t:gap-6 t:pc:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)]"
                     >
-                        <div class="t:relative t:overflow-hidden t:bg-[#F4F4F4]">
-                            <a
-                                href="/multimedia/202605/danh-sach-59-nguoi-trung-cu-dai-bieu-hdnd-tinh-thai-nguyen-khoa-xv-nhiem-ky-2026-2031/"
-                                class="multimedia-hero-image t:block t:relative t:aspect-[16/9]"
-                                data-hero-image="0"
+                        <div
+                            id="hero-main-swiper"
+                            class="swiper multimedia-hero-swiper t:relative t:overflow-hidden t:bg-[#F4F4F4]"
+                            data-swiper
+                            data-swiper-direction="vertical"
+                            data-swiper-loop="true"
+                            data-swiper-speed="500"
+                        >
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a
+                                        href="/giao-duc/202605/47-diem-thi-tot-nghiep-thpt-nam-2026-tren-dia-ban-tinh-thai-nguyen-2a656fa/"
+                                        class="avatar"
+                                    >
+                                        <img
+                                            src="./images/phu-cap-nha-giao.jpg"
+                                            alt="47 điểm thi tốt nghiệp THPT năm 2026 trên địa bàn tỉnh Thái Nguyên"
+                                        />
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a
+                                        href="/giao-duc/202605/phu-cap-uu-dai-nghe-doi-voi-can-bo-quan-ly-giao-vien-tu-thang-7-2026-eb93bed/"
+                                        class="avatar"
+                                    >
+                                        <img
+                                            src="./images/du-lich-thai-nguyen.jpg"
+                                            alt="Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo viên từ tháng 7-2026"
+                                        />
+                                    </a>
+                                </div>
+                            </div>
+                            <div
+                                class="multimedia-hero-nav t:absolute t:right-4 t:bottom-4 t:z-10 t:flex t:gap-x-1.5"
                             >
-                                <img
-                                    src="./images/phu-cap-nha-giao.jpg"
-                                    alt="Danh sách 59 người trúng cử đại biểu HĐND tỉnh Thái Nguyên khóa XV, nhiệm kỳ 2026-2031"
-                                    class="t:absolute t:inset-0 t:size-full t:object-cover t:object-center"
-                                />
-                            </a>
-                            <a
-                                href="/multimedia/202605/chay-vi-suc-khoe-toan-dan-vi-an-ninh-to-quoc/"
-                                class="multimedia-hero-image t:hidden t:relative t:aspect-[16/9]"
-                                data-hero-image="1"
-                            >
-                                <img
-                                    src="./images/du-lich-thai-nguyen.jpg"
-                                    alt="Chạy vì sức khỏe toàn dân - Vì an ninh Tổ quốc"
-                                    class="t:absolute t:inset-0 t:size-full t:object-cover t:object-center"
-                                />
-                            </a>
-                            <div class="t:absolute t:right-4 t:bottom-4 t:flex t:gap-x-1.5">
                                 <button
                                     type="button"
                                     data-hero-prev
                                     aria-label="Bài trước"
-                                    class="t:size-5 t:rounded-full t:border-0 t:bg-black/45 t:text-white t:flex t:items-center t:justify-center t:cursor-pointer"
+                                    class="swiper-button-prev t:size-5 t:rounded-full t:border-0 t:bg-black/45 t:text-white t:flex t:items-center t:justify-center t:cursor-pointer"
                                 >
                                     ‹
                                 </button>
@@ -1231,14 +1242,14 @@
                                     type="button"
                                     data-hero-next
                                     aria-label="Bài sau"
-                                    class="t:size-5 t:rounded-full t:border-0 t:bg-black/45 t:text-white t:flex t:items-center t:justify-center t:cursor-pointer"
+                                    class="swiper-button-next t:size-5 t:rounded-full t:border-0 t:bg-black/45 t:text-white t:flex t:items-center t:justify-center t:cursor-pointer"
                                 >
                                     ›
                                 </button>
                             </div>
                         </div>
 
-                        <div class="t:min-w-0 t:bg-[#687074] t:text-white">
+                        <div class="multimedia-hero-tabs t:min-w-0 t:bg-[#687074] t:text-white">
                             <div
                                 class="hero-side-item is-active t:flex t:min-h-[240px] t:min-w-0 t:cursor-pointer t:flex-col t:justify-center t:gap-y-3 t:border-b t:border-white/10 t:p-5"
                                 data-hero-tab="0"
@@ -1363,7 +1374,9 @@
 
             <section>
                 <div class="t:container t:pb-10">
-                    <div class="t:grid t:grid-cols-1 t:gap-8 t:pc:grid-cols-[minmax(0,2fr)_320px]">
+                    <div
+                        class="t:grid t:grid-cols-1 t:gap-8 t:pc:grid-cols-[minmax(0,2fr)_380px] t:pc:gap-x-6"
+                    >
                         <div class="cate_child_multimedia">
                             <div class="row30">
                                 <div class="cate_title_3">
@@ -1440,7 +1453,10 @@
                         </div>
 
                         <aside>
-                            <h2 class="multimedia-block-title">
+                            <h2
+                                class="multimedia-block-title mb-[8px]"
+                                style="color: #242a2e; font-size: 24px"
+                            >
                                 <a href="/multimedia/">Xem nhiều</a>
                             </h2>
                             <div class="list-bd" id="mostread">

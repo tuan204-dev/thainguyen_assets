@@ -168,11 +168,81 @@
     display: none !important;
 }
 
+/* ── Multimedia hero slider ── */
+.multimedia-hero-swiper {
+    height: 480px;
+    background: #f4f4f4;
+}
+
+.multimedia-hero-swiper .swiper-slide,
+.multimedia-hero-swiper .avatar {
+    height: 480px;
+}
+
+.multimedia-hero-swiper .avatar {
+    display: block;
+    overflow: hidden;
+}
+
+.multimedia-hero-swiper .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+}
+
+.multimedia-hero-nav .swiper-button-prev,
+.multimedia-hero-nav .swiper-button-next {
+    position: static;
+    inset: auto;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.multimedia-hero-nav .swiper-button-prev::after,
+.multimedia-hero-nav .swiper-button-next::after {
+    content: "";
+}
+
+@media (max-width: 999px) {
+    .multimedia-hero-swiper,
+    .multimedia-hero-swiper .swiper-slide,
+    .multimedia-hero-swiper .avatar {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+}
+
 /* ── Multimedia hero side panel ── */
 .hero-side-item {
     flex: 1;
     background-color: #687074;
     transition: background-color 0.25s;
+}
+
+.multimedia-hero-tabs {
+    height: 480px;
+}
+
+.multimedia-hero-tabs .hero-side-item {
+    height: 240px;
+    min-height: 0;
+}
+
+@media (max-width: 999px) {
+    .multimedia-hero-tabs {
+        height: auto;
+    }
+
+    .multimedia-hero-tabs .hero-side-item {
+        height: auto;
+        min-height: 240px;
+    }
 }
 
 .hero-side-item.is-active {
@@ -238,6 +308,7 @@
     font-weight: 700;
     line-height: 1.1;
     border-bottom: 2px solid #935f25;
+    margin: 0 0 8px;
 }
 
 .cate_child_multimedia .row30 {
@@ -256,6 +327,7 @@
     font-weight: 700;
     line-height: 1.1;
     border-bottom: 2px solid #935f25;
+    margin: 0;
 }
 
 .cate_child_multimedia .row20 {
@@ -313,7 +385,7 @@
 }
 
 #mostread {
-    margin-top: 8px;
+    margin-top: 0;
 }
 
 #mostread ul {
@@ -323,7 +395,7 @@
 }
 
 #mostread .item {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 #mostread .title2 {

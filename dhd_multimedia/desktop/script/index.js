@@ -1,38 +1,38 @@
-const heroImages = Array.from(document.querySelectorAll("[data-hero-image]"));
-const heroTabs = Array.from(document.querySelectorAll("[data-hero-tab]"));
-const heroPrev = document.querySelector("[data-hero-prev]");
-const heroNext = document.querySelector("[data-hero-next]");
+/**
+ * Multimedia page – Hero slider ↔ side panel sync
+ *
+ * common/swiper.js đã chạy initAll() khi module được load,
+ * nên tất cả [data-swiper] đã được khởi tạo trước khi script này chạy.
+ */
 
-let activeHeroIndex = 0;
+const heroSwiperEl = document.querySelector('#hero-main-swiper');
 
-const setActiveHero = (nextIndex) => {
-    if (!heroImages.length || !heroTabs.length) return;
+if (heroSwiperEl) {
+    const swiper = heroSwiperEl.__swiperInstance;
+    const sideItems = [...document.querySelectorAll('.hero-side-item')];
 
-    activeHeroIndex = (nextIndex + heroImages.length) % heroImages.length;
+    if (swiper && sideItems.length) {
+        const updateActive = (realIndex) => {
+            sideItems.forEach((item, i) => {
+                item.classList.toggle('is-active', i === realIndex);
+            });
+        };
 
-    heroImages.forEach((image, index) => {
-        image.classList.toggle("t:hidden", index !== activeHeroIndex);
-        image.classList.toggle("t:block", index === activeHeroIndex);
-    });
+        // Sync side panel when slide changes
+        swiper.on('slideChange', () => {
+            updateActive(swiper.realIndex);
+        });
 
-    heroTabs.forEach((tab, index) => {
-        tab.classList.toggle("is-active", index === activeHeroIndex);
-    });
-};
+        // Click on side item → slide to that index
+        sideItems.forEach((item, i) => {
+            item.addEventListener('click', (e) => {
+                // Avoid interfering with links inside the item
+                if (e.target.closest('a')) return;
+                swiper.slideToLoop(i);
+            });
+        });
 
-heroTabs.forEach((tab, index) => {
-    tab.addEventListener("click", (event) => {
-        if (event.target.closest("a")) return;
-        setActiveHero(index);
-    });
-});
-
-heroPrev?.addEventListener("click", () => {
-    setActiveHero(activeHeroIndex - 1);
-});
-
-heroNext?.addEventListener("click", () => {
-    setActiveHero(activeHeroIndex + 1);
-});
-
-setActiveHero(0);
+        // Set initial active state
+        updateActive(swiper.realIndex ?? 0);
+    }
+}
