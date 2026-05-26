@@ -59,3 +59,44 @@
 .scroll-top-button:hover {
     background: #07528f;
 }
+
+.emagazine-comments .comment-input {
+    min-height: 66px;
+    font-family: "Roboto", sans-serif;
+}
+
+.emagazine-comments .comment-more {
+    font-family: "Merriweather", serif;
+}
+
+.related-vertical-list .img-block {
+    width: 100%;
+    max-width: none;
+    background: #eef2f6;
+}
+
+.related-vertical-list .title {
+    margin-top: 10px;
+    color: #151515;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.related-vertical-list .title a:hover {
+    color: #1e4f8c;
+}
+
+.related-vertical-list .article-date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #667085;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+}
+
+.related-vertical-list .article-date i {
+    color: #1e4f8c;
+    font-size: 16px;
+}
