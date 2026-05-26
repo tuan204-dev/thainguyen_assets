@@ -196,7 +196,8 @@
 }
 
 main h1 {
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 .category-ribbon {
@@ -204,7 +205,7 @@ main h1 {
     align-items: center;
     height: 40px;
     background: #0a64b4;
-    clip-path: polygon(0% 0%, 90% 0, 100% 32%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 90% 0, 100% 35%, 100% 100%, 0% 100%);
     color: #fff;
     font-size: 1rem;
     font-weight: 700;
@@ -281,20 +282,23 @@ main h1 {
 .ranked-title {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 18px;
     color: #0a64b4;
+    line-height: 1.1;
 }
 
 .ranked-title i {
     color: #ea2736;
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .ranked-title .sidebar-tab-label {
     color: #0a64b4;
-    font-size: 34px;
+    font-size: 32px;
     font-weight: 800;
+    text-align: left;
 }
 
 .ranked-title .sidebar-tab-label.is-active:first-of-type {
@@ -303,7 +307,7 @@ main h1 {
 
 .ranked-title span {
     color: #0a64b4;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 700;
 }
 
@@ -413,12 +417,16 @@ main h1 {
     }
 
     .related-news-title {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .ranked-title .sidebar-tab-label,
     .ranked-title span {
-        font-size: 28px;
+        font-size: 30px;
+    }
+
+    .ranked-title i {
+        font-size: 22px;
     }
 
     .ranked-item {

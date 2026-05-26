@@ -20,6 +20,7 @@
     </head>
 
     <body class="home-page">
+        <!-- HEADER -->
         <header class="home-header t:hidden t:md:block">
             <div class="home-header-main t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]">
                 <div class="t:bg-[#30A14A]">
@@ -1156,23 +1157,24 @@
                 </div>
             </div>
         </aside>
+        <!-- END HEADER -->
 
         <main class="roboto t:bg-white">
             <section
                 class="t:border-t-2 t:border-[#0A64B4] t:bg-[#F5F5F5] t:border-b t:border-[#E5E7EB]"
             >
                 <div class="t:container t:mx-auto t:py-6 t:md:py-8">
-                    <a href="/an-ninh-mang" class="category-ribbon t:mb-4">An ninh mạng</a>
+                    <a href="/an-ninh-mang" class="category-ribbon t:mb-4">An ninh mạng </a>
 
                     <h1
-                        class="merriweather t:max-w-[980px] t:break-words t:text-3xl t:font-bold t:leading-tight t:text-[#151515] t:md:text-[42px]"
+                        class="merriweather t:max-w-full t:text-[26px] t:font-bold t:leading-tight t:text-[#3A3A3A] t:md:max-pc:text-[32px] t:pc:max-w-[980px] t:pc:text-[34px]"
                     >
                         "Hiệu ứng cánh bướm" trên không gian mạng: Từ nút Like vô tình đến nguy cơ
                         an ninh thực tế
                     </h1>
 
                     <p
-                        class="t:mt-4 t:max-w-[940px] t:text-lg t:font-medium t:leading-8 t:text-[#444343] t:md:text-[19px]"
+                        class="t:mt-4 t:max-w-[940px] t:text-[17px] t:font-normal t:leading-8 t:text-[#444343] t:pc:text-lg"
                     >
                         Dưới góc nhìn an ninh mạng, mỗi tương tác tưởng như nhỏ trên mạng xã hội có
                         thể trở thành tín hiệu giúp thuật toán khuếch đại thông tin độc hại, từ đó
@@ -1371,11 +1373,11 @@
                                 </h2>
                                 <div class="t:flex t:flex-col t:gap-6">
                                     <article
-                                        class="related-news-item t:grid t:grid-cols-1 t:gap-3 t:md:grid-cols-[minmax(12rem,32%)_minmax(0,1fr)] t:md:gap-4"
+                                        class="related-news-item t:flow-root"
                                     >
                                         <a
                                             href="#"
-                                            class="related-news-thumb t:block t:aspect-[16/9] t:overflow-hidden t:bg-[#EEF2F6]"
+                                            class="related-news-thumb t:float-left t:mr-4 t:mb-2 t:block t:aspect-[16/9] t:w-[42%] t:overflow-hidden t:bg-[#EEF2F6] t:md:w-[32%]"
                                         >
                                             <img
                                                 src="./images/news-quantum.jpg"
@@ -1383,33 +1385,29 @@
                                                 class="t:size-full t:object-cover t:object-center"
                                             />
                                         </a>
-                                        <div class="t:min-w-0">
-                                            <h3 class="related-news-title">
-                                                <a href="#">
-                                                    Vì sao lượng tử có thể là bước ngoặt sinh tử của
-                                                    Việt Nam trong làn sóng công nghệ thứ ba?
-                                                </a>
-                                            </h3>
-                                            <p class="related-news-date">
-                                                <i
-                                                    class="material-symbols--calendar-month-rounded"
-                                                ></i>
-                                                22/05/2026
-                                            </p>
-                                            <p class="related-news-desc desc line-clamp-3">
-                                                Tại diễn đàn và hội thảo Việt Nam Security Summit
-                                                2026, các chuyên gia đưa ra cảnh báo sâu sắc về sự
-                                                trỗi dậy của công nghệ lượng tử.
-                                            </p>
-                                        </div>
+                                        <h3 class="related-news-title">
+                                            <a href="#">
+                                                Vì sao lượng tử có thể là bước ngoặt sinh tử của Việt
+                                                Nam trong làn sóng công nghệ thứ ba?
+                                            </a>
+                                        </h3>
+                                        <p class="related-news-date">
+                                            <i class="material-symbols--calendar-month-rounded"></i>
+                                            22/05/2026
+                                        </p>
+                                        <p class="related-news-desc desc line-clamp-3">
+                                            Tại diễn đàn và hội thảo Việt Nam Security Summit 2026,
+                                            các chuyên gia đưa ra cảnh báo sâu sắc về sự trỗi dậy của
+                                            công nghệ lượng tử.
+                                        </p>
                                     </article>
 
                                     <article
-                                        class="related-news-item t:grid t:grid-cols-1 t:gap-3 t:md:grid-cols-[minmax(12rem,32%)_minmax(0,1fr)] t:md:gap-4"
+                                        class="related-news-item t:flow-root"
                                     >
                                         <a
                                             href="#"
-                                            class="related-news-thumb t:block t:aspect-[16/9] t:overflow-hidden t:bg-[#EEF2F6]"
+                                            class="related-news-thumb t:float-left t:mr-4 t:mb-2 t:block t:aspect-[16/9] t:w-[42%] t:overflow-hidden t:bg-[#EEF2F6] t:md:w-[32%]"
                                         >
                                             <img
                                                 src="./images/news-cyber.jpg"
@@ -1417,33 +1415,28 @@
                                                 class="t:size-full t:object-cover t:object-center"
                                             />
                                         </a>
-                                        <div class="t:min-w-0">
-                                            <h3 class="related-news-title">
-                                                <a href="#">
-                                                    Phó Cục trưởng A05: Không gian mạng đã trở thành
-                                                    không gian chiến lược gắn với chủ quyền quốc gia
-                                                </a>
-                                            </h3>
-                                            <p class="related-news-date">
-                                                <i
-                                                    class="material-symbols--calendar-month-rounded"
-                                                ></i>
-                                                22/05/2026
-                                            </p>
-                                            <p class="related-news-desc desc line-clamp-3">
-                                                Nhận định được đưa ra tại sự kiện chuyên ngành, nhấn
-                                                mạnh vai trò của an ninh mạng trong bảo vệ chủ quyền
-                                                số.
-                                            </p>
-                                        </div>
+                                        <h3 class="related-news-title">
+                                            <a href="#">
+                                                Phó Cục trưởng A05: Không gian mạng đã trở thành
+                                                không gian chiến lược gắn với chủ quyền quốc gia
+                                            </a>
+                                        </h3>
+                                        <p class="related-news-date">
+                                            <i class="material-symbols--calendar-month-rounded"></i>
+                                            22/05/2026
+                                        </p>
+                                        <p class="related-news-desc desc line-clamp-3">
+                                            Nhận định được đưa ra tại sự kiện chuyên ngành, nhấn mạnh
+                                            vai trò của an ninh mạng trong bảo vệ chủ quyền số.
+                                        </p>
                                     </article>
 
                                     <article
-                                        class="related-news-item t:grid t:grid-cols-1 t:gap-3 t:md:grid-cols-[minmax(12rem,32%)_minmax(0,1fr)] t:md:gap-4"
+                                        class="related-news-item t:flow-root"
                                     >
                                         <a
                                             href="#"
-                                            class="related-news-thumb t:block t:aspect-[16/9] t:overflow-hidden t:bg-[#EEF2F6]"
+                                            class="related-news-thumb t:float-left t:mr-4 t:mb-2 t:block t:aspect-[16/9] t:w-[42%] t:overflow-hidden t:bg-[#EEF2F6] t:md:w-[32%]"
                                         >
                                             <img
                                                 src="./images/news-ai-chip.jpg"
@@ -1451,32 +1444,27 @@
                                                 class="t:size-full t:object-cover t:object-center"
                                             />
                                         </a>
-                                        <div class="t:min-w-0">
-                                            <h3 class="related-news-title">
-                                                <a href="#">
-                                                    Sắc lệnh AI sắp ký của ông Trump có gì đặc biệt?
-                                                </a>
-                                            </h3>
-                                            <p class="related-news-date">
-                                                <i
-                                                    class="material-symbols--calendar-month-rounded"
-                                                ></i>
-                                                21/05/2026
-                                            </p>
-                                            <p class="related-news-desc desc line-clamp-3">
-                                                Một nỗ lực nhằm thiết lập ranh giới an toàn cho công
-                                                nghệ trí tuệ nhân tạo đang phát triển với tốc độ rất
-                                                nhanh.
-                                            </p>
-                                        </div>
+                                        <h3 class="related-news-title">
+                                            <a href="#">
+                                                Sắc lệnh AI sắp ký của ông Trump có gì đặc biệt?
+                                            </a>
+                                        </h3>
+                                        <p class="related-news-date">
+                                            <i class="material-symbols--calendar-month-rounded"></i>
+                                            21/05/2026
+                                        </p>
+                                        <p class="related-news-desc desc line-clamp-3">
+                                            Một nỗ lực nhằm thiết lập ranh giới an toàn cho công nghệ
+                                            trí tuệ nhân tạo đang phát triển với tốc độ rất nhanh.
+                                        </p>
                                     </article>
 
                                     <article
-                                        class="related-news-item t:grid t:grid-cols-1 t:gap-3 t:md:grid-cols-[minmax(12rem,32%)_minmax(0,1fr)] t:md:gap-4"
+                                        class="related-news-item t:flow-root"
                                     >
                                         <a
                                             href="#"
-                                            class="related-news-thumb t:block t:aspect-[16/9] t:overflow-hidden t:bg-[#EEF2F6]"
+                                            class="related-news-thumb t:float-left t:mr-4 t:mb-2 t:block t:aspect-[16/9] t:w-[42%] t:overflow-hidden t:bg-[#EEF2F6] t:md:w-[32%]"
                                         >
                                             <img
                                                 src="./images/news-ai-robots.jpg"
@@ -1484,25 +1472,20 @@
                                                 class="t:size-full t:object-cover t:object-center"
                                             />
                                         </a>
-                                        <div class="t:min-w-0">
-                                            <h3 class="related-news-title">
-                                                <a href="#">
-                                                    Con người còn đủ thời gian vá lỗ hổng trước tốc
-                                                    độ của AI?
-                                                </a>
-                                            </h3>
-                                            <p class="related-news-date">
-                                                <i
-                                                    class="material-symbols--calendar-month-rounded"
-                                                ></i>
-                                                21/05/2026
-                                            </p>
-                                            <p class="related-news-desc desc line-clamp-3">
-                                                AI đang thay đổi sâu sắc cục diện an ninh mạng toàn
-                                                cầu khi tin tặc phát hiện và khai thác lỗ hổng nhanh
-                                                hơn.
-                                            </p>
-                                        </div>
+                                        <h3 class="related-news-title">
+                                            <a href="#">
+                                                Con người còn đủ thời gian vá lỗ hổng trước tốc độ
+                                                của AI?
+                                            </a>
+                                        </h3>
+                                        <p class="related-news-date">
+                                            <i class="material-symbols--calendar-month-rounded"></i>
+                                            21/05/2026
+                                        </p>
+                                        <p class="related-news-desc desc line-clamp-3">
+                                            AI đang thay đổi sâu sắc cục diện an ninh mạng toàn cầu
+                                            khi tin tặc phát hiện và khai thác lỗ hổng nhanh hơn.
+                                        </p>
                                     </article>
                                 </div>
                             </section>

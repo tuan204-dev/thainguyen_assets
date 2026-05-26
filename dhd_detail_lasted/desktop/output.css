@@ -22,8 +22,7 @@
     --t-text-xl--line-height: calc(1.75 / 1.25);
     --t-text-2xl: 1.5rem;
     --t-text-2xl--line-height: calc(2 / 1.5);
-    --t-text-3xl: 1.875rem;
-    --t-text-3xl--line-height: calc(2.25 / 1.875);
+    --t-font-weight-normal: 400;
     --t-font-weight-medium: 500;
     --t-font-weight-semibold: 600;
     --t-font-weight-bold: 700;
@@ -230,6 +229,9 @@
   .t\:z-50 {
     z-index: 50;
   }
+  .t\:float-left {
+    float: left;
+  }
   .t\:container {
     width: 100%;
     @media (width >= 1000px) {
@@ -278,6 +280,9 @@
   .t\:mt-8 {
     margin-top: calc(var(--t-spacing) * 8);
   }
+  .t\:mr-4 {
+    margin-right: calc(var(--t-spacing) * 4);
+  }
   .t\:mb-2 {
     margin-bottom: calc(var(--t-spacing) * 2);
   }
@@ -301,6 +306,9 @@
   }
   .t\:flex {
     display: flex;
+  }
+  .t\:flow-root {
+    display: flow-root;
   }
   .t\:grid {
     display: grid;
@@ -379,6 +387,9 @@
   .t\:w-25 {
     width: calc(var(--t-spacing) * 25);
   }
+  .t\:w-\[42\%\] {
+    width: 42%;
+  }
   .t\:w-auto {
     width: auto;
   }
@@ -397,8 +408,8 @@
   .t\:max-w-\[940px\] {
     max-width: 940px;
   }
-  .t\:max-w-\[980px\] {
-    max-width: 980px;
+  .t\:max-w-full {
+    max-width: 100%;
   }
   .t\:min-w-0 {
     min-width: calc(var(--t-spacing) * 0);
@@ -783,10 +794,6 @@
     font-size: var(--t-text-2xl);
     line-height: var(--tw-leading, var(--t-text-2xl--line-height));
   }
-  .t\:text-3xl {
-    font-size: var(--t-text-3xl);
-    line-height: var(--tw-leading, var(--t-text-3xl--line-height));
-  }
   .t\:text-base {
     font-size: var(--t-text-base);
     line-height: var(--tw-leading, var(--t-text-base--line-height));
@@ -813,6 +820,9 @@
   .t\:text-\[17px\] {
     font-size: 17px;
   }
+  .t\:text-\[26px\] {
+    font-size: 26px;
+  }
   .t\:leading-6 {
     --tw-leading: calc(var(--t-spacing) * 6);
     line-height: calc(var(--t-spacing) * 6);
@@ -837,6 +847,10 @@
     --tw-font-weight: var(--t-font-weight-medium);
     font-weight: var(--t-font-weight-medium);
   }
+  .t\:font-normal {
+    --tw-font-weight: var(--t-font-weight-normal);
+    font-weight: var(--t-font-weight-normal);
+  }
   .t\:font-semibold {
     --tw-font-weight: var(--t-font-weight-semibold);
     font-weight: var(--t-font-weight-semibold);
@@ -844,9 +858,6 @@
   .t\:tracking-wide {
     --tw-tracking: var(--t-tracking-wide);
     letter-spacing: var(--t-tracking-wide);
-  }
-  .t\:break-words {
-    overflow-wrap: break-word;
   }
   .t\:break-all {
     word-break: break-all;
@@ -856,6 +867,9 @@
   }
   .t\:text-\[\#0A64B4\] {
     color: #0A64B4;
+  }
+  .t\:text-\[\#3A3A3A\] {
+    color: #3A3A3A;
   }
   .t\:text-\[\#8A94A6\] {
     color: #8A94A6;
@@ -1010,6 +1024,11 @@
       display: none;
     }
   }
+  .t\:pc\:max-w-\[980px\] {
+    @media (width >= 1000px) {
+      max-width: 980px;
+    }
+  }
   .t\:pc\:grid-cols-4 {
     @media (width >= 1000px) {
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1051,6 +1070,17 @@
       padding-left: calc(var(--t-spacing) * 8);
     }
   }
+  .t\:pc\:text-lg {
+    @media (width >= 1000px) {
+      font-size: var(--t-text-lg);
+      line-height: var(--tw-leading, var(--t-text-lg--line-height));
+    }
+  }
+  .t\:pc\:text-\[34px\] {
+    @media (width >= 1000px) {
+      font-size: 34px;
+    }
+  }
   .t\:md\:block {
     @media (width >= 48rem) {
       display: block;
@@ -1059,6 +1089,11 @@
   .t\:md\:hidden {
     @media (width >= 48rem) {
       display: none;
+    }
+  }
+  .t\:md\:w-\[32\%\] {
+    @media (width >= 48rem) {
+      width: 32%;
     }
   }
   .t\:md\:grid-cols-2 {
@@ -1071,29 +1106,16 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
-  .t\:md\:grid-cols-\[minmax\(12rem\,32\%\)_minmax\(0\,1fr\)\] {
-    @media (width >= 48rem) {
-      grid-template-columns: minmax(12rem,32%) minmax(0,1fr);
-    }
-  }
-  .t\:md\:gap-4 {
-    @media (width >= 48rem) {
-      gap: calc(var(--t-spacing) * 4);
-    }
-  }
   .t\:md\:py-8 {
     @media (width >= 48rem) {
       padding-block: calc(var(--t-spacing) * 8);
     }
   }
-  .t\:md\:text-\[19px\] {
+  .t\:md\:max-pc\:text-\[32px\] {
     @media (width >= 48rem) {
-      font-size: 19px;
-    }
-  }
-  .t\:md\:text-\[42px\] {
-    @media (width >= 48rem) {
-      font-size: 42px;
+      @media (width < 1000px) {
+        font-size: 32px;
+      }
     }
   }
   .t\:\[\&_\.swiper-slide\]\:flex {
@@ -1261,14 +1283,15 @@
   overflow-wrap: anywhere;
 }
 main h1 {
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 .category-ribbon {
   display: inline-flex;
   align-items: center;
   height: 40px;
   background: #0a64b4;
-  clip-path: polygon(0% 0%, 90% 0, 100% 32%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 90% 0, 100% 35%, 100% 100%, 0% 100%);
   color: #fff;
   font-size: 1rem;
   font-weight: 700;
@@ -1333,25 +1356,28 @@ main h1 {
 .ranked-title {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 18px;
   color: #0a64b4;
+  line-height: 1.1;
 }
 .ranked-title i {
   color: #ea2736;
-  font-size: 28px;
+  font-size: 24px;
 }
 .ranked-title .sidebar-tab-label {
   color: #0a64b4;
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 800;
+  text-align: left;
 }
 .ranked-title .sidebar-tab-label.is-active:first-of-type {
   color: #ea2736;
 }
 .ranked-title span {
   color: #0a64b4;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
 }
 .ranked-list {
@@ -1443,10 +1469,13 @@ main h1 {
     font-size: 21px;
   }
   .related-news-title {
-    font-size: 18px;
+    font-size: 17px;
   }
   .ranked-title .sidebar-tab-label, .ranked-title span {
-    font-size: 28px;
+    font-size: 30px;
+  }
+  .ranked-title i {
+    font-size: 22px;
   }
   .ranked-item {
     grid-template-columns: 3rem minmax(0, 1fr);
