@@ -744,14 +744,14 @@
       column-gap: calc(var(--t-spacing) * 20);
     }
   }
+  .t\:md\:block {
+    @media (width >= 48rem) {
+      display: block;
+    }
+  }
   .t\:md\:flex {
     @media (width >= 48rem) {
       display: flex;
-    }
-  }
-  .t\:md\:inline {
-    @media (width >= 48rem) {
-      display: inline;
     }
   }
   .t\:md\:grid-cols-2 {
