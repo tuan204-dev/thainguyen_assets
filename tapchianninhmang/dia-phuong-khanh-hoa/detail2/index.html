@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons@3.3.1/license.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons@3.3.1/css/all/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="bg-cover bg-no-repeat bg-center fixed top-0 left-0 right-0 z-40 h-[68px]"
+        style="background-image: url('../assets/footer-bg.png');">
+        <div class="container px-5 py-4 mx-auto max-w-[1240px] w-full">
+            <div class="flex justify-between items-center">
+                <!-- Left: Logo -->
+                <div class="flex items-center gap-x-4">
+                    <img src="../assets/logo.svg" alt="Logo" class="h-10 md:h-auto">
+                </div>
+
+                <!-- Right: Desktop Nav + Icons -->
+                <div class="flex items-center gap-x-4 ml-auto lg:gap-x-10">
+                    <!-- Desktop Nav -->
+                    <div class="header-nav-shadow hidden lg:flex gap-x-5 xl:gap-x-10 items-center">
+                        <p class="font-semibold text-white text-sm xl:text-base">
+                            <a href="">Trang chủ</a>
+                        </p>
+                        <p class="font-semibold text-white text-sm xl:text-base">
+                            <a href="">Tin tức</a>
+                        </p>
+                        <p class="font-semibold text-white text-sm xl:text-base">
+                            <a href="">Thông Tin Xã Thuận bắc</a>
+                        </p>
+                        <p class="font-semibold text-white text-sm xl:text-base">
+                            <a href="">Bản Đồ Chi tiết</a>
+                        </p>
+                        <p class="font-semibold text-white text-sm xl:text-base">
+                            <a href="">Media</a>
+                        </p>
+                    </div>
+
+                    <!-- Hamburger (Mobile/Tablet) -->
+                    <button id="menu-btn" class="lg:hidden text-white focus:outline-none">
+                        <i class="fi fi-rr-menu-burger text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overlay Mobile Menu -->
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm opacity-0 invisible transition-all duration-300">
+        <!-- Menu Content -->
+        <div id="mobile-menu-content"
+            class="absolute top-0 left-0 w-[90%] md:w-[60%] lg:hidden h-full bg-white shadow-xl transform -translate-x-full transition-transform duration-300 flex flex-col">
+            <!-- Header: Close Button -->
+            <div class="p-5 flex justify-between items-center border-b border-gray-100">
+                <img src="../assets/logo.svg" alt="Logo" class="h-8 filters grayscale brightness-0">
+                <button id="close-menu-btn" class="text-gray-500 hover:text-red-600 focus:outline-none">
+                    <i class="fi fi-rr-cross text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Body: Menu Items -->
+            <div class="p-5 overflow-y-auto flex-1">
+                <div class="grid grid-cols-2 gap-y-4 gap-x-4">
+                    <a href="" class="text-gray-800 font-medium text-lg hover:text-[#B6181F]">Trang chủ</a>
+                    <a href="" class="text-gray-800 font-medium text-lg hover:text-[#B6181F]">Tin tức</a>
+                    <a href="" class="text-gray-800 font-medium text-lg hover:text-[#B6181F]">Thông Tin Xã</a>
+                    <a href="" class="text-gray-800 font-medium text-lg hover:text-[#B6181F]">Bản Đồ</a>
+                    <a href="" class="text-gray-800 font-medium text-lg hover:text-[#B6181F]">Media</a>
+                    <a href="" class="text-gray-800 font-medium text-lg hover:text-[#B6181F]">Liên hệ</a>
+                    <a href="" class="text-gray-800 font-medium text-lg hover:text-[#B6181F]">Văn bản</a>
+                    <a href="" class="text-gray-800 font-medium text-lg hover:text-[#B6181F]">Thủ tục</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container px-5 mx-auto grid grid-cols-1 lg:grid-cols-2 max-w-[1400px] gap-y-8 lg:gap-y-0 mt-[68px]">
+        <div class="aspect-[3/2] lg:aspect-square relative -mx-5 lg:mx-0">
+            <div class="absolute inset-0 bg-center bg-cover bg-no-repeat lg:hidden"
+                style="background-image: url('../assets/xa-thuan-bac.png');">
+            </div>
+            <div class="absolute inset-0 bg-center bg-cover bg-no-repeat hidden lg:block"
+                style="background-image: url('../assets/xa-thuan-bac.png');">
+            </div>
+        </div>
+        <div class="flex flex-col items-center justify-center lg:px-8">
+            <a href="" class="text-2xl font-semibold text-tw-secondary">
+                Chính trị
+            </a>
+
+            <div class="post-meta gap-x-3! my-2">
+                <p class="text-base lg:text-lg text-tw-primary">
+                    LÊ NGUYỆN
+                </p>
+                <div class="dot-separation size-1 lg:!size-[6px]"></div>
+                <time datetime="00:00, 27/12/2025" class="time text-base lg:text-lg! text-tw-secondary">00:00, 27/12/2025</time>
+            </div>
+
+            <h1 class="text-center text-2xl lg:text-[36px] font-semibold text-tw-primary font-serif">
+                Đại hội đại biểu Hội Cựu chiến binh xã Thuận Bắc lần thứ VIII
+            </h1>
+
+            <p class="description text-center mt-5">Ngày 24-10, Hội Cựu chiến binh xã Thuận Bắc tổ chức Đại hội
+                đại
+                biểu lần
+                thứ VIII,
+                nhiệm kỳ 2025 - 2030.</p>
+        </div>
+    </div>
+
+    <section class="container px-5 mx-auto py-10 lg:py-20 flex flex-col gap-y-8 lg:gap-y-12 max-w-[846px]">
+
+        <div
+            class="[&_p]:mx-auto [&_table]:mx-auto [&_table]:max-w-[820px] [&_p]:max-w-[700px]! [&_p]:text-justify [&_p]:text-lg">
+            <p>
+                Hội Cựu chiến binh xã Thuận Bắc có 14 chi hội trực thuộc với 346 hội viên. Nhiệm kỳ qua, Hội Cựu chiến
+                binh xã đã phát huy truyền thống “Bộ đội Cụ Hồ”, đoàn kết, năng động, sáng tạo, tích cực tham gia các
+                phong trào, cuộc vận động của địa phương, hoàn thành toàn diện các chỉ tiêu, nhiệm vụ đề ra. Hội đã cử
+                trên 120 lượt cán bộ, hội viên tham gia tuần tra, giữ gìn an ninh trật tự, hòa giải thành công trên 25
+                vụ mâu thuẫn trong nhân dân; vận động 100% thanh niên trúng tuyển nghĩa vụ quân sự lên đường nhập ngũ,
+                trong đó có 12 con, em hội viên; kết nạp 12 hội viên mới, vượt 2 chỉ tiêu; có 100% chi hội đạt trong
+                sạch vững mạnh; 97,5% “Hội viên gương mẫu” và 97,5% gia đình hội viên đạt “Gia đình văn hóa”.
+            </p>
+
+            <figure>
+                <img src="../assets/xa-thuan-bac.png" alt="">
+            </figure>
+            <p>
+                Hội Cựu chiến binh xã Thuận Bắc có 14 chi hội trực thuộc với 346 hội viên. Nhiệm kỳ qua, Hội Cựu chiến
+                binh xã đã phát huy truyền thống “Bộ đội Cụ Hồ”, đoàn kết, năng động, sáng tạo, tích cực tham gia các
+                phong trào, cuộc vận động của địa phương, hoàn thành toàn diện các chỉ tiêu, nhiệm vụ đề ra. Hội đã cử
+                trên 120 lượt cán bộ, hội viên tham gia tuần tra, giữ gìn an ninh trật tự, hòa giải thành công trên 25
+                vụ mâu thuẫn trong nhân dân; vận động 100% thanh niên trúng tuyển nghĩa vụ quân sự lên đường nhập ngũ,
+                trong đó có 12 con, em hội viên; kết nạp 12 hội viên mới, vượt 2 chỉ tiêu; có 100% chi hội đạt trong
+                sạch vững mạnh; 97,5% “Hội viên gương mẫu” và 97,5% gia đình hội viên đạt “Gia đình văn hóa”.
+            </p>
+
+            <figure>
+                <img src="../assets/xa-thuan-bac.png" alt="">
+            </figure>
+            <p>
+                Hội Cựu chiến binh xã Thuận Bắc có 14 chi hội trực thuộc với 346 hội viên. Nhiệm kỳ qua, Hội Cựu chiến
+                binh xã đã phát huy truyền thống “Bộ đội Cụ Hồ”, đoàn kết, năng động, sáng tạo, tích cực tham gia các
+                phong trào, cuộc vận động của địa phương, hoàn thành toàn diện các chỉ tiêu, nhiệm vụ đề ra. Hội đã cử
+                trên 120 lượt cán bộ, hội viên tham gia tuần tra, giữ gìn an ninh trật tự, hòa giải thành công trên 25
+                vụ mâu thuẫn trong nhân dân; vận động 100% thanh niên trúng tuyển nghĩa vụ quân sự lên đường nhập ngũ,
+                trong đó có 12 con, em hội viên; kết nạp 12 hội viên mới, vượt 2 chỉ tiêu; có 100% chi hội đạt trong
+                sạch vững mạnh; 97,5% “Hội viên gương mẫu” và 97,5% gia đình hội viên đạt “Gia đình văn hóa”.
+            </p>
+        </div>
+    </section>
+
+    <section class="container !max-w-[846px] px-5 flex flex-col gap-y-4 mx-auto mb-12">
+        <p class="text-2xl font-semibold text-[#6B0002] uppercase">BÀI LIÊN QUAN</p>
+
+        <div class="grid min-[530px]:grid-cols-2 min-[730px]:grid-cols-3 gap-6">
+            <div class="flex flex-col border border-[#EAEAEA]">
+                <div class="img-thumb-block">
+                    <figure class="figure">
+                        <a class="url" href="" title="">
+                            <img loading="lazy" class="img lazy entered loaded" data-src="../assets/du-an.png"
+                                src="../assets/du-an.png" alt="" data-ll-status="loaded">
+                        </a>
+                    </figure>
+                </div>
+                <div class="py-3 px-4 flex flex-col gap-y-3">
+                    <h3 class="title l2" title="Kỳ họp thứ 4 HĐND xã Thuận Bắc">
+                        <a
+                            href="/van-hoa-du-lich-van-hoc-nghe-thuat/202512/don-nhan-bang-xep-hang-di-tich-lich-su-van-hoa-cap-tinh-chua-khanh-son-9f90a48/">
+                            Kỳ họp thứ 4 HĐND xã Thuận Bắc
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            <div class="flex flex-col border border-[#EAEAEA]">
+                <div class="img-thumb-block">
+                    <figure class="figure">
+                        <a class="url" href="" title="">
+                            <img loading="lazy" class="img lazy entered loaded" data-src="../assets/du-an.png"
+                                src="../assets/du-an.png" alt="" data-ll-status="loaded">
+                        </a>
+                    </figure>
+                </div>
+                <div class="py-3 px-4 flex flex-col gap-y-3">
+                    <h3 class="title l2" title="Kỳ họp thứ 4 HĐND xã Thuận Bắc">
+                        <a
+                            href="/van-hoa-du-lich-van-hoc-nghe-thuat/202512/don-nhan-bang-xep-hang-di-tich-lich-su-van-hoa-cap-tinh-chua-khanh-son-9f90a48/">
+                            Kỳ họp thứ 4 HĐND xã Thuận Bắc
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            <div class="flex flex-col border border-[#EAEAEA]">
+                <div class="img-thumb-block">
+                    <figure class="figure">
+                        <a class="url" href="" title="">
+                            <img loading="lazy" class="img lazy entered loaded" data-src="../assets/du-an.png"
+                                src="../assets/du-an.png" alt="" data-ll-status="loaded">
+                        </a>
+                    </figure>
+                </div>
+                <div class="py-3 px-4 flex flex-col gap-y-3">
+                    <h3 class="title l2" title="Kỳ họp thứ 4 HĐND xã Thuận Bắc">
+                        <a
+                            href="/van-hoa-du-lich-van-hoc-nghe-thuat/202512/don-nhan-bang-xep-hang-di-tich-lich-su-van-hoa-cap-tinh-chua-khanh-son-9f90a48/">
+                            Kỳ họp thứ 4 HĐND xã Thuận Bắc
+                        </a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container max-w-[1062px]! px-5 mx-auto flex flex-col gap-y-6 mb-20">
+        <p class="text-2xl lg:text-[36px] font-medium text-[#6B0002] uppercase font-serif">BẠN CÓ THỂ QUAN TÂM</p>
+
+        <div class="grid min-[530px]:grid-cols-2 min-[730px]:grid-cols-3 gap-6">
+            <div class="flex flex-col border border-[#EAEAEA]">
+                <div class="img-thumb-block">
+                    <figure class="figure">
+                        <a class="url" href="" title="">
+                            <img loading="lazy" class="img lazy entered loaded" data-src="../assets/du-an.png"
+                                src="../assets/du-an.png" alt="" data-ll-status="loaded">
+                        </a>
+                    </figure>
+                </div>
+                <div class="py-3 px-4 flex flex-col gap-y-3">
+                    <div class="post-meta">
+                        <time datetime="00:00, 27/12/2025" class="time">00:00, 27/12/2025</time>
+                    </div>
+
+                    <h3 class="title l2" title="Kỳ họp thứ 4 HĐND xã Thuận Bắc">
+                        <a
+                            href="/van-hoa-du-lich-van-hoc-nghe-thuat/202512/don-nhan-bang-xep-hang-di-tich-lich-su-van-hoa-cap-tinh-chua-khanh-son-9f90a48/">
+                            Kỳ họp thứ 4 HĐND xã Thuận Bắc
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            <div class="flex flex-col border border-[#EAEAEA]">
+                <div class="img-thumb-block">
+                    <figure class="figure">
+                        <a class="url" href="" title="">
+                            <img loading="lazy" class="img lazy entered loaded" data-src="../assets/du-an.png"
+                                src="../assets/du-an.png" alt="" data-ll-status="loaded">
+                        </a>
+                    </figure>
+                </div>
+                <div class="py-3 px-4 flex flex-col gap-y-3">
+                    <div class="post-meta">
+                        <time datetime="00:00, 27/12/2025" class="time">00:00, 27/12/2025</time>
+                    </div>
+
+                    <h3 class="title l2" title="Kỳ họp thứ 4 HĐND xã Thuận Bắc">
+                        <a
+                            href="/van-hoa-du-lich-van-hoc-nghe-thuat/202512/don-nhan-bang-xep-hang-di-tich-lich-su-van-hoa-cap-tinh-chua-khanh-son-9f90a48/">
+                            Kỳ họp thứ 4 HĐND xã Thuận Bắc
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            <div class="flex flex-col border border-[#EAEAEA]">
+                <div class="img-thumb-block">
+                    <figure class="figure">
+                        <a class="url" href="" title="">
+                            <img loading="lazy" class="img lazy entered loaded" data-src="../assets/du-an.png"
+                                src="../assets/du-an.png" alt="" data-ll-status="loaded">
+                        </a>
+                    </figure>
+                </div>
+                <div class="py-3 px-4 flex flex-col gap-y-3">
+                    <div class="post-meta">
+                        <time datetime="00:00, 27/12/2025" class="time">00:00, 27/12/2025</time>
+                    </div>
+
+                    <h3 class="title l2" title="Kỳ họp thứ 4 HĐND xã Thuận Bắc">
+                        <a
+                            href="/van-hoa-du-lich-van-hoc-nghe-thuat/202512/don-nhan-bang-xep-hang-di-tich-lich-su-van-hoa-cap-tinh-chua-khanh-son-9f90a48/">
+                            Kỳ họp thứ 4 HĐND xã Thuận Bắc
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            <div class="flex flex-col border border-[#EAEAEA]">
+                <div class="img-thumb-block">
+                    <figure class="figure">
+                        <a class="url" href="" title="">
+                            <img loading="lazy" class="img lazy entered loaded" data-src="../assets/du-an.png"
+                                src="../assets/du-an.png" alt="" data-ll-status="loaded">
+                        </a>
+                    </figure>
+                </div>
+                <div class="py-3 px-4 flex flex-col gap-y-3">
+                    <div class="post-meta">
+                        <time datetime="00:00, 27/12/2025" class="time">00:00, 27/12/2025</time>
+                    </div>
+
+                    <h3 class="title l2" title="Kỳ họp thứ 4 HĐND xã Thuận Bắc">
+                        <a
+                            href="/van-hoa-du-lich-van-hoc-nghe-thuat/202512/don-nhan-bang-xep-hang-di-tich-lich-su-van-hoa-cap-tinh-chua-khanh-son-9f90a48/">
+                            Kỳ họp thứ 4 HĐND xã Thuận Bắc
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            <div class="flex flex-col border border-[#EAEAEA]">
+                <div class="img-thumb-block">
+                    <figure class="figure">
+                        <a class="url" href="" title="">
+                            <img loading="lazy" class="img lazy entered loaded" data-src="../assets/du-an.png"
+                                src="../assets/du-an.png" alt="" data-ll-status="loaded">
+                        </a>
+                    </figure>
+                </div>
+                <div class="py-3 px-4 flex flex-col gap-y-3">
+                    <div class="post-meta">
+                        <time datetime="00:00, 27/12/2025" class="time">00:00, 27/12/2025</time>
+                    </div>
+
+                    <h3 class="title l2" title="Kỳ họp thứ 4 HĐND xã Thuận Bắc">
+                        <a
+                            href="/van-hoa-du-lich-van-hoc-nghe-thuat/202512/don-nhan-bang-xep-hang-di-tich-lich-su-van-hoa-cap-tinh-chua-khanh-son-9f90a48/">
+                            Kỳ họp thứ 4 HĐND xã Thuận Bắc
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            <div class="flex flex-col border border-[#EAEAEA]">
+                <div class="img-thumb-block">
+                    <figure class="figure">
+                        <a class="url" href="" title="">
+                            <img loading="lazy" class="img lazy entered loaded" data-src="../assets/du-an.png"
+                                src="../assets/du-an.png" alt="" data-ll-status="loaded">
+                        </a>
+                    </figure>
+                </div>
+                <div class="py-3 px-4 flex flex-col gap-y-3">
+                    <div class="post-meta">
+                        <time datetime="00:00, 27/12/2025" class="time">00:00, 27/12/2025</time>
+                    </div>
+
+                    <h3 class="title l2" title="Kỳ họp thứ 4 HĐND xã Thuận Bắc">
+                        <a
+                            href="/van-hoa-du-lich-van-hoc-nghe-thuat/202512/don-nhan-bang-xep-hang-di-tich-lich-su-van-hoa-cap-tinh-chua-khanh-son-9f90a48/">
+                            Kỳ họp thứ 4 HĐND xã Thuận Bắc
+                        </a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="flex flex-col gap-y-2">
+        <div class="bg-cover bg-center bg-no-repeat h-[400px] md:h-[550px] lg:h-[700px]"
+            style="background-image: url('../assets/du-an.png');">
+            <div class="h-full bg-gradient-to-br from-[#000000ac] to-[#00000000]">
+                <div
+                    class="py-10 md:py-16 lg:py-20 px-5 md:px-10 lg:px-20 flex flex-col gap-y-4 md:gap-y-6 max-w-full lg:max-w-[700px]">
+                    <h2 class="text-white font-semibold text-2xl md:text-[36px] lg:text-[48px]">
+                        <a href="">
+                            DỰ ÁN TRỌNG ĐIỂM
+                        </a>
+                    </h2>
+
+                    <p class="text-white text-xl md:text-2xl lg:text-[36px] font-semibold">
+                        Phát triển công nghiệp - năng lượng giai đoạn 2025 - 2030
+                    </p>
+
+                    <p class="text-white text-sm md:text-base ">
+                        UBND tỉnh Khánh Hòa vừa ban hành Kế hoạch số 4828 triển khai các nhiệm vụ phát triển công nghiệp
+                        và năng lượng theo Nghị quyết số 01 ngày 14-7-2025 của Tỉnh ủy về mục tiêu tăng trưởng kinh tế
+                        hai con số giai đoạn 2025 - 2030 và Kế hoạch số 1267 ngày 31-7-2025 của UBND tỉnh.
+                    </p>
+
+                    <a href="" class="underline text-white text-base">
+                        Xem thêm
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="w-screen overflow-hidden mr-[-15px]">
+                <div id="projectsSwiper" class="swiper projects-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide !w-fit">
+                            <a href="#" class="block relative w-[450px] max-w-screen overflow-hidden aspect-[3/2]">
+                                <img src="../assets/du-an.png" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover" />
+                                <div class="absolute inset-0 bg-black/40"></div>
+                                <div class="absolute inset-0 p-6 flex flex-col justify-between">
+                                    <div class="flex flex-col gap-y-1">
+                                        <p class="text-white text-base">Dự án 1</p>
+                                        <p class="text-[32px] text-white font-semibold">TÊN DỰ ÁN</p>
+                                    </div>
+                                    <p class="text-white text-base">2024-2026</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide !w-fit">
+                            <a href="#" class="block relative w-[450px] max-w-screen overflow-hidden aspect-[3/2]">
+                                <img src="../assets/du-an.png" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover" />
+                                <div class="absolute inset-0 bg-black/40"></div>
+                                <div class="absolute inset-0 p-6 flex flex-col justify-between">
+                                    <div class="flex flex-col gap-y-1">
+                                        <p class="text-white text-base">Dự án 1</p>
+                                        <p class="text-[32px] text-white font-semibold">TÊN DỰ ÁN</p>
+                                    </div>
+                                    <p class="text-white text-base">2024-2026</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide !w-fit">
+                            <a href="#" class="block relative w-[450px] max-w-screen overflow-hidden aspect-[3/2]">
+                                <img src="../assets/du-an.png" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover" />
+                                <div class="absolute inset-0 bg-black/40"></div>
+                                <div class="absolute inset-0 p-6 flex flex-col justify-between">
+                                    <div class="flex flex-col gap-y-1">
+                                        <p class="text-white text-base">Dự án 1</p>
+                                        <p class="text-[32px] text-white font-semibold">TÊN DỰ ÁN</p>
+                                    </div>
+                                    <p class="text-white text-base">2024-2026</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide !w-fit">
+                            <a href="#" class="block relative w-[450px] max-w-screen overflow-hidden aspect-[3/2]">
+                                <img src="../assets/du-an.png" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover" />
+                                <div class="absolute inset-0 bg-black/40"></div>
+                                <div class="absolute inset-0 p-6 flex flex-col justify-between">
+                                    <div class="flex flex-col gap-y-1">
+                                        <p class="text-white text-base">Dự án 1</p>
+                                        <p class="text-[32px] text-white font-semibold">TÊN DỰ ÁN</p>
+                                    </div>
+                                    <p class="text-white text-base">2024-2026</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide !w-fit">
+                            <a href="#" class="block relative w-[450px] max-w-screen overflow-hidden aspect-[3/2]">
+                                <img src="../assets/du-an.png" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover" />
+                                <div class="absolute inset-0 bg-black/40"></div>
+                                <div class="absolute inset-0 p-6 flex flex-col justify-between">
+                                    <div class="flex flex-col gap-y-1">
+                                        <p class="text-white text-base">Dự án 1</p>
+                                        <p class="text-[32px] text-white font-semibold">TÊN DỰ ÁN</p>
+                                    </div>
+                                    <p class="text-white text-base">2024-2026</p>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-button-prev !text-white"></div>
+                    <div class="swiper-button-next !text-white"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-cover bg-no-repeat bg-center" style="background-image: url('../assets/footer-bg.png');">
+        <div class="container section flex flex-col gap-y-4">
+            <p class="text-tw-primary text-xl md:text-2xl lg:text-[28px] font-semibold">
+                Báo và Phát thanh, Truyền hình Khánh Hòa
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-[40px] gap-y-3">
+                <div class="flex flex-col gap-y-2">
+                    <div class="grid grid-cols-[16px_1fr] gap-x-4 items-center">
+                        <i class="fi fi-rs-marker text-tw-secondary"></i>
+                        <p class="text-tw-primary text-sm font-semibold">77 Yersin, phường Tây Nha Trang, Khánh Hòa</p>
+                    </div>
+                    <div class="grid grid-cols-[16px_1fr] gap-x-4 items-center">
+                        <i class="fi fi-rr-phone-flip text-tw-secondary"></i>
+                        <p class="text-tw-primary text-sm font-semibold">0258.3523158</p>
+                    </div>
+                    <div class="grid grid-cols-[16px_1fr] gap-x-4 items-center">
+                        <i class="fi fi-rr-envelope text-tw-secondary"></i>
+                        <p class="text-tw-primary text-sm font-semibold">baokhanhhoadientu@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-y-2">
+                    <div class="grid grid-cols-[126px_1fr] gap-x-5">
+                        <span class="text-sm text-tw-primary">Cơ quan chủ quản:</span>
+                        <p class="text-tw-primary text-sm font-semibold">
+                            Tỉnh ủy Khánh Hòa | Giấy phép hoạt động báo chí điện tử số: 06/GB-BTTTT ngày 06 tháng 01 năm
+                            2023
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-[126px_1fr] gap-x-5">
+                        <span class="text-sm text-tw-primary">Tổng Biên tập:</span>
+                        <p class="text-tw-primary text-sm font-semibold">
+                            Thái Thị Lệ Hằng
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-[126px_1fr] gap-x-5">
+                        <span class="text-sm text-tw-primary">Phó Tổng Biên tập:</span>
+                        <p class="text-tw-primary text-sm font-semibold">
+                            Lê Hoàng Triều - Trần Văn Thanh - Nguyễn Xuân Duy - Cung Phú Quốc - Võ Thanh Lâm
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="md:col-span-2">
+                    <p class="text-sm font-semibold text-tw-primary">Ghi rõ nguồn "Báo Khánh Hòa điện tử" khi sử dụng
+                        thông tin từ website này</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

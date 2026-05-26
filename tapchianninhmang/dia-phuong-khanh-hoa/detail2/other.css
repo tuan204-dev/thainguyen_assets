@@ -1,0 +1,19 @@
+table.image p:has(img) {
+    max-width: 100% !important;
+    width: 100%;
+    display: block;
+}
+
+table.image img[style*="float: center"] {
+    width: 100% !important;
+}
+
+table.image .desc {
+    padding: 0 !important;
+    color: #0e6b91;
+    text-align: center;
+    display: block;
+    max-width: 700px;
+    margin: 0 auto;
+     font-style: italic;
+}

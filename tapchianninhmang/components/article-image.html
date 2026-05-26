@@ -1,0 +1,56 @@
+<!--
+  Component: article-image
+  Description: Standard TinyMCE figure image with picture element, lazy loading,
+               Schema.org microdata, and figcaption. Matches output from setupTextEditorTinyMce.ts.
+  Classes: .tplCaption, .fig-picture, .Image (figcaption paragraph)
+  CSS: ../../common/style/article-image.css (figure layout, figcaption & alignment)
+  Attributes:
+    data-align-image  = "center" | "full" | "left" | "right" | "bleed"
+    data-size         = "true"
+    data-width        = image natural width (on .fig-picture)
+  Usage: Place inside .article-prose or .mag-content for article body images
+-->
+
+
+<!-- ── Center-aligned image ─────────────────────────────────── -->
+
+<figure class="tplCaption not-prose"
+    itemprop="associatedMedia image" itemscope="" itemtype="http://schema.org/ImageObject"
+    data-size="true" data-align-image="center">
+    <div class="fig-picture" data-width="680">
+        <picture>
+            <source data-srcset="https://example.com/image.jpg">
+            <img class="lazy" itemprop="contentUrl"
+                src="https://example.com/image.jpg"
+                alt="Lorem ipsum"
+                width="100%" loading="lazy"
+                data-src="https://example.com/image.jpg"
+                data-mce-src="https://example.com/image.jpg">
+        </picture>
+    </div>
+    <figcaption itemprop="description">
+        <p class="Image">Lorem ipsum dolor sit amet. Ảnh: <em>Ipsum</em></p>
+    </figcaption>
+</figure>
+
+
+<!-- ── Full-bleed image ─────────────────────────────────────── -->
+
+<figure class="tplCaption not-prose"
+    itemprop="associatedMedia image" itemscope="" itemtype="http://schema.org/ImageObject"
+    data-size="true" data-align-image="full">
+    <div class="fig-picture" data-width="1800">
+        <picture>
+            <source data-srcset="https://example.com/wide-image.jpg">
+            <img class="lazy" itemprop="contentUrl"
+                src="https://example.com/wide-image.jpg"
+                alt="Lorem ipsum wide"
+                width="100%" loading="lazy"
+                data-src="https://example.com/wide-image.jpg"
+                data-mce-src="https://example.com/wide-image.jpg">
+        </picture>
+    </div>
+    <figcaption itemprop="description">
+        <p class="Image">Lorem ipsum dolor sit amet</p>
+    </figcaption>
+</figure>

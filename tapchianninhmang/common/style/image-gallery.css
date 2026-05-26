@@ -1,0 +1,232 @@
+/* ─────────────────────────────────────────────
+   Image Gallery – Swiper-based lightbox
+   ───────────────────────────────────────────── */
+
+#content img {
+    cursor: zoom-in;
+}
+
+.image-gallery {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: block;
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.image-gallery.is-active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.image-gallery__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* ── Swiper container fills the viewport ── */
+.image-gallery__swiper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 72px 88px;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 1;
+
+    transform: scale(0.96);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.25s ease;
+}
+
+.image-gallery.is-active .image-gallery__swiper {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.image-gallery__swiper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-gallery__figure {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    user-select: none;
+}
+
+.image-gallery__img {
+    display: block;
+    max-width: 100%;
+    max-height: 78vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    -webkit-user-drag: none;
+}
+
+.image-gallery__caption {
+    color: #e8e8e8;
+    font-size: 0.875rem;
+    font-style: italic;
+    text-align: center;
+    max-width: 80ch;
+    line-height: 1.5;
+    padding: 0 8px;
+}
+
+/* ── Top corner buttons ── */
+.image-gallery__btn {
+    position: absolute;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border: 0;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+}
+
+.image-gallery__btn:hover,
+.image-gallery__btn:focus-visible {
+    background: rgba(255, 255, 255, 0.24);
+    outline: none;
+}
+
+.image-gallery__btn:active {
+    transform: scale(0.94);
+}
+
+.image-gallery__btn svg {
+    width: 50%;
+    height: 50%;
+    display: block;
+}
+
+.image-gallery__nav {
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    transform: translateY(-50%);
+    /* override Swiper's default nav styling */
+    margin: 0;
+    color: #fff;
+}
+
+.image-gallery__nav::after {
+    content: none;
+}
+
+.image-gallery__nav--prev {
+    left: 16px;
+    right: auto;
+}
+
+.image-gallery__nav--next {
+    right: 16px;
+    left: auto;
+}
+
+.image-gallery__nav.swiper-button-disabled {
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.image-gallery[data-single="true"] .image-gallery__nav,
+.image-gallery[data-single="true"] .image-gallery__counter {
+    display: none;
+}
+
+.image-gallery__close {
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+}
+
+.image-gallery__download {
+    top: 16px;
+    right: 68px;
+    width: 44px;
+    height: 44px;
+}
+
+.image-gallery__counter {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 3;
+    color: #fff;
+    font-size: 0.875rem;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.02em;
+    padding: 6px 12px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 9999px;
+}
+
+@media (max-width: 640px) {
+    .image-gallery__swiper {
+        padding: 56px 12px;
+    }
+
+    .image-gallery__nav {
+        width: 36px;
+        height: 36px;
+    }
+
+    .image-gallery__nav--prev {
+        left: 8px;
+    }
+
+    .image-gallery__nav--next {
+        right: 8px;
+    }
+
+    .image-gallery__close {
+        top: 8px;
+        right: 8px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .image-gallery__download {
+        top: 8px;
+        right: 52px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .image-gallery__counter {
+        top: 12px;
+        left: 12px;
+        font-size: 0.75rem;
+    }
+
+    .image-gallery__img {
+        max-height: 70vh;
+    }
+}

@@ -1,0 +1,514 @@
+@import "tailwindcss" source(none) prefix(t);
+@plugin "@tailwindcss/typography";
+@source "./**/*.{html,js,jsx,ts,tsx}";
+
+@theme {
+  --color-tw-primary: #212636;
+  --color-tw-secondary: #667085;
+  --color-tw-border: #d0d5dd;
+
+  --breakpoint-bt-xl: 1200px;
+}
+
+.noto-font {
+  font-family: "Noto Serif", serif;
+}
+
+.title {
+    font-family: "Noto Serif", serif;
+    font-weight: 500;
+}
+
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #0A64B4;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 40px;
+  padding: 0 32px 0 15px;
+  clip-path: polygon(0% 0%, 90% 0, 100% 32%, 100% 100%, 0% 100%);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.category-badge:hover {
+  color: white;
+  background: #07528F;
+}
+
+.header-title .title.l1 {
+  font-size: 2.1875rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+}
+.article-date {
+  font-size: 0.8rem;
+  color: var(--text-color-soft);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Roboto", sans-serif;
+}
+
+
+
+#content {
+  @apply t:prose t:max-w-none t:text-lg;
+}
+
+.article-prose {
+  line-height: 1.6;
+  color: var(--text-color);
+  font-size: 1.125rem;
+}
+
+.article-prose p { margin-bottom: 1.1rem; }
+.article-prose figure { margin: 1.5rem 0; }
+.article-prose figcaption {
+  font-size: 0.875rem;          
+  color: #444343;              
+  text-align: center;
+  font-style: italic;
+  margin-top: 0;
+  padding: 8px;
+}
+.article-prose img { width: 100%; height: auto; }
+.article-prose strong { font-weight: 700; }
+/* Dùng #content thay .article-prose vì prose plugin compile rule dưới dạng
+   "#content :where(h2)" (specificity 1,0,0) — class selector không đủ thắng */
+#content.article-prose h2 { font-size: 1.25rem   !important; font-weight: 700 !important; margin: 1.5rem 0 0.5rem    !important; line-height: 1.35 !important; }
+#content.article-prose h3 { font-size: 1.1875rem !important; font-weight: 700 !important; margin: 1.25rem 0 0.45rem  !important; line-height: 1.4  !important; }
+#content.article-prose h4 { font-size: 1.125rem  !important; font-weight: 700 !important; margin: 1rem 0 0.4rem      !important; line-height: 1.45 !important; }
+#content.article-prose h5 { font-size: 1.125rem  !important; font-weight: 700 !important; margin: 0.875rem 0 0.35rem !important; line-height: 1.5  !important; }
+#content.article-prose h6 { font-size: 1.125rem  !important; font-weight: 700 !important; margin: 0.75rem 0 0.3rem   !important; line-height: 1.5  !important; letter-spacing: 0.03em !important; }
+
+/* First/last heading & paragraph: bỏ margin top/bottom để không tạo khoảng trống đầu/cuối container.
+   Dùng #content + .article-prose để tăng specificity, đảm bảo thắng prose default rules. */
+#content.article-prose > :is(h1, h2, h3, h4, h5, h6, p):first-child { margin-top: 0 !important; }
+#content.article-prose > :is(h1, h2, h3, h4, h5, h6, p):last-child  { margin-bottom: 0 !important; }
+.article-prose :is(h1, h2, h3, h4, h5, h6, p):first-child { margin-top: 0 !important; }
+.article-prose :is(h1, h2, h3, h4, h5, h6, p):last-child  { margin-bottom: 0 !important; }
+
+.share-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #F0F0F0;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.share-icon-btn:hover {
+  background: #E0E0E0;
+  color: #333;
+}
+
+.info-cate-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0A64B4;
+}
+
+.info-cate-link:hover { color: var(--highlight-color); }
+
+.tag-link {
+  font-size: 0.8rem;
+  color: #0A64B4;
+  text-decoration: none;
+}
+
+.tag-link:hover { color: var(--highlight-color); }
+
+.sidebar-tab-label {
+  font-weight: 700;
+  font-size: 2.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #0A64B4;
+  font-family: "Chakra Petch", sans-serif;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.sidebar-tab-label.is-active {
+  color: #EA2736;            
+}
+
+.sidebar-tab-splitter {
+  font-size: 2.125rem;       
+  color: #0A64B4;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.sukien-box-heading {
+  display: block;
+  font-size: 1.375rem;       /* 22px */
+  font-weight: 700;
+  color: #0A64B4;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-family: "Chakra Petch", sans-serif;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.sukien-box-heading:hover {
+  color: var(--highlight-color);
+}
+
+/* Trending item number (#1, #2 …) */
+.trending-num {
+  color: #0A64B4;
+  font-size: 2.25rem;        /* 36px — matches .item_1 on live site */
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1;
+  min-width: 52px;
+  flex-shrink: 0;
+}
+
+/* View count row */
+.view-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--text-color-soft);
+  margin-top: 4px;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Tin bài khác: desktop shows inline desc, hides full-width desc */
+.tin-bai-khac .desc-mobile { display: none; }
+
+/* ── Mobile responsive ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .detail-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .detail-layout > * {
+    grid-column: span 1 !important;
+  }
+
+  .title.l1 {
+    font-size: 1.5rem;     /* 24px */
+  }
+
+  .article-date {
+    font-size: 0.75rem;
+  }
+
+  /* Category + tags: stack vertically */
+  .info-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Hide sidebar entirely on mobile */
+  .detail-layout aside {
+    display: none;
+  }
+
+  #content.article-prose h2 { font-size: 1.1875rem !important; }  /* 19px */
+  #content.article-prose h3 { font-size: 1.125rem  !important; }  /* 18px = p */
+  #content.article-prose h4,
+  #content.article-prose h5,
+  #content.article-prose h6 { font-size: 1.0625rem !important; }  /* 17px */
+
+  .tin-bai-khac .desc-desktop { display: none; }
+  .tin-bai-khac .desc-mobile { display: block; }
+
+}
+
+.home-overlay-nav [data-menu-item] {
+    padding-left: 40px;
+    color: #151515;
+}
+
+.home-overlay-nav [data-menu-item] [data-menu-indicator] {
+    display: none;
+}
+
+.home-overlay-nav [data-menu-item].is-active {
+    padding-left: 24px;
+    color: #EA2736;
+    background-color: #FFFFFF;
+}
+
+.home-overlay-nav [data-menu-item].is-active [data-menu-indicator] {
+    display: flex;
+}
+
+.home-overlay-nav [data-menu-item]:not(.is-active):hover {
+    background-color: #F1F1F1;
+}
+
+/* mobile */
+
+.mobile-menu-item {
+    background: #fff;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.mobile-menu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 20px;
+    background: transparent;
+    border: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #151515;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mobile-menu-caret {
+    font-size: 20px;
+    color: #333;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+/* Only rotate the DIRECT trigger's caret, not nested ones */
+.mobile-menu-item.is-open > .mobile-menu-trigger > .mobile-menu-caret {
+    transform: rotate(90deg);
+}
+
+.mobile-menu-sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+/* Only expand the DIRECT child sub panel */
+.mobile-menu-item.is-open > .mobile-menu-sub {
+    max-height: 2000px;
+}
+
+.mobile-menu-sub > a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    border-top: 1px solid #F0F0F0;
+    text-decoration: none;
+}
+
+.mobile-menu-sub > a:hover {
+    background: #F9F9F9;
+}
+
+.mobile-menu-item.is-open > .mobile-menu-trigger {
+    color: #0A64B4;
+    background: #F0F7FF;
+}
+
+/* ── Nested sub-items (level 3+) ── */
+
+.mobile-menu-item--nested {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid #F0F0F0;
+    overflow: hidden;
+}
+
+/* Trigger aligns with sibling <a> links at the SAME level (padding-left: 20px) */
+.mobile-menu-trigger--nested {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    font-weight: 400;
+}
+
+.mobile-menu-trigger--nested .mobile-menu-caret {
+    font-size: 16px;
+}
+
+.mobile-menu-item--nested.is-open > .mobile-menu-trigger--nested {
+    color: #0A64B4;
+    background: #F0F7FF;
+}
+
+/* Children inside nested sub-panels get progressively more left padding */
+.mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 32px;
+    font-size: 13px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 56px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+    padding-left: 32px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+    padding-left: 56px;
+}
+
+/* Desktop overlay right column reuses mobile accordion UI */
+.desktop-overlay-menu-root {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.desktop-overlay-menu-root > .mobile-menu-sub {
+    max-height: none;
+}
+
+
+
+.related {
+  margin: 15px 0;
+}
+
+.related table {
+  width: 100%;
+}
+
+.related td {
+  border-bottom: 1px dotted #ccc;
+  padding: 8px 0 !important;
+}
+
+/* CSS cho hÃ¬nh áº£nh trong bÃ i liÃªn quan */
+.image_related_1 img {
+  width: 120px !important; /* LÆ°u Ã½: thuá»™c tÃ­nh nÃ y sáº½ ghi Ä‘Ã¨ thuá»™c tÃ­nh inline style="width: 50px" trong test.html */
+  max-width: unset !important;
+  margin: 0 10px 0 0 !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+.related a {
+  text-decoration: none !important;
+}
+
+
+table.left td:has(img),
+table.right td:has(img) {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+table.left td:has(img) {
+  padding-left: 0 !important;
+}
+
+table.right td:has(img) {
+  padding-right: 0 !important;
+}
+
+table.rl tr.image_related_1 {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+table.rl tr.image_related_1:last-child {
+  border-bottom: none;
+}
+
+.related tbody:has(.image_related_2) {
+  border-left: 1px solid oklch(92.2% 0 0);
+}
+
+.image_related_2 {
+  display: block;
+  padding-left: 16px;
+  position: relative;
+  border: none;
+}
+
+.image_related_2 * {
+  font-size: 1.1rem;
+}
+
+.image_related_2 *:hover {
+  color: #0A64B4 !important;
+}
+
+.image_related_2 td {
+  border: none;
+}
+
+.image_related_2::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: red;
+  left: -5px;
+  top: 15px;
+  border-radius: 999px;
+  z-index: 1;
+}
+
+.image_related_2::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  left: -5px;
+  top: 15px;
+  border-radius: 999px;
+  z-index: 0;
+}
+
+.dot-pencisonar,
+.image_related_2::before {
+  animation: pencisonar 1.5s ease infinite;
+}
+@keyframes pencisonar {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+.detail-main-column {
+    display: flex;
+    flex-direction: column;
+}

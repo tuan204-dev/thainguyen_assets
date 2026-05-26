@@ -1,0 +1,174 @@
+<!--
+  Component: related-stream
+  Description: "Dòng sự kiện" topic timeline with date stamps (Tuổi Trẻ pattern).
+               First item gets a red dot (most recent), others get blue dots.
+  Classes: .related-stream, .related-stream__label, .related-stream__list,
+           .related-stream__item, .related-stream__item-date, .related-stream__item-title,
+           .related-stream__more
+  Usage: Place after article body to show chronological event progression.
+         Add .related-stream__more link at bottom for "Xem thêm" to full topic page.
+-->
+
+<nav class="related-stream not-prose t:mt-6 t:pt-5 t:border-t t:border-[#E5E5E5]" aria-label="Dòng sự kiện">
+    <style>
+        .related-stream {
+            margin: 1.5rem 0;
+        }
+
+        .related-stream__label {
+            font-family: "Roboto", sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--text-primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .related-stream__list {
+            position: relative;
+            padding-left: 24px;
+            border-left: 2px solid #D7DFEB;
+            list-style: none;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .related-stream__item {
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .related-stream__item + .related-stream__item {
+            border-top: 1px dashed #E5E5E5;
+        }
+
+        .related-stream__item::before {
+            content: "";
+            position: absolute;
+            left: -29px;
+            top: 16px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--text-primary-color);
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px #D7DFEB;
+        }
+
+        .related-stream__item:first-child::before {
+            background: #EA2736;
+            box-shadow: 0 0 0 2px #EA2736, 0 0 0 4px rgba(234, 39, 54, 0.2);
+        }
+
+        .related-stream__item-date {
+            font-family: "Roboto", sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-color-soft);
+            margin-bottom: 4px;
+        }
+
+        .related-stream__item-title {
+            font-family: "Noto Serif", serif;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.45;
+        }
+
+        .related-stream__item-title a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .related-stream__item-title a:hover {
+            color: var(--text-primary-color);
+        }
+
+        .related-stream__more {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-family: "Roboto", sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-primary-color);
+            text-decoration: none;
+            margin-top: 12px;
+            margin-left: 24px;
+        }
+
+        .related-stream__more:hover {
+            color: var(--highlight-color);
+        }
+
+        .material-symbols--electric-bolt-rounded {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M11 21q-.25 0-.437-.15t-.263-.4l-1.9-7.45H6q-.325 0-.512-.25t-.063-.55l4-10q.1-.25.338-.4T10.2 1.6h5.3q.35 0 .55.275t.075.6L14.6 7.6h3.9q.425 0 .588.375t-.113.7l-7.5 12q-.15.225-.375.3t-.1.025'/%3E%3C/svg%3E");
+            background-color: currentColor;
+            -webkit-mask-image: var(--svg);
+            mask-image: var(--svg);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+        }
+
+        .material-symbols--arrow-forward-ios-rounded {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='m9.575 12l-4.6-4.6q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l5.3 5.3q.15.15.213.325T11.95 12t-.063.375t-.212.325l-5.3 5.3q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7z'/%3E%3C/svg%3E");
+            background-color: currentColor;
+            -webkit-mask-image: var(--svg);
+            mask-image: var(--svg);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+        }
+    </style>
+    <div class="related-stream__label">
+        <i class="material-symbols--electric-bolt-rounded" style="width:18px;height:18px;"></i>
+        Dòng sự kiện
+    </div>
+
+    <ol class="related-stream__list">
+        <li class="related-stream__item">
+            <div class="related-stream__item-date">01/04/2026</div>
+            <div class="related-stream__item-title">
+                <a href="">Lorem ipsum dolor sit amet consectetur adipiscing elit</a>
+            </div>
+        </li>
+        <li class="related-stream__item">
+            <div class="related-stream__item-date">28/03/2026</div>
+            <div class="related-stream__item-title">
+                <a href="">Sed do eiusmod tempor incididunt ut labore et dolore</a>
+            </div>
+        </li>
+        <li class="related-stream__item">
+            <div class="related-stream__item-date">25/03/2026</div>
+            <div class="related-stream__item-title">
+                <a href="">Ut enim ad minim veniam quis nostrud exercitation ullamco</a>
+            </div>
+        </li>
+        <li class="related-stream__item">
+            <div class="related-stream__item-date">19/03/2026</div>
+            <div class="related-stream__item-title">
+                <a href="">Duis aute irure dolor in reprehenderit in voluptate velit</a>
+            </div>
+        </li>
+    </ol>
+
+    <a href="" class="related-stream__more">
+        Xem thêm
+        <i class="material-symbols--arrow-forward-ios-rounded"></i>
+    </a>
+</nav>

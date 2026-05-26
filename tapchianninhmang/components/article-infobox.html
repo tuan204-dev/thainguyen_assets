@@ -1,0 +1,79 @@
+<!--
+  Component: article-infobox
+  Description: Informational note callout with blue accent for supplementary information.
+               Uses <aside role="note"> for accessibility (BBC GEL breakout box pattern).
+  Classes: .article-infobox, .article-infobox__label
+  Icons: .material-symbols--info-rounded
+  Usage: Place inside #content (.article-prose) for informational notes or context.
+         Supports <p>, <ul>, and multiple paragraphs in body.
+-->
+
+<aside class="article-infobox not-prose" role="note">
+    <style>
+        .article-infobox {
+            border-left: 4px solid var(--text-primary-color);
+            background: #F0F7FF;
+            border-radius: 0 6px 6px 0;
+            padding: 16px 20px;
+            margin: 1.5rem 0;
+        }
+
+        .article-infobox__label {
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--text-primary-color);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: "Roboto", sans-serif !important;
+        }
+
+        .article-infobox p {
+            font-family: "Roboto", sans-serif !important;
+            font-size: 0.9375rem !important;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        .article-infobox p + p {
+            margin-top: 0.5rem;
+        }
+
+        .article-infobox ul {
+            font-family: "Roboto", sans-serif !important;
+            font-size: 0.9375rem !important;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0.5rem 0 0;
+            padding-left: 1.25rem;
+        }
+
+        .article-infobox ul li + li {
+            margin-top: 0.25rem;
+        }
+
+        .material-symbols--info-rounded {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 17q.425 0 .713-.288T13 16v-4q0-.425-.288-.712T12 11t-.712.288T11 12v4q0 .425.288.713T12 17m0-8q.425 0 .713-.288T13 8t-.288-.712T12 7t-.712.288T11 8t.288.713T12 9m0 13q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22'/%3E%3C/svg%3E");
+            background-color: currentColor;
+            -webkit-mask-image: var(--svg);
+            mask-image: var(--svg);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+        }
+    </style>
+    <div class="article-infobox__label">
+        <i class="material-symbols--info-rounded t:text-[#1B75BC]" style="width:18px;height:18px;"></i>
+        Lưu ý
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation.</p>
+</aside>

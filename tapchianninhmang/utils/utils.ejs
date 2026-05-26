@@ -1,0 +1,376 @@
+
+
+<%
+/*
+ * formatDate — Date Formatting Utility
+ * 
+ * Converts an ISO 8601 date string into a formatted string
+ * using a token-based format pattern.
+ *
+ * SIGNATURE
+ * ---------
+ *   formatDate(dateString)
+ *   formatDate(dateString, format)
+ *
+ * PARAMETERS
+ * ----------
+ *   dateString  (string, required)  — ISO 8601 date, e.g. "2026-02-27T03:57:39.676Z"
+ *   format      (string, optional)  — Output pattern. Default: "HH:mm, DD/MM/YYYY"
+ *
+ * SUPPORTED TOKENS
+ * ----------------
+ *   YYYY → 4-digit year      (2026)
+ *   MM   → 2-digit month     (01–12)
+ *   DD   → 2-digit day       (01–31)
+ *   HH   → 2-digit hour 24h  (00–23)
+ *   mm   → 2-digit minute    (00–59)
+ *   ss   → 2-digit second    (00–59)
+ *
+ *   Any other characters in the format string are kept as-is
+ *   (separators, commas, spaces, etc.)
+ *
+ * RETURNS
+ * -------
+ *   Formatted date string, or "" if dateString is null/undefined/invalid.
+ *
+ * EXAMPLES
+ * --------
+ *   <%= formatDate(item.createdAt) %>
+ *       → "03:57, 27/02/2026"
+ *
+ *   <%= formatDate(item.createdAt, "DD/MM/YYYY") %>
+ *       → "27/02/2026"
+ *
+ *   <%= formatDate(item.createdAt, "DD-MM-YYYY HH:mm:ss") %>
+ *       → "27-02-2026 03:57:39"
+ *
+ *   <%= formatDate(item.createdAt, "YYYY/MM/DD") %>
+ *       → "2026/02/27"
+ *
+ * RULES
+ * -----
+ *   - All times are converted to UTC+7 (Vietnam timezone).
+ *   - Always use <%= %> (escaped output) to render the result.
+ *   - Do NOT call this function outside of EJS template expressions.
+ *   - If the source data field might be missing, this is safe —
+ *     the function returns "" for falsy or invalid input.
+ */
+function formatDate(dateString, format) {
+  if (!dateString) return '';
+
+  var d = new Date(dateString);
+  if (isNaN(d.getTime())) return '';
+
+  // Chuyển sang UTC+7
+  d = new Date(d.getTime() + 7 * 60 * 60 * 1000);
+
+  format = format || 'HH:mm, DD/MM/YYYY';
+
+  var pad = function(n) { return n < 10 ? '0' + n : '' + n; };
+
+  var tokens = {
+    'DD':   pad(d.getUTCDate()),
+    'MM':   pad(d.getUTCMonth() + 1),
+    'YYYY': '' + d.getUTCFullYear(),
+    'HH':   pad(d.getUTCHours()),
+    'mm':   pad(d.getUTCMinutes()),
+    'ss':   pad(d.getUTCSeconds())
+  };
+
+  // Thay thế từ token dài nhất trước để tránh xung đột (YYYY trước MM, mm)
+  var result = format;
+  var keys = ['YYYY', 'DD', 'MM', 'HH', 'mm', 'ss'];
+  for (var i = 0; i < keys.length; i++) {
+    result = result.split(keys[i]).join(tokens[keys[i]]);
+  }
+
+  return result;
+}
+
+/*
+ * joinUrl — URL Path Join Utility
+ *
+ * Joins multiple URL parts into one clean path string.
+ *
+ * SIGNATURE
+ * ---------
+ *   joinUrl(parts)
+ *
+ * PARAMETERS
+ * ----------
+ *   parts (array, required)
+ *     List of URL fragments in order.
+ *     Example: ["https://example.com/", "/news/", "123"]
+ *
+ * BEHAVIOR
+ * --------
+ *   - Skips null, undefined, and empty string parts.
+ *   - Removes redundant "/" between parts.
+ *   - Preserves protocol slashes (e.g. "https://" stays valid).
+ *   - Prevents invalid duplicate slashes outside protocol.
+ *   - If `parts` has only 1 item and it is NOT a domain
+ *     (no protocol like "http://", "https://", ...),
+ *     the result is guaranteed to start with "/".
+ *     This ensures single-slug inputs always return a valid
+ *     absolute path.
+ *
+ * RETURNS
+ * -------
+ *   A normalized URL/path string, or "" if no valid part exists.
+ *
+ * EXAMPLES
+ * --------
+ *   joinUrl(["https://example.com/", "/news/", "/123"])
+ *       -> "https://example.com/news/123"
+ *
+ *   joinUrl(["/api/", "v1", "users/"])
+ *       -> "api/v1/users"
+ *
+ *   joinUrl(["news/123"])
+ *       -> "/news/123"
+ *
+ *   joinUrl(["/news/123"])
+ *       -> "/news/123"
+ *
+ *   joinUrl(["https://example.com"])
+ *       -> "https://example.com"
+ */
+function joinUrl(parts) {
+  if (!Array.isArray(parts) || parts.length === 0) return '';
+
+  var rawParts = [];
+  for (var i = 0; i < parts.length; i++) {
+    var part = parts[i];
+    if (part === null || part === undefined) continue;
+
+    var value = String(part);
+    if (value === '') continue;
+    rawParts.push(value);
+  }
+
+  if (rawParts.length === 0) return '';
+
+  var first = rawParts[0];
+  var protocol = '';
+
+  // Extract protocol so valid scheme slashes are never collapsed.
+  var protocolMatch = first.match(/^([a-zA-Z][a-zA-Z\d+\-.]*:\/\/)(.*)$/);
+  if (protocolMatch) {
+    protocol = protocolMatch[1];
+    first = protocolMatch[2];
+  }
+
+  var normalized = [];
+
+  var normalizedFirst = first.replace(/^\/+|\/+$/g, '');
+  if (normalizedFirst !== '') normalized.push(normalizedFirst);
+
+  for (var j = 1; j < rawParts.length; j++) {
+    var cleaned = rawParts[j].replace(/^\/+|\/+$/g, '');
+    if (cleaned === '') continue;
+    normalized.push(cleaned);
+  }
+
+  var joined = protocol + normalized.join('/');
+
+  // Remove redundant slashes outside protocol.
+  joined = joined.replace(/([^:]\/)\/+?/g, '$1');
+
+  // Nếu chỉ có 1 part và không phải domain (không có protocol) thì đảm bảo có "/" ở đầu.
+  if (rawParts.length === 1 && !protocol && joined.charAt(0) !== '/') {
+    joined = '/' + joined;
+  }
+
+  return joined;
+}
+
+/*
+ * joinUrlAdvanced — Full URL Builder
+ *
+ * Builds a complete URL from path parts and optional query/hash options.
+ *
+ * SIGNATURE
+ * ---------
+ *   joinUrlAdvanced(parts)
+ *   joinUrlAdvanced(parts, options)
+ *
+ * PARAMETERS
+ * ----------
+ *   parts (array, required)
+ *     URL parts to join (domain, path, slug, id, etc.).
+ *
+ *   options (object, optional)
+ *     query (object, optional)
+ *       Key-value map used to build query string with URLSearchParams.
+ *       Example: { page: 2, sort: "new" }
+ *
+ *     hash (string, optional)
+ *       URL fragment added at the end.
+ *       Accepts both "comments" and "#comments".
+ *
+ * BEHAVIOR
+ * --------
+ *   - Reuses joinUrl(parts) to normalize path safely.
+ *   - Auto-encodes query using URLSearchParams.
+ *   - Skips null/undefined query values.
+ *   - Always keeps hash at the end with exactly one "#".
+ *
+ * RETURNS
+ * -------
+ *   A complete URL string.
+ *
+ * EXAMPLES
+ * --------
+ *   joinUrlAdvanced(["https://example.com/", "/news/", "/123"])
+ *       -> "https://example.com/news/123"
+ *
+ *   joinUrlAdvanced(["https://example.com", "search"], { query: { q: "ai", page: 2 } })
+ *       -> "https://example.com/search?q=ai&page=2"
+ *
+ *   joinUrlAdvanced(["https://example.com", "post", "123"], { hash: "comments" })
+ *       -> "https://example.com/post/123#comments"
+ *
+ * EJS USAGE
+ * ---------
+ *   <%= joinUrlAdvanced(['https://example.com/', '/news/', '/123']) %>
+ *   <%= joinUrlAdvanced(['https://example.com', 'search'], { query: { q: 'ai', page: 2 } }) %>
+ *   <%= joinUrlAdvanced(['https://example.com', 'post', '123'], { hash: 'comments' }) %>
+ */
+function joinUrlAdvanced(parts, options) {
+  options = options || {};
+
+  var url = joinUrl(parts);
+
+  // Build query string with URLSearchParams for automatic encoding.
+  if (options.query && typeof options.query === 'object') {
+    var params = new URLSearchParams();
+    var query = options.query;
+
+    for (var key in query) {
+      if (!Object.prototype.hasOwnProperty.call(query, key)) continue;
+
+      var value = query[key];
+      if (value === null || value === undefined) continue;
+
+      if (Array.isArray(value)) {
+        for (var k = 0; k < value.length; k++) {
+          if (value[k] === null || value[k] === undefined) continue;
+          params.append(key, String(value[k]));
+        }
+      } else {
+        params.append(key, String(value));
+      }
+    }
+
+    var queryString = params.toString();
+    if (queryString) {
+      url += (url.indexOf('?') === -1 ? '?' : '&') + queryString;
+    }
+  }
+
+  // Ensure hash is always at the end with exactly one '#'.
+  if (options.hash !== null && options.hash !== undefined && options.hash !== '') {
+    var hash = String(options.hash).replace(/^#+/, '');
+    if (hash !== '') {
+      url = url.split('#')[0] + '#' + hash;
+    }
+  }
+
+  return url;
+}
+
+
+/*
+ * getImageUrl — CDN Image URL Builder
+ *
+ * Builds an image URL from a relative path, optionally prefixed with a
+ * width segment (e.g. "w400") used by the image CDN to request a
+ * resized variant.
+ *
+ * SIGNATURE
+ * ---------
+ *   getImageUrl(path)
+ *   getImageUrl(path, width)
+ *
+ * PARAMETERS
+ * ----------
+ *   path  (string, required)
+ *     Image path or full URL.
+ *     Example: "/images/2026-04-05/abc.jpg"
+ *
+ *   width (number|string, optional)
+ *     Target width in pixels. Inserted as "w{width}" segment.
+ *     Example: 400 -> "w400"
+ *     If missing, not a number, or <= 0, the segment "original"
+ *     is used instead (CDN returns the original-size image).
+ *
+ * BEHAVIOR
+ * --------
+ *   - Returns "" if path is null/undefined/empty.
+ *   - Returns path as-is if it already has a protocol
+ *     (http://, https://, ftp://, ...).
+ *   - Protocol-relative URLs ("//cdn...") are prefixed with "https:".
+ *   - "data:" and "blob:" URIs are returned as-is.
+ *   - If SYS_CONFIG has no "cdn_url", path is returned unchanged.
+ *   - Otherwise joins [CDN_BASE_URL, "w{width}" | "original", path]
+ *     via joinUrl().
+ *
+ * DEPENDENCIES
+ * ------------
+ *   - joinUrl(parts) — for safe path joining.
+ *   - SYS_CONFIG — global config array; looks up entry with code "cdn_url".
+ *
+ * RETURNS
+ * -------
+ *   A complete image URL string, or "" if path is empty.
+ *
+ * EXAMPLES
+ * --------
+ *   getImageUrl("/images/2026-04-05/pic.jpg", 400)
+ *       -> "https://cdn.tapchianninhmang.vn/w400/images/2026-04-05/pic.jpg"
+ *
+ *   getImageUrl("/images/2026-03-29/pic.jpg")
+ *       -> "https://cdn.tapchianninhmang.vn/original/images/2026-03-29/pic.jpg"
+ *
+ *   getImageUrl("https://other.cdn/abc.jpg", 400)
+ *       -> "https://other.cdn/abc.jpg"
+ *
+ *   getImageUrl("//cdn.example.com/abc.jpg")
+ *       -> "https://cdn.example.com/abc.jpg"
+ *
+ *   getImageUrl("")  -> ""
+ *   getImageUrl(null) -> ""
+ *
+ * EJS USAGE
+ * ---------
+ *   <img src="<%= getImageUrl(item.thumbnail, 400) %>" alt="">
+ *   <img src="<%= getImageUrl(item.cover) %>" alt="">
+ */
+function getImageUrl(path, width) {
+  if (!path) return "";
+
+  const value = String(path).trim();
+  if (value === "") return "";
+
+  if (/^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(value)) return value;
+
+  if (value.indexOf("//") === 0) return "https:" + value;
+
+  if (value.indexOf("data:") === 0 || value.indexOf("blob:") === 0) return value;
+
+  const CDN_BASE_URL = (typeof SYS_CONFIG !== "undefined" && SYS_CONFIG)
+    ? (SYS_CONFIG.find(function (i) { return i.code === "cdn_url"; }) || {}).content || ""
+    : "";
+
+  if (!CDN_BASE_URL) return value;
+
+  const w = parseInt(width, 10);
+  const sizeSegment = (!isNaN(w) && w > 0) ? ("w" + w) : "original";
+
+  return joinUrl([CDN_BASE_URL, sizeSegment, value]);
+}
+
+
+
+
+%>

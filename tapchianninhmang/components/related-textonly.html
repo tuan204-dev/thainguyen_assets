@@ -1,0 +1,81 @@
+<!--
+  Component: related-textonly
+  Description: Compact text-only related news list with left accent border
+  Classes: .related-textonly, .related-textonly__label
+  Icons: .material-symbols--electric-bolt-rounded
+  Usage: Place after article body as a related news section (no images)
+-->
+
+<nav class="related-textonly not-prose t:mt-6" aria-label="Tin liên quan">
+    <style>
+        .related-textonly {
+            border-left: 3px solid var(--text-primary-color);
+            background: #F0F7FF;
+            padding: 16px 20px;
+        }
+
+        .related-textonly__label {
+            font-family: "Roboto", sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--text-primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .related-textonly ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .related-textonly ul li a {
+            font-family: "Noto Serif", serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-color);
+            text-decoration: none;
+            line-height: 1.5;
+        }
+
+        .related-textonly ul li a:hover {
+            color: var(--highlight-color);
+        }
+
+        .material-symbols--electric-bolt-rounded {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M11 21q-.25 0-.437-.15t-.263-.4l-1.9-7.45H6q-.325 0-.512-.25t-.063-.55l4-10q.1-.25.338-.4T10.2 1.6h5.3q.35 0 .55.275t.075.6L14.6 7.6h3.9q.425 0 .588.375t-.113.7l-7.5 12q-.15.225-.375.3t-.1.025'/%3E%3C/svg%3E");
+            background-color: currentColor;
+            -webkit-mask-image: var(--svg);
+            mask-image: var(--svg);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+        }
+    </style>
+    <div class="related-textonly__label">
+        <i class="material-symbols--electric-bolt-rounded" style="width:18px;height:18px;"></i>
+        Tin liên quan
+    </div>
+    <ul>
+        <li>
+            <a href="">Lorem ipsum dolor sit amet consectetur adipiscing</a>
+        </li>
+        <li>
+            <a href="">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</a>
+        </li>
+        <li>
+            <a href="">Ut enim ad minim veniam quis nostrud exercitation ullamco</a>
+        </li>
+    </ul>
+</nav>
