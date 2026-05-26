@@ -130,6 +130,7 @@
         }
         .tb-btn:hover { background: rgba(0,0,0,0.08); color: #111; }
         .tb-btn.is-active { color: #d0021b; }
+        .tb-btn:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
 
         .tb-sep {
             width: 1px; height: 22px;
@@ -427,8 +428,12 @@
         flipSound.preload = 'auto';
         flipSound.volume  = 0.7;
 
+        var lastSoundTime = 0;
         function playFlipSound() {
             if (!soundOn || isZooming) return;
+            var now = Date.now();
+            if (now - lastSoundTime < 200) return; /* chặn touchstart+mousedown cùng lúc */
+            lastSoundTime = now;
             flipSound.currentTime = 0;
             flipSound.play().catch(function () {});
         }
@@ -439,8 +444,14 @@
             zoomTimer = setTimeout(function () { isZooming = false; }, 600);
         }
 
-        function openSidebar()  { $('#book-sidebar, #sidebar-backdrop').addClass('open'); }
-        function closeSidebar() { $('#book-sidebar, #sidebar-backdrop').removeClass('open'); }
+        function updateZoomButtons() {
+            /* DFlip tự add class "disabled" lên .df-ui-zoomin/.df-ui-zoomout — mirror sang nút custom */
+            $('#tb-zoom-in').prop('disabled',  $('.df-ui-zoomin').hasClass('disabled'));
+            $('#tb-zoom-out').prop('disabled', $('.df-ui-zoomout').hasClass('disabled'));
+        }
+
+        function openSidebar()  { $('#book-sidebar').addClass('open'); }
+        function closeSidebar() { $('#book-sidebar').removeClass('open'); }
 
         function openToc() {
             buildToc();
@@ -495,6 +506,7 @@
                 }
             } else {
                 /* Chưa đến trang cuối (hoặc chưa đọc được info) → lật sang phải */
+                playFlipSound();
                 dfClick('.df-ui-next');
             }
         }
@@ -589,12 +601,9 @@
                 autoPlayStart      : false,
                 autoPlayDuration   : 3000,
                 paddingBottom      : 72,
-                onReady: function (fb) { updateCounter(); },
-                onFlip:  function (fb) {
-                    /* fb là FlipBook object — đọc trang từ fb.target */
-                    playFlipSound();
-                    setTimeout(updateCounter, 50);
-                },
+                onReady:     function (fb) { updateCounter(); setTimeout(updateZoomButtons, 300); },
+                onFlipStart: function (fb) { playFlipSound(); },
+                onFlip:      function (fb) { setTimeout(updateCounter, 50); },
                 text: {
                     toggleSound     : 'Bật/Tắt Âm Thanh',
                     previousPage    : 'Trang trước',
@@ -620,12 +629,18 @@
             }, 500);
 
             /* ── Side arrows ── */
-            $('#btn-prev').on('click', function () { dfClick('.df-ui-prev'); setTimeout(updateCounter, 900); });
-            $('#btn-next').on('click', function () { dfClick('.df-ui-next'); setTimeout(updateCounter, 900); });
+            $('#btn-prev').on('click', function () { playFlipSound(); dfClick('.df-ui-prev'); setTimeout(updateCounter, 900); });
+            $('#btn-next').on('click', function () { playFlipSound(); dfClick('.df-ui-next'); setTimeout(updateCounter, 900); });
+
+            /* ── Viewer: bắt swipe/click trực tiếp trên book ── */
+            $('#epaper_preview').on('mousedown touchstart', function (e) {
+                if (e.button && e.button !== 0) return; /* bỏ qua right-click */
+                playFlipSound();
+            });
 
             /* ── Zoom ── */
-            $('#tb-zoom-in').on('click',  function () { markZooming(); dfClick('.df-ui-zoomin');  });
-            $('#tb-zoom-out').on('click', function () { markZooming(); dfClick('.df-ui-zoomout'); });
+            $('#tb-zoom-in').on('click',  function () { markZooming(); dfClick('.df-ui-zoomin');  setTimeout(updateZoomButtons, 600); });
+            $('#tb-zoom-out').on('click', function () { markZooming(); dfClick('.df-ui-zoomout'); setTimeout(updateZoomButtons, 600); });
 
             /* ── Play: manual looping timer ── */
             $('#tb-play').on('click', function () {
@@ -641,7 +656,7 @@
                 e.preventDefault();
                 openSidebar();
             });
-            $('#bs-close-btn, #sidebar-backdrop').on('click', closeSidebar);
+            $('#bs-close-btn').on('click', closeSidebar);
 
             /* ── Share ── */
             $('#tb-share').on('click', function () {
@@ -708,7 +723,9 @@
 
             /* ── Keyboard ── */
             $(document).on('keydown', function (e) {
-                if ($('#share-modal').hasClass('open') || $('#book-sidebar').hasClass('open')) return;
+                if ($('#share-modal').hasClass('open')) return;
+                if (e.key === 'ArrowLeft')  { playFlipSound(); dfClick('.df-ui-prev'); setTimeout(updateCounter, 900); }
+                if (e.key === 'ArrowRight') { playFlipSound(); dfClick('.df-ui-next'); setTimeout(updateCounter, 900); }
                 if (e.key === 'Escape') closeSidebar();
             });
 
