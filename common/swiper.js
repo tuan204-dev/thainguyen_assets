@@ -67,8 +67,11 @@ const SwiperManager = (() => {
             config.breakpoints = parseJSON(breakpoints, undefined);
         }
 
-        const nextEl = el.querySelector(".swiper-button-next");
-        const prevEl = el.querySelector(".swiper-button-prev");
+        // Support external nav via data-swiper-next-el / data-swiper-prev-el (CSS selector)
+        const nextSel = attr(el, "next-el", null);
+        const prevSel = attr(el, "prev-el", null);
+        const nextEl = nextSel ? document.querySelector(nextSel) : el.querySelector(".swiper-button-next");
+        const prevEl = prevSel ? document.querySelector(prevSel) : el.querySelector(".swiper-button-prev");
         if (nextEl || prevEl) {
             config.navigation = {};
             if (nextEl) config.navigation.nextEl = nextEl;
