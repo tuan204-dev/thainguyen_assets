@@ -140,3 +140,95 @@ const initialTab = window.location.hash.replace("#", "");
 if (["leaders", "standing", "committee", "projects"].includes(initialTab)) {
   setTimeout(() => setTab(initialTab, false), 0);
 }
+
+// ------ Leader Info Modal Logic ------
+(() => {
+  const modal = document.getElementById("infoModal");
+  if (!modal) return;
+
+  const panelEl = modal.querySelector(".info-modal__panel");
+  const imgEl = document.getElementById("infoModalImg");
+  const nameEl = document.getElementById("infoModalName");
+  const titlesEl = document.getElementById("infoModalTitles");
+  const cardSelector = '[class*="t:bg-[#fffaf4]"]';
+  const BADGE_SVG =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+    'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+  document.querySelectorAll('figure img').forEach((img) => {
+    if (img.closest(".info-modal")) return;
+    const card = img.closest(cardSelector);
+    if (!card) return;
+    card.classList.add("info-card");
+    if (card.dataset.infoUrl && !card.querySelector(".info-card__badge")) {
+      card.classList.add("info-card--has-image");
+      const badge = document.createElement("span");
+      badge.className = "info-card__badge";
+      badge.setAttribute("aria-hidden", "true");
+      badge.innerHTML = BADGE_SVG;
+      card.appendChild(badge);
+    }
+  });
+  function readCard(card) {
+    const portrait = card.querySelector('figure img');
+    const imgSrc = card.dataset.infoUrl || (portrait && portrait.src) || "";
+    const imgAlt = (portrait && portrait.getAttribute("alt")) || "";
+
+    const lines = [];
+    card.querySelectorAll("*").forEach((el) => {
+      if (el.children.length) return;
+      if (el.closest(".info-card__badge")) return;
+      const text = el.textContent.replace(/\s+/g, " ").trim();
+      if (text) lines.push(text);
+    });
+
+    const label = lines[0] || "Đồng chí";
+    const name = lines[1] || "";
+    const titles = lines.slice(2);
+
+    return { imgSrc, imgAlt, label, name, titles };
+  }
+
+  function open(card) {
+    const { imgSrc, imgAlt, label, name, titles } = readCard(card);
+    const imageOnly = Boolean(card.dataset.infoUrl);
+
+    imgEl.src = imgSrc;
+    imgEl.alt = imgAlt;
+    panelEl.classList.toggle("is-image-only", imageOnly);
+
+    if (!imageOnly) {
+      nameEl.textContent = `${label} ${name}`.trim();
+      titlesEl.innerHTML = "";
+      titles.forEach((t) => {
+        const p = document.createElement("p");
+        p.textContent = t;
+        titlesEl.appendChild(p);
+      });
+    }
+
+    modal.classList.add("is-active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("info-modal-open");
+  }
+
+  function close() {
+    modal.classList.remove("is-active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("info-modal-open");
+  }
+
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("[data-info-close]")) {
+      close();
+      return;
+    }
+    const card = e.target.closest(".info-card");
+    if (card) open(card);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-active")) close();
+  });
+})();
