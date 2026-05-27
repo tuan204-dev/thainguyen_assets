@@ -107,6 +107,21 @@
                     line-height: 1.5;
                 }
             }
+
+            /* Sidebar "Xem nhiều" — missing Tailwind classes */
+            .t\:text-\[\#8A94A6\] { color: #8A94A6; }
+            .t\:text-\[\#090909\] { color: #090909; }
+            .t\:text-\[20px\] { font-size: 20px; }
+            .t\:font-bold { font-weight: 700; }
+            .t\:block { display: block; }
+            .t\:mb-1 { margin-bottom: 0.25rem; }
+            .t\:pb-2 { padding-bottom: 0.5rem; }
+            .t\:py-3 { padding-block: 0.75rem; }
+            .t\:border-b-2 { border-bottom-width: 2px; border-bottom-style: solid; }
+            .t\:border-\[\#090909\] { border-color: #090909; }
+            .t\:divide-\[\#DCDFE4\] > :not(:last-child) { border-color: #DCDFE4; }
+            .t\:transition-colors { transition: color 0.15s ease; }
+            .t\:hover\:text-\[\#C0392B\]:hover { color: #C0392B; }
         </style>
     </head>
 
@@ -1353,37 +1368,30 @@
 
                     <!-- col-3 (240px fixed): sidebar recent articles -->
                     <div class="col-3 bd01 event_3 t:max-md:w-full! t:max-md:border-l-0!">
-                    
-                        <div class="row20">
-                            <a href="/multimedia/emagazine/202604/thai-nguyen-go-nut-that-mat-bang-mo-duong-but-pha-ky-1-8d80176/"
-                                class="title2">Thái Nguyên: Gỡ nút thắt mặt bằng, mở đường bứt phá - kỳ 1</a>
-                            <div class="date">15:20, 13/04/2026</div>
-                        </div>
-                    
-                        <div class="row20">
-                            <a href="/multimedia/emagazine/202603/tieng-noi-viet-nam-chuyen-tai-tieng-dang-long-dan-giu-nhip-thong-tin-cho-dat-nuoc-d3f778b/"
-                                class="title2">Tiếng nói Việt Nam: Chuyển tải tiếng Đảng, lòng Dân, giữ nhịp thông tin cho đất nước</a>
-                            <div class="date">21:39, 25/03/2026</div>
-                        </div>
-                    
-                        <div class="row20">
-                            <a href="/multimedia/emagazine/202601/nong-nghiep-40-khi-nong-dan-che-lam-kinh-te-so-9107d88/"
-                                class="title2">Nông nghiệp 4.0: Khi nông dân chè làm kinh tế số</a>
-                            <div class="date">11:14, 15/01/2026</div>
-                        </div>
-                    
-                        <div class="row20">
-                            <a href="/multimedia/emagazine/202512/huong-vi-nui-rung-trong-tung-soi-mien-a5562a5/" class="title2">Hương vị
-                                núi rừng trong từng sợi miến</a>
-                            <div class="date">12:19, 22/12/2025</div>
-                        </div>
-                    
-                        <div class="row20">
-                            <a href="/multimedia/emagazine/202509/danh-thuc-di-san-khai-mo-hanh-trinh-moi-03d483b/" class="title2">Đánh thức
-                                di sản, khai mở hành trình mới</a>
-                            <div class="date">11:42, 13/09/2025</div>
-                        </div>
-                    
+                        <aside>
+                            <ul class="t:flex t:flex-col t:divide-y t:divide-[#DCDFE4]">
+                                <li class="t:py-3">
+                                    <time class="t:text-xs t:text-[#8A94A6] t:block t:mb-1">15:20 13/04/2026</time>
+                                    <h3 class="title l4 t:mt-0!"><a href="/multimedia/emagazine/202604/thai-nguyen-go-nut-that-mat-bang-mo-duong-but-pha-ky-1-8d80176/" class="t:hover:text-[#C0392B]!">Thái Nguyên: Gỡ nút thắt mặt bằng, mở đường bứt phá - kỳ 1</a></h3>
+                                </li>
+                                <li class="t:py-3">
+                                    <time class="t:text-xs t:text-[#8A94A6] t:block t:mb-1">21:39 25/03/2026</time>
+                                    <h3 class="title l4 t:mt-0!"><a href="/multimedia/emagazine/202603/tieng-noi-viet-nam-chuyen-tai-tieng-dang-long-dan-giu-nhip-thong-tin-cho-dat-nuoc-d3f778b/" class="t:hover:text-[#C0392B]!">Tiếng nói Việt Nam: Chuyển tải tiếng Đảng, lòng Dân, giữ nhịp thông tin cho đất nước</a></h3>
+                                </li>
+                                <li class="t:py-3">
+                                    <time class="t:text-xs t:text-[#8A94A6] t:block t:mb-1">11:14 15/01/2026</time>
+                                    <h3 class="title l4 t:mt-0!"><a href="/multimedia/emagazine/202601/nong-nghiep-40-khi-nong-dan-che-lam-kinh-te-so-9107d88/" class="t:hover:text-[#C0392B]!">Nông nghiệp 4.0: Khi nông dân chè làm kinh tế số</a></h3>
+                                </li>
+                                <li class="t:py-3">
+                                    <time class="t:text-xs t:text-[#8A94A6] t:block t:mb-1">12:19 22/12/2025</time>
+                                    <h3 class="title l4 t:mt-0!"><a href="/multimedia/emagazine/202512/huong-vi-nui-rung-trong-tung-soi-mien-a5562a5/" class="t:hover:text-[#C0392B]!">Hương vị núi rừng trong từng sợi miến</a></h3>
+                                </li>
+                                <li class="t:py-3">
+                                    <time class="t:text-xs t:text-[#8A94A6] t:block t:mb-1">11:42 13/09/2025</time>
+                                    <h3 class="title l4 t:mt-0!"><a href="/multimedia/emagazine/202509/danh-thuc-di-san-khai-mo-hanh-trinh-moi-03d483b/" class="t:hover:text-[#C0392B]!">Đánh thức di sản, khai mở hành trình mới</a></h3>
+                                </li>
+                            </ul>
+                        </aside>
                     </div>
 
                 </div>
@@ -1497,22 +1505,20 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-3 t:max-md:w-full!">
-                        <div class="pad20 wrap_scroll t:max-md:hidden!">
-                            <div class="mostread_box">
-                                <div class="cate_title_3"><a class="title" style="font-size: 24px;">Xem nhiều</a></div>
-                                <div class="list-bd" id="mostread">
-                                    <ul>
-                                        <div class="item"><a class="title2"
-                                                href="/multimedia/202605/ke-hoach-tuyen-sinh-vao-lop-10-nam-hoc-2026-2027-tren-dia-ban-tinh-thai-nguyen-2b54f07/">Kế
-                                                hoạch tuyển sinh vào lớp 10, năm học 2026-2027 trên địa bàn tỉnh Thái Nguyên</a>
-                                            <div class="color1">09:14 21/05/2026</div>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </ul>
-                                </div>
+                    <div class="col-sm-3 t:max-md:w-full! t:max-md:hidden!">
+                        <aside>
+                            <div class="t:border-b-2 t:border-[#090909] t:pb-2 t:mb-1">
+                                <h2 class="merriweather t:text-[20px] t:font-bold t:text-[#090909]">
+                                    <a href="" class="t:hover:text-[#C0392B] t:transition-colors">Xem nhiều</a>
+                                </h2>
                             </div>
-                        </div>
+                            <ul class="t:flex t:flex-col t:divide-y t:divide-[#DCDFE4]">
+                                <li class="t:py-3">
+                                    <time class="t:text-xs t:text-[#8A94A6] t:block t:mb-1">09:14 21/05/2026</time>
+                                    <h3 class="title l4 t:mt-0!"><a href="/multimedia/202605/ke-hoach-tuyen-sinh-vao-lop-10-nam-hoc-2026-2027-tren-dia-ban-tinh-thai-nguyen-2b54f07/" class="t:hover:text-[#C0392B]!">Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027 trên địa bàn tỉnh Thái Nguyên</a></h3>
+                                </li>
+                            </ul>
+                        </aside>
                     </div>
                     <div id="pagy" class="pagy paging pager red pagy1">
                         <div class="btn prev disabled_prev">&lt;</div>
