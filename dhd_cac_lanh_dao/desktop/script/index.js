@@ -1,7 +1,7 @@
 const leaders = [
   ["tn-01.png", "Ngô Nhị Quý", "Bí thư Tỉnh ủy lâm thời", "(từ 9/1945 - 8/1947)"],
   ["tn-02.png", "Lê Trung Đình", "Bí thư Tỉnh ủy", "(từ tháng 8/1947 đến tháng 10/1947 và từ quý I/1949 đến tháng 4/1951)"],
-  ["tn-03.png", "Lê Hoàng", "Bí thư Tỉnh ủy Thái Nguyên; Bí thư Tỉnh ủy Bắc Thái", "(từ tháng 10/1947 đến tháng 4/1972)"],
+  ["tn-03.png", "Lê Hoàng", "Bí thư Tỉnh ủy Thái Nguyên; Bí thư Tỉnh ủy Bắc Thái", "(từ tháng 10/1947 đến tháng 3/1948; từ tháng 6/1965 đến tháng 4/1972)"],
   ["tn-04.png", "Lê Thanh", "Bí thư Tỉnh ủy", "(từ tháng 4/1948 đến quý I/1949)"],
   ["tn-05.png", "Hoàng Cừ", "Bí thư Tỉnh ủy kiêm Chủ tịch Ủy ban Kháng chiến hành chính tỉnh", "(từ tháng 4/1951 đến tháng 4/1953)"],
   ["tn-06.png", "Nguyễn Tâm", "Bí thư Tỉnh ủy", "(từ tháng 5/1953 đến đầu năm 1954)"],
@@ -16,12 +16,12 @@ const leaders = [
   ["tn-15.png", "Lương Đức Tính", "Bí thư Tỉnh ủy", "(từ tháng 10/2002 đến tháng 12/2005)"],
   ["tn-16.png", "Nguyễn Bắc Son", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 12/2005 đến tháng 8/2007)"],
   ["tn-17.png", "Nguyễn Văn Vượng", "Bí thư Tỉnh ủy", "(từ tháng 10/2007 đến tháng 10/2010)"],
-  ["tn-18.png", "Phạm Xuân Đương", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 10/2010 đến tháng 1/2013)"],
-  ["tn-19.png", "Nguyễn Đình Phách", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 1/2013 đến tháng 9/2015)"],
-  ["tn-20.png", "Trần Quốc Tỏ", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 9/2015 đến tháng 6/2020)"],
-  ["tn-21.png", "Nguyễn Thanh Hải", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 6/2020 đến tháng 6/2024)"],
-  ["tn-22.png", "Trịnh Việt Hùng", "Ủy viên dự khuyết Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 7/2024 đến tháng 6/2025)"],
-  ["btv-trinh-xuan-truong.png", "Trịnh Xuân Trường", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 6/2025)"],
+  ["tn-18.png", "Phạm Xuân Đương", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 10/2010 đến 31/01/2013)"],
+  ["tn-19.png", "Nguyễn Đình Phách", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ 31/01/2013 đến tháng 10/2015)"],
+  ["tn-20.png", "Trần Quốc Tỏ", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 10/2015 đến tháng 5/2020)"],
+  ["tn-21.png", "Nguyễn Thanh Hải", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 5/2020 đến tháng 6/2024)"],
+  ["tn-22.png", "Trịnh Việt Hùng", "Ủy viên dự khuyết Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 7/2024 đến tháng 9/2025)"],
+  ["btv-trinh-xuan-truong.png", "Trịnh Xuân Trường", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 9/2025)"],
 ];
 
 const standing = [
@@ -136,65 +136,88 @@ const projects = [
 
 function renderPeople() {
   document.getElementById("leadersGrid").innerHTML = leaders.map(([img, name, role, time]) => `
-    <article class="t:flex t:items-start t:gap-4 t:rounded-lg t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:p-4 t:shadow-[0_0_20px_rgba(51,51,51,0.08)]">
-      <figure class="t:m-0 t:aspect-square t:w-24 t:shrink-0 t:overflow-hidden t:rounded-lg">
+    <article class="t:flex t:h-full t:min-w-0 t:cursor-pointer t:items-start t:gap-6 t:overflow-hidden t:rounded-lg t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:p-7 t:shadow-[0_0_20px_rgba(51,51,51,0.08)] t:max-md:gap-4 t:max-md:p-5">
+      <figure class="t:m-0 t:aspect-[4/5] t:w-[31%] t:shrink-0 t:overflow-hidden t:rounded-lg">
         <img src="./images/${img}" alt="Đồng chí ${name}" class="t:h-full t:w-full t:object-cover" loading="lazy">
       </figure>
-      <div class="t:min-w-0 t:break-words">
-        <span class="t:text-sm t:font-semibold t:leading-5 t:text-[#c28214]">Đồng chí</span>
-        <h3 class="t:m-0 t:text-lg t:font-bold t:leading-6 t:text-[#333]">${name}</h3>
-        <p class="t:m-0 t:text-sm t:leading-5 t:text-[#333]">${role}</p>
-        <p class="t:m-0 t:text-sm t:leading-5 t:text-[#333]">${time}</p>
+      <div class="t:min-w-0 t:flex-1 t:break-words t:pt-1">
+        <div class="t:text-[18px] t:font-bold t:leading-6 t:text-[#c28214] t:max-md:text-base">Đồng chí</div>
+        <h3 class="t:m-0 t:mt-2 t:break-words t:text-[24px] t:font-bold t:leading-8 t:text-[#1f1f1f] t:max-md:text-lg t:max-md:leading-6">${name}</h3>
+        <div class="t:mt-2 t:text-[18px] t:leading-7 t:text-[#1f1f1f] t:max-md:text-sm t:max-md:leading-6">
+          <div>${role}</div>
+          <div>${time}</div>
+        </div>
       </div>
     </article>`).join("");
 
   document.getElementById("standingFeaturedRow").innerHTML =
-    `<div class="col-md-5">${viewInfoCard(standing[0], true)}</div>`;
+    viewInfoCard(standing[0], true);
 
   document.getElementById("standingKeyRow").innerHTML = standing.slice(1, 5).map(item =>
-    `<div class="col-md-3 row20">${viewInfoCard(item, false)}</div>`).join("");
+    viewInfoCard(item, false)).join("");
 
   document.getElementById("standingRegularRow").innerHTML = standing.slice(5).map(item =>
-    `<div class="col-md-3 row30">${viewInfo1Card(item)}</div>`).join("");
+    viewInfo1Card(item)).join("");
 
   document.getElementById("committeeRows").innerHTML = committee.map(([name, role], index) => `
     <tr>
-      <td>${index + 1}</td>
-      <td>${name}</td>
-      <td>${role}</td>
+      <td class="t:border t:border-[#ffedae] t:px-3 t:py-[10px] t:text-sm t:leading-[21px] t:text-[#1f1f1f]">${index + 1}</td>
+      <td class="t:border t:border-[#ffedae] t:px-3 t:py-[10px] t:text-[15px] t:font-semibold t:leading-[22.5px] t:text-[#1f1f1f]">${name}</td>
+      <td class="t:border t:border-[#ffedae] t:px-3 t:py-[10px] t:text-sm t:leading-[21px] t:text-[#1f1f1f]">${role}</td>
     </tr>`).join("");
 }
 
 function viewInfoCard([img, name, line1, line2], featured) {
-  return `
-    <div class="item_info6 view_info t:group t:transition-colors t:duration-300">
-      <div class="t:flex t:gap-3">
-        <div class="t:w-1/3 t:shrink-0">
-          <span class="avatar1 row5"><img src="./images/${img}" alt="${name}" loading="lazy"></span>
+  if (featured) {
+    return `
+      <article class="t:group t:relative t:flex t:w-full t:max-w-[650px] t:cursor-pointer t:items-start t:gap-8 t:overflow-hidden t:rounded-lg t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:p-7 t:shadow-[0_0_20px_rgba(51,51,51,0.08)] t:transition-colors t:duration-300 t:hover:bg-[#ef0004] t:max-md:flex-col t:max-md:p-5">
+        <span class="t:pointer-events-none t:absolute t:right-0 t:top-0 t:h-[42px] t:w-[42px] t:rounded-bl-full t:bg-[url('./images/coner.gif')] t:bg-cover t:bg-right-top"></span>
+        <figure class="t:m-0 t:aspect-[4/5] t:w-[29%] t:min-w-[176px] t:shrink-0 t:overflow-hidden t:rounded-lg t:max-md:w-1/2 t:max-md:min-w-0">
+          <img src="./images/${img}" alt="${name}" class="t:h-full t:w-full t:object-cover" loading="lazy">
+        </figure>
+        <div class="t:min-w-0 t:flex-1 t:break-words t:pt-1">
+          <div class="t:mb-3 t:text-[16px] t:font-bold t:leading-6 t:text-[#c28214] t:transition-colors t:duration-300 t:group-hover:text-[#ffce5b]">Đồng chí</div>
+          <h3 class="t:m-0 t:mb-3 t:bg-[linear-gradient(90deg,rgba(255,119,0,0)_0%,#FF7700_20.5%,#EF0004_50%,#FF7700_81%,rgba(255,119,0,0)_100%)] t:px-6 t:py-2 t:text-center t:text-[20px] t:font-bold t:leading-7 t:text-white t:max-md:text-xl">${name}</h3>
+          <div class="t:text-[16px] t:leading-6 t:text-[#1f1f1f] t:transition-colors t:duration-300 t:group-hover:text-white t:max-md:text-base">
+            <div>${line1}</div>
+            <div>${line2}</div>
+          </div>
         </div>
-        <div class="t:flex-1 t:min-w-0">
-          <div class="subtitle_info t:transition-colors t:duration-300 t:group-hover:text-[#FFCE5B]">Đồng chí</div>
-          <span class="title3 t:transition-colors t:duration-300 t:group-hover:text-white${featured ? ' title_profile' : ''} row5">${name}</span>
-          <div class="info t:transition-colors t:duration-300 t:group-hover:text-white">${line1}<div>${line2}</div></div>
+      </article>`;
+  }
+
+  return `
+    <article class="t:group t:relative t:flex t:h-full t:min-w-0 t:cursor-pointer t:items-start t:gap-4 t:overflow-hidden t:rounded-lg t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:p-6 t:shadow-[0_0_20px_rgba(51,51,51,0.08)] t:transition-colors t:duration-300 t:hover:bg-[#ef0004] t:max-md:p-5">
+      <span class="t:pointer-events-none t:absolute t:right-0 t:top-0 t:h-[42px] t:w-[42px] t:rounded-bl-full t:bg-[url('./images/coner.gif')] t:bg-cover t:bg-right-top"></span>
+      <figure class="t:m-0 t:aspect-[4/5] t:w-[30%] t:shrink-0 t:overflow-hidden t:rounded-lg">
+        <img src="./images/${img}" alt="${name}" class="t:h-full t:w-full t:object-cover" loading="lazy">
+      </figure>
+      <div class="t:min-w-0 t:flex-1 t:break-words t:pt-1">
+        <div class="t:text-[16px] t:font-bold t:leading-6 t:text-[#c28214] t:transition-colors t:duration-300 t:group-hover:text-[#ffce5b] t:max-md:text-base">Đồng chí</div>
+        <h3 class="t:m-0 t:mt-1 t:break-words t:text-[20px] t:font-bold t:leading-7 t:text-[#1f1f1f] t:transition-colors t:duration-300 t:group-hover:text-white t:max-md:text-lg t:max-md:leading-6">${name}</h3>
+        <div class="t:mt-1 t:text-[16px] t:leading-6 t:text-[#1f1f1f] t:transition-colors t:duration-300 t:group-hover:text-white t:max-md:text-sm t:max-md:leading-6">
+          <div>${line1}</div>
+          <div>${line2}</div>
         </div>
       </div>
-    </div>`;
+    </article>`;
 }
 
 function viewInfo1Card([img, name, line1, line2]) {
   return `
-    <div class="item_info6 view_info1">
-      <div class="t:flex t:gap-3">
-        <div class="t:w-1/3 t:shrink-0">
-          <span class="avatar1 row5"><img src="./images/${img}" alt="${name}" loading="lazy"></span>
-        </div>
-        <div class="t:flex-1 t:min-w-0">
-          <div class="subtitle_info">Đồng chí</div>
-          <span class="title3">${name}</span>
-          <div class="info">${line1}<div>${line2}</div></div>
+    <article class="t:flex t:h-full t:min-w-0 t:cursor-pointer t:items-start t:gap-4 t:overflow-hidden t:rounded-lg t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:p-6 t:shadow-[0_0_20px_rgba(51,51,51,0.08)] t:max-md:p-5">
+      <figure class="t:m-0 t:aspect-[4/5] t:w-[30%] t:shrink-0 t:overflow-hidden t:rounded-lg">
+        <img src="./images/${img}" alt="${name}" class="t:h-full t:w-full t:object-cover" loading="lazy">
+      </figure>
+      <div class="t:min-w-0 t:flex-1 t:break-words t:pt-1">
+        <div class="t:text-[16px] t:font-bold t:leading-6 t:text-[#c28214] t:max-md:text-base">Đồng chí</div>
+        <h3 class="t:m-0 t:mt-1 t:break-words t:text-[20px] t:font-bold t:leading-7 t:text-[#1f1f1f] t:max-md:text-lg t:max-md:leading-6">${name}</h3>
+        <div class="t:mt-1 t:text-[16px] t:leading-6 t:text-[#1f1f1f] t:max-md:text-sm t:max-md:leading-6">
+          <div>${line1}</div>
+          <div>${line2}</div>
         </div>
       </div>
-    </div>`;
+    </article>`;
 }
 
 function renderProjects() {
@@ -240,8 +263,8 @@ function setTab(tab, shouldScroll = true) {
   tabHeader.classList.toggle("t:hidden", tab === "projects");
 
   document.querySelectorAll(".tab-button").forEach((button) => {
-    button.classList.toggle("t:text-[#e60000]", button.dataset.tab === tab);
-    button.classList.toggle("t:text-[#c28214]", button.dataset.tab !== tab);
+    button.classList.remove("t:text-[#e60000]", "t:font-semibold");
+    button.classList.add("t:text-[#c28214]");
   });
 
   if (tab === "leaders") {
@@ -324,4 +347,3 @@ const initialTab = window.location.hash.replace("#", "");
 if (["leaders", "standing", "committee", "projects"].includes(initialTab)) {
   setTimeout(() => setTab(initialTab, false), 0);
 }
-

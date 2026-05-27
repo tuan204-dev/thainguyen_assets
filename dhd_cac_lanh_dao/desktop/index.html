@@ -40,7 +40,7 @@
                         data-toggle="collapse-nav"
                         data-target="#more-menu-1"
                     >
-                        <li class="home_menu ">
+                        <li class="home_menu">
                             <a href="../../home/desktop/index.html">
                                 <i class="material-symbols--keyboard-arrow-left"></i>
                                 Về trang chủ
@@ -172,23 +172,29 @@
         </div>
 
         <main>
-            <section id="dhdTabHeader" class="t:bg-white t:pt-8">
-                <div class="t:container">
-                    <div class="t:flex t:flex-col t:items-center t:gap-5">
-                        <img
-                            src="./images/tn-title.png"
-                            alt="Đại hội Đảng bộ tỉnh Thái Nguyên"
-                            class="t:h-[52px] t:w-auto t:max-w-full t:object-contain"
-                        />
+            <section id="dhdTabHeader" class="t:bg-white t:pt-[30px] t:font-sans">
+                <div class="container">
+                    <div class="t:mx-auto t:flex t:w-full t:flex-col t:items-center">
+                        <div class="t:mb-5 t:flex t:w-full t:justify-center">
+                            <a href="/dhd/ky-dhd/dhdb-tn/btty/" class="t:block t:max-w-full">
+                                <img
+                                    src="./images/tn-title.png"
+                                    alt="Đại hội Đảng bộ tỉnh Thái Nguyên"
+                                    class="t:h-[52px] t:w-auto t:max-w-full t:object-contain"
+                                />
+                            </a>
+                        </div>
 
-                        <div class="t:w-full t:overflow-x-auto">
+                        <div
+                            class="t:mb-5 t:w-full t:overflow-x-auto t:rounded-xl t:bg-[#fffaf4] t:px-3 t:py-[15px]"
+                        >
                             <div
-                                class="t:flex t:w-max t:items-center t:justify-start t:gap-x-2 t:gap-y-2 t:text-sm t:font-semibold t:text-[#c28214] t:pc:mx-auto t:pc:w-auto t:pc:justify-center"
+                                class="t:mx-auto t:flex t:w-max t:items-center t:justify-start t:gap-x-2 t:gap-y-2 t:font-medium t:text-[#c28214] t:pc:justify-center"
                             >
                                 <button
                                     type="button"
                                     data-tab="leaders"
-                                    class="tab-button t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:cursor-pointer t:hover:text-[#e60000]"
+                                    class="tab-button t:cursor-pointer t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:hover:text-[#e60000]"
                                 >
                                     Bí thư Tỉnh ủy các thời kỳ
                                 </button>
@@ -196,7 +202,7 @@
                                 <button
                                     type="button"
                                     data-tab="standing"
-                                    class="tab-button t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:cursor-pointer t:hover:text-[#e60000]"
+                                    class="tab-button t:cursor-pointer t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:hover:text-[#e60000]"
                                 >
                                     Ban Thường vụ Tỉnh ủy đương nhiệm
                                 </button>
@@ -204,7 +210,7 @@
                                 <button
                                     type="button"
                                     data-tab="committee"
-                                    class="tab-button t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:cursor-pointer t:hover:text-[#e60000]"
+                                    class="tab-button t:cursor-pointer t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:hover:text-[#e60000]"
                                 >
                                     Ban Chấp hành Đảng bộ tỉnh đương nhiệm
                                 </button>
@@ -212,7 +218,7 @@
                                 <button
                                     type="button"
                                     data-tab="projects"
-                                    class="tab-button t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:cursor-pointer t:hover:text-[#e60000]"
+                                    class="tab-button t:cursor-pointer t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:hover:text-[#e60000]"
                                 >
                                     Các công trình trọng điểm
                                 </button>
@@ -223,77 +229,125 @@
             </section>
 
             <div id="leadersPage">
-                <section id="leadersSection" class="t:bg-white t:py-[30px]">
+                <section id="leadersSection" class="t:bg-white t:pb-[30px] t:font-sans">
                     <div class="t:container">
                         <div
-                            class="t:mx-auto t:flex t:w-full t:max-w-[1200px] t:flex-col t:items-center t:gap-[30px] t:px-3"
+                            class="t:mx-auto t:flex t:w-full t:max-w-[1200px] t:flex-col t:items-center t:gap-5"
                         >
                             <div class="t:flex t:w-full t:justify-center">
                                 <h2
-                                    class="merriweather t:m-0 t:w-full t:max-w-[760px] t:whitespace-normal t:break-words t:px-4 t:py-[10px] t:text-center t:text-sm t:font-normal t:uppercase t:leading-6 t:text-white t:pc:text-base"
-                                    style="
-                                        background-image: linear-gradient(
-                                            90deg,
-                                            rgba(255, 119, 0, 0) 0%,
-                                            rgb(255, 119, 0) 20.5%,
-                                            rgb(239, 0, 4) 50%,
-                                            rgb(255, 119, 0) 81%,
-                                            rgba(255, 119, 0, 0) 100%
-                                        );
-                                    "
+                                    class="t:m-0 t:block t:w-full t:max-w-[600px] t:whitespace-normal t:break-words t:bg-[linear-gradient(90deg,rgba(255,119,0,0)_0%,#FF7700_20.5%,#EF0004_50%,#FF7700_81%,rgba(255,119,0,0)_100%)] t:px-3 t:py-[10px] t:text-center t:text-base t:font-semibold t:uppercase t:leading-6 t:text-white"
                                 >
                                     Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời kỳ
                                 </h2>
                             </div>
                             <div
-                                id="leadersGrid"
-                                class="t:grid t:w-full t:grid-cols-1 t:gap-6 t:md:max-pc:grid-cols-2 t:pc:grid-cols-3"
+                                class="t:w-full t:bg-[url('./images/bk-bg-pattern.png')] t:bg-center t:bg-no-repeat t:bg-contain t:py-[42px] t:max-pc:py-6"
+                            >
+                                <div
+                                    id="leadersGrid"
+                                    class="t:grid t:w-full t:grid-cols-1 t:gap-5 t:md:max-pc:grid-cols-2 t:pc:grid-cols-3"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="standingSection" class="t:bg-white t:pb-[30px] t:font-sans">
+                    <div class="t:container">
+                        <div class="t:mx-auto t:w-full t:max-w-[1200px]">
+                            <div class="t:mb-5 t:flex t:justify-center">
+                                <h2
+                                    class="t:m-0 t:block t:w-full t:max-w-[600px] t:whitespace-normal t:break-words t:bg-[linear-gradient(90deg,rgba(255,119,0,0)_0%,#FF7700_20.5%,#EF0004_50%,#FF7700_81%,rgba(255,119,0,0)_100%)] t:px-3 t:py-[10px] t:text-center t:text-base t:font-semibold t:uppercase t:leading-6 t:text-white"
+                                >
+                                    BAN THƯỜNG VỤ TỈNH ỦY KHÓA I, NHIỆM KỲ 2025-2030
+                                </h2>
+                            </div>
+                            <div
+                                class="t:mb-[30px] t:flex t:justify-center"
+                                id="standingFeaturedRow"
+                            ></div>
+                            <div
+                                class="t:mb-[30px] t:grid t:grid-cols-1 t:gap-5 t:md:max-pc:grid-cols-2 t:pc:grid-cols-4"
+                                id="standingKeyRow"
                             ></div>
                         </div>
                     </div>
-                </section>
-
-                <section id="standingSection">
-                    <div class="box6 row30">
-                        <div class="container">
-                            <div class="cate_title_box4">
-                                <span class="bg_title_box5">BAN THƯỜNG VỤ TỈNH ỦY KHÓA I, NHIỆM KỲ 2025-2030</span>
-                                <div class="clear"></div>
+                    <div class="t:bg-white t:py-[42px]">
+                        <div class="t:container">
+                            <div class="t:mx-auto t:w-full t:max-w-[1200px]">
+                                <div
+                                    class="t:grid t:grid-cols-1 t:gap-5 t:md:max-pc:grid-cols-2 t:pc:grid-cols-4"
+                                    id="standingRegularRow"
+                                ></div>
                             </div>
-                            <div class="t:flex t:justify-center t:mb-6" id="standingFeaturedRow"></div>
-                            <div class="t:grid t:grid-cols-1 t:md:grid-cols-2 t:pc:grid-cols-4 t:gap-5 t:mb-6" id="standingKeyRow"></div>
-                        </div>
-                    </div>
-                    <div class="t:mb-8">
-                        <div class="container">
-                            <div class="t:grid t:grid-cols-1 t:md:grid-cols-2 t:pc:grid-cols-4 t:gap-5" id="standingRegularRow"></div>
                         </div>
                     </div>
                 </section>
 
-                <section id="committeeSection" class="row30">
-                    <div class="container">
-                        <div class="cate_title_box4 row20">
-                            <span class="bg_title_box5">BAN CHẤP HÀNH ĐẢNG BỘ TỈNH KHÓA I, NHIỆM KỲ 2025-2030</span>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="box8">
-                            <div class="cate_title_box8">
-                                <div class="item left_item"></div>
-                                <div class="item center_item"></div>
-                                <div class="item right_item"><img src="./images/icon_dang.gif" alt=""></div>
+                <section id="committeeSection" class="t:bg-white t:py-[30px] t:font-sans">
+                    <div class="t:container">
+                        <div
+                            class="t:mx-auto t:flex t:w-full t:max-w-[1200px] t:flex-col t:items-center t:gap-5"
+                        >
+                            <div class="t:mx-auto t:w-full t:max-w-[1200px]">
+                                <div class=" t:flex t:justify-center">
+                                    <h2
+                                        class="t:m-0 t:block t:w-full t:max-w-[600px] t:whitespace-normal t:break-words t:bg-[linear-gradient(90deg,rgba(255,119,0,0)_0%,#FF7700_20.5%,#EF0004_50%,#FF7700_81%,rgba(255,119,0,0)_100%)] t:px-3 t:py-[10px] t:text-center t:text-base t:font-semibold t:uppercase t:leading-6 t:text-white"
+                                    >
+                                        Ban Chấp hành Đảng bộ tỉnh khóa I, nhiệm kỳ 2025-2030
+                                    </h2>
+                                </div>
                             </div>
-                            <div class="list_bch">
-                                <table style="border-collapse:collapse; width:100%; border:none" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <td>STT</td>
-                                            <td>Họ và tên</td>
-                                            <td>Chức vụ, đơn vị công tác</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="committeeRows"></tbody>
-                                </table>
+
+                            <div class="t:w-full t:bg-[#fef8f1] t:px-10 t:py-[10px] t:max-pc:px-4">
+                                <div class="t:mb-[10px] t:flex t:items-center t:gap-[10px]">
+                                    <span
+                                        class="t:h-[14px] t:flex-1 t:bg-repeat-x t:bg-center"
+                                        style="
+                                            background-image: url(&quot;./images/bg-dot.gif&quot;);
+                                        "
+                                        aria-hidden="true"
+                                    ></span>
+                                    <img
+                                        src="./images/icon_dang.gif"
+                                        alt=""
+                                        class="t:h-[23px] t:w-auto t:shrink-0"
+                                        aria-hidden="true"
+                                    />
+                                </div>
+
+                                <div
+                                    class="t:max-h-[600px] t:w-full t:overflow-y-auto t:overflow-x-hidden t:max-[1280px]:max-h-[480px]"
+                                >
+                                    <table
+                                        class="t:w-full t:min-w-[640px] t:border-collapse t:text-left"
+                                    >
+                                        <thead>
+                                            <tr class="t:border t:border-[#ffedae] t:bg-white">
+                                                <th
+                                                    class="t:w-[60px] t:border t:border-[#ffedae] t:px-3 t:py-[10px] t:text-sm t:font-bold t:leading-[21px] t:text-[#1f1f1f]"
+                                                >
+                                                    STT
+                                                </th>
+                                                <th
+                                                    class="t:w-[260px] t:border t:border-[#ffedae] t:px-3 t:py-[10px] t:text-[15px] t:font-semibold t:leading-[22.5px] t:text-[#1f1f1f]"
+                                                >
+                                                    Họ và tên
+                                                </th>
+                                                <th
+                                                    class="t:border t:border-[#ffedae] t:px-3 t:py-[10px] t:text-sm t:font-bold t:leading-[21px] t:text-[#1f1f1f]"
+                                                >
+                                                    Chức vụ, đơn vị công tác
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody
+                                            id="committeeRows"
+                                            class="t:[&>tr:nth-child(even)]:bg-white t:[&>tr]:border t:[&>tr]:border-[#ffedae]"
+                                        ></tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -303,9 +357,12 @@
                     <div class="container">
                         <div class="pad30">
                             <div class="cate_title_10">
-                                <a href="/dhd/ky-dhd/dhdb-tn/cttd/">Các công trình, dự án chào mừng Đại hội</a>
+                                <a href="/dhd/ky-dhd/dhdb-tn/cttd/">
+                                    Các công trình, dự án chào mừng Đại hội
+                                </a>
                             </div>
-                            <div class="swiper slider_box10"
+                            <div
+                                class="swiper slider_box10"
                                 data-swiper
                                 data-swiper-loop="true"
                                 data-swiper-slides-per-view="1"
@@ -316,8 +373,16 @@
                             >
                                 <div id="projectCards" class="swiper-wrapper"></div>
                             </div>
-                            <div class="swiper-button-prev1" id="slider-box10-prev" aria-label="Slide trước"></div>
-                            <div class="swiper-button-next1" id="slider-box10-next" aria-label="Slide sau"></div>
+                            <div
+                                class="swiper-button-prev1"
+                                id="slider-box10-prev"
+                                aria-label="Slide trước"
+                            ></div>
+                            <div
+                                class="swiper-button-next1"
+                                id="slider-box10-next"
+                                aria-label="Slide sau"
+                            ></div>
                         </div>
                     </div>
                 </section>
@@ -446,6 +511,5 @@
         <script src="./script/index.js"></script>
         <script src="./script/menu.js"></script>
         <script type="module" src="../../common/swiper.js"></script>
-
     </body>
 </html>

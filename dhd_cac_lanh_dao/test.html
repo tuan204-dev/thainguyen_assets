@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Đại hội Đảng bộ tỉnh Thái Nguyên</title>
+
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background: #f5f3f0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Background trống đồng mờ */
+    .pattern-bg {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Ngoc_Lu_drum_surface.svg/1200px-Ngoc_Lu_drum_surface.svg.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 85%;
+      opacity: 0.05;
+    }
+
+    /* Hiệu ứng card nhẹ */
+    .leader-card {
+      transition: all .25s ease;
+    }
+
+    .leader-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="py-10">
+  <div class="max-w-[1220px] mx-auto bg-[#f8f7f5] min-h-[290px] relative overflow-hidden">
+
+    <!-- Background hoa văn -->
+    <div class="absolute inset-0 pattern-bg"></div>
+
+    <!-- Title -->
+    <div class="relative flex justify-center pt-5">
+      <div class="relative">
+        <div class="absolute inset-0 blur-xl bg-orange-300 opacity-30"></div>
+
+        <div
+          class="relative bg-gradient-to-r from-[#ffe6d2] via-[#ff7a00] to-[#ffe6d2]
+                 px-24 py-3 text-white font-bold uppercase text-[18px]
+                 tracking-wide shadow-sm">
+          Đại hội Đảng bộ tỉnh Thái Nguyên
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative px-5 mt-8">
+
+      <!-- Card -->
+      <div
+        class="leader-card bg-[#fcfaf8] border border-[#efe6dc]
+               rounded-lg w-[375px] p-5 shadow-sm">
+
+        <div class="flex gap-5">
+
+          <!-- Avatar -->
+          <div class="flex-shrink-0">
+            <div
+              class="w-[96px] h-[118px]
+                     rounded-md overflow-hidden bg-sky-400">
+
+              <img
+                src="https://baothainguyen.vn/file/e7837c027f6ecd14017ffa4e5f2a0e34/032026/anh_trong_chuyen_trang_1_20260324104856.png?width=500&height=-&type=resize"
+                alt="Bùi Văn Lương"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div class="pt-1">
+
+            <div class="text-[#cc8a00] font-bold text-[15px] leading-none mb-2">
+              Đồng chí
+            </div>
+
+            <h3 class="font-bold text-[17px] text-[#111] leading-tight mb-2">
+              Bùi Văn Lương
+            </h3>
+
+            <div class="text-[14px] text-[#333] leading-[1.6]">
+              <p>Phó Bí thư Tỉnh ủy</p>
+              <p>Chủ tịch HĐND tỉnh Thái Nguyên</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
