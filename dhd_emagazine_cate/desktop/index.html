@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -17,6 +17,97 @@
         />
         <link rel="stylesheet" href="../../common/style/overlayscrollbar.css" />
         <link rel="stylesheet" href="../../common/vendor/swiper-bundle.min.css" />
+        <style>
+            /* Tailwind utility classes missing from pre-compiled output.css */
+            .t\:float-left { float: left; }
+            .t\:flow-root { display: flow-root; }
+            .t\:flex { display: flex; }
+            .t\:flex-col { flex-direction: column; }
+            .t\:items-center { align-items: center; }
+            .t\:gap-x-1 { column-gap: 0.25rem; }
+            .t\:py-4 { padding-block: 1rem; }
+            .t\:mr-2 { margin-right: 0.5rem; }
+            .t\:mt-0\! { margin-top: 0 !important; }
+            .t\:mt-1 { margin-top: 0.25rem; }
+            .t\:text-xs { font-size: 0.75rem; line-height: calc(1 / 0.75); }
+            .t\:text-\[\#667085\] { color: #667085; }
+            .t\:hover\:text-\[\#C0392B\]\!:hover { color: #C0392B !important; }
+            .t\:divide-y > :not(:last-child) {
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+            }
+            .t\:divide-\[\#E5E5E5\] > :not(:last-child) { border-color: #E5E5E5; }
+
+            /* search-results-list — copied from search/output.css */
+            .search-results-list {
+                display: flex;
+                flex-direction: column;
+            }
+            .search-results-list > li {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                display: flow-root;
+            }
+            .search-results-list > li + li {
+                border-top: 1px solid #E5E5E5;
+            }
+            .search-results-list .img-block {
+                float: left;
+                margin-right: 0.5rem;
+            }
+            .search-results-list .title.l3 {
+                margin-top: 0;
+                margin-bottom: 10px;
+                color: #151515;
+                font-family: "Merriweather", serif;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 1.35;
+            }
+            .search-results-list .title.l3 a:hover {
+                color: #C0392B !important;
+            }
+            .search-results-list .desc-date {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                margin: 0 0 10px;
+                color: #667085;
+                font-family: "Roboto", sans-serif;
+                font-size: 14px;
+                line-height: 1.4;
+            }
+            .search-results-list .desc-date i {
+                color: #667085;
+                font-size: 16px;
+            }
+            .search-results-list .desc {
+                margin-top: 0;
+                color: #344054;
+                font-family: "Roboto", sans-serif;
+                font-size: 16px;
+                line-height: 1.55;
+            }
+            @media (max-width: 767px) {
+                .search-results-list > li {
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                }
+                .search-results-list .img-block {
+                    width: 200px !important;
+                    max-width: 50%;
+                    margin-right: 12px;
+                }
+                .search-results-list .title.l3 {
+                    font-size: 17px;
+                    line-height: 1.35;
+                }
+                .search-results-list .desc {
+                    font-size: 14px;
+                    line-height: 1.5;
+                }
+            }
+        </style>
     </head>
 
     <body class="home-page">
@@ -1301,182 +1392,109 @@
                 <!-- ==================== ROW 2: col-9 + col-3 ==================== -->
                 <div class="row">
                     <div class="col-sm-9 t:max-md:w-full!">
-                        <div id="cate-content" class="block-news-cate" style="">
-                            <div class="listnews list-bd clearfix">
-                                <div class="item row15">
+                        <div id="cate-content" class="block-news-cate">
+                            <ul class="search-results-list t:flex t:flex-col t:divide-y t:divide-[#E5E5E5]">
 
-                                    <div class="row">
-                                        <div class="col-4 t:max-md:w-full!">
-                                            <a class="avatar" href="/multimedia/emagazine/202508/nguoi-giu-hon-viet-tren-dat-tra-18b2e94/"><img
-                                                    class="lazy"
-                                                    src="../desktop/images/article-10.jpg"
-                                                    alt="Người giữ hồn Việt trên đất Trà" style=""></a>
-                                        </div>
-                                        <div class="col-8 t:max-md:w-full!">
-                                            <div class="row5"><a class="title3"
-                                                    href="/multimedia/emagazine/202508/nguoi-giu-hon-viet-tren-dat-tra-18b2e94/">Người giữ hồn
-                                                    Việt trên đất Trà</a></div>
-                                            <div class="des">Từ một thợ làm tóc nơi phố núi, chàng trai trẻ Phạm Văn Tuân (sinh năm 1994, hiện
-                                                trú tại phường Phan Đình Phùng) đã chắp đôi cánh cho đam mê qua từng nét bút lửa và từng đường
-                                                cọ vẽ. Mỗi tác phẩm của anh là một lời nhắn gửi trìu mến dành cho văn hóa Việt, cho quê hương
-                                                chè xanh đượm hương...</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item row15">
+                                <li class="t:py-4 t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2 t:max-[992px]:w-50!">
+                                        <a href="/multimedia/emagazine/202508/nguoi-giu-hon-viet-tren-dat-tra-18b2e94/"><img src="../desktop/images/article-10.jpg" alt="Người giữ hồn Việt trên đất Trà" loading="lazy" /></a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!"><a href="/multimedia/emagazine/202508/nguoi-giu-hon-viet-tren-dat-tra-18b2e94/" class="t:hover:text-[#C0392B]!">Người giữ hồn Việt trên đất Trà</a></h3>
+                                    <p class="desc-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i> 10:30 | 15/08/2025
+                                    </p>
+                                    <p class="desc">Từ một thợ làm tóc nơi phố núi, chàng trai trẻ Phạm Văn Tuân (sinh năm 1994, hiện trú tại phường Phan Đình Phùng) đã chắp đôi cánh cho đam mê qua từng nét bút lửa và từng đường cọ vẽ. Mỗi tác phẩm của anh là một lời nhắn gửi trìu mến dành cho văn hóa Việt, cho quê hương chè xanh đượm hương...</p>
+                                </li>
 
-                                    <div class="row">
-                                        <div class="col-4 t:max-md:w-full!">
-                                            <a class="avatar"
-                                                href="/multimedia/emagazine/202508/khi-hai-mat-nuoc-soi-chung-bau-troi-c7c7d7d/"><img
-                                                    class="lazy"
-                                                    src="../desktop/images/article-11.jpg"
-                                                    alt="Khi hai mặt nước soi chung bầu trời" style=""></a>
-                                        </div>
-                                        <div class="col-8 t:max-md:w-full!">
-                                            <div class="row5"><a class="title3"
-                                                    href="/multimedia/emagazine/202508/khi-hai-mat-nuoc-soi-chung-bau-troi-c7c7d7d/">Khi hai mặt
-                                                    nước soi chung bầu trời</a></div>
-                                            <div class="des">Người ta bảo, nếu ai ngồi thuyền giữa hồ Ba Bể vào buổi sớm, sẽ thấy đâu đó thấp
-                                                thoáng bóng đồi chè Thái Nguyên. Và nếu đứng trên bờ hồ Núi Cốc một chiều lặng gió, sẽ nghe vẳng
-                                                tiếng mái chèo khua nhịp ở Ba Bể xa xăm.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item row15">
+                                <li class="t:py-4 t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2 t:max-[992px]:w-50!">
+                                        <a href="/multimedia/emagazine/202508/khi-hai-mat-nuoc-soi-chung-bau-troi-c7c7d7d/"><img src="../desktop/images/article-11.jpg" alt="Khi hai mặt nước soi chung bầu trời" loading="lazy" /></a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!"><a href="/multimedia/emagazine/202508/khi-hai-mat-nuoc-soi-chung-bau-troi-c7c7d7d/" class="t:hover:text-[#C0392B]!">Khi hai mặt nước soi chung bầu trời</a></h3>
+                                    <p class="desc-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i> 08:15 | 10/08/2025
+                                    </p>
+                                    <p class="desc">Người ta bảo, nếu ai ngồi thuyền giữa hồ Ba Bể vào buổi sớm, sẽ thấy đâu đó thấp thoáng bóng đồi chè Thái Nguyên. Và nếu đứng trên bờ hồ Núi Cốc một chiều lặng gió, sẽ nghe vẳng tiếng mái chèo khua nhịp ở Ba Bể xa xăm.</p>
+                                </li>
 
-                                    <div class="row">
-                                        <div class="col-4 t:max-md:w-full!">
-                                            <a class="avatar"
-                                                href="/multimedia/emagazine/202508/nhac-si-doan-nho-va-nhung-du-am-mua-he-tu-thai-nguyen-xua-8364c3d/"><img
-                                                    class="lazy"
-                                                    src="../desktop/images/article-12.jpg"
-                                                    alt="Nhạc sĩ Doãn Nho và những dư âm mùa Hè từ Thái Nguyên xưa" style=""></a>
-                                        </div>
-                                        <div class="col-8 t:max-md:w-full!">
-                                            <div class="row5"><a class="title3"
-                                                    href="/multimedia/emagazine/202508/nhac-si-doan-nho-va-nhung-du-am-mua-he-tu-thai-nguyen-xua-8364c3d/">Nhạc
-                                                    sĩ Doãn Nho và những dư âm mùa Hè từ Thái Nguyên xưa</a></div>
-                                            <div class="des">Đã là lần thứ hai chúng tôi tìm đến nhà nhạc sĩ Doãn Nho. Ấy vậy mà “ngõ nhỏ, phố
-                                                nhỏ” của Hà Nội vẫn làm khó những vị khách phương xa.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item row15">
+                                <li class="t:py-4 t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2 t:max-[992px]:w-50!">
+                                        <a href="/multimedia/emagazine/202508/nhac-si-doan-nho-va-nhung-du-am-mua-he-tu-thai-nguyen-xua-8364c3d/"><img src="../desktop/images/article-12.jpg" alt="Nhạc sĩ Doãn Nho và những dư âm mùa Hè từ Thái Nguyên xưa" loading="lazy" /></a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!"><a href="/multimedia/emagazine/202508/nhac-si-doan-nho-va-nhung-du-am-mua-he-tu-thai-nguyen-xua-8364c3d/" class="t:hover:text-[#C0392B]!">Nhạc sĩ Doãn Nho và những dư âm mùa Hè từ Thái Nguyên xưa</a></h3>
+                                    <p class="desc-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i> 14:00 | 05/08/2025
+                                    </p>
+                                    <p class="desc">Đã là lần thứ hai chúng tôi tìm đến nhà nhạc sĩ Doãn Nho. Ấy vậy mà "ngõ nhỏ, phố nhỏ" của Hà Nội vẫn làm khó những vị khách phương xa.</p>
+                                </li>
 
-                                    <div class="row">
-                                        <div class="col-4 t:max-md:w-full!">
-                                            <a class="avatar" href="/multimedia/emagazine/202507/tinh-hoa-cho-chethai-nguyen-4662f9c/"><img
-                                                    class="lazy"
-                                                    src="../desktop/images/article-13.jpg"
-                                                    alt="Tinh hoa chợ chè&nbsp;Thái Nguyên" style=""></a>
-                                        </div>
-                                        <div class="col-8 t:max-md:w-full!">
-                                            <div class="row5"><a class="title3"
-                                                    href="/multimedia/emagazine/202507/tinh-hoa-cho-chethai-nguyen-4662f9c/">Tinh hoa chợ
-                                                    chè&nbsp;Thái Nguyên</a></div>
-                                            <div class="des">Chợ chè Thái Nguyên không đơn thuần là nơi mua bán, mà còn là nơi hương chè quyện
-                                                vào tình người, thấm đẫm ân tình của vùng đất “Đệ nhất danh trà”.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item row15">
+                                <li class="t:py-4 t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2 t:max-[992px]:w-50!">
+                                        <a href="/multimedia/emagazine/202507/tinh-hoa-cho-chethai-nguyen-4662f9c/"><img src="../desktop/images/article-13.jpg" alt="Tinh hoa chợ chè Thái Nguyên" loading="lazy" /></a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!"><a href="/multimedia/emagazine/202507/tinh-hoa-cho-chethai-nguyen-4662f9c/" class="t:hover:text-[#C0392B]!">Tinh hoa chợ chè Thái Nguyên</a></h3>
+                                    <p class="desc-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i> 09:00 | 20/07/2025
+                                    </p>
+                                    <p class="desc">Chợ chè Thái Nguyên không đơn thuần là nơi mua bán, mà còn là nơi hương chè quyện vào tình người, thấm đẫm ân tình của vùng đất "Đệ nhất danh trà".</p>
+                                </li>
 
-                                    <div class="row">
-                                        <div class="col-4 t:max-md:w-full!">
-                                            <a class="avatar"
-                                                href="/multimedia/emagazine/202506/thai-nguyen-san-sang-cung-ca-nuoc-vuon-tam-phat-trien-adc0382/"><img
-                                                    class="lazy"
-                                                    src="../desktop/images/article-14.jpg"
-                                                    alt="Thái Nguyên sẵn sàng cùng cả nước vươn tầm phát triển" style=""></a>
-                                        </div>
-                                        <div class="col-8 t:max-md:w-full!">
-                                            <div class="row5"><a class="title3"
-                                                    href="/multimedia/emagazine/202506/thai-nguyen-san-sang-cung-ca-nuoc-vuon-tam-phat-trien-adc0382/">Thái
-                                                    Nguyên sẵn sàng cùng cả nước vươn tầm phát triển</a></div>
-                                            <div class="des">Sự hợp nhất hai tỉnh Thái Nguyên và Bắc Kạn thành tỉnh Thái Nguyên mới là một bước
-                                                ngoặt trong chặng đường phát triển. Sự kiện trọng đại này là một quyết sách mang tầm chiến lược,
-                                                tầm nhìn dài hạn của Đảng và Nhà nước.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item row15">
+                                <li class="t:py-4 t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2 t:max-[992px]:w-50!">
+                                        <a href="/multimedia/emagazine/202506/thai-nguyen-san-sang-cung-ca-nuoc-vuon-tam-phat-trien-adc0382/"><img src="../desktop/images/article-14.jpg" alt="Thái Nguyên sẵn sàng cùng cả nước vươn tầm phát triển" loading="lazy" /></a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!"><a href="/multimedia/emagazine/202506/thai-nguyen-san-sang-cung-ca-nuoc-vuon-tam-phat-trien-adc0382/" class="t:hover:text-[#C0392B]!">Thái Nguyên sẵn sàng cùng cả nước vươn tầm phát triển</a></h3>
+                                    <p class="desc-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i> 08:00 | 25/06/2025
+                                    </p>
+                                    <p class="desc">Sự hợp nhất hai tỉnh Thái Nguyên và Bắc Kạn thành tỉnh Thái Nguyên mới là một bước ngoặt trong chặng đường phát triển. Sự kiện trọng đại này là một quyết sách mang tầm chiến lược, tầm nhìn dài hạn của Đảng và Nhà nước.</p>
+                                </li>
 
-                                    <div class="row">
-                                        <div class="col-4 t:max-md:w-full!">
-                                            <a class="avatar" href="/multimedia/emagazine/202506/o-noi-may-nui-giao-hoa-5f11aba/"><img
-                                                    class="lazy"
-                                                    src="../desktop/images/article-15.jpg"
-                                                    alt="Ở nơi mây - núi giao hòa" style=""></a>
-                                        </div>
-                                        <div class="col-8 t:max-md:w-full!">
-                                            <div class="row5"><a class="title3"
-                                                    href="/multimedia/emagazine/202506/o-noi-may-nui-giao-hoa-5f11aba/">Ở nơi mây - núi giao
-                                                    hòa</a></div>
-                                            <div class="des">Khai thác vẻ đẹp hoang sơ, thơ mộng của tự nhiên nơi sườn Đông của dãy Tam Đảo để
-                                                phát triển du lịch, từng bước nâng tầm giá trị cây trồng địa phương, đó là cách Hợp tác xã Mây
-                                                Sườn Đông đã và đang thực hiện.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item row15">
+                                <li class="t:py-4 t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2 t:max-[992px]:w-50!">
+                                        <a href="/multimedia/emagazine/202506/o-noi-may-nui-giao-hoa-5f11aba/"><img src="../desktop/images/article-15.jpg" alt="Ở nơi mây - núi giao hòa" loading="lazy" /></a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!"><a href="/multimedia/emagazine/202506/o-noi-may-nui-giao-hoa-5f11aba/" class="t:hover:text-[#C0392B]!">Ở nơi mây - núi giao hòa</a></h3>
+                                    <p class="desc-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i> 15:30 | 18/06/2025
+                                    </p>
+                                    <p class="desc">Khai thác vẻ đẹp hoang sơ, thơ mộng của tự nhiên nơi sườn Đông của dãy Tam Đảo để phát triển du lịch, từng bước nâng tầm giá trị cây trồng địa phương, đó là cách Hợp tác xã Mây Sườn Đông đã và đang thực hiện.</p>
+                                </li>
 
-                                    <div class="row">
-                                        <div class="col-4 t:max-md:w-full!">
-                                            <a class="avatar"
-                                                href="/multimedia/emagazine/202506/hoc-de-thoat-nan-hanh-dong-de-an-toan-14718db/"><img
-                                                    class="lazy"
-                                                    src="../desktop/images/article-16.jpg"
-                                                    alt="Học để thoát nạn, hành động để an toàn" style=""></a>
-                                        </div>
-                                        <div class="col-8 t:max-md:w-full!">
-                                            <div class="row5"><a class="title3"
-                                                    href="/multimedia/emagazine/202506/hoc-de-thoat-nan-hanh-dong-de-an-toan-14718db/">Học để
-                                                    thoát nạn, hành động để an toàn</a></div>
-                                            <div class="des">Hàng nghìn học sinh đã được tiếp cận kiến thức thiết thực về an toàn phòng cháy,
-                                                chữa cháy để tự bảo vệ mình trong tình huống khẩn cấp.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item row15">
+                                <li class="t:py-4 t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2 t:max-[992px]:w-50!">
+                                        <a href="/multimedia/emagazine/202506/hoc-de-thoat-nan-hanh-dong-de-an-toan-14718db/"><img src="../desktop/images/article-16.jpg" alt="Học để thoát nạn, hành động để an toàn" loading="lazy" /></a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!"><a href="/multimedia/emagazine/202506/hoc-de-thoat-nan-hanh-dong-de-an-toan-14718db/" class="t:hover:text-[#C0392B]!">Học để thoát nạn, hành động để an toàn</a></h3>
+                                    <p class="desc-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i> 11:00 | 12/06/2025
+                                    </p>
+                                    <p class="desc">Hàng nghìn học sinh đã được tiếp cận kiến thức thiết thực về an toàn phòng cháy, chữa cháy để tự bảo vệ mình trong tình huống khẩn cấp.</p>
+                                </li>
 
-                                    <div class="row">
-                                        <div class="col-4 t:max-md:w-full!">
-                                            <a class="avatar"
-                                                href="/multimedia/emagazine/202506/binh-son-ban-hoa-ca-cua-dong-co-doi-che-va-song-nuoc-menh-mang-6470922/"><img
-                                                    class="lazy"
-                                                    src="../desktop/images/article-17.jpg"
-                                                    alt="Bình Sơn - Bản hòa ca của đồng cỏ, đồi chè và sóng nước mênh mang" style=""></a>
-                                        </div>
-                                        <div class="col-8 t:max-md:w-full!">
-                                            <div class="row5"><a class="title3"
-                                                    href="/multimedia/emagazine/202506/binh-son-ban-hoa-ca-cua-dong-co-doi-che-va-song-nuoc-menh-mang-6470922/">Bình
-                                                    Sơn - Bản hòa ca của đồng cỏ, đồi chè và sóng nước mênh mang</a></div>
-                                            <div class="des">Đi qua những cung đường mềm mại uốn lượn bên sườn đồi và rừng cây, chúng tôi dừng
-                                                chân tại một vùng đất mang tên Bình Sơn.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item row15">
+                                <li class="t:py-4 t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2 t:max-[992px]:w-50!">
+                                        <a href="/multimedia/emagazine/202506/binh-son-ban-hoa-ca-cua-dong-co-doi-che-va-song-nuoc-menh-mang-6470922/"><img src="../desktop/images/article-17.jpg" alt="Bình Sơn - Bản hòa ca của đồng cỏ, đồi chè và sóng nước mênh mang" loading="lazy" /></a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!"><a href="/multimedia/emagazine/202506/binh-son-ban-hoa-ca-cua-dong-co-doi-che-va-song-nuoc-menh-mang-6470922/" class="t:hover:text-[#C0392B]!">Bình Sơn - Bản hòa ca của đồng cỏ, đồi chè và sóng nước mênh mang</a></h3>
+                                    <p class="desc-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i> 09:45 | 08/06/2025
+                                    </p>
+                                    <p class="desc">Đi qua những cung đường mềm mại uốn lượn bên sườn đồi và rừng cây, chúng tôi dừng chân tại một vùng đất mang tên Bình Sơn.</p>
+                                </li>
 
-                                    <div class="row">
-                                        <div class="col-4 t:max-md:w-full!">
-                                            <a class="avatar"
-                                                href="/multimedia/emagazine/202506/nguoi-linh-tro-ve-va-khat-vong-lam-giau-tren-que-huong-9b4085a/"><img
-                                                    class="lazy"
-                                                    src="../desktop/images/article-18.jpg"
-                                                    alt="Người lính trở về và khát vọng làm giàu trên quê hương" style=""></a>
-                                        </div>
-                                        <div class="col-8 t:max-md:w-full!">
-                                            <div class="row5"><a class="title3"
-                                                    href="/multimedia/emagazine/202506/nguoi-linh-tro-ve-va-khat-vong-lam-giau-tren-que-huong-9b4085a/">Người
-                                                    lính trở về và khát vọng làm giàu trên quê hương</a></div>
-                                            <div class="des">Trở về từ quân ngũ, ông Ngô Văn Hùng (ở xóm Tè, xã Tân Hòa, Phú Bình) mang theo
-                                                khát vọng làm giàu trên chính mảnh đất quê hương.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                <li class="t:py-4 t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2 t:max-[992px]:w-50!">
+                                        <a href="/multimedia/emagazine/202506/nguoi-linh-tro-ve-va-khat-vong-lam-giau-tren-que-huong-9b4085a/"><img src="../desktop/images/article-18.jpg" alt="Người lính trở về và khát vọng làm giàu trên quê hương" loading="lazy" /></a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!"><a href="/multimedia/emagazine/202506/nguoi-linh-tro-ve-va-khat-vong-lam-giau-tren-que-huong-9b4085a/" class="t:hover:text-[#C0392B]!">Người lính trở về và khát vọng làm giàu trên quê hương</a></h3>
+                                    <p class="desc-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i> 07:30 | 03/06/2025
+                                    </p>
+                                    <p class="desc">Trở về từ quân ngũ, ông Ngô Văn Hùng (ở xóm Tè, xã Tân Hòa, Phú Bình) mang theo khát vọng làm giàu trên chính mảnh đất quê hương.</p>
+                                </li>
+
+                            </ul>
                         </div>
                     </div>
                     <div class="col-sm-3 t:max-md:w-full!">
@@ -1604,9 +1622,9 @@
                     </p>
                     <p>
                         Bản quyền thuộc về Báo và Phát thanh, Truyền hình Thái Nguyên. Ghi rõ nguồn
-                        “
+                        "
                         <a href="https://baothainguyen.vn">https://baothainguyen.vn</a>
-                        ” khi phát hành lại thông tin từ website này
+                        " khi phát hành lại thông tin từ website này
                     </p>
                 </div>
             </div>
