@@ -1437,24 +1437,19 @@
                     </div>
 
                     <!-- Pagination -->
-                    <div class="t:flex t:items-center t:justify-start t:gap-x-1.5 t:pt-2 t:pb-6 roboto pagy">
-                        <!-- Prev -->
-                        <a href="" aria-label="Trang trước"
-                            class="btn prev disabled_prev t:flex t:items-center t:justify-center t:h-8 t:border t:border-[#D0D0D0] t:text-[#555] t:text-sm t:hover:border-[#935f25] t:hover:text-[#935f25] t:transition-colors t:shrink-0 t:bg-white t:px-2"
-                        >&lt;</a>
-                        <!-- Page 1 – active -->
-                        <ul style="width: 134.766px;">
-                            <li><a id="1" class="red normal active" href="javascript:void(0)">1</a></li>
-                            <li><a id="2" class="red normal" href="javascript:void(0)">2</a></li>
-                            <li><a id="3" class="red normal" href="javascript:void(0)">3</a></li>
-                            <li><a id="4" class="red normal" href="javascript:void(0)">4</a></li>
-                            <li><a id="5" class="red normal" href="javascript:void(0)">5</a></li>
-                        </ul>
-                        <!-- Next -->
-                        <a href="" aria-label="Trang sau"
-                            class=" btn next t:flex t:items-center t:justify-center t:h-8 t:border t:border-[#D0D0D0] t:text-[#555] t:text-sm t:hover:border-[#935f25] t:hover:text-[#935f25] t:transition-colors t:shrink-0 t:bg-white t:px-2"
-                        >&gt;</a>
-                    </div>
+                    <nav id="search-pagination" aria-label="Phân trang">
+                        <button type="button" disabled aria-label="Trang trước">
+                            <i class="material-symbols--chevron-left-rounded"></i>
+                        </button>
+                        <button type="button" aria-current="page">1</button>
+                        <button type="button">2</button>
+                        <button type="button">3</button>
+                        <button type="button">4</button>
+                        <button type="button">5</button>
+                        <button type="button" aria-label="Trang sau">
+                            <i class="material-symbols--chevron-right-rounded"></i>
+                        </button>
+                    </nav>
                 </div>
             </div>
         </main>
