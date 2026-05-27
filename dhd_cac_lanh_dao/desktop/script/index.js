@@ -1,48 +1,48 @@
 const leaders = [
-  ["tn-01.png", "Ngô Nhị Quý", "Bí thư Tỉnh ủy lâm thời", "(từ 9/1945 - 8/1947)"],
-  ["tn-02.png", "Lê Trung Đình", "Bí thư Tỉnh ủy", "(từ tháng 8/1947 đến tháng 10/1947 và từ quý I/1949 đến tháng 4/1951)"],
-  ["tn-03.png", "Lê Hoàng", "Bí thư Tỉnh ủy Thái Nguyên; Bí thư Tỉnh ủy Bắc Thái", "(từ tháng 10/1947 đến tháng 3/1948; từ tháng 6/1965 đến tháng 4/1972)"],
-  ["tn-04.png", "Lê Thanh", "Bí thư Tỉnh ủy", "(từ tháng 4/1948 đến quý I/1949)"],
-  ["tn-05.png", "Hoàng Cừ", "Bí thư Tỉnh ủy kiêm Chủ tịch Ủy ban Kháng chiến hành chính tỉnh", "(từ tháng 4/1951 đến tháng 4/1953)"],
-  ["tn-06.png", "Nguyễn Tâm", "Bí thư Tỉnh ủy", "(từ tháng 5/1953 đến đầu năm 1954)"],
-  ["tn-07.png", "Lê Dục Tôn", "Bí thư Tỉnh ủy", "(từ 1954 đến tháng 4/1958)"],
-  ["tn-08.png", "Phan Văn Tỉnh", "Bí thư Tỉnh ủy", "(từ tháng 4/1958 đến tháng 11/1959)"],
-  ["tn-09.png", "Lê Đức Chỉnh", "Bí thư Tỉnh ủy", "(từ tháng 11/1959 đến tháng 6/1965)"],
-  ["tn-10.png", "Hoàng Bắc Dũng", "Bí thư Tỉnh ủy Bắc Thái", "(từ tháng 4/1972 đến năm 1976)"],
-  ["tn-11.png", "Vũ Ngọc Linh", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy Bắc Thái", "(từ tháng 5/1976 đến năm 1986)"],
-  ["tn-12.png", "Nông Đức Mạnh", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy Bắc Thái", "(từ tháng 11/1986 đến tháng 10/1989)"],
-  ["tn-13.png", "Nguyễn Ngô Hai", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên", "(từ tháng 10/1989 đến tháng 10/1999)"],
-  ["tn-14.png", "Hồ Đức Việt", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 10/1999 đến tháng 9/2002)"],
-  ["tn-15.png", "Lương Đức Tính", "Bí thư Tỉnh ủy", "(từ tháng 10/2002 đến tháng 12/2005)"],
-  ["tn-16.png", "Nguyễn Bắc Son", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 12/2005 đến tháng 8/2007)"],
-  ["tn-17.png", "Nguyễn Văn Vượng", "Bí thư Tỉnh ủy", "(từ tháng 10/2007 đến tháng 10/2010)"],
-  ["tn-18.png", "Phạm Xuân Đương", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 10/2010 đến 31/01/2013)"],
-  ["tn-19.png", "Nguyễn Đình Phách", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ 31/01/2013 đến tháng 10/2015)"],
-  ["tn-20.png", "Trần Quốc Tỏ", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 10/2015 đến tháng 5/2020)"],
-  ["tn-21.png", "Nguyễn Thanh Hải", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 5/2020 đến tháng 6/2024)"],
-  ["tn-22.png", "Trịnh Việt Hùng", "Ủy viên dự khuyết Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 7/2024 đến tháng 9/2025)"],
-  ["btv-trinh-xuan-truong.png", "Trịnh Xuân Trường", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy", "(từ tháng 9/2025)"],
+  ["tn-01.png", "Ngô Nhị Quý", "Bí thư Tỉnh ủy lâm thời (từ 9/1945 - 8/1947)"],
+  ["tn-02.png", "Lê Trung Đình", "Bí thư Tỉnh ủy (từ tháng 8/1947 đến tháng 10/1947 và từ quý I/1949 đến tháng 4/1951)"],
+  ["tn-03.png", "Lê Hoàng", "Bí thư Tỉnh ủy Thái Nguyên; Bí thư Tỉnh ủy Bắc Thái (từ tháng 10/1947 đến tháng 3/1948; từ tháng 6/1965 đến tháng 4/1972)"],
+  ["tn-04.png", "Lê Thanh", "Bí thư Tỉnh ủy (từ tháng 4/1948 đến quý I/1949)"],
+  ["tn-05.png", "Hoàng Cừ", "Bí thư Tỉnh ủy kiêm Chủ tịch Ủy ban Kháng chiến hành chính tỉnh (từ tháng 4/1951 đến tháng 4/1953)"],
+  ["tn-06.png", "Nguyễn Tâm", "Bí thư Tỉnh ủy (từ tháng 5/1953 đến đầu năm 1954)"],
+  ["tn-07.png", "Lê Dục Tôn", "Bí thư Tỉnh ủy (từ 1954 đến tháng 4/1958)"],
+  ["tn-08.png", "Phan Văn Tỉnh", "Bí thư Tỉnh ủy (từ tháng 4/1958 đến tháng 11/1959)"],
+  ["tn-09.png", "Lê Đức Chỉnh", "Bí thư Tỉnh ủy (từ tháng 11/1959 đến tháng 6/1965)"],
+  ["tn-10.png", "Hoàng Bắc Dũng", "Bí thư Tỉnh ủy Bắc Thái (từ tháng 4/1972 đến năm 1976)"],
+  ["tn-11.png", "Vũ Ngọc Linh", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy Bắc Thái (từ tháng 5/1976 đến năm 1986)"],
+  ["tn-12.png", "Nông Đức Mạnh", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy Bắc Thái (từ tháng 11/1986 đến tháng 10/1989)"],
+  ["tn-13.png", "Nguyễn Ngô Hai", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên (từ tháng 10/1989 đến tháng 10/1999)"],
+  ["tn-14.png", "Hồ Đức Việt", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy (từ tháng 10/1999 đến tháng 9/2002)"],
+  ["tn-15.png", "Lương Đức Tính", "Bí thư Tỉnh ủy (từ tháng 10/2002 đến tháng 12/2005)"],
+  ["tn-16.png", "Nguyễn Bắc Son", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy (từ tháng 12/2005 đến tháng 8/2007)"],
+  ["tn-17.png", "Nguyễn Văn Vượng", "Bí thư Tỉnh ủy (từ tháng 10/2007 đến tháng 10/2010)"],
+  ["tn-18.png", "Phạm Xuân Đương", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy (từ tháng 10/2010 đến 31/01/2013)"],
+  ["tn-19.png", "Nguyễn Đình Phách", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy (từ 31/01/2013 đến tháng 10/2015)"],
+  ["tn-20.png", "Trần Quốc Tỏ", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy (từ tháng 10/2015 đến tháng 5/2020)"],
+  ["tn-21.png", "Nguyễn Thanh Hải", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy (từ tháng 5/2020 đến tháng 6/2024)"],
+  ["tn-22.png", "Trịnh Việt Hùng", "Ủy viên dự khuyết Trung ương Đảng, Bí thư Tỉnh ủy (từ tháng 7/2024 đến tháng 9/2025)"],
+  ["btv-trinh-xuan-truong.png", "Trịnh Xuân Trường", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy (từ tháng 9/2025)"],
 ];
 
 const standing = [
-  ["btv-trinh-xuan-truong.png", "Trịnh Xuân Trường", "Ủy viên Trung ương Đảng", "Bí thư Tỉnh ủy"],
-  ["btv-vuong-quoc-tuan.png", "Vương Quốc Tuấn", "Ủy viên Trung ương Đảng", "Phó Bí thư Tỉnh ủy, Chủ tịch UBND tỉnh"],
-  ["btv-nguyen-dang-binh.jpg", "Nguyễn Đăng Bình", "Phó Bí thư Thường trực Tỉnh ủy", "Trưởng Đoàn đại biểu Quốc hội tỉnh"],
-  ["btv-bui-van-luong.png", "Bùi Văn Lương", "Phó Bí thư Tỉnh ủy", "Chủ tịch HĐND tỉnh Thái Nguyên"],
-  ["btv-dinh-quang-tuyen.jpg", "Đinh Quang Tuyên", "Phó Bí thư Tỉnh ủy", "Chủ tịch Ủy ban MTTQ tỉnh"],
-  ["btv-do-duc-cong.jpg", "Đỗ Đức Công", "Ủy viên Ban Thường vụ Tỉnh ủy", "Phó Chủ tịch Thường trực HĐND tỉnh"],
-  ["btv-bui-duc-hai.jpg", "Bùi Đức Hải", "Ủy viên Ban Thường vụ Tỉnh ủy", "Giám đốc Công an tỉnh"],
-  ["btv-do-thi-minh-hoa.jpg", "Đỗ Thị Minh Hoa", "Ủy viên Ban Thường vụ Tỉnh ủy", "Trưởng Ban Tuyên giáo và Dân vận Tỉnh ủy"],
-  ["btv-vu-duy-hoang.jpg", "Vũ Duy Hoàng", "Ủy viên Ban Thường vụ Tỉnh ủy", "Phó Chủ tịch Thường trực Ủy ban MTTQ tỉnh"],
-  ["btv-tran-thi-loc.jpg", "Trần Thị Lộc", "Ủy viên Ban Thường vụ Tỉnh ủy", "Phó Chủ tịch HĐND tỉnh"],
-  ["btv-bui-van-luong-2.jpg", "Bùi Văn Lương", "Ủy viên Ban Thường vụ Tỉnh ủy", "Phó Chủ tịch UBND tỉnh"],
-  ["btv-luong-duc-thang.jpg", "Lường Đức Thắng", "Ủy viên Ban Thường vụ Tỉnh ủy", "Trưởng Ban Nội chính Tỉnh ủy"],
-  ["btv-pham-van-tho.jpg", "Phạm Văn Thọ", "Ủy viên Ban Thường vụ Tỉnh ủy", "Giám đốc Sở Công thương tỉnh"],
-  ["btv-duong-van-tien.png", "Dương Văn Tiến", "Ủy viên Ban Thường vụ Tỉnh ủy", "Trưởng Ban Tổ chức Tỉnh ủy"],
-  ["btv-hoang-thi-thu-trang.jpg", "Hoàng Thị Thu Trang", "Ủy viên Ban Thường vụ Tỉnh ủy", "Chủ nhiệm Ủy ban Kiểm tra Tỉnh ủy"],
-  ["btv-nguyen-thanh-minh.jpg", "Nguyễn Thành Minh", "Ủy viên Ban Thường vụ Tỉnh ủy", "Chánh Văn phòng Tỉnh ủy"],
-  ["btv-ngo-tuan-anh.jpg", "Ngô Tuấn Anh", "Ủy viên Ban Thường vụ Tỉnh ủy", "Chỉ huy trưởng Bộ CHQS tỉnh"],
-  ["btv-nguyen-linh.png", "Nguyễn Linh", "Ủy viên Ban Thường vụ Tỉnh ủy", "Phó Chủ tịch UBND tỉnh"],
+  ["btv-trinh-xuan-truong.png", "Trịnh Xuân Trường", "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy"],
+  ["btv-vuong-quoc-tuan.png", "Vương Quốc Tuấn", "Ủy viên Trung ương Đảng, Phó Bí thư Tỉnh ủy, Chủ tịch UBND tỉnh"],
+  ["btv-nguyen-dang-binh.jpg", "Nguyễn Đăng Bình", "Phó Bí thư Thường trực Tỉnh ủy, Trưởng Đoàn đại biểu Quốc hội tỉnh"],
+  ["btv-bui-van-luong.png", "Bùi Văn Lương", "Phó Bí thư Tỉnh ủy, Chủ tịch HĐND tỉnh Thái Nguyên"],
+  ["btv-dinh-quang-tuyen.jpg", "Đinh Quang Tuyên", "Phó Bí thư Tỉnh ủy, Chủ tịch Ủy ban MTTQ tỉnh"],
+  ["btv-do-duc-cong.jpg", "Đỗ Đức Công", "Ủy viên Ban Thường vụ Tỉnh ủy, Phó Chủ tịch Thường trực HĐND tỉnh"],
+  ["btv-bui-duc-hai.jpg", "Bùi Đức Hải", "Ủy viên Ban Thường vụ Tỉnh ủy, Giám đốc Công an tỉnh"],
+  ["btv-do-thi-minh-hoa.jpg", "Đỗ Thị Minh Hoa", "Ủy viên Ban Thường vụ Tỉnh ủy, Trưởng Ban Tuyên giáo và Dân vận Tỉnh ủy"],
+  ["btv-vu-duy-hoang.jpg", "Vũ Duy Hoàng", "Ủy viên Ban Thường vụ Tỉnh ủy, Phó Chủ tịch Thường trực Ủy ban MTTQ tỉnh"],
+  ["btv-tran-thi-loc.jpg", "Trần Thị Lộc", "Ủy viên Ban Thường vụ Tỉnh ủy, Phó Chủ tịch HĐND tỉnh"],
+  ["btv-bui-van-luong-2.jpg", "Bùi Văn Lương", "Ủy viên Ban Thường vụ Tỉnh ủy, Phó Chủ tịch UBND tỉnh"],
+  ["btv-luong-duc-thang.jpg", "Lường Đức Thắng", "Ủy viên Ban Thường vụ Tỉnh ủy, Trưởng Ban Nội chính Tỉnh ủy"],
+  ["btv-pham-van-tho.jpg", "Phạm Văn Thọ", "Ủy viên Ban Thường vụ Tỉnh ủy, Giám đốc Sở Công thương tỉnh"],
+  ["btv-duong-van-tien.png", "Dương Văn Tiến", "Ủy viên Ban Thường vụ Tỉnh ủy, Trưởng Ban Tổ chức Tỉnh ủy"],
+  ["btv-hoang-thi-thu-trang.jpg", "Hoàng Thị Thu Trang", "Ủy viên Ban Thường vụ Tỉnh ủy, Chủ nhiệm Ủy ban Kiểm tra Tỉnh ủy"],
+  ["btv-nguyen-thanh-minh.jpg", "Nguyễn Thành Minh", "Ủy viên Ban Thường vụ Tỉnh ủy, Chánh Văn phòng Tỉnh ủy"],
+  ["btv-ngo-tuan-anh.jpg", "Ngô Tuấn Anh", "Ủy viên Ban Thường vụ Tỉnh ủy, Chỉ huy trưởng Bộ CHQS tỉnh"],
+  ["btv-nguyen-linh.png", "Nguyễn Linh", "Ủy viên Ban Thường vụ Tỉnh ủy, Phó Chủ tịch UBND tỉnh"],
 ];
 
 const committee = [
@@ -135,20 +135,17 @@ const projects = [
 ];
 
 function renderPeople() {
-  document.getElementById("leadersGrid").innerHTML = leaders.map(([img, name, role, time]) => `
-    <article class="t:flex t:h-full t:min-w-0 t:cursor-pointer t:items-start t:gap-6 t:overflow-hidden t:rounded-lg t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:p-7 t:shadow-[0_0_20px_rgba(51,51,51,0.08)] t:max-md:gap-4 t:max-md:p-5">
-      <figure class="t:m-0 t:aspect-[4/5] t:w-[31%] t:shrink-0 t:overflow-hidden t:rounded-lg">
+  document.getElementById("leadersGrid").innerHTML = leaders.map(([img, name, info]) => `
+    <div class="t:flex t:h-full t:min-w-0 t:cursor-pointer t:items-start t:gap-4 t:overflow-hidden t:rounded-2xl t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:p-4 t:shadow-[0_0_20px_rgba(51,51,51,0.08)]">
+      <figure class="t:m-0 t:aspect-[3/4] t:w-[30%] t:shrink-0 t:overflow-hidden t:rounded-xl">
         <img src="./images/${img}" alt="Đồng chí ${name}" class="t:h-full t:w-full t:object-cover" loading="lazy">
       </figure>
       <div class="t:min-w-0 t:flex-1 t:break-words t:pt-1">
-        <div class="t:text-[18px] t:font-bold t:leading-6 t:text-[#c28214] t:max-md:text-base">Đồng chí</div>
-        <h3 class="t:m-0 t:mt-2 t:break-words t:text-[24px] t:font-bold t:leading-8 t:text-[#1f1f1f] t:max-md:text-lg t:max-md:leading-6">${name}</h3>
-        <div class="t:mt-2 t:text-[18px] t:leading-7 t:text-[#1f1f1f] t:max-md:text-sm t:max-md:leading-6">
-          <div>${role}</div>
-          <div>${time}</div>
-        </div>
+        <div class="t:text-[14px] t:font-normal t:leading-5 t:text-[#c28214]">Đồng chí</div>
+        <h3 class="t:m-0 t:mt-1 t:break-words t:text-[16px] t:font-bold t:leading-[22px] t:text-[#1f1f1f]">${name}</h3>
+        <div class="t:mt-1 t:text-[12px] t:leading-[18px] t:text-[#555]">${info}</div>
       </div>
-    </article>`).join("");
+    </div>`).join("");
 
   document.getElementById("standingFeaturedRow").innerHTML =
     viewInfoCard(standing[0], true);
@@ -167,7 +164,7 @@ function renderPeople() {
     </tr>`).join("");
 }
 
-function viewInfoCard([img, name, line1, line2], featured) {
+function viewInfoCard([img, name, info], featured) {
   if (featured) {
     return `
       <article class="t:group t:relative t:flex t:w-full t:max-w-[650px] t:cursor-pointer t:items-start t:gap-8 t:overflow-hidden t:rounded-lg t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:p-7 t:shadow-[0_0_20px_rgba(51,51,51,0.08)] t:transition-colors t:duration-300 t:hover:bg-[#ef0004] t:max-md:flex-col t:max-md:p-5">
@@ -178,10 +175,7 @@ function viewInfoCard([img, name, line1, line2], featured) {
         <div class="t:min-w-0 t:flex-1 t:break-words t:pt-1">
           <div class="t:mb-3 t:text-[16px] t:font-bold t:leading-6 t:text-[#c28214] t:transition-colors t:duration-300 t:group-hover:text-[#ffce5b]">Đồng chí</div>
           <h3 class="t:m-0 t:mb-3 t:bg-[linear-gradient(90deg,rgba(255,119,0,0)_0%,#FF7700_20.5%,#EF0004_50%,#FF7700_81%,rgba(255,119,0,0)_100%)] t:px-6 t:py-2 t:text-center t:text-[20px] t:font-bold t:leading-7 t:text-white t:max-md:text-xl">${name}</h3>
-          <div class="t:text-[16px] t:leading-6 t:text-[#1f1f1f] t:transition-colors t:duration-300 t:group-hover:text-white t:max-md:text-base">
-            <div>${line1}</div>
-            <div>${line2}</div>
-          </div>
+          <div class="t:text-[16px] t:leading-6 t:text-[#1f1f1f] t:transition-colors t:duration-300 t:group-hover:text-white t:max-md:text-base">${info}</div>
         </div>
       </article>`;
   }
@@ -195,15 +189,12 @@ function viewInfoCard([img, name, line1, line2], featured) {
       <div class="t:min-w-0 t:flex-1 t:break-words t:pt-1">
         <div class="t:text-[16px] t:font-bold t:leading-6 t:text-[#c28214] t:transition-colors t:duration-300 t:group-hover:text-[#ffce5b] t:max-md:text-base">Đồng chí</div>
         <h3 class="t:m-0 t:mt-1 t:break-words t:text-[20px] t:font-bold t:leading-7 t:text-[#1f1f1f] t:transition-colors t:duration-300 t:group-hover:text-white t:max-md:text-lg t:max-md:leading-6">${name}</h3>
-        <div class="t:mt-1 t:text-[16px] t:leading-6 t:text-[#1f1f1f] t:transition-colors t:duration-300 t:group-hover:text-white t:max-md:text-sm t:max-md:leading-6">
-          <div>${line1}</div>
-          <div>${line2}</div>
-        </div>
+        <div class="t:mt-1 t:text-[16px] t:leading-6 t:text-[#1f1f1f] t:transition-colors t:duration-300 t:group-hover:text-white t:max-md:text-sm t:max-md:leading-6">${info}</div>
       </div>
     </article>`;
 }
 
-function viewInfo1Card([img, name, line1, line2]) {
+function viewInfo1Card([img, name, info]) {
   return `
     <article class="t:flex t:h-full t:min-w-0 t:cursor-pointer t:items-start t:gap-4 t:overflow-hidden t:rounded-lg t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:p-6 t:shadow-[0_0_20px_rgba(51,51,51,0.08)] t:max-md:p-5">
       <figure class="t:m-0 t:aspect-[4/5] t:w-[30%] t:shrink-0 t:overflow-hidden t:rounded-lg">
@@ -212,10 +203,7 @@ function viewInfo1Card([img, name, line1, line2]) {
       <div class="t:min-w-0 t:flex-1 t:break-words t:pt-1">
         <div class="t:text-[16px] t:font-bold t:leading-6 t:text-[#c28214] t:max-md:text-base">Đồng chí</div>
         <h3 class="t:m-0 t:mt-1 t:break-words t:text-[20px] t:font-bold t:leading-7 t:text-[#1f1f1f] t:max-md:text-lg t:max-md:leading-6">${name}</h3>
-        <div class="t:mt-1 t:text-[16px] t:leading-6 t:text-[#1f1f1f] t:max-md:text-sm t:max-md:leading-6">
-          <div>${line1}</div>
-          <div>${line2}</div>
-        </div>
+        <div class="t:mt-1 t:text-[16px] t:leading-6 t:text-[#1f1f1f] t:max-md:text-sm t:max-md:leading-6">${info}</div>
       </div>
     </article>`;
 }

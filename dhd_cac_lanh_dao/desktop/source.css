@@ -286,3 +286,23 @@ body.mobile-menu-open {
     height: 30px;
   }
 }
+
+.footer-cols {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+}
+
+@media (max-width: 999px) {
+  .footer-cols {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .footer-col-right {
+    text-align: left !important;
+  }
+}
