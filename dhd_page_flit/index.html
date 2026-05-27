@@ -98,6 +98,7 @@
             line-height: 1;
         }
         .side-nav:hover { background: rgba(0,0,0,0.52); color: #fff; }
+        .side-nav:disabled { opacity: 0.2; cursor: not-allowed; pointer-events: none; }
         #btn-prev { left: 0; border-radius: 0 4px 4px 0; }
         #btn-next { right: 0; border-radius: 4px 0 0 4px; }
 
@@ -548,6 +549,13 @@
             } catch (e) { return null; }
         }
 
+        function updateNavButtons() {
+            var info = readPageInfo();
+            if (!info) return;
+            $('#btn-prev').prop('disabled', info.cur <= 1);
+            $('#btn-next').prop('disabled', info.cur >= info.total);
+        }
+
         function updateCounter() {
             var info = readPageInfo();
             if (!info) return;
@@ -601,9 +609,9 @@
                 autoPlayStart      : false,
                 autoPlayDuration   : 3000,
                 paddingBottom      : 72,
-                onReady:     function (fb) { updateCounter(); setTimeout(updateZoomButtons, 300); },
+                onReady:     function (fb) { updateCounter(); updateNavButtons(); setTimeout(updateZoomButtons, 300); },
                 onFlipStart: function (fb) { playFlipSound(); },
-                onFlip:      function (fb) { setTimeout(updateCounter, 50); },
+                onFlip:      function (fb) { setTimeout(function(){ updateCounter(); updateNavButtons(); }, 50); },
                 text: {
                     toggleSound     : 'Bật/Tắt Âm Thanh',
                     previousPage    : 'Trang trước',
@@ -624,13 +632,13 @@
             var pollId = setInterval(function () {
                 pollCount++;
                 var info = readPageInfo();
-                if (info && info.total > 1) { updateCounter(); clearInterval(pollId); }
+                if (info && info.total > 1) { updateCounter(); updateNavButtons(); clearInterval(pollId); }
                 if (pollCount > 60) clearInterval(pollId);
             }, 500);
 
             /* ── Side arrows ── */
-            $('#btn-prev').on('click', function () { playFlipSound(); dfClick('.df-ui-prev'); setTimeout(updateCounter, 900); });
-            $('#btn-next').on('click', function () { playFlipSound(); dfClick('.df-ui-next'); setTimeout(updateCounter, 900); });
+            $('#btn-prev').on('click', function () { playFlipSound(); dfClick('.df-ui-prev'); setTimeout(function(){ updateCounter(); updateNavButtons(); }, 900); });
+            $('#btn-next').on('click', function () { playFlipSound(); dfClick('.df-ui-next'); setTimeout(function(){ updateCounter(); updateNavButtons(); }, 900); });
 
             /* ── Viewer: bắt swipe/click trực tiếp trên book ── */
             $('#epaper_preview').on('mousedown touchstart', function (e) {
