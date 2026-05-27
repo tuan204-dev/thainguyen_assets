@@ -17,112 +17,6 @@
         />
         <link rel="stylesheet" href="../../common/style/overlayscrollbar.css" />
         <link rel="stylesheet" href="../../common/vendor/swiper-bundle.min.css" />
-        <style>
-            /* Tailwind utility classes missing from pre-compiled output.css */
-            .t\:float-left { float: left; }
-            .t\:flow-root { display: flow-root; }
-            .t\:flex { display: flex; }
-            .t\:flex-col { flex-direction: column; }
-            .t\:items-center { align-items: center; }
-            .t\:gap-x-1 { column-gap: 0.25rem; }
-            .t\:py-4 { padding-block: 1rem; }
-            .t\:mr-2 { margin-right: 0.5rem; }
-            .t\:mt-0\! { margin-top: 0 !important; }
-            .t\:mt-1 { margin-top: 0.25rem; }
-            .t\:text-xs { font-size: 0.75rem; line-height: calc(1 / 0.75); }
-            .t\:text-\[\#667085\] { color: #667085; }
-            .t\:hover\:text-\[\#C0392B\]\!:hover { color: #C0392B !important; }
-            .t\:divide-y > :not(:last-child) {
-                border-bottom-width: 1px;
-                border-bottom-style: solid;
-            }
-            .t\:divide-\[\#E5E5E5\] > :not(:last-child) { border-color: #E5E5E5; }
-
-            /* search-results-list — copied from search/output.css */
-            .search-results-list {
-                display: flex;
-                flex-direction: column;
-            }
-            .search-results-list > li {
-                padding-top: 1rem;
-                padding-bottom: 1rem;
-                display: flow-root;
-            }
-            .search-results-list > li + li {
-                border-top: 1px solid #E5E5E5;
-            }
-            .search-results-list .img-block {
-                float: left;
-                margin-right: 0.5rem;
-            }
-            .search-results-list .title.l3 {
-                margin-top: 0;
-                margin-bottom: 10px;
-                color: #151515;
-                font-family: "Merriweather", serif;
-                font-size: 20px;
-                font-weight: 700;
-                line-height: 1.35;
-            }
-            .search-results-list .title.l3 a:hover {
-                color: #C0392B !important;
-            }
-            .search-results-list .desc-date {
-                display: flex;
-                align-items: center;
-                gap: 6px;
-                margin: 0 0 10px;
-                color: #667085;
-                font-family: "Roboto", sans-serif;
-                font-size: 14px;
-                line-height: 1.4;
-            }
-            .search-results-list .desc-date i {
-                color: #667085;
-                font-size: 16px;
-            }
-            .search-results-list .desc {
-                margin-top: 0;
-                color: #344054;
-                font-family: "Roboto", sans-serif;
-                font-size: 16px;
-                line-height: 1.55;
-            }
-            @media (max-width: 767px) {
-                .search-results-list > li {
-                    padding-top: 20px;
-                    padding-bottom: 20px;
-                }
-                .search-results-list .img-block {
-                    width: 200px !important;
-                    max-width: 50%;
-                    margin-right: 12px;
-                }
-                .search-results-list .title.l3 {
-                    font-size: 17px;
-                    line-height: 1.35;
-                }
-                .search-results-list .desc {
-                    font-size: 14px;
-                    line-height: 1.5;
-                }
-            }
-
-            /* Sidebar "Xem nhiều" — missing Tailwind classes */
-            .t\:text-\[\#8A94A6\] { color: #8A94A6; }
-            .t\:text-\[\#090909\] { color: #090909; }
-            .t\:text-\[20px\] { font-size: 20px; }
-            .t\:font-bold { font-weight: 700; }
-            .t\:block { display: block; }
-            .t\:mb-1 { margin-bottom: 0.25rem; }
-            .t\:pb-2 { padding-bottom: 0.5rem; }
-            .t\:py-3 { padding-block: 0.75rem; }
-            .t\:border-b-2 { border-bottom-width: 2px; border-bottom-style: solid; }
-            .t\:border-\[\#090909\] { border-color: #090909; }
-            .t\:divide-\[\#DCDFE4\] > :not(:last-child) { border-color: #DCDFE4; }
-            .t\:transition-colors { transition: color 0.15s ease; }
-            .t\:hover\:text-\[\#C0392B\]:hover { color: #C0392B; }
-        </style>
     </head>
 
     <body class="home-page">
@@ -1520,18 +1414,19 @@
                             </ul>
                         </aside>
                     </div>
-                    <div id="pagy" class="pagy paging pager red pagy1">
-                        <div class="btn prev disabled_prev">&lt;</div>
-                        <ul style="width: 134.766px;">
-                            <li><a id="1" class="red normal active" href="javascript:void(0)">1</a></li>
-                            <li><a id="2" class="red normal" href="javascript:void(0)">2</a></li>
-                            <li><a id="3" class="red normal" href="javascript:void(0)">3</a></li>
-                            <li><a id="4" class="red normal" href="javascript:void(0)">4</a></li>
-                            <li><a id="5" class="red normal" href="javascript:void(0)">5</a></li>
-                        </ul>
-                        <div class="btn next">&gt;</div>
-                        <div></div>
-                    </div>
+                    <nav id="search-pagination" aria-label="Phân trang">
+                        <button type="button" disabled aria-label="Trang trước">
+                            <i class="material-symbols--chevron-left-rounded"></i>
+                        </button>
+                        <button type="button" aria-current="page">1</button>
+                        <button type="button">2</button>
+                        <button type="button">3</button>
+                        <button type="button">4</button>
+                        <button type="button">5</button>
+                        <button type="button" aria-label="Trang sau">
+                            <i class="material-symbols--chevron-right-rounded"></i>
+                        </button>
+                    </nav>
                 </div>
                 <!-- ==================== END ROW 2 ==================== -->
 

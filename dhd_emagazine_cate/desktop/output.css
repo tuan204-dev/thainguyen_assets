@@ -1684,3 +1684,173 @@ div.cate_title_1 .submenu li {
     line-height: 1.5;
   }
 }
+    /* Tailwind utility classes missing from pre-compiled output.css */
+            .t\:float-left { float: left; }
+            .t\:flow-root { display: flow-root; }
+            .t\:flex { display: flex; }
+            .t\:flex-col { flex-direction: column; }
+            .t\:items-center { align-items: center; }
+            .t\:gap-x-1 { column-gap: 0.25rem; }
+            .t\:py-4 { padding-block: 1rem; }
+            .t\:mr-2 { margin-right: 0.5rem; }
+            .t\:mt-0\! { margin-top: 0 !important; }
+            .t\:mt-1 { margin-top: 0.25rem; }
+            .t\:text-xs { font-size: 0.75rem; line-height: calc(1 / 0.75); }
+            .t\:text-\[\#667085\] { color: #667085; }
+            .t\:hover\:text-\[\#C0392B\]\!:hover { color: #C0392B !important; }
+            .t\:divide-y > :not(:last-child) {
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+            }
+            .t\:divide-\[\#E5E5E5\] > :not(:last-child) { border-color: #E5E5E5; }
+
+            /* search-results-list — copied from search/output.css */
+            .search-results-list {
+                display: flex;
+                flex-direction: column;
+            }
+            .search-results-list > li {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                display: flow-root;
+            }
+            .search-results-list > li + li {
+                border-top: 1px solid #E5E5E5;
+            }
+            .search-results-list .img-block {
+                float: left;
+                margin-right: 0.5rem;
+            }
+            .search-results-list .title.l3 {
+                margin-top: 0;
+                margin-bottom: 10px;
+                color: #151515;
+                font-family: "Merriweather", serif;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 1.35;
+            }
+            .search-results-list .title.l3 a:hover {
+                color: #C0392B !important;
+            }
+            .search-results-list .desc-date {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                margin: 0 0 10px;
+                color: #667085;
+                font-family: "Roboto", sans-serif;
+                font-size: 14px;
+                line-height: 1.4;
+            }
+            .search-results-list .desc-date i {
+                color: #667085;
+                font-size: 16px;
+            }
+            .search-results-list .desc {
+                margin-top: 0;
+                color: #344054;
+                font-family: "Roboto", sans-serif;
+                font-size: 16px;
+                line-height: 1.55;
+            }
+            @media (max-width: 767px) {
+                .search-results-list > li {
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                }
+                .search-results-list .img-block {
+                    width: 200px !important;
+                    max-width: 50%;
+                    margin-right: 12px;
+                }
+                .search-results-list .title.l3 {
+                    font-size: 17px;
+                    line-height: 1.35;
+                }
+                .search-results-list .desc {
+                    font-size: 14px;
+                    line-height: 1.5;
+                }
+            }
+
+            /* Pagination — missing Tailwind classes */
+            .t\:justify-center { justify-content: center; }
+            .t\:w-8 { width: 2rem; }
+            .t\:h-8 { height: 2rem; }
+            .t\:rounded { border-radius: 0.25rem; }
+            .t\:border { border-width: 1px; border-style: solid; }
+            .t\:border-\[\#DCDFE4\] { border-color: #DCDFE4; }
+            .t\:border-\[\#30A14A\] { border-color: #30A14A; }
+            .t\:bg-\[\#30A14A\] { background-color: #30A14A; }
+            .t\:text-\[\#212636\] { color: #212636; }
+            .t\:cursor-default { cursor: default; }
+            .t\:mt-8 { margin-top: 2rem; }
+            .t\:px-1 { padding-inline: 0.25rem; }
+            .t\:hover\:border-\[\#C0392B\]:hover { border-color: #C0392B; }
+
+            /* Pagination — scoped styles (from search/output.css) */
+            #search-pagination {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                padding: 0 12px;
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+            }
+            #search-pagination button,
+            #search-pagination span {
+                min-width: 32px;
+                height: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: "Roboto", sans-serif;
+                font-size: 14px;
+                line-height: 1;
+                border-radius: 0.25rem;
+                border: 1px solid #DCDFE4;
+            }
+            #search-pagination button {
+                background: #fff;
+                color: #212636;
+                cursor: pointer;
+                transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+            }
+            #search-pagination button:hover:not(:disabled):not([aria-current="page"]) {
+                border-color: #C0392B;
+                color: #C0392B;
+            }
+            #search-pagination button[aria-current="page"] {
+                border-color: #30A14A;
+                background: #30A14A;
+                color: #fff;
+                cursor: default;
+                font-weight: 600;
+            }
+            #search-pagination button:disabled {
+                border-color: #DCDFE4;
+                color: #8A94A6;
+                background: #fff;
+                cursor: default;
+            }
+            #search-pagination span {
+                border: none;
+                color: #8A94A6;
+            }
+
+            /* Sidebar "Xem nhiều" — missing Tailwind classes */
+            .t\:text-\[\#8A94A6\] { color: #8A94A6; }
+            .t\:text-\[\#090909\] { color: #090909; }
+            .t\:text-\[20px\] { font-size: 20px; }
+            .t\:font-bold { font-weight: 700; }
+            .t\:block { display: block; }
+            .t\:mb-1 { margin-bottom: 0.25rem; }
+            .t\:pb-2 { padding-bottom: 0.5rem; }
+            .t\:py-3 { padding-block: 0.75rem; }
+            .t\:border-b-2 { border-bottom-width: 2px; border-bottom-style: solid; }
+            .t\:border-\[\#090909\] { border-color: #090909; }
+            .t\:divide-\[\#DCDFE4\] > :not(:last-child) { border-color: #DCDFE4; }
+            .t\:transition-colors { transition: color 0.15s ease; }
+            .t\:hover\:text-\[\#C0392B\]:hover { color: #C0392B; }
