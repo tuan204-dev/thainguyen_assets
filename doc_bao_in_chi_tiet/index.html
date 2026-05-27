@@ -13,6 +13,67 @@
   <link rel="stylesheet" href="./vendor/prism.css">
   <link rel="stylesheet" href="./vendor/epaper.css">
 
+  <style>
+    /* ── Header responsive ── */
+    .header-title {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .header-booklist-icon { display: none; }
+
+    @media (max-width: 640px) {
+      .header-back-text { display: none !important; }
+      .header-title     { display: none !important; }
+    }
+
+    /* ── Book list sidebar ── */
+    #sidebar-backdrop {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 99990;
+    }
+    #sidebar-backdrop.open { display: block; }
+
+    #book-sidebar {
+      position: fixed;
+      top: 50px; /* below header */
+      right: -296px; bottom: 0;
+      width: 284px;
+      background: #272727;
+      overflow-y: auto; overflow-x: hidden;
+      transition: right 0.28s ease;
+      z-index: 99991;
+      padding: 16px 14px 80px;
+    }
+    #book-sidebar.open { right: 0; }
+
+    .bs-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 14px; padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .bs-title { color: #fff; font-size: 14px; font-weight: 600; }
+    .bs-close {
+      background: none; border: none;
+      color: rgba(255,255,255,0.5); font-size: 20px; cursor: pointer; line-height: 1; padding: 0;
+    }
+    .bs-close:hover { color: #fff; }
+    .bs-item { display: block; margin-bottom: 14px; }
+    .bs-item img { width: 100%; display: block; border-radius: 3px; }
+    .bs-item span {
+      display: block; color: rgba(255,255,255,0.65);
+      font-size: 12px; margin-top: 5px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .bs-item:hover span { color: #fff; }
+  </style>
+
   <script src="./vendor/modernizr.min.js"></script>
   <script src="./vendor/jquery.min.js"></script>
 </head>
@@ -36,23 +97,92 @@
         <div>
           <a href="javascript:" onclick="goBack();"
             class="t:text-white! t:text-sm t:no-underline t:flex t:items-center t:gap-1.5 t:p-0 t:hover:opacity-80">
-            <i class="fa fa-long-arrow-left"></i> Trở lại
+            <i class="fa fa-long-arrow-left"></i>
+            <span class="header-back-text">Trở lại</span>
           </a>
         </div>
-        <div>
-          <section class="breadcrumbs">
-            <div class="breadcrumb-scroll-nav">
-              <h2 class="t:text-white t:text-[15px] t:font-semibold t:m-0 t:whitespace-nowrap">
-                <span>Số 299 ngày 27/4/2026</span>
-              </h2>
-            </div>
-          </section>
+        <div class="t:flex-1 t:flex t:justify-center t:overflow-hidden t:px-2">
+          <h2 class="header-title">Số 299 ngày 27/4/2026</h2>
         </div>
-        <div class="t:min-w-[80px]"></div>
+        <div class="t:flex t:justify-end t:shrink-0">
+          <a href="#" id="btn-toggle-booklist"
+            class="t:text-white! t:text-sm t:no-underline t:hover:opacity-80 t:whitespace-nowrap">
+            Danh sách ấn phẩm ▸
+          </a>
+        </div>
       </div>
     </header>
     <div id="epaper_preview" class="t:w-full t:h-[calc(100vh-50px)]"></div>
   </section>
+
+  <!-- Sidebar backdrop -->
+  <div id="sidebar-backdrop"></div>
+
+  <!-- Book list sidebar -->
+  <div id="book-sidebar">
+    <div class="bs-header">
+      <span class="bs-title">Danh sách ấn phẩm</span>
+      <button class="bs-close" id="bs-close-btn">✕</button>
+    </div>
+    <div class="bs-books">
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21057-thang-5-2026-45503.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/24/21057.png" alt="Số 21057" loading="lazy"/>
+        <span>Số 21057 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21056-thang-5-2026-45502.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/23/23-5.png" alt="Số 21056" loading="lazy"/>
+        <span>Số 21056 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21055-thang-5-2026-45501.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/22/21055.png" alt="Số 21055" loading="lazy"/>
+        <span>Số 21055 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/ct-495-thang-5-2026-45500.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/21/495.png" alt="CT 495" loading="lazy"/>
+        <span>CT 495 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21054-thang-5-2026-45499.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/21/21-5.png" alt="Số 21054" loading="lazy"/>
+        <span>Số 21054 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21053-thang-5-2026-45498.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/20/21053.png" alt="Số 21053" loading="lazy"/>
+        <span>Số 21053 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21052-thang-5-2026-45497.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/19/19-5.png" alt="Số 21052" loading="lazy"/>
+        <span>Số 21052 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21051-thang-5-2026-45496.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/18/21051.png" alt="Số 21051" loading="lazy"/>
+        <span>Số 21051 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21050-thang-5-2026-45495.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/17/17-5.png" alt="Số 21050" loading="lazy"/>
+        <span>Số 21050 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21049-thang-5-2026-45494.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/16/21049.png" alt="Số 21049" loading="lazy"/>
+        <span>Số 21049 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21048-thang-5-2026-45493.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/15/15-5.png" alt="Số 21048" loading="lazy"/>
+        <span>Số 21048 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21047-thang-5-2026-45492.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/14/21047.png" alt="Số 21047" loading="lazy"/>
+        <span>Số 21047 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21046-thang-5-2026-45490.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/13/13-5.png" alt="Số 21046" loading="lazy"/>
+        <span>Số 21046 - Tháng 5 - 2026</span>
+      </a>
+      <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21045-thang-5-2026-45489.html">
+        <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/12/21045.png" alt="Số 21045" loading="lazy"/>
+        <span>Số 21045 - Tháng 5 - 2026</span>
+      </a>
+    </div>
+  </div>
 
   <script>
     function goBack() {
@@ -109,6 +239,20 @@
       } else {
         flipBook = $("#epaper_preview").flipBook(epaper_pages, options);
       }
+
+      /* ── Book list sidebar ── */
+      function openSidebar()  { $('#book-sidebar').addClass('open'); }
+      function closeSidebar() { $('#book-sidebar').removeClass('open'); }
+
+      $('#btn-toggle-booklist').on('click', function (e) {
+        e.preventDefault();
+        openSidebar();
+      });
+      $('#bs-close-btn').on('click', closeSidebar);
+
+      $(document).on('keydown', function (e) {
+        if (e.key === 'Escape') closeSidebar();
+      });
     });
   </script>
 </body>
