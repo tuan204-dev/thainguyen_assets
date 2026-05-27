@@ -68,6 +68,9 @@ const committee = [
   ["Đồng Văn Lưu", "Tỉnh ủy viên, Phó Chủ tịch HĐND tỉnh"],
   ["Nguyễn Thị Loan", "Tỉnh ủy viên, Phó Chủ tịch UBND tỉnh"],
   ["Nông Quang Nhất", "Tỉnh ủy viên, Phó Chủ tịch UBND tỉnh"],
+  ["Phạm Việt Đức", "Tỉnh ủy viên, Phó Trưởng Ban Thường trực Ban Tổ chức Tỉnh ủy"],
+  ["Bùi Thanh Hải", "Tỉnh ủy viên, Phó Chủ nhiệm Thường trực Ủy ban Kiểm tra Tỉnh ủy"],
+  ["Vi Văn Nghĩa", "Tỉnh ủy viên, Phó Chủ nhiệm Ủy ban Kiểm tra Tỉnh ủy"],
   ["Nguyễn Minh Quang", "Tỉnh ủy viên, Phó Trưởng Ban Tuyên giáo và Dân vận Tỉnh ủy"],
   ["Ngô Thế Hoàn", "Tỉnh ủy viên, Trưởng Ban Pháp chế, HĐND tỉnh"],
   ["Phạm Thị Thu Thủy", "Tỉnh ủy viên, Trưởng Ban Văn hóa - Xã hội, HĐND tỉnh"],
@@ -82,6 +85,36 @@ const committee = [
   ["Đặng Văn Huy", "Tỉnh ủy viên, Giám đốc Sở Nông nghiệp và Môi trường"],
   ["Nguyễn Ngọc Tuân", "Tỉnh ủy viên, Giám đốc Sở Giáo dục và Đào tạo"],
   ["Đặng Ngọc Huy", "Tỉnh ủy viên, Giám đốc Sở Y tế"],
+  ["Dương Hữu Bường", "Tỉnh ủy viên, Giám đốc Sở Khoa học và Công nghệ"],
+  ["Trần Văn Hậu", "Tỉnh ủy viên, Chánh Thanh tra tỉnh"],
+  ["Trần Trọng Chung", "Tỉnh ủy viên, Chánh Văn phòng UBND tỉnh"],
+  ["Vũ Đức Chính", "Tỉnh ủy viên, Chánh Văn phòng Đoàn đại biểu Quốc hội và HĐND tỉnh"],
+  ["Hoàng Thanh Oai", "Tỉnh ủy viên, Giám đốc Sở Dân tộc và Tôn giáo"],
+  ["Bùi Đức Thuận", "Tỉnh ủy viên, Chánh án Tòa án nhân dân tỉnh"],
+  ["Vũ Thị Lệ Hằng", "Tỉnh ủy viên, Giám đốc Sở Tư pháp"],
+  ["Hoàng Anh Trung", "Tỉnh ủy viên, Phó Bí thư chuyên trách Đảng ủy Các cơ quan Đảng tỉnh"],
+  ["Nguyễn Bá Chính", "Tỉnh ủy viên, Phó Giám đốc Sở Công Thương"],
+  ["Triệu Đức Văn", "Tỉnh ủy viên, Phó Giám đốc Sở Nông nghiệp và Môi trường"],
+  ["Dương Văn Lượng", "Tỉnh ủy viên, Bí thư Đảng ủy, Chủ tịch UBND phường Phan Đình Phùng"],
+  ["Hà Thị Bích Hồng", "Tỉnh ủy viên, Bí thư Đảng ủy phường Linh Sơn"],
+  ["Hà Sỹ Thắng", "Tỉnh ủy viên, Bí thư Đảng ủy xã Đại Từ"],
+  ["Hoàng Hà Bắc", "Tỉnh ủy viên, Bí thư Đảng ủy phường Bắc Kạn"],
+  ["Nguyễn Đức Lực", "Tỉnh ủy viên, Bí thư Đảng ủy phường Gia Sàng"],
+  ["Hoàng Văn Thiên", "Tỉnh ủy viên, Bí thư Đảng ủy xã Vô Tranh"],
+  ["Hồ Thị Kim Ngân", "Tỉnh ủy viên, Bí thư Đảng ủy phường Đức Xuân"],
+  ["Triệu Thị Thu Phương", "Tỉnh ủy viên, Bí thư Đảng ủy xã Phủ Thông"],
+  ["Phạm Duy Hùng", "Tỉnh ủy viên, Bí thư Đảng ủy phường Sông Công"],
+  ["Hà Văn Dương", "Tỉnh ủy viên, Bí thư Đảng ủy xã Đồng Hỷ"],
+  ["Nông Bình Cương", "Tỉnh ủy viên, Bí thư Đảng ủy xã Ngân Sơn"],
+  ["Dương Ngọc Thuyết", "Tỉnh ủy viên, Bí thư Đảng ủy xã Chợ Rã"],
+  ["Nông Văn Nguyên", "Tỉnh ủy viên, Bí thư Đảng ủy xã Na Rì"],
+  ["Ma Công Học", "Tỉnh ủy viên, Chính ủy Bộ CHQS tỉnh"],
+  ["Nguyễn Thị Mai Lập", "Tỉnh ủy viên, Viện trưởng Viện Kiểm sát nhân dân tỉnh"],
+  ["Phạm Quang Anh", "Tỉnh ủy viên, Giám đốc Sở Xây dựng"],
+  ["Đoàn Quang Duy", "Tỉnh ủy viên, Bí thư Đảng ủy xã Phú Lương"],
+  ["Phạm Thị Thu Hiền", "Tỉnh ủy viên, Phó Chủ tịch Ủy ban MTTQ tỉnh, Bí thư Tỉnh đoàn"],
+  ["Nguyễn Nam Tiến", "Tỉnh ủy viên, Bí thư Đảng ủy xã Đại Phúc"],
+  ["Triệu Tiến Trình", "Tỉnh ủy viên, Bí thư Đảng ủy xã Chợ Mới"],
 ];
 
 const projects = [
@@ -115,32 +148,53 @@ function renderPeople() {
       </div>
     </article>`).join("");
 
-  const [first, ...rest] = standing;
-  document.getElementById("standingFeatured").innerHTML = personCard(first, true);
-  document.getElementById("standingGrid").innerHTML = rest.map((item) => personCard(item)).join("");
+  document.getElementById("standingFeaturedRow").innerHTML =
+    `<div class="col-md-5">${viewInfoCard(standing[0], true)}</div>`;
+
+  document.getElementById("standingKeyRow").innerHTML = standing.slice(1, 5).map(item =>
+    `<div class="col-md-3 row20">${viewInfoCard(item, false)}</div>`).join("");
+
+  document.getElementById("standingRegularRow").innerHTML = standing.slice(5).map(item =>
+    `<div class="col-md-3 row30">${viewInfo1Card(item)}</div>`).join("");
+
   document.getElementById("committeeRows").innerHTML = committee.map(([name, role], index) => `
     <tr>
-      <td class="t:border t:border-[#ffedae] t:px-3 t:py-2.5 t:text-sm">${index + 1}</td>
-      <td class="t:border t:border-[#ffedae] t:px-3 t:py-2.5 t:text-[15px] t:font-semibold">${name}</td>
-      <td class="t:border t:border-[#ffedae] t:px-3 t:py-2.5 t:text-sm">${role}</td>
+      <td>${index + 1}</td>
+      <td>${name}</td>
+      <td>${role}</td>
     </tr>`).join("");
 }
 
-function personCard([img, name, line1, line2], featured = false) {
-  const cardClass = featured ? "t:max-w-[480px] t:px-5 t:py-5" : "t:px-4 t:py-5";
-  const imgClass = featured ? "t:w-[130px]" : "t:w-[62px]";
+function viewInfoCard([img, name, line1, line2], featured) {
   return `
-    <article class="t:flex t:w-full t:items-start t:gap-3 t:rounded-lg t:border t:border-[#f4f6fa] t:bg-[#fffaf4] ${cardClass} t:shadow-[0_0_20px_rgba(51,51,51,0.08)]">
-      <figure class="t:m-0 ${imgClass} t:shrink-0 t:overflow-hidden t:rounded-lg t:bg-white">
-        <img src="./images/${img}" alt="Đồng chí ${name}" class="t:block t:h-auto t:w-full" loading="lazy">
-      </figure>
-      <div class="t:min-w-0">
-        <p class="t:text-sm t:font-bold t:leading-5 t:text-[#c28214]">Đồng chí</p>
-        <p class="${featured ? "t:bg-gradient-to-r t:from-[#ff7800] t:via-[#ef0004] t:to-[#ff7800] t:px-7 t:py-1 t:text-white" : "t:text-black"} t:text-base t:font-bold t:leading-6">${name}</p>
-        <p class="t:text-xs t:leading-[18px] t:text-black">${line1}</p>
-        <p class="t:text-xs t:leading-[18px] t:text-black">${line2}</p>
+    <div class="item_info6 view_info t:group t:transition-colors t:duration-300">
+      <div class="t:flex t:gap-3">
+        <div class="t:w-1/3 t:shrink-0">
+          <span class="avatar1 row5"><img src="./images/${img}" alt="${name}" loading="lazy"></span>
+        </div>
+        <div class="t:flex-1 t:min-w-0">
+          <div class="subtitle_info t:transition-colors t:duration-300 t:group-hover:text-[#FFCE5B]">Đồng chí</div>
+          <span class="title3 t:transition-colors t:duration-300 t:group-hover:text-white${featured ? ' title_profile' : ''} row5">${name}</span>
+          <div class="info t:transition-colors t:duration-300 t:group-hover:text-white">${line1}<div>${line2}</div></div>
+        </div>
       </div>
-    </article>`;
+    </div>`;
+}
+
+function viewInfo1Card([img, name, line1, line2]) {
+  return `
+    <div class="item_info6 view_info1">
+      <div class="t:flex t:gap-3">
+        <div class="t:w-1/3 t:shrink-0">
+          <span class="avatar1 row5"><img src="./images/${img}" alt="${name}" loading="lazy"></span>
+        </div>
+        <div class="t:flex-1 t:min-w-0">
+          <div class="subtitle_info">Đồng chí</div>
+          <span class="title3">${name}</span>
+          <div class="info">${line1}<div>${line2}</div></div>
+        </div>
+      </div>
+    </div>`;
 }
 
 function renderProjects() {
@@ -167,13 +221,13 @@ function renderProjects() {
 
 function projectCard([img, title]) {
   return `
-    <div class="swiper-slide t:h-auto">
-      <a href="#" class="t:group t:block">
-        <figure class="t:relative t:m-0 t:aspect-[3/4] t:overflow-hidden t:rounded-lg">
-          <img src="./images/${img}" alt="${title}" class="t:h-full t:w-full t:object-cover t:transition-transform t:duration-300 t:group-hover:scale-105" loading="lazy">
-          <figcaption class="t:absolute t:inset-x-0 t:bottom-0 t:bg-gradient-to-t t:from-[#e11718] t:to-transparent t:px-3 t:pb-3 t:pt-12 t:text-lg t:font-bold t:leading-snug t:text-white">${title}</figcaption>
-        </figure>
+    <div class="swiper-slide">
+      <a href="/dhd/ky-dhd/dhdb-tn/cttd/" class="avatar1">
+        <img src="./images/${img}" alt="${title}" loading="lazy">
       </a>
+      <div class="title_bg">
+        <a href="/dhd/ky-dhd/dhdb-tn/cttd/" class="title2">${title}</a>
+      </div>
     </div>`;
 }
 
@@ -270,3 +324,4 @@ const initialTab = window.location.hash.replace("#", "");
 if (["leaders", "standing", "committee", "projects"].includes(initialTab)) {
   setTimeout(() => setTab(initialTab, false), 0);
 }
+

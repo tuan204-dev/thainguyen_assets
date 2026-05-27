@@ -1,348 +1,451 @@
 <!doctype html>
 <html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Đại hội Đảng bộ tỉnh Thái Nguyên - Lãnh đạo các thời kỳ</title>
+        <link rel="stylesheet" href="../../common/vendor/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="./output.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-merriweather-vn.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-roboto-vn.css" />
+        <link rel="stylesheet" href="../../common/style/common.css" />
+        <link rel="stylesheet" href="../../common/style/icon.css" />
+        <link rel="stylesheet" href="./dhd-header.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Đại hội Đảng bộ tỉnh Thái Nguyên - Lãnh đạo các thời kỳ</title>
-    <link rel="stylesheet" href="../../common/vendor/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./output.css" />
-    <link rel="stylesheet" href="../../common/style/fonts-merriweather-vn.css" />
-    <link rel="stylesheet" href="../../common/style/fonts-roboto-vn.css" />
-    <link rel="stylesheet" href="../../common/style/common.css" />
-    <link rel="stylesheet" href="../../common/style/icon.css" />
-</head>
-
-<body class="roboto t:text-[#1f1f1f]">
-    <header>
-        <div class="t:relative t:overflow-hidden t:bg-[#ffeccc]">
-            <div class="t:absolute t:inset-y-0 t:right-0 t:z-0 t:w-1/2 t:bg-[#f71917]"></div>
-            <div class="t:container t:relative t:z-[1]">
-                <div class="t:flex t:items-center t:gap-2 t:py-1 t:pc:gap-6 t:pc:py-0">
-                    <a href="../../home/desktop/index.html" class="t:block t:shrink-0">
-                        <img src="./images/hdr-logo.gif" alt="Logo Đại hội Đảng"
-                            class="t:block t:h-[52px] t:w-auto t:pc:h-[120px]" />
+    <body class="roboto t:text-[#1f1f1f]">
+        <div class="header">
+            <div class="container">
+                <div class="bg">
+                    <a href="../../home/desktop/index.html" class="logo_header">
+                        <img src="./images/logo.gif" />
                     </a>
-                    <div class="t:flex-1 t:overflow-hidden">
-                        <div class="t:flex t:min-h-[52px] t:flex-col t:items-center t:justify-center t:bg-[#f71917] t:px-2 t:text-center t:pc:hidden">
-                            <p class="t:text-[12px] t:font-bold t:uppercase t:leading-4 t:text-[#ffef22]">
-                                Đại hội Đảng nhiệm kỳ 2025 - 2030
-                            </p>
-                            <p class="t:text-[11px] t:font-bold t:uppercase t:leading-4 t:text-white">
-                                Đại hội của kỷ nguyên vươn mình
-                            </p>
-                        </div>
-                        <img src="./images/hdr-bg_header.png"
-                            alt="Đại hội Đảng nhiệm kỳ 2025 - 2030 - Đại hội của kỷ nguyên vươn mình"
-                            class="t:hidden t:h-auto t:w-full t:pc:block" />
-                    </div>
+                    <img style="max-width: 100%" src="./images/hdr-bg_header.png" />
                 </div>
             </div>
         </div>
+        <div class="menutop">
+            <nav class="" id="main-nav">
+                <nav class="navbar container">
+                    <input id="main-menu-state" type="checkbox" />
+                    <label class="main-menu-btn" for="main-menu-state">
+                        <span class="main-menu-btn-icon"></span>
+                        Toggle main menu visibility
+                    </label>
+                    <div class="clear"></div>
 
-        <nav class="site-nav t:sticky t:top-0 t:z-50 t:bg-[#dd0201]">
-            <div class="t:container">
-                <div class="t:flex t:items-center t:gap-x-2 t:overflow-x-auto t:py-2 t:pc:justify-center">
-                    <button type="button" id="mobileMenuOpen"
-                        class="t:inline-flex t:shrink-0 t:items-center t:justify-center t:border-0 t:bg-transparent t:p-2 t:text-white t:pc:hidden"
-                        aria-label="Mở menu">
-                        <i class="material-symbols--menu-rounded t:size-7"></i>
-                    </button>
-                    <a href="../../home/desktop/index.html"
-                        class="t:hidden t:shrink-0 t:items-center t:gap-2 t:rounded-lg t:bg-gradient-to-r t:from-[#ff0000] t:to-[#f8bd55] t:px-3 t:py-[10px] t:text-[13px] t:font-normal t:uppercase t:text-white t:pc:inline-flex">
-                        <i class="material-symbols--arrow-back-rounded t:size-4"></i>
-                        Về trang chủ
-                    </a>
-                    <a href="#" aria-label="Trang chủ Đại hội Đảng"
-                        class="t:inline-flex t:shrink-0 t:items-center t:px-2 t:py-[10px] t:text-white t:pc:px-3">
-                        <i class="material-symbols-light--home-rounded t:size-6"></i>
-                    </a>
-                    <a href="#" class="t:inline-flex t:shrink-0 t:px-2 t:py-[10px] t:text-[14px] t:font-semibold t:uppercase t:text-white t:pc:px-3 t:pc:text-[15px]">Tin tức - Sự kiện</a>
-                    <a href="#" class="t:inline-flex t:shrink-0 t:px-2 t:py-[10px] t:text-[14px] t:font-semibold t:uppercase t:text-white t:pc:hidden">Multimedia</a>
-                    <div class="desktop-dropdown t:hidden t:pc:block">
-                        <a href="#"
-                            class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-[15px] t:font-semibold t:uppercase t:text-white">
-                            Multimedia
-                            <i class="material-symbols--expand-more-rounded t:size-4"></i>
-                        </a>
-                        <div class="desktop-dropdown__menu">
-                            <a href="#">Video</a>
-                            <a href="#">Ảnh</a>
-                            <a href="#">Infographic</a>
-                            <a href="#">Emagazine</a>
-                        </div>
+                    <ul
+                        id="main-menu"
+                        class="sm sm-clean"
+                        data-toggle="collapse-nav"
+                        data-target="#more-menu-1"
+                    >
+                        <li class="home_menu ">
+                            <a href="../../home/desktop/index.html">
+                                <i class="material-symbols--keyboard-arrow-left"></i>
+                                Về trang chủ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dhd/"><img src="./images/home_icon.png" /></a>
+                        </li>
+                        <li>
+                            <a href="/dhd/tin-tuc/"><span class="bd">Tin tức - Sự kiện</span></a>
+                        </li>
+                        <li>
+                            <a href="/dhd/multimedia/"><span class="bd">Multimedia</span></a>
+                            <ul>
+                                <li>
+                                    <a href="/dhd/video/"><span class="bd">Video</span></a>
+                                </li>
+                                <li>
+                                    <a href="/dhd/photo/"><span class="bd">Ảnh</span></a>
+                                </li>
+                                <li>
+                                    <a href="/dhd/infographic/">
+                                        <span class="bd">Infographic</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/dhd/emagazine/"><span class="bd">Emagazine</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/dhd/hoi-dap/"><span class="bd">Hỏi-đáp</span></a>
+                        </li>
+                        <li>
+                            <a href="/dhd/ky-dhd/"><span class="bd">Các kỳ đại hội Đảng</span></a>
+                            <ul>
+                                <li>
+                                    <a href="/dhd/ky-dhd/">
+                                        <span class="bd">ĐẠI HỘI ĐẢNG TOÀN QUỐC</span>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/">
+                                                <span class="bd">Các kỳ Đại hội</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dh-dang-csvn/tbt/">
+                                                <span class="bd">Tổng Bí thư</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/dhd/ky-dhd/dhdb-tn/">
+                                        <span class="bd">Đại hội Đảng bộ tỉnh Thái Nguyên</span>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dhdb-tn/btty/">
+                                                <span class="bd">
+                                                    Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời
+                                                    kỳ
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/"
+                                            >
+                                                <span class="bd">
+                                                    Bí thư Tỉnh ủy Bắc Kạn các thời kỳ
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dhdb-tn/btv/">
+                                                <span class="bd">
+                                                    Ban Thường vụ Tỉnh ủy đương nhiệm
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dhdb-tn/bch/">
+                                                <span class="bd">
+                                                    Ban Chấp hành Đảng bộ tỉnh đương nhiệm
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dhdb-tn/cttd/">
+                                                <span class="bd">
+                                                    Các Công trình, dự án chào mừng Đại hội
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/dhd/vk-vb/"><span class="bd">Văn kiện - Văn bản</span></a>
+                        </li>
+                        <li>
+                            <a href="/tim-kiem/"><img src="./images/search_icon.png" /></a>
+                        </li>
+                        <li id="more-menu-1"></li>
+                    </ul>
+                </nav>
+            </nav>
+
+            <section class="navigation_scroll nav_user section_nav section_nav_v2">
+                <div class="container">
+                    <div class="wrap-scroll-nav">
+                        <ul class="menu_bread" id="auto_breadcrumb_bar">
+                            <li>
+                                <a href="/dhd/"><img src="./images/home_icon.png" /></a>
+                            </li>
+                            <li><a href="/dhd/tin-tuc/">Tin tức - Sự kiện</a></li>
+                            <li><a href="/dhd/multimedia/">Multimedia</a></li>
+                            <li><a href="/dhd/hoi-dap/">Hỏi-đáp</a></li>
+                            <li><a href="/dhd/ky-dhd/">Các kỳ đại hội Đảng</a></li>
+                            <li><a href="/dhd/vk-vb/">Văn kiện - Văn bản</a></li>
+                        </ul>
                     </div>
-                    <a href="#" class="t:inline-flex t:shrink-0 t:px-2 t:py-[10px] t:text-[14px] t:font-semibold t:uppercase t:text-white t:pc:px-3 t:pc:text-[15px]">Hỏi-đáp</a>
-                    <button type="button" data-tab="leaders"
-                        class="t:inline-flex t:shrink-0 t:border-0 t:bg-transparent t:px-2 t:py-[10px] t:text-[14px] t:font-semibold t:uppercase t:text-white t:pc:hidden">
-                        Các kỳ đại hội Đảng
-                    </button>
-                    <div class="desktop-dropdown t:hidden t:pc:block">
-                        <a href="#"
-                            class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-[15px] t:font-semibold t:uppercase t:text-white">
-                            Các kỳ đại hội Đảng
-                            <i class="material-symbols--expand-more-rounded t:size-4"></i>
-                        </a>
-                        <div class="desktop-dropdown__menu desktop-dropdown__menu--wide">
-                            <a href="#" data-tab="leaders">Bí thư Tỉnh ủy các thời kỳ</a>
-                            <a href="#" data-tab="standing">Ban Thường vụ Tỉnh ủy đương nhiệm</a>
-                            <a href="#" data-tab="committee">Ban Chấp hành Đảng bộ tỉnh đương nhiệm</a>
-                            <a href="#" data-tab="projects">Các công trình trọng điểm</a>
-                        </div>
-                    </div>
-                    <a href="#" class="t:hidden t:shrink-0 t:px-3 t:py-[10px] t:text-[15px] t:font-semibold t:uppercase t:text-white t:pc:inline-flex">Văn kiện - Văn bản</a>
-                    <button type="button" class="t:inline-flex t:shrink-0 t:items-center t:justify-center t:p-2 t:text-white"
-                        aria-label="Tìm kiếm">
-                        <i class="majesticons--search-line t:size-5"></i>
-                    </button>
                 </div>
-            </div>
-        </nav>
-    </header>
+                <span class="next-nav"></span>
+            </section>
+        </div>
 
-    <main>
-        <section id="dhdTabHeader" class="t:bg-white t:pt-8">
-            <div class="t:container">
-                <div class="t:flex t:flex-col t:items-center t:gap-5">
-                    <img src="./images/tn-title.png" alt="Đại hội Đảng bộ tỉnh Thái Nguyên"
-                        class="t:h-[52px] t:w-auto t:max-w-full t:object-contain" />
-
-                    <div class="t:w-full t:overflow-x-auto">
-                    <div class="t:flex t:w-max t:items-center t:justify-start t:gap-x-2 t:gap-y-2 t:text-sm t:font-semibold t:text-[#c28214] t:pc:mx-auto t:pc:w-auto t:pc:justify-center">
-                        <button type="button" data-tab="leaders"
-                            class="tab-button t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:cursor-pointer t:hover:text-[#e60000]">
-                            Bí thư Tỉnh ủy các thời kỳ
-                        </button>
-                        <span class="t:text-[#d0aa65]">|</span>
-                        <button type="button" data-tab="standing"
-                            class="tab-button t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:cursor-pointer t:hover:text-[#e60000]">
-                            Ban Thường vụ Tỉnh ủy đương nhiệm
-                        </button>
-                        <span class="t:text-[#d0aa65]">|</span>
-                        <button type="button" data-tab="committee"
-                            class="tab-button t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:cursor-pointer t:hover:text-[#e60000]">
-                            Ban Chấp hành Đảng bộ tỉnh đương nhiệm
-                        </button>
-                        <span class="t:text-[#d0aa65]">|</span>
-                        <button type="button" data-tab="projects"
-                            class="tab-button t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:cursor-pointer t:hover:text-[#e60000]">
-                            Các công trình trọng điểm
-                        </button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div id="leadersPage">
-            <section id="leadersSection" class="t:bg-white t:py-[30px]">
+        <main>
+            <section id="dhdTabHeader" class="t:bg-white t:pt-8">
                 <div class="t:container">
-                    <div class="t:mx-auto t:flex t:w-full t:max-w-[1200px] t:flex-col t:items-center t:gap-[30px] t:px-3">
-                        <div class="t:flex t:w-full t:justify-center">
-                            <h2 class="merriweather t:m-0 t:w-full t:max-w-[760px] t:whitespace-normal t:break-words t:px-4 t:py-[10px] t:text-center t:text-sm t:font-normal t:uppercase t:leading-6 t:text-white t:pc:text-base"
-                                style="background-image: linear-gradient(90deg, rgba(255,119,0,0) 0%, rgb(255,119,0) 20.5%, rgb(239,0,4) 50%, rgb(255,119,0) 81%, rgba(255,119,0,0) 100%);">
-                                Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời kỳ
-                            </h2>
-                        </div>
-                        <div id="leadersGrid"
-                            class="t:grid t:w-full t:grid-cols-1 t:gap-6 t:md:max-pc:grid-cols-2 t:pc:grid-cols-3">
+                    <div class="t:flex t:flex-col t:items-center t:gap-5">
+                        <img
+                            src="./images/tn-title.png"
+                            alt="Đại hội Đảng bộ tỉnh Thái Nguyên"
+                            class="t:h-[52px] t:w-auto t:max-w-full t:object-contain"
+                        />
+
+                        <div class="t:w-full t:overflow-x-auto">
+                            <div
+                                class="t:flex t:w-max t:items-center t:justify-start t:gap-x-2 t:gap-y-2 t:text-sm t:font-semibold t:text-[#c28214] t:pc:mx-auto t:pc:w-auto t:pc:justify-center"
+                            >
+                                <button
+                                    type="button"
+                                    data-tab="leaders"
+                                    class="tab-button t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:cursor-pointer t:hover:text-[#e60000]"
+                                >
+                                    Bí thư Tỉnh ủy các thời kỳ
+                                </button>
+                                <span class="t:text-[#d0aa65]">|</span>
+                                <button
+                                    type="button"
+                                    data-tab="standing"
+                                    class="tab-button t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:cursor-pointer t:hover:text-[#e60000]"
+                                >
+                                    Ban Thường vụ Tỉnh ủy đương nhiệm
+                                </button>
+                                <span class="t:text-[#d0aa65]">|</span>
+                                <button
+                                    type="button"
+                                    data-tab="committee"
+                                    class="tab-button t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:cursor-pointer t:hover:text-[#e60000]"
+                                >
+                                    Ban Chấp hành Đảng bộ tỉnh đương nhiệm
+                                </button>
+                                <span class="t:text-[#d0aa65]">|</span>
+                                <button
+                                    type="button"
+                                    data-tab="projects"
+                                    class="tab-button t:border-0 t:bg-transparent t:p-0 t:text-[#c28214] t:cursor-pointer t:hover:text-[#e60000]"
+                                >
+                                    Các công trình trọng điểm
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="standingSection" class="t:bg-white t:py-[30px]">
-                <div class="t:container">
-                    <div class="t:mx-auto t:flex t:w-full t:max-w-[1200px] t:flex-col t:items-center t:gap-6">
-                        <div class="t:flex t:w-full t:justify-center">
-                            <div class="t:flex t:w-full t:max-w-[600px] t:items-center t:justify-center t:px-4 t:py-[10px] t:pc:px-10"
-                                style="background-image: linear-gradient(90deg, rgba(255,119,0,0) 0%, rgb(255,119,0) 20.5%, rgb(239,0,4) 50%, rgb(255,119,0) 81%, rgba(255,119,0,0) 100%);">
-                                <h2 class="t:whitespace-normal t:break-words t:text-center t:text-sm t:font-bold t:uppercase t:leading-6 t:text-white t:pc:text-base">
-                                    Ban Thường vụ Tỉnh ủy khóa I, nhiệm kỳ 2025-2030
+            <div id="leadersPage">
+                <section id="leadersSection" class="t:bg-white t:py-[30px]">
+                    <div class="t:container">
+                        <div
+                            class="t:mx-auto t:flex t:w-full t:max-w-[1200px] t:flex-col t:items-center t:gap-[30px] t:px-3"
+                        >
+                            <div class="t:flex t:w-full t:justify-center">
+                                <h2
+                                    class="merriweather t:m-0 t:w-full t:max-w-[760px] t:whitespace-normal t:break-words t:px-4 t:py-[10px] t:text-center t:text-sm t:font-normal t:uppercase t:leading-6 t:text-white t:pc:text-base"
+                                    style="
+                                        background-image: linear-gradient(
+                                            90deg,
+                                            rgba(255, 119, 0, 0) 0%,
+                                            rgb(255, 119, 0) 20.5%,
+                                            rgb(239, 0, 4) 50%,
+                                            rgb(255, 119, 0) 81%,
+                                            rgba(255, 119, 0, 0) 100%
+                                        );
+                                    "
+                                >
+                                    Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời kỳ
                                 </h2>
                             </div>
-                        </div>
-                        <div id="standingFeatured" class="t:flex t:w-full t:justify-center"></div>
-                        <div id="standingGrid"
-                            class="t:grid t:w-full t:grid-cols-1 t:gap-6 t:md:max-pc:grid-cols-2 t:pc:grid-cols-4">
+                            <div
+                                id="leadersGrid"
+                                class="t:grid t:w-full t:grid-cols-1 t:gap-6 t:md:max-pc:grid-cols-2 t:pc:grid-cols-3"
+                            ></div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section id="committeeSection" class="t:bg-white t:py-[30px]">
-                <div class="t:container">
-                    <div class="t:mx-auto t:flex t:w-full t:max-w-[1200px] t:flex-col t:items-center t:gap-5">
-                        <div class="t:flex t:w-full t:justify-center">
-                            <div class="t:flex t:w-full t:max-w-[1176px] t:items-center t:justify-center t:px-4 t:py-[10px] t:pc:px-6"
-                                style="background-image: linear-gradient(90deg, rgba(255,119,0,0) 0%, rgb(255,119,0) 20.5%, rgb(239,0,4) 50%, rgb(255,119,0) 81%, rgba(255,119,0,0) 100%);">
-                                <h2 class="t:whitespace-normal t:break-words t:text-center t:text-sm t:font-bold t:uppercase t:leading-6 t:text-white t:pc:text-base">
-                                    Ban Chấp hành Đảng bộ tỉnh khóa I, nhiệm kỳ 2025-2030
-                                </h2>
+                <section id="standingSection">
+                    <div class="box6 row30">
+                        <div class="container">
+                            <div class="cate_title_box4">
+                                <span class="bg_title_box5">BAN THƯỜNG VỤ TỈNH ỦY KHÓA I, NHIỆM KỲ 2025-2030</span>
+                                <div class="clear"></div>
                             </div>
+                            <div class="t:flex t:justify-center t:mb-6" id="standingFeaturedRow"></div>
+                            <div class="t:grid t:grid-cols-1 t:md:grid-cols-2 t:pc:grid-cols-4 t:gap-5 t:mb-6" id="standingKeyRow"></div>
                         </div>
+                    </div>
+                    <div class="t:mb-8">
+                        <div class="container">
+                            <div class="t:grid t:grid-cols-1 t:md:grid-cols-2 t:pc:grid-cols-4 t:gap-5" id="standingRegularRow"></div>
+                        </div>
+                    </div>
+                </section>
 
-                        <div class="t:w-full t:bg-[#fef8f1] t:px-4 t:py-3 t:pc:px-10">
-                            <div class="committee-scroll t:w-full t:overflow-auto t:max-h-[520px] t:pc:max-h-[620px]">
-                                <table class="t:w-full t:min-w-[640px] t:border-collapse t:text-left">
-                                    <thead class="t:sticky t:top-0 t:z-10">
-                                        <tr class="t:border t:border-[#ffedae] t:bg-white">
-                                            <th class="t:w-[60px] t:border t:border-[#ffedae] t:px-3 t:py-2.5 t:text-sm t:font-bold">STT</th>
-                                            <th class="t:w-[260px] t:border t:border-[#ffedae] t:px-3 t:py-2.5 t:text-[15px] t:font-semibold">Họ và tên</th>
-                                            <th class="t:border t:border-[#ffedae] t:px-3 t:py-2.5 t:text-sm t:font-bold">Chức vụ, đơn vị công tác</th>
+                <section id="committeeSection" class="row30">
+                    <div class="container">
+                        <div class="cate_title_box4 row20">
+                            <span class="bg_title_box5">BAN CHẤP HÀNH ĐẢNG BỘ TỈNH KHÓA I, NHIỆM KỲ 2025-2030</span>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="box8">
+                            <div class="cate_title_box8">
+                                <div class="item left_item"></div>
+                                <div class="item center_item"></div>
+                                <div class="item right_item"><img src="./images/icon_dang.gif" alt=""></div>
+                            </div>
+                            <div class="list_bch">
+                                <table style="border-collapse:collapse; width:100%; border:none" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <td>STT</td>
+                                            <td>Họ và tên</td>
+                                            <td>Chức vụ, đơn vị công tác</td>
                                         </tr>
                                     </thead>
-                                    <tbody id="committeeRows" class="t:[&>tr:nth-child(even)]:bg-white t:[&>tr]:border t:[&>tr]:border-[#ffedae]"></tbody>
+                                    <tbody id="committeeRows"></tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section id="projectsInlineSection" class="ct-section t:relative t:overflow-hidden t:bg-[#fff9f2] t:py-10 t:pc:py-12">
-                <img src="./images/ct-bg-watermark.png" alt="" aria-hidden="true"
-                    class="t:pointer-events-none t:absolute t:left-1/2 t:top-0 t:h-full t:w-auto t:max-w-none t:-translate-x-1/2 t:opacity-70" />
-                <div class="t:container t:relative">
-                    <h2 class="t:mb-8 t:text-center t:text-2xl t:font-bold t:uppercase t:leading-tight t:text-[#2d2d2d] t:pc:text-[2rem]">
-                        Các công trình, dự án chào mừng Đại hội
-                    </h2>
-                    <div class="ct-swiper swiper t:relative t:mx-auto t:w-full t:max-w-[1120px] t:px-9 t:pc:px-12"
-                        data-swiper
-                        data-swiper-loop="true"
-                        data-swiper-slides-per-view="1"
-                        data-swiper-space-between="20"
-                        data-swiper-breakpoints='{"640":{"slidesPerView":2,"spaceBetween":20},"1000":{"slidesPerView":4,"spaceBetween":24}}'>
-                        <div id="projectCards" class="swiper-wrapper"></div>
-                        <button type="button" class="ct-nav ct-nav--prev swiper-button-prev" aria-label="Slide trước">
-                            <i class="material-symbols--arrow-back-ios-rounded"></i>
-                        </button>
-                        <button type="button" class="ct-nav ct-nav--next swiper-button-next" aria-label="Slide sau">
-                            <i class="material-symbols--arrow-forward-ios-rounded"></i>
-                        </button>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <section id="projectsPage" class="t:hidden">
-            <div class="t:bg-white t:pb-8">
-                <div class="t:container">
-                    <div class="t:mx-auto t:flex t:max-w-[900px] t:flex-col t:gap-5 t:py-6">
-                        <div class="t:flex t:justify-center">
-                            <h1 class="t:rounded-lg t:bg-gradient-to-r t:from-[#ff7800] t:via-[#ef0004] t:to-[#ff7800] t:px-8 t:py-3 t:text-center t:text-xl t:font-bold t:uppercase t:leading-7 t:text-white t:pc:text-2xl">
-                                Các công trình, dự án chào mừng Đại hội
-                            </h1>
+                <section class="box10 row30">
+                    <div class="container">
+                        <div class="pad30">
+                            <div class="cate_title_10">
+                                <a href="/dhd/ky-dhd/dhdb-tn/cttd/">Các công trình, dự án chào mừng Đại hội</a>
+                            </div>
+                            <div class="swiper slider_box10"
+                                data-swiper
+                                data-swiper-loop="true"
+                                data-swiper-slides-per-view="1"
+                                data-swiper-space-between="16"
+                                data-swiper-breakpoints='{"640":{"slidesPerView":2,"spaceBetween":16},"1000":{"slidesPerView":4,"spaceBetween":20}}'
+                                data-swiper-prev-el="#slider-box10-prev"
+                                data-swiper-next-el="#slider-box10-next"
+                            >
+                                <div id="projectCards" class="swiper-wrapper"></div>
+                            </div>
+                            <div class="swiper-button-prev1" id="slider-box10-prev" aria-label="Slide trước"></div>
+                            <div class="swiper-button-next1" id="slider-box10-next" aria-label="Slide sau"></div>
                         </div>
-                        <div id="projectHero" class="t:grid t:grid-cols-1 t:items-center t:gap-6 t:pc:grid-cols-[420px_1fr]"></div>
+                    </div>
+                </section>
+            </div>
+
+            <section id="projectsPage" class="t:hidden">
+                <div class="t:bg-white t:pb-8">
+                    <div class="t:container">
+                        <div class="t:mx-auto t:flex t:max-w-[900px] t:flex-col t:gap-5 t:py-6">
+                            <div class="t:flex t:justify-center">
+                                <h1
+                                    class="t:rounded-lg t:bg-gradient-to-r t:from-[#ff7800] t:via-[#ef0004] t:to-[#ff7800] t:px-8 t:py-3 t:text-center t:text-xl t:font-bold t:uppercase t:leading-7 t:text-white t:pc:text-2xl"
+                                >
+                                    Các công trình, dự án chào mừng Đại hội
+                                </h1>
+                            </div>
+                            <div
+                                id="projectHero"
+                                class="t:grid t:grid-cols-1 t:items-center t:gap-6 t:pc:grid-cols-[420px_1fr]"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="t:bg-[#f71917] t:py-12">
+                    <div class="t:container">
+                        <div
+                            id="projectTopGrid"
+                            class="t:mx-auto t:grid t:max-w-[1000px] t:grid-cols-1 t:gap-6 t:md:grid-cols-3"
+                        ></div>
+                    </div>
+                </div>
+
+                <div class="t:bg-white t:py-8">
+                    <div class="t:container">
+                        <div
+                            class="t:mx-auto t:grid t:max-w-[1000px] t:grid-cols-1 t:gap-8 t:pc:grid-cols-[minmax(0,1fr)_320px]"
+                        >
+                            <div id="projectList" class="t:flex t:flex-col"></div>
+                            <aside class="t:flex t:flex-col t:gap-4">
+                                <h3
+                                    class="t:bg-gradient-to-r t:from-[#ff7800] t:via-[#ef0004] t:to-[#ff7800] t:px-5 t:py-2 t:text-lg t:font-bold t:uppercase t:text-white"
+                                >
+                                    Tin cập nhật
+                                </h3>
+                                <div id="sideNews" class="t:flex t:flex-col t:gap-4"></div>
+                                <img
+                                    src="./images/cat-side-banner-1.jpg"
+                                    alt=""
+                                    class="t:w-full t:rounded"
+                                />
+                                <img
+                                    src="./images/cat-side-banner-2.jpg"
+                                    alt=""
+                                    class="t:w-full t:rounded"
+                                />
+                                <img
+                                    src="./images/cat-side-banner-3.jpg"
+                                    alt=""
+                                    class="t:w-full t:rounded"
+                                />
+                                <img
+                                    src="./images/cat-side-banner-4.jpg"
+                                    alt=""
+                                    class="t:w-full t:rounded"
+                                />
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer
+            class="t:relative t:w-full t:bg-[#a80000] t:bg-cover t:bg-center t:py-[30px] t:text-white"
+            style="background-image: url(&quot;./images/ft-bg.png&quot;)"
+        >
+            <div class="t:container">
+                <div class="t:mx-auto t:flex t:w-full t:max-w-[1200px] t:flex-col t:gap-6 t:px-3">
+                    <div class="t:flex t:justify-start t:max-pc:justify-center">
+                        <img
+                            src="./images/ft-logo.svg"
+                            alt="Báo và Phát thanh, Truyền hình Thái Nguyên điện tử"
+                            class="t:h-auto t:w-full t:max-w-[280px] t:object-contain"
+                        />
+                    </div>
+                    <div
+                        class="t:flex t:w-full t:flex-row t:items-start t:justify-between t:gap-10 t:max-pc:flex-col t:max-pc:gap-[18px]"
+                    >
+                        <div class="t:flex t:flex-col t:gap-[9px] t:text-[15px] t:leading-[22.5px]">
+                            <p>
+                                Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT cấp ngày 20
+                                tháng 11 năm 2023.
+                            </p>
+                            <p class="t:font-bold">
+                                Báo và Phát thanh, Truyền hình Thái Nguyên điện tử.
+                            </p>
+                            <p class="t:font-bold">
+                                Ghi rõ nguồn “ https://baothainguyen.vn ” khi phát hành lại thông
+                                tin từ website này
+                            </p>
+                        </div>
+                        <div
+                            class="t:flex t:flex-col t:gap-[9px] t:text-right t:text-[15px] t:leading-[22.5px] t:max-pc:text-left"
+                        >
+                            <p>
+                                Tổng Biên tập Báo và Phát thanh, Truyền hình Thái Nguyên: Đỗ Xuân
+                                Hòa
+                            </p>
+                            <p>Điện thoại: 0208.3859.666</p>
+                            <p>
+                                Đường dây nóng: 0902006113 - 091 2039880 Email:
+                                <a
+                                    href="mailto:toasoan@baothainguyen.vn"
+                                    class="t:text-white t:underline"
+                                >
+                                    toasoan@baothainguyen.vn
+                                </a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </footer>
 
-            <div class="t:bg-[#f71917] t:py-12">
-                <div class="t:container">
-                    <div id="projectTopGrid" class="t:mx-auto t:grid t:max-w-[1000px] t:grid-cols-1 t:gap-6 t:md:grid-cols-3"></div>
-                </div>
-            </div>
+        <script src="./script/index.js"></script>
+        <script src="./script/menu.js"></script>
+        <script type="module" src="../../common/swiper.js"></script>
 
-            <div class="t:bg-white t:py-8">
-                <div class="t:container">
-                    <div class="t:mx-auto t:grid t:max-w-[1000px] t:grid-cols-1 t:gap-8 t:pc:grid-cols-[minmax(0,1fr)_320px]">
-                        <div id="projectList" class="t:flex t:flex-col"></div>
-                        <aside class="t:flex t:flex-col t:gap-4">
-                            <h3 class="t:bg-gradient-to-r t:from-[#ff7800] t:via-[#ef0004] t:to-[#ff7800] t:px-5 t:py-2 t:text-lg t:font-bold t:uppercase t:text-white">
-                                Tin cập nhật
-                            </h3>
-                            <div id="sideNews" class="t:flex t:flex-col t:gap-4"></div>
-                            <img src="./images/cat-side-banner-1.jpg" alt="" class="t:w-full t:rounded" />
-                            <img src="./images/cat-side-banner-2.jpg" alt="" class="t:w-full t:rounded" />
-                            <img src="./images/cat-side-banner-3.jpg" alt="" class="t:w-full t:rounded" />
-                            <img src="./images/cat-side-banner-4.jpg" alt="" class="t:w-full t:rounded" />
-                        </aside>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="t:relative t:w-full t:bg-[#a80000] t:bg-cover t:bg-center t:py-[30px] t:text-white"
-        style="background-image:url('./images/ft-bg.png')">
-        <div class="t:container">
-            <div class="t:mx-auto t:flex t:w-full t:max-w-[1200px] t:flex-col t:gap-6 t:px-3">
-                <div class="t:flex t:justify-start t:max-pc:justify-center">
-                    <img src="./images/ft-logo.svg" alt="Báo và Phát thanh, Truyền hình Thái Nguyên điện tử"
-                        class="t:h-auto t:w-full t:max-w-[280px] t:object-contain" />
-                </div>
-                <div class="t:flex t:w-full t:flex-row t:items-start t:justify-between t:gap-10 t:max-pc:flex-col t:max-pc:gap-[18px]">
-                    <div class="t:flex t:flex-col t:gap-[9px] t:text-[15px] t:leading-[22.5px]">
-                        <p>Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT cấp ngày 20 tháng 11 năm 2023.</p>
-                        <p class="t:font-bold">Báo và Phát thanh, Truyền hình Thái Nguyên điện tử.</p>
-                        <p class="t:font-bold">Ghi rõ nguồn “ https://baothainguyen.vn ” khi phát hành lại thông tin từ website này</p>
-                    </div>
-                    <div class="t:flex t:flex-col t:gap-[9px] t:text-right t:text-[15px] t:leading-[22.5px] t:max-pc:text-left">
-                        <p>Tổng Biên tập Báo và Phát thanh, Truyền hình Thái Nguyên: Đỗ Xuân Hòa</p>
-                        <p>Điện thoại: 0208.3859.666</p>
-                        <p>Đường dây nóng: 0902006113 - 091 2039880 Email: <a href="mailto:toasoan@baothainguyen.vn" class="t:text-white t:underline">toasoan@baothainguyen.vn</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <aside id="mobileMenu" class="mobile-menu-panel" aria-hidden="true">
-        <div class="mobile-menu-panel__backdrop" data-mobile-menu-close></div>
-        <div class="mobile-menu-panel__content">
-            <button type="button" class="mobile-menu-panel__close" data-mobile-menu-close aria-label="Đóng menu">
-                <i class="material-symbols--close-rounded"></i>
-            </button>
-            <nav class="mobile-menu-panel__nav">
-                <a href="../../home/desktop/index.html" class="mobile-menu-panel__home">
-                    <i class="material-symbols--arrow-back-rounded"></i>
-                    Về trang chủ
-                </a>
-                <a href="#" class="mobile-menu-panel__link">
-                    <i class="material-symbols-light--home-rounded"></i>
-                </a>
-                <a href="#" class="mobile-menu-panel__link">Tin tức - Sự kiện</a>
-                <div class="mobile-menu-panel__group">
-                    <div class="mobile-menu-panel__row">
-                        <a href="#" class="mobile-menu-panel__link">Multimedia</a>
-                        <button type="button" class="mobile-menu-panel__toggle" data-mobile-submenu aria-expanded="false">+</button>
-                    </div>
-                    <div class="mobile-menu-panel__sub">
-                        <a href="#">Video</a>
-                        <a href="#">Ảnh</a>
-                        <a href="#">Infographic</a>
-                        <a href="#">Emagazine</a>
-                    </div>
-                </div>
-                <a href="#" class="mobile-menu-panel__link">Hỏi-đáp</a>
-                <div class="mobile-menu-panel__group">
-                    <div class="mobile-menu-panel__row">
-                        <span class="mobile-menu-panel__link">Các kỳ đại hội Đảng</span>
-                        <button type="button" class="mobile-menu-panel__toggle" data-mobile-submenu aria-expanded="false">+</button>
-                    </div>
-                    <div class="mobile-menu-panel__sub">
-                        <button type="button" data-tab="leaders">Bí thư Tỉnh ủy các thời kỳ</button>
-                        <button type="button" data-tab="standing">Ban Thường vụ Tỉnh ủy đương nhiệm</button>
-                        <button type="button" data-tab="committee">Ban Chấp hành Đảng bộ tỉnh đương nhiệm</button>
-                        <button type="button" data-tab="projects">Các công trình trọng điểm</button>
-                    </div>
-                </div>
-                <a href="#" class="mobile-menu-panel__link">Văn kiện - Văn bản</a>
-            </nav>
-            <div class="mobile-menu-panel__bottom" aria-hidden="true">
-                <a href="#"><i class="material-symbols-light--home-rounded"></i></a>
-                <a href="#">Tin tức - Sự kiện</a>
-                <a href="#">Multimedia</a>
-                <a href="#">Hỏi-đáp</a>
-                <a href="#">Các kỳ đại hội</a>
-            </div>
-        </div>
-    </aside>
-
-    <script src="./script.js"></script>
-    <script type="module" src="../../common/swiper.js"></script>
-</body>
-
+    </body>
 </html>
