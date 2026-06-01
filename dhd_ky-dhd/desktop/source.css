@@ -364,8 +364,9 @@
 .ky-timeline {
     position: relative;
     list-style: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+    max-width: 1120px;
 }
 /* trục dọc chính giữa (nét đứt) — chỉ ở PC */
 .ky-timeline::before {
@@ -382,21 +383,26 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    column-gap: 0;
-    min-height: 258px;
-    padding-bottom: 30px;
+    column-gap: 64px;
+    min-height: 260px;
+    padding: 0 0 46px;
 }
 .ky-media {
+    grid-row: 1;
     width: 100%;
-    border-radius: 4px;
+    max-width: 520px;
+    border-radius: 10px;
+    box-shadow: 0 10px 28px rgba(36, 42, 46, 0.12);
 }
 .ky-body {
-    padding-top: 40px;
+    grid-row: 1;
+    max-width: 440px;
+    padding: 28px 0;
 }
 .ky-title {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 27px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.35;
     color: #151515;
 }
 .ky-title a {
@@ -408,75 +414,96 @@
 .ky-desc {
     margin-top: 8px;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.6;
     color: #5f5f5f;
+    -webkit-line-clamp: unset;
 }
 
 /* ----- ZIGZAG: lẻ = ảnh trái / chẵn = ảnh phải ----- */
 .ky-row:nth-child(odd) .ky-media {
     grid-column: 1;
-    padding-right: 30px;
+    justify-self: end;
 }
 .ky-row:nth-child(odd) .ky-body {
     grid-column: 2;
-    padding-left: 30px;
+    justify-self: start;
     text-align: left;
 }
 .ky-row:nth-child(even) .ky-media {
     grid-column: 2;
-    padding-left: 30px;
+    justify-self: start;
 }
 .ky-row:nth-child(even) .ky-body {
     grid-column: 1;
-    padding-right: 30px;
+    justify-self: end;
     text-align: right;
 }
 
 /* ----- BADGE số tròn cam-đỏ, nằm trên trục giữa ----- */
 .ky-badge {
     position: absolute;
-    top: 8px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 3;
+    z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 36px;
     height: 36px;
     border-radius: 9999px;
-    background: linear-gradient(135deg, #ff7a00, #ef2424);
+    border: 2px solid #fff;
+    background: #ef2424;
+    box-shadow: 0 0 0 2px #d91d27;
     color: #fff;
     font-size: 18px;
     font-weight: 600;
     line-height: 1;
 }
 /* ----- RIBBON năm (parallelogram đỏ), cạnh badge trên trục ----- */
-.ky-year {
+.ky-year.dhd-flag-label {
+    position: absolute !important;
+    top: -3px;
+    z-index: 4;
+    --dhd-flag-min-width: 112px;
+    --dhd-flag-height: 42px;
+}
+.ky-year.dhd-flag-label::after {
+    content: "";
     position: absolute;
-    top: 12px;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    height: 28px;
-    padding: 0 14px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    top: 50%;
+    width: 34px;
+    height: 1px;
+    background: #ef2424;
 }
 .ky-row:nth-child(odd) .ky-year {
     left: 50%;
-    margin-left: 18px;
-    background-image: url("./images/ky-ribbon-right.png");
-    padding-left: 18px;
+    margin-left: 54px;
+}
+.ky-row:nth-child(odd) .ky-year::after {
+    right: 100%;
 }
 .ky-row:nth-child(even) .ky-year {
     right: 50%;
-    margin-right: 18px;
-    background-image: url("./images/ky-ribbon-left.png");
-    padding-right: 18px;
+    margin-right: 54px;
+}
+.ky-row:nth-child(even) .ky-year::after {
+    left: 100%;
+}
+
+/* First row is the current leader card, not a congress milestone. */
+.ky-row:first-child {
+    min-height: 220px;
+}
+.ky-row:first-child .ky-media {
+    max-width: 360px;
+    aspect-ratio: 4 / 5;
+}
+.ky-row:first-child .ky-media img {
+    object-position: center top;
+}
+.ky-row:first-child .ky-body {
+    align-self: center;
 }
 
 /* ============ MOBILE (<1000px): 1 cột, bỏ trục giữa ============ */
@@ -487,28 +514,82 @@
     .ky-row,
     .ky-row:nth-child(odd),
     .ky-row:nth-child(even) {
-        display: block;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
         min-height: 0;
-        padding-bottom: 24px;
+        padding-bottom: 30px;
     }
     .ky-row:nth-child(odd) .ky-media,
     .ky-row:nth-child(even) .ky-media {
-        padding: 0;
+        grid-row: auto;
+        grid-column: 1;
+        justify-self: stretch;
+        max-width: none;
     }
     .ky-row:nth-child(odd) .ky-body,
     .ky-row:nth-child(even) .ky-body {
-        padding: 12px 0 0;
+        grid-row: auto;
+        grid-column: 1;
+        justify-self: stretch;
+        max-width: none;
+        padding: 0;
         text-align: left;
     }
     .ky-badge {
-        position: static;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        left: auto;
         transform: none;
-        margin-bottom: 8px;
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
     }
     .ky-row:nth-child(odd) .ky-year,
     .ky-row:nth-child(even) .ky-year {
-        position: static;
+        position: relative !important;
+        left: auto;
+        right: auto;
         margin: 0 0 8px;
-        display: inline-flex;
+        order: -1;
+        --dhd-flag-min-width: 112px;
+        --dhd-flag-height: 40px;
+        font-size: 20px;
     }
+    .ky-year.dhd-flag-label::after {
+        display: none;
+    }
+    .ky-title {
+        font-size: 20px;
+    }
+    .ky-desc {
+        font-size: 15px;
+        line-height: 1.55;
+    }
+    .ky-row:first-child .ky-media {
+        max-width: none;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1199px) {
+    .ky-row {
+        column-gap: 48px;
+    }
+    .ky-media {
+        max-width: 440px;
+    }
+}
+
+/* Danh sách Tổng Bí thư: khóa khung ảnh để các card bằng nhau. */
+.secretary-grid figure {
+    aspect-ratio: 3 / 4;
+    width: 100%;
+}
+
+.secretary-grid figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

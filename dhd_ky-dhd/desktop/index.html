@@ -20,203 +20,184 @@
     </head>
 
     <body class="dhd-page">
-        <header>
-            <div class="t:bg-[#ffeccc] t:relative">
-                <div
-                    class="t:absolute t:right-0 t:top-0 t:bottom-0 t:w-1/2 t:bg-[#f71917] t:z-0"
-                ></div>
-
-                <div class="t:container t:relative t:z-[1]">
-                    <div class="t:flex t:items-center t:gap-3 t:py-2 t:pc:gap-6 t:pc:py-0">
-                        <a href="./index.html" class="t:block t:shrink-0">
-                            <img
-                                src="./images/hdr-logo.gif"
-                                alt="Logo Đại hội Đảng"
-                                class="t:block t:h-[56px] t:w-auto t:pc:h-[120px]"
-                            />
-                        </a>
-
-                        <div class="t:flex-1 t:overflow-hidden">
-                            <img
-                                src="./images/hdr-bg_header.png"
-                                alt="Đại hội Đảng nhiệm kỳ 2025 - 2030 - Đại hội của kỷ nguyên vươn mình"
-                                class="t:block t:w-full t:h-auto"
-                            />
-                        </div>
-                    </div>
+        <div class="header">
+            <div class="container">
+                <div class="bg">
+                    <a href="../../home/desktop/index.html" class="logo_header">
+                        <img
+                            src="../../dhd_cac_lanh_dao/desktop/images/logo.gif"
+                            alt="Báo Thái Nguyên"
+                        />
+                    </a>
+                    <img
+                        style="max-width: 100%"
+                        src="../../dhd_cac_lanh_dao/desktop/images/hdr-bg_header.png"
+                        alt="Đại hội Đảng bộ tỉnh Thái Nguyên"
+                    />
                 </div>
             </div>
-        </header>
+        </div>
+        <div class="menutop">
+            <nav id="main-nav">
+                <nav class="navbar container">
+                    <input id="main-menu-state" type="checkbox" />
+                    <label class="main-menu-btn" for="main-menu-state">
+                        <span class="main-menu-btn-icon"></span>
+                        Toggle main menu visibility
+                    </label>
+                    <div class="clear"></div>
 
-        <nav class="t:bg-[#dd0201] t:sticky t:top-0 t:z-50">
-            <div class="t:container">
-                <div class="t:flex t:items-center t:justify-between t:gap-2 t:py-2">
                     <ul
-                        class="t:hidden t:pc:flex t:items-center t:flex-wrap t:gap-x-1 t:gap-y-1 t:flex-1"
+                        id="main-menu"
+                        class="sm sm-clean"
+                        data-toggle="collapse-nav"
+                        data-target="#more-menu-1"
                     >
-                        <li>
-                            <a
-                                href="../../home/desktop/index.html"
-                                class="t:inline-flex t:items-center t:gap-2 t:rounded-lg t:px-3 t:py-[10px] t:bg-gradient-to-r t:from-[#ff0000] t:to-[#f8bd55] t:text-white t:text-[13px] t:font-normal t:uppercase t:whitespace-nowrap"
-                            >
-                                <i class="material-symbols--arrow-back-rounded t:size-4"></i>
+                        <li class="home_menu">
+                            <a href="../../home/desktop/index.html">
+                                <i class="material-symbols--keyboard-arrow-left"></i>
                                 Về trang chủ
                             </a>
                         </li>
-
                         <li>
-                            <a
-                                href="./index.html"
-                                aria-label="Trang chủ Đại hội Đảng"
-                                class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white"
-                            >
-                                <i class="material-symbols-light--home-rounded t:size-6"></i>
+                            <a href="/dhd/">
+                                <img
+                                    src="../../dhd_cac_lanh_dao/desktop/images/home_icon.png"
+                                    alt="Trang chủ Đại hội Đảng"
+                                />
                             </a>
                         </li>
-
                         <li>
-                            <a
-                                href="#"
-                                class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
-                            >
-                                Tin tức - Sự kiện
-                            </a>
+                            <a href="/dhd/tin-tuc/"><span class="bd">Tin tức - Sự kiện</span></a>
                         </li>
-
                         <li>
-                            <div class="dropdown-block" data-floating-dropdown data-offset="4">
-                                <button
-                                    type="button"
-                                    data-floating-trigger
-                                    class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap t:bg-transparent t:border-0 t:cursor-pointer"
-                                >
-                                    Multimedia
-                                    <i
-                                        class="material-symbols--expand-more-rounded t:size-4 caret"
-                                    ></i>
-                                </button>
-                                <div role="menu" class="dropdown-menu is-hidden" data-floating-menu>
-                                    <a href="#" role="menuitem" class="dropdown-item">Video</a>
-                                    <a href="#" role="menuitem" class="dropdown-item">Ảnh</a>
-                                    <a href="#" role="menuitem" class="dropdown-item">
-                                        Infographic
+                            <a href="/dhd/multimedia/"><span class="bd">Multimedia</span></a>
+                            <ul>
+                                <li>
+                                    <a href="/dhd/video/"><span class="bd">Video</span></a>
+                                </li>
+                                <li>
+                                    <a href="/dhd/photo/"><span class="bd">Ảnh</span></a>
+                                </li>
+                                <li>
+                                    <a href="/dhd/infographic/">
+                                        <span class="bd">Infographic</span>
                                     </a>
-                                    <a href="#" role="menuitem" class="dropdown-item">Emagazine</a>
-                                </div>
-                            </div>
+                                </li>
+                                <li>
+                                    <a href="/dhd/emagazine/"><span class="bd">Emagazine</span></a>
+                                </li>
+                            </ul>
                         </li>
-
                         <li>
-                            <a
-                                href="#"
-                                class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
-                            >
-                                Hỏi-đáp
+                            <a href="/dhd/hoi-dap/"><span class="bd">Hỏi-đáp</span></a>
+                        </li>
+                        <li>
+                            <a href="/dhd/ky-dhd/"><span class="bd">Các kỳ đại hội Đảng</span></a>
+                            <ul>
+                                <li>
+                                    <a href="/dhd/ky-dhd/">
+                                        <span class="bd">ĐẠI HỘI ĐẢNG TOÀN QUỐC</span>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/">
+                                                <span class="bd">Các kỳ Đại hội</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dh-dang-csvn/tbt/">
+                                                <span class="bd">Tổng Bí thư</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/dhd/ky-dhd/dhdb-tn/">
+                                        <span class="bd">Đại hội Đảng bộ tỉnh Thái Nguyên</span>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dhdb-tn/btty/">
+                                                <span class="bd">
+                                                    Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời
+                                                    kỳ
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/"
+                                            >
+                                                <span class="bd">
+                                                    Bí thư Tỉnh ủy Bắc Kạn các thời kỳ
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dhdb-tn/btv/">
+                                                <span class="bd">
+                                                    Ban Thường vụ Tỉnh ủy đương nhiệm
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dhdb-tn/bch/">
+                                                <span class="bd">
+                                                    Ban Chấp hành Đảng bộ tỉnh đương nhiệm
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dhdb-tn/cttd/">
+                                                <span class="bd">
+                                                    Các Công trình, dự án chào mừng Đại hội
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/dhd/vk-vb/"><span class="bd">Văn kiện - Văn bản</span></a>
+                        </li>
+                        <li>
+                            <a href="/tim-kiem/">
+                                <img
+                                    src="../../dhd_cac_lanh_dao/desktop/images/search_icon.png"
+                                    alt="Tìm kiếm"
+                                />
                             </a>
                         </li>
-
-                        <li>
-                            <div class="dropdown-block" data-floating-dropdown data-offset="4">
-                                <button
-                                    type="button"
-                                    data-floating-trigger
-                                    class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap t:bg-transparent t:border-0 t:cursor-pointer"
-                                >
-                                    Các kỳ đại hội Đảng
-                                    <i
-                                        class="material-symbols--expand-more-rounded t:size-4 caret"
-                                    ></i>
-                                </button>
-                                <div role="menu" class="dropdown-menu is-hidden" data-floating-menu>
-                                    <div class="dropdown-submenu" data-floating-submenu>
-                                        <button
-                                            type="button"
-                                            role="menuitem"
-                                            class="dropdown-item submenu-trigger"
-                                            data-floating-submenu-trigger
-                                        >
-                                            Đại hội Đảng toàn quốc
-                                            <span class="submenu-caret" aria-hidden="true">›</span>
-                                        </button>
-                                        <div
-                                            role="menu"
-                                            class="dropdown-menu is-hidden submenu-menu"
-                                            data-floating-submenu-menu
-                                        >
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Các kỳ Đại hội
-                                            </a>
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Tổng Bí thư
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="dropdown-submenu" data-floating-submenu>
-                                        <button
-                                            type="button"
-                                            role="menuitem"
-                                            class="dropdown-item submenu-trigger"
-                                            data-floating-submenu-trigger
-                                        >
-                                            Đại hội Đảng bộ tỉnh Thái Nguyên
-                                            <span class="submenu-caret" aria-hidden="true">›</span>
-                                        </button>
-                                        <div
-                                            role="menu"
-                                            class="dropdown-menu is-hidden submenu-menu"
-                                            data-floating-submenu-menu
-                                        >
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời kỳ
-                                            </a>
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Bí thư Tỉnh ủy Bắc Kạn các thời kỳ
-                                            </a>
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Ban Thường vụ Tỉnh ủy đương nhiệm
-                                            </a>
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Ban Chấp hành Đảng bộ tỉnh đương nhiệm
-                                            </a>
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Các Công trình, dự án chào mừng Đại hội
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a
-                                href="#"
-                                class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
-                            >
-                                Văn kiện - Văn bản
-                            </a>
-                        </li>
+                        <li id="more-menu-1"></li>
                     </ul>
+                </nav>
+            </nav>
 
-                    <button
-                        type="button"
-                        class="t:pc:hidden t:inline-flex t:items-center t:justify-center t:p-2 t:text-white"
-                        aria-label="Mở menu"
-                        data-overlay-trigger="mobile-menu"
-                    >
-                        <i class="material-symbols--menu-rounded t:size-7"></i>
-                    </button>
-
-                    <button
-                        type="button"
-                        class="t:inline-flex t:items-center t:justify-center t:p-2 t:text-white t:shrink-0"
-                        aria-label="Tìm kiếm"
-                    >
-                        <i class="majesticons--search-line t:size-5"></i>
-                    </button>
+            <section class="navigation_scroll nav_user section_nav section_nav_v2">
+                <div class="container">
+                    <div class="wrap-scroll-nav">
+                        <ul class="menu_bread" id="auto_breadcrumb_bar">
+                            <li>
+                                <a href="/dhd/">
+                                    <img
+                                        src="../../dhd_cac_lanh_dao/desktop/images/home_icon.png"
+                                        alt="Trang chủ Đại hội Đảng"
+                                    />
+                                </a>
+                            </li>
+                            <li><a href="/dhd/tin-tuc/">Tin tức - Sự kiện</a></li>
+                            <li><a href="/dhd/multimedia/">Multimedia</a></li>
+                            <li><a href="/dhd/hoi-dap/">Hỏi-đáp</a></li>
+                            <li><a href="/dhd/ky-dhd/">Các kỳ đại hội Đảng</a></li>
+                            <li><a href="/dhd/vk-vb/">Văn kiện - Văn bản</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+                <span class="next-nav"></span>
+            </section>
+        </div>
 
         <!-- ====== SECTION: Timeline - Các kỳ đại hội Đảng ====== -->
         <section class="t:py-[30px]">
@@ -249,7 +230,7 @@
 
                     <!-- Timeline -->
                     <ul class="ky-timeline">
-                        <!-- Item 1: Bùi Văn Lương (no year ribbon) -->
+                        <!-- Item 1: Bùi Văn Lương -->
                         <li class="ky-row">
                             <figure class="ky-media img-block">
                                 <img
@@ -268,6 +249,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">1</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">Đồng chí</span>
                         </li>
 
                         <!-- Item 2: 1930 - lần thứ I -->
@@ -289,7 +271,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">2</span>
-                            <span class="ky-year" aria-hidden="true">1930</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">1930</span>
                         </li>
 
                         <!-- Item 3: 1951 - lần thứ II -->
@@ -313,7 +295,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">3</span>
-                            <span class="ky-year" aria-hidden="true">1951</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">1951</span>
                         </li>
 
                         <!-- Item 4: 1960 - lần thứ III -->
@@ -336,7 +318,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">4</span>
-                            <span class="ky-year" aria-hidden="true">1960</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">1960</span>
                         </li>
 
                         <!-- Item 5: 1976 - lần thứ IV -->
@@ -357,7 +339,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">5</span>
-                            <span class="ky-year" aria-hidden="true">1976</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">1976</span>
                         </li>
 
                         <!-- Item 6: 1982 - lần thứ V -->
@@ -378,7 +360,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">6</span>
-                            <span class="ky-year" aria-hidden="true">1982</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">1982</span>
                         </li>
 
                         <!-- Item 7: 1986 - lần thứ VI -->
@@ -399,7 +381,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">7</span>
-                            <span class="ky-year" aria-hidden="true">1986</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">1986</span>
                         </li>
 
                         <!-- Item 8: 1991 - lần thứ VII -->
@@ -420,7 +402,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">8</span>
-                            <span class="ky-year" aria-hidden="true">1991</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">1991</span>
                         </li>
 
                         <!-- Item 9: 1996 - lần thứ VIII -->
@@ -442,7 +424,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">9</span>
-                            <span class="ky-year" aria-hidden="true">1996</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">1996</span>
                         </li>
 
                         <!-- Item 10: 2001 - lần thứ IX -->
@@ -464,7 +446,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">10</span>
-                            <span class="ky-year" aria-hidden="true">2001</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">2001</span>
                         </li>
 
                         <!-- Item 11: 2006 - lần thứ X -->
@@ -486,7 +468,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">11</span>
-                            <span class="ky-year" aria-hidden="true">2006</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">2006</span>
                         </li>
 
                         <!-- Item 12: 2011 - lần thứ XI -->
@@ -507,7 +489,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">12</span>
-                            <span class="ky-year" aria-hidden="true">2011</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">2011</span>
                         </li>
 
                         <!-- Item 13: 2016 - lần thứ XII -->
@@ -528,7 +510,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">13</span>
-                            <span class="ky-year" aria-hidden="true">2016</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">2016</span>
                         </li>
 
                         <!-- Item 14: 2021 - lần thứ XIII -->
@@ -549,7 +531,7 @@
                                 </p>
                             </div>
                             <span class="ky-badge" aria-hidden="true">14</span>
-                            <span class="ky-year" aria-hidden="true">2021</span>
+                            <span class="ky-year dhd-flag-label" aria-hidden="true">2021</span>
                         </li>
                     </ul>
                 </div>
@@ -606,7 +588,7 @@
 
                     <!-- Grid 12 Tổng Bí thư: 1 → 2 → 4 columns -->
                     <div
-                        class="t:grid t:grid-cols-1 t:md:max-pc:grid-cols-2 t:pc:grid-cols-4 t:gap-x-[24px] t:gap-y-[30px] t:w-full t:px-[12px]"
+                        class="secretary-grid t:grid t:grid-cols-1 t:md:max-pc:grid-cols-2 t:pc:grid-cols-4 t:gap-x-[24px] t:gap-y-[30px] t:w-full t:px-[12px]"
                     >
                         <!-- 1. Trần Phú -->
                         <a href="#" class="t:flex t:flex-col t:gap-[5px]">
@@ -946,6 +928,7 @@
                 </div>
             </div>
         </footer>
+        <script src="../../dhd_cac_lanh_dao/desktop/script/menu.js"></script>
 
         <script src="../../common/common.js"></script>
         <script type="module" src="../../common/swiper.js"></script>

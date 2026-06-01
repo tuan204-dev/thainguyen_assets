@@ -20,206 +20,184 @@
     </head>
 
     <body class="dhd-page">
-        <header>
-            <div class="t:bg-[#ffeccc] t:relative">
-                <div
-                    class="t:absolute t:right-0 t:top-0 t:bottom-0 t:w-1/2 t:bg-[#f71917] t:z-0"
-                ></div>
-
-                <div class="t:container t:relative t:z-[1]">
-                    <div class="t:flex t:items-center t:gap-3 t:py-2 t:pc:gap-6 t:pc:py-0">
-                        <a href="./index.html" class="t:block t:shrink-0">
-                            <img
-                                src="./images/hdr-logo.gif"
-                                alt="Logo Đại hội Đảng"
-                                class="t:block t:h-[56px] t:w-auto t:pc:h-[120px]"
-                            />
-                        </a>
-
-                        <div class="t:flex-1 t:overflow-hidden">
-                            <img
-                                src="./images/hdr-bg_header.png"
-                                alt="Đại hội Đảng nhiệm kỳ 2025 - 2030 - Đại hội của kỷ nguyên vươn mình"
-                                class="t:block t:w-full t:h-auto"
-                            />
-                        </div>
-                    </div>
+        <div class="header">
+            <div class="container">
+                <div class="bg">
+                    <a href="../../home/desktop/index.html" class="logo_header">
+                        <img
+                            src="../../dhd_cac_lanh_dao/desktop/images/logo.gif"
+                            alt="Báo Thái Nguyên"
+                        />
+                    </a>
+                    <img
+                        style="max-width: 100%"
+                        src="../../dhd_cac_lanh_dao/desktop/images/hdr-bg_header.png"
+                        alt="Đại hội Đảng bộ tỉnh Thái Nguyên"
+                    />
                 </div>
             </div>
-        </header>
+        </div>
+        <div class="menutop">
+            <nav id="main-nav">
+                <nav class="navbar container">
+                    <input id="main-menu-state" type="checkbox" />
+                    <label class="main-menu-btn" for="main-menu-state">
+                        <span class="main-menu-btn-icon"></span>
+                        Toggle main menu visibility
+                    </label>
+                    <div class="clear"></div>
 
-        <nav class="t:bg-[#dd0201] t:sticky t:top-0 t:z-50">
-            <div class="t:container">
-                <div class="t:flex t:items-center t:justify-between t:gap-2 t:py-2">
                     <ul
-                        class="t:hidden t:pc:flex t:items-center t:flex-wrap t:gap-x-1 t:gap-y-1 t:flex-1"
+                        id="main-menu"
+                        class="sm sm-clean"
+                        data-toggle="collapse-nav"
+                        data-target="#more-menu-1"
                     >
-                        <li>
-                            <a
-                                href="../../home/desktop/index.html"
-                                class="t:inline-flex t:items-center t:gap-2 t:rounded-lg t:px-3 t:py-[10px] t:bg-gradient-to-r t:from-[#ff0000] t:to-[#f8bd55] t:text-white t:text-[13px] t:font-normal t:uppercase t:whitespace-nowrap"
-                            >
-                                <i class="material-symbols--arrow-back-rounded t:size-4"></i>
+                        <li class="home_menu">
+                            <a href="../../home/desktop/index.html">
+                                <i class="material-symbols--keyboard-arrow-left"></i>
                                 Về trang chủ
                             </a>
                         </li>
-
                         <li>
-                            <a
-                                href="./index.html"
-                                aria-label="Trang chủ Đại hội Đảng"
-                                class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white"
-                            >
-                                <i class="material-symbols-light--home-rounded t:size-6"></i>
+                            <a href="/dhd/">
+                                <img
+                                    src="../../dhd_cac_lanh_dao/desktop/images/home_icon.png"
+                                    alt="Trang chủ Đại hội Đảng"
+                                />
                             </a>
                         </li>
-
                         <li>
-                            <a
-                                href="#"
-                                class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
-                            >
-                                Tin tức - Sự kiện
-                            </a>
+                            <a href="/dhd/tin-tuc/"><span class="bd">Tin tức - Sự kiện</span></a>
                         </li>
-
                         <li>
-                            <div class="dropdown-block" data-floating-dropdown data-offset="4">
-                                <button
-                                    type="button"
-                                    data-floating-trigger
-                                    class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap t:bg-transparent t:border-0 t:cursor-pointer"
-                                >
-                                    Multimedia
-                                    <i
-                                        class="material-symbols--expand-more-rounded t:size-4 caret"
-                                    ></i>
-                                </button>
-                                <div role="menu" class="dropdown-menu is-hidden" data-floating-menu>
-                                    <a href="#" role="menuitem" class="dropdown-item">Video</a>
-                                    <a href="#" role="menuitem" class="dropdown-item">Ảnh</a>
-                                    <a href="#" role="menuitem" class="dropdown-item">
-                                        Infographic
+                            <a href="/dhd/multimedia/"><span class="bd">Multimedia</span></a>
+                            <ul>
+                                <li>
+                                    <a href="/dhd/video/"><span class="bd">Video</span></a>
+                                </li>
+                                <li>
+                                    <a href="/dhd/photo/"><span class="bd">Ảnh</span></a>
+                                </li>
+                                <li>
+                                    <a href="/dhd/infographic/">
+                                        <span class="bd">Infographic</span>
                                     </a>
-                                    <a href="#" role="menuitem" class="dropdown-item">Emagazine</a>
-                                </div>
-                            </div>
+                                </li>
+                                <li>
+                                    <a href="/dhd/emagazine/"><span class="bd">Emagazine</span></a>
+                                </li>
+                            </ul>
                         </li>
-
                         <li>
-                            <a
-                                href="#"
-                                class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
-                            >
-                                Hỏi-đáp
+                            <a href="/dhd/hoi-dap/"><span class="bd">Hỏi-đáp</span></a>
+                        </li>
+                        <li>
+                            <a href="/dhd/ky-dhd/"><span class="bd">Các kỳ đại hội Đảng</span></a>
+                            <ul>
+                                <li>
+                                    <a href="/dhd/ky-dhd/">
+                                        <span class="bd">ĐẠI HỘI ĐẢNG TOÀN QUỐC</span>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/">
+                                                <span class="bd">Các kỳ Đại hội</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dh-dang-csvn/tbt/">
+                                                <span class="bd">Tổng Bí thư</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/dhd/ky-dhd/dhdb-tn/">
+                                        <span class="bd">Đại hội Đảng bộ tỉnh Thái Nguyên</span>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dhdb-tn/btty/">
+                                                <span class="bd">
+                                                    Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời
+                                                    kỳ
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/"
+                                            >
+                                                <span class="bd">
+                                                    Bí thư Tỉnh ủy Bắc Kạn các thời kỳ
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dhdb-tn/btv/">
+                                                <span class="bd">
+                                                    Ban Thường vụ Tỉnh ủy đương nhiệm
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dhdb-tn/bch/">
+                                                <span class="bd">
+                                                    Ban Chấp hành Đảng bộ tỉnh đương nhiệm
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/dhdb-tn/cttd/">
+                                                <span class="bd">
+                                                    Các Công trình, dự án chào mừng Đại hội
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/dhd/vk-vb/"><span class="bd">Văn kiện - Văn bản</span></a>
+                        </li>
+                        <li>
+                            <a href="/tim-kiem/">
+                                <img
+                                    src="../../dhd_cac_lanh_dao/desktop/images/search_icon.png"
+                                    alt="Tìm kiếm"
+                                />
                             </a>
                         </li>
-
-                        <li>
-                            <div class="dropdown-block" data-floating-dropdown data-offset="4">
-                                <button
-                                    type="button"
-                                    data-floating-trigger
-                                    class="t:inline-flex t:items-center t:gap-1 t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap t:bg-transparent t:border-0 t:cursor-pointer"
-                                >
-                                    Các kỳ đại hội Đảng
-                                    <i
-                                        class="material-symbols--expand-more-rounded t:size-4 caret"
-                                    ></i>
-                                </button>
-                                <div role="menu" class="dropdown-menu is-hidden" data-floating-menu>
-                                    <div class="dropdown-submenu" data-floating-submenu>
-                                        <button
-                                            type="button"
-                                            role="menuitem"
-                                            class="dropdown-item submenu-trigger"
-                                            data-floating-submenu-trigger
-                                        >
-                                            Đại hội Đảng toàn quốc
-                                            <span class="submenu-caret" aria-hidden="true">›</span>
-                                        </button>
-                                        <div
-                                            role="menu"
-                                            class="dropdown-menu is-hidden submenu-menu"
-                                            data-floating-submenu-menu
-                                        >
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Các kỳ Đại hội
-                                            </a>
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Tổng Bí thư
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="dropdown-submenu" data-floating-submenu>
-                                        <button
-                                            type="button"
-                                            role="menuitem"
-                                            class="dropdown-item submenu-trigger"
-                                            data-floating-submenu-trigger
-                                        >
-                                            Đại hội Đảng bộ tỉnh Thái Nguyên
-                                            <span class="submenu-caret" aria-hidden="true">›</span>
-                                        </button>
-                                        <div
-                                            role="menu"
-                                            class="dropdown-menu is-hidden submenu-menu"
-                                            data-floating-submenu-menu
-                                        >
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Bí thư Tỉnh ủy Bắc Thái - Thái Nguyên các thời kỳ
-                                            </a>
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Bí thư Tỉnh ủy Bắc Kạn các thời kỳ
-                                            </a>
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Ban Thường vụ Tỉnh ủy đương nhiệm
-                                            </a>
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Ban Chấp hành Đảng bộ tỉnh đương nhiệm
-                                            </a>
-                                            <a href="#" role="menuitem" class="dropdown-item">
-                                                Các Công trình, dự án chào mừng Đại hội
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a
-                                href="#"
-                                class="t:inline-flex t:items-center t:px-3 t:py-[10px] t:text-white t:text-[15px] t:font-semibold t:uppercase t:whitespace-nowrap"
-                            >
-                                Văn kiện - Văn bản
-                            </a>
-                        </li>
+                        <li id="more-menu-1"></li>
                     </ul>
+                </nav>
+            </nav>
 
-                    <button
-                        type="button"
-                        class="t:pc:hidden t:inline-flex t:items-center t:justify-center t:p-2 t:text-white"
-                        aria-label="Mở menu"
-                        data-overlay-trigger="mobile-menu"
-                    >
-                        <i class="material-symbols--menu-rounded t:size-7"></i>
-                    </button>
-
-                    <button
-                        type="button"
-                        class="t:inline-flex t:items-center t:justify-center t:p-2 t:text-white t:shrink-0"
-                        aria-label="Tìm kiếm"
-                    >
-                        <i class="majesticons--search-line t:size-5"></i>
-                    </button>
+            <section class="navigation_scroll nav_user section_nav section_nav_v2">
+                <div class="container">
+                    <div class="wrap-scroll-nav">
+                        <ul class="menu_bread" id="auto_breadcrumb_bar">
+                            <li>
+                                <a href="/dhd/">
+                                    <img
+                                        src="../../dhd_cac_lanh_dao/desktop/images/home_icon.png"
+                                        alt="Trang chủ Đại hội Đảng"
+                                    />
+                                </a>
+                            </li>
+                            <li><a href="/dhd/tin-tuc/">Tin tức - Sự kiện</a></li>
+                            <li><a href="/dhd/multimedia/">Multimedia</a></li>
+                            <li><a href="/dhd/hoi-dap/">Hỏi-đáp</a></li>
+                            <li><a href="/dhd/ky-dhd/">Các kỳ đại hội Đảng</a></li>
+                            <li><a href="/dhd/vk-vb/">Văn kiện - Văn bản</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-
-        
-
+                <span class="next-nav"></span>
+            </section>
+        </div>
 
         <!-- ====== SECTION: cate-01-featured (Tiêu đề danh mục Ảnh + Bài nổi bật) ====== -->
         <section class="t:bg-gradient-to-b t:from-[#fff6e7] t:to-white t:pb-[50px]">
@@ -261,15 +239,21 @@
 
                         <div class="t:flex t:flex-col t:gap-[5px]">
                             <a href="#">
-                                <h2 class="title l1 merriweather t:mt-0! t:text-black t:font-semibold">
+                                <h2
+                                    class="title l1 merriweather t:mt-0! t:text-black t:font-semibold"
+                                >
                                     (Ảnh) Chân dung 19 đồng chí Ủy viên Bộ Chính trị khóa XIV
                                 </h2>
                             </a>
                             <span class="article-date">
-                                <i class="material-symbols--calendar-month-rounded"></i>19:10, 23/01/2026
+                                <i class="material-symbols--calendar-month-rounded"></i>
+                                19:10, 23/01/2026
                             </span>
                             <p class="desc t:text-[#5f5f5f]">
-                                Ban Chấp hành Trung ương Đảng khóa XIV đã bầu Bộ Chính trị khóa XIV gồm 19 đồng chí, trong đó thống nhất tuyệt đối bầu đồng chí Tô Lâm, Tổng Bí thư Ban Chấp hành Trung ương Đảng khóa XIII tái cử chức Tổng Bí thư Ban Chấp hành Trung ương Đảng khóa XIV.
+                                Ban Chấp hành Trung ương Đảng khóa XIV đã bầu Bộ Chính trị khóa XIV
+                                gồm 19 đồng chí, trong đó thống nhất tuyệt đối bầu đồng chí Tô Lâm,
+                                Tổng Bí thư Ban Chấp hành Trung ương Đảng khóa XIII tái cử chức Tổng
+                                Bí thư Ban Chấp hành Trung ương Đảng khóa XIV.
                             </p>
                         </div>
                     </article>
@@ -281,55 +265,97 @@
         <section class="t:bg-[#f71917] t:rounded-tr-[70px]">
             <div class="t:container t:py-5">
                 <div class="t:grid t:grid-cols-1 t:gap-6 t:md:max-pc:grid-cols-2 t:pc:grid-cols-3">
-
                     <!-- Thẻ 1 -->
-                    <article class="t:bg-[#fff9f2] t:rounded-xl t:overflow-hidden t:flex t:flex-col">
+                    <article
+                        class="t:bg-[#fff9f2] t:rounded-xl t:overflow-hidden t:flex t:flex-col"
+                    >
                         <a href="#" class="t:block">
                             <figure class="img-block t:w-full! t:max-w-none!">
-                                <img src="./images/cat-card-1.png" alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại hội XIV">
+                                <img
+                                    src="./images/cat-card-1.png"
+                                    alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại hội XIV"
+                                />
                             </figure>
                         </a>
                         <div class="t:flex t:flex-col t:gap-[5px] t:p-[10px]">
                             <h3 class="title l2 merriweather">
-                                <a href="#">(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại hội XIV</a>
+                                <a href="#">
+                                    (Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc
+                                    Đại hội XIV
+                                </a>
                             </h3>
-                            <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>16:38, 23/01/2026</span>
-                            <p class="desc">Chiều 23-1, tại Trung tâm Hội nghị quốc gia (Hà Nội), Đại hội đại biểu toàn quốc lần thứ XIV của Đảng Cộng sản Việt Nam họp phiên bế mạc.</p>
+                            <span class="article-date">
+                                <i class="material-symbols--calendar-month-rounded"></i>
+                                16:38, 23/01/2026
+                            </span>
+                            <p class="desc">
+                                Chiều 23-1, tại Trung tâm Hội nghị quốc gia (Hà Nội), Đại hội đại
+                                biểu toàn quốc lần thứ XIV của Đảng Cộng sản Việt Nam họp phiên bế
+                                mạc.
+                            </p>
                         </div>
                     </article>
 
                     <!-- Thẻ 2 -->
-                    <article class="t:bg-[#fff9f2] t:rounded-xl t:overflow-hidden t:flex t:flex-col">
+                    <article
+                        class="t:bg-[#fff9f2] t:rounded-xl t:overflow-hidden t:flex t:flex-col"
+                    >
                         <a href="#" class="t:block">
                             <figure class="img-block t:w-full! t:max-w-none!">
-                                <img src="./images/cat-card-2.png" alt="(Ảnh) Bỏ phiếu bầu Ban Chấp hành Trung ương Đảng khóa XIV">
+                                <img
+                                    src="./images/cat-card-2.png"
+                                    alt="(Ảnh) Bỏ phiếu bầu Ban Chấp hành Trung ương Đảng khóa XIV"
+                                />
                             </figure>
                         </a>
                         <div class="t:flex t:flex-col t:gap-[5px] t:p-[10px]">
                             <h3 class="title l2 merriweather">
-                                <a href="#">(Ảnh) Bỏ phiếu bầu Ban Chấp hành Trung ương Đảng khóa XIV</a>
+                                <a href="#">
+                                    (Ảnh) Bỏ phiếu bầu Ban Chấp hành Trung ương Đảng khóa XIV
+                                </a>
                             </h3>
-                            <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>19:37, 22/01/2026</span>
-                            <p class="desc">Ngày 22/1/2026, Đại hội đại biểu toàn quốc lần thứ XIV của Đảng tiếp tục làm việc cả ngày để thảo luận và thực hiện các nội dung về công tác nhân sự Ban Chấp hành Trung ương Đảng khóa XIV.</p>
+                            <span class="article-date">
+                                <i class="material-symbols--calendar-month-rounded"></i>
+                                19:37, 22/01/2026
+                            </span>
+                            <p class="desc">
+                                Ngày 22/1/2026, Đại hội đại biểu toàn quốc lần thứ XIV của Đảng tiếp
+                                tục làm việc cả ngày để thảo luận và thực hiện các nội dung về công
+                                tác nhân sự Ban Chấp hành Trung ương Đảng khóa XIV.
+                            </p>
                         </div>
                     </article>
 
                     <!-- Thẻ 3 -->
-                    <article class="t:bg-[#fff9f2] t:rounded-xl t:overflow-hidden t:flex t:flex-col">
+                    <article
+                        class="t:bg-[#fff9f2] t:rounded-xl t:overflow-hidden t:flex t:flex-col"
+                    >
                         <a href="#" class="t:block">
                             <figure class="img-block t:w-full! t:max-w-none!">
-                                <img src="./images/cat-card-3.png" alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên làm việc chiều 21-1 Đại hội XIV của Đảng">
+                                <img
+                                    src="./images/cat-card-3.png"
+                                    alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên làm việc chiều 21-1 Đại hội XIV của Đảng"
+                                />
                             </figure>
                         </a>
                         <div class="t:flex t:flex-col t:gap-[5px] t:p-[10px]">
                             <h3 class="title l2 merriweather">
-                                <a href="#">(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên làm việc chiều 21-1 Đại hội XIV của Đảng</a>
+                                <a href="#">
+                                    (Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên làm việc
+                                    chiều 21-1 Đại hội XIV của Đảng
+                                </a>
                             </h3>
-                            <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>21:15, 21/01/2026</span>
-                            <p class="desc">Chiều 21-1, Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên dự phiên làm việc Đại hội XIV của Đảng tại hội trường với tinh thần trách nhiệm cao, đóng góp vào thành công chung của Đại hội.</p>
+                            <span class="article-date">
+                                <i class="material-symbols--calendar-month-rounded"></i>
+                                21:15, 21/01/2026
+                            </span>
+                            <p class="desc">
+                                Chiều 21-1, Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên dự phiên làm việc
+                                Đại hội XIV của Đảng tại hội trường với tinh thần trách nhiệm cao,
+                                đóng góp vào thành công chung của Đại hội.
+                            </p>
                         </div>
                     </article>
-
                 </div>
             </div>
         </section>
@@ -337,165 +363,322 @@
         <!-- ====== SECTION: Main content (article list + sidebar) ====== -->
         <section class="t:py-[30px]">
             <div class="t:container">
-                <div class="t:grid t:grid-cols-1 t:pc:grid-cols-[2fr_1fr] t:gap-x-6 t:max-pc:gap-y-[30px]">
+                <div
+                    class="t:grid t:grid-cols-1 t:pc:grid-cols-[2fr_1fr] t:gap-x-6 t:max-pc:gap-y-[30px]"
+                >
                     <!-- ====== SECTION: Main article list ====== -->
                     <div>
                         <!-- Danh sách bài: item ngang (ảnh trái ~30% + nội dung phải), phân tách bằng đường kẻ ngang #ffeecf -->
-                        <div class="t:flex t:flex-col t:divide-y t:divide-[#ffeecf] t:[&>*:first-child]:pt-0 t:[&>*]:py-[15px]">
+                        <div
+                            class="t:flex t:flex-col t:divide-y t:divide-[#ffeecf] t:[&>*:first-child]:pt-0 t:[&>*]:py-[15px]"
+                        >
                             <!-- 1 -->
                             <article class="t:flex t:items-start t:gap-[15px]">
                                 <a href="#" class="t:block t:w-[30%] t:shrink-0">
                                     <figure class="img-block t:w-full">
-                                        <img src="./images/cat-list-01.jpg" alt="(Ảnh) Đoàn Thái Nguyên tại ngày làm việc thứ hai Đại hội đại biểu toàn quốc lần thứ XIV của Đảng" />
+                                        <img
+                                            src="./images/cat-list-01.jpg"
+                                            alt="(Ảnh) Đoàn Thái Nguyên tại ngày làm việc thứ hai Đại hội đại biểu toàn quốc lần thứ XIV của Đảng"
+                                        />
                                     </figure>
                                 </a>
                                 <div class="t:flex t:flex-col t:gap-[5px] t:min-w-0">
                                     <a href="#">
-                                        <h3 class="title l3 merriweather t:mt-0! t:text-black t:font-semibold">(Ảnh) Đoàn Thái Nguyên tại ngày làm việc thứ hai Đại hội đại biểu toàn quốc lần thứ XIV của Đảng</h3>
+                                        <h3
+                                            class="title l3 merriweather t:mt-0! t:text-black t:font-semibold"
+                                        >
+                                            (Ảnh) Đoàn Thái Nguyên tại ngày làm việc thứ hai Đại hội
+                                            đại biểu toàn quốc lần thứ XIV của Đảng
+                                        </h3>
                                     </a>
-                                    <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>09:12, 21/01/2026</span>
-                                    <p class="desc t:text-[#5f5f5f]">Sáng nay (21-1), Đại hội đại biểu toàn quốc lần thứ XIV của Đảng bước vào ngày làm việc thứ hai, các đại biểu phát biểu tham luận tại hội trường.</p>
+                                    <span class="article-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        09:12, 21/01/2026
+                                    </span>
+                                    <p class="desc t:text-[#5f5f5f]">
+                                        Sáng nay (21-1), Đại hội đại biểu toàn quốc lần thứ XIV của
+                                        Đảng bước vào ngày làm việc thứ hai, các đại biểu phát biểu
+                                        tham luận tại hội trường.
+                                    </p>
                                 </div>
                             </article>
                             <!-- 2 -->
                             <article class="t:flex t:items-start t:gap-[15px]">
                                 <a href="#" class="t:block t:w-[30%] t:shrink-0">
                                     <figure class="img-block t:w-full">
-                                        <img src="./images/cat-list-02.jpg" alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên thảo luận tại tổ" />
+                                        <img
+                                            src="./images/cat-list-02.jpg"
+                                            alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên thảo luận tại tổ"
+                                        />
                                     </figure>
                                 </a>
                                 <div class="t:flex t:flex-col t:gap-[5px] t:min-w-0">
                                     <a href="#">
-                                        <h3 class="title l3 merriweather t:mt-0! t:text-black t:font-semibold">(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên thảo luận tại tổ</h3>
+                                        <h3
+                                            class="title l3 merriweather t:mt-0! t:text-black t:font-semibold"
+                                        >
+                                            (Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên thảo luận
+                                            tại tổ
+                                        </h3>
                                     </a>
-                                    <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>19:38, 20/01/2026</span>
-                                    <p class="desc t:text-[#5f5f5f]">Đồng chí Trịnh Xuân Trường, Bí thư Tỉnh ủy, Trưởng Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên dự Đại hội, điều hành tổ thảo luận của Đoàn Thái Nguyên, chiều 20-1.</p>
+                                    <span class="article-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        19:38, 20/01/2026
+                                    </span>
+                                    <p class="desc t:text-[#5f5f5f]">
+                                        Đồng chí Trịnh Xuân Trường, Bí thư Tỉnh ủy, Trưởng Đoàn đại
+                                        biểu Đảng bộ tỉnh Thái Nguyên dự Đại hội, điều hành tổ thảo
+                                        luận của Đoàn Thái Nguyên, chiều 20-1.
+                                    </p>
                                 </div>
                             </article>
                             <!-- 3 -->
                             <article class="t:flex t:items-start t:gap-[15px]">
                                 <a href="#" class="t:block t:w-[30%] t:shrink-0">
                                     <figure class="img-block t:w-full">
-                                        <img src="./images/cat-list-03.jpg" alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên dự phiên khai mạc Đại hội XIV của Đảng" />
+                                        <img
+                                            src="./images/cat-list-03.jpg"
+                                            alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên dự phiên khai mạc Đại hội XIV của Đảng"
+                                        />
                                     </figure>
                                 </a>
                                 <div class="t:flex t:flex-col t:gap-[5px] t:min-w-0">
                                     <a href="#">
-                                        <h3 class="title l3 merriweather t:mt-0! t:text-black t:font-semibold">(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên dự phiên khai mạc Đại hội XIV của Đảng</h3>
+                                        <h3
+                                            class="title l3 merriweather t:mt-0! t:text-black t:font-semibold"
+                                        >
+                                            (Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên dự phiên
+                                            khai mạc Đại hội XIV của Đảng
+                                        </h3>
                                     </a>
-                                    <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>17:34, 20/01/2026</span>
-                                    <p class="desc t:text-[#5f5f5f]">Sáng nay (20-1), Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên đã tham dự phiên khai mạc Đại hội đại biểu toàn quốc lần thứ XIV của Đảng.</p>
+                                    <span class="article-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        17:34, 20/01/2026
+                                    </span>
+                                    <p class="desc t:text-[#5f5f5f]">
+                                        Sáng nay (20-1), Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên đã
+                                        tham dự phiên khai mạc Đại hội đại biểu toàn quốc lần thứ
+                                        XIV của Đảng.
+                                    </p>
                                 </div>
                             </article>
                             <!-- 4 -->
                             <article class="t:flex t:items-start t:gap-[15px]">
                                 <a href="#" class="t:block t:w-[30%] t:shrink-0">
                                     <figure class="img-block t:w-full">
-                                        <img src="./images/cat-list-04.jpg" alt="Hình ảnh phiên khai mạc Đại hội đại biểu toàn quốc lần thứ XIV của Đảng" />
+                                        <img
+                                            src="./images/cat-list-04.jpg"
+                                            alt="Hình ảnh phiên khai mạc Đại hội đại biểu toàn quốc lần thứ XIV của Đảng"
+                                        />
                                     </figure>
                                 </a>
                                 <div class="t:flex t:flex-col t:gap-[5px] t:min-w-0">
                                     <a href="#">
-                                        <h3 class="title l3 merriweather t:mt-0! t:text-black t:font-semibold">Hình ảnh phiên khai mạc Đại hội đại biểu toàn quốc lần thứ XIV của Đảng</h3>
+                                        <h3
+                                            class="title l3 merriweather t:mt-0! t:text-black t:font-semibold"
+                                        >
+                                            Hình ảnh phiên khai mạc Đại hội đại biểu toàn quốc lần
+                                            thứ XIV của Đảng
+                                        </h3>
                                     </a>
-                                    <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>09:39, 20/01/2026</span>
-                                    <p class="desc t:text-[#5f5f5f]">Đại hội đại biểu toàn quốc lần thứ XIV của Đảng chính thức khai mạc với sự tham dự của 1.586 đại biểu, đại diện cho hơn 5,6 triệu đảng viên trên cả nước.</p>
+                                    <span class="article-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        09:39, 20/01/2026
+                                    </span>
+                                    <p class="desc t:text-[#5f5f5f]">
+                                        Đại hội đại biểu toàn quốc lần thứ XIV của Đảng chính thức
+                                        khai mạc với sự tham dự của 1.586 đại biểu, đại diện cho hơn
+                                        5,6 triệu đảng viên trên cả nước.
+                                    </p>
                                 </div>
                             </article>
                             <!-- 5 (không desc) -->
                             <article class="t:flex t:items-start t:gap-[15px]">
                                 <a href="#" class="t:block t:w-[30%] t:shrink-0">
                                     <figure class="img-block t:w-full">
-                                        <img src="./images/cat-list-05.jpg" alt="Hình ảnh phiên họp trù bị Đại hội Đảng toàn quốc lần thứ XIV" />
+                                        <img
+                                            src="./images/cat-list-05.jpg"
+                                            alt="Hình ảnh phiên họp trù bị Đại hội Đảng toàn quốc lần thứ XIV"
+                                        />
                                     </figure>
                                 </a>
                                 <div class="t:flex t:flex-col t:gap-[5px] t:min-w-0">
                                     <a href="#">
-                                        <h3 class="title l3 merriweather t:mt-0! t:text-black t:font-semibold">Hình ảnh phiên họp trù bị Đại hội Đảng toàn quốc lần thứ XIV</h3>
+                                        <h3
+                                            class="title l3 merriweather t:mt-0! t:text-black t:font-semibold"
+                                        >
+                                            Hình ảnh phiên họp trù bị Đại hội Đảng toàn quốc lần thứ
+                                            XIV
+                                        </h3>
                                     </a>
-                                    <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>10:33, 19/01/2026</span>
+                                    <span class="article-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        10:33, 19/01/2026
+                                    </span>
                                 </div>
                             </article>
                             <!-- 6 -->
                             <article class="t:flex t:items-start t:gap-[15px]">
                                 <a href="#" class="t:block t:w-[30%] t:shrink-0">
                                     <figure class="img-block t:w-full">
-                                        <img src="./images/cat-list-06.jpg" alt="Các đồng chí lãnh đạo Đảng, Nhà nước và đại biểu đến dự phiên trù bị Đại hội lần thứ XIV của Đảng" />
+                                        <img
+                                            src="./images/cat-list-06.jpg"
+                                            alt="Các đồng chí lãnh đạo Đảng, Nhà nước và đại biểu đến dự phiên trù bị Đại hội lần thứ XIV của Đảng"
+                                        />
                                     </figure>
                                 </a>
                                 <div class="t:flex t:flex-col t:gap-[5px] t:min-w-0">
                                     <a href="#">
-                                        <h3 class="title l3 merriweather t:mt-0! t:text-black t:font-semibold">Các đồng chí lãnh đạo Đảng, Nhà nước và đại biểu đến dự phiên trù bị Đại hội lần thứ XIV của Đảng</h3>
+                                        <h3
+                                            class="title l3 merriweather t:mt-0! t:text-black t:font-semibold"
+                                        >
+                                            Các đồng chí lãnh đạo Đảng, Nhà nước và đại biểu đến dự
+                                            phiên trù bị Đại hội lần thứ XIV của Đảng
+                                        </h3>
                                     </a>
-                                    <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>09:37, 19/01/2026</span>
-                                    <p class="desc t:text-[#5f5f5f]">Sáng 19/1/2026, sau khi vào Lăng viếng Chủ tịch Hồ Chí Minh và dâng hương tại Đài tưởng niệm các Anh hùng liệt sĩ, Tổng Bí thư Tô Lâm cùng các đồng chí lãnh đạo Đảng, Nhà nước và đại biểu dự Đại hội đại biểu toàn quốc lần thứ XIV của Đảng Cộng sản Việt Nam di chuyển đến Trung tâm Hội nghị Quốc gia (Hà Nội) để tiến hành phiên họp trù bị.</p>
+                                    <span class="article-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        09:37, 19/01/2026
+                                    </span>
+                                    <p class="desc t:text-[#5f5f5f]">
+                                        Sáng 19/1/2026, sau khi vào Lăng viếng Chủ tịch Hồ Chí Minh
+                                        và dâng hương tại Đài tưởng niệm các Anh hùng liệt sĩ, Tổng
+                                        Bí thư Tô Lâm cùng các đồng chí lãnh đạo Đảng, Nhà nước và
+                                        đại biểu dự Đại hội đại biểu toàn quốc lần thứ XIV của Đảng
+                                        Cộng sản Việt Nam di chuyển đến Trung tâm Hội nghị Quốc gia
+                                        (Hà Nội) để tiến hành phiên họp trù bị.
+                                    </p>
                                 </div>
                             </article>
                             <!-- 7 -->
                             <article class="t:flex t:items-start t:gap-[15px]">
                                 <a href="#" class="t:block t:w-[30%] t:shrink-0">
                                     <figure class="img-block t:w-full">
-                                        <img src="./images/cat-list-07.jpg" alt="Hình ảnh Thủ đô Hà Nội đêm trước sự kiện trọng đại" />
+                                        <img
+                                            src="./images/cat-list-07.jpg"
+                                            alt="Hình ảnh Thủ đô Hà Nội đêm trước sự kiện trọng đại"
+                                        />
                                     </figure>
                                 </a>
                                 <div class="t:flex t:flex-col t:gap-[5px] t:min-w-0">
                                     <a href="#">
-                                        <h3 class="title l3 merriweather t:mt-0! t:text-black t:font-semibold">Hình ảnh Thủ đô Hà Nội đêm trước sự kiện trọng đại</h3>
+                                        <h3
+                                            class="title l3 merriweather t:mt-0! t:text-black t:font-semibold"
+                                        >
+                                            Hình ảnh Thủ đô Hà Nội đêm trước sự kiện trọng đại
+                                        </h3>
                                     </a>
-                                    <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>23:29, 18/01/2026</span>
-                                    <p class="desc t:text-[#5f5f5f]">Thủ đô Hà Nội rực rỡ sắc đỏ của cờ Đảng, cờ Tổ quốc, pa-nô, áp-phích chào mừng Đại hội đại biểu toàn quốc lần thứ XIV của Đảng.</p>
+                                    <span class="article-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        23:29, 18/01/2026
+                                    </span>
+                                    <p class="desc t:text-[#5f5f5f]">
+                                        Thủ đô Hà Nội rực rỡ sắc đỏ của cờ Đảng, cờ Tổ quốc, pa-nô,
+                                        áp-phích chào mừng Đại hội đại biểu toàn quốc lần thứ XIV
+                                        của Đảng.
+                                    </p>
                                 </div>
                             </article>
                             <!-- 8 -->
                             <article class="t:flex t:items-start t:gap-[15px]">
                                 <a href="#" class="t:block t:w-[30%] t:shrink-0">
                                     <figure class="img-block t:w-full">
-                                        <img src="./images/cat-list-08.jpg" alt="(Ảnh) Phiên khai mạc Đại hội đại biểu Đảng bộ tỉnh Thái Nguyên lần thứ I" />
+                                        <img
+                                            src="./images/cat-list-08.jpg"
+                                            alt="(Ảnh) Phiên khai mạc Đại hội đại biểu Đảng bộ tỉnh Thái Nguyên lần thứ I"
+                                        />
                                     </figure>
                                 </a>
                                 <div class="t:flex t:flex-col t:gap-[5px] t:min-w-0">
                                     <a href="#">
-                                        <h3 class="title l3 merriweather t:mt-0! t:text-black t:font-semibold">(Ảnh) Phiên khai mạc Đại hội đại biểu Đảng bộ tỉnh Thái Nguyên lần thứ I</h3>
+                                        <h3
+                                            class="title l3 merriweather t:mt-0! t:text-black t:font-semibold"
+                                        >
+                                            (Ảnh) Phiên khai mạc Đại hội đại biểu Đảng bộ tỉnh Thái
+                                            Nguyên lần thứ I
+                                        </h3>
                                     </a>
-                                    <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>11:25, 23/09/2025</span>
-                                    <p class="desc t:text-[#5f5f5f]">Sáng 23-9, tại Trung tâm Văn hóa tỉnh, Ban Chấp hành Đảng bộ tỉnh Thái Nguyên long trọng tổ chức khai mạc Đại hội đại biểu lần thứ I, nhiệm kỳ 2025-2030.</p>
+                                    <span class="article-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        11:25, 23/09/2025
+                                    </span>
+                                    <p class="desc t:text-[#5f5f5f]">
+                                        Sáng 23-9, tại Trung tâm Văn hóa tỉnh, Ban Chấp hành Đảng bộ
+                                        tỉnh Thái Nguyên long trọng tổ chức khai mạc Đại hội đại
+                                        biểu lần thứ I, nhiệm kỳ 2025-2030.
+                                    </p>
                                 </div>
                             </article>
                             <!-- 9 -->
                             <article class="t:flex t:items-start t:gap-[15px]">
                                 <a href="#" class="t:block t:w-[30%] t:shrink-0">
                                     <figure class="img-block t:w-full">
-                                        <img src="./images/cat-list-09.jpg" alt="Gian trưng bày của tỉnh Thái Nguyên tại Triển lãm thành tựu đất nước thu hút đông đảo du khách" />
+                                        <img
+                                            src="./images/cat-list-09.jpg"
+                                            alt="Gian trưng bày của tỉnh Thái Nguyên tại Triển lãm thành tựu đất nước thu hút đông đảo du khách"
+                                        />
                                     </figure>
                                 </a>
                                 <div class="t:flex t:flex-col t:gap-[5px] t:min-w-0">
                                     <a href="#">
-                                        <h3 class="title l3 merriweather t:mt-0! t:text-black t:font-semibold">Gian trưng bày của tỉnh Thái Nguyên tại Triển lãm thành tựu đất nước thu hút đông đảo du khách</h3>
+                                        <h3
+                                            class="title l3 merriweather t:mt-0! t:text-black t:font-semibold"
+                                        >
+                                            Gian trưng bày của tỉnh Thái Nguyên tại Triển lãm thành
+                                            tựu đất nước thu hút đông đảo du khách
+                                        </h3>
                                     </a>
-                                    <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>17:36, 28/08/2025</span>
-                                    <p class="desc t:text-[#5f5f5f]">Trong ngày 28-8, một số gian trưng bày của tỉnh Thái Nguyên đã có rất nhiều người đến tham quan. Trong đó, các mặt hàng nông sản như trà, miến dong, tinh bột nghệ… nhận được sự quan tâm của đông đảo du khách.</p>
+                                    <span class="article-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        17:36, 28/08/2025
+                                    </span>
+                                    <p class="desc t:text-[#5f5f5f]">
+                                        Trong ngày 28-8, một số gian trưng bày của tỉnh Thái Nguyên
+                                        đã có rất nhiều người đến tham quan. Trong đó, các mặt hàng
+                                        nông sản như trà, miến dong, tinh bột nghệ… nhận được sự
+                                        quan tâm của đông đảo du khách.
+                                    </p>
                                 </div>
                             </article>
                             <!-- 10 -->
                             <article class="t:flex t:items-start t:gap-[15px]">
                                 <a href="#" class="t:block t:w-[30%] t:shrink-0">
                                     <figure class="img-block t:w-full">
-                                        <img src="./images/cat-list-10.jpg" alt="Tuyến đường cờ Đảng, cờ Tổ quốc" />
+                                        <img
+                                            src="./images/cat-list-10.jpg"
+                                            alt="Tuyến đường cờ Đảng, cờ Tổ quốc"
+                                        />
                                     </figure>
                                 </a>
                                 <div class="t:flex t:flex-col t:gap-[5px] t:min-w-0">
                                     <a href="#">
-                                        <h3 class="title l3 merriweather t:mt-0! t:text-black t:font-semibold">Tuyến đường cờ Đảng, cờ Tổ quốc</h3>
+                                        <h3
+                                            class="title l3 merriweather t:mt-0! t:text-black t:font-semibold"
+                                        >
+                                            Tuyến đường cờ Đảng, cờ Tổ quốc
+                                        </h3>
                                     </a>
-                                    <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>15:18, 18/03/2025</span>
-                                    <p class="desc t:text-[#5f5f5f]">Mô hình “Tuyến đường cờ Đảng, cờ Tổ quốc” đang được nhân rộng tại nhiều địa phương trong tỉnh; góp phần giáo dục lòng yêu nước, niềm tự hào dân tộc. Đây cũng là một hoạt động thiết thực chào mừng đại hội đảng bộ các cấp, hướng tới Đại hội lần thứ XIV của Đảng.</p>
+                                    <span class="article-date">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        15:18, 18/03/2025
+                                    </span>
+                                    <p class="desc t:text-[#5f5f5f]">
+                                        Mô hình “Tuyến đường cờ Đảng, cờ Tổ quốc” đang được nhân
+                                        rộng tại nhiều địa phương trong tỉnh; góp phần giáo dục lòng
+                                        yêu nước, niềm tự hào dân tộc. Đây cũng là một hoạt động
+                                        thiết thực chào mừng đại hội đảng bộ các cấp, hướng tới Đại
+                                        hội lần thứ XIV của Đảng.
+                                    </p>
                                 </div>
                             </article>
                         </div>
 
                         <!-- Nút Xem thêm -->
                         <div class="t:flex t:justify-center t:mt-[20px]">
-                            <a href="#" class="t:inline-flex t:items-center t:justify-center t:bg-[#fff9f2] t:text-[#e11718] t:rounded-[12px] t:border t:border-[#ffeecf] t:px-[12px] t:py-[6px] t:leading-[24px] t:hover:bg-[#ffeecf]">
+                            <a
+                                href="#"
+                                class="t:inline-flex t:items-center t:justify-center t:bg-[#fff9f2] t:text-[#e11718] t:rounded-[12px] t:border t:border-[#ffeecf] t:px-[12px] t:py-[6px] t:leading-[24px] t:hover:bg-[#ffeecf]"
+                            >
                                 Xem thêm
                             </a>
                         </div>
@@ -533,7 +716,8 @@
                                     </figure>
                                     <div class="t:flex t:flex-col t:gap-1 t:min-w-0">
                                         <h4 class="title l3 merriweather t:mt-0">
-                                            Tỉnh ủy Thái Nguyên công bố các quyết định về công tác cán bộ
+                                            Tỉnh ủy Thái Nguyên công bố các quyết định về công tác
+                                            cán bộ
                                         </h4>
                                         <span class="article-date">
                                             <i class="material-symbols--calendar-month-rounded"></i>
@@ -554,7 +738,8 @@
                                     </figure>
                                     <div class="t:flex t:flex-col t:gap-1 t:min-w-0">
                                         <h4 class="title l3 merriweather t:mt-0">
-                                            Giới thiệu nhân sự bầu bổ sung Phó Chủ tịch UBND tỉnh Thái Nguyên
+                                            Giới thiệu nhân sự bầu bổ sung Phó Chủ tịch UBND tỉnh
+                                            Thái Nguyên
                                         </h4>
                                         <span class="article-date">
                                             <i class="material-symbols--calendar-month-rounded"></i>
@@ -575,7 +760,8 @@
                                     </figure>
                                     <div class="t:flex t:flex-col t:gap-1 t:min-w-0">
                                         <h4 class="title l3 merriweather t:mt-0">
-                                            Tập trung cao độ cho nhiệm vụ phát triển kinh tế - xã hội
+                                            Tập trung cao độ cho nhiệm vụ phát triển kinh tế - xã
+                                            hội
                                         </h4>
                                         <span class="article-date">
                                             <i class="material-symbols--calendar-month-rounded"></i>
@@ -589,28 +775,60 @@
                         <!-- Stack BANNER quảng cáo -->
                         <div class="t:w-full t:flex t:flex-col t:gap-[10px]">
                             <a href="#" class="t:block t:w-full">
-                                <img src="./images/cat-side-banner-1.jpg" alt="100 năm Báo chí Cách mạng Việt Nam" class="t:w-full t:h-auto" />
+                                <img
+                                    src="./images/cat-side-banner-1.jpg"
+                                    alt="100 năm Báo chí Cách mạng Việt Nam"
+                                    class="t:w-full t:h-auto"
+                                />
                             </a>
                             <a href="#" class="t:block t:w-full">
-                                <img src="./images/cat-side-banner-2.jpg" alt="Cuộc thi báo chí Đưa nghị quyết Đại hội Đảng bộ tỉnh lần thứ XX vào cuộc sống" class="t:w-full t:h-auto" />
+                                <img
+                                    src="./images/cat-side-banner-2.jpg"
+                                    alt="Cuộc thi báo chí Đưa nghị quyết Đại hội Đảng bộ tỉnh lần thứ XX vào cuộc sống"
+                                    class="t:w-full t:h-auto"
+                                />
                             </a>
                             <a href="#" class="t:block t:w-full">
-                                <img src="./images/cat-side-banner-3.jpg" alt="Cuộc thi ảnh báo chí Thái Nguyên - Góc nhìn cuộc sống" class="t:w-full t:h-auto" />
+                                <img
+                                    src="./images/cat-side-banner-3.jpg"
+                                    alt="Cuộc thi ảnh báo chí Thái Nguyên - Góc nhìn cuộc sống"
+                                    class="t:w-full t:h-auto"
+                                />
                             </a>
                             <a href="#" class="t:block t:w-full">
-                                <img src="./images/cat-side-banner-4.jpg" alt="Cuộc thi báo chí về chủ đề Vì an toàn giao thông Thái Nguyên giai đoạn 2021 - 2025" class="t:w-full t:h-auto" />
+                                <img
+                                    src="./images/cat-side-banner-4.jpg"
+                                    alt="Cuộc thi báo chí về chủ đề Vì an toàn giao thông Thái Nguyên giai đoạn 2021 - 2025"
+                                    class="t:w-full t:h-auto"
+                                />
                             </a>
                             <a href="#" class="t:block t:w-full">
-                                <img src="./images/cat-side-banner-5.jpg" alt="Bảo vệ nền tảng tư tưởng của Đảng" class="t:w-full t:h-auto" />
+                                <img
+                                    src="./images/cat-side-banner-5.jpg"
+                                    alt="Bảo vệ nền tảng tư tưởng của Đảng"
+                                    class="t:w-full t:h-auto"
+                                />
                             </a>
                             <a href="#" class="t:block t:w-full">
-                                <img src="./images/cat-side-banner-6.jpg" alt="Đồng Hỷ với công tác giảm nghèo bền vững" class="t:w-full t:h-auto" />
+                                <img
+                                    src="./images/cat-side-banner-6.jpg"
+                                    alt="Đồng Hỷ với công tác giảm nghèo bền vững"
+                                    class="t:w-full t:h-auto"
+                                />
                             </a>
                             <a href="#" class="t:block t:w-full">
-                                <img src="./images/cat-side-banner-7.jpg" alt="Thái Nguyên chung sức xây dựng nông thôn mới" class="t:w-full t:h-auto" />
+                                <img
+                                    src="./images/cat-side-banner-7.jpg"
+                                    alt="Thái Nguyên chung sức xây dựng nông thôn mới"
+                                    class="t:w-full t:h-auto"
+                                />
                             </a>
                             <a href="#" class="t:block t:w-full">
-                                <img src="./images/cat-side-banner-8.jpg" alt="Banner quảng cáo" class="t:w-full t:h-auto" />
+                                <img
+                                    src="./images/cat-side-banner-8.jpg"
+                                    alt="Banner quảng cáo"
+                                    class="t:w-full t:h-auto"
+                                />
                             </a>
                         </div>
                     </aside>
@@ -675,6 +893,7 @@
                 </div>
             </div>
         </footer>
+        <script src="../../dhd_cac_lanh_dao/desktop/script/menu.js"></script>
 
         <script src="../../common/common.js"></script>
         <script type="module" src="../../common/swiper.js"></script>
