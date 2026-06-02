@@ -237,6 +237,50 @@
     display: none !important;
 }
 
+/* TIN BÀI KHÁC — dùng mẫu bài ngang trong trang chi tiết */
+.tin-bai-khac .img-block {
+    width: 260px;
+    max-width: 36%;
+    margin-right: 16px;
+    margin-bottom: 8px;
+}
+
+.tin-bai-khac .title.l2 {
+    margin-bottom: 10px;
+    color: #151515;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.tin-bai-khac .title.l2 a:hover {
+    color: #0a64b4;
+}
+
+.tin-bai-khac .article-date {
+    display: flex !important;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    color: #344054;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.tin-bai-khac .article-date i {
+    color: #0a64b4;
+    font-size: 16px;
+}
+
+.tin-bai-khac .desc {
+    margin-top: 0;
+    color: #344054;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
 /* CÁC CÔNG TRÌNH, DỰ ÁN — nút tròn đỏ 2 bên slider */
 .ct-section .ct-nav {
     --ct-red: #e11718;

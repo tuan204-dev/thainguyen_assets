@@ -514,9 +514,6 @@
   .t\:flex-row {
     flex-direction: row;
   }
-  .t\:flex-nowrap {
-    flex-wrap: nowrap;
-  }
   .t\:flex-wrap {
     flex-wrap: wrap;
   }
@@ -644,6 +641,9 @@
   }
   .t\:overflow-x-auto {
     overflow-x: auto;
+  }
+  .t\:overflow-y-auto {
+    overflow-y: auto;
   }
   .t\:rounded {
     border-radius: 0.25rem;
@@ -787,6 +787,9 @@
   .t\:bg-gradient-to-t {
     --tw-gradient-position: to top in oklab;
     background-image: linear-gradient(var(--tw-gradient-stops));
+  }
+  .t\:bg-\[linear-gradient\(90deg\,rgba\(255\,119\,0\,0\)_0\%\,\#FF7700_20\.5\%\,\#EF0004_50\%\,\#FF7700_81\%\,rgba\(255\,119\,0\,0\)_100\%\)\] {
+    background-image: linear-gradient(90deg,rgba(255,119,0,0) 0%,#FF7700 20.5%,#EF0004 50%,#FF7700 81%,rgba(255,119,0,0) 100%);
   }
   .t\:from-\[\#e11718\] {
     --tw-gradient-from: #e11718;
@@ -973,6 +976,9 @@
   .t\:text-right {
     text-align: right;
   }
+  .t\:font-sans {
+    font-family: var(--t-font-sans);
+  }
   .t\:text-2xl {
     font-size: var(--t-text-2xl);
     line-height: var(--tw-leading, var(--t-text-2xl--line-height));
@@ -1029,6 +1035,10 @@
   .t\:text-\[24px\] {
     font-size: 24px;
   }
+  .t\:leading-6 {
+    --tw-leading: calc(var(--t-spacing) * 6);
+    line-height: calc(var(--t-spacing) * 6);
+  }
   .t\:leading-\[1\.28\] {
     --tw-leading: 1.28;
     line-height: 1.28;
@@ -1084,6 +1094,12 @@
   .t\:font-semibold {
     --tw-font-weight: var(--t-font-weight-semibold);
     font-weight: var(--t-font-weight-semibold);
+  }
+  .t\:break-words {
+    overflow-wrap: break-word;
+  }
+  .t\:whitespace-normal {
+    white-space: normal;
   }
   .t\:whitespace-nowrap {
     white-space: nowrap;
@@ -1284,6 +1300,11 @@
       gap: 18px;
     }
   }
+  .t\:max-pc\:px-4 {
+    @media (width < 1000px) {
+      padding-inline: calc(var(--t-spacing) * 4);
+    }
+  }
   .t\:max-pc\:px-\[16px\] {
     @media (width < 1000px) {
       padding-inline: 16px;
@@ -1379,11 +1400,6 @@
       flex-direction: row;
     }
   }
-  .t\:pc\:flex-wrap {
-    @media (width >= 1000px) {
-      flex-wrap: wrap;
-    }
-  }
   .t\:pc\:items-center {
     @media (width >= 1000px) {
       align-items: center;
@@ -1402,11 +1418,6 @@
   .t\:pc\:gap-6 {
     @media (width >= 1000px) {
       gap: calc(var(--t-spacing) * 6);
-    }
-  }
-  .t\:pc\:overflow-visible {
-    @media (width >= 1000px) {
-      overflow: visible;
     }
   }
   .t\:pc\:p-8 {
@@ -1469,6 +1480,16 @@
       @media (width < 1000px) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+    }
+  }
+  .t\:md\:min-w-\[640px\] {
+    @media (width >= 48rem) {
+      min-width: 640px;
+    }
+  }
+  .t\:md\:overflow-x-hidden {
+    @media (width >= 48rem) {
+      overflow-x: hidden;
     }
   }
   .t\:md\:max-pc\:grid-cols-2 {

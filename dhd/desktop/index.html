@@ -3109,38 +3109,25 @@
             </div>
         </section>
 
-        <section class="t:py-[30px]">
+        <section id="committeeSection" class="t:bg-white t:py-[30px] t:font-sans">
             <div class="t:container">
                 <div
-                    class="t:flex t:flex-col t:gap-5 t:items-center t:w-full t:max-w-[1200px] t:mx-auto"
+                    class="t:mx-auto t:flex t:w-full t:max-w-[1200px] t:flex-col t:items-center t:gap-5"
                 >
-                    <div class="t:flex t:justify-center t:w-full">
-                        <div
-                            class="t:flex t:justify-center t:items-center t:w-full t:max-w-[1176px] t:px-[24px] t:py-[10px] t:text-center"
-                            style="
-                                background-image: linear-gradient(
-                                    90deg,
-                                    rgba(255, 119, 0, 0) 0%,
-                                    rgb(255, 119, 0) 20.5%,
-                                    rgb(239, 0, 4) 50%,
-                                    rgb(255, 119, 0) 81%,
-                                    rgba(255, 119, 0, 0) 100%
-                                );
-                            "
-                        >
+                    <div class="t:mx-auto t:w-full t:max-w-[1200px]">
+                        <div class="t:flex t:justify-center">
                             <h2
-                                class="t:m-0 t:text-[16px] t:leading-[24px] t:font-bold t:uppercase t:text-white t:max-pc:text-[14px]"
+                                class="t:m-0 t:block t:w-full t:max-w-[600px] t:whitespace-normal t:break-words t:bg-[linear-gradient(90deg,rgba(255,119,0,0)_0%,#FF7700_20.5%,#EF0004_50%,#FF7700_81%,rgba(255,119,0,0)_100%)] t:px-3 t:py-[10px] t:text-center t:text-base t:font-semibold t:uppercase t:leading-6 t:text-white"
                             >
                                 Ban Chấp hành Đảng bộ tỉnh khóa I, nhiệm kỳ 2025-2030
                             </h2>
                         </div>
                     </div>
 
-                    <div class="t:w-full t:bg-[#fef8f1] t:px-[40px] t:py-[10px] t:max-pc:px-[16px]">
-                        <!-- Decorative divider: woven dotted line + Đảng emblem -->
-                        <div class="t:flex t:items-center t:gap-[10px] t:mb-[10px]">
+                    <div class="t:w-full t:bg-[#fef8f1] t:px-10 t:py-[10px] t:max-pc:px-4">
+                        <div class="t:mb-[10px] t:flex t:items-center t:gap-[10px]">
                             <span
-                                class="t:flex-1 t:h-[14px] t:bg-repeat-x t:bg-center"
+                                class="t:h-[14px] t:flex-1 t:bg-repeat-x t:bg-center"
                                 style="background-image: url(&quot;./images/bg-dot.gif&quot;)"
                                 aria-hidden="true"
                             ></span>
@@ -3153,33 +3140,32 @@
                         </div>
 
                         <div
-                            class="t:w-full t:max-h-[600px] t:max-[1280px]:max-h-[480px]"
-                            data-scroll
-                            data-scroll-overflow-x="hidden"
-                            data-scroll-auto-hide="leave"
-                            data-scroll-theme="os-theme-dark"
+                            class="t:max-h-[600px] t:w-full t:overflow-y-auto t:md:overflow-x-hidden t:max-[1280px]:max-h-[480px]"
                         >
-                            <table class="t:w-full t:min-w-[640px] t:border-collapse t:text-left">
+                            <table
+                                class="t:w-full t:md:min-w-[640px] t:border-collapse t:text-left"
+                            >
                                 <thead>
-                                    <tr class="t:bg-white t:border t:border-[#ffedae]">
+                                    <tr class="t:border t:border-[#ffedae] t:bg-white">
                                         <th
-                                            class="t:w-[60px] t:border t:border-[#ffedae] t:px-[12px] t:py-[10px] t:text-[14px] t:leading-[21px] t:font-bold t:text-[#1f1f1f]"
+                                            class="t:w-[60px] t:border t:border-[#ffedae] t:px-3 t:py-[10px] t:text-sm t:font-bold t:leading-[21px] t:text-[#1f1f1f]"
                                         >
                                             STT
                                         </th>
                                         <th
-                                            class="t:w-[260px] t:border t:border-[#ffedae] t:px-[12px] t:py-[10px] t:text-[15px] t:leading-[22.5px] t:font-semibold t:text-[#1f1f1f]"
+                                            class="t:w-[260px] t:border t:border-[#ffedae] t:px-3 t:py-[10px] t:text-[15px] t:font-semibold t:leading-[22.5px] t:text-[#1f1f1f]"
                                         >
                                             Họ và tên
                                         </th>
                                         <th
-                                            class="t:border t:border-[#ffedae] t:px-[12px] t:py-[10px] t:text-[14px] t:leading-[21px] t:font-bold t:text-[#1f1f1f]"
+                                            class="t:border t:border-[#ffedae] t:px-3 t:py-[10px] t:text-sm t:font-bold t:leading-[21px] t:text-[#1f1f1f]"
                                         >
                                             Chức vụ, đơn vị công tác
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody
+                                    id="committeeRows"
                                     class="t:[&>tr:nth-child(even)]:bg-white t:[&>tr]:border t:[&>tr]:border-[#ffedae]"
                                 >
                                     <tr>
