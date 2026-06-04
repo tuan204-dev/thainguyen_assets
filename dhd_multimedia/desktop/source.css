@@ -164,10 +164,6 @@
     max-height: none;
 }
 
-.article-date {
-    display: none !important;
-}
-
 /* ── Multimedia hero slider ── */
 .multimedia-hero-swiper {
     height: 480px;
@@ -179,19 +175,16 @@
 }
 
 .multimedia-hero-swiper .swiper-slide,
-.multimedia-hero-swiper .avatar {
+.multimedia-hero-swiper .img-block {
     height: 100%;
 }
 
-.multimedia-hero-swiper .avatar {
+.multimedia-hero-swiper .img-block {
     display: block;
     overflow: hidden;
 }
 
-.multimedia-hero-swiper .avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.multimedia-hero-swiper .img-block img {
     object-position: left center;
 }
 
@@ -221,7 +214,7 @@
 
     .multimedia-hero-swiper .swiper-wrapper,
     .multimedia-hero-swiper .swiper-slide,
-    .multimedia-hero-swiper .avatar {
+    .multimedia-hero-swiper .img-block {
         height: 100% !important;
     }
 }
@@ -299,18 +292,14 @@
 }
 
 .hero-side-item .title {
-    display: -webkit-box;
     margin: 0;
     color: #fff;
     font-family: "Merriweather", serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 1.3;
-    overflow: hidden;
     overflow-wrap: break-word;
     word-break: normal;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
 }
 
 .hero-side-item .title:hover {
@@ -324,10 +313,7 @@
 }
 
 .hero-side-item .hero-side-desc {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    color: rgba(255, 255, 255, 0.82) !important;
 }
 
 .hero-side-item .cate_title_multi {
@@ -361,78 +347,17 @@
     color: #30a14a;
 }
 
-.multimedia-block-title {
-    display: inline-block;
-    color: #935f25;
-    font-family: "Merriweather", serif;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1.1;
-    border-bottom: 2px solid #935f25;
-    margin: 0 0 8px;
-}
-
 .cate_child_multimedia .row30 {
     margin-bottom: 30px;
 }
 
-.cate_child_multimedia .cate_title_3 {
-    margin-bottom: 8px;
-}
-
-.cate_child_multimedia .cate_title_3 .title {
-    display: inline-block;
+.cate_child_multimedia .cate-label h2,
+.multimedia-mostread .cate-label h2 {
     color: #935f25;
-    font-family: "Merriweather", serif;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1.1;
-    border-bottom: 2px solid #935f25;
-    margin: 0;
 }
 
 .cate_child_multimedia .row20 {
     margin-bottom: 20px;
-}
-
-.cate_child_multimedia .avatar {
-    display: block;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    background: #f2f4f7;
-}
-
-.cate_child_multimedia .avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.cate_child_multimedia .title,
-.cate_child_multimedia .title2 {
-    display: block;
-    color: #151515;
-    font-family: "Merriweather", serif;
-    font-weight: 700;
-    line-height: 1.35;
-}
-
-.cate_child_multimedia .title:hover,
-.cate_child_multimedia .title2:hover {
-    color: #30a14a;
-}
-
-.cate_child_multimedia .title2 {
-    font-size: 24px;
-}
-
-.cate_child_multimedia .title {
-    font-size: 16px;
-}
-
-.cate_child_multimedia .row5 {
-    margin-bottom: 5px;
 }
 
 .cate_child_multimedia .row {
@@ -441,70 +366,8 @@
     gap: 20px;
 }
 
-.cate_child_multimedia .row10 {
-    margin-bottom: 10px;
-}
-
-#mostread {
-    margin-top: 0;
-}
-
-#mostread ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-#mostread .item {
-    margin-bottom: 22px;
-}
-
-#mostread .title2 {
-    display: block;
-    color: #151515;
-    font-family: "Merriweather", serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.35;
-}
-
-#mostread .title2:hover {
-    color: #30a14a;
-}
-
-#mostread .color1 {
-    margin-top: 8px;
-    color: #935f25;
-    font-size: 16px;
-    line-height: 1.4;
-}
-
-#mostread .clear {
-    clear: both;
-}
-
 @media (max-width: 767px) {
-    .multimedia-block-title {
-        font-size: 26px;
-    }
-
-    .cate_child_multimedia .cate_title_3 .title {
-        font-size: 26px;
-    }
-
-    .cate_child_multimedia .title2 {
-        font-size: 22px;
-    }
-
-    .cate_child_multimedia .title {
-        font-size: 16px;
-    }
-
     .cate_child_multimedia .row {
         gap: 16px 12px;
-    }
-
-    #mostread .title2 {
-        font-size: 18px;
     }
 }

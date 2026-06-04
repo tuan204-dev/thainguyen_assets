@@ -164,10 +164,6 @@
     max-height: none;
 }
 
-.article-date {
-    display: none !important;
-}
-
 .header-title {
     padding-bottom: 36px;
     padding-top: 32px;
@@ -259,12 +255,7 @@
 }
 
 .header-title .article-date {
-    display: flex !important;
-    align-items: center;
-    gap: 5px;
     color: var(--text-color-soft);
-    font-family: "Roboto", sans-serif;
-    font-size: 0.8rem;
 }
 
 .header-title .info-date-source img {
@@ -422,15 +413,7 @@ main h1 {
     line-height: 1;
 }
 
-.ranked-item a {
-    color: #151515;
-    font-family: "Merriweather", serif;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.35;
-}
-
-.ranked-item a:hover {
+.ranked-item .title a:hover {
     color: #0a64b4;
 }
 
@@ -448,76 +431,17 @@ main h1 {
     font-size: 14px;
 }
 
-.related-news-title {
-    margin: 0 0 10px;
-    color: #151515;
-    font-family: "Merriweather", serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.35;
-}
-
-.related-news-title a:hover {
+.tin-bai-khac .cate-label h2 {
     color: #0a64b4;
-}
-
-.related-news-date {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin: 0 0 10px;
-    color: #344054;
-    font-size: 14px;
-}
-
-.related-news-desc {
-    margin: 0;
-    color: #344054;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-.tin-bai-khac .img-block {
-    width: 260px;
-    max-width: 36%;
-    margin-right: 16px;
-    margin-bottom: 8px;
-}
-
-.tin-bai-khac .title.l2 {
-    margin-bottom: 10px;
-    color: #151515;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.35;
-}
-
-.tin-bai-khac .title.l2 a:hover {
-    color: #0a64b4;
-}
-
-.tin-bai-khac .article-date {
-    display: flex !important;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 10px;
-    color: #344054;
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    line-height: 1.4;
 }
 
 .tin-bai-khac .article-date i {
     color: #0a64b4;
-    font-size: 16px;
 }
 
-.tin-bai-khac .desc {
-    margin-top: 0;
+.tin-bai-khac .desc,
+.tin-bai-khac .article-date {
     color: #344054;
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    line-height: 1.55;
 }
 
 .sidebar-news-link:hover {
@@ -553,26 +477,6 @@ main h1 {
         font-size: 16px !important;
         line-height: 1.55;
         -webkit-line-clamp: 4;
-    }
-
-    .related-news-title {
-        font-size: 17px;
-    }
-
-    .tin-bai-khac .img-block {
-        width: 200px;
-        max-width: 50%;
-        margin-right: 12px;
-    }
-
-    .tin-bai-khac .title.l2 {
-        font-size: 17px;
-        line-height: 1.35;
-    }
-
-    .tin-bai-khac .desc {
-        font-size: 14px;
-        line-height: 1.5;
     }
 
     .ranked-title .sidebar-tab-label,

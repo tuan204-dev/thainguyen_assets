@@ -1158,34 +1158,70 @@
         </aside>
 
         <main class="roboto t:bg-white">
-            <section>
-                <div class="t:container t:pt-5 t:pb-6">
-                    <div class="t:border-b t:border-[#D6D2CC] t:pb-4">
-                        <h1
-                            class="merriweather t:text-[30px] t:font-bold t:leading-tight t:text-[#935F25] t:uppercase"
+            <section class="t:mb-5">
+                <div class="t:container">
+                    <div class="t:border-t t:border-[#DCDFE4] t:pt-4">
+                        <div class="t:flex t:items-center t:gap-x-3 t:pc:gap-x-4 t:flex-wrap">
+                            <h2
+                                class="merriweather t:text-[28px] t:max-pc:text-[22px] t:font-semibold t:uppercase t:text-[#935F25] t:leading-tight"
+                            >
+                                <a href="/multimedia/">Multimedia</a>
+                            </h2>
+                        </div>
+                        <div
+                            class="swiper sub-cate-swiper t:relative t:mt-2"
+                            data-swiper
+                            data-swiper-slides-per-view="auto"
+                            data-swiper-space-between="0"
+                            data-swiper-free-mode="true"
                         >
-                            Multimedia
-                        </h1>
-                        <nav
-                            aria-label="Chuyên mục multimedia"
-                            class="t:mt-1 t:flex t:flex-wrap t:items-center t:gap-x-2 t:gap-y-1 merriweather t:text-base t:text-[#666]"
-                        >
-                            <a href="/multimedia/emagazine/" class="t:hover:text-[#935F25]">
-                                Emagazine
-                            </a>
-                            <span class="t:text-[#B7B0A8]">|</span>
-                            <a href="/multimedia/infographic/" class="t:hover:text-[#935F25]">
-                                Infographic
-                            </a>
-                            <span class="t:text-[#B7B0A8]">|</span>
-                            <a href="/multimedia/phong-su-anh/" class="t:hover:text-[#935F25]">
-                                Phóng sự ảnh
-                            </a>
-                            <span class="t:text-[#B7B0A8]">|</span>
-                            <a href="/multimedia/clip-so/" class="t:hover:text-[#935F25]">
-                                Clip số
-                            </a>
-                        </nav>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a
+                                        href="/multimedia/emagazine/"
+                                        class="t:hover:text-[#935F25] t:whitespace-nowrap"
+                                    >
+                                        Emagazine
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a
+                                        href="/multimedia/infographic/"
+                                        class="t:hover:text-[#935F25] t:whitespace-nowrap"
+                                    >
+                                        Infographic
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a
+                                        href="/multimedia/phong-su-anh/"
+                                        class="t:hover:text-[#935F25] t:whitespace-nowrap"
+                                    >
+                                        Phóng sự ảnh
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a
+                                        href="/multimedia/clip-so/"
+                                        class="t:hover:text-[#935F25] t:whitespace-nowrap"
+                                    >
+                                        Clip số
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-control">
+                                <button
+                                    type="button"
+                                    aria-label="Trước"
+                                    class="swiper-button-prev"
+                                ></button>
+                                <button
+                                    type="button"
+                                    aria-label="Sau"
+                                    class="swiper-button-next"
+                                ></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1207,7 +1243,7 @@
                                 <div class="swiper-slide">
                                     <a
                                         href="/giao-duc/202605/47-diem-thi-tot-nghiep-thpt-nam-2026-tren-dia-ban-tinh-thai-nguyen-2a656fa/"
-                                        class="avatar"
+                                        class="img-block t:block t:h-full"
                                     >
                                         <img
                                             src="./images/phu-cap-nha-giao.jpg"
@@ -1218,7 +1254,7 @@
                                 <div class="swiper-slide">
                                     <a
                                         href="/giao-duc/202605/phu-cap-uu-dai-nghe-doi-voi-can-bo-quan-ly-giao-vien-tu-thang-7-2026-eb93bed/"
-                                        class="avatar"
+                                        class="img-block t:block t:h-full"
                                     >
                                         <img
                                             src="./images/du-lich-thai-nguyen.jpg"
@@ -1254,40 +1290,42 @@
                                 class="hero-side-item is-active t:flex t:min-h-[240px] t:min-w-0 t:cursor-pointer t:flex-col t:justify-center t:gap-y-3 t:border-b t:border-white/10 t:p-5"
                                 data-hero-tab="0"
                             >
-                                <a
-                                    href="/multimedia/202605/danh-sach-59-nguoi-trung-cu-dai-bieu-hdnd-tinh-thai-nguyen-khoa-xv-nhiem-ky-2026-2031/"
-                                    class="title"
-                                >
-                                    47 điểm thi tốt nghiệp THPT năm 2026 trên địa bàn tỉnh Thái
-                                    Nguyên
-                                </a>
-                                <div
-                                    class="des row5 hero-side-desc t:m-0 t:text-[19px] t:font-bold t:leading-8"
+                                <h3 class="title l2 t:text-white! t:m-0!">
+                                    <a
+                                        href="/multimedia/202605/danh-sach-59-nguoi-trung-cu-dai-bieu-hdnd-tinh-thai-nguyen-khoa-xv-nhiem-ky-2026-2031/"
+                                    >
+                                        47 điểm thi tốt nghiệp THPT năm 2026 trên địa bàn tỉnh Thái
+                                        Nguyên
+                                    </a>
+                                </h3>
+                                <p
+                                    class="desc hero-side-desc t:m-0! t:text-white/80! t:text-[19px] t:font-bold t:leading-8"
                                 >
                                     Kỳ thi tốt nghiệp THPT năm 2026 tại tỉnh Thái Nguyên được chuẩn
                                     bị kỹ lưỡng với 47 điểm thi, 973 phòng thi và 22.843 thí sinh
                                     đăng ký dự thi.
-                                </div>
+                                </p>
                                 <a href="/multimedia/" class="cate_title_multi">Multimedia</a>
                             </div>
                             <div
                                 class="hero-side-item t:flex t:min-h-[240px] t:min-w-0 t:cursor-pointer t:flex-col t:justify-center t:gap-y-3 t:p-5"
                                 data-hero-tab="1"
                             >
-                                <a
-                                    href="/giao-duc/202605/phu-cap-uu-dai-nghe-doi-voi-can-bo-quan-ly-giao-vien-tu-thang-7-2026-eb93bed/"
-                                    class="title"
-                                >
-                                    Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo viên từ tháng
-                                    7-2026
-                                </a>
-                                <div
-                                    class="des row5 hero-side-desc t:m-0 t:text-[19px] t:font-bold t:leading-8"
+                                <h3 class="title l2 t:text-white! t:m-0!">
+                                    <a
+                                        href="/giao-duc/202605/phu-cap-uu-dai-nghe-doi-voi-can-bo-quan-ly-giao-vien-tu-thang-7-2026-eb93bed/"
+                                    >
+                                        Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo viên từ
+                                        tháng 7-2026
+                                    </a>
+                                </h3>
+                                <p
+                                    class="desc hero-side-desc t:m-0! t:text-white/80! t:text-[19px] t:font-bold t:leading-8"
                                 >
                                     Nghị định 182/2026/NĐ-CP được Chính phủ ban hành nhằm tạo động
                                     lực, khuyến khích đội ngũ nhà giáo, cán bộ quản lý giáo dục yên
                                     tâm công tác.
-                                </div>
+                                </p>
                                 <a href="/multimedia/" class="cate_title_multi">Multimedia</a>
                             </div>
                         </div>
@@ -1380,352 +1418,434 @@
                         <div>
                             <div class="cate_child_multimedia">
                                 <div class="row30">
-                                    <div class="cate_title_3">
-                                        <a class="title color1" href="/multimedia/clip-so/">
-                                            Clip số
-                                        </a>
+                                    <div class="cate-label t:mb-4">
+                                        <h2>
+                                            <a href="/multimedia/clip-so/">Clip số</a>
+                                        </h2>
                                     </div>
-                                    <div class="row20">
-                                        <a
-                                            class="avatar row5"
-                                            href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
-                                        >
-                                            <img
-                                                src="./images/du-lich-thai-nguyen.jpg"
-                                                alt="Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận cuối"
-                                            />
-                                        </a>
-                                        <a
-                                            class="title2"
-                                            href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
-                                        >
-                                            Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận
-                                            cuối
-                                        </a>
-                                    </div>
+                                    <article class="row20">
+                                        <figure class="img-block t:mb-2">
+                                            <a
+                                                href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
+                                            >
+                                                <img
+                                                    src="./images/du-lich-thai-nguyen.jpg"
+                                                    alt="Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận cuối"
+                                                />
+                                            </a>
+                                        </figure>
+                                        <h3 class="title l2">
+                                            <a
+                                                href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
+                                            >
+                                                Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt
+                                                trận cuối
+                                            </a>
+                                        </h3>
+                                    </article>
                                     <div class="row">
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/dong-loc-mua-da.jpg"
-                                                    alt="Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại khi dông lốc, mưa đá"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại khi
-                                                dông lốc, mưa đá
-                                            </a>
-                                        </div>
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/xang-e10.jpg"
-                                                    alt="Những lợi ích khi sử dụng xăng sinh học E10"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Những lợi ích khi sử dụng xăng sinh học E10
-                                            </a>
-                                        </div>
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/tuyen-sinh-lop-10.jpg"
-                                                    alt="Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027 trên địa bàn tỉnh Thái Nguyên"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027
-                                                trên địa bàn tỉnh Thái Nguyên
-                                            </a>
-                                        </div>
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/phu-cap-nha-giao.jpg"
-                                                    alt="Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo viên từ tháng 7-2026"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo
-                                                viên từ tháng 7-2026
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="cate_child_multimedia">
-                                <div class="row30">
-                                    <div class="cate_title_3">
-                                        <a class="title color1" href="/multimedia/clip-so/">
-                                            Infographic
-                                        </a>
-                                    </div>
-                                    <div class="row20">
-                                        <a
-                                            class="avatar row5"
-                                            href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
-                                        >
-                                            <img
-                                                src="./images/du-lich-thai-nguyen.jpg"
-                                                alt="Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận cuối"
-                                            />
-                                        </a>
-                                        <a
-                                            class="title2"
-                                            href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
-                                        >
-                                            Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận
-                                            cuối
-                                        </a>
-                                    </div>
-                                    <div class="row">
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/dong-loc-mua-da.jpg"
-                                                    alt="Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại khi dông lốc, mưa đá"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại khi
-                                                dông lốc, mưa đá
-                                            </a>
-                                        </div>
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/xang-e10.jpg"
-                                                    alt="Những lợi ích khi sử dụng xăng sinh học E10"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Những lợi ích khi sử dụng xăng sinh học E10
-                                            </a>
-                                        </div>
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/tuyen-sinh-lop-10.jpg"
-                                                    alt="Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027 trên địa bàn tỉnh Thái Nguyên"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027
-                                                trên địa bàn tỉnh Thái Nguyên
-                                            </a>
-                                        </div>
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/phu-cap-nha-giao.jpg"
-                                                    alt="Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo viên từ tháng 7-2026"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo
-                                                viên từ tháng 7-2026
-                                            </a>
-                                        </div>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/dong-loc-mua-da.jpg"
+                                                        alt="Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại khi dông lốc, mưa đá"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại
+                                                    khi dông lốc, mưa đá
+                                                </a>
+                                            </h3>
+                                        </article>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/xang-e10.jpg"
+                                                        alt="Những lợi ích khi sử dụng xăng sinh học E10"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Những lợi ích khi sử dụng xăng sinh học E10
+                                                </a>
+                                            </h3>
+                                        </article>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/tuyen-sinh-lop-10.jpg"
+                                                        alt="Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027 trên địa bàn tỉnh Thái Nguyên"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Kế hoạch tuyển sinh vào lớp 10, năm học
+                                                    2026-2027 trên địa bàn tỉnh Thái Nguyên
+                                                </a>
+                                            </h3>
+                                        </article>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/phu-cap-nha-giao.jpg"
+                                                        alt="Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo viên từ tháng 7-2026"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo
+                                                    viên từ tháng 7-2026
+                                                </a>
+                                            </h3>
+                                        </article>
                                     </div>
                                 </div>
                             </div>
                             <div class="cate_child_multimedia">
                                 <div class="row30">
-                                    <div class="cate_title_3">
-                                        <a class="title color1" href="/multimedia/clip-so/">
-                                            Phóng sự ảnh
-                                        </a>
+                                    <div class="cate-label t:mb-4">
+                                        <h2>
+                                            <a href="/multimedia/infographic/">Infographic</a>
+                                        </h2>
                                     </div>
-                                    <div class="row20">
-                                        <a
-                                            class="avatar row5"
-                                            href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
-                                        >
-                                            <img
-                                                src="./images/du-lich-thai-nguyen.jpg"
-                                                alt="Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận cuối"
-                                            />
-                                        </a>
-                                        <a
-                                            class="title2"
-                                            href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
-                                        >
-                                            Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận
-                                            cuối
-                                        </a>
-                                    </div>
+                                    <article class="row20">
+                                        <figure class="img-block t:mb-2">
+                                            <a
+                                                href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
+                                            >
+                                                <img
+                                                    src="./images/du-lich-thai-nguyen.jpg"
+                                                    alt="Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận cuối"
+                                                />
+                                            </a>
+                                        </figure>
+                                        <h3 class="title l2">
+                                            <a
+                                                href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
+                                            >
+                                                Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt
+                                                trận cuối
+                                            </a>
+                                        </h3>
+                                    </article>
                                     <div class="row">
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/dong-loc-mua-da.jpg"
-                                                    alt="Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại khi dông lốc, mưa đá"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại khi
-                                                dông lốc, mưa đá
-                                            </a>
-                                        </div>
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/xang-e10.jpg"
-                                                    alt="Những lợi ích khi sử dụng xăng sinh học E10"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Những lợi ích khi sử dụng xăng sinh học E10
-                                            </a>
-                                        </div>
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/tuyen-sinh-lop-10.jpg"
-                                                    alt="Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027 trên địa bàn tỉnh Thái Nguyên"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027
-                                                trên địa bàn tỉnh Thái Nguyên
-                                            </a>
-                                        </div>
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/phu-cap-nha-giao.jpg"
-                                                    alt="Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo viên từ tháng 7-2026"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo
-                                                viên từ tháng 7-2026
-                                            </a>
-                                        </div>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/dong-loc-mua-da.jpg"
+                                                        alt="Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại khi dông lốc, mưa đá"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại
+                                                    khi dông lốc, mưa đá
+                                                </a>
+                                            </h3>
+                                        </article>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/xang-e10.jpg"
+                                                        alt="Những lợi ích khi sử dụng xăng sinh học E10"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Những lợi ích khi sử dụng xăng sinh học E10
+                                                </a>
+                                            </h3>
+                                        </article>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/tuyen-sinh-lop-10.jpg"
+                                                        alt="Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027 trên địa bàn tỉnh Thái Nguyên"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Kế hoạch tuyển sinh vào lớp 10, năm học
+                                                    2026-2027 trên địa bàn tỉnh Thái Nguyên
+                                                </a>
+                                            </h3>
+                                        </article>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/phu-cap-nha-giao.jpg"
+                                                        alt="Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo viên từ tháng 7-2026"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo
+                                                    viên từ tháng 7-2026
+                                                </a>
+                                            </h3>
+                                        </article>
                                     </div>
                                 </div>
                             </div>
                             <div class="cate_child_multimedia">
                                 <div class="row30">
-                                    <div class="cate_title_3">
-                                        <a class="title color1" href="/multimedia/clip-so/">
-                                            Emagazine
-                                        </a>
+                                    <div class="cate-label t:mb-4">
+                                        <h2>
+                                            <a href="/multimedia/phong-su-anh/">Phóng sự ảnh</a>
+                                        </h2>
                                     </div>
-                                    <div class="row20">
-                                        <a
-                                            class="avatar row5"
-                                            href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
-                                        >
-                                            <img
-                                                src="./images/du-lich-thai-nguyen.jpg"
-                                                alt="Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận cuối"
-                                            />
-                                        </a>
-                                        <a
-                                            class="title2"
-                                            href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
-                                        >
-                                            Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận
-                                            cuối
-                                        </a>
-                                    </div>
+                                    <article class="row20">
+                                        <figure class="img-block t:mb-2">
+                                            <a
+                                                href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
+                                            >
+                                                <img
+                                                    src="./images/du-lich-thai-nguyen.jpg"
+                                                    alt="Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận cuối"
+                                                />
+                                            </a>
+                                        </figure>
+                                        <h3 class="title l2">
+                                            <a
+                                                href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
+                                            >
+                                                Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt
+                                                trận cuối
+                                            </a>
+                                        </h3>
+                                    </article>
                                     <div class="row">
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/dong-loc-mua-da.jpg"
+                                                        alt="Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại khi dông lốc, mưa đá"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại
+                                                    khi dông lốc, mưa đá
+                                                </a>
+                                            </h3>
+                                        </article>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/xang-e10.jpg"
+                                                        alt="Những lợi ích khi sử dụng xăng sinh học E10"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Những lợi ích khi sử dụng xăng sinh học E10
+                                                </a>
+                                            </h3>
+                                        </article>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/tuyen-sinh-lop-10.jpg"
+                                                        alt="Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027 trên địa bàn tỉnh Thái Nguyên"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Kế hoạch tuyển sinh vào lớp 10, năm học
+                                                    2026-2027 trên địa bàn tỉnh Thái Nguyên
+                                                </a>
+                                            </h3>
+                                        </article>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/phu-cap-nha-giao.jpg"
+                                                        alt="Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo viên từ tháng 7-2026"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo
+                                                    viên từ tháng 7-2026
+                                                </a>
+                                            </h3>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cate_child_multimedia">
+                                <div class="row30">
+                                    <div class="cate-label t:mb-4">
+                                        <h2>
+                                            <a href="/multimedia/emagazine/">Emagazine</a>
+                                        </h2>
+                                    </div>
+                                    <article class="row20">
+                                        <figure class="img-block t:mb-2">
+                                            <a
+                                                href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
+                                            >
                                                 <img
-                                                    src="./images/dong-loc-mua-da.jpg"
-                                                    alt="Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại khi dông lốc, mưa đá"
+                                                    src="./images/du-lich-thai-nguyen.jpg"
+                                                    alt="Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt trận cuối"
                                                 />
                                             </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại khi
-                                                dông lốc, mưa đá
+                                        </figure>
+                                        <h3 class="title l2">
+                                            <a
+                                                href="/the-thao/202605/ha-noi-fc-hoa-kich-tinh-the-cong-viettel-2-2/"
+                                            >
+                                                Hà Nội FC hòa kịch tính Thể Công Viettel 2-2 ở lượt
+                                                trận cuối
                                             </a>
-                                        </div>
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/xang-e10.jpg"
-                                                    alt="Những lợi ích khi sử dụng xăng sinh học E10"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Những lợi ích khi sử dụng xăng sinh học E10
-                                            </a>
-                                        </div>
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/tuyen-sinh-lop-10.jpg"
-                                                    alt="Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027 trên địa bàn tỉnh Thái Nguyên"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027
-                                                trên địa bàn tỉnh Thái Nguyên
-                                            </a>
-                                        </div>
-                                        <div class="row10 col-6">
-                                            <a class="avatar row5" href="/multimedia/clip-so/">
-                                                <img
-                                                    src="./images/phu-cap-nha-giao.jpg"
-                                                    alt="Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo viên từ tháng 7-2026"
-                                                />
-                                            </a>
-                                            <a class="title" href="/multimedia/clip-so/">
-                                                Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo
-                                                viên từ tháng 7-2026
-                                            </a>
-                                        </div>
+                                        </h3>
+                                    </article>
+                                    <div class="row">
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/dong-loc-mua-da.jpg"
+                                                        alt="Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại khi dông lốc, mưa đá"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Những lưu ý, cảnh báo giúp giảm thiểu thiệt hại
+                                                    khi dông lốc, mưa đá
+                                                </a>
+                                            </h3>
+                                        </article>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/xang-e10.jpg"
+                                                        alt="Những lợi ích khi sử dụng xăng sinh học E10"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Những lợi ích khi sử dụng xăng sinh học E10
+                                                </a>
+                                            </h3>
+                                        </article>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/tuyen-sinh-lop-10.jpg"
+                                                        alt="Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027 trên địa bàn tỉnh Thái Nguyên"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Kế hoạch tuyển sinh vào lớp 10, năm học
+                                                    2026-2027 trên địa bàn tỉnh Thái Nguyên
+                                                </a>
+                                            </h3>
+                                        </article>
+                                        <article>
+                                            <figure class="img-block t:mb-2">
+                                                <a href="/multimedia/clip-so/">
+                                                    <img
+                                                        src="./images/phu-cap-nha-giao.jpg"
+                                                        alt="Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo viên từ tháng 7-2026"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <h3 class="title l3">
+                                                <a href="/multimedia/clip-so/">
+                                                    Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo
+                                                    viên từ tháng 7-2026
+                                                </a>
+                                            </h3>
+                                        </article>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <aside>
-                            <h2
-                                class="multimedia-block-title mb-[8px]"
-                                style="color: #242a2e; font-size: 24px"
-                            >
-                                <a href="/multimedia/">Xem nhiều</a>
-                            </h2>
-                            <div class="list-bd" id="mostread">
-                                <ul>
-                                    <div class="item">
+                        <aside class="multimedia-mostread">
+                            <div class="cate-label t:mb-4">
+                                <h2>
+                                    <a href="/multimedia/">Xem nhiều</a>
+                                </h2>
+                            </div>
+                            <div class="t:flex t:flex-col t:gap-y-4" id="mostread">
+                                <article
+                                    class="t:border-b t:border-dashed t:border-[#D9D9D9] t:pb-4"
+                                >
+                                    <h3 class="title l2 t:mt-0!">
                                         <a
-                                            class="title2"
                                             href="/multimedia/202605/ke-hoach-tuyen-sinh-vao-lop-10-nam-hoc-2026-2027/"
                                         >
                                             Kế hoạch tuyển sinh vào lớp 10, năm học 2026-2027 trên
                                             địa bàn tỉnh Thái Nguyên
                                         </a>
-                                        <div class="color1">09:14 21/05/2026</div>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <div class="item">
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        09:14 21/05/2026
+                                    </time>
+                                </article>
+                                <article
+                                    class="t:border-b t:border-dashed t:border-[#D9D9D9] t:pb-4"
+                                >
+                                    <h3 class="title l2 t:mt-0!">
                                         <a
-                                            class="title2"
                                             href="/giao-duc/202605/phu-cap-uu-dai-nghe-doi-voi-can-bo-quan-ly-giao-vien-tu-thang-7-2026/"
                                         >
                                             Phụ cấp ưu đãi nghề đối với cán bộ quản lý, giáo viên từ
                                             tháng 7-2026
                                         </a>
-                                        <div class="color1">08:20 22/05/2026</div>
-                                        <div class="clear"></div>
-                                    </div>
-                                    <div class="item">
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        08:20 22/05/2026
+                                    </time>
+                                </article>
+                                <article>
+                                    <h3 class="title l2 t:mt-0!">
                                         <a
-                                            class="title2"
                                             href="/kinh-te/202605/nhung-loi-ich-khi-su-dung-xang-sinh-hoc-e10/"
                                         >
                                             Những lợi ích khi sử dụng xăng sinh học E10
                                         </a>
-                                        <div class="color1">07:32 22/05/2026</div>
-                                        <div class="clear"></div>
-                                    </div>
-                                </ul>
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        07:32 22/05/2026
+                                    </time>
+                                </article>
                             </div>
                         </aside>
                     </div>

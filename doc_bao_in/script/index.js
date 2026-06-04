@@ -127,10 +127,10 @@ function renderList() {
           <div class="t:mb-3 t:flex t:items-start t:gap-x-3">
             <span class="t:mt-0.5 t:h-9 t:w-1 t:shrink-0 t:bg-[#935F25]" aria-hidden="true"></span>
             <div class="t:min-w-0 t:flex-1">
-              <h2 class="t:text-base t:leading-[1.22] t:font-bold t:text-[#333]">
-                <a href="${item.href}" class="t:hover:text-[#935F25]">${item.title}</a>
-              </h2>
-              <p class="roboto t:text-sm t:leading-tight t:font-bold t:text-[#111]">${item.time}</p>
+              <h3 class="title l2 t:mt-0!">
+                <a href="${item.href}">${item.title}</a>
+              </h3>
+              <p class="desc">${item.time}</p>
             </div>
             <a href="${item.href}"
               class="roboto t:mt-0.5 t:shrink-0 t:rounded-[3px] t:bg-[#935F25] t:px-2 t:py-1 t:text-xs t:font-bold t:leading-none t:text-white t:hover:bg-[#7E4F1D]">

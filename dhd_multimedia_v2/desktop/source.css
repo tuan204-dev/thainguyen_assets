@@ -157,6 +157,69 @@
     max-height: none;
 }
 
+.featured-clip-swiper {
+    height: auto !important;
+}
+
+.featured-clip-swiper .swiper-slide,
+.featured-clip-swiper .swiper-slide > a {
+    height: auto !important;
+}
+
+.featured-caption-wrap {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+.featured-caption-text {
+    display: block !important;
+    overflow: visible !important;
+}
+
+#clipGrid .img-block {
+    width: 100% !important;
+    max-width: none !important;
+}
+
 .article-date {
-    display: none !important;
+    display: flex !important;
+}
+
+#search-pagination {
+    justify-content: center !important;
+    gap: 8px !important;
+    padding-bottom: 24px;
+}
+
+#search-pagination button:hover:not(:disabled):not([aria-current="page"]) {
+    border-color: #935f25 !important;
+    color: #935f25 !important;
+}
+
+#search-pagination button[aria-current="page"] {
+    border-color: #935f25 !important;
+    background: #935f25 !important;
+    color: #fff !important;
+}
+
+.t\:border-t {
+    border-top: 1px solid;
+}
+
+.t\:border-\[\#DCDFE4\] {
+    border-color: #DCDFE4;
+}
+
+.t\:text-\[\#935F25\] {
+    color: #935F25;
+}
+
+.t\:mb-5 {
+    margin-bottom: 20px;
+}
+
+@media (min-width: 1000px) {
+    .t\:pc\:gap-x-4 {
+        column-gap: 16px;
+    }
 }
