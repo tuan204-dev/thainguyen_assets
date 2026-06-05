@@ -327,6 +327,55 @@
     color: #d6a45e;
 }
 
+.multimedia-hero-mobile {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .multimedia-hero-desktop {
+        display: none !important;
+    }
+
+    .multimedia-hero-mobile {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 12px;
+    }
+
+    .multimedia-hero-mobile > article:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .multimedia-hero-mobile .img-block {
+        margin-bottom: 10px;
+    }
+
+    .multimedia-hero-mobile .title {
+        overflow-wrap: break-word;
+    }
+
+    .multimedia-hero-mobile > article:first-child .title {
+        font-size: 24px !important;
+        line-height: 1.35 !important;
+    }
+
+    .multimedia-hero-mobile > article:not(:first-child) .title {
+        font-size: 16px !important;
+        line-height: 1.45 !important;
+    }
+
+    .multimedia-hero-mobile .desc {
+        margin-top: 8px;
+        color: #333 !important;
+        font-size: 16px;
+        line-height: 1.55;
+    }
+
+    .multimedia-hero-mobile > article:not(:first-child) .desc {
+        display: none !important;
+    }
+}
+
 /* ── Section category title ── */
 .multimedia-section-title {
     border-bottom: 2px solid #dcdfe4;
@@ -369,5 +418,39 @@
 @media (max-width: 767px) {
     .cate_child_multimedia .row {
         gap: 16px 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .multimedia-featured-list {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        column-gap: 12px !important;
+        row-gap: 18px !important;
+    }
+
+    .multimedia-featured-list > article:first-child {
+        display: none !important;
+    }
+
+    .multimedia-featured-list > article {
+        border-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .multimedia-featured-list .img-block {
+        float: none !important;
+        width: 100% !important;
+        margin-right: 0 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .multimedia-featured-list .title {
+        font-size: 16px !important;
+        line-height: 1.45 !important;
+    }
+
+    .multimedia-featured-list .multimedia-card-cate {
+        display: none;
     }
 }
