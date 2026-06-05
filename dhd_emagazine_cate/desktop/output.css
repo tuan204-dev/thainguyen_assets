@@ -1338,6 +1338,14 @@ div.cate_title_1 .submenu li {
   color: #935f25;
   line-height: 51px;
 }
+.featured-article-large .img-block.lg {
+  width: 360px;
+  max-width: 48%;
+}
+.featured-article-large .viewmore_cate {
+  font-size: 16px;
+  line-height: 32px;
+}
 .col-4 {
   flex: 0 0 auto;
   width: 33.33333333%;
@@ -1466,6 +1474,13 @@ div.cate_title_1 .submenu li {
 }
 .pagy {
   margin: 15px 0;
+}
+@media (max-width: 767px) {
+  .featured-article-large .img-block.lg {
+    width: 100%;
+    max-width: none;
+    margin-right: 0 !important;
+  }
 }
 .pagy .btn.next {
   margin-left: 12px;

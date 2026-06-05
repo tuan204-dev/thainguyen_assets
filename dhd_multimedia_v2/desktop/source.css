@@ -223,3 +223,26 @@
         column-gap: 16px;
     }
 }
+
+/* Keep featured slider navigation in the side gutters, outside the active image. */
+.featured-nav-btn {
+    background: rgba(0, 0, 0, 0.22);
+}
+
+.featured-nav-btn--prev {
+    left: 7% !important;
+}
+
+.featured-nav-btn--next {
+    right: 7% !important;
+}
+
+@media (min-width: 1024px) {
+    .featured-nav-btn--prev {
+        left: 19% !important;
+    }
+
+    .featured-nav-btn--next {
+        right: 19% !important;
+    }
+}
