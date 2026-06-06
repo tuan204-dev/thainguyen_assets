@@ -184,9 +184,6 @@
   }
 }
 @layer utilities {
-  .t\:pointer-events-none {
-    pointer-events: none;
-  }
   .t\:absolute {
     position: absolute;
   }
@@ -335,10 +332,6 @@
     width: calc(var(--t-spacing) * 6);
     height: calc(var(--t-spacing) * 6);
   }
-  .t\:size-8 {
-    width: calc(var(--t-spacing) * 8);
-    height: calc(var(--t-spacing) * 8);
-  }
   .t\:size-9 {
     width: calc(var(--t-spacing) * 9);
     height: calc(var(--t-spacing) * 9);
@@ -438,9 +431,6 @@
   .t\:flex-col {
     flex-direction: column;
   }
-  .t\:flex-wrap {
-    flex-wrap: wrap;
-  }
   .t\:items-center {
     align-items: center;
   }
@@ -462,11 +452,11 @@
   .t\:gap-1 {
     gap: calc(var(--t-spacing) * 1);
   }
-  .t\:gap-3 {
-    gap: calc(var(--t-spacing) * 3);
-  }
   .t\:gap-4 {
     gap: calc(var(--t-spacing) * 4);
+  }
+  .t\:gap-x-1 {
+    column-gap: calc(var(--t-spacing) * 1);
   }
   .t\:gap-x-2 {
     column-gap: calc(var(--t-spacing) * 2);
@@ -557,17 +547,11 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
   }
-  .t\:border-\[\#935F25\] {
-    border-color: #935F25;
-  }
   .t\:border-\[\#BC0000\] {
     border-color: #BC0000;
   }
   .t\:border-\[\#CFCFCF\] {
     border-color: #CFCFCF;
-  }
-  .t\:border-\[\#D0D5DD\] {
-    border-color: #D0D5DD;
   }
   .t\:border-\[\#D4D4D4\] {
     border-color: #D4D4D4;
@@ -869,9 +853,6 @@
   .t\:text-\[\#212636\] {
     color: #212636;
   }
-  .t\:text-\[\#565656\] {
-    color: #565656;
-  }
   .t\:text-\[\#667085\] {
     color: #667085;
   }
@@ -900,9 +881,6 @@
   }
   .t\:opacity-20 {
     opacity: 20%;
-  }
-  .t\:opacity-45 {
-    opacity: 45%;
   }
   .t\:opacity-80 {
     opacity: 80%;
@@ -1583,6 +1561,43 @@
 }
 .scroll-top-button:hover {
   background: #07528f;
+}
+#print-newspaper-pagination {
+  clear: both;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+#print-newspaper-pagination button, #print-newspaper-pagination span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  border: 1px solid #d0d5dd;
+  border-radius: 4px;
+  background: #fff;
+  color: #212636;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+#print-newspaper-pagination button:hover:not(:disabled):not([aria-current="page"]) {
+  border-color: #935f25;
+  color: #935f25;
+}
+#print-newspaper-pagination button[aria-current="page"] {
+  border-color: #935f25;
+  background: #935f25;
+  color: #fff;
+  cursor: default;
+}
+#print-newspaper-pagination button:disabled {
+  border-color: #d0d5dd;
+  background: #fff;
+  color: #8a94a6;
+  cursor: default;
 }
 @property --tw-translate-x {
   syntax: "*";

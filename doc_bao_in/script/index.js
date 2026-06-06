@@ -163,13 +163,20 @@ function renderPagination() {
     const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
 
     pagination.innerHTML = [
-        paginationButton("<", Math.max(1, currentPage - 1), currentPage === 1, false),
+        paginationButton(
+            '<i class="material-symbols--chevron-left-rounded"></i>',
+            Math.max(1, currentPage - 1),
+            currentPage === 1,
+            false,
+            "Trang trước",
+        ),
         ...pages.map((page) => paginationButton(String(page), page, false, page === currentPage)),
         paginationButton(
-            ">",
+            '<i class="material-symbols--chevron-right-rounded"></i>',
             Math.min(totalPages, currentPage + 1),
             currentPage === totalPages,
             false,
+            "Trang sau",
         ),
     ].join("");
 
@@ -187,17 +194,18 @@ function renderPagination() {
     });
 }
 
-function paginationButton(label, page, disabled, active) {
-    const base =
-        "t:flex t:size-8 t:items-center t:justify-center t:rounded t:border t:text-sm t:font-bold t:transition";
-    const state = active
-        ? "t:border-[#935F25] t:bg-[#935F25] t:text-white"
-        : "t:border-[#D0D5DD] t:bg-white t:text-[#565656] t:hover:border-[#935F25] t:hover:text-[#935F25]";
-    const disabledClass = disabled ? "t:pointer-events-none t:opacity-45" : "";
+function paginationButton(content, page, disabled, active, ariaLabel) {
+    const attrs = [
+        'type="button"',
+        `data-page="${page}"`,
+        active ? 'aria-current="page"' : "",
+        ariaLabel ? `aria-label="${ariaLabel}"` : "",
+        disabled ? "disabled" : "",
+    ]
+        .filter(Boolean)
+        .join(" ");
 
-    return `<button type="button" class="${base} ${state} ${disabledClass}" data-page="${page}" ${
-        disabled ? "disabled" : ""
-    }>${label}</button>`;
+    return `<button ${attrs}>${content}</button>`;
 }
 
 if (list && pagination) {

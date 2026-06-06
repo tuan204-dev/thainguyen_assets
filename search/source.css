@@ -206,22 +206,26 @@
 }
 
 #search-pagination {
+    clear: both;
     gap: 8px;
+    margin-bottom: 24px;
 }
 
 #search-pagination button,
 #search-pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     min-width: 32px;
     height: 32px;
+    border: 1px solid #d0d5dd;
+    border-radius: 4px;
+    background: #fff;
+    color: #212636;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     line-height: 1;
-}
-
-#search-pagination button {
-    border-color: #d0d5dd !important;
-    color: #212636 !important;
-    background: #fff !important;
+    cursor: pointer;
     transition:
         color 0.2s ease,
         border-color 0.2s ease,
@@ -229,28 +233,22 @@
 }
 
 #search-pagination button:hover:not(:disabled):not([aria-current="page"]) {
-    border-color: #c9961a !important;
-    color: #c9961a !important;
+    border-color: #935f25;
+    color: #935f25;
 }
 
 #search-pagination button[aria-current="page"] {
-    border-color: #c9961a !important;
-    background: #c9961a !important;
-    color: #fff !important;
+    border-color: #935f25;
+    background: #935f25;
+    color: #fff;
     cursor: default;
 }
 
 #search-pagination button:disabled {
-    border-color: #d0d5dd !important;
-    color: #8a94a6 !important;
-    background: #fff !important;
-}
-
-#search-pagination span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-color: #d0d5dd;
+    background: #fff;
     color: #8a94a6;
+    cursor: default;
 }
 
 @media (max-width: 767px) {

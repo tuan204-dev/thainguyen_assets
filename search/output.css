@@ -335,9 +335,6 @@
   .t\:h-3 {
     height: calc(var(--t-spacing) * 3);
   }
-  .t\:h-8 {
-    height: calc(var(--t-spacing) * 8);
-  }
   .t\:h-9 {
     height: calc(var(--t-spacing) * 9);
   }
@@ -364,9 +361,6 @@
   }
   .t\:max-h-15 {
     max-height: calc(var(--t-spacing) * 15);
-  }
-  .t\:w-8 {
-    width: calc(var(--t-spacing) * 8);
   }
   .t\:w-10 {
     width: calc(var(--t-spacing) * 10);
@@ -404,9 +398,6 @@
   .t\:-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .t\:cursor-default {
-    cursor: default;
   }
   .t\:cursor-pointer {
     cursor: pointer;
@@ -561,9 +552,6 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 2px;
   }
-  .t\:border-\[\#30A14A\] {
-    border-color: #30A14A;
-  }
   .t\:border-\[\#090909\] {
     border-color: #090909;
   }
@@ -674,9 +662,6 @@
   }
   .t\:p-3 {
     padding: calc(var(--t-spacing) * 3);
-  }
-  .t\:px-1 {
-    padding-inline: calc(var(--t-spacing) * 1);
   }
   .t\:px-2 {
     padding-inline: calc(var(--t-spacing) * 2);
@@ -887,13 +872,6 @@
   .t\:outline-none {
     --tw-outline-style: none;
     outline-style: none;
-  }
-  .t\:hover\:border-\[\#C0392B\] {
-    &:hover {
-      @media (hover: hover) {
-        border-color: #C0392B;
-      }
-    }
   }
   .t\:hover\:bg-\[\#A87D14\] {
     &:hover {
@@ -1269,41 +1247,41 @@
   line-height: 1.55;
 }
 #search-pagination {
+  clear: both;
   gap: 8px;
+  margin-bottom: 24px;
 }
 #search-pagination button, #search-pagination span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 32px;
   height: 32px;
+  border: 1px solid #d0d5dd;
+  border-radius: 4px;
+  background: #fff;
+  color: #212636;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   line-height: 1;
-}
-#search-pagination button {
-  border-color: #d0d5dd !important;
-  color: #212636 !important;
-  background: #fff !important;
+  cursor: pointer;
   transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 #search-pagination button:hover:not(:disabled):not([aria-current="page"]) {
-  border-color: #c9961a !important;
-  color: #c9961a !important;
+  border-color: #935f25;
+  color: #935f25;
 }
 #search-pagination button[aria-current="page"] {
-  border-color: #c9961a !important;
-  background: #c9961a !important;
-  color: #fff !important;
+  border-color: #935f25;
+  background: #935f25;
+  color: #fff;
   cursor: default;
 }
 #search-pagination button:disabled {
-  border-color: #d0d5dd !important;
-  color: #8a94a6 !important;
-  background: #fff !important;
-}
-#search-pagination span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-color: #d0d5dd;
+  background: #fff;
   color: #8a94a6;
+  cursor: default;
 }
 @media (max-width: 767px) {
   .search-results-list > li {

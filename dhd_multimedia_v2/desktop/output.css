@@ -320,9 +320,6 @@
   .t\:h-4 {
     height: calc(var(--t-spacing) * 4);
   }
-  .t\:h-8 {
-    height: calc(var(--t-spacing) * 8);
-  }
   .t\:h-9 {
     height: calc(var(--t-spacing) * 9);
   }
@@ -355,9 +352,6 @@
   }
   .t\:w-4 {
     width: calc(var(--t-spacing) * 4);
-  }
-  .t\:w-8 {
-    width: calc(var(--t-spacing) * 8);
   }
   .t\:w-10 {
     width: calc(var(--t-spacing) * 10);
@@ -405,9 +399,6 @@
   .t\:-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .t\:cursor-default {
-    cursor: default;
   }
   .t\:cursor-pointer {
     cursor: pointer;
@@ -533,9 +524,6 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
   }
-  .t\:border-\[\#935F25\] {
-    border-color: #935F25;
-  }
   .t\:border-\[\#BC0000\] {
     border-color: #BC0000;
   }
@@ -556,9 +544,6 @@
   }
   .t\:bg-\[\#30A14A\] {
     background-color: #30A14A;
-  }
-  .t\:bg-\[\#935F25\] {
-    background-color: #935F25;
   }
   .t\:bg-\[\#BC0000\] {
     background-color: #BC0000;
@@ -829,13 +814,6 @@
   .t\:outline-none {
     --tw-outline-style: none;
     outline-style: none;
-  }
-  .t\:hover\:border-\[\#935F25\] {
-    &:hover {
-      @media (hover: hover) {
-        border-color: #935F25;
-      }
-    }
   }
   .t\:hover\:bg-white\/25 {
     &:hover {
@@ -1155,18 +1133,41 @@
   display: flex !important;
 }
 #search-pagination {
-  justify-content: center !important;
-  gap: 8px !important;
-  padding-bottom: 24px;
+  clear: both;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+#search-pagination button, #search-pagination span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  border: 1px solid #d0d5dd;
+  border-radius: 4px;
+  background: #fff;
+  color: #212636;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 #search-pagination button:hover:not(:disabled):not([aria-current="page"]) {
-  border-color: #935f25 !important;
-  color: #935f25 !important;
+  border-color: #935f25;
+  color: #935f25;
 }
 #search-pagination button[aria-current="page"] {
-  border-color: #935f25 !important;
-  background: #935f25 !important;
-  color: #fff !important;
+  border-color: #935f25;
+  background: #935f25;
+  color: #fff;
+  cursor: default;
+}
+#search-pagination button:disabled {
+  border-color: #d0d5dd;
+  background: #fff;
+  color: #8a94a6;
+  cursor: default;
 }
 .t\:border-t {
   border-top: 1px solid;

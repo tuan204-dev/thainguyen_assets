@@ -186,20 +186,49 @@
 }
 
 #search-pagination {
-    justify-content: center !important;
-    gap: 8px !important;
-    padding-bottom: 24px;
+    clear: both;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+#search-pagination button,
+#search-pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    border: 1px solid #d0d5dd;
+    border-radius: 4px;
+    background: #fff;
+    color: #212636;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
 }
 
 #search-pagination button:hover:not(:disabled):not([aria-current="page"]) {
-    border-color: #935f25 !important;
-    color: #935f25 !important;
+    border-color: #935f25;
+    color: #935f25;
 }
 
 #search-pagination button[aria-current="page"] {
-    border-color: #935f25 !important;
-    background: #935f25 !important;
-    color: #fff !important;
+    border-color: #935f25;
+    background: #935f25;
+    color: #fff;
+    cursor: default;
+}
+
+#search-pagination button:disabled {
+    border-color: #d0d5dd;
+    background: #fff;
+    color: #8a94a6;
+    cursor: default;
 }
 
 .t\:border-t {
