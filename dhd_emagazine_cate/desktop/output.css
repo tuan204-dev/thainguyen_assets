@@ -368,9 +368,6 @@
   .t\:w-auto {
     width: auto;
   }
-  .t\:w-fit {
-    width: fit-content;
-  }
   .t\:w-full {
     width: 100%;
   }
@@ -950,6 +947,11 @@
   .t\:pc\:col-span-2 {
     @media (width >= 1000px) {
       grid-column: span 2 / span 2;
+    }
+  }
+  .t\:pc\:w-fit {
+    @media (width >= 1000px) {
+      width: fit-content;
     }
   }
   .t\:pc\:grid-cols-3 {

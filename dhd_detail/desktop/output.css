@@ -269,6 +269,9 @@
   .t\:my-6 {
     margin-block: calc(var(--t-spacing) * 6);
   }
+  .t\:my-auto {
+    margin-block: auto;
+  }
   .t\:mt-0\! {
     margin-top: calc(var(--t-spacing) * 0) !important;
   }
@@ -298,6 +301,9 @@
   }
   .t\:mb-6 {
     margin-bottom: calc(var(--t-spacing) * 6);
+  }
+  .t\:ml-auto {
+    margin-left: auto;
   }
   .t\:line-clamp-3 {
     overflow: hidden;
@@ -393,8 +399,8 @@
   .t\:max-w-\[200px\] {
     max-width: 200px;
   }
-  .t\:max-w-\[392px\] {
-    max-width: 392px;
+  .t\:max-w-\[450px\] {
+    max-width: 450px;
   }
   .t\:min-w-0 {
     min-width: calc(var(--t-spacing) * 0);
@@ -969,6 +975,16 @@
       display: none;
     }
   }
+  .t\:pc\:order-9 {
+    @media (width >= 1000px) {
+      order: 9;
+    }
+  }
+  .t\:pc\:col-span-2 {
+    @media (width >= 1000px) {
+      grid-column: span 2 / span 2;
+    }
+  }
   .t\:pc\:block {
     @media (width >= 1000px) {
       display: block;
@@ -979,14 +995,19 @@
       display: none;
     }
   }
+  .t\:pc\:w-fit {
+    @media (width >= 1000px) {
+      width: fit-content;
+    }
+  }
   .t\:pc\:grid-cols-4 {
     @media (width >= 1000px) {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
-  .t\:pc\:grid-cols-\[auto_1fr_auto\] {
+  .t\:pc\:grid-cols-\[1fr_auto\] {
     @media (width >= 1000px) {
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: 1fr auto;
     }
   }
   .t\:pc\:grid-cols-\[minmax\(0\,1fr\)_320px\] {
@@ -1018,6 +1039,31 @@
   .t\:pc\:pl-8 {
     @media (width >= 1000px) {
       padding-left: calc(var(--t-spacing) * 8);
+    }
+  }
+  .t\:min-\[1200px\]\:order-none {
+    @media (width >= 1200px) {
+      order: 0;
+    }
+  }
+  .t\:min-\[1200px\]\:col-span-1 {
+    @media (width >= 1200px) {
+      grid-column: span 1 / span 1;
+    }
+  }
+  .t\:min-\[1200px\]\:mt-0 {
+    @media (width >= 1200px) {
+      margin-top: calc(var(--t-spacing) * 0);
+    }
+  }
+  .t\:min-\[1200px\]\:max-w-\[350px\] {
+    @media (width >= 1200px) {
+      max-width: 350px;
+    }
+  }
+  .t\:min-\[1200px\]\:grid-cols-\[auto_1fr_auto\] {
+    @media (width >= 1200px) {
+      grid-template-columns: auto 1fr auto;
     }
   }
   .t\:md\:block {
