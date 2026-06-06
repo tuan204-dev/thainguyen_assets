@@ -1082,6 +1082,13 @@
       align-items: center;
     }
   }
+  .t\:pc\:\[\&\>\*\:nth-child\(n\+4\)\]\:hidden {
+    @media (width >= 1000px) {
+      &>*:nth-child(n+4) {
+        display: none;
+      }
+    }
+  }
 }
 :root {
   color-scheme: light;
@@ -1196,14 +1203,6 @@
 }
 .desktop-overlay-menu-root > .mobile-menu-sub {
   max-height: none;
-}
-.container {
-  max-width: 1320px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 12px;
-  padding-right: 12px;
-  overflow-x: hidden;
 }
 .cate_title_1 {
   margin-bottom: 30px;
