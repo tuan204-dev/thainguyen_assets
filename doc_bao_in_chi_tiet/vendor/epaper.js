@@ -1,6 +1,6 @@
 var flipBook;
 //best to start when the document is loaded
-$(document).ready(function() {
+$(document).ready(function () {
     //make sure this file is hosted in localhost or any other server
     // var pdf = './pollyanna.pdf';
     var options = {
@@ -29,7 +29,7 @@ $(document).ready(function() {
             gotoLastPage: "Chuyển về cuối",
             play: "Bắt đầu tự chạy",
             pause: "Dừng tự chạy",
-            share: "Chia sẻ"
+            share: "Chia sẻ",
         },
     };
     /**
@@ -49,7 +49,7 @@ $(document).ready(function() {
     //         ]
     //     }
     // ];
-    options.onReady = function(flipbook) {
+    options.onReady = function (flipbook) {
         // if (flipbook.target.pageCount > 10) {
         //     flipbook.target.endPage = 10;
         //     flipbook.target.pageCount = 10;
@@ -57,7 +57,7 @@ $(document).ready(function() {
         //     flipbook.ui.update();
         // }
     };
-    if (default_source == 'pdf') {
+    if (default_source == "pdf") {
         // using pdf
         flipBook = $("#epaper_preview").flipBook(epaper_pages[0], options);
     } else {

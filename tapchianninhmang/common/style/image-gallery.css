@@ -15,7 +15,9 @@
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
 }
 
 .image-gallery.is-active {
@@ -45,7 +47,8 @@
 
     transform: scale(0.96);
     opacity: 0;
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    transition:
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
         opacity 0.25s ease;
 }
 
@@ -107,7 +110,10 @@
     border: 0;
     border-radius: 9999px;
     cursor: pointer;
-    transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease,
+        opacity 0.15s ease;
 }
 
 .image-gallery__btn:hover,
@@ -181,7 +187,7 @@
     z-index: 3;
     color: #fff;
     font-size: 0.875rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     letter-spacing: 0.02em;
     padding: 6px 12px;
     background: rgba(0, 0, 0, 0.35);

@@ -13,18 +13,18 @@
    Apply via data-scroll-theme="os-theme-custom" */
 
 .os-theme-custom {
-    --os-handle-bg: rgba(0, 0, 0, .30);
-    --os-handle-bg-hover: rgba(0, 0, 0, .45);
-    --os-handle-bg-active: rgba(0, 0, 0, .55);
+    --os-handle-bg: rgba(0, 0, 0, 0.3);
+    --os-handle-bg-hover: rgba(0, 0, 0, 0.45);
+    --os-handle-bg-active: rgba(0, 0, 0, 0.55);
 }
 
 /* ── Light theme variant ──────────────────────────────── */
 /* For dark backgrounds: data-scroll-theme="os-theme-light" */
 
 .os-theme-light {
-    --os-handle-bg: rgba(255, 255, 255, .30);
-    --os-handle-bg-hover: rgba(255, 255, 255, .45);
-    --os-handle-bg-active: rgba(255, 255, 255, .55);
+    --os-handle-bg: rgba(255, 255, 255, 0.3);
+    --os-handle-bg-hover: rgba(255, 255, 255, 0.45);
+    --os-handle-bg-active: rgba(255, 255, 255, 0.55);
 }
 
 /* ── Track & handle sizing ────────────────────────────── */

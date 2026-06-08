@@ -1,12 +1,12 @@
 .header-epaper {
-    background:#935f25;
-    color: #FFF;
+    background: #935f25;
+    color: #fff;
 }
 
 .header-epaper a,
 .header-epaper a:hover,
 .header-epaper a:active {
-    color: #FFF;
+    color: #fff;
 }
 
 .header-epaper .btn {
@@ -42,11 +42,11 @@
     padding: 0.2rem;
     flex-direction: column;
     flex: 1;
-    -webkit-transition: background-color .25s ease;
-    -moz-transition: background-color .25s ease;
-    -ms-transition: background-color .25s ease;
-    -o-transition: background-color .25s ease;
-    transition: background-color .25s ease;
+    -webkit-transition: background-color 0.25s ease;
+    -moz-transition: background-color 0.25s ease;
+    -ms-transition: background-color 0.25s ease;
+    -o-transition: background-color 0.25s ease;
+    transition: background-color 0.25s ease;
 }
 
 .epaper-list .card:hover {

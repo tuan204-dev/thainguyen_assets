@@ -1,89 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <div class="image-block-2-3">
-        <style>
-            .image-block-2-3 .photo-grid {
-                width: 100%;
-                margin: 24px 0;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .image-block-2-3 .photo-grid .photo-row {
-                display: flex;
-                gap: 8px;
-                width: 100%;
-            }
-
-            .image-block-2-3 .photo-grid figure.image {
-                flex: 1;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                position: relative;
-            }
-
-            .image-block-2-3 .photo-grid figure.image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-                transition: transform 0.3s ease;
-            }
-
-            .image-block-2-3 .photo-grid figure.image:hover img {
-                transform: scale(1.03);
-            }
-
-            @media (max-width: 640px) {
-                .image-block-2-3 .photo-grid .photo-row {
+    <body>
+        <div class="image-block-2-3">
+            <style>
+                .image-block-2-3 .photo-grid {
+                    width: 100%;
+                    margin: 24px 0;
+                    display: flex;
                     flex-direction: column;
+                    gap: 8px;
                 }
-            }
-        </style>
 
-        <div class="photo-grid align-overflow" contenteditable="false">
-            <div class="photo-row">
-                <figure class="image">
-                    <img title="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 1"
-                        src="https://cdnphoto.dantri.com.vn/pjSUWeOhf8Wa-RRth4plD88_x20=/thumb_w/980/2026/04/16/anker-soundcore-c50i-theanh-6-1776337098559.jpg?watermark=true"
-                        alt="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 1" loading="lazy" />
-                </figure>
-                <figure class="image">
-                    <img title="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 2"
-                        src="https://cdnphoto.dantri.com.vn/zyygGRB21a0DQa_7hEt5kWOkXu4=/thumb_w/980/2026/04/16/anker-soundcore-c50i-theanh-7-1776337097797.jpg?watermark=true"
-                        alt="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 2" loading="lazy" />
-                </figure>
-            </div>
+                .image-block-2-3 .photo-grid .photo-row {
+                    display: flex;
+                    gap: 8px;
+                    width: 100%;
+                }
 
-            <div class="photo-row">
-                <figure class="image">
-                    <img title="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 3"
-                        src="https://cdnphoto.dantri.com.vn/d1kgv91UFfAr2ZixqT5W6GtKtQg=/thumb_w/980/2026/04/16/anker-soundcore-c50i-theanh-1-1776337247094.jpg?watermark=true"
-                        alt="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 3" loading="lazy" />
-                </figure>
-                <figure class="image">
-                    <img title="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 4"
-                        src="https://cdnphoto.dantri.com.vn/Ba5NxiIvPLf8b_dKW6J7r81IGqU=/thumb_w/980/2026/04/16/anker-soundcore-c50i-theanh-3-1776337247346.jpg?watermark=true"
-                        alt="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 4" loading="lazy" />
-                </figure>
-                <figure class="image">
-                    <img title="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 5"
-                        src="https://cdnphoto.dantri.com.vn/RUHTXQ46WAc4Vp_ucL4eSTBF1HA=/thumb_w/980/2026/04/16/anker-soundcore-c50i-theanh-2-1776337247387.jpg?watermark=true"
-                        alt="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 5" loading="lazy" />
-                </figure>
+                .image-block-2-3 .photo-grid figure.image {
+                    flex: 1;
+                    margin: 0;
+                    padding: 0;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+                .image-block-2-3 .photo-grid figure.image img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                    transition: transform 0.3s ease;
+                }
+
+                .image-block-2-3 .photo-grid figure.image:hover img {
+                    transform: scale(1.03);
+                }
+
+                @media (max-width: 640px) {
+                    .image-block-2-3 .photo-grid .photo-row {
+                        flex-direction: column;
+                    }
+                }
+            </style>
+
+            <div class="photo-grid align-overflow" contenteditable="false">
+                <div class="photo-row">
+                    <figure class="image">
+                        <img
+                            title="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 1"
+                            src="https://cdnphoto.dantri.com.vn/pjSUWeOhf8Wa-RRth4plD88_x20=/thumb_w/980/2026/04/16/anker-soundcore-c50i-theanh-6-1776337098559.jpg?watermark=true"
+                            alt="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 1"
+                            loading="lazy"
+                        />
+                    </figure>
+                    <figure class="image">
+                        <img
+                            title="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 2"
+                            src="https://cdnphoto.dantri.com.vn/zyygGRB21a0DQa_7hEt5kWOkXu4=/thumb_w/980/2026/04/16/anker-soundcore-c50i-theanh-7-1776337097797.jpg?watermark=true"
+                            alt="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 2"
+                            loading="lazy"
+                        />
+                    </figure>
+                </div>
+
+                <div class="photo-row">
+                    <figure class="image">
+                        <img
+                            title="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 3"
+                            src="https://cdnphoto.dantri.com.vn/d1kgv91UFfAr2ZixqT5W6GtKtQg=/thumb_w/980/2026/04/16/anker-soundcore-c50i-theanh-1-1776337247094.jpg?watermark=true"
+                            alt="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 3"
+                            loading="lazy"
+                        />
+                    </figure>
+                    <figure class="image">
+                        <img
+                            title="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 4"
+                            src="https://cdnphoto.dantri.com.vn/Ba5NxiIvPLf8b_dKW6J7r81IGqU=/thumb_w/980/2026/04/16/anker-soundcore-c50i-theanh-3-1776337247346.jpg?watermark=true"
+                            alt="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 4"
+                            loading="lazy"
+                        />
+                    </figure>
+                    <figure class="image">
+                        <img
+                            title="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 5"
+                            src="https://cdnphoto.dantri.com.vn/RUHTXQ46WAc4Vp_ucL4eSTBF1HA=/thumb_w/980/2026/04/16/anker-soundcore-c50i-theanh-2-1776337247387.jpg?watermark=true"
+                            alt="Trải nghiệm tai nghe cho dân thể thao soundcore C50i - 5"
+                            loading="lazy"
+                        />
+                    </figure>
+                </div>
             </div>
         </div>
-    </div>
-</body>
-
+    </body>
 </html>

@@ -21,11 +21,9 @@ const Overlay = (() => {
     let activeId = null;
 
     /* ── helpers ───────────────────────────────── */
-    const getOverlay = (id) =>
-        document.querySelector(`[data-overlay-id="${id}"]`);
+    const getOverlay = (id) => document.querySelector(`[data-overlay-id="${id}"]`);
 
-    const getAllOverlays = () =>
-        document.querySelectorAll("[data-overlay-id]");
+    const getAllOverlays = () => document.querySelectorAll("[data-overlay-id]");
 
     /* ── core API ──────────────────────────────── */
 

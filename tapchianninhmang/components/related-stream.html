@@ -9,7 +9,10 @@
          Add .related-stream__more link at bottom for "Xem thêm" to full topic page.
 -->
 
-<nav class="related-stream not-prose t:mt-6 t:pt-5 t:border-t t:border-[#E5E5E5]" aria-label="Dòng sự kiện">
+<nav
+    class="related-stream not-prose t:mt-6 t:pt-5 t:border-t t:border-[#E5E5E5]"
+    aria-label="Dòng sự kiện"
+>
     <style>
         .related-stream {
             margin: 1.5rem 0;
@@ -31,7 +34,7 @@
         .related-stream__list {
             position: relative;
             padding-left: 24px;
-            border-left: 2px solid #D7DFEB;
+            border-left: 2px solid #d7dfeb;
             list-style: none;
             margin: 0;
             display: flex;
@@ -45,7 +48,7 @@
         }
 
         .related-stream__item + .related-stream__item {
-            border-top: 1px dashed #E5E5E5;
+            border-top: 1px dashed #e5e5e5;
         }
 
         .related-stream__item::before {
@@ -58,12 +61,14 @@
             border-radius: 50%;
             background: var(--text-primary-color);
             border: 2px solid #fff;
-            box-shadow: 0 0 0 2px #D7DFEB;
+            box-shadow: 0 0 0 2px #d7dfeb;
         }
 
         .related-stream__item:first-child::before {
-            background: #EA2736;
-            box-shadow: 0 0 0 2px #EA2736, 0 0 0 4px rgba(234, 39, 54, 0.2);
+            background: #ea2736;
+            box-shadow:
+                0 0 0 2px #ea2736,
+                0 0 0 4px rgba(234, 39, 54, 0.2);
         }
 
         .related-stream__item-date {
@@ -136,7 +141,7 @@
         }
     </style>
     <div class="related-stream__label">
-        <i class="material-symbols--electric-bolt-rounded" style="width:18px;height:18px;"></i>
+        <i class="material-symbols--electric-bolt-rounded" style="width: 18px; height: 18px"></i>
         Dòng sự kiện
     </div>
 

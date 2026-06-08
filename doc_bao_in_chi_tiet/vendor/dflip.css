@@ -1,7 +1,8 @@
 @font-face {
-    font-family: 'themify';
-    src: url('./fonts/themify.woff') format('woff'),
-         url('./fonts/themify.ttf') format('truetype');
+    font-family: "themify";
+    src:
+        url("./fonts/themify.woff") format("woff"),
+        url("./fonts/themify.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -88,7 +89,7 @@
     font-weight: bold;
     font-style: normal;
     text-transform: uppercase;
-    color: #2196F3;
+    color: #2196f3;
     display: block;
     text-decoration: underline;
     margin: 10px 0 0;
@@ -110,7 +111,8 @@
     left: 0;
 }
 
-.df-container>canvas {}
+.df-container > canvas {
+}
 
 .df-container a {
     outline: none;
@@ -150,7 +152,8 @@
     /*display:none;*/
 }
 
-.df-container.df-loading .df-loading-icon {}
+.df-container.df-loading .df-loading-icon {
+}
 
 .df-container.df-loading:after {
     content: " ";
@@ -182,7 +185,8 @@
     padding: 30px 50px 70px;
 }
 
-.df-floating .df-book-stage {}
+.df-floating .df-book-stage {
+}
 
 .df-container.df-xs .df-book-stage {
     padding-left: 20px;
@@ -194,15 +198,15 @@
     padding-right: 10px;
 }
 
-.df-container.df-sidemenu-open>.df-ui-btn.df-ui-prev {
+.df-container.df-sidemenu-open > .df-ui-btn.df-ui-prev {
     left: 220px;
 }
 
-.df-rtl.df-container.df-sidemenu-open>.df-ui-btn.df-ui-prev {
+.df-rtl.df-container.df-sidemenu-open > .df-ui-btn.df-ui-prev {
     left: 0;
 }
 
-.df-rtl.df-container.df-sidemenu-open>.df-ui-btn.df-ui-next {
+.df-rtl.df-container.df-sidemenu-open > .df-ui-btn.df-ui-next {
     right: 220px;
 }
 
@@ -216,15 +220,51 @@
 }
 
 .df-book-page .df-page-front:before {
-    background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.2) 10%, rgba(0, 0, 0, 0.15) 25%, rgba(0, 0, 0, 0) 70%);
-    background-image: -moz-linear-gradient(right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.2) 10%, rgba(0, 0, 0, 0.15) 25%, rgba(0, 0, 0, 0) 70%);
-    background-image: -ms-linear-gradient(right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.2) 10%, rgba(0, 0, 0, 0.15) 25%, rgba(0, 0, 0, 0) 70%);
+    background-image: -webkit-linear-gradient(
+        right,
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 0.15) 25%,
+        rgba(0, 0, 0, 0) 70%
+    );
+    background-image: -moz-linear-gradient(
+        right,
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 0.15) 25%,
+        rgba(0, 0, 0, 0) 70%
+    );
+    background-image: -ms-linear-gradient(
+        right,
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 0.15) 25%,
+        rgba(0, 0, 0, 0) 70%
+    );
 }
 
 .df-book-page .df-page-back:before {
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15) 15%, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.0));
-    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15) 15%, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.0));
-    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15) 15%, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.0));
+    background-image: -webkit-linear-gradient(
+        left,
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.15) 15%,
+        rgba(255, 255, 255, 0.07),
+        rgba(255, 255, 255, 0)
+    );
+    background-image: -moz-linear-gradient(
+        left,
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.15) 15%,
+        rgba(255, 255, 255, 0.07),
+        rgba(255, 255, 255, 0)
+    );
+    background-image: -ms-linear-gradient(
+        left,
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.15) 15%,
+        rgba(255, 255, 255, 0.07),
+        rgba(255, 255, 255, 0)
+    );
 }
 
 .df-book-wrapper,
@@ -326,7 +366,8 @@
     top: 50%;
 }
 
-.df-book-wrapper .df-book-prev-button:before {}
+.df-book-wrapper .df-book-prev-button:before {
+}
 
 .df-page-wrapper {
     overflow: hidden;
@@ -345,7 +386,7 @@
 
 .df-book-page.df-flipping,
 .df-book-page.df-folding {
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.0);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0);
 }
 
 .df-book-page.df-left-side {
@@ -364,9 +405,10 @@
     transform-origin: left;
 }
 
-.df-book-page.df-hard-page {}
+.df-book-page.df-hard-page {
+}
 
-.df-book-page.df-right-side+.df-page-wrapper.df-right-side {
+.df-book-page.df-right-side + .df-page-wrapper.df-right-side {
     z-index: -1;
 }
 
@@ -381,8 +423,8 @@
     box-sizing: border-box;
 }
 
-.df-page-back>canvas,
-.df-page-front>canvas {
+.df-page-back > canvas,
+.df-page-front > canvas {
     width: 100%;
     position: relative;
     z-index: -1;
@@ -390,7 +432,8 @@
 
 /*right left shadow during flip*/
 
-.df-page-wrapper:before {}
+.df-page-wrapper:before {
+}
 
 .df-quick-turn:before {
     opacity: 0;
@@ -403,7 +446,8 @@
     left: -10px;
 }
 
-.df-book-page.df-right-side:before {}
+.df-book-page.df-right-side:before {
+}
 
 .df-book-page {
     width: 50%;
@@ -585,7 +629,8 @@
     display: none;
 }
 
-.df-share-wrapper.df-hidden {}
+.df-share-wrapper.df-hidden {
+}
 
 .df-share-box {
     position: absolute;
@@ -653,11 +698,11 @@ span.df-share-title {
     line-height: 1;
 }
 
-.df-floating .df-ui-controls>.df-ui-btn:first-child {
+.df-floating .df-ui-controls > .df-ui-btn:first-child {
     border-radius: 5px 0 0 5px;
 }
 
-.df-floating .df-ui-controls>.df-ui-btn:last-child {
+.df-floating .df-ui-controls > .df-ui-btn:last-child {
     border-radius: 0 5px 5px 0;
 }
 
@@ -666,7 +711,8 @@ span.df-share-title {
 }
 
 .df-ui-fit,
-.df-ui-thumbnail {}
+.df-ui-thumbnail {
+}
 
 .df-ui-thumbnail,
 .df-ui-share,
@@ -677,10 +723,11 @@ span.df-share-title {
 }
 
 .df-ui-zoomin,
-.df-ui-zoomout {}
+.df-ui-zoomout {
+}
 
 .df-ui-btn:hover {
-    color: #00ACCE;
+    color: #00acce;
 }
 
 .df-ui-btn.disabled,
@@ -688,7 +735,8 @@ span.df-share-title {
     color: #ccc;
 }
 
-.df-ui-share:before {}
+.df-ui-share:before {
+}
 
 .df-ui-page {
     padding: 8px 5px 2px;
@@ -726,7 +774,7 @@ span.df-share-title {
     color: inherit;
 }
 
-.df-ui-page input:focus+label {
+.df-ui-page input:focus + label {
     opacity: 0;
     display: none;
 }
@@ -757,13 +805,15 @@ span.df-share-title {
     float: left;
 }
 
-.df-ui-share:before {}
+.df-ui-share:before {
+}
 
 .df-ui-fullscreen {
     bottom: 0;
 }
 
-.df-ui-fullscreen:before {}
+.df-ui-fullscreen:before {
+}
 
 .df-ui-zoom {
     top: 24px;
@@ -873,7 +923,8 @@ span.df-share-title {
     top: 0;
 }
 
-.df-ui-zoomin:before {}
+.df-ui-zoomin:before {
+}
 
 .df-ui-zoomout {
     bottom: 0;
@@ -891,7 +942,8 @@ span.df-share-title {
     /* display: none; */
 }
 
-.df-ui-zoomout:before {}
+.df-ui-zoomout:before {
+}
 
 .df-ui-next {
     right: 24px;
@@ -900,16 +952,16 @@ span.df-share-title {
     /* background-color: rgba(255, 255, 255, 0.5); */
 }
 
-.df-container.df-floating>.df-ui-next {
+.df-container.df-floating > .df-ui-next {
     right: 8px;
 }
 
-.df-container.df-floating>.df-ui-prev {
+.df-container.df-floating > .df-ui-prev {
     left: 2px;
 }
 
-.df-container>.df-ui-next,
-.df-container>.df-ui-prev {
+.df-container > .df-ui-next,
+.df-container > .df-ui-prev {
     margin-top: -5px;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
@@ -929,18 +981,19 @@ span.df-share-title {
     width: initial;
 }
 
-.df-container>.df-ui-next:hover,
-.df-container>.df-ui-prev:hover {
+.df-container > .df-ui-next:hover,
+.df-container > .df-ui-prev:hover {
     opacity: 0.7;
 }
 
-.df-container.df-floating>.df-ui-next,
-.df-container.df-floating>.df-ui-prev {
+.df-container.df-floating > .df-ui-next,
+.df-container.df-floating > .df-ui-prev {
     border-radius: 50%;
     width: 40px;
 }
 
-.df-ui-next:before {}
+.df-ui-next:before {
+}
 
 .df-ui-prev {
     left: 0;
@@ -948,7 +1001,8 @@ span.df-share-title {
     border-radius: 0;
 }
 
-.df-ui-prev:before {}
+.df-ui-prev:before {
+}
 
 .df-ui-alt {
     position: relative !important;
@@ -968,20 +1022,26 @@ span.df-share-title {
     border-right: 1px solid #ddd;
 }
 
-.df-ui-start {}
+.df-ui-start {
+}
 
-.df-ui-start:before {}
+.df-ui-start:before {
+}
 
-.df-ui-end {}
+.df-ui-end {
+}
 
-.df-ui-end:before {}
+.df-ui-end:before {
+}
 
-.df-ui-thumbnail:before {}
+.df-ui-thumbnail:before {
+}
 
-.df-ui-outline:before {}
+.df-ui-outline:before {
+}
 
 .df-ui-btn.df-active {
-    color: #00ACCE;
+    color: #00acce;
     background-color: #e7e7e7;
 }
 
@@ -1000,11 +1060,14 @@ span.df-share-title {
     top: 0;
 }
 
-.df-ui-fit:before {}
+.df-ui-fit:before {
+}
 
-.df-ui-fit.button-fit-active:before {}
+.df-ui-fit.button-fit-active:before {
+}
 
-.df-page-content div {}
+.df-page-content div {
+}
 
 .df-ui-more .more-container {
     display: none;
@@ -1064,12 +1127,12 @@ span.df-share-title {
     background-color: #eee;
 }
 
-.more-container>.df-ui-btn:first-child {
+.more-container > .df-ui-btn:first-child {
     border-radius: 5px;
     border-top: none;
 }
 
-.more-container>.df-ui-btn:last-child {
+.more-container > .df-ui-btn:last-child {
     border-radius: 0 0 5px 5px;
 }
 
@@ -1118,7 +1181,7 @@ span.df-share-title {
     position: absolute;
     z-index: 200;
     max-width: 20em;
-    background-color: #FFFF99;
+    background-color: #ffff99;
     box-shadow: 0px 2px 5px #333;
     border-radius: 2px;
     padding: 0.6em;
@@ -1151,7 +1214,7 @@ span.df-share-title {
 }
 
 section.linkAnnotation a,
-.annotationDiv .buttonWidgetAnnotation.pushButton>a {
+.annotationDiv .buttonWidgetAnnotation.pushButton > a {
     display: block;
     height: 100%;
 }
@@ -1177,7 +1240,7 @@ a.linkAnnotation:hover,
 a.customLinkAnnotation:hover {
     opacity: 0.4;
     border-color: transparent;
-    background-color: #2196F3;
+    background-color: #2196f3;
 }
 
 .annotationDiv {
@@ -1189,7 +1252,7 @@ a.customLinkAnnotation:hover {
     overflow: hidden;
 }
 
-section.linkAnnotation a .annotationLayer>a {
+section.linkAnnotation a .annotationLayer > a {
     display: block;
     position: absolute;
     height: 100%;
@@ -1197,7 +1260,8 @@ section.linkAnnotation a .annotationLayer>a {
     box-sizing: border-box;
 }
 
-section.linkAnnotation a.internalLink:hover {}
+section.linkAnnotation a.internalLink:hover {
+}
 
 .df-page-loading:after,
 .df-page-loading:before {
@@ -1271,7 +1335,7 @@ section.linkAnnotation a.internalLink:hover {}
     display: none;
 }
 
-.df-vrow>div {
+.df-vrow > div {
     /* padding: 25%; */
     height: 20px;
     background-color: rgba(170, 170, 170, 0.54);
@@ -1355,11 +1419,11 @@ section.linkAnnotation a.internalLink:hover {}
     text-align: center;
 }
 
-.df-outline-toggle.df-outlines-hidden~.df-outline-items {
+.df-outline-toggle.df-outlines-hidden ~ .df-outline-items {
     display: none;
 }
 
-.df-outline-items>.df-outline-item {
+.df-outline-items > .df-outline-item {
     margin-left: 18px;
     /* padding: 5px 0; */
 }
@@ -1384,7 +1448,7 @@ section.linkAnnotation a.internalLink:hover {}
 .df-outline-toggle:before {
     content: "\e64b";
     font-size: 10px;
-    font-family: 'themify';
+    font-family: "themify";
 }
 
 .df-outline-toggle.df-outlines-hidden:before {
@@ -1524,7 +1588,8 @@ section.linkAnnotation a.internalLink:hover {}
     vertical-align: top;
 }
 
-._df_books .df-dummy {}
+._df_books .df-dummy {
+}
 
 ._df_thumb[thumbtype="img"] {
     height: auto;
@@ -1599,7 +1664,7 @@ section.linkAnnotation a.internalLink:hover {}
     -moz-transform: rotateY(-20deg) rotateZ(0deg);
     -ms-transform: rotateY(-20deg) rotateZ(0deg);
     transform: rotateY(-20deg) rotateZ(0deg);
-    box-shadow: 3px 0 12px rgba(0, 0, 0, 0.60);
+    box-shadow: 3px 0 12px rgba(0, 0, 0, 0.6);
 }
 
 .df-webkit ._df_thumb:hover ._df_book-cover {
@@ -1607,7 +1672,7 @@ section.linkAnnotation a.internalLink:hover {}
     -moz-transform: none;
     -ms-transform: none;
     transform: none;
-    box-shadow: 1px 0 12px rgba(0, 0, 0, 0.60);
+    box-shadow: 1px 0 12px rgba(0, 0, 0, 0.6);
 }
 
 ._df_books {
@@ -1670,7 +1735,7 @@ section.linkAnnotation a.internalLink:hover {}
 }
 
 .df-container ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.20);
+    background: rgba(0, 0, 0, 0.2);
     border: 0 none #ffffff;
     border-radius: 100px;
 }
@@ -1730,10 +1795,10 @@ section.linkAnnotation a.internalLink:hover {}
 
 .df-rtl .more-container .df-ui-btn span {
     padding: 0;
-    padding-right: 20px
+    padding-right: 20px;
 }
 
-.df-rtl .df-outline-items>.df-outline-item {
+.df-rtl .df-outline-items > .df-outline-item {
     margin: 0 18px 0 0;
     text-align: right;
     direction: rtl;

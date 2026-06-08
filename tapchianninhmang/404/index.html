@@ -1,273 +1,323 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Không tìm thấy trang | Tạp chí An ninh mạng</title>
-  <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/fonts-noto-serif-vn.css">
-  <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>404 - Không tìm thấy trang | Tạp chí An ninh mạng</title>
+        <link
+            rel="stylesheet"
+            href="https://assets.tapchianninhmang.vn/common/style/fonts-noto-serif-vn.css"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-    body {
-      font-family: 'Roboto', sans-serif;
-      color: #444343;
-      background: #f5f8fc;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow-x: hidden;
-    }
+            body {
+                font-family: "Roboto", sans-serif;
+                color: #444343;
+                background: #f5f8fc;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow-x: hidden;
+            }
 
-    .content {
-      text-align: center;
-      max-width: 640px;
-      padding: 40px 24px;
-    }
+            .content {
+                text-align: center;
+                max-width: 640px;
+                padding: 40px 24px;
+            }
 
-    /* 404 Number */
-    .error-code {
-      font-family: 'Playfair Display', serif;
-      font-size: 160px;
-      font-weight: 700;
-      line-height: 1;
-      background: linear-gradient(135deg, #0A64B4 0%, #4696D2 50%, #0A64B4 100%);
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientShift 4s ease-in-out infinite;
-      margin-bottom: 8px;
-    }
+            /* 404 Number */
+            .error-code {
+                font-family: "Playfair Display", serif;
+                font-size: 160px;
+                font-weight: 700;
+                line-height: 1;
+                background: linear-gradient(135deg, #0a64b4 0%, #4696d2 50%, #0a64b4 100%);
+                background-size: 200% 200%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: gradientShift 4s ease-in-out infinite;
+                margin-bottom: 8px;
+            }
 
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
+            @keyframes gradientShift {
+                0%,
+                100% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+            }
 
-    /* Shield icon */
-    .shield-container {
-      margin-bottom: 32px;
-      position: relative;
-      display: inline-block;
-    }
+            /* Shield icon */
+            .shield-container {
+                margin-bottom: 32px;
+                position: relative;
+                display: inline-block;
+            }
 
-    .shield-icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto;
-      position: relative;
-    }
+            .shield-icon {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto;
+                position: relative;
+            }
 
-    .shield-icon svg {
-      width: 80px;
-      height: 80px;
-    }
+            .shield-icon svg {
+                width: 80px;
+                height: 80px;
+            }
 
-    .pulse-ring {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80px;
-      height: 80px;
-      border: 2px solid rgba(10, 100, 180, 0.2);
-      border-radius: 50%;
-      animation: pulse 2.5s ease-out infinite;
-    }
+            .pulse-ring {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 80px;
+                height: 80px;
+                border: 2px solid rgba(10, 100, 180, 0.2);
+                border-radius: 50%;
+                animation: pulse 2.5s ease-out infinite;
+            }
 
-    .pulse-ring:nth-child(2) {
-      animation-delay: 0.8s;
-    }
+            .pulse-ring:nth-child(2) {
+                animation-delay: 0.8s;
+            }
 
-    @keyframes pulse {
-      0% { width: 80px; height: 80px; opacity: 1; }
-      100% { width: 160px; height: 160px; opacity: 0; }
-    }
+            @keyframes pulse {
+                0% {
+                    width: 80px;
+                    height: 80px;
+                    opacity: 1;
+                }
+                100% {
+                    width: 160px;
+                    height: 160px;
+                    opacity: 0;
+                }
+            }
 
-    .error-title {
-      font-family: 'Noto Serif', serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: #144C55;
-      margin-bottom: 16px;
-    }
+            .error-title {
+                font-family: "Noto Serif", serif;
+                font-size: 28px;
+                font-weight: 700;
+                color: #144c55;
+                margin-bottom: 16px;
+            }
 
-    .error-desc {
-      font-size: 16px;
-      color: #5E5E5E;
-      line-height: 1.7;
-      margin-bottom: 36px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+            .error-desc {
+                font-size: 16px;
+                color: #5e5e5e;
+                line-height: 1.7;
+                margin-bottom: 36px;
+                max-width: 480px;
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-    /* Buttons */
-    .actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+            /* Buttons */
+            .actions {
+                display: flex;
+                gap: 16px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 32px;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      cursor: pointer;
-      border: none;
-      font-family: 'Roboto', sans-serif;
-    }
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 14px 32px;
+                border-radius: 8px;
+                font-size: 15px;
+                font-weight: 500;
+                text-decoration: none;
+                transition: all 0.25s ease;
+                cursor: pointer;
+                border: none;
+                font-family: "Roboto", sans-serif;
+            }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #0A64B4, #4696D2);
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(10, 100, 180, 0.3);
-    }
+            .btn-primary {
+                background: linear-gradient(135deg, #0a64b4, #4696d2);
+                color: #fff;
+                box-shadow: 0 4px 16px rgba(10, 100, 180, 0.3);
+            }
 
-    .btn-primary:hover {
-      box-shadow: 0 6px 24px rgba(10, 100, 180, 0.45);
-      transform: translateY(-2px);
-    }
+            .btn-primary:hover {
+                box-shadow: 0 6px 24px rgba(10, 100, 180, 0.45);
+                transform: translateY(-2px);
+            }
 
-    .btn-secondary {
-      background: #fff;
-      color: #0A64B4;
-      border: 2px solid #0A64B4;
-    }
+            .btn-secondary {
+                background: #fff;
+                color: #0a64b4;
+                border: 2px solid #0a64b4;
+            }
 
-    .btn-secondary:hover {
-      background: #0A64B4;
-      color: #fff;
-      transform: translateY(-2px);
-    }
+            .btn-secondary:hover {
+                background: #0a64b4;
+                color: #fff;
+                transform: translateY(-2px);
+            }
 
-    .btn svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
-    }
+            .btn svg {
+                width: 18px;
+                height: 18px;
+                fill: currentColor;
+            }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .error-code {
-        font-size: 110px;
-      }
+            /* Responsive */
+            @media (max-width: 768px) {
+                .error-code {
+                    font-size: 110px;
+                }
 
-      .shield-icon, .shield-icon svg {
-        width: 60px;
-        height: 60px;
-      }
+                .shield-icon,
+                .shield-icon svg {
+                    width: 60px;
+                    height: 60px;
+                }
 
-      .error-title {
-        font-size: 22px;
-      }
+                .error-title {
+                    font-size: 22px;
+                }
 
-      .error-desc {
-        font-size: 15px;
-        margin-bottom: 28px;
-      }
+                .error-desc {
+                    font-size: 15px;
+                    margin-bottom: 28px;
+                }
 
-      .actions {
-        flex-direction: column;
-        align-items: center;
-      }
+                .actions {
+                    flex-direction: column;
+                    align-items: center;
+                }
 
-      .btn {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
-        padding: 12px 24px;
-      }
-    }
+                .btn {
+                    width: 100%;
+                    max-width: 280px;
+                    justify-content: center;
+                    padding: 12px 24px;
+                }
+            }
 
-    @media (max-width: 480px) {
-      .error-code {
-        font-size: 80px;
-      }
+            @media (max-width: 480px) {
+                .error-code {
+                    font-size: 80px;
+                }
 
-      .error-title {
-        font-size: 20px;
-      }
+                .error-title {
+                    font-size: 20px;
+                }
 
-      .error-desc {
-        font-size: 14px;
-      }
-    }
+                .error-desc {
+                    font-size: 14px;
+                }
+            }
 
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .error-code {
-        font-size: 130px;
-      }
-    }
-  </style>
-</head>
-<body>
+            @media (min-width: 769px) and (max-width: 1024px) {
+                .error-code {
+                    font-size: 130px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <!-- Error Code -->
+            <div class="error-code">404</div>
 
-  <div class="content">
-    <!-- Error Code -->
-    <div class="error-code">404</div>
+            <!-- Shield Icon -->
+            <div class="shield-container">
+                <div class="shield-icon">
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring"></div>
+                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M40 8L12 22v18c0 16.6 11.5 32.1 28 36 16.5-3.9 28-19.4 28-36V22L40 8z"
+                            fill="url(#shieldGrad)"
+                            opacity="0.12"
+                        />
+                        <path
+                            d="M40 8L12 22v18c0 16.6 11.5 32.1 28 36 16.5-3.9 28-19.4 28-36V22L40 8z"
+                            stroke="url(#shieldStroke)"
+                            stroke-width="2.5"
+                            fill="none"
+                        />
+                        <path
+                            d="M33 42l-7-7 3-3 4 4 11-11 3 3-14 14z"
+                            fill="#0A64B4"
+                            opacity="0.35"
+                        />
+                        <line
+                            x1="28"
+                            y1="40"
+                            x2="52"
+                            y2="40"
+                            stroke="#CA1D20"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                        />
+                        <line
+                            x1="40"
+                            y1="28"
+                            x2="40"
+                            y2="52"
+                            stroke="#CA1D20"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                            transform="rotate(45 40 40)"
+                        />
+                        <defs>
+                            <linearGradient id="shieldGrad" x1="12" y1="8" x2="68" y2="76">
+                                <stop offset="0%" stop-color="#0A64B4" />
+                                <stop offset="100%" stop-color="#4696D2" />
+                            </linearGradient>
+                            <linearGradient id="shieldStroke" x1="12" y1="8" x2="68" y2="76">
+                                <stop offset="0%" stop-color="#0A64B4" />
+                                <stop offset="100%" stop-color="#4696D2" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
 
-    <!-- Shield Icon -->
-    <div class="shield-container">
-      <div class="shield-icon">
-        <div class="pulse-ring"></div>
-        <div class="pulse-ring"></div>
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M40 8L12 22v18c0 16.6 11.5 32.1 28 36 16.5-3.9 28-19.4 28-36V22L40 8z" fill="url(#shieldGrad)" opacity="0.12"/>
-          <path d="M40 8L12 22v18c0 16.6 11.5 32.1 28 36 16.5-3.9 28-19.4 28-36V22L40 8z" stroke="url(#shieldStroke)" stroke-width="2.5" fill="none"/>
-          <path d="M33 42l-7-7 3-3 4 4 11-11 3 3-14 14z" fill="#0A64B4" opacity="0.35"/>
-          <line x1="28" y1="40" x2="52" y2="40" stroke="#CA1D20" stroke-width="3" stroke-linecap="round"/>
-          <line x1="40" y1="28" x2="40" y2="52" stroke="#CA1D20" stroke-width="3" stroke-linecap="round" transform="rotate(45 40 40)"/>
-          <defs>
-            <linearGradient id="shieldGrad" x1="12" y1="8" x2="68" y2="76">
-              <stop offset="0%" stop-color="#0A64B4"/>
-              <stop offset="100%" stop-color="#4696D2"/>
-            </linearGradient>
-            <linearGradient id="shieldStroke" x1="12" y1="8" x2="68" y2="76">
-              <stop offset="0%" stop-color="#0A64B4"/>
-              <stop offset="100%" stop-color="#4696D2"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-    </div>
+            <h1 class="error-title">Trang bạn tìm không tồn tại</h1>
+            <p class="error-desc">
+                Trang này có thể đã bị xóa, đổi tên hoặc tạm thời không khả dụng. Vui lòng kiểm tra
+                lại đường dẫn hoặc quay về trang chủ.
+            </p>
 
-    <h1 class="error-title">Trang bạn tìm không tồn tại</h1>
-    <p class="error-desc">
-      Trang này có thể đã bị xóa, đổi tên hoặc tạm thời không khả dụng.
-      Vui lòng kiểm tra lại đường dẫn hoặc quay về trang chủ.
-    </p>
+            <!-- Actions -->
+            <div class="actions">
+                <a href="/" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" /></svg>
+                    Về trang chủ
+                </a>
+                <a href="#" id="btn-back" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                    </svg>
+                    Quay lại
+                </a>
+            </div>
+        </div>
 
-    <!-- Actions -->
-    <div class="actions">
-      <a href="/" class="btn btn-primary">
-        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-        Về trang chủ
-      </a>
-      <a href="#" id="btn-back" class="btn btn-secondary">
-        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-        Quay lại
-      </a>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById('btn-back').addEventListener('click', function(e) {
-      e.preventDefault();
-      history.back();
-    });
-  </script>
-</body>
+        <script>
+            document.getElementById("btn-back").addEventListener("click", function (e) {
+                e.preventDefault();
+                history.back();
+            });
+        </script>
+    </body>
 </html>

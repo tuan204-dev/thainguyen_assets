@@ -23,10 +23,7 @@
  *   - Supports destroy via attribute removal and re-init via attribute change.
  */
 
-import {
-    OverlayScrollbars,
-    ClickScrollPlugin,
-} from "./vendor/overlayscrollbars.mjs";
+import { OverlayScrollbars, ClickScrollPlugin } from "./vendor/overlayscrollbars.mjs";
 
 const ScrollManager = (() => {
     /* ── constants ────────────────────────────────── */
@@ -43,13 +40,13 @@ const ScrollManager = (() => {
 
     /** Build OverlayScrollbars options from data attributes. */
     function buildOptions(el) {
-        const autoHide      = attr(el, "auto-hide", "scroll");
+        const autoHide = attr(el, "auto-hide", "scroll");
         const autoHideDelay = Number(attr(el, "auto-hide-delay", 800));
-        const theme         = attr(el, "theme", "os-theme-dark");
-        const overflowX     = attr(el, "overflow-x", "scroll");
-        const overflowY     = attr(el, "overflow-y", "scroll");
-        const clickScroll   = attr(el, "click-scroll", "false") === "true";
-        const visibility    = attr(el, "visibility", "auto");
+        const theme = attr(el, "theme", "os-theme-dark");
+        const overflowX = attr(el, "overflow-x", "scroll");
+        const overflowY = attr(el, "overflow-y", "scroll");
+        const clickScroll = attr(el, "click-scroll", "false") === "true";
+        const visibility = attr(el, "visibility", "auto");
 
         return {
             scrollbars: {
@@ -127,10 +124,7 @@ const ScrollManager = (() => {
             }
 
             // Handle attribute changes on existing elements
-            if (
-                mutation.type === "attributes" &&
-                mutation.target.nodeType === Node.ELEMENT_NODE
-            ) {
+            if (mutation.type === "attributes" && mutation.target.nodeType === Node.ELEMENT_NODE) {
                 const el = mutation.target;
 
                 if (mutation.attributeName === ATTR) {
@@ -139,10 +133,7 @@ const ScrollManager = (() => {
                 }
 
                 // If any data-scroll-* config attribute changes → re-init
-                if (
-                    mutation.attributeName?.startsWith("data-scroll-") &&
-                    el.hasAttribute(ATTR)
-                ) {
+                if (mutation.attributeName?.startsWith("data-scroll-") && el.hasAttribute(ATTR)) {
                     reinitElement(el);
                 }
             }

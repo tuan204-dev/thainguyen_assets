@@ -3,7 +3,9 @@
     font-weight: 500;
 }
 
-.title.l2, .title.l3, .title.l4 {
+.title.l2,
+.title.l3,
+.title.l4 {
     font-size: 18px !important;
 }
 
@@ -19,7 +21,8 @@
     font-family: "Roboto", ui-sans-serif;
 }
 
-.cate-label h2, .cate-label h3 {
+.cate-label h2,
+.cate-label h3 {
     font-size: 24px;
 }
 

@@ -31,30 +31,30 @@
     };
 
     const initMobileMenu = () => {
-        const menuBtn = document.getElementById('menu-btn');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        const mobileMenuContent = document.getElementById('mobile-menu-content');
+        const menuBtn = document.getElementById("menu-btn");
+        const closeMenuBtn = document.getElementById("close-menu-btn");
+        const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+        const mobileMenuContent = document.getElementById("mobile-menu-content");
 
         if (!menuBtn || !closeMenuBtn || !mobileMenuOverlay || !mobileMenuContent) return;
 
         const openMenu = () => {
-            mobileMenuOverlay.classList.remove('invisible', 'opacity-0');
-            mobileMenuOverlay.classList.add('visible', 'opacity-100');
-            mobileMenuContent.classList.remove('-translate-x-full');
+            mobileMenuOverlay.classList.remove("invisible", "opacity-0");
+            mobileMenuOverlay.classList.add("visible", "opacity-100");
+            mobileMenuContent.classList.remove("-translate-x-full");
         };
 
         const closeMenu = () => {
-            mobileMenuOverlay.classList.remove('visible', 'opacity-100');
-            mobileMenuOverlay.classList.add('invisible', 'opacity-0');
-            mobileMenuContent.classList.add('-translate-x-full');
+            mobileMenuOverlay.classList.remove("visible", "opacity-100");
+            mobileMenuOverlay.classList.add("invisible", "opacity-0");
+            mobileMenuContent.classList.add("-translate-x-full");
         };
 
-        menuBtn.addEventListener('click', openMenu);
-        closeMenuBtn.addEventListener('click', closeMenu);
+        menuBtn.addEventListener("click", openMenu);
+        closeMenuBtn.addEventListener("click", closeMenu);
 
         // Close when clicking outside
-        mobileMenuOverlay.addEventListener('click', (e) => {
+        mobileMenuOverlay.addEventListener("click", (e) => {
             if (e.target === mobileMenuOverlay) {
                 closeMenu();
             }

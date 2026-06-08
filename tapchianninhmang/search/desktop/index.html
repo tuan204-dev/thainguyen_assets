@@ -1,260 +1,711 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tìm kiếm - Tạp chí An ninh mạng Việt Nam</title>
+        <link rel="stylesheet" href="./output.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-merriweather-vn.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-roboto-vn.css" />
+        <link rel="stylesheet" href="../../common/style/common.css" />
+        <link rel="stylesheet" href="../../common/style/icon.css" />
+        <link rel="stylesheet" href="../../common/vendor/overlayscrollbars.min.css" />
+        <link rel="stylesheet" href="../../common/style/overlayscrollbar.css" />
+        <link rel="stylesheet" href="../../common/style/overlay.css" />
+        <link rel="stylesheet" href="../../common/style/dropdown.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tìm kiếm - Tạp chí An ninh mạng Việt Nam</title>
-    <link rel="stylesheet" href="./output.css">
-    <link rel="stylesheet" href="../../common/style/fonts-merriweather-vn.css">
-    <link rel="stylesheet" href="../../common/style/fonts-roboto-vn.css">
-    <link rel="stylesheet" href="../../common/style/common.css">
-    <link rel="stylesheet" href="../../common/style/icon.css">
-    <link rel="stylesheet" href="../../common/vendor/overlayscrollbars.min.css">
-    <link rel="stylesheet" href="../../common/style/overlayscrollbar.css">
-    <link rel="stylesheet" href="../../common/style/overlay.css">
-    <link rel="stylesheet" href="../../common/style/dropdown.css">
-</head>
+    <body class="">
+        <header class="home-header t:max-md:hidden">
+            <div
+                class="t:w-full t:transition-all header-main t:duration-500 t:h-25 t:fixed t:bg-white t:top-0 t:left-0 t:z-50 home-header-main"
+            >
+                <div class="t:container">
+                    <div class="t:grid t:grid-cols-[140px_1fr_140px] t:items-center t:py-2">
+                        <span class="today t:text-xs t:text-[#5E5E5E]">
+                            Thứ 5, 02/04/2026, 00:41
+                        </span>
+                        <div class="t:flex t:justify-center">
+                            <img
+                                src="../../common/assets/logo.png"
+                                alt=""
+                                class="t:max-h-21 logo-header t:transition-all t:duration-500"
+                            />
+                        </div>
 
-<body class="">
-    <header class="home-header t:max-md:hidden">
-        <div
-            class="t:w-full t:transition-all header-main t:duration-500 t:h-25 t:fixed t:bg-white t:top-0 t:left-0 t:z-50 home-header-main">
-            <div class="t:container">
-                <div class="t:grid t:grid-cols-[140px_1fr_140px] t:items-center t:py-2">
-                    <span class="today t:text-xs t:text-[#5E5E5E]">
-                        Thứ 5, 02/04/2026, 00:41
-                    </span>
-                    <div class="t:flex t:justify-center">
-                        <img src="../../common/assets/logo.png" alt=""
-                            class="t:max-h-21 logo-header t:transition-all t:duration-500">
+                        <form
+                            action=""
+                            class="t:w-35 t:ml-auto t:px-2 t:bg-[#E6EDF3] t:rounded-lg t:flex t:items-center t:gap-3"
+                        >
+                            <input
+                                type="text"
+                                placeholder="Tìm kiếm"
+                                aria-label="Tìm kiếm"
+                                class="t:flex-1 t:min-w-0 t:bg-transparent t:border-0 t:outline-none t:text-sm t:leading-none t:text-[#0A64B4] t:placeholder-[#0A64B4]"
+                            />
+                            <button
+                                type="submit"
+                                class="t:shrink-0 t:text-[#0A64B4] t:text-[32px] t:leading-none"
+                                aria-label="Tìm kiếm"
+                            >
+                                <i class="majesticons--search-line"></i>
+                            </button>
+                        </form>
                     </div>
-
-                    <form action=""
-                        class="t:w-35 t:ml-auto t:px-2 t:bg-[#E6EDF3] t:rounded-lg t:flex t:items-center t:gap-3">
-                        <input type="text" placeholder="Tìm kiếm" aria-label="Tìm kiếm"
-                            class="t:flex-1 t:min-w-0 t:bg-transparent t:border-0 t:outline-none t:text-sm t:leading-none t:text-[#0A64B4] t:placeholder-[#0A64B4]">
-                        <button type="submit" class="t:shrink-0 t:text-[#0A64B4] t:text-[32px] t:leading-none"
-                            aria-label="Tìm kiếm">
-                            <i class="majesticons--search-line"></i>
-                        </button>
-                    </form>
                 </div>
             </div>
-        </div>
-        <div class="t:h-25"></div>
-        <div class="t:border-y t:border-[#1B75BC]">
-            <div class="t:container t:mx-auto">
-                <div class="t:grid t:grid-cols-[auto_1fr_auto] t:gap-x-3 t:items-center t:min-h-11">
-                    <a href="/" class="t:text-[#0A64B4]">
-                        <i class="material-symbols-light--home-rounded t:my-auto t:block!"></i>
-                    </a>
+            <div class="t:h-25"></div>
+            <div class="t:border-y t:border-[#1B75BC]">
+                <div class="t:container t:mx-auto">
+                    <div
+                        class="t:grid t:grid-cols-[auto_1fr_auto] t:gap-x-3 t:items-center t:min-h-11"
+                    >
+                        <a href="/" class="t:text-[#0A64B4]">
+                            <i class="material-symbols-light--home-rounded t:my-auto t:block!"></i>
+                        </a>
 
-                    <nav class="home-primary-nav roboto">
-                        <ul
-                            class="t:flex t:items-center t:justify-center t:gap-5 t:text-[#0A64B4] t:text-base t:font-normal t:leading-none t:max-[1000px]:[&>*:nth-child(n+5)]:hidden! t:[&>*:nth-child(n+6)]:hidden! home-primary-nav-list">
-                            <li>
-                                <a href="#" class="t:hover:text-[#07528F] t:transition-colors">Trang chủ</a>
-                            </li>
+                        <nav class="home-primary-nav roboto">
+                            <ul
+                                class="t:flex t:items-center t:justify-center t:gap-5 t:text-[#0A64B4] t:text-base t:font-normal t:leading-none t:max-[1000px]:[&>*:nth-child(n+5)]:hidden! t:[&>*:nth-child(n+6)]:hidden! home-primary-nav-list"
+                            >
+                                <li>
+                                    <a href="#" class="t:hover:text-[#07528F] t:transition-colors">
+                                        Trang chủ
+                                    </a>
+                                </li>
 
-                            <li>
-                                <div class="dropdown-block" data-floating-dropdown data-offset="4">
-                                    <button type="button" data-floating-trigger
-                                        class="t:flex t:items-center t:gap-1.5 t:text-[#0A64B4] t:hover:text-[#07528F] t:transition-colors t:bg-transparent t:border-0 t:px-0 t:py-2 t:font-normal">
-                                        Sự kiện &amp; Quan điểm
-                                        <span class="caret" aria-hidden="true">▾</span>
-                                    </button>
+                                <li>
+                                    <div
+                                        class="dropdown-block"
+                                        data-floating-dropdown
+                                        data-offset="4"
+                                    >
+                                        <button
+                                            type="button"
+                                            data-floating-trigger
+                                            class="t:flex t:items-center t:gap-1.5 t:text-[#0A64B4] t:hover:text-[#07528F] t:transition-colors t:bg-transparent t:border-0 t:px-0 t:py-2 t:font-normal"
+                                        >
+                                            Sự kiện &amp; Quan điểm
+                                            <span class="caret" aria-hidden="true">▾</span>
+                                        </button>
 
-                                    <div role="menu" class="dropdown-menu is-hidden" data-floating-menu>
-                                        <a href="#" role="menuitem" class="dropdown-item">Tin nổi bật</a>
-                                        <a href="#" role="menuitem" class="dropdown-item">Góc nhìn chuyên gia</a>
+                                        <div
+                                            role="menu"
+                                            class="dropdown-menu is-hidden"
+                                            data-floating-menu
+                                        >
+                                            <a href="#" role="menuitem" class="dropdown-item">
+                                                Tin nổi bật
+                                            </a>
+                                            <a href="#" role="menuitem" class="dropdown-item">
+                                                Góc nhìn chuyên gia
+                                            </a>
 
-                                        <div class="dropdown-submenu" data-floating-submenu>
-                                            <button type="button" role="menuitem" class="dropdown-item submenu-trigger"
-                                                data-floating-submenu-trigger>
-                                                Theo chuyên mục
-                                                <span class="submenu-caret" aria-hidden="true">›</span>
-                                            </button>
+                                            <div class="dropdown-submenu" data-floating-submenu>
+                                                <button
+                                                    type="button"
+                                                    role="menuitem"
+                                                    class="dropdown-item submenu-trigger"
+                                                    data-floating-submenu-trigger
+                                                >
+                                                    Theo chuyên mục
+                                                    <span class="submenu-caret" aria-hidden="true">
+                                                        ›
+                                                    </span>
+                                                </button>
 
-                                            <div role="menu" class="dropdown-menu is-hidden submenu-menu"
-                                                data-floating-submenu-menu>
-                                                <a href="#" role="menuitem" class="dropdown-item">Chính sách</a>
-                                                <a href="#" role="menuitem" class="dropdown-item">Công nghệ</a>
+                                                <div
+                                                    role="menu"
+                                                    class="dropdown-menu is-hidden submenu-menu"
+                                                    data-floating-submenu-menu
+                                                >
+                                                    <a
+                                                        href="#"
+                                                        role="menuitem"
+                                                        class="dropdown-item"
+                                                    >
+                                                        Chính sách
+                                                    </a>
+                                                    <a
+                                                        href="#"
+                                                        role="menuitem"
+                                                        class="dropdown-item"
+                                                    >
+                                                        Công nghệ
+                                                    </a>
 
-                                                <div class="dropdown-submenu" data-floating-submenu>
-                                                    <button type="button" role="menuitem"
-                                                        class="dropdown-item submenu-trigger"
-                                                        data-floating-submenu-trigger>
-                                                        Phân tích sâu
-                                                        <span class="submenu-caret" aria-hidden="true">›</span>
-                                                    </button>
-                                                    <div role="menu" class="dropdown-menu is-hidden submenu-menu"
-                                                        data-floating-submenu-menu>
-                                                        <a href="#" role="menuitem" class="dropdown-item">Xu hướng tấn
-                                                            công</a>
-                                                        <a href="#" role="menuitem" class="dropdown-item">Giám sát dữ
-                                                            liệu</a>
+                                                    <div
+                                                        class="dropdown-submenu"
+                                                        data-floating-submenu
+                                                    >
+                                                        <button
+                                                            type="button"
+                                                            role="menuitem"
+                                                            class="dropdown-item submenu-trigger"
+                                                            data-floating-submenu-trigger
+                                                        >
+                                                            Phân tích sâu
+                                                            <span
+                                                                class="submenu-caret"
+                                                                aria-hidden="true"
+                                                            >
+                                                                ›
+                                                            </span>
+                                                        </button>
+                                                        <div
+                                                            role="menu"
+                                                            class="dropdown-menu is-hidden submenu-menu"
+                                                            data-floating-submenu-menu
+                                                        >
+                                                            <a
+                                                                href="#"
+                                                                role="menuitem"
+                                                                class="dropdown-item"
+                                                            >
+                                                                Xu hướng tấn công
+                                                            </a>
+                                                            <a
+                                                                href="#"
+                                                                role="menuitem"
+                                                                class="dropdown-item"
+                                                            >
+                                                                Giám sát dữ liệu
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a href="#" class="t:hover:text-[#07528F] t:transition-colors">Cảnh báo lừa đảo</a>
-                            </li>
-
-                            <li>
-                                <div class="dropdown-block" data-floating-dropdown data-offset="4">
-                                    <button type="button" data-floating-trigger
-                                        class="t:flex t:items-center t:gap-1.5 t:text-[#0A64B4] t:hover:text-[#07528F] t:transition-colors t:bg-transparent t:border-0 t:px-0 t:py-2 t:font-normal">
-                                        Bảo vệ dữ liệu
-                                        <span class="caret" aria-hidden="true">▾</span>
-                                    </button>
-                                    <div role="menu" class="dropdown-menu is-hidden" data-floating-menu>
-                                        <a href="#" role="menuitem" class="dropdown-item">An toàn cá nhân</a>
-                                        <a href="#" role="menuitem" class="dropdown-item">Bảo vệ doanh nghiệp</a>
-                                        <div class="dropdown-separator"></div>
-                                        <a href="#" role="menuitem" class="dropdown-item">Mẫu kiểm tra rủi ro</a>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a href="#" class="t:hover:text-[#07528F] t:transition-colors">Phòng và chống tấn
-                                    công</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                    <button type="button" data-overlay-target="desktop-main-menu" aria-label="Mở menu"
-                        class="t:justify-self-end t:w-8 t:h-8 t:flex t:flex-col t:justify-center t:gap-1.5 t:text-[#0A64B4] home-menu-toggle">
-                        <i class="material-symbols--menu-rounded"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <aside class="home-menu-aside roboto t:max-md:hidden">
-        <div class="overlay home-main-overlay" data-overlay-id="desktop-main-menu">
-            <div class="overlay__backdrop"></div>
-
-            <div class="overlay__content t:p-0 home-main-overlay-content"
-                style="max-width: 1120px; margin-top: 54px; border-radius: 0; overflow: visible;">
-                <div class="t:grid t:grid-cols-[320px_1fr]" style="min-height: 640px;">
-                    <div class="t:border-r t:border-[#D9D9D9] t:bg-[#FAFAFA] home-overlay-sidebar">
-                        <nav aria-label="Danh mục mở rộng" class="t:h-full home-overlay-nav">
-                            <ul class="t:list-none t:m-0 t:p-0 t:text-[17px] t:font-bold t:text-[#151515]">
-                                <li class="t:border-b t:border-[#D9D9D9]">
-                                    <a href="#" data-menu-item="trang-chu"
-                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1] is-active">
-                                        <span data-menu-indicator
-                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
-                                        Trang chủ
-                                    </a>
                                 </li>
-                                <li class="t:border-b t:border-[#D9D9D9]">
-                                    <a href="#" data-menu-item="su-kien"
-                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
-                                        <span data-menu-indicator
-                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
-                                        Sự kiện &amp; Quan điểm
-                                    </a>
-                                </li>
-                                <li class="t:border-b t:border-[#D9D9D9]">
-                                    <a href="#" data-menu-item="canh-bao"
-                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
-                                        <span data-menu-indicator
-                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
+
+                                <li>
+                                    <a href="#" class="t:hover:text-[#07528F] t:transition-colors">
                                         Cảnh báo lừa đảo
                                     </a>
                                 </li>
-                                <li class="t:border-b t:border-[#D9D9D9]">
-                                    <a href="#" data-menu-item="bao-ve"
-                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
-                                        <span data-menu-indicator
-                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
-                                        Bảo vệ dữ liệu
-                                    </a>
+
+                                <li>
+                                    <div
+                                        class="dropdown-block"
+                                        data-floating-dropdown
+                                        data-offset="4"
+                                    >
+                                        <button
+                                            type="button"
+                                            data-floating-trigger
+                                            class="t:flex t:items-center t:gap-1.5 t:text-[#0A64B4] t:hover:text-[#07528F] t:transition-colors t:bg-transparent t:border-0 t:px-0 t:py-2 t:font-normal"
+                                        >
+                                            Bảo vệ dữ liệu
+                                            <span class="caret" aria-hidden="true">▾</span>
+                                        </button>
+                                        <div
+                                            role="menu"
+                                            class="dropdown-menu is-hidden"
+                                            data-floating-menu
+                                        >
+                                            <a href="#" role="menuitem" class="dropdown-item">
+                                                An toàn cá nhân
+                                            </a>
+                                            <a href="#" role="menuitem" class="dropdown-item">
+                                                Bảo vệ doanh nghiệp
+                                            </a>
+                                            <div class="dropdown-separator"></div>
+                                            <a href="#" role="menuitem" class="dropdown-item">
+                                                Mẫu kiểm tra rủi ro
+                                            </a>
+                                        </div>
+                                    </div>
                                 </li>
-                                <li class="t:border-b t:border-[#D9D9D9]">
-                                    <a href="#" data-menu-item="phong-chong"
-                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
-                                        <span data-menu-indicator
-                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
+
+                                <li>
+                                    <a href="#" class="t:hover:text-[#07528F] t:transition-colors">
                                         Phòng và chống tấn công
-                                    </a>
-                                </li>
-                                <li class="t:border-b t:border-[#D9D9D9]">
-                                    <a href="#" data-menu-item="ho-so"
-                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
-                                        <span data-menu-indicator
-                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
-                                        Hồ sơ tội phạm mạng
-                                    </a>
-                                </li>
-                                <li class="t:border-b t:border-[#D9D9D9]">
-                                    <a href="#" data-menu-item="an-ninh"
-                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
-                                        <span data-menu-indicator
-                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
-                                        An ninh mạng
-                                    </a>
-                                </li>
-                                <li class="t:border-b t:border-[#D9D9D9]">
-                                    <a href="#" data-menu-item="chuyen-doi"
-                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
-                                        <span data-menu-indicator
-                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
-                                        Chuyển đổi số
-                                    </a>
-                                </li>
-                                <li class="t:border-b t:border-[#D9D9D9]">
-                                    <a href="#" data-menu-item="da-phuong-tien"
-                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
-                                        <span data-menu-indicator
-                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
-                                        Đa phương tiện
-                                    </a>
-                                </li>
-                                <li class="t:border-b t:border-[#D9D9D9]">
-                                    <a href="#" data-menu-item="hanh-lang"
-                                        class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]">
-                                        <span data-menu-indicator
-                                            class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none">➜</span>
-                                        Hành lang pháp lý
                                     </a>
                                 </li>
                             </ul>
                         </nav>
+
+                        <button
+                            type="button"
+                            data-overlay-target="desktop-main-menu"
+                            aria-label="Mở menu"
+                            class="t:justify-self-end t:w-8 t:h-8 t:flex t:flex-col t:justify-center t:gap-1.5 t:text-[#0A64B4] home-menu-toggle"
+                        >
+                            <i class="material-symbols--menu-rounded"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <aside class="home-menu-aside roboto t:max-md:hidden">
+            <div class="overlay home-main-overlay" data-overlay-id="desktop-main-menu">
+                <div class="overlay__backdrop"></div>
+
+                <div
+                    class="overlay__content t:p-0 home-main-overlay-content"
+                    style="max-width: 1120px; margin-top: 54px; border-radius: 0; overflow: visible"
+                >
+                    <div class="t:grid t:grid-cols-[320px_1fr]" style="min-height: 640px">
+                        <div
+                            class="t:border-r t:border-[#D9D9D9] t:bg-[#FAFAFA] home-overlay-sidebar"
+                        >
+                            <nav aria-label="Danh mục mở rộng" class="t:h-full home-overlay-nav">
+                                <ul
+                                    class="t:list-none t:m-0 t:p-0 t:text-[17px] t:font-bold t:text-[#151515]"
+                                >
+                                    <li class="t:border-b t:border-[#D9D9D9]">
+                                        <a
+                                            href="#"
+                                            data-menu-item="trang-chu"
+                                            class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1] is-active"
+                                        >
+                                            <span
+                                                data-menu-indicator
+                                                class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none"
+                                            >
+                                                ➜
+                                            </span>
+                                            Trang chủ
+                                        </a>
+                                    </li>
+                                    <li class="t:border-b t:border-[#D9D9D9]">
+                                        <a
+                                            href="#"
+                                            data-menu-item="su-kien"
+                                            class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]"
+                                        >
+                                            <span
+                                                data-menu-indicator
+                                                class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none"
+                                            >
+                                                ➜
+                                            </span>
+                                            Sự kiện &amp; Quan điểm
+                                        </a>
+                                    </li>
+                                    <li class="t:border-b t:border-[#D9D9D9]">
+                                        <a
+                                            href="#"
+                                            data-menu-item="canh-bao"
+                                            class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]"
+                                        >
+                                            <span
+                                                data-menu-indicator
+                                                class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none"
+                                            >
+                                                ➜
+                                            </span>
+                                            Cảnh báo lừa đảo
+                                        </a>
+                                    </li>
+                                    <li class="t:border-b t:border-[#D9D9D9]">
+                                        <a
+                                            href="#"
+                                            data-menu-item="bao-ve"
+                                            class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]"
+                                        >
+                                            <span
+                                                data-menu-indicator
+                                                class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none"
+                                            >
+                                                ➜
+                                            </span>
+                                            Bảo vệ dữ liệu
+                                        </a>
+                                    </li>
+                                    <li class="t:border-b t:border-[#D9D9D9]">
+                                        <a
+                                            href="#"
+                                            data-menu-item="phong-chong"
+                                            class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]"
+                                        >
+                                            <span
+                                                data-menu-indicator
+                                                class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none"
+                                            >
+                                                ➜
+                                            </span>
+                                            Phòng và chống tấn công
+                                        </a>
+                                    </li>
+                                    <li class="t:border-b t:border-[#D9D9D9]">
+                                        <a
+                                            href="#"
+                                            data-menu-item="ho-so"
+                                            class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]"
+                                        >
+                                            <span
+                                                data-menu-indicator
+                                                class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none"
+                                            >
+                                                ➜
+                                            </span>
+                                            Hồ sơ tội phạm mạng
+                                        </a>
+                                    </li>
+                                    <li class="t:border-b t:border-[#D9D9D9]">
+                                        <a
+                                            href="#"
+                                            data-menu-item="an-ninh"
+                                            class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]"
+                                        >
+                                            <span
+                                                data-menu-indicator
+                                                class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none"
+                                            >
+                                                ➜
+                                            </span>
+                                            An ninh mạng
+                                        </a>
+                                    </li>
+                                    <li class="t:border-b t:border-[#D9D9D9]">
+                                        <a
+                                            href="#"
+                                            data-menu-item="chuyen-doi"
+                                            class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]"
+                                        >
+                                            <span
+                                                data-menu-indicator
+                                                class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none"
+                                            >
+                                                ➜
+                                            </span>
+                                            Chuyển đổi số
+                                        </a>
+                                    </li>
+                                    <li class="t:border-b t:border-[#D9D9D9]">
+                                        <a
+                                            href="#"
+                                            data-menu-item="da-phuong-tien"
+                                            class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]"
+                                        >
+                                            <span
+                                                data-menu-indicator
+                                                class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none"
+                                            >
+                                                ➜
+                                            </span>
+                                            Đa phương tiện
+                                        </a>
+                                    </li>
+                                    <li class="t:border-b t:border-[#D9D9D9]">
+                                        <a
+                                            href="#"
+                                            data-menu-item="hanh-lang"
+                                            class="t:flex t:items-center t:gap-3 t:px-10 t:py-6 t:text-[#151515] t:hover:bg-[#F1F1F1]"
+                                        >
+                                            <span
+                                                data-menu-indicator
+                                                class="t:hidden t:items-center t:justify-center t:w-8 t:h-8 t:rounded-full t:bg-[#2DAFA7] t:text-black t:text-lg t:leading-none"
+                                            >
+                                                ➜
+                                            </span>
+                                            Hành lang pháp lý
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="t:bg-white t:pt-8 t:px-8 home-overlay-content">
+                            <div data-menu-panel="trang-chu" class="overlay-menu-panel">
+                                <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">
+                                    Trang chủ
+                                </h3>
+                                <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                        <a href="#">Tin mới</a>
+                                        <a href="#">Nổi bật</a>
+                                        <a href="#">Đọc nhiều</a>
+                                        <a href="#">Dòng sự kiện</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div data-menu-panel="su-kien" class="overlay-menu-panel t:hidden">
+                                <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">
+                                    Sự kiện &amp; Quan điểm
+                                </h3>
+                                <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                        <a href="#">Sự kiện nóng</a>
+                                        <a href="#">Bình luận</a>
+                                        <a href="#">Phỏng vấn</a>
+                                        <div class="mobile-menu-item mobile-menu-item--nested">
+                                            <button
+                                                type="button"
+                                                class="mobile-menu-trigger mobile-menu-trigger--nested"
+                                                data-accordion-trigger
+                                            >
+                                                <span>Góc nhìn chuyên gia</span>
+                                                <span class="mobile-menu-caret">›</span>
+                                            </button>
+                                            <div class="mobile-menu-sub" data-accordion-panel>
+                                                <a href="#">Chính sách</a>
+                                                <a href="#">Công nghệ</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div data-menu-panel="canh-bao" class="overlay-menu-panel t:hidden">
+                                <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">
+                                    Cảnh báo lừa đảo
+                                </h3>
+                                <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                        <a href="#">Chiêu trò mới</a>
+                                        <a href="#">Lừa đảo AI</a>
+                                        <a href="#">Tự bảo vệ</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div data-menu-panel="bao-ve" class="overlay-menu-panel t:hidden">
+                                <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">
+                                    Bảo vệ dữ liệu
+                                </h3>
+                                <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                        <a href="#">Dữ liệu cá nhân</a>
+                                        <a href="#">Dữ liệu doanh nghiệp</a>
+                                        <a href="#">Sao lưu</a>
+                                        <a href="#">Khôi phục</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div data-menu-panel="phong-chong" class="overlay-menu-panel t:hidden">
+                                <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">
+                                    Phòng và chống tấn công
+                                </h3>
+                                <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                        <a href="#">Ransomware</a>
+                                        <a href="#">APT</a>
+                                        <a href="#">SOC</a>
+                                        <a href="#">Incident Response</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div data-menu-panel="ho-so" class="overlay-menu-panel t:hidden">
+                                <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">
+                                    Hồ sơ tội phạm mạng
+                                </h3>
+                                <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                        <a href="#">Nhân vật</a>
+                                        <a href="#">Băng nhóm</a>
+                                        <a href="#">Chiến dịch</a>
+                                        <a href="#">Phân tích hành vi</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div data-menu-panel="an-ninh" class="overlay-menu-panel t:hidden">
+                                <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">
+                                    An ninh mạng
+                                </h3>
+                                <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                        <a href="#">Tin quốc tế</a>
+                                        <a href="#">Tin trong nước</a>
+                                        <a href="#">Nghiên cứu</a>
+                                        <a href="#">Văn bản mới</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div data-menu-panel="chuyen-doi" class="overlay-menu-panel t:hidden">
+                                <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">
+                                    Chuyển đổi số
+                                </h3>
+                                <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                        <a href="#">Chính phủ số</a>
+                                        <a href="#">Doanh nghiệp số</a>
+                                        <a href="#">Dữ liệu mở</a>
+                                        <a href="#">Hạ tầng số</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                data-menu-panel="da-phuong-tien"
+                                class="overlay-menu-panel t:hidden"
+                            >
+                                <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">
+                                    Đa phương tiện
+                                </h3>
+                                <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                        <a href="#">Tin ảnh</a>
+                                        <a href="#">Infographic</a>
+                                        <a href="#">MAGAZINE</a>
+                                        <a href="#">Audio</a>
+                                        <a href="#">Video</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div data-menu-panel="hanh-lang" class="overlay-menu-panel t:hidden">
+                                <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">
+                                    Hành lang pháp lý
+                                </h3>
+                                <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                                    <div class="mobile-menu-sub" data-accordion-panel>
+                                        <a href="#">Luật An ninh mạng</a>
+                                        <a href="#">Nghị định mới</a>
+                                        <a href="#">Tiêu chuẩn</a>
+                                        <a href="#">Hỏi đáp pháp lý</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <script>
+            // Desktop overlay menu – level 1 sidebar switching
+            document.addEventListener("click", (event) => {
+                const menuItem = event.target.closest("[data-menu-item]");
+                if (!menuItem) return;
+
+                event.preventDefault();
+                const overlay = menuItem.closest("[data-overlay-id='desktop-main-menu']");
+                if (!overlay) return;
+
+                const targetKey = menuItem.dataset.menuItem;
+                const allItems = overlay.querySelectorAll("[data-menu-item]");
+                const allPanels = overlay.querySelectorAll("[data-menu-panel]");
+
+                allItems.forEach((item) => {
+                    const isActive = item.dataset.menuItem === targetKey;
+                    item.classList.toggle("is-active", isActive);
+                });
+
+                allPanels.forEach((panel) => {
+                    const isTarget = panel.dataset.menuPanel === targetKey;
+                    panel.classList.toggle("t:hidden", !isTarget);
+
+                    if (isTarget) {
+                        panel.classList.remove("is-entering");
+                        void panel.offsetWidth;
+                        panel.classList.add("is-entering");
+                    } else {
+                        panel.classList.remove("is-entering");
+                    }
+                });
+
+                overlay
+                    .querySelectorAll("[data-menu-panel] .mobile-menu-item.is-open")
+                    .forEach((item) => {
+                        if (!item.classList.contains("desktop-overlay-menu-root")) {
+                            item.classList.remove("is-open");
+                        }
+                    });
+            });
+        </script>
+
+        <header class="t:bg-[#0A64B4] t:fixed t:top-0 t:left-0 t:right-0 t:h-15 t:z-50 t:md:hidden">
+            <div class="t:px-3.75 t:flex t:items-center t:justify-between t:py-2">
+                <a href="/">
+                    <img
+                        src="../../common/assets/logo-mobile.png"
+                        alt=""
+                        class="t:object-contain t:h-11"
+                    />
+                </a>
+                <button
+                    type="button"
+                    data-overlay-target="mobile-main-menu"
+                    aria-label="Mở menu"
+                    class="t:bg-transparent t:border-0 t:p-0 t:leading-none"
+                >
+                    <i class="material-symbols--menu-rounded t:text-white"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="t:h-15 t:md:hidden"></div>
+
+        <aside class="roboto t:md:hidden">
+            <div
+                class="overlay"
+                data-overlay-id="mobile-main-menu"
+                data-overlay-variant="fullscreen"
+            >
+                <div class="overlay__backdrop"></div>
+
+                <div
+                    class="overlay__content t:p-0! t:overflow-y-auto mobile-menu-overlay-content"
+                    style="background: #f5f5f5"
+                >
+                    <div
+                        class="t:bg-[#0A64B4] t:px-3.75 t:flex t:items-center t:justify-between t:py-2 t:h-15"
+                    >
+                        <a href="/">
+                            <img
+                                src="../../common/assets/logo-mobile.png"
+                                alt=""
+                                class="t:object-contain t:h-11"
+                            />
+                        </a>
+                        <button
+                            type="button"
+                            data-overlay-target="mobile-main-menu"
+                            aria-label="Đóng menu"
+                            class="t:bg-transparent t:border-0 t:p-0 t:leading-none t:text-white t:text-2xl"
+                        >
+                            ✕
+                        </button>
                     </div>
 
-                    <div class="t:bg-white t:pt-8 t:px-8 home-overlay-content">
-                        <div data-menu-panel="trang-chu" class="overlay-menu-panel">
-                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Trang chủ</h3>
-                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                    <nav aria-label="Menu chính" class="t:px-4 t:pt-4 t:pb-8">
+                        <ul
+                            class="t:list-none t:m-0 t:p-0 t:flex t:flex-col t:gap-2"
+                            data-mobile-accordion
+                        >
+                            <li class="mobile-menu-item">
+                                <button
+                                    type="button"
+                                    class="mobile-menu-trigger"
+                                    data-accordion-trigger
+                                >
+                                    <span>Trang chủ</span>
+                                    <span class="mobile-menu-caret">›</span>
+                                </button>
                                 <div class="mobile-menu-sub" data-accordion-panel>
                                     <a href="#">Tin mới</a>
                                     <a href="#">Nổi bật</a>
                                     <a href="#">Đọc nhiều</a>
                                     <a href="#">Dòng sự kiện</a>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div data-menu-panel="su-kien" class="overlay-menu-panel t:hidden">
-                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Sự kiện &amp; Quan điểm</h3>
-                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                            </li>
+                            <li class="mobile-menu-item">
+                                <button
+                                    type="button"
+                                    class="mobile-menu-trigger"
+                                    data-accordion-trigger
+                                >
+                                    <span>Sự kiện &amp; Quan điểm</span>
+                                    <span class="mobile-menu-caret">›</span>
+                                </button>
                                 <div class="mobile-menu-sub" data-accordion-panel>
                                     <a href="#">Sự kiện nóng</a>
                                     <a href="#">Bình luận</a>
                                     <a href="#">Phỏng vấn</a>
                                     <div class="mobile-menu-item mobile-menu-item--nested">
-                                        <button type="button" class="mobile-menu-trigger mobile-menu-trigger--nested"
-                                            data-accordion-trigger>
+                                        <button
+                                            type="button"
+                                            class="mobile-menu-trigger mobile-menu-trigger--nested"
+                                            data-accordion-trigger
+                                        >
                                             <span>Góc nhìn chuyên gia</span>
                                             <span class="mobile-menu-caret">›</span>
                                         </button>
@@ -264,882 +715,812 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div data-menu-panel="canh-bao" class="overlay-menu-panel t:hidden">
-                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Cảnh báo lừa đảo</h3>
-                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                            </li>
+                            <li class="mobile-menu-item">
+                                <button
+                                    type="button"
+                                    class="mobile-menu-trigger"
+                                    data-accordion-trigger
+                                >
+                                    <span>Cảnh báo lừa đảo</span>
+                                    <span class="mobile-menu-caret">›</span>
+                                </button>
                                 <div class="mobile-menu-sub" data-accordion-panel>
                                     <a href="#">Chiêu trò mới</a>
                                     <a href="#">Lừa đảo AI</a>
                                     <a href="#">Tự bảo vệ</a>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div data-menu-panel="bao-ve" class="overlay-menu-panel t:hidden">
-                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Bảo vệ dữ liệu</h3>
-                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                            </li>
+                            <li class="mobile-menu-item">
+                                <button
+                                    type="button"
+                                    class="mobile-menu-trigger"
+                                    data-accordion-trigger
+                                >
+                                    <span>Bảo vệ dữ liệu</span>
+                                    <span class="mobile-menu-caret">›</span>
+                                </button>
                                 <div class="mobile-menu-sub" data-accordion-panel>
                                     <a href="#">Dữ liệu cá nhân</a>
                                     <a href="#">Dữ liệu doanh nghiệp</a>
                                     <a href="#">Sao lưu</a>
                                     <a href="#">Khôi phục</a>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div data-menu-panel="phong-chong" class="overlay-menu-panel t:hidden">
-                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Phòng và chống tấn công</h3>
-                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                            </li>
+                            <li class="mobile-menu-item">
+                                <button
+                                    type="button"
+                                    class="mobile-menu-trigger"
+                                    data-accordion-trigger
+                                >
+                                    <span>Phòng và chống tấn công</span>
+                                    <span class="mobile-menu-caret">›</span>
+                                </button>
                                 <div class="mobile-menu-sub" data-accordion-panel>
                                     <a href="#">Ransomware</a>
                                     <a href="#">APT</a>
                                     <a href="#">SOC</a>
                                     <a href="#">Incident Response</a>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div data-menu-panel="ho-so" class="overlay-menu-panel t:hidden">
-                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Hồ sơ tội phạm mạng</h3>
-                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
+                            </li>
+                            <li class="mobile-menu-item">
+                                <button
+                                    type="button"
+                                    class="mobile-menu-trigger"
+                                    data-accordion-trigger
+                                >
+                                    <span>Hồ sơ tội phạm mạng</span>
+                                    <span class="mobile-menu-caret">›</span>
+                                </button>
                                 <div class="mobile-menu-sub" data-accordion-panel>
                                     <a href="#">Nhân vật</a>
                                     <a href="#">Băng nhóm</a>
                                     <a href="#">Chiến dịch</a>
                                     <a href="#">Phân tích hành vi</a>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div data-menu-panel="an-ninh" class="overlay-menu-panel t:hidden">
-                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">An ninh mạng</h3>
-                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
-                                <div class="mobile-menu-sub" data-accordion-panel>
-                                    <a href="#">Tin quốc tế</a>
-                                    <a href="#">Tin trong nước</a>
-                                    <a href="#">Nghiên cứu</a>
-                                    <a href="#">Văn bản mới</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div data-menu-panel="chuyen-doi" class="overlay-menu-panel t:hidden">
-                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Chuyển đổi số</h3>
-                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
-                                <div class="mobile-menu-sub" data-accordion-panel>
-                                    <a href="#">Chính phủ số</a>
-                                    <a href="#">Doanh nghiệp số</a>
-                                    <a href="#">Dữ liệu mở</a>
-                                    <a href="#">Hạ tầng số</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div data-menu-panel="da-phuong-tien" class="overlay-menu-panel t:hidden">
-                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Đa phương tiện</h3>
-                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
-                                <div class="mobile-menu-sub" data-accordion-panel>
-                                    <a href="#">Tin ảnh</a>
-                                    <a href="#">Infographic</a>
-                                    <a href="#">MAGAZINE</a>
-                                    <a href="#">Audio</a>
-                                    <a href="#">Video</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div data-menu-panel="hanh-lang" class="overlay-menu-panel t:hidden">
-                            <h3 class="t:text-[17px] t:font-bold t:text-[#161616] t:mb-6">Hành lang pháp lý</h3>
-                            <div class="desktop-overlay-menu-root mobile-menu-item is-open">
-                                <div class="mobile-menu-sub" data-accordion-panel>
-                                    <a href="#">Luật An ninh mạng</a>
-                                    <a href="#">Nghị định mới</a>
-                                    <a href="#">Tiêu chuẩn</a>
-                                    <a href="#">Hỏi đáp pháp lý</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-        </div>
-    </aside>
-    <script>
-        // Desktop overlay menu – level 1 sidebar switching
-        document.addEventListener("click", (event) => {
-            const menuItem = event.target.closest("[data-menu-item]");
-            if (!menuItem) return;
+        </aside>
+        <script>
+            // Mobile accordion menu
+            document.addEventListener("click", function (e) {
+                const trigger = e.target.closest("[data-accordion-trigger]");
+                if (!trigger) return;
 
-            event.preventDefault();
-            const overlay = menuItem.closest("[data-overlay-id='desktop-main-menu']");
-            if (!overlay) return;
+                e.preventDefault();
+                const item = trigger.closest(".mobile-menu-item");
+                if (!item) return;
 
-            const targetKey = menuItem.dataset.menuItem;
-            const allItems = overlay.querySelectorAll("[data-menu-item]");
-            const allPanels = overlay.querySelectorAll("[data-menu-panel]");
-
-            allItems.forEach((item) => {
-                const isActive = item.dataset.menuItem === targetKey;
-                item.classList.toggle("is-active", isActive);
-            });
-
-            allPanels.forEach((panel) => {
-                const isTarget = panel.dataset.menuPanel === targetKey;
-                panel.classList.toggle("t:hidden", !isTarget);
-
-                if (isTarget) {
-                    panel.classList.remove("is-entering");
-                    void panel.offsetWidth;
-                    panel.classList.add("is-entering");
-                } else {
-                    panel.classList.remove("is-entering");
+                const accordion = item.closest("[data-mobile-accordion]");
+                if (accordion) {
+                    const siblings = accordion.querySelectorAll(":scope > .mobile-menu-item");
+                    siblings.forEach((sib) => {
+                        if (sib !== item && sib.classList.contains("is-open")) {
+                            sib.classList.remove("is-open");
+                        }
+                    });
                 }
+
+                item.classList.toggle("is-open");
             });
+        </script>
 
-            overlay.querySelectorAll("[data-menu-panel] .mobile-menu-item.is-open").forEach((item) => {
-                if (!item.classList.contains("desktop-overlay-menu-root")) {
-                    item.classList.remove("is-open");
-                }
-            });
-        });
-    </script>
-
-    <header class="t:bg-[#0A64B4] t:fixed t:top-0 t:left-0 t:right-0 t:h-15 t:z-50 t:md:hidden">
-        <div class="t:px-3.75 t:flex t:items-center t:justify-between t:py-2">
-            <a href="/">
-                <img src="../../common/assets/logo-mobile.png" alt="" class="t:object-contain t:h-11">
-            </a>
-            <button type="button" data-overlay-target="mobile-main-menu" aria-label="Mở menu"
-                class="t:bg-transparent t:border-0 t:p-0 t:leading-none">
-                <i class="material-symbols--menu-rounded t:text-white"></i>
-            </button>
-        </div>
-    </header>
-
-    <div class="t:h-15 t:md:hidden"></div>
-
-    <aside class="roboto t:md:hidden">
-        <div class="overlay" data-overlay-id="mobile-main-menu" data-overlay-variant="fullscreen">
-            <div class="overlay__backdrop"></div>
-
-            <div class="overlay__content t:p-0! t:overflow-y-auto mobile-menu-overlay-content"
-                style="background: #F5F5F5;">
-
-                <div class="t:bg-[#0A64B4] t:px-3.75 t:flex t:items-center t:justify-between t:py-2 t:h-15">
-                    <a href="/">
-                        <img src="../../common/assets/logo-mobile.png" alt="" class="t:object-contain t:h-11">
-                    </a>
-                    <button type="button" data-overlay-target="mobile-main-menu" aria-label="Đóng menu"
-                        class="t:bg-transparent t:border-0 t:p-0 t:leading-none t:text-white t:text-2xl">
-                        ✕
-                    </button>
+        <section class="t:bg-linear-to-b t:from-[#E5F3FF] t:to-[#F6FBFF] t:py-5">
+            <div class="t:container">
+                <div class="cate-label t:border-b-0! t:flex t:items-center t:gap-x-2">
+                    <h2>
+                        <a href="#">Tìm kiếm</a>
+                    </h2>
+                    <span class="uiw--right t:text-[#0A64B4]"></span>
                 </div>
+            </div>
+        </section>
 
-                <nav aria-label="Menu chính" class="t:px-4 t:pt-4 t:pb-8">
-                    <ul class="t:list-none t:m-0 t:p-0 t:flex t:flex-col t:gap-2" data-mobile-accordion>
-                        <li class="mobile-menu-item">
-                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
-                                <span>Trang chủ</span>
-                                <span class="mobile-menu-caret">›</span>
-                            </button>
-                            <div class="mobile-menu-sub" data-accordion-panel>
-                                <a href="#">Tin mới</a>
-                                <a href="#">Nổi bật</a>
-                                <a href="#">Đọc nhiều</a>
-                                <a href="#">Dòng sự kiện</a>
+        <section class="search-main-section t:py-5">
+            <div class="t:container">
+                <div class="search-grid t:grid t:grid-cols-3">
+                    <!-- portlet: search_content -->
+                    <div class="article-list t:col-span-2 t:pr-4 t:border-r t:border-[#D9D9D9]">
+                        <form action="#" class="search-form-section t:mb-5">
+                            <div class="t:mb-3">
+                                <label
+                                    class="t:flex t:items-center t:gap-2 t:text-sm t:text-[#333] t:cursor-pointer"
+                                >
+                                    <input
+                                        type="radio"
+                                        name="source"
+                                        value="tcanninhmang"
+                                        checked
+                                        class="search-radio"
+                                    />
+                                    Tạp chí An ninh mạng
+                                </label>
                             </div>
-                        </li>
-                        <li class="mobile-menu-item">
-                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
-                                <span>Sự kiện &amp; Quan điểm</span>
-                                <span class="mobile-menu-caret">›</span>
-                            </button>
-                            <div class="mobile-menu-sub" data-accordion-panel>
-                                <a href="#">Sự kiện nóng</a>
-                                <a href="#">Bình luận</a>
-                                <a href="#">Phỏng vấn</a>
-                                <div class="mobile-menu-item mobile-menu-item--nested">
-                                    <button type="button" class="mobile-menu-trigger mobile-menu-trigger--nested"
-                                        data-accordion-trigger>
-                                        <span>Góc nhìn chuyên gia</span>
-                                        <span class="mobile-menu-caret">›</span>
-                                    </button>
-                                    <div class="mobile-menu-sub" data-accordion-panel>
-                                        <a href="#">Chính sách</a>
-                                        <a href="#">Công nghệ</a>
+
+                            <div class="search-form-grid t:grid t:grid-cols-2 t:gap-3 t:mb-3">
+                                <input
+                                    type="text"
+                                    name="key"
+                                    value="1"
+                                    class="search-input"
+                                    placeholder="Nhập từ khóa..."
+                                />
+                                <select name="fromdate" class="search-select">
+                                    <option value="4" selected>1 tháng qua</option>
+                                    <option value="1">1 tuần qua</option>
+                                    <option value="2">2 tuần qua</option>
+                                    <option value="3">3 tháng qua</option>
+                                    <option value="5">6 tháng qua</option>
+                                    <option value="6">1 năm qua</option>
+                                    <option value="0">Tất cả</option>
+                                </select>
+                            </div>
+
+                            <div class="search-form-grid t:grid t:grid-cols-2 t:gap-3 t:mb-3">
+                                <select name="searchmore" class="search-select">
+                                    <option value="0" selected>Tìm trong tất cả</option>
+                                    <option value="1">Tìm trong tiêu đề</option>
+                                    <option value="2">Tìm trong nội dung</option>
+                                </select>
+                                <select name="cate" class="search-select">
+                                    <option value="" selected>Tất cả chuyên mục</option>
+                                    <option value="su-kien">Sự kiện &amp; Quan điểm</option>
+                                    <option value="canh-bao">Cảnh báo lừa đảo</option>
+                                    <option value="bao-ve">Bảo vệ dữ liệu</option>
+                                    <option value="phong-chong">Phòng và chống tấn công</option>
+                                    <option value="ho-so">Hồ sơ tội phạm mạng</option>
+                                    <option value="hanh-lang">Hành lang pháp lý</option>
+                                </select>
+                            </div>
+
+                            <div class="t:flex t:items-center t:justify-end t:gap-4">
+                                <label
+                                    class="t:flex t:items-center t:gap-1.5 t:text-sm t:text-[#333] t:cursor-pointer"
+                                >
+                                    <input
+                                        type="radio"
+                                        name="latest"
+                                        value="on"
+                                        class="search-radio"
+                                    />
+                                    Mới nhất
+                                </label>
+                                <label
+                                    class="t:flex t:items-center t:gap-1.5 t:text-sm t:text-[#333] t:cursor-pointer"
+                                >
+                                    <input
+                                        type="radio"
+                                        name="latest"
+                                        value="off"
+                                        checked
+                                        class="search-radio"
+                                    />
+                                    Liên quan
+                                </label>
+                                <button type="submit" class="search-btn">Tìm kiếm</button>
+                            </div>
+                        </form>
+
+                        <div class="search-results-bar t:mb-5">
+                            Tìm thấy
+                            <strong>51</strong>
+                            kết quả cho từ khóa
+                            <strong>1</strong>
+                        </div>
+                        <div
+                            class="search-article-list t:flex t:flex-col t:divide-y t:divide-[#D9D9D9] t:divide-dashed t:gap-y-5"
+                        >
+                            <div class="t:pb-5">
+                                <div class="t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2">
+                                        <a href="">
+                                            <img
+                                                src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/tu_17_dien_thoai_bi_khoa_se_khong_duoc_cai_ung_dung_ngan_hang_20260325192949.jpg?width=600&height=-&type=resize"
+                                                alt=""
+                                                loading="lazy"
+                                            />
+                                        </a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!">
+                                        <a href="">
+                                            Từ 1/7, điện thoại bẻ khóa sẽ không cài được ứng dụng
+                                            ngân hàng
+                                        </a>
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        19:50, 25/03/2026
+                                    </time>
+                                    <p class="desc desc-desktop">
+                                        nước Phạm Tiến Dũng cho biết, từ 1/7 điện thoại đã bẻ khóa
+                                        hoặc root sẽ không thể cài đặt, sử dụng ứng dụng ngân hàng.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="t:pb-5">
+                                <div class="t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2">
+                                        <a href="">
+                                            <img
+                                                src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/anh_man_hinh_2026-03-22_luc_17.11.41_20260322171153.png?width=600&height=-&type=resize"
+                                                alt=""
+                                                loading="lazy"
+                                            />
+                                        </a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!">
+                                        <a href="">
+                                            Từ 1/4/2026: Bước ngoặt pháp lý cho AI, sở hữu trí tuệ
+                                            và quản trị dữ liệu số
+                                        </a>
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        09:00, 31/03/2026
+                                    </time>
+                                    <p class="desc desc-desktop">
+                                        Từ ngày 1/4/2026, một loạt các văn bản quy phạm pháp luật
+                                        quan trọng sẽ chính thức đi vào cuộc sống.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="t:pb-5">
+                                <div class="t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2">
+                                        <a href="">
+                                            <img
+                                                src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/nickname_tai_khoan_ngan_hang_sap_bi_khai_tu_20260320103617.jpg?width=600&height=-&type=resize"
+                                                alt=""
+                                                loading="lazy"
+                                            />
+                                        </a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!">
+                                        <a href="">Nickname tài khoản ngân hàng sắp bị "khai tử"</a>
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        10:37, 20/03/2026
+                                    </time>
+                                    <p class="desc desc-desktop">
+                                        Từ 1/4/2026, nhiều ngân hàng sẽ ngừng dịch vụ biệt danh tài
+                                        khoản, buộc khách hàng dùng tên thật.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="t:pb-5">
+                                <div class="t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2">
+                                        <a href="">
+                                            <img
+                                                src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/vi_sao_nguoi_dan_thuong_xuyen_nhan_duoc_cuoc_goi_quang_cao__20260312135013.jpg?width=600&height=-&type=resize"
+                                                alt=""
+                                                loading="lazy"
+                                            />
+                                        </a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!">
+                                        <a href="">
+                                            Vì sao người dân thường xuyên nhận được cuộc gọi quảng
+                                            cáo?
+                                        </a>
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        13:53, 12/03/2026
+                                    </time>
+                                    <p class="desc desc-desktop">
+                                        thập và khai thác rộng rãi trong môi trường số. Khi Luật Bảo
+                                        vệ dữ liệu cá nhân có hiệu lực từ ngày 1/1...
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="t:pb-5">
+                                <div class="t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2">
+                                        <a href="">
+                                            <img
+                                                src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/canh_bao_lua_dao_20260304101557.jpg?width=600&height=-&type=resize"
+                                                alt=""
+                                                loading="lazy"
+                                            />
+                                        </a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!">
+                                        <a href="">
+                                            Sập bẫy link lạ giả danh Sở KH&DT, một phụ nữ tại Hà Nội
+                                            "bốc hơi" gần 1 tỷ trong tài khoản
+                                        </a>
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        10:34, 04/03/2026
+                                    </time>
+                                    <p class="desc desc-desktop">
+                                        Công an phường Đống Đa, thành phố Hà Nội đang điều tra vụ
+                                        chiếm đoạt tài sản tiến hành. Đây là một sự kiện có ý nghĩa
+                                        đặc biệt quan trọng.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="t:pb-5">
+                                <div class="t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2">
+                                        <a href="">
+                                            <img
+                                                src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/lo_lot_du_lieu_khach_hang_doanh_nghiep_co_the_doi_mat_muc_phat_toi_5_doanh_thu_20260325102420.jpg?width=600&height=-&type=resize"
+                                                alt=""
+                                                loading="lazy"
+                                            />
+                                        </a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!">
+                                        <a href="">
+                                            Lộ lọt dữ liệu khách hàng, doanh nghiệp có thể đối mặt
+                                            mức phạt tới 5% doanh thu
+                                        </a>
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        10:25, 25/03/2026
+                                    </time>
+                                    <p class="desc desc-desktop">
+                                        Dự thảo nghị định của Bộ Công an đề xuất phạt nặng các hành
+                                        vi vi phạm bảo vệ dữ liệu cá nhân, trong đó mức phạt có thể
+                                        lên tới 5% doanh thu năm liền trước tại Việt Nam trong
+                                        trường hợp nghiêm trọng.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="t:pb-5">
+                                <div class="t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2">
+                                        <a href="">
+                                            <img
+                                                src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/lo_hong_bao_mat_nghiem_trong_tren_dong_thiet_bi_phat_wifi_20260318144939.jpg?width=600&height=-&type=resize"
+                                                alt=""
+                                                loading="lazy"
+                                            />
+                                        </a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!">
+                                        <a href="">
+                                            Cảnh báo lỗ hổng bảo mật nghiêm trọng tồn tại trên dòng
+                                            thiết bị phát wifi
+                                        </a>
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        14:59, 18/03/2026
+                                    </time>
+                                    <p class="desc desc-desktop">
+                                        Phòng An ninh mạng và phòng chống tội phạm sử dụng công nghệ
+                                        cao, CATP Hà Nội cảnh báo về việc phát hiện lỗ hổng bảo mật
+                                        nghiêm trọng tồn tại trên dòng thiết bị phát wifi (Router)
+                                        Tenda G300-F.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="t:pb-5">
+                                <div class="t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2">
+                                        <a href="">
+                                            <img
+                                                src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/anthropic_20260318141824.jpg?width=600&height=-&type=resize"
+                                                alt=""
+                                                loading="lazy"
+                                            />
+                                        </a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!">
+                                        <a href="">
+                                            Tranh chấp AI tại Mỹ châm ngòi tranh luận về an ninh
+                                            công nghệ
+                                        </a>
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        14:19, 18/03/2026
+                                    </time>
+                                    <p class="desc desc-desktop">
+                                        Câu chuyện của Anthropic là một ví dụ điển hình cho thách
+                                        thức toàn cầu: làm thế nào để phát triển AI mạnh mẽ nhưng
+                                        vẫn đảm bảo các giới hạn an toàn, đạo đức và chủ quyền số
+                                        trong một thế giới ngày càng phụ thuộc vào công nghệ.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="t:pb-5">
+                                <div class="t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2">
+                                        <a href="">
+                                            <img
+                                                src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/6_nhom_nhiem_vu_trong_tam_trien_khai_thi_hanh_luat_an_ninh_mang_20260318092426.jpg?width=600&height=-&type=resize"
+                                                alt=""
+                                                loading="lazy"
+                                            />
+                                        </a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!">
+                                        <a href="">
+                                            6 nhóm nhiệm vụ trọng tâm triển khai thi hành Luật An
+                                            ninh mạng
+                                        </a>
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        09:25, 18/03/2026
+                                    </time>
+                                    <p class="desc desc-desktop">
+                                        Thủ tướng Chính phủ Phạm Minh Chính vừa ký ban hành Quyết
+                                        định số 437/QĐ-TTg ngày 16/3/2026 về Kế hoạch triển khai thi
+                                        hành Luật An ninh mạng. Kế hoạch xác định 6 nhóm nhiệm vụ
+                                        trọng tâm, giao rõ trách nhiệm cho các bộ, ngành, địa
+                                        phương.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="t:pb-5">
+                                <div class="t:flow-root">
+                                    <figure class="img-block t:float-left lg t:mr-2">
+                                        <a href="">
+                                            <img
+                                                src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/tin_gia_vu_khong_xuc_pham_tren_mang_20260318165145.jpg?width=600&height=-&type=resize"
+                                                alt=""
+                                                loading="lazy"
+                                            />
+                                        </a>
+                                    </figure>
+                                    <h3 class="title l3 t:mt-0!">
+                                        <a href="">
+                                            Tin giả, vu không, xúc phạm trên mạng: Dự thảo đề xuất
+                                            mức phạt cao nhất tới 50 triệu đồng
+                                        </a>
+                                    </h3>
+                                    <time class="article-date t:mt-2">
+                                        <i class="material-symbols--calendar-month-rounded"></i>
+                                        16:52, 18/03/2026
+                                    </time>
+                                    <p class="desc desc-desktop">
+                                        Bộ Công an đang chủ trì xây dựng dự thảo Nghị định xử phạt
+                                        vi phạm hành chính trong lĩnh vực bảo vệ dữ liệu cá nhân và
+                                        an ninh mạng, đánh dấu bước đi quan trọng trong việc hoàn
+                                        thiện hành lang pháp lý nhằm tăng cường kỷ cương trên không
+                                        gian số.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="t:flex t:justify-center t:items-center t:gap-1.5 t:pt-5 t:mt-5 t:border-t t:border-[#D9D9D9]"
+                        >
+                            <a href="#" class="pagination-btn t:text-[#0A64B4]">
+                                <i
+                                    class="material-symbols--arrow-forward-ios-rounded t:rotate-180 t:block"
+                                ></i>
+                            </a>
+                            <a href="#" class="pagination-btn is-active">1</a>
+                            <a href="#" class="pagination-btn">2</a>
+                            <a href="#" class="pagination-btn">3</a>
+                            <a href="#" class="pagination-btn">4</a>
+                            <a href="#" class="pagination-btn t:text-[#0A64B4]">
+                                <i class="material-symbols--arrow-forward-ios-rounded t:block"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- portlet: search_sidebar -->
+                    <aside class="cate-sidebar t:pl-4 t:flex t:flex-col t:gap-y-10">
+                        <div class="sidebar-legal-section">
+                            <div class="cate-label">
+                                <h2>
+                                    <a href="">Hành lang pháp lý</a>
+                                </h2>
+                            </div>
+                            <div class="t:pt-4">
+                                <div class="t:pb-4">
+                                    <figure class="img-block">
+                                        <a href="">
+                                            <img
+                                                src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/thu_tuong_pham_minh_chinh_-_an_ninh_mang_20260321160744.jpg?width=500&height=-&type=resize"
+                                                alt=""
+                                            />
+                                        </a>
+                                    </figure>
+                                    <div class="t:mt-2">
+                                        <h3 class="title l2">
+                                            <a href="">
+                                                Lộ lọt dữ liệu khách hàng, doanh nghiệp có thể đối
+                                                mặt mức phạt tới 5% doanh thu
+                                            </a>
+                                        </h3>
+                                        <time class="article-date t:mt-2">
+                                            <i class="material-symbols--calendar-month-rounded"></i>
+                                            20:43, 21/03/2026
+                                        </time>
+                                        <p class="desc">
+                                            Dự thảo nghị định của Bộ Công an đề xuất phạt nặng các
+                                            hành vi vi phạm bảo vệ dữ liệu cá nhân, trong đó mức
+                                            phạt có thể lên tới 5% doanh thu năm liền trước tạ...
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="t:flex t:flex-col t:gap-5 t:mt-5">
+                                    <div class="t:flow-root">
+                                        <figure class="img-block t:float-left sm t:mr-2">
+                                            <a href="">
+                                                <img
+                                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/54777516887_e10664282b_k_20260326094557.jpg?width=600&amp;height=-&amp;type=resize"
+                                                    alt=""
+                                                />
+                                            </a>
+                                        </figure>
+                                        <h3 class="title l3 t:mt-0!">
+                                            <a href="" class="">
+                                                Tự chủ công nghệ an ninh mạng - nền tảng bền vững
+                                                cho Việt Nam trong kỷ nguyên AI
+                                            </a>
+                                        </h3>
+                                        <time class="article-date t:mt-2">
+                                            <i class="material-symbols--calendar-month-rounded"></i>
+                                            20:43, 21/03/2026
+                                        </time>
+                                    </div>
+                                    <div class="t:flow-root">
+                                        <figure class="img-block t:float-left sm t:mr-2">
+                                            <a href="">
+                                                <img
+                                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/54777516887_e10664282b_k_20260326094557.jpg?width=600&amp;height=-&amp;type=resize"
+                                                    alt=""
+                                                />
+                                            </a>
+                                        </figure>
+                                        <h3 class="title l3 t:mt-0!">
+                                            <a href="" class="">
+                                                Tự chủ công nghệ an ninh mạng - nền tảng bền vững
+                                                cho Việt Nam trong kỷ nguyên AI
+                                            </a>
+                                        </h3>
+                                        <time class="article-date t:mt-2">
+                                            <i class="material-symbols--calendar-month-rounded"></i>
+                                            20:43, 21/03/2026
+                                        </time>
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                        <li class="mobile-menu-item">
-                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
-                                <span>Cảnh báo lừa đảo</span>
-                                <span class="mobile-menu-caret">›</span>
-                            </button>
-                            <div class="mobile-menu-sub" data-accordion-panel>
-                                <a href="#">Chiêu trò mới</a>
-                                <a href="#">Lừa đảo AI</a>
-                                <a href="#">Tự bảo vệ</a>
+                        </div>
+                        <div class="sidebar-legal-section">
+                            <div class="cate-label">
+                                <h2>
+                                    <a href="">Hành lang pháp lý</a>
+                                </h2>
                             </div>
-                        </li>
-                        <li class="mobile-menu-item">
-                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
-                                <span>Bảo vệ dữ liệu</span>
-                                <span class="mobile-menu-caret">›</span>
-                            </button>
-                            <div class="mobile-menu-sub" data-accordion-panel>
-                                <a href="#">Dữ liệu cá nhân</a>
-                                <a href="#">Dữ liệu doanh nghiệp</a>
-                                <a href="#">Sao lưu</a>
-                                <a href="#">Khôi phục</a>
-                            </div>
-                        </li>
-                        <li class="mobile-menu-item">
-                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
-                                <span>Phòng và chống tấn công</span>
-                                <span class="mobile-menu-caret">›</span>
-                            </button>
-                            <div class="mobile-menu-sub" data-accordion-panel>
-                                <a href="#">Ransomware</a>
-                                <a href="#">APT</a>
-                                <a href="#">SOC</a>
-                                <a href="#">Incident Response</a>
-                            </div>
-                        </li>
-                        <li class="mobile-menu-item">
-                            <button type="button" class="mobile-menu-trigger" data-accordion-trigger>
-                                <span>Hồ sơ tội phạm mạng</span>
-                                <span class="mobile-menu-caret">›</span>
-                            </button>
-                            <div class="mobile-menu-sub" data-accordion-panel>
-                                <a href="#">Nhân vật</a>
-                                <a href="#">Băng nhóm</a>
-                                <a href="#">Chiến dịch</a>
-                                <a href="#">Phân tích hành vi</a>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </aside>
-    <script>
-        // Mobile accordion menu
-        document.addEventListener('click', function (e) {
-            const trigger = e.target.closest('[data-accordion-trigger]');
-            if (!trigger) return;
-
-            e.preventDefault();
-            const item = trigger.closest('.mobile-menu-item');
-            if (!item) return;
-
-            const accordion = item.closest('[data-mobile-accordion]');
-            if (accordion) {
-                const siblings = accordion.querySelectorAll(':scope > .mobile-menu-item');
-                siblings.forEach(sib => {
-                    if (sib !== item && sib.classList.contains('is-open')) {
-                        sib.classList.remove('is-open');
-                    }
-                });
-            }
-
-            item.classList.toggle('is-open');
-        });
-    </script>
-
-    <section class="t:bg-linear-to-b t:from-[#E5F3FF] t:to-[#F6FBFF] t:py-5">
-        <div class="t:container">
-            <div class="cate-label t:border-b-0! t:flex t:items-center t:gap-x-2">
-                <h2>
-                    <a href="#">Tìm kiếm</a>
-                </h2>
-                <span class="uiw--right t:text-[#0A64B4]"></span>
-            </div>
-        </div>
-    </section>
-
-    <section class="search-main-section t:py-5">
-        <div class="t:container">
-            <div class="search-grid t:grid t:grid-cols-3">
-
-                <!-- portlet: search_content -->
-                <div class="article-list t:col-span-2 t:pr-4 t:border-r t:border-[#D9D9D9]">
-
-                    <form action="#" class="search-form-section t:mb-5">
-                        <div class="t:mb-3">
-                            <label
-                                class="t:flex t:items-center t:gap-2 t:text-sm t:text-[#333] t:cursor-pointer">
-                                <input type="radio" name="source" value="tcanninhmang" checked
-                                    class="search-radio">
-                                Tạp chí An ninh mạng
-                            </label>
-                        </div>
-
-                        <div class="search-form-grid t:grid t:grid-cols-2 t:gap-3 t:mb-3">
-                            <input type="text" name="key" value="1" class="search-input"
-                                placeholder="Nhập từ khóa...">
-                            <select name="fromdate" class="search-select">
-                                <option value="4" selected>1 tháng qua</option>
-                                <option value="1">1 tuần qua</option>
-                                <option value="2">2 tuần qua</option>
-                                <option value="3">3 tháng qua</option>
-                                <option value="5">6 tháng qua</option>
-                                <option value="6">1 năm qua</option>
-                                <option value="0">Tất cả</option>
-                            </select>
-                        </div>
-
-                        <div class="search-form-grid t:grid t:grid-cols-2 t:gap-3 t:mb-3">
-                            <select name="searchmore" class="search-select">
-                                <option value="0" selected>Tìm trong tất cả</option>
-                                <option value="1">Tìm trong tiêu đề</option>
-                                <option value="2">Tìm trong nội dung</option>
-                            </select>
-                            <select name="cate" class="search-select">
-                                <option value="" selected>Tất cả chuyên mục</option>
-                                <option value="su-kien">Sự kiện &amp; Quan điểm</option>
-                                <option value="canh-bao">Cảnh báo lừa đảo</option>
-                                <option value="bao-ve">Bảo vệ dữ liệu</option>
-                                <option value="phong-chong">Phòng và chống tấn công</option>
-                                <option value="ho-so">Hồ sơ tội phạm mạng</option>
-                                <option value="hanh-lang">Hành lang pháp lý</option>
-                            </select>
-                        </div>
-
-                        <div class="t:flex t:items-center t:justify-end t:gap-4">
-                            <label
-                                class="t:flex t:items-center t:gap-1.5 t:text-sm t:text-[#333] t:cursor-pointer">
-                                <input type="radio" name="latest" value="on" class="search-radio">
-                                Mới nhất
-                            </label>
-                            <label
-                                class="t:flex t:items-center t:gap-1.5 t:text-sm t:text-[#333] t:cursor-pointer">
-                                <input type="radio" name="latest" value="off" checked class="search-radio">
-                                Liên quan
-                            </label>
-                            <button type="submit" class="search-btn">Tìm kiếm</button>
-                        </div>
-                    </form>
-
-                    <div class="search-results-bar t:mb-5">
-                        Tìm thấy <strong>51</strong> kết quả cho từ khóa <strong>1</strong>
-                    </div>
-                    <div
-                        class="search-article-list t:flex t:flex-col t:divide-y t:divide-[#D9D9D9] t:divide-dashed t:gap-y-5">
-
-                        <div class="t:pb-5">
-                            <div class="t:flow-root">
-                                <figure class="img-block t:float-left lg t:mr-2">
-                                    <a href="">
-                                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/tu_17_dien_thoai_bi_khoa_se_khong_duoc_cai_ung_dung_ngan_hang_20260325192949.jpg?width=600&height=-&type=resize"
-                                            alt="" loading="lazy">
-                                    </a>
-                                </figure>
-                                <h3 class="title l3 t:mt-0!">
-                                    <a href="">
-                                        Từ 1/7, điện thoại bẻ khóa sẽ không cài được ứng dụng ngân hàng
-                                    </a>
-                                </h3>
-                                <time class="article-date t:mt-2">
-                                    <i class="material-symbols--calendar-month-rounded"></i> 19:50, 25/03/2026
-                                </time>
-                                <p class="desc desc-desktop">
-                                    nước Phạm Tiến Dũng cho biết, từ 1/7 điện thoại đã bẻ khóa hoặc root sẽ không thể
-                                    cài đặt, sử dụng ứng dụng ngân hàng.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="t:pb-5">
-                            <div class="t:flow-root">
-                                <figure class="img-block t:float-left lg t:mr-2">
-                                    <a href="">
-                                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/anh_man_hinh_2026-03-22_luc_17.11.41_20260322171153.png?width=600&height=-&type=resize"
-                                            alt="" loading="lazy">
-                                    </a>
-                                </figure>
-                                <h3 class="title l3 t:mt-0!">
-                                    <a href="">
-                                        Từ 1/4/2026: Bước ngoặt pháp lý cho AI, sở hữu trí tuệ và quản trị dữ liệu số
-                                    </a>
-                                </h3>
-                                <time class="article-date t:mt-2">
-                                    <i class="material-symbols--calendar-month-rounded"></i> 09:00, 31/03/2026
-                                </time>
-                                <p class="desc desc-desktop">
-                                    Từ ngày 1/4/2026, một loạt các văn bản quy phạm pháp luật quan trọng sẽ chính thức
-                                    đi vào cuộc sống.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="t:pb-5">
-                            <div class="t:flow-root">
-                                <figure class="img-block t:float-left lg t:mr-2">
-                                    <a href="">
-                                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/nickname_tai_khoan_ngan_hang_sap_bi_khai_tu_20260320103617.jpg?width=600&height=-&type=resize"
-                                            alt="" loading="lazy">
-                                    </a>
-                                </figure>
-                                <h3 class="title l3 t:mt-0!">
-                                    <a href="">
-                                        Nickname tài khoản ngân hàng sắp bị "khai tử"
-                                    </a>
-                                </h3>
-                                <time class="article-date t:mt-2">
-                                    <i class="material-symbols--calendar-month-rounded"></i> 10:37, 20/03/2026
-                                </time>
-                                <p class="desc desc-desktop">
-                                    Từ 1/4/2026, nhiều ngân hàng sẽ ngừng dịch vụ biệt danh tài khoản, buộc khách hàng
-                                    dùng tên thật.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="t:pb-5">
-                            <div class="t:flow-root">
-                                <figure class="img-block t:float-left lg t:mr-2">
-                                    <a href="">
-                                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/vi_sao_nguoi_dan_thuong_xuyen_nhan_duoc_cuoc_goi_quang_cao__20260312135013.jpg?width=600&height=-&type=resize"
-                                            alt="" loading="lazy">
-                                    </a>
-                                </figure>
-                                <h3 class="title l3 t:mt-0!">
-                                    <a href="">
-                                        Vì sao người dân thường xuyên nhận được cuộc gọi quảng cáo?
-                                    </a>
-                                </h3>
-                                <time class="article-date t:mt-2">
-                                    <i class="material-symbols--calendar-month-rounded"></i> 13:53, 12/03/2026
-                                </time>
-                                <p class="desc desc-desktop">
-                                    thập và khai thác rộng rãi trong môi trường số. Khi Luật Bảo vệ dữ liệu cá nhân có
-                                    hiệu lực từ ngày 1/1...
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="t:pb-5">
-                            <div class="t:flow-root">
-                                <figure class="img-block t:float-left lg t:mr-2">
-                                    <a href="">
-                                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/canh_bao_lua_dao_20260304101557.jpg?width=600&height=-&type=resize"
-                                            alt="" loading="lazy">
-                                    </a>
-                                </figure>
-                                <h3 class="title l3 t:mt-0!">
-                                    <a href="">
-                                        Sập bẫy link lạ giả danh Sở KH&DT, một phụ nữ tại Hà Nội "bốc hơi" gần 1 tỷ
-                                        trong tài khoản
-                                    </a>
-                                </h3>
-                                <time class="article-date t:mt-2">
-                                    <i class="material-symbols--calendar-month-rounded"></i> 10:34, 04/03/2026
-                                </time>
-                                <p class="desc desc-desktop">
-                                    Công an phường Đống Đa, thành phố Hà Nội đang điều tra vụ chiếm đoạt tài sản tiến
-                                    hành. Đây là một sự kiện có ý nghĩa đặc biệt quan trọng.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="t:pb-5">
-                            <div class="t:flow-root">
-                                <figure class="img-block t:float-left lg t:mr-2">
-                                    <a href="">
-                                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/lo_lot_du_lieu_khach_hang_doanh_nghiep_co_the_doi_mat_muc_phat_toi_5_doanh_thu_20260325102420.jpg?width=600&height=-&type=resize"
-                                            alt="" loading="lazy">
-                                    </a>
-                                </figure>
-                                <h3 class="title l3 t:mt-0!">
-                                    <a href="">
-                                        Lộ lọt dữ liệu khách hàng, doanh nghiệp có thể đối mặt mức phạt tới 5% doanh
-                                        thu
-                                    </a>
-                                </h3>
-                                <time class="article-date t:mt-2">
-                                    <i class="material-symbols--calendar-month-rounded"></i> 10:25, 25/03/2026
-                                </time>
-                                <p class="desc desc-desktop">
-                                    Dự thảo nghị định của Bộ Công an đề xuất phạt nặng các hành vi vi phạm bảo vệ dữ
-                                    liệu cá nhân, trong đó mức phạt có thể lên tới 5% doanh thu năm liền trước tại Việt
-                                    Nam trong trường hợp nghiêm trọng.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="t:pb-5">
-                            <div class="t:flow-root">
-                                <figure class="img-block t:float-left lg t:mr-2">
-                                    <a href="">
-                                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/lo_hong_bao_mat_nghiem_trong_tren_dong_thiet_bi_phat_wifi_20260318144939.jpg?width=600&height=-&type=resize"
-                                            alt="" loading="lazy">
-                                    </a>
-                                </figure>
-                                <h3 class="title l3 t:mt-0!">
-                                    <a href="">
-                                        Cảnh báo lỗ hổng bảo mật nghiêm trọng tồn tại trên dòng thiết bị phát wifi
-                                    </a>
-                                </h3>
-                                <time class="article-date t:mt-2">
-                                    <i class="material-symbols--calendar-month-rounded"></i> 14:59, 18/03/2026
-                                </time>
-                                <p class="desc desc-desktop">
-                                    Phòng An ninh mạng và phòng chống tội phạm sử dụng công nghệ cao, CATP Hà Nội cảnh
-                                    báo về việc phát hiện lỗ hổng bảo mật nghiêm trọng tồn tại trên dòng thiết bị phát
-                                    wifi (Router) Tenda G300-F.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="t:pb-5">
-                            <div class="t:flow-root">
-                                <figure class="img-block t:float-left lg t:mr-2">
-                                    <a href="">
-                                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/anthropic_20260318141824.jpg?width=600&height=-&type=resize"
-                                            alt="" loading="lazy">
-                                    </a>
-                                </figure>
-                                <h3 class="title l3 t:mt-0!">
-                                    <a href="">
-                                        Tranh chấp AI tại Mỹ châm ngòi tranh luận về an ninh công nghệ
-                                    </a>
-                                </h3>
-                                <time class="article-date t:mt-2">
-                                    <i class="material-symbols--calendar-month-rounded"></i> 14:19, 18/03/2026
-                                </time>
-                                <p class="desc desc-desktop">
-                                    Câu chuyện của Anthropic là một ví dụ điển hình cho thách thức toàn cầu: làm thế nào
-                                    để phát triển AI mạnh mẽ nhưng vẫn đảm bảo các giới hạn an toàn, đạo đức và chủ
-                                    quyền số trong một thế giới ngày càng phụ thuộc vào công nghệ.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="t:pb-5">
-                            <div class="t:flow-root">
-                                <figure class="img-block t:float-left lg t:mr-2">
-                                    <a href="">
-                                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/6_nhom_nhiem_vu_trong_tam_trien_khai_thi_hanh_luat_an_ninh_mang_20260318092426.jpg?width=600&height=-&type=resize"
-                                            alt="" loading="lazy">
-                                    </a>
-                                </figure>
-                                <h3 class="title l3 t:mt-0!">
-                                    <a href="">
-                                        6 nhóm nhiệm vụ trọng tâm triển khai thi hành Luật An ninh mạng
-                                    </a>
-                                </h3>
-                                <time class="article-date t:mt-2">
-                                    <i class="material-symbols--calendar-month-rounded"></i> 09:25, 18/03/2026
-                                </time>
-                                <p class="desc desc-desktop">
-                                    Thủ tướng Chính phủ Phạm Minh Chính vừa ký ban hành Quyết định số 437/QĐ-TTg ngày
-                                    16/3/2026 về Kế hoạch triển khai thi hành Luật An ninh mạng. Kế hoạch xác định 6
-                                    nhóm nhiệm vụ trọng tâm, giao rõ trách nhiệm cho các bộ, ngành, địa phương.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="t:pb-5">
-                            <div class="t:flow-root">
-                                <figure class="img-block t:float-left lg t:mr-2">
-                                    <a href="">
-                                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/tin_gia_vu_khong_xuc_pham_tren_mang_20260318165145.jpg?width=600&height=-&type=resize"
-                                            alt="" loading="lazy">
-                                    </a>
-                                </figure>
-                                <h3 class="title l3 t:mt-0!">
-                                    <a href="">
-                                        Tin giả, vu không, xúc phạm trên mạng: Dự thảo đề xuất mức phạt cao nhất tới 50
-                                        triệu đồng
-                                    </a>
-                                </h3>
-                                <time class="article-date t:mt-2">
-                                    <i class="material-symbols--calendar-month-rounded"></i> 16:52, 18/03/2026
-                                </time>
-                                <p class="desc desc-desktop">
-                                    Bộ Công an đang chủ trì xây dựng dự thảo Nghị định xử phạt vi phạm hành chính trong
-                                    lĩnh vực bảo vệ dữ liệu cá nhân và an ninh mạng, đánh dấu bước đi quan trọng trong
-                                    việc hoàn thiện hành lang pháp lý nhằm tăng cường kỷ cương trên không gian số.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div
-                        class="t:flex t:justify-center t:items-center t:gap-1.5 t:pt-5 t:mt-5 t:border-t t:border-[#D9D9D9]">
-                        <a href="#" class="pagination-btn t:text-[#0A64B4]">
-                            <i class="material-symbols--arrow-forward-ios-rounded t:rotate-180 t:block"></i>
-                        </a>
-                        <a href="#" class="pagination-btn is-active">1</a>
-                        <a href="#" class="pagination-btn">2</a>
-                        <a href="#" class="pagination-btn">3</a>
-                        <a href="#" class="pagination-btn">4</a>
-                        <a href="#" class="pagination-btn t:text-[#0A64B4]">
-                            <i class="material-symbols--arrow-forward-ios-rounded t:block"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- portlet: search_sidebar -->
-                <aside class="cate-sidebar t:pl-4 t:flex t:flex-col t:gap-y-10">
-                    <div class="sidebar-legal-section">
-                        <div class="cate-label">
-                            <h2>
-                                <a href="">Hành lang pháp lý</a>
-                            </h2>
-                        </div>
-                        <div class="t:pt-4">
-                            <div class="t:pb-4">
-                                <figure class="img-block">
-                                    <a href="">
-                                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/thu_tuong_pham_minh_chinh_-_an_ninh_mang_20260321160744.jpg?width=500&height=-&type=resize"
-                                            alt="">
-                                    </a>
-                                </figure>
-                                <div class="t:mt-2">
-                                    <h3 class="title l2">
+                            <div class="t:pt-4">
+                                <div class="t:pb-4">
+                                    <figure class="img-block">
                                         <a href="">
-                                            Lộ lọt dữ liệu khách hàng, doanh nghiệp có thể đối mặt mức phạt tới 5% doanh
-                                            thu
-                                        </a>
-                                    </h3>
-                                    <time class="article-date t:mt-2">
-                                        <i class="material-symbols--calendar-month-rounded"></i> 20:43, 21/03/2026
-                                    </time>
-                                    <p class="desc">Dự thảo nghị định của Bộ Công an đề xuất phạt nặng các hành vi vi
-                                        phạm
-                                        bảo vệ dữ liệu cá nhân, trong đó mức phạt có thể lên tới 5% doanh thu năm liền
-                                        trước tạ...</p>
-                                </div>
-                            </div>
-
-                            <div class="t:flex t:flex-col t:gap-5 t:mt-5">
-                                <div class="t:flow-root">
-                                    <figure class="img-block t:float-left sm t:mr-2">
-                                        <a href="">
-                                            <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/54777516887_e10664282b_k_20260326094557.jpg?width=600&amp;height=-&amp;type=resize"
-                                                alt="">
+                                            <img
+                                                src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/thu_tuong_pham_minh_chinh_-_an_ninh_mang_20260321160744.jpg?width=500&height=-&type=resize"
+                                                alt=""
+                                            />
                                         </a>
                                     </figure>
-                                    <h3 class="title l3 t:mt-0!">
-                                        <a href="" class="">
-                                            Tự chủ công nghệ an ninh mạng - nền tảng bền vững cho Việt Nam trong kỷ
-                                            nguyên
-                                            AI
-                                        </a>
-                                    </h3>
-                                    <time class="article-date t:mt-2">
-                                        <i class="material-symbols--calendar-month-rounded"></i> 20:43, 21/03/2026
-                                    </time>
+                                    <div class="t:mt-2">
+                                        <h3 class="title l2">
+                                            <a href="">
+                                                Lộ lọt dữ liệu khách hàng, doanh nghiệp có thể đối
+                                                mặt mức phạt tới 5% doanh thu
+                                            </a>
+                                        </h3>
+                                        <time class="article-date t:mt-2">
+                                            <i class="material-symbols--calendar-month-rounded"></i>
+                                            20:43, 21/03/2026
+                                        </time>
+                                        <p class="desc">
+                                            Dự thảo nghị định của Bộ Công an đề xuất phạt nặng các
+                                            hành vi vi phạm bảo vệ dữ liệu cá nhân, trong đó mức
+                                            phạt có thể lên tới 5% doanh thu năm liền trước tạ...
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="t:flow-root">
-                                    <figure class="img-block t:float-left sm t:mr-2">
-                                        <a href="">
-                                            <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/54777516887_e10664282b_k_20260326094557.jpg?width=600&amp;height=-&amp;type=resize"
-                                                alt="">
-                                        </a>
-                                    </figure>
-                                    <h3 class="title l3 t:mt-0!">
-                                        <a href="" class="">
-                                            Tự chủ công nghệ an ninh mạng - nền tảng bền vững cho Việt Nam trong kỷ
-                                            nguyên
-                                            AI
-                                        </a>
-                                    </h3>
-                                    <time class="article-date t:mt-2">
-                                        <i class="material-symbols--calendar-month-rounded"></i> 20:43, 21/03/2026
-                                    </time>
+
+                                <div class="t:flex t:flex-col t:gap-5 t:mt-5">
+                                    <div class="t:flow-root">
+                                        <figure class="img-block t:float-left sm t:mr-2">
+                                            <a href="">
+                                                <img
+                                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/54777516887_e10664282b_k_20260326094557.jpg?width=600&amp;height=-&amp;type=resize"
+                                                    alt=""
+                                                />
+                                            </a>
+                                        </figure>
+                                        <h3 class="title l3 t:mt-0!">
+                                            <a href="" class="">
+                                                Tự chủ công nghệ an ninh mạng - nền tảng bền vững
+                                                cho Việt Nam trong kỷ nguyên AI
+                                            </a>
+                                        </h3>
+                                        <time class="article-date t:mt-2">
+                                            <i class="material-symbols--calendar-month-rounded"></i>
+                                            20:43, 21/03/2026
+                                        </time>
+                                    </div>
+                                    <div class="t:flow-root">
+                                        <figure class="img-block t:float-left sm t:mr-2">
+                                            <a href="">
+                                                <img
+                                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/54777516887_e10664282b_k_20260326094557.jpg?width=600&amp;height=-&amp;type=resize"
+                                                    alt=""
+                                                />
+                                            </a>
+                                        </figure>
+                                        <h3 class="title l3 t:mt-0!">
+                                            <a href="" class="">
+                                                Tự chủ công nghệ an ninh mạng - nền tảng bền vững
+                                                cho Việt Nam trong kỷ nguyên AI
+                                            </a>
+                                        </h3>
+                                        <time class="article-date t:mt-2">
+                                            <i class="material-symbols--calendar-month-rounded"></i>
+                                            20:43, 21/03/2026
+                                        </time>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <footer
+            class="t:py-5 t:bg-linear-to-b t:from-[#4696D2] t:to-[#0A64B4] t:text-white home-footer merriweather"
+        >
+            <div class="t:container t:mx-auto">
+                <div class="t:grid t:md:grid-cols-2 t:gap-x-7 t:gap-y-3 t:pc:gap-y-5">
+                    <div>
+                        <img
+                            src="../../common/assets/logo-white.png"
+                            alt=""
+                            class="t:object-contain t:max-w-82.5"
+                        />
                     </div>
-                    <div class="sidebar-legal-section">
-                        <div class="cate-label">
-                            <h2>
-                                <a href="">Hành lang pháp lý</a>
-                            </h2>
-                        </div>
-                        <div class="t:pt-4">
-                            <div class="t:pb-4">
-                                <figure class="img-block">
-                                    <a href="">
-                                        <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/thu_tuong_pham_minh_chinh_-_an_ninh_mang_20260321160744.jpg?width=500&height=-&type=resize"
-                                            alt="">
+                    <div class="t:row-span-2 t:max-md:order-3">
+                        <div class="t:flex t:flex-col t:gap-y-2 t:w-fit t:md:ml-auto t:mt-3">
+                            <h3 class="t:font-bold t:text-lg">
+                                Tổng biên tập: Nguyễn Tất Hồng Dương
+                            </h3>
+                            <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
+                                <p class="t:whitespace-nowrap t:font-medium">Địa chỉ:</p>
+                                <strong>38 Phan Đình Phùng, Ba Đình, Hà Nội</strong>
+                            </div>
+                            <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
+                                <p class="t:whitespace-nowrap t:font-medium">Email:</p>
+                                <strong>
+                                    <a href="mailto:toasoan@tcanninhmang.vn">
+                                        toasoan@tcanninhmang.vn
                                     </a>
-                                </figure>
-                                <div class="t:mt-2">
-                                    <h3 class="title l2">
-                                        <a href="">
-                                            Lộ lọt dữ liệu khách hàng, doanh nghiệp có thể đối mặt mức phạt tới 5% doanh
-                                            thu
-                                        </a>
-                                    </h3>
-                                    <time class="article-date t:mt-2">
-                                        <i class="material-symbols--calendar-month-rounded"></i> 20:43, 21/03/2026
-                                    </time>
-                                    <p class="desc">Dự thảo nghị định của Bộ Công an đề xuất phạt nặng các hành vi vi
-                                        phạm
-                                        bảo vệ dữ liệu cá nhân, trong đó mức phạt có thể lên tới 5% doanh thu năm liền
-                                        trước tạ...</p>
-                                </div>
+                                </strong>
                             </div>
-
-                            <div class="t:flex t:flex-col t:gap-5 t:mt-5">
-                                <div class="t:flow-root">
-                                    <figure class="img-block t:float-left sm t:mr-2">
-                                        <a href="">
-                                            <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/54777516887_e10664282b_k_20260326094557.jpg?width=600&amp;height=-&amp;type=resize"
-                                                alt="">
-                                        </a>
-                                    </figure>
-                                    <h3 class="title l3 t:mt-0!">
-                                        <a href="" class="">
-                                            Tự chủ công nghệ an ninh mạng - nền tảng bền vững cho Việt Nam trong kỷ
-                                            nguyên
-                                            AI
-                                        </a>
-                                    </h3>
-                                    <time class="article-date t:mt-2">
-                                        <i class="material-symbols--calendar-month-rounded"></i> 20:43, 21/03/2026
-                                    </time>
-                                </div>
-                                <div class="t:flow-root">
-                                    <figure class="img-block t:float-left sm t:mr-2">
-                                        <a href="">
-                                            <img src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/54777516887_e10664282b_k_20260326094557.jpg?width=600&amp;height=-&amp;type=resize"
-                                                alt="">
-                                        </a>
-                                    </figure>
-                                    <h3 class="title l3 t:mt-0!">
-                                        <a href="" class="">
-                                            Tự chủ công nghệ an ninh mạng - nền tảng bền vững cho Việt Nam trong kỷ
-                                            nguyên
-                                            AI
-                                        </a>
-                                    </h3>
-                                    <time class="article-date t:mt-2">
-                                        <i class="material-symbols--calendar-month-rounded"></i> 20:43, 21/03/2026
-                                    </time>
-                                </div>
+                            <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
+                                <p class="t:whitespace-nowrap t:font-medium">Điện thoại:</p>
+                                <strong>
+                                    <a href="tel:024.626.00.626">024.626.00.626</a>
+                                    -
+                                    <a href="tel:0928.77.3838">0928.77.3838</a>
+                                </strong>
                             </div>
                         </div>
                     </div>
-                </aside>
-            </div>
-        </div>
-    </section>
 
-    <footer class="t:py-5 t:bg-linear-to-b t:from-[#4696D2] t:to-[#0A64B4] t:text-white home-footer merriweather">
-        <div class="t:container t:mx-auto">
-            <div class="t:grid t:md:grid-cols-2 t:gap-x-7 t:gap-y-3 t:pc:gap-y-5">
-                <div>
-                    <img src="../../common/assets/logo-white.png" alt="" class="t:object-contain t:max-w-82.5">
-                </div>
-                <div class="t:row-span-2 t:max-md:order-3">
-                    <div class="t:flex t:flex-col t:gap-y-2 t:w-fit t:md:ml-auto t:mt-3">
-                        <h3 class="t:font-bold t:text-lg">
-                            Tổng biên tập: Nguyễn Tất Hồng Dương
-                        </h3>
-                        <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
-                            <p class="t:whitespace-nowrap t:font-medium">
-                                Địa chỉ:
-                            </p>
-                            <strong>
-                                38 Phan Đình Phùng, Ba Đình, Hà Nội
-                            </strong>
-                        </div>
-                        <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
-                            <p class="t:whitespace-nowrap t:font-medium">
-                                Email:
-                            </p>
-                            <strong>
-                                <a href="mailto:toasoan@tcanninhmang.vn">toasoan@tcanninhmang.vn</a>
-                            </strong>
-                        </div>
-                        <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
-                            <p class="t:whitespace-nowrap t:font-medium">
-                                Điện thoại:
-                            </p>
-                            <strong>
-                                <a href="tel:024.626.00.626">024.626.00.626</a> -
-                                <a href="tel:0928.77.3838">0928.77.3838</a>
-                            </strong>
-                        </div>
+                    <div class="t:flex t:flex-col t:text-sm t:gap-y-1.5">
+                        <p>Cơ quan chủ quản: Hiệp hội An ninh mạng quốc gia</p>
+                        <p>
+                            Số giấy phép: 42/GP-BVHTTDL do Bộ Văn hóa Thể thao và Du lịch cấp ngày
+                            20/05/2025
+                        </p>
+                        <p class="t:text-white/80 t:mt-2">
+                            Toàn bộ bản quyền thuộc Tạp chí điện tử An ninh mạng Việt Nam
+                        </p>
                     </div>
                 </div>
-
-                <div class="t:flex t:flex-col t:text-sm t:gap-y-1.5">
-                    <p>
-                        Cơ quan chủ quản: Hiệp hội An ninh mạng quốc gia
-                    </p>
-                    <p>
-                        Số giấy phép: 42/GP-BVHTTDL do Bộ Văn hóa Thể thao và Du lịch cấp ngày 20/05/2025
-                    </p>
-                    <p class="t:text-white/80 t:mt-2">
-                        Toàn bộ bản quyền thuộc Tạp chí điện tử An ninh mạng Việt Nam
-                    </p>
-                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <button type="button" id="scrollToTopBtn" aria-label="Lên đầu trang" class="t:max-md:hidden"
-        style="position:fixed;right:24px;bottom:24px;width:44px;height:44px;border:none;border-radius:9999px;background:#0A64B4;color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer;font-size:18px;line-height:1;z-index:120;box-shadow:0 8px 24px rgba(10,100,180,0.35);opacity:0;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease,background-color .25s ease;">
-        ↑
-    </button>
+        <button
+            type="button"
+            id="scrollToTopBtn"
+            aria-label="Lên đầu trang"
+            class="t:max-md:hidden"
+            style="
+                position: fixed;
+                right: 24px;
+                bottom: 24px;
+                width: 44px;
+                height: 44px;
+                border: none;
+                border-radius: 9999px;
+                background: #0a64b4;
+                color: #fff;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-size: 18px;
+                line-height: 1;
+                z-index: 120;
+                box-shadow: 0 8px 24px rgba(10, 100, 180, 0.35);
+                opacity: 0;
+                transform: translateY(8px);
+                transition:
+                    opacity 0.25s ease,
+                    transform 0.25s ease,
+                    background-color 0.25s ease;
+            "
+        >
+            ↑
+        </button>
 
-    <script>
-        (function () {
-            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-            if (!scrollToTopBtn) return;
+        <script>
+            (function () {
+                const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+                if (!scrollToTopBtn) return;
 
-            const toggleVisibility = () => {
-                const isVisible = window.scrollY > 280;
-                if (isVisible) {
-                    if (scrollToTopBtn.style.display !== 'flex') {
-                        scrollToTopBtn.style.display = 'flex';
-                        requestAnimationFrame(() => {
-                            scrollToTopBtn.style.opacity = '1';
-                            scrollToTopBtn.style.transform = 'translateY(0)';
-                        });
-                    }
-                } else {
-                    scrollToTopBtn.style.opacity = '0';
-                    scrollToTopBtn.style.transform = 'translateY(8px)';
-                    setTimeout(() => {
-                        if (window.scrollY <= 280) {
-                            scrollToTopBtn.style.display = 'none';
+                const toggleVisibility = () => {
+                    const isVisible = window.scrollY > 280;
+                    if (isVisible) {
+                        if (scrollToTopBtn.style.display !== "flex") {
+                            scrollToTopBtn.style.display = "flex";
+                            requestAnimationFrame(() => {
+                                scrollToTopBtn.style.opacity = "1";
+                                scrollToTopBtn.style.transform = "translateY(0)";
+                            });
                         }
-                    }, 250);
-                }
-            };
+                    } else {
+                        scrollToTopBtn.style.opacity = "0";
+                        scrollToTopBtn.style.transform = "translateY(8px)";
+                        setTimeout(() => {
+                            if (window.scrollY <= 280) {
+                                scrollToTopBtn.style.display = "none";
+                            }
+                        }, 250);
+                    }
+                };
 
-            window.addEventListener('scroll', toggleVisibility, { passive: true });
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+                window.addEventListener("scroll", toggleVisibility, { passive: true });
+                scrollToTopBtn.addEventListener("click", () => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
 
-            scrollToTopBtn.addEventListener('mouseenter', () => {
-                scrollToTopBtn.style.background = '#07528F';
-            });
+                scrollToTopBtn.addEventListener("mouseenter", () => {
+                    scrollToTopBtn.style.background = "#07528F";
+                });
 
-            scrollToTopBtn.addEventListener('mouseleave', () => {
-                scrollToTopBtn.style.background = '#0A64B4';
-            });
+                scrollToTopBtn.addEventListener("mouseleave", () => {
+                    scrollToTopBtn.style.background = "#0A64B4";
+                });
 
-            toggleVisibility();
-        })();
-    </script>
+                toggleVisibility();
+            })();
+        </script>
 
-    <script type="module" src="../../common/overlayscrollbar.js"></script>
-    <script type="module" src="../../common/floating-dropdown.js"></script>
-    <script type="module" src="../../common/overlay.js"></script>
-    <script type="module" src="../../common/header-sticky.js"></script>
-</body>
-
+        <script type="module" src="../../common/overlayscrollbar.js"></script>
+        <script type="module" src="../../common/floating-dropdown.js"></script>
+        <script type="module" src="../../common/overlay.js"></script>
+        <script type="module" src="../../common/header-sticky.js"></script>
+    </body>
 </html>

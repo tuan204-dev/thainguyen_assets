@@ -24,10 +24,10 @@ Các quy tắc UI cần tuân thủ khi phát triển giao diện trong dự án
 
 - Toàn bộ thư viện dùng chung được đặt trong [common/](common/).
 - Hướng dẫn sử dụng từng thư viện nằm trong [ui-instructions/](ui-instructions/):
-  - [Swiper.md](ui-instructions/Swiper.md)
-  - [Dropdown.md](ui-instructions/Dropdown.md)
-  - [Overlay.md](ui-instructions/Overlay.md)
-  - [OverlayScrollbars.md](ui-instructions/OverlayScrollbars.md)
+    - [Swiper.md](ui-instructions/Swiper.md)
+    - [Dropdown.md](ui-instructions/Dropdown.md)
+    - [Overlay.md](ui-instructions/Overlay.md)
+    - [OverlayScrollbars.md](ui-instructions/OverlayScrollbars.md)
 - Trước khi thêm thư viện mới, kiểm tra trong [common/](common/) xem đã có sẵn chưa để tránh trùng lặp.
 - Khi thêm thư viện mới, **bắt buộc** viết hướng dẫn sử dụng tương ứng trong [ui-instructions/](ui-instructions/).
 
@@ -37,39 +37,43 @@ Các quy tắc UI cần tuân thủ khi phát triển giao diện trong dự án
 - **Bắt buộc dùng prefix `t:`** cho tất cả class Tailwind (ví dụ: `t:flex t:items-center t:gap-4`).
 - **Chỉ dùng CSS thường khi thực sự bắt buộc** (ví dụ: hiệu ứng phức tạp Tailwind không hỗ trợ, override thư viện third-party). Mặc định luôn ưu tiên TailwindCSS.
 - Cấu trúc thư mục và cách tổ chức code theo mẫu trong [reference/](reference/):
-  - Tách riêng `desktop/` và `mobile/`.
+    - Tách riêng `desktop/` và `mobile/`.
 
 ## 6. Responsive
 
 ### 6.1. Cách làm chung
+
 - **Responsive luôn được xử lý trong phiên bản desktop** ([reference/desktop/](reference/desktop/)).
 - Bản `mobile/` chỉ dành cho trường hợp layout mobile khác biệt hoàn toàn so với desktop, không thể đạt được bằng responsive utilities.
 - Dùng các breakpoint của Tailwind kèm prefix `t:` (ví dụ: `t:md:flex t:pc:grid-cols-3`).
 
 ### 6.2. Breakpoints
+
 Khai báo trong [home/desktop/source.css](home/desktop/source.css) (và file `source.css` tương ứng cho các page khác):
 
-| Prefix | Min-width | Mô tả |
-|---|---|---|
-| (mặc định) | 0 | Mobile-first base |
-| `md:` | 768px | Tablet |
-| `pc:` | 1000px | Desktop chính của dự án |
-| `bt-xl:` | 1200px | Desktop lớn |
+| Prefix     | Min-width | Mô tả                   |
+| ---------- | --------- | ----------------------- |
+| (mặc định) | 0         | Mobile-first base       |
+| `md:`      | 768px     | Tablet                  |
+| `pc:`      | 1000px    | Desktop chính của dự án |
+| `bt-xl:`   | 1200px    | Desktop lớn             |
 
 Có thể combine với `max-{breakpoint}:` để giới hạn class **chỉ áp dụng dưới** một breakpoint — ví dụ `t:max-pc:gap-y-5` chỉ chạy khi viewport `< 1000px`.
 
 ### 6.3. Progressive responsive (mobile-first)
+
 Khi layout đổi số cột, luôn đi **từ ít cột → nhiều cột** theo viewport tăng dần:
 
-| Viewport | Số cột mẫu |
-|---|---|
-| `< 768px` (mobile) | 1 col stack |
-| `768-999px` (md / tablet) | 2 cols |
-| `≥ 1000px` (pc) | 3-4 cols full layout |
+| Viewport                  | Số cột mẫu           |
+| ------------------------- | -------------------- |
+| `< 768px` (mobile)        | 1 col stack          |
+| `768-999px` (md / tablet) | 2 cols               |
+| `≥ 1000px` (pc)           | 3-4 cols full layout |
 
 **Anti-pattern**: tránh dùng `t:max-md:grid-cols-2` đơn lẻ → mobile 2 cols nhưng tablet rớt về 1 col mặc định (đi lùi). Số cột phải đơn điệu tăng theo viewport.
 
 ### 6.4. Scope responsive utilities — không "rò rỉ" sang PC
+
 Layout PC là target ổn định. Khi thêm class cho mobile/tablet (gap, padding, grid-cols phụ…), **scope với `max-pc:`** để dừng ở 1000px, giữ PC y nguyên:
 
 ```html
@@ -83,14 +87,13 @@ Layout PC là target ổn định. Khi thêm class cho mobile/tablet (gap, paddi
 Tương tự cho intermediate breakpoint — `t:md:max-pc:grid-cols-2` nghĩa là "2 cols ở khoảng `768-999px`, không động đến PC".
 
 ### 6.5. Ví dụ — Grid responsive 3 cấp với divider
+
 Mẫu: [home/desktop/index.html:3692-3694](home/desktop/index.html#L3692-L3694)
 
 ```html
-<div class="t:grid
-            t:max-pc:gap-y-5
-            t:md:max-pc:grid-cols-2 t:md:max-pc:gap-x-4
-            t:pc:grid-cols-4 t:pc:divide-x t:pc:divide-dashed t:pc:divide-[#DCDFE4]
-            t:pc:[&>*:first-child]:pl-0 t:pc:[&>*:last-child]:pr-0">
+<div
+    class="t:grid t:max-pc:gap-y-5 t:md:max-pc:grid-cols-2 t:md:max-pc:gap-x-4 t:pc:grid-cols-4 t:pc:divide-x t:pc:divide-dashed t:pc:divide-[#DCDFE4] t:pc:[&>*:first-child]:pl-0 t:pc:[&>*:last-child]:pr-0"
+>
     <div class="t:pc:px-4">...</div>
     <!-- 4 items identical, theo Rule 8 -->
 </div>
@@ -105,14 +108,17 @@ Mẫu: [home/desktop/index.html:3692-3694](home/desktop/index.html#L3692-L3694)
 Tham khảo trong [reference/desktop/index.html](reference/desktop/index.html):
 
 ### 7.1. Block bài ngang — ảnh bên trái
+
 - Mẫu: [reference/desktop/index.html:2160-2177](reference/desktop/index.html#L2160-L2177)
 - Cấu trúc: `figure.img-block.t:md:float-left` đứng trước `h3.title`, dùng `t:flow-root` ở container để bao float.
 
 ### 7.2. Block bài ngang — ảnh bên phải
+
 - Mẫu: [reference/desktop/index.html:1388-1404](reference/desktop/index.html#L1388-L1404)
 - Cấu trúc: tương tự block ngang nhưng `figure.img-block` dùng `t:pc:float-right` (responsive: float-left ở mobile, float-right ở desktop).
 
 ### 7.3. Block bài dọc
+
 - Mẫu: [reference/desktop/index.html:1224-1242](reference/desktop/index.html#L1224-L1242)
 - Cấu trúc: `figure.img-block` đứng trên, `h3.title` và `time.article-date` xếp xuống dưới theo chiều dọc.
 
@@ -122,34 +128,37 @@ Khi render danh sách bài viết theo dạng grid hàng ngang (ví dụ: [refer
 
 - **Tất cả các item bên trong phải có CSS giống hệt nhau** — không hard-code khác biệt cho item đầu / cuối / giữa.
 - **Padding mép ngoài**: nếu item đầu cần bỏ `padding-left` và item cuối cần bỏ `padding-right`, **xử lý ở thẻ cha** bằng selector con thay vì sửa class riêng cho từng item:
-  ```html
-  t:[&>*:first-child]:pl-0 t:[&>*:last-child]:pr-0
-  ```
+    ```html
+    t:[&>*:first-child]:pl-0 t:[&>*:last-child]:pr-0
+    ```
 - **Divider giữa các item**: cũng đặt **ở thẻ cha** thay vì border riêng từng item:
-  ```html
-  t:md:divide-x t:divide-[#D9D9D9]
-  ```
+    ```html
+    t:md:divide-x t:divide-[#D9D9D9]
+    ```
 - Lý do: giữ markup của item lặp lại sạch và đồng nhất, dễ render bằng vòng lặp (template), dễ thay đổi số cột mà không phải sửa từng item.
 
 Ví dụ thẻ cha đầy đủ:
+
 ```html
-<div class="t:grid t:md:grid-cols-3 t:[&>*:first-child]:pl-0 t:[&>*:last-child]:pr-0 t:md:divide-x t:divide-[#D9D9D9]">
-  <div class="t:md:px-4">...</div>
-  <div class="t:md:px-4">...</div>
-  <div class="t:md:px-4">...</div>
+<div
+    class="t:grid t:md:grid-cols-3 t:[&>*:first-child]:pl-0 t:[&>*:last-child]:pr-0 t:md:divide-x t:divide-[#D9D9D9]"
+>
+    <div class="t:md:px-4">...</div>
+    <div class="t:md:px-4">...</div>
+    <div class="t:md:px-4">...</div>
 </div>
 ```
 
 ## 9. Cấu trúc Section
 
 - **Mỗi section đều phải được bọc theo skeleton chuẩn**: thẻ `<section>` bao ngoài, bên trong là `<div class="t:container">` chứa nội dung:
-  ```html
-  <section>
-      <div class="t:container">
-          <!-- nội dung section -->
-      </div>
-  </section>
-  ```
+    ```html
+    <section>
+        <div class="t:container">
+            <!-- nội dung section -->
+        </div>
+    </section>
+    ```
 - Không đặt nội dung trực tiếp vào `<section>` mà bỏ qua `t:container`.
 - `t:container` ([common/style/common.css:29-54](common/style/common.css#L29-L54)) chịu trách nhiệm canh giữa và giới hạn `max-width` theo từng breakpoint — đảm bảo nội dung mọi section thẳng hàng.
 
@@ -157,9 +166,9 @@ Ví dụ thẻ cha đầy đủ:
 
 - **Trong mọi trường hợp, không được fix cứng `width` / `height` bằng giá trị tuyệt đối** (ví dụ: `w-[320px]`, `h-[200px]`, `width: 400px`, `height: 250px`).
 - Thay vào đó, dùng:
-  - Tỉ lệ (`aspect-ratio`, ví dụ `aspect-[16/9]`).
-  - Đơn vị tương đối (`%`, `rem`, `em`, `vw`, `vh`, `max-width`, `min-width`).
-  - Để nội dung / grid / flex tự quyết định kích thước.
+    - Tỉ lệ (`aspect-ratio`, ví dụ `aspect-[16/9]`).
+    - Đơn vị tương đối (`%`, `rem`, `em`, `vw`, `vh`, `max-width`, `min-width`).
+    - Để nội dung / grid / flex tự quyết định kích thước.
 - Lý do: đảm bảo responsive trên mọi kích thước màn hình và không bị vỡ layout khi nội dung thay đổi.
 - Ngoại lệ duy nhất: các phần tử bắt buộc phải có kích thước cố định theo thiết kế (icon nhỏ, logo có size chuẩn) — và phải có lý do rõ ràng.
 
@@ -167,23 +176,23 @@ Ví dụ thẻ cha đầy đủ:
 
 ### 11.1. Size ảnh — `.img-block` ([common/style/common.css:57-92](common/style/common.css#L57-L92))
 
-| Class | Width | Ghi chú |
-|---|---|---|
-| `.img-block.lg` | 260px | Ảnh lớn |
-| `.img-block.md` | 192px | Ảnh vừa |
-| `.img-block.sm` | 178px | Ảnh nhỏ |
+| Class            | Width | Ghi chú     |
+| ---------------- | ----- | ----------- |
+| `.img-block.lg`  | 260px | Ảnh lớn     |
+| `.img-block.md`  | 192px | Ảnh vừa     |
+| `.img-block.sm`  | 178px | Ảnh nhỏ     |
 | `.img-block.ssm` | 145px | Ảnh rất nhỏ |
 
 Tất cả đều có `max-width: 50%` và giữ tỉ lệ `16 / 9`, ảnh `object-fit: cover` crop từ tâm.
 
 ### 11.2. Size title — `.title` ([common/style/common.css:95-126](common/style/common.css#L95-L126))
 
-| Class | Desktop | Mobile (≤1000px) |
-|---|---|---|
-| `.title.l1` | 1.5rem | 1.25rem |
-| `.title.l2` | 1.125rem | 1.125rem |
-| `.title.l3` | 1rem | 1rem |
-| `.title.l4` | 0.875rem | 0.875rem |
+| Class       | Desktop  | Mobile (≤1000px) |
+| ----------- | -------- | ---------------- |
+| `.title.l1` | 1.5rem   | 1.25rem          |
+| `.title.l2` | 1.125rem | 1.125rem         |
+| `.title.l3` | 1rem     | 1rem             |
+| `.title.l4` | 0.875rem | 0.875rem         |
 
 ## 12. Fonts
 
@@ -206,10 +215,15 @@ Mỗi section danh mục có **title chính** (tên danh mục) và **sub-titles
 ```html
 <div class="t:border-t t:border-[#DCDFE4] t:pt-4">
     <div class="t:flex t:items-center t:gap-x-3 t:flex-wrap">
-        <h2 class="merriweather t:text-[28px] t:max-pc:text-[22px] t:font-semibold t:uppercase t:text-[#30A14A] t:leading-tight">
+        <h2
+            class="merriweather t:text-[28px] t:max-pc:text-[22px] t:font-semibold t:uppercase t:text-[#30A14A] t:leading-tight"
+        >
             <a href="">Thông tin - Quảng cáo</a>
         </h2>
-        <a href="" class="t:size-9 t:rounded-full t:bg-[#F7F7F7] t:inline-flex t:items-center t:justify-center t:shrink-0 t:hover:bg-[#E9E9E9]">
+        <a
+            href=""
+            class="t:size-9 t:rounded-full t:bg-[#F7F7F7] t:inline-flex t:items-center t:justify-center t:shrink-0 t:hover:bg-[#E9E9E9]"
+        >
             <i class="material-symbols--arrow-forward-ios-rounded t:text-[#212636]"></i>
         </a>
     </div>
@@ -222,6 +236,7 @@ Mỗi section danh mục có **title chính** (tên danh mục) và **sub-titles
 Sub-titles **luôn dùng Swiper** với `slidesPerView: "auto"` + `freeMode` — để khi có nhiều sub-category sẽ scroll ngang được, không xuống dòng.
 
 **Cấu hình bắt buộc**:
+
 - `data-swiper-slides-per-view="auto"` — mỗi pill rộng theo content.
 - `data-swiper-space-between="0"` — divider tự tạo bằng `border-l` thay vì gap.
 - `data-swiper-free-mode="true"` — kéo mượt theo chiều ngang.
@@ -229,40 +244,28 @@ Sub-titles **luôn dùng Swiper** với `slidesPerView: "auto"` + `freeMode` —
 - `t:whitespace-nowrap` trên `<a>` — text trong từng pill không xuống dòng (Rule 1).
 
 **Styling theo Rule 8** — divider/padding chỉ áp ở thẻ cha qua arbitrary selectors:
+
 - `t:[&_.swiper-slide]:px-3 t:[&_.swiper-slide]:border-l t:[&_.swiper-slide]:border-[#DCDFE4]` cho tất cả slide.
 - `t:[&_.swiper-slide:first-child]:pl-0 t:[&_.swiper-slide:first-child]:border-l-0` tinh chỉnh slide đầu.
 
 **Prev/Next buttons** — dạng arrow đơn giản gom về mép phải, nền gradient trắng:
+
 - Cả hai `size-6!`, `mt-0!` (nullify margin-top mặc định của Swiper bundle CSS), `text-[#8A94A6]`, `after:text-[14px]!`, `top-1/2 -translate-y-1/2`.
 - `next`: `right-0!`, `bg-white`.
 - `prev`: `left-auto! right-6!` (dán sát cạnh next), `bg-linear-to-r from-white/0 to-white` (fade-in từ trong suốt sang trắng).
 - **Tự ẩn khi đến đầu/cuối**:
-  - `t:[&_.swiper-button-prev.swiper-button-disabled]:hidden!` — ẩn prev khi đang ở slide đầu.
-  - Swiper auto-thêm class `.swiper-button-lock` cho cả hai button khi không overflow → bundle CSS ẩn sẵn.
+    - `t:[&_.swiper-button-prev.swiper-button-disabled]:hidden!` — ẩn prev khi đang ở slide đầu.
+    - Swiper auto-thêm class `.swiper-button-lock` cho cả hai button khi không overflow → bundle CSS ẩn sẵn.
 - **Reserve padding-right có điều kiện**: `t:[&:has(.swiper-button-next:not(.swiper-button-lock))]:pr-14` — chỉ chừa 56px chỗ cho 2 button khi swiper thực sự scroll được.
 
 ```html
-<div class="swiper t:relative t:mt-2 t:text-sm t:font-medium t:text-[#8A94A6]
-            t:[&:has(.swiper-button-next:not(.swiper-button-lock))]:pr-14
-            t:[&_.swiper-wrapper]:items-center
-            t:[&_.swiper-slide]:w-auto! t:[&_.swiper-slide]:px-3
-            t:[&_.swiper-slide]:border-l t:[&_.swiper-slide]:border-[#DCDFE4]
-            t:[&_.swiper-slide:first-child]:pl-0 t:[&_.swiper-slide:first-child]:border-l-0
-            t:[&_.swiper-button-next]:size-6! t:[&_.swiper-button-next]:mt-0!
-            t:[&_.swiper-button-next]:text-[#8A94A6] t:[&_.swiper-button-next]:bg-white
-            t:[&_.swiper-button-next]:right-0! t:[&_.swiper-button-next]:top-1/2 t:[&_.swiper-button-next]:-translate-y-1/2
-            t:[&_.swiper-button-next]:after:text-[14px]! t:[&_.swiper-button-next]:hover:text-[#212636]
-            t:[&_.swiper-button-prev]:size-6! t:[&_.swiper-button-prev]:mt-0!
-            t:[&_.swiper-button-prev]:text-[#8A94A6] t:[&_.swiper-button-prev]:bg-linear-to-r
-            t:[&_.swiper-button-prev]:from-white/0 t:[&_.swiper-button-prev]:to-white
-            t:[&_.swiper-button-prev]:left-auto! t:[&_.swiper-button-prev]:right-6!
-            t:[&_.swiper-button-prev]:top-1/2 t:[&_.swiper-button-prev]:-translate-y-1/2
-            t:[&_.swiper-button-prev]:after:text-[14px]! t:[&_.swiper-button-prev]:hover:text-[#212636]
-            t:[&_.swiper-button-prev.swiper-button-disabled]:hidden!"
+<div
+    class="swiper t:relative t:mt-2 t:text-sm t:font-medium t:text-[#8A94A6] t:[&:has(.swiper-button-next:not(.swiper-button-lock))]:pr-14 t:[&_.swiper-wrapper]:items-center t:[&_.swiper-slide]:w-auto! t:[&_.swiper-slide]:px-3 t:[&_.swiper-slide]:border-l t:[&_.swiper-slide]:border-[#DCDFE4] t:[&_.swiper-slide:first-child]:pl-0 t:[&_.swiper-slide:first-child]:border-l-0 t:[&_.swiper-button-next]:size-6! t:[&_.swiper-button-next]:mt-0! t:[&_.swiper-button-next]:text-[#8A94A6] t:[&_.swiper-button-next]:bg-white t:[&_.swiper-button-next]:right-0! t:[&_.swiper-button-next]:top-1/2 t:[&_.swiper-button-next]:-translate-y-1/2 t:[&_.swiper-button-next]:after:text-[14px]! t:[&_.swiper-button-next]:hover:text-[#212636] t:[&_.swiper-button-prev]:size-6! t:[&_.swiper-button-prev]:mt-0! t:[&_.swiper-button-prev]:text-[#8A94A6] t:[&_.swiper-button-prev]:bg-linear-to-r t:[&_.swiper-button-prev]:from-white/0 t:[&_.swiper-button-prev]:to-white t:[&_.swiper-button-prev]:left-auto! t:[&_.swiper-button-prev]:right-6! t:[&_.swiper-button-prev]:top-1/2 t:[&_.swiper-button-prev]:-translate-y-1/2 t:[&_.swiper-button-prev]:after:text-[14px]! t:[&_.swiper-button-prev]:hover:text-[#212636] t:[&_.swiper-button-prev.swiper-button-disabled]:hidden!"
     data-swiper
     data-swiper-slides-per-view="auto"
     data-swiper-space-between="0"
-    data-swiper-free-mode="true">
+    data-swiper-free-mode="true"
+>
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <a href="" class="t:hover:text-[#30A14A] t:whitespace-nowrap">Sub-category 1</a>

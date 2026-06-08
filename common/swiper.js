@@ -29,8 +29,7 @@ const SwiperManager = (() => {
 
         const slidesPerView = attr(el, "slides-per-view", null);
         if (slidesPerView != null) {
-            config.slidesPerView =
-                slidesPerView === "auto" ? "auto" : Number(slidesPerView);
+            config.slidesPerView = slidesPerView === "auto" ? "auto" : Number(slidesPerView);
         }
 
         const spaceBetween = attr(el, "space-between", null);
@@ -70,8 +69,12 @@ const SwiperManager = (() => {
         // Support external nav via data-swiper-next-el / data-swiper-prev-el (CSS selector)
         const nextSel = attr(el, "next-el", null);
         const prevSel = attr(el, "prev-el", null);
-        const nextEl = nextSel ? document.querySelector(nextSel) : el.querySelector(".swiper-button-next");
-        const prevEl = prevSel ? document.querySelector(prevSel) : el.querySelector(".swiper-button-prev");
+        const nextEl = nextSel
+            ? document.querySelector(nextSel)
+            : el.querySelector(".swiper-button-next");
+        const prevEl = prevSel
+            ? document.querySelector(prevSel)
+            : el.querySelector(".swiper-button-prev");
         if (nextEl || prevEl) {
             config.navigation = {};
             if (nextEl) config.navigation.nextEl = nextEl;

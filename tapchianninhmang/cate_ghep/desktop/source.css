@@ -3,89 +3,93 @@
 @import "../../common/style/common.css";
 
 @theme {
-  --color-tw-primary: #212636;
-  --color-tw-secondary: #667085;
-  --color-tw-border: #d0d5dd;
+    --color-tw-primary: #212636;
+    --color-tw-secondary: #667085;
+    --color-tw-border: #d0d5dd;
 
-  --breakpoint-bt-xl: 1200px;
+    --breakpoint-bt-xl: 1200px;
 }
 
-
 /* ── Desktop: hide desc-mobile, show desc-desktop ─────────── */
-.cate-article-list .desc-mobile { display: none; }
+.cate-article-list .desc-mobile {
+    display: none;
+}
 
 /* ── Pagination ───────────────────────────────────────────── */
 .pagination-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 36px;
-  height: 36px;
-  padding: 0 8px;
-  border: 1px solid #D9D9D9;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #333;
-  text-decoration: none;
-  transition: all 0.15s;
-  font-family: "Roboto", sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 8px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.15s;
+    font-family: "Roboto", sans-serif;
 }
 
 .pagination-btn:hover {
-  background: #E5F3FF;
-  color: #0A64B4;
-  border-color: #0A64B4;
+    background: #e5f3ff;
+    color: #0a64b4;
+    border-color: #0a64b4;
 }
 
 .pagination-btn.is-active {
-  background: #0A64B4;
-  color: white;
-  border-color: #0A64B4;
+    background: #0a64b4;
+    color: white;
+    border-color: #0a64b4;
 }
 
 /* ── Tablet: hide sidebar, full-width article list ────────── */
 @media (max-width: 1024px) {
-  .cate-grid {
-    grid-template-columns: 1fr !important;
-  }
-  .cate-grid aside {
-    display: none;
-  }
-  .cate-grid .article-list {
-    padding-right: 0 !important;
-    border-right: none !important;
-  }
+    .cate-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .cate-grid aside {
+        display: none;
+    }
+    .cate-grid .article-list {
+        padding-right: 0 !important;
+        border-right: none !important;
+    }
 }
 
 /* ── Mobile responsive ────────────────────────────────────── */
 @media (max-width: 767px) {
+    /* Featured section: single column */
+    .featured-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .featured-grid [data-scroll] {
+        display: none;
+    }
 
-  /* Featured section: single column */
-  .featured-grid {
-    grid-template-columns: 1fr !important;
-  }
-  .featured-grid [data-scroll] {
-    display: none;
-  }
+    /* Featured article: show full-width, no date text (icon only visible) */
+    .featured-article .title.l1 {
+        font-size: 1.5rem;
+    }
 
-  /* Featured article: show full-width, no date text (icon only visible) */
-  .featured-article .title.l1 {
-    font-size: 1.5rem;
-  }
+    /* Article list: image to right, smaller (reuse tin-bai-khac pattern) */
+    .cate-article-list figure.img-block {
+        order: 2;
+        width: 145px;
+    }
+    .cate-article-list .desc-desktop {
+        display: none;
+    }
+    .cate-article-list .desc-mobile {
+        display: block;
+    }
 
-  /* Article list: image to right, smaller (reuse tin-bai-khac pattern) */
-  .cate-article-list figure.img-block {
-    order: 2;
-    width: 145px;
-  }
-  .cate-article-list .desc-desktop { display: none; }
-  .cate-article-list .desc-mobile { display: block; }
-
-  /* Breadcrumb smaller */
-  .cate-label h2 {
-    font-size: 1.25rem !important;
-  }
+    /* Breadcrumb smaller */
+    .cate-label h2 {
+        font-size: 1.25rem !important;
+    }
 }
 
 .home-overlay-nav [data-menu-item] {
@@ -99,8 +103,8 @@
 
 .home-overlay-nav [data-menu-item].is-active {
     padding-left: 24px;
-    color: #EA2736;
-    background-color: #FFFFFF;
+    color: #ea2736;
+    background-color: #ffffff;
 }
 
 .home-overlay-nav [data-menu-item].is-active [data-menu-indicator] {
@@ -108,14 +112,14 @@
 }
 
 .home-overlay-nav [data-menu-item]:not(.is-active):hover {
-    background-color: #F1F1F1;
+    background-color: #f1f1f1;
 }
 
 /* mobile */
 
 .mobile-menu-item {
     background: #fff;
-    border: 1px solid #E0E0E0;
+    border: 1px solid #e0e0e0;
     border-radius: 6px;
     overflow: hidden;
 }
@@ -163,17 +167,17 @@
     padding: 14px 20px;
     font-size: 14px;
     color: #151515;
-    border-top: 1px solid #F0F0F0;
+    border-top: 1px solid #f0f0f0;
     text-decoration: none;
 }
 
 .mobile-menu-sub > a:hover {
-    background: #F9F9F9;
+    background: #f9f9f9;
 }
 
 .mobile-menu-item.is-open > .mobile-menu-trigger {
-    color: #0A64B4;
-    background: #F0F7FF;
+    color: #0a64b4;
+    background: #f0f7ff;
 }
 
 /* ── Nested sub-items (level 3+) ── */
@@ -182,7 +186,7 @@
     background: transparent;
     border: none;
     border-radius: 0;
-    border-top: 1px solid #F0F0F0;
+    border-top: 1px solid #f0f0f0;
     overflow: hidden;
 }
 
@@ -199,8 +203,8 @@
 }
 
 .mobile-menu-item--nested.is-open > .mobile-menu-trigger--nested {
-    color: #0A64B4;
-    background: #F0F7FF;
+    color: #0a64b4;
+    background: #f0f7ff;
 }
 
 /* Children inside nested sub-panels get progressively more left padding */
@@ -221,11 +225,18 @@
     padding-left: 32px;
 }
 
-.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
     padding-left: 44px;
 }
 
-.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
     padding-left: 56px;
 }
 

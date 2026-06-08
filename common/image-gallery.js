@@ -6,10 +6,7 @@ const ImageGallery = (() => {
     const ICON_NEXT = `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.3 6.3a1 1 0 0 0 0 1.4L13.6 12l-4.3 4.3a1 1 0 1 0 1.4 1.4l5-5a1 1 0 0 0 0-1.4l-5-5a1 1 0 0 0-1.4 0z"/></svg>`;
     const ICON_DOWNLOAD = `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.58l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1ZM4 19a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Z"/></svg>`;
 
-    const EXCLUDE_SELECTORS = [
-        '[class^="related-"]',
-        '[class*=" related-"]'
-    ];
+    const EXCLUDE_SELECTORS = ['[class^="related-"]', '[class*=" related-"]'];
     const EXCLUDE_SELECTOR = EXCLUDE_SELECTORS.join(",");
 
     let root = null;
@@ -19,13 +16,17 @@ const ImageGallery = (() => {
     let lastFocused = null;
 
     function escapeHtml(s) {
-        return String(s).replace(/[&<>"']/g, (c) => ({
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#39;",
-        }[c]));
+        return String(s).replace(
+            /[&<>"']/g,
+            (c) =>
+                ({
+                    "&": "&amp;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    '"': "&quot;",
+                    "'": "&#39;",
+                })[c],
+        );
     }
 
     function buildRoot() {
@@ -73,7 +74,7 @@ const ImageGallery = (() => {
         const content = document.getElementById("content");
         if (!content) return [];
         return Array.from(content.querySelectorAll("img")).filter(
-            (img) => isVisible(img) && !isExcluded(img)
+            (img) => isVisible(img) && !isExcluded(img),
         );
     }
 
@@ -173,8 +174,7 @@ const ImageGallery = (() => {
         if (!img) return;
 
         const url = img.src;
-        const filename =
-            (url.split("/").pop() || "image").split("?")[0] || "image";
+        const filename = (url.split("/").pop() || "image").split("?")[0] || "image";
 
         try {
             const res = await fetch(url, { mode: "cors" });

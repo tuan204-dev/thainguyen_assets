@@ -1,134 +1,175 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
+    <head>
+        <portlet name="head_rss" />
 
-<head>
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/rss/desktop/output.css" />
+        <link
+            rel="stylesheet"
+            href="https://assets.tapchianninhmang.vn/common/style/fonts-merriweather-vn.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://assets.tapchianninhmang.vn/common/style/fonts-roboto-vn.css"
+        />
+        <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/common.css" />
+        <link
+            rel="stylesheet"
+            href="https://assets.tapchianninhmang.vn/common/style/dropdown.css"
+        />
+        <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/icon.css" />
+        <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/overlay.css" />
+    </head>
 
-    <portlet name="head_rss" />
+    <body class="home-page">
+        <!-- portlet: d_header -->
+        <portlet name="d_header" />
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/rss/desktop/output.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/fonts-merriweather-vn.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/fonts-roboto-vn.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/common.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/dropdown.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/icon.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/overlay.css">
-</head>
+        <!-- portlet: m_header -->
+        <portlet name="m_header" />
 
-<body class="home-page">
-    <!-- portlet: d_header -->
-    <portlet name="d_header" />
+        <!-- main content -->
+        <portlet name="rss_content" />
 
-    <!-- portlet: m_header -->
-    <portlet name="m_header" />
-
-    <!-- main content -->
-    <portlet name="rss_content" />
-
-    <!-- footer (reused) -->
-    <footer class="t:py-5 t:bg-linear-to-b t:from-[#4696D2] t:to-[#0A64B4] t:text-white home-footer merriweather">
-        <div class="t:container t:mx-auto">
-            <div class="t:grid t:md:grid-cols-2 t:gap-x-7 t:gap-y-3 t:pc:gap-y-5">
-                <div>
-                    <img src="https://assets.tapchianninhmang.vn/common/assets/logo-white.png" alt="" class="t:object-contain t:max-w-82.5">
-                </div>
-                <div class="t:row-span-2 t:max-md:order-3">
-                    <div class="t:flex t:flex-col t:gap-y-2 t:w-fit t:md:ml-auto t:mt-3">
-                        <h3 class="t:font-bold t:text-lg">
-                            Tổng biên tập: Nguyễn Tất Hồng Dương
-                        </h3>
-                        <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
-                            <p class="t:whitespace-nowrap t:font-medium">
-                                Địa chỉ:
-                            </p>
-                            <strong>
-                                38 Phan Đình Phùng, Ba Đình, Hà Nội
-                            </strong>
-                        </div>
-                        <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
-                            <p class="t:whitespace-nowrap t:font-medium">
-                                Email:
-                            </p>
-                            <strong>
-                                <a href="mailto:toasoan@tcanninhmang.vn">toasoan@tcanninhmang.vn</a>
-                            </strong>
-                        </div>
-                        <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
-                            <p class="t:whitespace-nowrap t:font-medium">
-                                Điện thoại:
-                            </p>
-                            <strong>
-                                <a href="tel:024.626.00.626">024.626.00.626</a> -
-                                <a href="tel:0928.77.3838">0928.77.3838</a>
-                            </strong>
+        <!-- footer (reused) -->
+        <footer
+            class="t:py-5 t:bg-linear-to-b t:from-[#4696D2] t:to-[#0A64B4] t:text-white home-footer merriweather"
+        >
+            <div class="t:container t:mx-auto">
+                <div class="t:grid t:md:grid-cols-2 t:gap-x-7 t:gap-y-3 t:pc:gap-y-5">
+                    <div>
+                        <img
+                            src="https://assets.tapchianninhmang.vn/common/assets/logo-white.png"
+                            alt=""
+                            class="t:object-contain t:max-w-82.5"
+                        />
+                    </div>
+                    <div class="t:row-span-2 t:max-md:order-3">
+                        <div class="t:flex t:flex-col t:gap-y-2 t:w-fit t:md:ml-auto t:mt-3">
+                            <h3 class="t:font-bold t:text-lg">
+                                Tổng biên tập: Nguyễn Tất Hồng Dương
+                            </h3>
+                            <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
+                                <p class="t:whitespace-nowrap t:font-medium">Địa chỉ:</p>
+                                <strong>38 Phan Đình Phùng, Ba Đình, Hà Nội</strong>
+                            </div>
+                            <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
+                                <p class="t:whitespace-nowrap t:font-medium">Email:</p>
+                                <strong>
+                                    <a href="mailto:toasoan@tcanninhmang.vn">
+                                        toasoan@tcanninhmang.vn
+                                    </a>
+                                </strong>
+                            </div>
+                            <div class="t:grid t:grid-cols-[100px_1fr] t:text-sm">
+                                <p class="t:whitespace-nowrap t:font-medium">Điện thoại:</p>
+                                <strong>
+                                    <a href="tel:024.626.00.626">024.626.00.626</a>
+                                    -
+                                    <a href="tel:0928.77.3838">0928.77.3838</a>
+                                </strong>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="t:flex t:flex-col t:text-sm t:gap-y-1.5">
-                    <p>
-                        Cơ quan chủ quản: Hiệp hội An ninh mạng quốc gia
-                    </p>
-                    <p>
-                        Số giấy phép: 42/GP-BVHTTDL do Bộ Văn hóa Thể thao và Du lịch cấp ngày 20/05/2025
-                    </p>
+                    <div class="t:flex t:flex-col t:text-sm t:gap-y-1.5">
+                        <p>Cơ quan chủ quản: Hiệp hội An ninh mạng quốc gia</p>
+                        <p>
+                            Số giấy phép: 42/GP-BVHTTDL do Bộ Văn hóa Thể thao và Du lịch cấp ngày
+                            20/05/2025
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <button type="button" id="scrollToTopBtn" aria-label="Lên đầu trang" class="t:max-md:hidden"
-        style="position:fixed;right:24px;bottom:24px;width:44px;height:44px;border:none;border-radius:9999px;background:#0A64B4;color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer;font-size:18px;line-height:1;z-index:120;box-shadow:0 8px 24px rgba(10,100,180,0.35);opacity:0;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease,background-color .25s ease;">
-        ↑
-    </button>
+        <button
+            type="button"
+            id="scrollToTopBtn"
+            aria-label="Lên đầu trang"
+            class="t:max-md:hidden"
+            style="
+                position: fixed;
+                right: 24px;
+                bottom: 24px;
+                width: 44px;
+                height: 44px;
+                border: none;
+                border-radius: 9999px;
+                background: #0a64b4;
+                color: #fff;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-size: 18px;
+                line-height: 1;
+                z-index: 120;
+                box-shadow: 0 8px 24px rgba(10, 100, 180, 0.35);
+                opacity: 0;
+                transform: translateY(8px);
+                transition:
+                    opacity 0.25s ease,
+                    transform 0.25s ease,
+                    background-color 0.25s ease;
+            "
+        >
+            ↑
+        </button>
 
-    <script>
-        (function () {
-            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-            if (!scrollToTopBtn) return;
+        <script>
+            (function () {
+                const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+                if (!scrollToTopBtn) return;
 
-            const toggleVisibility = () => {
-                const isVisible = window.scrollY > 280;
-                if (isVisible) {
-                    if (scrollToTopBtn.style.display !== 'flex') {
-                        scrollToTopBtn.style.display = 'flex';
-                        requestAnimationFrame(() => {
-                            scrollToTopBtn.style.opacity = '1';
-                            scrollToTopBtn.style.transform = 'translateY(0)';
-                        });
-                    }
-                } else {
-                    scrollToTopBtn.style.opacity = '0';
-                    scrollToTopBtn.style.transform = 'translateY(8px)';
-                    setTimeout(() => {
-                        if (window.scrollY <= 280) {
-                            scrollToTopBtn.style.display = 'none';
+                const toggleVisibility = () => {
+                    const isVisible = window.scrollY > 280;
+                    if (isVisible) {
+                        if (scrollToTopBtn.style.display !== "flex") {
+                            scrollToTopBtn.style.display = "flex";
+                            requestAnimationFrame(() => {
+                                scrollToTopBtn.style.opacity = "1";
+                                scrollToTopBtn.style.transform = "translateY(0)";
+                            });
                         }
-                    }, 250);
-                }
-            };
+                    } else {
+                        scrollToTopBtn.style.opacity = "0";
+                        scrollToTopBtn.style.transform = "translateY(8px)";
+                        setTimeout(() => {
+                            if (window.scrollY <= 280) {
+                                scrollToTopBtn.style.display = "none";
+                            }
+                        }, 250);
+                    }
+                };
 
-            window.addEventListener('scroll', toggleVisibility, { passive: true });
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+                window.addEventListener("scroll", toggleVisibility, { passive: true });
+                scrollToTopBtn.addEventListener("click", () => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
 
-            scrollToTopBtn.addEventListener('mouseenter', () => {
-                scrollToTopBtn.style.background = '#07528F';
-            });
+                scrollToTopBtn.addEventListener("mouseenter", () => {
+                    scrollToTopBtn.style.background = "#07528F";
+                });
 
-            scrollToTopBtn.addEventListener('mouseleave', () => {
-                scrollToTopBtn.style.background = '#0A64B4';
-            });
+                scrollToTopBtn.addEventListener("mouseleave", () => {
+                    scrollToTopBtn.style.background = "#0A64B4";
+                });
 
-            toggleVisibility();
-        })();
-    </script>
+                toggleVisibility();
+            })();
+        </script>
 
-    <script src="https://assets.tapchianninhmang.vn/common/common.js"></script>
-    <script type="module" src="https://assets.tapchianninhmang.vn/common/floating-dropdown.js"></script>
-    <script type="module" src="https://assets.tapchianninhmang.vn/common/overlay.js"></script>
-    <script type="module" src="https://assets.tapchianninhmang.vn/common/header-sticky.js"></script>
-</body>
-
+        <script src="https://assets.tapchianninhmang.vn/common/common.js"></script>
+        <script
+            type="module"
+            src="https://assets.tapchianninhmang.vn/common/floating-dropdown.js"
+        ></script>
+        <script type="module" src="https://assets.tapchianninhmang.vn/common/overlay.js"></script>
+        <script
+            type="module"
+            src="https://assets.tapchianninhmang.vn/common/header-sticky.js"
+        ></script>
+    </body>
 </html>

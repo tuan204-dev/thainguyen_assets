@@ -1,754 +1,1141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
-    <title>Số 21045 - Tháng 5 - 2026</title>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+            name="viewport"
+        />
+        <title>Số 21045 - Tháng 5 - 2026</title>
 
-    <link rel="stylesheet" href="./vendor/dflip.css"/>
-    <link rel="stylesheet" href="./vendor/font-awesome.min.css"/>
+        <link rel="stylesheet" href="./vendor/dflip.css" />
+        <link rel="stylesheet" href="./vendor/font-awesome.min.css" />
 
-    <style>
-        /* ── Reset ── */
-        *, *::before, *::after { box-sizing: border-box; }
-        html, body {
-            height: 100%; margin: 0; padding: 0;
-            overflow: hidden;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-        a { text-decoration: none; }
+        <style>
+            /* ── Reset ── */
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            a {
+                text-decoration: none;
+            }
 
-        /* ── Red header (preserved) ── */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #ED1C24;
-            color: #fff;
-            padding: 5px 15px;
-            height: 38px;
-            position: relative;
-            z-index: 9999;
-        }
-        .header a { color: #fff; font-size: 14px; }
-        .header a:hover { opacity: 0.85; }
-        .header-title { font-size: 15px; font-weight: 500; }
+            /* ── Red header (preserved) ── */
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: #ed1c24;
+                color: #fff;
+                padding: 5px 15px;
+                height: 38px;
+                position: relative;
+                z-index: 9999;
+            }
+            .header a {
+                color: #fff;
+                font-size: 14px;
+            }
+            .header a:hover {
+                opacity: 0.85;
+            }
+            .header-title {
+                font-size: 15px;
+                font-weight: 500;
+            }
 
-        @media (max-width: 991px) {
-            .header-title { display: none; }
-            .btn-back span { display: none; }
-        }
+            @media (max-width: 991px) {
+                .header-title {
+                    display: none;
+                }
+                .btn-back span {
+                    display: none;
+                }
+            }
 
-        /* ── Viewer area (below header) ── */
-        .reading-area {
-            position: relative;
-            height: calc(100vh - 38px);
-            background: #3c3c3c;
-        }
+            /* ── Viewer area (below header) ── */
+            .reading-area {
+                position: relative;
+                height: calc(100vh - 38px);
+                background: #3c3c3c;
+            }
 
-        #epaper_preview {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
+            #epaper_preview {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
 
-        /*
+            /*
          * Keep DFlip's generated buttons in the DOM (so we can click them
          * programmatically) but hide the whole wrapper visually.
          * Note: display:none still allows .click() calls in JS.
          */
-        .df-ui-wrapper,
-        .df-outline-container,
-        .df-thumb-container { display: none !important; }
+            .df-ui-wrapper,
+            .df-outline-container,
+            .df-thumb-container {
+                display: none !important;
+            }
 
-        /* ── Page counter — top-left of viewer ── */
-        #page-counter {
-            position: absolute;
-            top: 12px;
-            left: 14px;
-            color: #fff;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.4px;
-            z-index: 9990;
-            pointer-events: none;
-            background: rgba(0,0,0,0.52);
-            padding: 3px 10px;
-            border-radius: 20px;
-        }
+            /* ── Page counter — top-left of viewer ── */
+            #page-counter {
+                position: absolute;
+                top: 12px;
+                left: 14px;
+                color: #fff;
+                font-size: 13px;
+                font-weight: 500;
+                letter-spacing: 0.4px;
+                z-index: 9990;
+                pointer-events: none;
+                background: rgba(0, 0, 0, 0.52);
+                padding: 3px 10px;
+                border-radius: 20px;
+            }
 
-        /* ── Side navigation arrows ── */
-        .side-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 38px;
-            height: 72px;
-            background: rgba(0,0,0,0.28);
-            border: none;
-            cursor: pointer;
-            color: rgba(255,255,255,0.78);
-            font-size: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9990;
-            transition: background 0.18s, color 0.18s;
-            padding: 0;
-            line-height: 1;
-        }
-        .side-nav:hover { background: rgba(0,0,0,0.52); color: #fff; }
-        .side-nav:disabled { opacity: 0.2; cursor: not-allowed; pointer-events: none; }
-        #btn-prev { left: 0; border-radius: 0 4px 4px 0; }
-        #btn-next { right: 0; border-radius: 4px 0 0 4px; }
+            /* ── Side navigation arrows ── */
+            .side-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 38px;
+                height: 72px;
+                background: rgba(0, 0, 0, 0.28);
+                border: none;
+                cursor: pointer;
+                color: rgba(255, 255, 255, 0.78);
+                font-size: 28px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 9990;
+                transition:
+                    background 0.18s,
+                    color 0.18s;
+                padding: 0;
+                line-height: 1;
+            }
+            .side-nav:hover {
+                background: rgba(0, 0, 0, 0.52);
+                color: #fff;
+            }
+            .side-nav:disabled {
+                opacity: 0.2;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+            #btn-prev {
+                left: 0;
+                border-radius: 0 4px 4px 0;
+            }
+            #btn-next {
+                right: 0;
+                border-radius: 4px 0 0 4px;
+            }
 
-        /* ── Bottom toolbar ── */
-        #toolbar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff;
-            border-radius: 0;
-            padding: 5px 14px;
-            box-shadow: 0 -2px 8px rgba(0,0,0,0.12);
-            z-index: 9990;
-            gap: 0;
-            white-space: nowrap;
-        }
-        .tb-btn {
-            width: 38px; height: 38px;
-            display: flex; align-items: center; justify-content: center;
-            background: transparent;
-            border: none; border-radius: 50%;
-            color: #444; font-size: 15px;
-            cursor: pointer;
-            transition: background 0.15s, color 0.15s;
-            flex-shrink: 0;
-        }
-        .tb-btn:hover { background: rgba(0,0,0,0.08); color: #111; }
-        .tb-btn.is-active { color: #d0021b; }
-        .tb-btn:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+            /* ── Bottom toolbar ── */
+            #toolbar {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #fff;
+                border-radius: 0;
+                padding: 5px 14px;
+                box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.12);
+                z-index: 9990;
+                gap: 0;
+                white-space: nowrap;
+            }
+            .tb-btn {
+                width: 38px;
+                height: 38px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: transparent;
+                border: none;
+                border-radius: 50%;
+                color: #444;
+                font-size: 15px;
+                cursor: pointer;
+                transition:
+                    background 0.15s,
+                    color 0.15s;
+                flex-shrink: 0;
+            }
+            .tb-btn:hover {
+                background: rgba(0, 0, 0, 0.08);
+                color: #111;
+            }
+            .tb-btn.is-active {
+                color: #d0021b;
+            }
+            .tb-btn:disabled {
+                opacity: 0.35;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
 
-        .tb-sep {
-            width: 1px; height: 22px;
-            background: rgba(0,0,0,0.13);
-            margin: 0 4px; flex-shrink: 0;
-        }
+            .tb-sep {
+                width: 1px;
+                height: 22px;
+                background: rgba(0, 0, 0, 0.13);
+                margin: 0 4px;
+                flex-shrink: 0;
+            }
 
-        /* ── Fullscreen mode ── */
-        body.fs-mode .header { display: none !important; }
-        body.fs-mode .reading-area {
-            height: 100vh;
-        }
-        body.fs-mode #epaper_preview {
-            height: calc(100vh - 48px) !important;
-        }
+            /* ── Fullscreen mode ── */
+            body.fs-mode .header {
+                display: none !important;
+            }
+            body.fs-mode .reading-area {
+                height: 100vh;
+            }
+            body.fs-mode #epaper_preview {
+                height: calc(100vh - 48px) !important;
+            }
 
-        /* ── Book list sidebar ── */
-        #sidebar-backdrop {
-            display: none;
-            position: fixed; inset: 0;
-            background: rgba(0,0,0,0.45);
-            z-index: 99990;
-        }
-        #sidebar-backdrop.open { display: block; }
+            /* ── Book list sidebar ── */
+            #sidebar-backdrop {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.45);
+                z-index: 99990;
+            }
+            #sidebar-backdrop.open {
+                display: block;
+            }
 
-        #book-sidebar {
-            position: fixed;
-            top: 38px; /* below header */
-            right: -296px; bottom: 0;
-            width: 284px;
-            background: #272727;
-            overflow-y: auto; overflow-x: hidden;
-            transition: right 0.28s ease;
-            z-index: 99991;
-            padding: 16px 14px 80px;
-        }
-        #book-sidebar.open { right: 0; }
+            #book-sidebar {
+                position: fixed;
+                top: 38px; /* below header */
+                right: -296px;
+                bottom: 0;
+                width: 284px;
+                background: #272727;
+                overflow-y: auto;
+                overflow-x: hidden;
+                transition: right 0.28s ease;
+                z-index: 99991;
+                padding: 16px 14px 80px;
+            }
+            #book-sidebar.open {
+                right: 0;
+            }
 
-        .bs-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 14px; padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.12);
-        }
-        .bs-title { color: #fff; font-size: 14px; font-weight: 600; }
-        .bs-close {
-            background: none; border: none;
-            color: rgba(255,255,255,0.5); font-size: 20px; cursor: pointer; line-height: 1; padding: 0;
-        }
-        .bs-close:hover { color: #fff; }
-        .bs-item { display: block; margin-bottom: 14px; }
-        .bs-item img { width: 100%; display: block; border-radius: 3px; }
-        .bs-item span {
-            display: block; color: rgba(255,255,255,0.65);
-            font-size: 12px; margin-top: 5px;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-        }
-        .bs-item:hover span { color: #fff; }
+            .bs-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 14px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            }
+            .bs-title {
+                color: #fff;
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .bs-close {
+                background: none;
+                border: none;
+                color: rgba(255, 255, 255, 0.5);
+                font-size: 20px;
+                cursor: pointer;
+                line-height: 1;
+                padding: 0;
+            }
+            .bs-close:hover {
+                color: #fff;
+            }
+            .bs-item {
+                display: block;
+                margin-bottom: 14px;
+            }
+            .bs-item img {
+                width: 100%;
+                display: block;
+                border-radius: 3px;
+            }
+            .bs-item span {
+                display: block;
+                color: rgba(255, 255, 255, 0.65);
+                font-size: 12px;
+                margin-top: 5px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .bs-item:hover span {
+                color: #fff;
+            }
 
-        /* ── TOC sidebar ── */
-        #toc-backdrop {
-            display: none;
-            position: fixed; inset: 0;
-            background: rgba(0,0,0,0.3);
-            z-index: 99990;
-        }
-        #toc-backdrop.open { display: block; }
+            /* ── TOC sidebar ── */
+            #toc-backdrop {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.3);
+                z-index: 99990;
+            }
+            #toc-backdrop.open {
+                display: block;
+            }
 
-        #toc-sidebar {
-            position: fixed;
-            top: 38px; left: -260px; bottom: 0;
-            width: 240px;
-            background: #fff;
-            overflow-y: auto; overflow-x: hidden;
-            transition: left 0.28s ease;
-            z-index: 99991;
-            box-shadow: 2px 0 12px rgba(0,0,0,0.15);
-        }
-        #toc-sidebar.open { left: 0; }
-        body.fs-mode #toc-sidebar { top: 0; }
+            #toc-sidebar {
+                position: fixed;
+                top: 38px;
+                left: -260px;
+                bottom: 0;
+                width: 240px;
+                background: #fff;
+                overflow-y: auto;
+                overflow-x: hidden;
+                transition: left 0.28s ease;
+                z-index: 99991;
+                box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+            }
+            #toc-sidebar.open {
+                left: 0;
+            }
+            body.fs-mode #toc-sidebar {
+                top: 0;
+            }
 
-        .toc-header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 12px 16px 10px;
-            border-bottom: 1px solid #eee;
-            position: sticky; top: 0;
-            background: #fff;
-            z-index: 1;
-        }
-        .toc-title { font-size: 14px; font-weight: 600; color: #c0392b; }
-        .toc-close {
-            background: none; border: none;
-            color: #aaa; font-size: 18px; cursor: pointer; line-height: 1; padding: 0;
-        }
-        .toc-close:hover { color: #333; }
+            .toc-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px 16px 10px;
+                border-bottom: 1px solid #eee;
+                position: sticky;
+                top: 0;
+                background: #fff;
+                z-index: 1;
+            }
+            .toc-title {
+                font-size: 14px;
+                font-weight: 600;
+                color: #c0392b;
+            }
+            .toc-close {
+                background: none;
+                border: none;
+                color: #aaa;
+                font-size: 18px;
+                cursor: pointer;
+                line-height: 1;
+                padding: 0;
+            }
+            .toc-close:hover {
+                color: #333;
+            }
 
-        .toc-item {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 9px 20px;
-            border-bottom: 1px solid #f0f0f0;
-            cursor: pointer;
-            transition: background 0.12s;
-            color: #333; font-size: 13px;
-        }
-        .toc-item:hover { background: #f7f7f7; }
-        .toc-item.active { background: #fef0f0; color: #c0392b; font-weight: 600; }
-        .toc-item span { color: #aaa; font-size: 12px; }
+            .toc-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 9px 20px;
+                border-bottom: 1px solid #f0f0f0;
+                cursor: pointer;
+                transition: background 0.12s;
+                color: #333;
+                font-size: 13px;
+            }
+            .toc-item:hover {
+                background: #f7f7f7;
+            }
+            .toc-item.active {
+                background: #fef0f0;
+                color: #c0392b;
+                font-weight: 600;
+            }
+            .toc-item span {
+                color: #aaa;
+                font-size: 12px;
+            }
 
-        /* ── Share modal ── */
-        #share-modal {
-            display: none;
-            position: fixed; inset: 0;
-            background: rgba(0,0,0,0.55);
-            z-index: 99995;
-            align-items: center; justify-content: center;
-        }
-        #share-modal.open { display: flex; }
-        .share-box {
-            background: #fff; border-radius: 12px;
-            padding: 24px 28px; width: 320px; max-width: 90vw;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.35);
-        }
-        .share-box h3 { margin: 0 0 14px; font-size: 15px; color: #222; }
-        .share-url { display: flex; gap: 8px; margin-bottom: 14px; }
-        .share-url input {
-            flex: 1; border: 1px solid #ddd; border-radius: 6px;
-            padding: 7px 10px; font-size: 13px; color: #333; outline: none;
-        }
-        .share-url button {
-            background: #222; color: #fff; border: none; border-radius: 6px;
-            padding: 7px 14px; font-size: 13px; cursor: pointer;
-        }
-        .share-url button:hover { background: #000; }
-        .share-close { display: block; text-align: right; font-size: 12px; color: #888; cursor: pointer; }
-        .share-close:hover { color: #333; }
-    </style>
-</head>
-<body>
-
-    <!-- ── Red header (preserved) ── -->
-    <div class="header">
-        <a class="btn-back" href="/">← <span>Quay lại trang chủ</span></a>
-        <div class="header-title">Số 21045 - Tháng 5 - 2026</div>
-        <a href="#" id="btn-toggle-booklist">Chọn ấn phẩm ▸</a>
-    </div>
-
-    <!-- ── PDF viewer area ── -->
-    <div class="reading-area">
-
-        <!-- Page counter -->
-        <div id="page-counter">1 / 1</div>
-
-        <!-- Side navigation -->
-        <button class="side-nav" id="btn-prev" title="Trang trước">&#8249;</button>
-        <button class="side-nav" id="btn-next" title="Trang sau">&#8250;</button>
-
-        <!-- DFlip viewer -->
-        <div id="epaper_preview"></div>
-
-        <!-- Bottom toolbar -->
-        <div id="toolbar">
-            <button class="tb-btn" id="tb-zoom-in"    title="Phóng to"><i class="fa fa-plus"></i></button>
-            <button class="tb-btn" id="tb-zoom-out"   title="Thu nhỏ"><i class="fa fa-minus"></i></button>
-            <div class="tb-sep"></div>
-            <button class="tb-btn" id="tb-play"       title="Tự chạy"><i class="fa fa-play"></i></button>
-            <button class="tb-btn" id="tb-list"       title="Mục lục"><i class="fa fa-list-ol"></i></button>
-            <button class="tb-btn" id="tb-share"      title="Chia sẻ"><i class="fa fa-share-alt"></i></button>
-            <button class="tb-btn" id="tb-sound"      title="Âm thanh"><i class="fa fa-volume-up"></i></button>
-            <button class="tb-btn" id="tb-fullscreen" title="Toàn màn hình"><i class="fa fa-expand"></i></button>
-            <div class="tb-sep"></div>
-            <button class="tb-btn" id="tb-close"      title="Đóng"><i class="fa fa-times"></i></button>
+            /* ── Share modal ── */
+            #share-modal {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.55);
+                z-index: 99995;
+                align-items: center;
+                justify-content: center;
+            }
+            #share-modal.open {
+                display: flex;
+            }
+            .share-box {
+                background: #fff;
+                border-radius: 12px;
+                padding: 24px 28px;
+                width: 320px;
+                max-width: 90vw;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+            }
+            .share-box h3 {
+                margin: 0 0 14px;
+                font-size: 15px;
+                color: #222;
+            }
+            .share-url {
+                display: flex;
+                gap: 8px;
+                margin-bottom: 14px;
+            }
+            .share-url input {
+                flex: 1;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                padding: 7px 10px;
+                font-size: 13px;
+                color: #333;
+                outline: none;
+            }
+            .share-url button {
+                background: #222;
+                color: #fff;
+                border: none;
+                border-radius: 6px;
+                padding: 7px 14px;
+                font-size: 13px;
+                cursor: pointer;
+            }
+            .share-url button:hover {
+                background: #000;
+            }
+            .share-close {
+                display: block;
+                text-align: right;
+                font-size: 12px;
+                color: #888;
+                cursor: pointer;
+            }
+            .share-close:hover {
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- ── Red header (preserved) ── -->
+        <div class="header">
+            <a class="btn-back" href="/">
+                ←
+                <span>Quay lại trang chủ</span>
+            </a>
+            <div class="header-title">Số 21045 - Tháng 5 - 2026</div>
+            <a href="#" id="btn-toggle-booklist">Chọn ấn phẩm ▸</a>
         </div>
 
-    </div><!-- /reading-area -->
+        <!-- ── PDF viewer area ── -->
+        <div class="reading-area">
+            <!-- Page counter -->
+            <div id="page-counter">1 / 1</div>
 
-    <!-- Hidden PDF sources -->
-    <div id="content_epaper" style="display:none">
-        <div class="xdata">
-            <a href="./data/20260426193157so_299_ngay_27-4.pdf">PDF</a>
-        </div>
-    </div>
+            <!-- Side navigation -->
+            <button class="side-nav" id="btn-prev" title="Trang trước">&#8249;</button>
+            <button class="side-nav" id="btn-next" title="Trang sau">&#8250;</button>
 
-    <!-- Sidebar backdrop -->
-    <div id="sidebar-backdrop"></div>
+            <!-- DFlip viewer -->
+            <div id="epaper_preview"></div>
 
-    <!-- Book list sidebar -->
-    <div id="book-sidebar">
-        <div class="bs-header">
-            <span class="bs-title">Danh sách ấn phẩm</span>
-            <button class="bs-close" id="bs-close-btn">✕</button>
-        </div>
-        <div class="bs-books">
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21057-thang-5-2026-45503.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/24/21057.png" alt="Số 21057" loading="lazy"/>
-                <span>Số 21057 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21056-thang-5-2026-45502.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/23/23-5.png" alt="Số 21056" loading="lazy"/>
-                <span>Số 21056 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21055-thang-5-2026-45501.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/22/21055.png" alt="Số 21055" loading="lazy"/>
-                <span>Số 21055 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/ct-495-thang-5-2026-45500.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/21/495.png" alt="CT 495" loading="lazy"/>
-                <span>CT 495 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21054-thang-5-2026-45499.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/21/21-5.png" alt="Số 21054" loading="lazy"/>
-                <span>Số 21054 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21053-thang-5-2026-45498.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/20/21053.png" alt="Số 21053" loading="lazy"/>
-                <span>Số 21053 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21052-thang-5-2026-45497.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/19/19-5.png" alt="Số 21052" loading="lazy"/>
-                <span>Số 21052 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21051-thang-5-2026-45496.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/18/21051.png" alt="Số 21051" loading="lazy"/>
-                <span>Số 21051 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21050-thang-5-2026-45495.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/17/17-5.png" alt="Số 21050" loading="lazy"/>
-                <span>Số 21050 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21049-thang-5-2026-45494.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/16/21049.png" alt="Số 21049" loading="lazy"/>
-                <span>Số 21049 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21048-thang-5-2026-45493.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/15/15-5.png" alt="Số 21048" loading="lazy"/>
-                <span>Số 21048 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21047-thang-5-2026-45492.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/14/21047.png" alt="Số 21047" loading="lazy"/>
-                <span>Số 21047 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21046-thang-5-2026-45490.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/13/13-5.png" alt="Số 21046" loading="lazy"/>
-                <span>Số 21046 - Tháng 5 - 2026</span>
-            </a>
-            <a class="bs-item" href="https://baohaiphong.vn/an-pham/so-21045-thang-5-2026-45489.html">
-                <img src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/12/21045.png" alt="Số 21045" loading="lazy"/>
-                <span>Số 21045 - Tháng 5 - 2026</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- TOC backdrop -->
-    <div id="toc-backdrop"></div>
-
-    <!-- TOC sidebar -->
-    <div id="toc-sidebar">
-        <div class="toc-header">
-            <span class="toc-title">Mục lục</span>
-            <button class="toc-close" id="toc-close-btn">✕</button>
-        </div>
-        <div id="toc-list"></div>
-    </div>
-
-    <!-- Share modal -->
-    <div id="share-modal">
-        <div class="share-box">
-            <h3>Chia sẻ ấn phẩm</h3>
-            <div class="share-url">
-                <input type="text" id="share-url-input" readonly/>
-                <button id="share-copy-btn">Sao chép</button>
+            <!-- Bottom toolbar -->
+            <div id="toolbar">
+                <button class="tb-btn" id="tb-zoom-in" title="Phóng to">
+                    <i class="fa fa-plus"></i>
+                </button>
+                <button class="tb-btn" id="tb-zoom-out" title="Thu nhỏ">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <div class="tb-sep"></div>
+                <button class="tb-btn" id="tb-play" title="Tự chạy">
+                    <i class="fa fa-play"></i>
+                </button>
+                <button class="tb-btn" id="tb-list" title="Mục lục">
+                    <i class="fa fa-list-ol"></i>
+                </button>
+                <button class="tb-btn" id="tb-share" title="Chia sẻ">
+                    <i class="fa fa-share-alt"></i>
+                </button>
+                <button class="tb-btn" id="tb-sound" title="Âm thanh">
+                    <i class="fa fa-volume-up"></i>
+                </button>
+                <button class="tb-btn" id="tb-fullscreen" title="Toàn màn hình">
+                    <i class="fa fa-expand"></i>
+                </button>
+                <div class="tb-sep"></div>
+                <button class="tb-btn" id="tb-close" title="Đóng">
+                    <i class="fa fa-times"></i>
+                </button>
             </div>
-            <span class="share-close" id="share-close-btn">Đóng</span>
         </div>
-    </div>
+        <!-- /reading-area -->
 
-    <!-- Scripts -->
-    <script src="./vendor/jquery.min.js"></script>
-    <script src="./vendor/modernizr.min.js"></script>
-    <script src="./vendor/three.min.js"></script>
-    <script src="./vendor/pdf.min.js"></script>
-    <script src="./vendor/pdf.worker.min.js"></script>
-    <script>window.theme_path = "./";</script>
-    <script src="./vendor/dflip.js"></script>
+        <!-- Hidden PDF sources -->
+        <div id="content_epaper" style="display: none">
+            <div class="xdata">
+                <a href="./data/20260426193157so_299_ngay_27-4.pdf">PDF</a>
+            </div>
+        </div>
 
-    <script>
-    (function ($) {
-        var flipBook  = null;
-        var isPlaying = false;
-        var soundOn   = true;
-        var playTimer = null;
-        var isZooming = false;
-        var zoomTimer = null;
+        <!-- Sidebar backdrop -->
+        <div id="sidebar-backdrop"></div>
 
-        /* ─── Custom flip sound (tránh DFlip's built-in bị browser block) ─── */
-        var flipSound = new Audio('./vendor/sound/flip-page.mp3');
-        flipSound.preload = 'auto';
-        flipSound.volume  = 0.7;
+        <!-- Book list sidebar -->
+        <div id="book-sidebar">
+            <div class="bs-header">
+                <span class="bs-title">Danh sách ấn phẩm</span>
+                <button class="bs-close" id="bs-close-btn">✕</button>
+            </div>
+            <div class="bs-books">
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21057-thang-5-2026-45503.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/24/21057.png"
+                        alt="Số 21057"
+                        loading="lazy"
+                    />
+                    <span>Số 21057 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21056-thang-5-2026-45502.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/23/23-5.png"
+                        alt="Số 21056"
+                        loading="lazy"
+                    />
+                    <span>Số 21056 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21055-thang-5-2026-45501.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/22/21055.png"
+                        alt="Số 21055"
+                        loading="lazy"
+                    />
+                    <span>Số 21055 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/ct-495-thang-5-2026-45500.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/21/495.png"
+                        alt="CT 495"
+                        loading="lazy"
+                    />
+                    <span>CT 495 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21054-thang-5-2026-45499.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/21/21-5.png"
+                        alt="Số 21054"
+                        loading="lazy"
+                    />
+                    <span>Số 21054 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21053-thang-5-2026-45498.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/20/21053.png"
+                        alt="Số 21053"
+                        loading="lazy"
+                    />
+                    <span>Số 21053 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21052-thang-5-2026-45497.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/19/19-5.png"
+                        alt="Số 21052"
+                        loading="lazy"
+                    />
+                    <span>Số 21052 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21051-thang-5-2026-45496.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/18/21051.png"
+                        alt="Số 21051"
+                        loading="lazy"
+                    />
+                    <span>Số 21051 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21050-thang-5-2026-45495.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/17/17-5.png"
+                        alt="Số 21050"
+                        loading="lazy"
+                    />
+                    <span>Số 21050 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21049-thang-5-2026-45494.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/16/21049.png"
+                        alt="Số 21049"
+                        loading="lazy"
+                    />
+                    <span>Số 21049 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21048-thang-5-2026-45493.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/15/15-5.png"
+                        alt="Số 21048"
+                        loading="lazy"
+                    />
+                    <span>Số 21048 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21047-thang-5-2026-45492.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/14/21047.png"
+                        alt="Số 21047"
+                        loading="lazy"
+                    />
+                    <span>Số 21047 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21046-thang-5-2026-45490.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/13/13-5.png"
+                        alt="Số 21046"
+                        loading="lazy"
+                    />
+                    <span>Số 21046 - Tháng 5 - 2026</span>
+                </a>
+                <a
+                    class="bs-item"
+                    href="https://baohaiphong.vn/an-pham/so-21045-thang-5-2026-45489.html"
+                >
+                    <img
+                        src="https://bhd.1cdn.vn/thumbs/480x697/2026/05/12/21045.png"
+                        alt="Số 21045"
+                        loading="lazy"
+                    />
+                    <span>Số 21045 - Tháng 5 - 2026</span>
+                </a>
+            </div>
+        </div>
 
-        var lastSoundTime = 0;
-        function playFlipSound() {
-            if (!soundOn || isZooming) return;
-            var now = Date.now();
-            if (now - lastSoundTime < 200) return; /* chặn touchstart+mousedown cùng lúc */
-            lastSoundTime = now;
-            flipSound.currentTime = 0;
-            flipSound.play().catch(function () {});
-        }
+        <!-- TOC backdrop -->
+        <div id="toc-backdrop"></div>
 
-        function markZooming() {
-            isZooming = true;
-            clearTimeout(zoomTimer);
-            zoomTimer = setTimeout(function () { isZooming = false; }, 600);
-        }
+        <!-- TOC sidebar -->
+        <div id="toc-sidebar">
+            <div class="toc-header">
+                <span class="toc-title">Mục lục</span>
+                <button class="toc-close" id="toc-close-btn">✕</button>
+            </div>
+            <div id="toc-list"></div>
+        </div>
 
-        function updateZoomButtons() {
-            /* DFlip tự add class "disabled" lên .df-ui-zoomin/.df-ui-zoomout — mirror sang nút custom */
-            $('#tb-zoom-in').prop('disabled',  $('.df-ui-zoomin').hasClass('disabled'));
-            $('#tb-zoom-out').prop('disabled', $('.df-ui-zoomout').hasClass('disabled'));
-        }
+        <!-- Share modal -->
+        <div id="share-modal">
+            <div class="share-box">
+                <h3>Chia sẻ ấn phẩm</h3>
+                <div class="share-url">
+                    <input type="text" id="share-url-input" readonly />
+                    <button id="share-copy-btn">Sao chép</button>
+                </div>
+                <span class="share-close" id="share-close-btn">Đóng</span>
+            </div>
+        </div>
 
-        function openSidebar()  { $('#book-sidebar').addClass('open'); }
-        function closeSidebar() { $('#book-sidebar').removeClass('open'); }
+        <!-- Scripts -->
+        <script src="./vendor/jquery.min.js"></script>
+        <script src="./vendor/modernizr.min.js"></script>
+        <script src="./vendor/three.min.js"></script>
+        <script src="./vendor/pdf.min.js"></script>
+        <script src="./vendor/pdf.worker.min.js"></script>
+        <script>
+            window.theme_path = "./";
+        </script>
+        <script src="./vendor/dflip.js"></script>
 
-        function openToc() {
-            buildToc();
-            $('#toc-sidebar, #toc-backdrop').addClass('open');
-        }
-        function closeToc() { $('#toc-sidebar, #toc-backdrop').removeClass('open'); }
+        <script>
+            (function ($) {
+                var flipBook = null;
+                var isPlaying = false;
+                var soundOn = true;
+                var playTimer = null;
+                var isZooming = false;
+                var zoomTimer = null;
 
-        function buildToc() {
-            var info = readPageInfo();
-            var total = info ? info.total : 0;
-            if (!total) return;
-            var cur = info ? info.cur : 1;
-            var $list = $('#toc-list').empty();
-            for (var p = 1; p <= total; p++) {
-                var active = (p === cur || (cur > 1 && p === cur - 1)) ? ' active' : '';
-                $list.append(
-                    '<div class="toc-item' + active + '" data-page="' + p + '">' +
-                        '<span style="color:#333">Trang ' + p + '</span>' +
-                        '<span>' + p + '</span>' +
-                    '</div>'
-                );
-            }
-            $list.on('click', '.toc-item', function () {
-                var page = parseInt($(this).data('page'), 10);
-                if (typeof flipBook.gotoPage === 'function') {
-                    flipBook.gotoPage(page);
-                } else {
-                    dfClick('.df-ui-next'); /* fallback */
+                /* ─── Custom flip sound (tránh DFlip's built-in bị browser block) ─── */
+                var flipSound = new Audio("./vendor/sound/flip-page.mp3");
+                flipSound.preload = "auto";
+                flipSound.volume = 0.7;
+
+                var lastSoundTime = 0;
+                function playFlipSound() {
+                    if (!soundOn || isZooming) return;
+                    var now = Date.now();
+                    if (now - lastSoundTime < 200) return; /* chặn touchstart+mousedown cùng lúc */
+                    lastSoundTime = now;
+                    flipSound.currentTime = 0;
+                    flipSound.play().catch(function () {});
                 }
-                setTimeout(updateCounter, 400);
-                closeToc();
-            });
-        }
 
-        function dfClick(selector) {
-            var $btn = $(selector);
-            if ($btn.length) { $btn.first().trigger('click'); return true; }
-            return false;
-        }
-
-        /* ─── Autoplay: manual timer dùng dfClick('.df-ui-next') ────────
-         * dfClick('.df-ui-next') đã được xác nhận hoạt động (side arrows dùng cách này).
-         * Khi đến trang cuối → gotoPage(1) rồi tiếp tục setInterval.
-         */
-        function autoPlayTick() {
-            var info = readPageInfo();
-            if (info && info.total > 1 && info.cur >= info.total) {
-                /* Trang cuối → nhảy về trang 1, tick tiếp theo sẽ lật tiếp */
-                if (typeof flipBook.gotoPage === 'function') {
-                    flipBook.gotoPage(1);
-                    setTimeout(updateCounter, 300);
+                function markZooming() {
+                    isZooming = true;
+                    clearTimeout(zoomTimer);
+                    zoomTimer = setTimeout(function () {
+                        isZooming = false;
+                    }, 600);
                 }
-            } else {
-                /* Chưa đến trang cuối (hoặc chưa đọc được info) → lật sang phải */
-                playFlipSound();
-                dfClick('.df-ui-next');
-            }
-        }
 
-        function startPlay() {
-            isPlaying = true;
-            clearInterval(playTimer);
-            playTimer = setInterval(autoPlayTick, 3000);
-            $('#tb-play').addClass('is-active').find('i')
-                .removeClass('fa-play').addClass('fa-pause');
-        }
+                function updateZoomButtons() {
+                    /* DFlip tự add class "disabled" lên .df-ui-zoomin/.df-ui-zoomout — mirror sang nút custom */
+                    $("#tb-zoom-in").prop("disabled", $(".df-ui-zoomin").hasClass("disabled"));
+                    $("#tb-zoom-out").prop("disabled", $(".df-ui-zoomout").hasClass("disabled"));
+                }
 
-        function stopPlay() {
-            isPlaying = false;
-            clearInterval(playTimer);
-            playTimer = null;
-            $('#tb-play').removeClass('is-active').find('i')
-                .removeClass('fa-pause').addClass('fa-play');
-        }
+                function openSidebar() {
+                    $("#book-sidebar").addClass("open");
+                }
+                function closeSidebar() {
+                    $("#book-sidebar").removeClass("open");
+                }
 
-        /* ─── Page counter ───────────────────────────────────────────────
-         * onFlip(fb) nhận FlipBook OBJECT (không phải số trang).
-         * Book object nằm ở fb.target, chứa _activePage / pageCount / pageMode.
-         * pageMode: 1 = đơn trang, 2 = đôi trang (spread).
-         */
-        function readPageInfo() {
-            try {
-                /*
-                 * $.fn.flipBook() trả về FlipBook instance trực tiếp (không phải jQuery).
-                 * Hierarchy: flipBook (FlipBook) → flipBook.target (Book)
+                function openToc() {
+                    buildToc();
+                    $("#toc-sidebar, #toc-backdrop").addClass("open");
+                }
+                function closeToc() {
+                    $("#toc-sidebar, #toc-backdrop").removeClass("open");
+                }
+
+                function buildToc() {
+                    var info = readPageInfo();
+                    var total = info ? info.total : 0;
+                    if (!total) return;
+                    var cur = info ? info.cur : 1;
+                    var $list = $("#toc-list").empty();
+                    for (var p = 1; p <= total; p++) {
+                        var active = p === cur || (cur > 1 && p === cur - 1) ? " active" : "";
+                        $list.append(
+                            '<div class="toc-item' +
+                                active +
+                                '" data-page="' +
+                                p +
+                                '">' +
+                                '<span style="color:#333">Trang ' +
+                                p +
+                                "</span>" +
+                                "<span>" +
+                                p +
+                                "</span>" +
+                                "</div>",
+                        );
+                    }
+                    $list.on("click", ".toc-item", function () {
+                        var page = parseInt($(this).data("page"), 10);
+                        if (typeof flipBook.gotoPage === "function") {
+                            flipBook.gotoPage(page);
+                        } else {
+                            dfClick(".df-ui-next"); /* fallback */
+                        }
+                        setTimeout(updateCounter, 400);
+                        closeToc();
+                    });
+                }
+
+                function dfClick(selector) {
+                    var $btn = $(selector);
+                    if ($btn.length) {
+                        $btn.first().trigger("click");
+                        return true;
+                    }
+                    return false;
+                }
+
+                /* ─── Autoplay: manual timer dùng dfClick('.df-ui-next') ────────
+                 * dfClick('.df-ui-next') đã được xác nhận hoạt động (side arrows dùng cách này).
+                 * Khi đến trang cuối → gotoPage(1) rồi tiếp tục setInterval.
                  */
-                var book = flipBook && flipBook.target;
-                if (!book || !book.pageCount) return null;
-                return {
-                    cur  : book._activePage || 1,
-                    total: book.pageCount,
-                    mode : book.pageMode    || 1
-                };
-            } catch (e) { return null; }
-        }
-
-        function updateNavButtons() {
-            var info = readPageInfo();
-            if (!info) return;
-            $('#btn-prev').prop('disabled', info.cur <= 1);
-            $('#btn-next').prop('disabled', info.cur >= info.total);
-        }
-
-        function updateCounter() {
-            var info = readPageInfo();
-            if (!info) return;
-            var cur = info.cur, total = info.total, mode = info.mode;
-            var label;
-            /*
-             * _activePage không nhất quán:
-             *   - Lật tự nhiên  → right page (số lẻ: 3, 5, 7…)
-             *   - gotoPage(n)   → left  page (số chẵn: 2, 4, 6…)
-             * Dùng chẵn/lẻ để suy ra cặp trang đang hiển thị.
-             * Trang 1 (bìa) và trang cuối nếu lẻ hiển thị đơn.
-             */
-            if (mode === 2 && cur > 1) {
-                var isLeft = (cur % 2 === 0);
-                if (isLeft && cur + 1 <= total) {
-                    label = cur + '-' + (cur + 1) + ' / ' + total;
-                } else if (!isLeft && cur - 1 >= 2) {
-                    label = (cur - 1) + '-' + cur + ' / ' + total;
-                } else {
-                    label = cur + ' / ' + total;
+                function autoPlayTick() {
+                    var info = readPageInfo();
+                    if (info && info.total > 1 && info.cur >= info.total) {
+                        /* Trang cuối → nhảy về trang 1, tick tiếp theo sẽ lật tiếp */
+                        if (typeof flipBook.gotoPage === "function") {
+                            flipBook.gotoPage(1);
+                            setTimeout(updateCounter, 300);
+                        }
+                    } else {
+                        /* Chưa đến trang cuối (hoặc chưa đọc được info) → lật sang phải */
+                        playFlipSound();
+                        dfClick(".df-ui-next");
+                    }
                 }
-            } else {
-                label = cur + ' / ' + total;
-            }
-            $('#page-counter').text(label);
-        }
 
-        var epaper_pages = [];
-        $('#content_epaper .xdata a').each(function () {
-            epaper_pages.push($(this).attr('href'));
-        });
-
-        $(document).ready(function () {
-            DFLIP.defaults.pdfjsSrc           = './vendor/pdf.min.js';
-            DFLIP.defaults.pdfjsWorkerSrc     = './vendor/pdf.worker.min.js';
-            DFLIP.defaults.imageResourcesPath = './vendor/images/';
-            DFLIP.defaults.threejsSrc         = './vendor/three.min.js';
-            DFLIP.defaults.soundFile          = ''; /* tắt DFlip built-in sound, dùng custom */
-
-            var opts = {
-                webgl              : false,
-                height             : window.innerHeight - 38,
-                duration           : 800,
-                direction          : DFLIP.DIRECTION.LTR,
-                autoEnableOutline  : false,
-                autoEnableThumbnail: false,
-                maxTextureSize     : 9800,
-                allControls        : 'altPrev,altNext,zoomIn,zoomOut,play,sound,fullScreen',
-                controlsPosition   : DFLIP.CONTROLSPOSITION.BOTTOM,
-                autoPlay           : true,
-                autoPlayStart      : false,
-                autoPlayDuration   : 3000,
-                paddingBottom      : 72,
-                onReady:     function (fb) { updateCounter(); updateNavButtons(); setTimeout(updateZoomButtons, 300); },
-                onFlipStart: function (fb) { playFlipSound(); },
-                onFlip:      function (fb) { setTimeout(function(){ updateCounter(); updateNavButtons(); }, 50); },
-                text: {
-                    toggleSound     : 'Bật/Tắt Âm Thanh',
-                    previousPage    : 'Trang trước',
-                    nextPage        : 'Trang sau',
-                    toggleFullscreen: 'Toàn màn hình',
-                    zoomIn          : 'Phóng to',
-                    zoomOut         : 'Thu nhỏ',
-                    play            : 'Tự chạy',
-                    pause           : 'Dừng',
-                    share           : 'Chia sẻ'
+                function startPlay() {
+                    isPlaying = true;
+                    clearInterval(playTimer);
+                    playTimer = setInterval(autoPlayTick, 3000);
+                    $("#tb-play")
+                        .addClass("is-active")
+                        .find("i")
+                        .removeClass("fa-play")
+                        .addClass("fa-pause");
                 }
-            };
 
-            flipBook = $('#epaper_preview').flipBook(epaper_pages[0], opts);
-
-            /* Poll cho đến khi DFlip đọc xong PDF và có pageCount thực */
-            var pollCount = 0;
-            var pollId = setInterval(function () {
-                pollCount++;
-                var info = readPageInfo();
-                if (info && info.total > 1) { updateCounter(); updateNavButtons(); clearInterval(pollId); }
-                if (pollCount > 60) clearInterval(pollId);
-            }, 500);
-
-            /* ── Side arrows ── */
-            $('#btn-prev').on('click', function () { playFlipSound(); dfClick('.df-ui-prev'); setTimeout(function(){ updateCounter(); updateNavButtons(); }, 900); });
-            $('#btn-next').on('click', function () { playFlipSound(); dfClick('.df-ui-next'); setTimeout(function(){ updateCounter(); updateNavButtons(); }, 900); });
-
-            /* ── Viewer: bắt swipe/click trực tiếp trên book ── */
-            $('#epaper_preview').on('mousedown touchstart', function (e) {
-                if (e.button && e.button !== 0) return; /* bỏ qua right-click */
-                playFlipSound();
-            });
-
-            /* ── Zoom ── */
-            $('#tb-zoom-in').on('click',  function () { markZooming(); dfClick('.df-ui-zoomin');  setTimeout(updateZoomButtons, 600); });
-            $('#tb-zoom-out').on('click', function () { markZooming(); dfClick('.df-ui-zoomout'); setTimeout(updateZoomButtons, 600); });
-
-            /* ── Play: manual looping timer ── */
-            $('#tb-play').on('click', function () {
-                if (isPlaying) stopPlay(); else startPlay();
-            });
-
-            /* ── Mục lục ── */
-            $('#tb-list').on('click', function () { openToc(); });
-            $('#toc-close-btn, #toc-backdrop').on('click', closeToc);
-
-            /* ── Book list (header link) ── */
-            $('#btn-toggle-booklist').on('click', function (e) {
-                e.preventDefault();
-                openSidebar();
-            });
-            $('#bs-close-btn').on('click', closeSidebar);
-
-            /* ── Share ── */
-            $('#tb-share').on('click', function () {
-                var url = window.location.href;
-                if (navigator.share) {
-                    navigator.share({ title: document.title, url: url }).catch(function(){});
-                } else {
-                    $('#share-url-input').val(url);
-                    $('#share-modal').addClass('open');
+                function stopPlay() {
+                    isPlaying = false;
+                    clearInterval(playTimer);
+                    playTimer = null;
+                    $("#tb-play")
+                        .removeClass("is-active")
+                        .find("i")
+                        .removeClass("fa-pause")
+                        .addClass("fa-play");
                 }
-            });
-            $('#share-copy-btn').on('click', function () {
-                var inp = document.getElementById('share-url-input');
-                inp.select(); inp.setSelectionRange(0, 99999);
-                try { document.execCommand('copy'); } catch(e) {}
-                $(this).text('Đã sao chép!');
-                setTimeout(function () { $('#share-copy-btn').text('Sao chép'); }, 2000);
-            });
-            $('#share-close-btn').on('click', function () { $('#share-modal').removeClass('open'); });
 
-            /* ── Sound ── */
-            $('#tb-sound').on('click', function () {
-                soundOn = !soundOn;
-                $(this).find('i').toggleClass('fa-volume-up', soundOn).toggleClass('fa-volume-off', !soundOn);
-                $(this).toggleClass('is-active', !soundOn);
-            });
-
-            /* ── Fullscreen ── */
-            $('#tb-fullscreen').on('click', function () {
-                if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-                    var el = document.documentElement;
-                    (el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen).call(el);
-                } else {
-                    (document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen).call(document);
-                }
-            });
-            function onFullscreenChange() {
-                var isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
-                $('#tb-fullscreen .fa').toggleClass('fa-expand', !isFs).toggleClass('fa-compress', isFs);
-                $('body').toggleClass('fs-mode', isFs);
-
-                /* Sau khi CSS áp dụng, window.innerHeight đã là chiều cao fullscreen
-                   → trigger DFlip resize để nó vẽ lại với kích thước mới */
-                setTimeout(function () {
+                /* ─── Page counter ───────────────────────────────────────────────
+                 * onFlip(fb) nhận FlipBook OBJECT (không phải số trang).
+                 * Book object nằm ở fb.target, chứa _activePage / pageCount / pageMode.
+                 * pageMode: 1 = đơn trang, 2 = đôi trang (spread).
+                 */
+                function readPageInfo() {
                     try {
-                        var toolbarH = $('#toolbar').outerHeight() || 48;
-                        var headerH  = isFs ? 0 : 38;
-                        var newH     = window.innerHeight - headerH - toolbarH;
-                        var fb = flipBook && flipBook.target;
-                        if (fb && fb.options) fb.options.height = newH;
-                        window.dispatchEvent(new Event('resize'));
-                    } catch(e) {}
-                }, 150);
-            }
-            document.addEventListener('fullscreenchange',       onFullscreenChange);
-            document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+                        /*
+                         * $.fn.flipBook() trả về FlipBook instance trực tiếp (không phải jQuery).
+                         * Hierarchy: flipBook (FlipBook) → flipBook.target (Book)
+                         */
+                        var book = flipBook && flipBook.target;
+                        if (!book || !book.pageCount) return null;
+                        return {
+                            cur: book._activePage || 1,
+                            total: book.pageCount,
+                            mode: book.pageMode || 1,
+                        };
+                    } catch (e) {
+                        return null;
+                    }
+                }
 
-            /* ── Close ── */
-            $('#tb-close').on('click', function () {
-                stopPlay();
-                if (document.referrer) window.history.back();
-                else window.close();
-            });
+                function updateNavButtons() {
+                    var info = readPageInfo();
+                    if (!info) return;
+                    $("#btn-prev").prop("disabled", info.cur <= 1);
+                    $("#btn-next").prop("disabled", info.cur >= info.total);
+                }
 
-            /* ── Keyboard ── */
-            $(document).on('keydown', function (e) {
-                if ($('#share-modal').hasClass('open')) return;
-                if (e.key === 'ArrowLeft')  { playFlipSound(); dfClick('.df-ui-prev'); setTimeout(updateCounter, 900); }
-                if (e.key === 'ArrowRight') { playFlipSound(); dfClick('.df-ui-next'); setTimeout(updateCounter, 900); }
-                if (e.key === 'Escape') closeSidebar();
-            });
+                function updateCounter() {
+                    var info = readPageInfo();
+                    if (!info) return;
+                    var cur = info.cur,
+                        total = info.total,
+                        mode = info.mode;
+                    var label;
+                    /*
+                     * _activePage không nhất quán:
+                     *   - Lật tự nhiên  → right page (số lẻ: 3, 5, 7…)
+                     *   - gotoPage(n)   → left  page (số chẵn: 2, 4, 6…)
+                     * Dùng chẵn/lẻ để suy ra cặp trang đang hiển thị.
+                     * Trang 1 (bìa) và trang cuối nếu lẻ hiển thị đơn.
+                     */
+                    if (mode === 2 && cur > 1) {
+                        var isLeft = cur % 2 === 0;
+                        if (isLeft && cur + 1 <= total) {
+                            label = cur + "-" + (cur + 1) + " / " + total;
+                        } else if (!isLeft && cur - 1 >= 2) {
+                            label = cur - 1 + "-" + cur + " / " + total;
+                        } else {
+                            label = cur + " / " + total;
+                        }
+                    } else {
+                        label = cur + " / " + total;
+                    }
+                    $("#page-counter").text(label);
+                }
 
-            /* ── Resize ── */
-            $(window).on('resize', function () {
-                try {
-                    var isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
-                    var toolbarH = $('#toolbar').outerHeight() || 48;
-                    var headerH  = isFs ? 0 : 38;
-                    var fb = flipBook && flipBook.target;
-                    if (fb && fb.options) fb.options.height = window.innerHeight - headerH - toolbarH;
-                } catch(e) {}
-            });
-        });
-    }(jQuery));
-    </script>
-</body>
+                var epaper_pages = [];
+                $("#content_epaper .xdata a").each(function () {
+                    epaper_pages.push($(this).attr("href"));
+                });
+
+                $(document).ready(function () {
+                    DFLIP.defaults.pdfjsSrc = "./vendor/pdf.min.js";
+                    DFLIP.defaults.pdfjsWorkerSrc = "./vendor/pdf.worker.min.js";
+                    DFLIP.defaults.imageResourcesPath = "./vendor/images/";
+                    DFLIP.defaults.threejsSrc = "./vendor/three.min.js";
+                    DFLIP.defaults.soundFile = ""; /* tắt DFlip built-in sound, dùng custom */
+
+                    var opts = {
+                        webgl: false,
+                        height: window.innerHeight - 38,
+                        duration: 800,
+                        direction: DFLIP.DIRECTION.LTR,
+                        autoEnableOutline: false,
+                        autoEnableThumbnail: false,
+                        maxTextureSize: 9800,
+                        allControls: "altPrev,altNext,zoomIn,zoomOut,play,sound,fullScreen",
+                        controlsPosition: DFLIP.CONTROLSPOSITION.BOTTOM,
+                        autoPlay: true,
+                        autoPlayStart: false,
+                        autoPlayDuration: 3000,
+                        paddingBottom: 72,
+                        onReady: function (fb) {
+                            updateCounter();
+                            updateNavButtons();
+                            setTimeout(updateZoomButtons, 300);
+                        },
+                        onFlipStart: function (fb) {
+                            playFlipSound();
+                        },
+                        onFlip: function (fb) {
+                            setTimeout(function () {
+                                updateCounter();
+                                updateNavButtons();
+                            }, 50);
+                        },
+                        text: {
+                            toggleSound: "Bật/Tắt Âm Thanh",
+                            previousPage: "Trang trước",
+                            nextPage: "Trang sau",
+                            toggleFullscreen: "Toàn màn hình",
+                            zoomIn: "Phóng to",
+                            zoomOut: "Thu nhỏ",
+                            play: "Tự chạy",
+                            pause: "Dừng",
+                            share: "Chia sẻ",
+                        },
+                    };
+
+                    flipBook = $("#epaper_preview").flipBook(epaper_pages[0], opts);
+
+                    /* Poll cho đến khi DFlip đọc xong PDF và có pageCount thực */
+                    var pollCount = 0;
+                    var pollId = setInterval(function () {
+                        pollCount++;
+                        var info = readPageInfo();
+                        if (info && info.total > 1) {
+                            updateCounter();
+                            updateNavButtons();
+                            clearInterval(pollId);
+                        }
+                        if (pollCount > 60) clearInterval(pollId);
+                    }, 500);
+
+                    /* ── Side arrows ── */
+                    $("#btn-prev").on("click", function () {
+                        playFlipSound();
+                        dfClick(".df-ui-prev");
+                        setTimeout(function () {
+                            updateCounter();
+                            updateNavButtons();
+                        }, 900);
+                    });
+                    $("#btn-next").on("click", function () {
+                        playFlipSound();
+                        dfClick(".df-ui-next");
+                        setTimeout(function () {
+                            updateCounter();
+                            updateNavButtons();
+                        }, 900);
+                    });
+
+                    /* ── Viewer: bắt swipe/click trực tiếp trên book ── */
+                    $("#epaper_preview").on("mousedown touchstart", function (e) {
+                        if (e.button && e.button !== 0) return; /* bỏ qua right-click */
+                        playFlipSound();
+                    });
+
+                    /* ── Zoom ── */
+                    $("#tb-zoom-in").on("click", function () {
+                        markZooming();
+                        dfClick(".df-ui-zoomin");
+                        setTimeout(updateZoomButtons, 600);
+                    });
+                    $("#tb-zoom-out").on("click", function () {
+                        markZooming();
+                        dfClick(".df-ui-zoomout");
+                        setTimeout(updateZoomButtons, 600);
+                    });
+
+                    /* ── Play: manual looping timer ── */
+                    $("#tb-play").on("click", function () {
+                        if (isPlaying) stopPlay();
+                        else startPlay();
+                    });
+
+                    /* ── Mục lục ── */
+                    $("#tb-list").on("click", function () {
+                        openToc();
+                    });
+                    $("#toc-close-btn, #toc-backdrop").on("click", closeToc);
+
+                    /* ── Book list (header link) ── */
+                    $("#btn-toggle-booklist").on("click", function (e) {
+                        e.preventDefault();
+                        openSidebar();
+                    });
+                    $("#bs-close-btn").on("click", closeSidebar);
+
+                    /* ── Share ── */
+                    $("#tb-share").on("click", function () {
+                        var url = window.location.href;
+                        if (navigator.share) {
+                            navigator
+                                .share({ title: document.title, url: url })
+                                .catch(function () {});
+                        } else {
+                            $("#share-url-input").val(url);
+                            $("#share-modal").addClass("open");
+                        }
+                    });
+                    $("#share-copy-btn").on("click", function () {
+                        var inp = document.getElementById("share-url-input");
+                        inp.select();
+                        inp.setSelectionRange(0, 99999);
+                        try {
+                            document.execCommand("copy");
+                        } catch (e) {}
+                        $(this).text("Đã sao chép!");
+                        setTimeout(function () {
+                            $("#share-copy-btn").text("Sao chép");
+                        }, 2000);
+                    });
+                    $("#share-close-btn").on("click", function () {
+                        $("#share-modal").removeClass("open");
+                    });
+
+                    /* ── Sound ── */
+                    $("#tb-sound").on("click", function () {
+                        soundOn = !soundOn;
+                        $(this)
+                            .find("i")
+                            .toggleClass("fa-volume-up", soundOn)
+                            .toggleClass("fa-volume-off", !soundOn);
+                        $(this).toggleClass("is-active", !soundOn);
+                    });
+
+                    /* ── Fullscreen ── */
+                    $("#tb-fullscreen").on("click", function () {
+                        if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                            var el = document.documentElement;
+                            (
+                                el.requestFullscreen ||
+                                el.webkitRequestFullscreen ||
+                                el.mozRequestFullScreen
+                            ).call(el);
+                        } else {
+                            (
+                                document.exitFullscreen ||
+                                document.webkitExitFullscreen ||
+                                document.mozCancelFullScreen
+                            ).call(document);
+                        }
+                    });
+                    function onFullscreenChange() {
+                        var isFs = !!(
+                            document.fullscreenElement || document.webkitFullscreenElement
+                        );
+                        $("#tb-fullscreen .fa")
+                            .toggleClass("fa-expand", !isFs)
+                            .toggleClass("fa-compress", isFs);
+                        $("body").toggleClass("fs-mode", isFs);
+
+                        /* Sau khi CSS áp dụng, window.innerHeight đã là chiều cao fullscreen
+                   → trigger DFlip resize để nó vẽ lại với kích thước mới */
+                        setTimeout(function () {
+                            try {
+                                var toolbarH = $("#toolbar").outerHeight() || 48;
+                                var headerH = isFs ? 0 : 38;
+                                var newH = window.innerHeight - headerH - toolbarH;
+                                var fb = flipBook && flipBook.target;
+                                if (fb && fb.options) fb.options.height = newH;
+                                window.dispatchEvent(new Event("resize"));
+                            } catch (e) {}
+                        }, 150);
+                    }
+                    document.addEventListener("fullscreenchange", onFullscreenChange);
+                    document.addEventListener("webkitfullscreenchange", onFullscreenChange);
+
+                    /* ── Close ── */
+                    $("#tb-close").on("click", function () {
+                        stopPlay();
+                        if (document.referrer) window.history.back();
+                        else window.close();
+                    });
+
+                    /* ── Keyboard ── */
+                    $(document).on("keydown", function (e) {
+                        if ($("#share-modal").hasClass("open")) return;
+                        if (e.key === "ArrowLeft") {
+                            playFlipSound();
+                            dfClick(".df-ui-prev");
+                            setTimeout(updateCounter, 900);
+                        }
+                        if (e.key === "ArrowRight") {
+                            playFlipSound();
+                            dfClick(".df-ui-next");
+                            setTimeout(updateCounter, 900);
+                        }
+                        if (e.key === "Escape") closeSidebar();
+                    });
+
+                    /* ── Resize ── */
+                    $(window).on("resize", function () {
+                        try {
+                            var isFs = !!(
+                                document.fullscreenElement || document.webkitFullscreenElement
+                            );
+                            var toolbarH = $("#toolbar").outerHeight() || 48;
+                            var headerH = isFs ? 0 : 38;
+                            var fb = flipBook && flipBook.target;
+                            if (fb && fb.options)
+                                fb.options.height = window.innerHeight - headerH - toolbarH;
+                        } catch (e) {}
+                    });
+                });
+            })(jQuery);
+        </script>
+    </body>
 </html>

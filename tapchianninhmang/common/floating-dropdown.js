@@ -1,10 +1,4 @@
-import {
-    computePosition,
-    flip,
-    shift,
-    offset,
-    autoUpdate,
-} from "./vendor/floating-ui-dom.mjs";
+import { computePosition, flip, shift, offset, autoUpdate } from "./vendor/floating-ui-dom.mjs";
 
 /**
  * Floating Dropdown — reusable, data-attribute-driven dropdown/submenu system.
@@ -83,9 +77,7 @@ function hideMenu(menu) {
     }
 
     // Recursively close nested submenus
-    menu
-        .querySelectorAll("[data-floating-submenu-menu]")
-        .forEach((sub) => hideMenu(sub));
+    menu.querySelectorAll("[data-floating-submenu-menu]").forEach((sub) => hideMenu(sub));
 }
 
 /* ─── per-dropdown instance ──────────────────────────────────── */
@@ -163,12 +155,8 @@ function initSubmenus(container) {
     const subs = container.querySelectorAll(":scope > [data-floating-submenu]");
 
     subs.forEach((wrapper) => {
-        const subTrigger = wrapper.querySelector(
-            ":scope > [data-floating-submenu-trigger]"
-        );
-        const subMenu = wrapper.querySelector(
-            ":scope > [data-floating-submenu-menu]"
-        );
+        const subTrigger = wrapper.querySelector(":scope > [data-floating-submenu-trigger]");
+        const subMenu = wrapper.querySelector(":scope > [data-floating-submenu-menu]");
         if (!subTrigger || !subMenu) return;
 
         let subTimer = null;
@@ -180,14 +168,12 @@ function initSubmenus(container) {
         const openSub = () => {
             clearSub();
             // Close sibling submenus first
-            container
-                .querySelectorAll(":scope > [data-floating-submenu]")
-                .forEach((sib) => {
-                    if (sib !== wrapper) {
-                        const m = sib.querySelector(":scope > [data-floating-submenu-menu]");
-                        if (m) hideMenu(m);
-                    }
-                });
+            container.querySelectorAll(":scope > [data-floating-submenu]").forEach((sib) => {
+                if (sib !== wrapper) {
+                    const m = sib.querySelector(":scope > [data-floating-submenu-menu]");
+                    if (m) hideMenu(m);
+                }
+            });
             showMenu(subMenu, subTrigger, {
                 placement: "right-start",
                 offset: 2,
@@ -224,9 +210,7 @@ function initSubmenus(container) {
 /* ─── auto-init ──────────────────────────────────────────────── */
 
 function init() {
-    document
-        .querySelectorAll("[data-floating-dropdown]")
-        .forEach(initDropdown);
+    document.querySelectorAll("[data-floating-dropdown]").forEach(initDropdown);
 }
 
 // Run on DOMContentLoaded if document isn't ready yet, otherwise run now

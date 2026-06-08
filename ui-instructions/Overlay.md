@@ -4,17 +4,17 @@ A reusable fullscreen overlay system controlled entirely via HTML `data-*` attri
 
 ## Files
 
-| File | Description |
-|------|-------------|
-| `common/overlay.js` | Logic & event handling (auto-initializes on import) |
-| `common/style/overlay.css` | Backdrop, content panel, and animation styles |
+| File                       | Description                                         |
+| -------------------------- | --------------------------------------------------- |
+| `common/overlay.js`        | Logic & event handling (auto-initializes on import) |
+| `common/style/overlay.css` | Backdrop, content panel, and animation styles       |
 
 ## Quick Start
 
 ### 1. Import CSS & JS
 
 ```html
-<link rel="stylesheet" href="../../common/style/overlay.css">
+<link rel="stylesheet" href="../../common/style/overlay.css" />
 
 <!-- before </body> -->
 <script type="module" src="../../common/overlay.js"></script>
@@ -51,12 +51,12 @@ Add `data-overlay-id="<id>"` matching the trigger. Inside, include `.overlay__ba
 
 Add `data-overlay-variant` on the `.overlay` element to change the display style:
 
-| Variant | Attribute | Description |
-|---------|-----------|-------------|
-| **Mega Menu** | _(default, no attribute needed)_ | Top-aligned panel, slide-up animation |
-| **Modal** | `data-overlay-variant="modal"` | Vertically centered dialog, scale animation |
-| **Fullscreen** | `data-overlay-variant="fullscreen"` | Covers entire viewport, no border-radius |
-| **Slide Right** | `data-overlay-variant="slide-right"` | Panel slides in from the right edge |
+| Variant         | Attribute                            | Description                                 |
+| --------------- | ------------------------------------ | ------------------------------------------- |
+| **Mega Menu**   | _(default, no attribute needed)_     | Top-aligned panel, slide-up animation       |
+| **Modal**       | `data-overlay-variant="modal"`       | Vertically centered dialog, scale animation |
+| **Fullscreen**  | `data-overlay-variant="fullscreen"`  | Covers entire viewport, no border-radius    |
+| **Slide Right** | `data-overlay-variant="slide-right"` | Panel slides in from the right edge         |
 
 ### Examples
 
@@ -94,14 +94,14 @@ Add `data-overlay-variant` on the `.overlay` element to change the display style
 
 ## Behavior
 
-| Behavior | Description |
-|----------|-------------|
-| **Toggle** | Clicking the same trigger again closes its overlay |
-| **Switch** | Clicking a different trigger closes the current overlay and opens the new one |
-| **Backdrop close** | Clicking `.overlay__backdrop` closes the overlay |
-| **ESC key** | Pressing `Escape` closes the active overlay |
-| **Scroll lock** | Body receives `.overlay-open` class (`overflow: hidden`) |
-| **Singleton** | Only one overlay can be open at a time |
+| Behavior           | Description                                                                   |
+| ------------------ | ----------------------------------------------------------------------------- |
+| **Toggle**         | Clicking the same trigger again closes its overlay                            |
+| **Switch**         | Clicking a different trigger closes the current overlay and opens the new one |
+| **Backdrop close** | Clicking `.overlay__backdrop` closes the overlay                              |
+| **ESC key**        | Pressing `Escape` closes the active overlay                                   |
+| **Scroll lock**    | Body receives `.overlay-open` class (`overflow: hidden`)                      |
+| **Singleton**      | Only one overlay can be open at a time                                        |
 
 ---
 
@@ -110,11 +110,11 @@ Add `data-overlay-variant` on the `.overlay` element to change the display style
 Besides data attributes, you can control overlays programmatically:
 
 ```js
-import Overlay from '../../common/overlay.js';
+import Overlay from "../../common/overlay.js";
 
-Overlay.open('my-menu');    // Open by id
-Overlay.close('my-menu');   // Close by id (or Overlay.close() for the active one)
-Overlay.toggle('my-menu');  // Toggle open/close
+Overlay.open("my-menu"); // Open by id
+Overlay.close("my-menu"); // Close by id (or Overlay.close() for the active one)
+Overlay.toggle("my-menu"); // Toggle open/close
 ```
 
 ---
@@ -128,10 +128,10 @@ Overlay.toggle('my-menu');  // Toggle open/close
 
 ## CSS Class Reference
 
-| Class | Element | Description |
-|-------|---------|-------------|
-| `.overlay` | Outer container | Fixed, covers viewport, hidden by default |
-| `.overlay.is-active` | Outer container | Makes the overlay visible |
+| Class                | Element          | Description                                 |
+| -------------------- | ---------------- | ------------------------------------------- |
+| `.overlay`           | Outer container  | Fixed, covers viewport, hidden by default   |
+| `.overlay.is-active` | Outer container  | Makes the overlay visible                   |
 | `.overlay__backdrop` | Background layer | Semi-transparent (`rgba(0,0,0,0.5)`) + blur |
-| `.overlay__content` | Content panel | White panel with animation |
-| `.overlay-open` | `<body>` | Locks scroll while an overlay is open |
+| `.overlay__content`  | Content panel    | White panel with animation                  |
+| `.overlay-open`      | `<body>`         | Locks scroll while an overlay is open       |

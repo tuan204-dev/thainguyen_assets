@@ -10,8 +10,11 @@ Include these in `<head>` and before `</body>`:
 
 ```html
 <!-- CSS (in <head>) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css">
-<link rel="stylesheet" href="common/style/overlayscrollbar.css">
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
+/>
+<link rel="stylesheet" href="common/style/overlayscrollbar.css" />
 
 <!-- JS (before </body>) — only the module script is needed -->
 <script type="module" src="common/overlayscrollbar.js"></script>
@@ -23,10 +26,10 @@ Include these in `<head>` and before `</body>`:
 
 ## Files
 
-| File | Purpose |
-|---|---|
-| `common/overlayscrollbar.js` | Auto-init logic, MutationObserver, public API |
-| `common/style/overlayscrollbar.css` | Custom themes and scrollbar sizing |
+| File                                | Purpose                                       |
+| ----------------------------------- | --------------------------------------------- |
+| `common/overlayscrollbar.js`        | Auto-init logic, MutationObserver, public API |
+| `common/style/overlayscrollbar.css` | Custom themes and scrollbar sizing            |
 
 ---
 
@@ -36,7 +39,7 @@ Add `data-scroll` to any element with constrained dimensions:
 
 ```html
 <div data-scroll style="max-height: 300px;">
-  <!-- scrollable content here -->
+    <!-- scrollable content here -->
 </div>
 ```
 
@@ -48,34 +51,34 @@ That's it. The scrollbar initializes automatically on page load.
 
 All configuration is done via HTML attributes. No JS changes needed.
 
-| Attribute | Type | Default | Description |
-|---|---|---|---|
-| `data-scroll` | marker | — | **Required.** Marks element for initialization |
-| `data-scroll-auto-hide` | `"never"` \| `"scroll"` \| `"leave"` \| `"move"` | `"scroll"` | When to auto-hide the scrollbar |
-| `data-scroll-auto-hide-delay` | number (ms) | `800` | Delay before auto-hiding |
-| `data-scroll-theme` | string (CSS class) | `"os-theme-dark"` | Theme applied to scrollbar |
-| `data-scroll-overflow-x` | `"scroll"` \| `"hidden"` \| `"visible"` | `"scroll"` | Horizontal overflow behavior |
-| `data-scroll-overflow-y` | `"scroll"` \| `"hidden"` \| `"visible"` | `"scroll"` | Vertical overflow behavior |
-| `data-scroll-click-scroll` | `"true"` \| `"false"` | `"false"` | Click on track to jump to position |
-| `data-scroll-visibility` | `"auto"` \| `"visible"` \| `"hidden"` | `"auto"` | Scrollbar visibility when axis is scrollable |
+| Attribute                     | Type                                             | Default           | Description                                    |
+| ----------------------------- | ------------------------------------------------ | ----------------- | ---------------------------------------------- |
+| `data-scroll`                 | marker                                           | —                 | **Required.** Marks element for initialization |
+| `data-scroll-auto-hide`       | `"never"` \| `"scroll"` \| `"leave"` \| `"move"` | `"scroll"`        | When to auto-hide the scrollbar                |
+| `data-scroll-auto-hide-delay` | number (ms)                                      | `800`             | Delay before auto-hiding                       |
+| `data-scroll-theme`           | string (CSS class)                               | `"os-theme-dark"` | Theme applied to scrollbar                     |
+| `data-scroll-overflow-x`      | `"scroll"` \| `"hidden"` \| `"visible"`          | `"scroll"`        | Horizontal overflow behavior                   |
+| `data-scroll-overflow-y`      | `"scroll"` \| `"hidden"` \| `"visible"`          | `"scroll"`        | Vertical overflow behavior                     |
+| `data-scroll-click-scroll`    | `"true"` \| `"false"`                            | `"false"`         | Click on track to jump to position             |
+| `data-scroll-visibility`      | `"auto"` \| `"visible"` \| `"hidden"`            | `"auto"`          | Scrollbar visibility when axis is scrollable   |
 
 ### Auto-hide values
 
-| Value | Behavior |
-|---|---|
-| `"never"` | Always visible |
-| `"scroll"` | Hide after user stops scrolling |
-| `"leave"` | Hide when cursor leaves the element |
-| `"move"` | Hide when cursor stops moving |
+| Value      | Behavior                            |
+| ---------- | ----------------------------------- |
+| `"never"`  | Always visible                      |
+| `"scroll"` | Hide after user stops scrolling     |
+| `"leave"`  | Hide when cursor leaves the element |
+| `"move"`   | Hide when cursor stops moving       |
 
 ---
 
 ## Available Themes
 
-| Theme class | Use case |
-|---|---|
-| `os-theme-dark` | Default. Dark handles on light backgrounds |
-| `os-theme-light` | Light handles on dark backgrounds |
+| Theme class       | Use case                                                                             |
+| ----------------- | ------------------------------------------------------------------------------------ |
+| `os-theme-dark`   | Default. Dark handles on light backgrounds                                           |
+| `os-theme-light`  | Light handles on dark backgrounds                                                    |
 | `os-theme-custom` | Semi-transparent dark handles with custom sizing (defined in `overlayscrollbar.css`) |
 
 ---
@@ -86,54 +89,54 @@ All configuration is done via HTML attributes. No JS changes needed.
 
 ```html
 <div data-scroll style="max-height: 200px;">
-  <p>Long content...</p>
+    <p>Long content...</p>
 </div>
 ```
 
 ### Horizontal scroll only
 
 ```html
-<div data-scroll
-     data-scroll-overflow-y="hidden"
-     style="max-width: 600px;">
-  <div style="white-space: nowrap; width: max-content;">
-    <!-- wide content -->
-  </div>
+<div data-scroll data-scroll-overflow-y="hidden" style="max-width: 600px;">
+    <div style="white-space: nowrap; width: max-content;">
+        <!-- wide content -->
+    </div>
 </div>
 ```
 
 ### Both axes with click-scroll
 
 ```html
-<div data-scroll
-     data-scroll-click-scroll="true"
-     data-scroll-auto-hide="move"
-     data-scroll-auto-hide-delay="600"
-     style="max-height: 300px;">
-  <div style="width: 1200px;">
-    <!-- wide + tall content -->
-  </div>
+<div
+    data-scroll
+    data-scroll-click-scroll="true"
+    data-scroll-auto-hide="move"
+    data-scroll-auto-hide-delay="600"
+    style="max-height: 300px;"
+>
+    <div style="width: 1200px;">
+        <!-- wide + tall content -->
+    </div>
 </div>
 ```
 
 ### Always visible on dark background
 
 ```html
-<div data-scroll
-     data-scroll-auto-hide="never"
-     data-scroll-theme="os-theme-light"
-     style="max-height: 200px; background: #1e1e2e; color: #cdd6f4;">
-  <p>Content on dark background...</p>
+<div
+    data-scroll
+    data-scroll-auto-hide="never"
+    data-scroll-theme="os-theme-light"
+    style="max-height: 200px; background: #1e1e2e; color: #cdd6f4;"
+>
+    <p>Content on dark background...</p>
 </div>
 ```
 
 ### Custom theme
 
 ```html
-<div data-scroll
-     data-scroll-theme="os-theme-custom"
-     style="max-height: 400px;">
-  <!-- content -->
+<div data-scroll data-scroll-theme="os-theme-custom" style="max-height: 400px;">
+    <!-- content -->
 </div>
 ```
 
@@ -158,7 +161,7 @@ No manual calls needed for dynamic content.
 The module exports `ScrollManager` for programmatic control:
 
 ```js
-import ScrollManager from 'common/overlayscrollbar.js';
+import ScrollManager from "common/overlayscrollbar.js";
 
 // Initialize all [data-scroll] inside a container
 ScrollManager.init(containerElement);

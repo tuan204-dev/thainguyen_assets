@@ -4,13 +4,14 @@ A reusable, data-attribute-driven Swiper slider system — just write HTML, no e
 
 ## Files
 
-| File | Description |
-|------|-------------|
+| File               | Description                                            |
+| ------------------ | ------------------------------------------------------ |
 | `common/swiper.js` | Auto-initializing Swiper manager (import as ES module) |
 
 **CDN dependencies** (add to your HTML `<head>`):
+
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 ```
 
 ## Quick Start
@@ -19,7 +20,7 @@ A reusable, data-attribute-driven Swiper slider system — just write HTML, no e
 
 ```html
 <!-- In <head> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 <!-- Before </body> -->
 <script type="module" src="../../common/swiper.js"></script>
@@ -47,20 +48,20 @@ That's it — the slider initializes automatically on page load.
 
 All configuration is done via `data-swiper-*` attributes on the `.swiper` container:
 
-| Attribute | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `data-swiper` | _(flag)_ | — | **Required.** Marks element for auto-init |
-| `data-swiper-loop` | `"true"` | `false` | Enable infinite loop |
-| `data-swiper-speed` | number | `300` | Transition speed in ms |
-| `data-swiper-slides-per-view` | number \| `"auto"` | `1` | Visible slides |
-| `data-swiper-space-between` | number | `0` | Gap between slides in px |
-| `data-swiper-autoplay` | `"true"` \| JSON | `false` | Autoplay config |
-| `data-swiper-effect` | string | `"slide"` | `"slide"` `"fade"` `"cube"` `"coverflow"` `"flip"` `"cards"` `"creative"` |
-| `data-swiper-direction` | string | `"horizontal"` | `"horizontal"` \| `"vertical"` |
-| `data-swiper-centered-slides` | `"true"` | `false` | Center the active slide |
-| `data-swiper-free-mode` | `"true"` | `false` | Enable free scroll mode |
-| `data-swiper-breakpoints` | JSON | — | Responsive breakpoints |
-| `data-swiper-pagination-type` | string | `"bullets"` | `"bullets"` `"fraction"` `"progressbar"` |
+| Attribute                     | Type               | Default        | Description                                                               |
+| ----------------------------- | ------------------ | -------------- | ------------------------------------------------------------------------- |
+| `data-swiper`                 | _(flag)_           | —              | **Required.** Marks element for auto-init                                 |
+| `data-swiper-loop`            | `"true"`           | `false`        | Enable infinite loop                                                      |
+| `data-swiper-speed`           | number             | `300`          | Transition speed in ms                                                    |
+| `data-swiper-slides-per-view` | number \| `"auto"` | `1`            | Visible slides                                                            |
+| `data-swiper-space-between`   | number             | `0`            | Gap between slides in px                                                  |
+| `data-swiper-autoplay`        | `"true"` \| JSON   | `false`        | Autoplay config                                                           |
+| `data-swiper-effect`          | string             | `"slide"`      | `"slide"` `"fade"` `"cube"` `"coverflow"` `"flip"` `"cards"` `"creative"` |
+| `data-swiper-direction`       | string             | `"horizontal"` | `"horizontal"` \| `"vertical"`                                            |
+| `data-swiper-centered-slides` | `"true"`           | `false`        | Center the active slide                                                   |
+| `data-swiper-free-mode`       | `"true"`           | `false`        | Enable free scroll mode                                                   |
+| `data-swiper-breakpoints`     | JSON               | —              | Responsive breakpoints                                                    |
+| `data-swiper-pagination-type` | string             | `"bullets"`    | `"bullets"` `"fraction"` `"progressbar"`                                  |
 
 ---
 
@@ -116,11 +117,13 @@ Place `.swiper-pagination` inside the container:
 ### Fade effect with pagination
 
 ```html
-<div class="swiper"
-     data-swiper
-     data-swiper-effect="fade"
-     data-swiper-autoplay='{"delay":4000,"disableOnInteraction":false}'
-     data-swiper-loop="true">
+<div
+    class="swiper"
+    data-swiper
+    data-swiper-effect="fade"
+    data-swiper-autoplay='{"delay":4000,"disableOnInteraction":false}'
+    data-swiper-loop="true"
+>
     <div class="swiper-wrapper">
         <div class="swiper-slide">Slide 1</div>
         <div class="swiper-slide">Slide 2</div>
@@ -132,11 +135,13 @@ Place `.swiper-pagination` inside the container:
 ### Responsive breakpoints
 
 ```html
-<div class="swiper"
-     data-swiper
-     data-swiper-slides-per-view="1"
-     data-swiper-space-between="16"
-     data-swiper-breakpoints='{"640":{"slidesPerView":2,"spaceBetween":20},"1024":{"slidesPerView":3,"spaceBetween":24}}'>
+<div
+    class="swiper"
+    data-swiper
+    data-swiper-slides-per-view="1"
+    data-swiper-space-between="16"
+    data-swiper-breakpoints='{"640":{"slidesPerView":2,"spaceBetween":20},"1024":{"slidesPerView":3,"spaceBetween":24}}'
+>
     <div class="swiper-wrapper">
         <div class="swiper-slide">Slide 1</div>
         <div class="swiper-slide">Slide 2</div>
@@ -151,15 +156,17 @@ Place `.swiper-pagination` inside the container:
 ### Full-featured
 
 ```html
-<div class="swiper"
-     data-swiper
-     data-swiper-slides-per-view="1"
-     data-swiper-space-between="24"
-     data-swiper-loop="true"
-     data-swiper-speed="500"
-     data-swiper-autoplay='{"delay":5000,"disableOnInteraction":false}'
-     data-swiper-pagination-type="fraction"
-     data-swiper-breakpoints='{"768":{"slidesPerView":2},"1280":{"slidesPerView":3}}'>
+<div
+    class="swiper"
+    data-swiper
+    data-swiper-slides-per-view="1"
+    data-swiper-space-between="24"
+    data-swiper-loop="true"
+    data-swiper-speed="500"
+    data-swiper-autoplay='{"delay":5000,"disableOnInteraction":false}'
+    data-swiper-pagination-type="fraction"
+    data-swiper-breakpoints='{"768":{"slidesPerView":2},"1280":{"slidesPerView":3}}'
+>
     <div class="swiper-wrapper">
         <div class="swiper-slide">Slide 1</div>
         <div class="swiper-slide">Slide 2</div>
@@ -180,19 +187,19 @@ Place `.swiper-pagination` inside the container:
 Besides data attributes, you can control instances programmatically:
 
 ```js
-import SwiperManager from '../../common/swiper.js';
+import SwiperManager from "../../common/swiper.js";
 
 // Initialize all [data-swiper] under a root
-SwiperManager.init(document.getElementById('content'));
+SwiperManager.init(document.getElementById("content"));
 
 // Initialize a specific element
-SwiperManager.init(document.querySelector('#my-slider'));
+SwiperManager.init(document.querySelector("#my-slider"));
 
 // Destroy
-SwiperManager.destroy(document.querySelector('#my-slider'));
+SwiperManager.destroy(document.querySelector("#my-slider"));
 
 // Re-initialize (after config attribute changes)
-SwiperManager.reinit(document.querySelector('#my-slider'));
+SwiperManager.reinit(document.querySelector("#my-slider"));
 ```
 
 ---

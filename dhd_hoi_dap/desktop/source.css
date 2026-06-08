@@ -3,36 +3,36 @@
 @source "../../common/**/*.{js,ts}";
 
 @theme {
-  --color-tw-primary: #212636;
-  --color-tw-secondary: #667085;
-  --color-tw-border: #d0d5dd;
+    --color-tw-primary: #212636;
+    --color-tw-secondary: #667085;
+    --color-tw-border: #d0d5dd;
 
-  --breakpoint-bt-xl: 1200px;
-  --breakpoint-pc: 1000px;
+    --breakpoint-bt-xl: 1200px;
+    --breakpoint-pc: 1000px;
 }
 
 :root {
-	color-scheme: light;
-	--bg: #f3f7fb;
-	--panel: #ffffff;
-	--ink: #132033;
-	--ink-soft: #506079;
-	--stroke: #d7dfeb;
-	--action: #1f3b68;
-	--action-hover: #142949;
-	--danger: #b91c1c;
-	--danger-bg: #fee2e2;
+    color-scheme: light;
+    --bg: #f3f7fb;
+    --panel: #ffffff;
+    --ink: #132033;
+    --ink-soft: #506079;
+    --stroke: #d7dfeb;
+    --action: #1f3b68;
+    --action-hover: #142949;
+    --danger: #b91c1c;
+    --danger-bg: #fee2e2;
 }
 
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* mobile */
 
 .mobile-menu-item {
     background: #fff;
-    border: 1px solid #E0E0E0;
+    border: 1px solid #e0e0e0;
     border-radius: 6px;
     overflow: hidden;
 }
@@ -80,17 +80,17 @@
     padding: 14px 20px;
     font-size: 14px;
     color: #151515;
-    border-top: 1px solid #F0F0F0;
+    border-top: 1px solid #f0f0f0;
     text-decoration: none;
 }
 
 .mobile-menu-sub > a:hover {
-    background: #F9F9F9;
+    background: #f9f9f9;
 }
 
 .mobile-menu-item.is-open > .mobile-menu-trigger {
-    color: #30A14A;
-    background: #F0F7FF;
+    color: #30a14a;
+    background: #f0f7ff;
 }
 
 /* ── Nested sub-items (level 3+) ── */
@@ -99,7 +99,7 @@
     background: transparent;
     border: none;
     border-radius: 0;
-    border-top: 1px solid #F0F0F0;
+    border-top: 1px solid #f0f0f0;
     overflow: hidden;
 }
 
@@ -116,8 +116,8 @@
 }
 
 .mobile-menu-item--nested.is-open > .mobile-menu-trigger--nested {
-    color: #30A14A;
-    background: #F0F7FF;
+    color: #30a14a;
+    background: #f0f7ff;
 }
 
 /* Children inside nested sub-panels get progressively more left padding */
@@ -138,11 +138,18 @@
     padding-left: 32px;
 }
 
-.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
     padding-left: 44px;
 }
 
-.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
     padding-left: 56px;
 }
 
@@ -173,7 +180,9 @@
     border-radius: 9999px;
     color: #ef2424;
     background: transparent;
-    transition: background-color 0.2s, color 0.2s;
+    transition:
+        background-color 0.2s,
+        color 0.2s;
 }
 .qa-nav.swiper-button-prev::after,
 .qa-nav.swiper-button-next::after {
@@ -210,7 +219,9 @@
     background: #fff;
     color: var(--hero-red);
     cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
+    transition:
+        background-color 0.2s,
+        color 0.2s;
 }
 .hero-feature-swiper .hero-nav i {
     width: 18px;
@@ -299,7 +310,9 @@
     background: #fff;
     color: var(--ct-red);
     cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
+    transition:
+        background-color 0.2s,
+        color 0.2s;
 }
 .ct-section .ct-nav i {
     width: 18px;
@@ -349,7 +362,9 @@
     background: #fff;
     color: var(--mm-red);
     cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
+    transition:
+        background-color 0.2s,
+        color 0.2s;
 }
 .mm-swiper .mm-nav i {
     width: 18px;

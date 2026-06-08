@@ -2,7 +2,8 @@
     font-size: 1.125rem;
 }
 
-#content span, #content p {
+#content span,
+#content p {
     font-size: unset !important;
     font-family: unset !important;
 }

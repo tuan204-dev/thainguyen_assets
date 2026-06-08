@@ -1,85 +1,152 @@
 <!-- ====== SECTION: Hero - Tin tức - Sự kiện ====== -->
 <section>
-  <div class="t:container">
-    <!-- Label: TIN TỨC - SỰ KIỆN -->
-    <div class="t:flex t:items-center t:gap-3 t:mb-5">
-      <img src="./images/hero-label-flag.png" alt="" class="t:h-8 t:w-auto t:shrink-0" />
-      <h2 class="merriweather t:text-2xl t:font-bold t:uppercase t:text-black t:leading-none">Tin tức - Sự kiện</h2>
+    <div class="t:container">
+        <!-- Label: TIN TỨC - SỰ KIỆN -->
+        <div class="t:flex t:items-center t:gap-3 t:mb-5">
+            <img src="./images/hero-label-flag.png" alt="" class="t:h-8 t:w-auto t:shrink-0" />
+            <h2 class="merriweather t:text-2xl t:font-bold t:uppercase t:text-black t:leading-none">
+                Tin tức - Sự kiện
+            </h2>
+        </div>
+
+        <!-- 2 columns -->
+        <div class="t:grid t:grid-cols-1 t:pc:grid-cols-[58fr_42fr] t:gap-6 t:items-start">
+            <!-- LEFT: featured slider -->
+            <div
+                class="swiper hero-feature-swiper t:relative t:w-full"
+                data-swiper
+                data-swiper-loop="true"
+                data-swiper-pagination="true"
+            >
+                <div class="swiper-wrapper">
+                    <!-- slide 1 -->
+                    <div class="swiper-slide">
+                        <a href="#" class="t:block t:group">
+                            <figure class="img-block t:w-full t:rounded-md">
+                                <img
+                                    src="./images/hero-slide-1.png"
+                                    alt="Tập trung cao độ cho nhiệm vụ phát triển kinh tế - xã hội"
+                                />
+                            </figure>
+                            <h3 class="title l1 merriweather t:mt-4">
+                                Tập trung cao độ cho nhiệm vụ phát triển kinh tế - xã hội
+                            </h3>
+                            <p class="desc t:line-clamp-3">
+                                Chiều 20-5, đồng chí Trịnh Xuân Trường, Ủy viên Trung ương Đảng, Bí
+                                thư Tỉnh ủy, chủ trì Hội nghị Ban Thường vụ Tỉnh ủy lần thứ 14,
+                                nhiệm kỳ 2025-2030...
+                            </p>
+                        </a>
+                    </div>
+                    <!-- slide 2 -->
+                    <div class="swiper-slide">
+                        <a href="#" class="t:block t:group">
+                            <figure class="img-block t:w-full t:rounded-md">
+                                <img
+                                    src="./images/hero-slide-2.png"
+                                    alt="Thái Nguyên công bố quyết định điều động, luân chuyển, chỉ định, bổ nhiệm 39 cán bộ"
+                                />
+                            </figure>
+                            <h3 class="title l1 merriweather t:mt-4">
+                                Thái Nguyên công bố quyết định điều động, luân chuyển, chỉ định, bổ
+                                nhiệm 39 cán bộ
+                            </h3>
+                            <p class="desc t:line-clamp-3">
+                                Tỉnh ủy Thái Nguyên tổ chức Hội nghị công bố các quyết định về công
+                                tác cán bộ nhằm kịp thời kiện toàn, sắp xếp tổ chức bộ máy, đáp ứng
+                                yêu cầu thực hiện nhiệm vụ chính trị trong giai đoạn hiện nay.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <!-- RIGHT: TIN CẬP NHẬT -->
+            <div class="t:w-full">
+                <!-- red header -->
+                <div class="t:relative t:flex t:items-center t:overflow-hidden">
+                    <img
+                        src="./images/hero-update-header.png"
+                        alt=""
+                        class="t:absolute t:inset-0 t:w-full t:h-full t:object-cover t:object-left"
+                    />
+                    <h3
+                        class="merriweather t:relative t:py-3 t:pl-7 t:pr-5 t:text-lg t:font-bold t:uppercase t:text-white t:leading-none"
+                    >
+                        Tin cập nhật
+                    </h3>
+                </div>
+
+                <!-- list -->
+                <div class="t:bg-[#fffaf4] t:p-4 t:flex t:flex-col t:divide-y t:divide-[#ffeecf]">
+                    <!-- item 1 -->
+                    <a
+                        href="#"
+                        class="t:flex t:gap-3 t:items-start t:py-3 t:[&:first-child]:pt-0 t:[&:last-child]:pb-0 t:group"
+                    >
+                        <figure class="img-block t:w-2/5 t:shrink-0 t:rounded-md">
+                            <img
+                                src="./images/hero-thumb-1.png"
+                                alt="Triển khai linh hoạt, hiệu quả các nghị quyết của Trung ương và của tỉnh"
+                            />
+                        </figure>
+                        <div class="t:flex t:flex-col t:gap-1 t:min-w-0">
+                            <h4 class="title l3 merriweather t:mt-0 t:line-clamp-3">
+                                Triển khai linh hoạt, hiệu quả các nghị quyết của Trung ương và của
+                                tỉnh
+                            </h4>
+                            <span class="article-date">
+                                <i class="material-symbols--calendar-month-rounded"></i>
+                                17:35, 20/04/2026
+                            </span>
+                        </div>
+                    </a>
+                    <!-- item 2 -->
+                    <a
+                        href="#"
+                        class="t:flex t:gap-3 t:items-start t:py-3 t:[&:first-child]:pt-0 t:[&:last-child]:pb-0 t:group"
+                    >
+                        <figure class="img-block t:w-2/5 t:shrink-0 t:rounded-md">
+                            <img
+                                src="./images/hero-thumb-2.png"
+                                alt="Tổng Bí thư, Chủ tịch nước Tô Lâm: Hành động đột phá, biến quyết sách thành kết quả"
+                            />
+                        </figure>
+                        <div class="t:flex t:flex-col t:gap-1 t:min-w-0">
+                            <h4 class="title l3 merriweather t:mt-0 t:line-clamp-3">
+                                Tổng Bí thư, Chủ tịch nước Tô Lâm: Hành động đột phá, biến quyết
+                                sách thành kết quả
+                            </h4>
+                            <span class="article-date">
+                                <i class="material-symbols--calendar-month-rounded"></i>
+                                15:24, 12/04/2026
+                            </span>
+                        </div>
+                    </a>
+                    <!-- item 3 -->
+                    <a
+                        href="#"
+                        class="t:flex t:gap-3 t:items-start t:py-3 t:[&:first-child]:pt-0 t:[&:last-child]:pb-0 t:group"
+                    >
+                        <figure class="img-block t:w-2/5 t:shrink-0 t:rounded-md">
+                            <img
+                                src="./images/hero-thumb-3.png"
+                                alt="Đảng ủy Quân khu 1 thông báo nhanh kết quả Hội nghị Trung ương 2"
+                            />
+                        </figure>
+                        <div class="t:flex t:flex-col t:gap-1 t:min-w-0">
+                            <h4 class="title l3 merriweather t:mt-0 t:line-clamp-3">
+                                Đảng ủy Quân khu 1 thông báo nhanh kết quả Hội nghị Trung ương 2
+                            </h4>
+                            <span class="article-date">
+                                <i class="material-symbols--calendar-month-rounded"></i>
+                                14:30, 31/03/2026
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- 2 columns -->
-    <div class="t:grid t:grid-cols-1 t:pc:grid-cols-[58fr_42fr] t:gap-6 t:items-start">
-
-      <!-- LEFT: featured slider -->
-      <div class="swiper hero-feature-swiper t:relative t:w-full" data-swiper data-swiper-loop="true" data-swiper-pagination="true">
-        <div class="swiper-wrapper">
-          <!-- slide 1 -->
-          <div class="swiper-slide">
-            <a href="#" class="t:block t:group">
-              <figure class="img-block t:w-full t:rounded-md">
-                <img src="./images/hero-slide-1.png" alt="Tập trung cao độ cho nhiệm vụ phát triển kinh tế - xã hội" />
-              </figure>
-              <h3 class="title l1 merriweather t:mt-4">Tập trung cao độ cho nhiệm vụ phát triển kinh tế - xã hội</h3>
-              <p class="desc t:line-clamp-3">Chiều 20-5, đồng chí Trịnh Xuân Trường, Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy, chủ trì Hội nghị Ban Thường vụ Tỉnh ủy lần thứ 14, nhiệm kỳ 2025-2030...</p>
-            </a>
-          </div>
-          <!-- slide 2 -->
-          <div class="swiper-slide">
-            <a href="#" class="t:block t:group">
-              <figure class="img-block t:w-full t:rounded-md">
-                <img src="./images/hero-slide-2.png" alt="Thái Nguyên công bố quyết định điều động, luân chuyển, chỉ định, bổ nhiệm 39 cán bộ" />
-              </figure>
-              <h3 class="title l1 merriweather t:mt-4">Thái Nguyên công bố quyết định điều động, luân chuyển, chỉ định, bổ nhiệm 39 cán bộ</h3>
-              <p class="desc t:line-clamp-3">Tỉnh ủy Thái Nguyên tổ chức Hội nghị công bố các quyết định về công tác cán bộ nhằm kịp thời kiện toàn, sắp xếp tổ chức bộ máy, đáp ứng yêu cầu thực hiện nhiệm vụ chính trị trong giai đoạn hiện nay.</p>
-            </a>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-      <!-- RIGHT: TIN CẬP NHẬT -->
-      <div class="t:w-full">
-        <!-- red header -->
-        <div class="t:relative t:flex t:items-center t:overflow-hidden">
-          <img src="./images/hero-update-header.png" alt="" class="t:absolute t:inset-0 t:w-full t:h-full t:object-cover t:object-left" />
-          <h3 class="merriweather t:relative t:py-3 t:pl-7 t:pr-5 t:text-lg t:font-bold t:uppercase t:text-white t:leading-none">Tin cập nhật</h3>
-        </div>
-
-        <!-- list -->
-        <div class="t:bg-[#fffaf4] t:p-4 t:flex t:flex-col t:divide-y t:divide-[#ffeecf]">
-          <!-- item 1 -->
-          <a href="#" class="t:flex t:gap-3 t:items-start t:py-3 t:[&:first-child]:pt-0 t:[&:last-child]:pb-0 t:group">
-            <figure class="img-block t:w-2/5 t:shrink-0 t:rounded-md">
-              <img src="./images/hero-thumb-1.png" alt="Triển khai linh hoạt, hiệu quả các nghị quyết của Trung ương và của tỉnh" />
-            </figure>
-            <div class="t:flex t:flex-col t:gap-1 t:min-w-0">
-              <h4 class="title l3 merriweather t:mt-0 t:line-clamp-3">Triển khai linh hoạt, hiệu quả các nghị quyết của Trung ương và của tỉnh</h4>
-              <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>17:35, 20/04/2026</span>
-            </div>
-          </a>
-          <!-- item 2 -->
-          <a href="#" class="t:flex t:gap-3 t:items-start t:py-3 t:[&:first-child]:pt-0 t:[&:last-child]:pb-0 t:group">
-            <figure class="img-block t:w-2/5 t:shrink-0 t:rounded-md">
-              <img src="./images/hero-thumb-2.png" alt="Tổng Bí thư, Chủ tịch nước Tô Lâm: Hành động đột phá, biến quyết sách thành kết quả" />
-            </figure>
-            <div class="t:flex t:flex-col t:gap-1 t:min-w-0">
-              <h4 class="title l3 merriweather t:mt-0 t:line-clamp-3">Tổng Bí thư, Chủ tịch nước Tô Lâm: Hành động đột phá, biến quyết sách thành kết quả</h4>
-              <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>15:24, 12/04/2026</span>
-            </div>
-          </a>
-          <!-- item 3 -->
-          <a href="#" class="t:flex t:gap-3 t:items-start t:py-3 t:[&:first-child]:pt-0 t:[&:last-child]:pb-0 t:group">
-            <figure class="img-block t:w-2/5 t:shrink-0 t:rounded-md">
-              <img src="./images/hero-thumb-3.png" alt="Đảng ủy Quân khu 1 thông báo nhanh kết quả Hội nghị Trung ương 2" />
-            </figure>
-            <div class="t:flex t:flex-col t:gap-1 t:min-w-0">
-              <h4 class="title l3 merriweather t:mt-0 t:line-clamp-3">Đảng ủy Quân khu 1 thông báo nhanh kết quả Hội nghị Trung ương 2</h4>
-              <span class="article-date"><i class="material-symbols--calendar-month-rounded"></i>14:30, 31/03/2026</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </section>

@@ -14,8 +14,6 @@
     }
 }
 
-
-
 @media (max-width: 767px) {
     .title.l1 {
         font-family: "Roboto", ui-sans-serif;
@@ -36,7 +34,9 @@
         font-size: 22px !important;
     }
 
-    .title.l2, .title.l3, .title.l4 {
+    .title.l2,
+    .title.l3,
+    .title.l4 {
         font-size: 20px !important;
     }
 
@@ -62,7 +62,8 @@
     margin: 0 auto 10px;
 }
 
-#content span, #content p {
+#content span,
+#content p {
     font-size: unset !important;
     font-family: unset !important;
 }

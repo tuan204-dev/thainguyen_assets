@@ -1,68 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <portlet name="detail_head_seo" />
 
-    <portlet name="detail_head_seo" />
+        <link
+            rel="stylesheet"
+            href="https://assets.tapchianninhmang.vn/common/style/fonts-merriweather-vn.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://assets.tapchianninhmang.vn/common/style/fonts-roboto-vn.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://assets.tapchianninhmang.vn/common/style/fonts-chakra-petch-vn.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://assets.tapchianninhmang.vn/common/style/fonts-noto-serif-vn.css"
+        />
+        <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/common.css" />
+        <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/icon.css" />
+        <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/overlay.css" />
+        <link
+            rel="stylesheet"
+            href="https://assets.tapchianninhmang.vn/common/style/dropdown.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://assets.tapchianninhmang.vn/common/style/article-image.css?v=2"
+        />
+        <link
+            rel="stylesheet"
+            href="https://assets.tapchianninhmang.vn/centered_2/desktop/output.css"
+        />
+    </head>
 
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/fonts-merriweather-vn.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/fonts-roboto-vn.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/fonts-chakra-petch-vn.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/fonts-noto-serif-vn.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/common.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/icon.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/overlay.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/dropdown.css">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/common/style/article-image.css?v=2">
-    <link rel="stylesheet" href="https://assets.tapchianninhmang.vn/centered_2/desktop/output.css">
-</head>
+    <body class="">
+        <portlet name="detail_page_info" />
+        <portlet name="clamp-text-js" />
+        <portlet name="lazy-images" />
+        <portlet name="link-prefetch" />
+        <portlet name="d_header" />
 
-<body class="">
-    <portlet name="detail_page_info" />
-    <portlet name="clamp-text-js" />
-    <portlet name="lazy-images" />
-    <portlet name="link-prefetch" />
-    <portlet name="d_header" />
+        <portlet name="detail_center_info" />
 
-    <portlet name="detail_center_info" />
+        <div class="detail-main-wrapper t:bg-white t:py-5">
+            <div class="t:max-w-[800px] t:mx-auto t:px-5">
+                <div>
+                    <div class="detail-main-column">
+                        <portlet name="detail_center_content" />
 
+                        <!-- portlet: detail_actions -->
+                        <portlet name="detail_actions" />
 
-    <div class="detail-main-wrapper t:bg-white t:py-5">
-        <div class="t:max-w-[800px] t:mx-auto t:px-5">
-            <div>
-                <div class="detail-main-column">
+                        <!-- portlet: detail_info_meta -->
+                        <portlet name="detail_info_meta" />
 
-                    <portlet name="detail_center_content" />
+                        <!-- portlet: detail_comment -->
+                        <portlet name="detail_comment" />
 
-                    <!-- portlet: detail_actions -->
-                    <portlet name="detail_actions" />
-
-                    <!-- portlet: detail_info_meta -->
-                    <portlet name="detail_info_meta" />
-
-                    <!-- portlet: detail_comment -->
-                    <portlet name="detail_comment" />
- 
-                    <!-- portlet: detail_related -->
-                    <portlet name="detail_related" />
-
+                        <!-- portlet: detail_related -->
+                        <portlet name="detail_related" />
+                    </div>
                 </div>
-
             </div>
         </div>
-    </div>
 
+        <portlet name="footer" />
 
-    <portlet name="footer" />
-
-
-
-    <script type="module" src="https://assets.tapchianninhmang.vn/common/floating-dropdown.js"></script>
-    <script type="module" src="https://assets.tapchianninhmang.vn/common/overlay.js"></script>
-    <script type="module" src="https://assets.tapchianninhmang.vn/common/header-sticky.js"></script>
-
-</body>
-
+        <script
+            type="module"
+            src="https://assets.tapchianninhmang.vn/common/floating-dropdown.js"
+        ></script>
+        <script type="module" src="https://assets.tapchianninhmang.vn/common/overlay.js"></script>
+        <script
+            type="module"
+            src="https://assets.tapchianninhmang.vn/common/header-sticky.js"
+        ></script>
+    </body>
 </html>

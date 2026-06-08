@@ -5,7 +5,10 @@
   Usage: Place after article body. Add .badge-live span before <a> for live/breaking stories.
 -->
 
-<nav class="related-livelist not-prose t:mt-6 t:pt-5 t:border-t t:border-[#E5E5E5]" aria-label="Tin liên quan">
+<nav
+    class="related-livelist not-prose t:mt-6 t:pt-5 t:border-t t:border-[#E5E5E5]"
+    aria-label="Tin liên quan"
+>
     <style>
         .related-livelist__label {
             font-family: "Roboto", sans-serif;
@@ -49,7 +52,7 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            background: #EA2736;
+            background: #ea2736;
             color: #fff;
             font-size: 0.625rem;
             font-weight: 700;
@@ -86,9 +89,17 @@
         }
 
         @keyframes pencisonar {
-            0% { opacity: 0; transform: scale(0.2); }
-            50% { opacity: 0.9; }
-            100% { opacity: 0; transform: scale(1); }
+            0% {
+                opacity: 0;
+                transform: scale(0.2);
+            }
+            50% {
+                opacity: 0.9;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1);
+            }
         }
     </style>
     <div class="related-livelist__label">Tin liên quan</div>
@@ -101,7 +112,9 @@
         </li>
         <li>
             <span class="badge-live">Live</span>
-            <a href="">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</a>
+            <a href="">
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+            </a>
         </li>
         <li>
             <a href="">Excepteur sint occaecat cupidatat non proident sunt in culpa</a>

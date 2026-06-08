@@ -29,8 +29,7 @@ const SwiperManager = (() => {
 
         const slidesPerView = attr(el, "slides-per-view", null);
         if (slidesPerView != null) {
-            config.slidesPerView =
-                slidesPerView === "auto" ? "auto" : Number(slidesPerView);
+            config.slidesPerView = slidesPerView === "auto" ? "auto" : Number(slidesPerView);
         }
 
         const spaceBetween = attr(el, "space-between", null);
