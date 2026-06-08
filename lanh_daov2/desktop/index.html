@@ -1168,36 +1168,27 @@
 
         <main class="home-main-content">
         <section
-            class="lanhdao-hero t:relative t:overflow-hidden t:bg-[#8a0a09] t:bg-cover t:bg-center t:bg-no-repeat t:h-dvh t:min-h-150"
-            style="background-image: url('./images/hero-bg.png')"
-        >
-            <!-- portrait: centered to the viewport, bottom-aligned -->
-            <img
-                src="./images/hero-portrait.png"
-                alt="Đồng chí Trịnh Xuân Trường"
-                class="t:absolute t:left-1/2 t:bottom-0 t:-translate-x-1/2 t:w-auto t:max-w-none t:object-contain t:object-bottom t:z-10 t:h-[68%] t:pc:h-[86%]"
-            />
+            class="lanhdao-hero t:relative t:overflow-hidden t:bg-white t:bg-cover t:bg-center t:bg-no-repeat t:h-[80dvh] t:md:h-[85dvh] t:pc:h-dvh t:min-h-[460px] t:pc:min-h-150"
+            style="background-image: url('./images/header_background.png')">
+            <img src="./images/trinhxuantruong1.png" alt="Đồng chí Trịnh Xuân Trường"
+                class="t:absolute t:left-1/2 t:bottom-0 t:-translate-x-1/2 t:w-[129%] t:max-w-none t:md:w-auto t:md:max-w-[75%] t:pc:max-w-[320px] t:min-[1200px]:max-w-[440px] t:min-[1400px]:max-w-[540px] t:object-contain t:object-bottom t:z-10 t:h-[85%] t:pc:h-[86%]" />
 
-            <!-- bottom fade: stronger on mobile so the name reads over the portrait -->
-            <div
-                class="t:pointer-events-none t:absolute t:inset-x-0 t:bottom-0 t:z-20 t:h-1/2 t:bg-linear-to-t t:from-[#8a0a09] t:via-[#8a0a09]/70 t:to-transparent t:pc:h-1/4 t:pc:via-transparent"
-                aria-hidden="true"
-            ></div>
+            <div class="t:pointer-events-none t:absolute t:inset-x-0 t:bottom-0 t:z-20 t:h-[200px] t:bg-linear-to-t t:from-white t:to-transparent"
+                aria-hidden="true"></div>
 
             <div class="t:container t:h-full t:relative t:z-30">
-                <div class="t:relative t:h-full">
+                <div class="t:relative t:h-full t:flex t:items-start t:justify-between t:pt-[14dvh]">
                     <!-- name -->
                     <div
-                        class="t:absolute t:inset-x-0 t:bottom-8 t:text-white t:flex t:flex-col t:gap-y-2
-                               t:pc:inset-x-auto t:pc:bottom-auto t:pc:left-0 t:pc:top-[30%] t:pc:max-w-90 t:pc:gap-y-3"
-                    >
-                        <p class="merriweather t:font-bold t:text-[18px] t:pc:text-[20px] t:leading-[1.5]">
+                        class="t:absolute t:inset-x-0 t:bottom-8 t:text-[#212636] t:flex t:flex-col
+                               t:pc:static t:pc:max-w-[280px] t:min-[1200px]:max-w-[320px] t:min-[1400px]:max-w-[360px]">
+                        <p class="merriweather t:font-bold t:text-[18px] t:pc:text-[20px] t:leading-[1.2] t:text-[#212636] t:max-pc:text-[#BC0000]">
                             Đồng chí
                         </p>
-                        <p class="merriweather t:font-bold t:leading-[1.3] t:text-[28px] t:pc:text-[42px]">
+                        <p class="merriweather t:font-bold t:leading-[1.2] t:text-[28px] t:pc:text-[32px] t:min-[1200px]:text-[36px] t:min-[1400px]:text-[42px] t:text-[#212636] t:mt-1">
                             Trịnh Xuân Trường
                         </p>
-                        <p class="t:text-[14px] t:pc:text-[16px] t:leading-[1.5] t:text-white/90">
+                        <p class="t:text-[14px] t:pc:text-[15px] t:min-[1400px]:text-[16px] t:leading-[1.5] t:text-[#212636] t:mt-4">
                             Ủy viên Trung ương Đảng,
                             <br />
                             Bí thư Tỉnh ủy Thái Nguyên
@@ -1206,18 +1197,22 @@
 
                     <!-- related news (desktop only — overlaid white text, right) -->
                     <div
-                        class="t:hidden t:pc:flex t:absolute t:right-0 t:top-[24%] t:max-w-80 t:flex-col t:gap-y-4 t:text-white"
-                    >
-                        <a href="" class="merriweather t:text-[18px] t:font-semibold t:leading-[1.5] t:hover:text-white/80">
+                        class="t:hidden t:pc:flex t:max-w-[280px] t:min-[1200px]:max-w-[320px] t:min-[1400px]:max-w-[360px] t:flex-col t:text-[#212636] t:divide-y t:divide-[#E5E5E5]">
+                        <a href=""
+                            class="merriweather t:text-[16px] t:min-[1400px]:text-[18px] t:font-semibold t:leading-[1.5] t:hover:text-[#30A14A] t:pb-4">
                             Tăng cường kiểm soát quyền lực, xử lý dứt điểm các nguy cơ thất thoát, lãng phí
                         </a>
-                        <span class="t:block t:h-px t:w-full t:bg-white/25" aria-hidden="true"></span>
-                        <a href="" class="merriweather t:text-[18px] t:font-semibold t:leading-[1.5] t:hover:text-white/80">
+                        <a href=""
+                            class="merriweather t:text-[16px] t:min-[1400px]:text-[18px] t:font-semibold t:leading-[1.5] t:hover:text-[#30A14A] t:py-4">
                             Thái Nguyên: Gặp mặt nhân Kỷ niệm Ngày truyền thống ngành Xây dựng
                         </a>
-                        <span class="t:block t:h-px t:w-full t:bg-white/25" aria-hidden="true"></span>
-                        <a href="" class="merriweather t:text-[18px] t:font-semibold t:leading-[1.5] t:hover:text-white/80">
+                        <a href=""
+                            class="merriweather t:text-[16px] t:min-[1400px]:text-[18px] t:font-semibold t:leading-[1.5] t:hover:text-[#30A14A] t:py-4">
                             Đồng chí Nguyễn Thị Loan được bầu bổ sung vào Ban Thường vụ Tỉnh ủy Thái Nguyên
+                        </a>
+                        <a href=""
+                            class="merriweather t:text-[16px] t:min-[1400px]:text-[18px] t:font-semibold t:leading-[1.5] t:hover:text-[#30A14A] t:pt-4">
+                            Thái Nguyên công bố quyết định điều động, luân chuyển, chỉ định, bổ nhiệm 39 cán bộ
                         </a>
                     </div>
                 </div>
@@ -1225,10 +1220,10 @@
         </section>
 
         <!-- Related news — mobile only (white panel below the banner, dark text) -->
-        <section class="t:pc:hidden t:bg-white t:py-4">
+        <section class="t:pc:hidden t:bg-[#FCFBF8] t:-mx-4 t:px-4 t:pt-6 t:pb-8 t:relative t:z-10">
             <div class="t:container">
-                <div class="t:flex t:flex-col t:divide-y t:divide-[#E5E5E5]">
-                    <a href="" class="merriweather t:text-[16px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:py-3 t:hover:text-[#30A14A]">
+                <div class="t:flex t:flex-col t:divide-y t:divide-[#DCDFE4]">
+                    <a href="" class="merriweather t:text-[16px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:pb-3 t:hover:text-[#30A14A]">
                         Tăng cường kiểm soát quyền lực, xử lý dứt điểm các nguy cơ thất thoát, lãng phí
                     </a>
                     <a href="" class="merriweather t:text-[16px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:py-3 t:hover:text-[#30A14A]">
@@ -1236,6 +1231,9 @@
                     </a>
                     <a href="" class="merriweather t:text-[16px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:py-3 t:hover:text-[#30A14A]">
                         Đồng chí Nguyễn Thị Loan được bầu bổ sung vào Ban Thường vụ Tỉnh ủy Thái Nguyên
+                    </a>
+                    <a href="" class="merriweather t:text-[16px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:pt-3 t:hover:text-[#30A14A]">
+                        Thái Nguyên công bố quyết định điều động, luân chuyển, chỉ định, bổ nhiệm 39 cán bộ
                     </a>
                 </div>
             </div>
@@ -1254,71 +1252,108 @@
                     </div>
                 </div>
 
-                <div class="">
-                    <a href="" class="t:flex t:flex-col t:gap-y-3 t:group">
-                        <div class="img-block t:w-full t:rounded t:overflow-hidden">
-                            <img src="./images/rel-1.png" alt="Đại tướng Phan Văn Giang tặng quà gia đình chính sách, người có công tại Thái Nguyên" />
+                <div class="t:mt-8 t:flex t:flex-col t:gap-y-8 t:max-pc:gap-y-0 t:max-pc:divide-y t:max-pc:divide-dashed t:max-pc:divide-[#E5E5E5] t:max-md:[&>*]:py-6 t:md:max-pc:[&>*]:py-8 t:max-pc:[&>*:first-child]:pt-0 t:max-pc:[&>*:last-child]:pb-0">
+                    <div class="t:grid t:grid-cols-1 t:gap-y-8 t:max-md:gap-y-0 t:max-md:divide-y t:max-md:divide-dashed t:max-md:divide-[#E5E5E5] t:max-md:[&>*]:py-6 t:max-md:[&>*:first-child]:pt-0 t:max-md:[&>*:last-child]:pb-0 t:md:max-pc:grid-cols-2 t:md:max-pc:gap-y-0 t:md:max-pc:-mx-6 t:md:max-pc:[&>*:nth-child(even)]:border-l t:md:max-pc:[&>*:nth-child(even)]:border-solid t:md:max-pc:[&>*:nth-child(even)]:border-[#E5E5E5] t:md:max-pc:[&>*:nth-child(-n+2)]:border-b t:md:max-pc:[&>*:nth-child(-n+2)]:border-dashed t:md:max-pc:[&>*:nth-child(-n+2)]:border-[#E5E5E5] t:md:max-pc:[&>*:nth-child(-n+2)]:pb-8 t:md:max-pc:[&>*:nth-child(n+3)]:pt-8 t:pc:grid-cols-4 t:pc:gap-y-0 t:pc:divide-x t:pc:divide-solid t:pc:divide-[#E5E5E5] t:pc:-mx-4 t:pc:border-b t:pc:border-dashed t:pc:border-[#E5E5E5] t:pc:pb-8">
+                        <div class="t:md:max-pc:px-6 t:pc:px-4">
+                            <figure class="img-block t:rounded t:overflow-hidden">
+                                <a href="" class="t:block">
+                                    <img src="./images/rel-1.png" alt="Đại tướng Phan Văn Giang tặng quà gia đình chính sách, người có công tại Thái Nguyên" />
+                                </a>
+                            </figure>
+                            <h3 class="title l3 t:mt-3!">
+                                <a href="">
+                                    Đại tướng Phan Văn Giang tặng quà gia đình chính sách, người có công tại Thái Nguyên
+                                </a>
+                            </h3>
                         </div>
-                        <h3 class="merriweather t:text-[18px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:group-hover:text-[#30A14A]">
-                            Đại tướng Phan Văn Giang tặng quà gia đình chính sách, người có công tại Thái Nguyên
-                        </h3>
-                    </a>
-                    <a href="" class="t:flex t:flex-col t:gap-y-3 t:group">
-                        <div class="img-block t:w-full t:rounded t:overflow-hidden">
-                            <img src="./images/rel-2.png" alt="Đoàn đại biểu Quốc hội tỉnh Thái Nguyên tiếp xúc cử tri sau Kỳ họp thứ nhất, Quốc hội khóa XVI" />
+                        <div class="t:md:max-pc:px-6 t:pc:px-4">
+                            <figure class="img-block t:rounded t:overflow-hidden">
+                                <a href="" class="t:block">
+                                    <img src="./images/rel-2.png" alt="Đoàn đại biểu Quốc hội tỉnh Thái Nguyên tiếp xúc cử tri sau Kỳ họp thứ nhất, Quốc hội khóa XVI" />
+                                </a>
+                            </figure>
+                            <h3 class="title l3 t:mt-3!">
+                                <a href="">
+                                    Đoàn đại biểu Quốc hội tỉnh Thái Nguyên tiếp xúc cử tri sau Kỳ họp thứ nhất, Quốc hội khóa XVI
+                                </a>
+                            </h3>
                         </div>
-                        <h3 class="merriweather t:text-[18px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:group-hover:text-[#30A14A]">
-                            Đoàn đại biểu Quốc hội tỉnh Thái Nguyên tiếp xúc cử tri sau Kỳ họp thứ nhất, Quốc hội khóa XVI
-                        </h3>
-                    </a>
-                    <a href="" class="t:flex t:flex-col t:gap-y-3 t:group">
-                        <div class="img-block t:w-full t:rounded t:overflow-hidden">
-                            <img src="./images/rel-3.png" alt="Đại tướng Phan Văn Giang dâng hương tưởng niệm các Anh hùng liệt sĩ Thanh niên xung phong tại Thái Nguyên" />
+                        <div class="t:md:max-pc:px-6 t:pc:px-4">
+                            <figure class="img-block t:rounded t:overflow-hidden">
+                                <a href="" class="t:block">
+                                    <img src="./images/rel-3.png" alt="Đại tướng Phan Văn Giang dâng hương tưởng niệm các Anh hùng liệt sĩ Thanh niên xung phong tại Thái Nguyên" />
+                                </a>
+                            </figure>
+                            <h3 class="title l3 t:mt-3!">
+                                <a href="">
+                                    Đại tướng Phan Văn Giang dâng hương tưởng niệm các Anh hùng liệt sĩ Thanh niên xung phong tại Thái Nguyên
+                                </a>
+                            </h3>
                         </div>
-                        <h3 class="merriweather t:text-[18px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:group-hover:text-[#30A14A]">
-                            Đại tướng Phan Văn Giang dâng hương tưởng niệm các Anh hùng liệt sĩ Thanh niên xung phong tại Thái Nguyên
-                        </h3>
-                    </a>
-                    <a href="" class="t:flex t:flex-col t:gap-y-3 t:group">
-                        <div class="img-block t:w-full t:rounded t:overflow-hidden">
-                            <img src="./images/rel-4.png" alt="Thái Nguyên đồng loạt khởi công 10 dự án, tổng vốn đầu tư gần 8.500 tỷ đồng" />
+                        <div class="t:md:max-pc:px-6 t:pc:px-4">
+                            <figure class="img-block t:rounded t:overflow-hidden">
+                                <a href="" class="t:block">
+                                    <img src="./images/rel-4.png" alt="Thái Nguyên đồng loạt khởi công 10 dự án, tổng vốn đầu tư gần 8.500 tỷ đồng" />
+                                </a>
+                            </figure>
+                            <h3 class="title l3 t:mt-3!">
+                                <a href="">
+                                    Thái Nguyên đồng loạt khởi công 10 dự án, tổng vốn đầu tư gần 8.500 tỷ đồng
+                                </a>
+                            </h3>
                         </div>
-                        <h3 class="merriweather t:text-[18px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:group-hover:text-[#30A14A]">
-                            Thái Nguyên đồng loạt khởi công 10 dự án, tổng vốn đầu tư gần 8.500 tỷ đồng
-                        </h3>
-                    </a>
-                    <a href="" class="t:flex t:flex-col t:gap-y-3 t:group">
-                        <div class="img-block t:w-full t:rounded t:overflow-hidden">
-                            <img src="./images/rel-5.png" alt="Ban Thường vụ Tỉnh ủy cho ý kiến vào nhiều nội dung quan trọng" />
+                    </div>
+
+                    <div class="t:grid t:grid-cols-1 t:gap-y-8 t:max-md:gap-y-0 t:max-md:divide-y t:max-md:divide-dashed t:max-md:divide-[#E5E5E5] t:max-md:[&>*]:py-6 t:max-md:[&>*:first-child]:pt-0 t:max-md:[&>*:last-child]:pb-0 t:md:max-pc:grid-cols-2 t:md:max-pc:gap-y-0 t:md:max-pc:-mx-6 t:md:max-pc:[&>*:nth-child(even)]:border-l t:md:max-pc:[&>*:nth-child(even)]:border-solid t:md:max-pc:[&>*:nth-child(even)]:border-[#E5E5E5] t:md:max-pc:[&>*:nth-child(-n+2)]:border-b t:md:max-pc:[&>*:nth-child(-n+2)]:border-dashed t:md:max-pc:[&>*:nth-child(-n+2)]:border-[#E5E5E5] t:md:max-pc:[&>*:nth-child(-n+2)]:pb-8 t:md:max-pc:[&>*:nth-child(n+3)]:pt-8 t:pc:grid-cols-4 t:pc:gap-y-0 t:pc:divide-x t:pc:divide-solid t:pc:divide-[#E5E5E5] t:pc:-mx-4">
+                        <div class="t:md:max-pc:px-6 t:pc:px-4">
+                            <figure class="img-block t:rounded t:overflow-hidden">
+                                <a href="" class="t:block">
+                                    <img src="./images/rel-5.png" alt="Ban Thường vụ Tỉnh ủy cho ý kiến vào nhiều nội dung quan trọng" />
+                                </a>
+                            </figure>
+                            <h3 class="title l3 t:mt-3!">
+                                <a href="">
+                                    Ban Thường vụ Tỉnh ủy cho ý kiến vào nhiều nội dung quan trọng
+                                </a>
+                            </h3>
                         </div>
-                        <h3 class="merriweather t:text-[18px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:group-hover:text-[#30A14A]">
-                            Ban Thường vụ Tỉnh ủy cho ý kiến vào nhiều nội dung quan trọng
-                        </h3>
-                    </a>
-                    <a href="" class="t:flex t:flex-col t:gap-y-3 t:group">
-                        <div class="img-block t:w-full t:rounded t:overflow-hidden">
-                            <img src="./images/rel-6.png" alt="Xây dựng các khu, cụm công nghiệp phù hợp với mục tiêu tổng thể phát triển kinh tế - xã hội của tỉnh" />
+                        <div class="t:md:max-pc:px-6 t:pc:px-4">
+                            <figure class="img-block t:rounded t:overflow-hidden">
+                                <a href="" class="t:block">
+                                    <img src="./images/rel-6.png" alt="Xây dựng các khu, cụm công nghiệp phù hợp với mục tiêu tổng thể phát triển kinh tế - xã hội của tỉnh" />
+                                </a>
+                            </figure>
+                            <h3 class="title l3 t:mt-3!">
+                                <a href="">
+                                    Xây dựng các khu, cụm công nghiệp phù hợp với mục tiêu tổng thể phát triển kinh tế - xã hội của tỉnh
+                                </a>
+                            </h3>
                         </div>
-                        <h3 class="merriweather t:text-[18px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:group-hover:text-[#30A14A]">
-                            Xây dựng các khu, cụm công nghiệp phù hợp với mục tiêu tổng thể phát triển kinh tế - xã hội của tỉnh
-                        </h3>
-                    </a>
-                    <a href="" class="t:flex t:flex-col t:gap-y-3 t:group">
-                        <div class="img-block t:w-full t:rounded t:overflow-hidden">
-                            <img src="./images/rel-7.png" alt="Thái Nguyên chuẩn bị kỹ lưỡng cho diễn tập khu vực phòng thủ" />
+                        <div class="t:md:max-pc:px-6 t:pc:px-4">
+                            <figure class="img-block t:rounded t:overflow-hidden">
+                                <a href="" class="t:block">
+                                    <img src="./images/rel-7.png" alt="Thái Nguyên chuẩn bị kỹ lưỡng cho diễn tập khu vực phòng thủ" />
+                                </a>
+                            </figure>
+                            <h3 class="title l3 t:mt-3!">
+                                <a href="">
+                                    Thái Nguyên chuẩn bị kỹ lưỡng cho diễn tập khu vực phòng thủ
+                                </a>
+                            </h3>
                         </div>
-                        <h3 class="merriweather t:text-[18px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:group-hover:text-[#30A14A]">
-                            Thái Nguyên chuẩn bị kỹ lưỡng cho diễn tập khu vực phòng thủ
-                        </h3>
-                    </a>
-                    <a href="" class="t:flex t:flex-col t:gap-y-3 t:group">
-                        <div class="img-block t:w-full t:rounded t:overflow-hidden">
-                            <img src="./images/rel-8.png" alt="Đại tá Trần Viết Năng được bổ nhiệm giữ chức Chính ủy Bộ Chỉ huy Quân sự tỉnh Thái Nguyên" />
+                        <div class="t:md:max-pc:px-6 t:pc:px-4">
+                            <figure class="img-block t:rounded t:overflow-hidden">
+                                <a href="" class="t:block">
+                                    <img src="./images/rel-8.png" alt="Đại tá Trần Viết Năng được bổ nhiệm giữ chức Chính ủy Bộ Chỉ huy Quân sự tỉnh Thái Nguyên" />
+                                </a>
+                            </figure>
+                            <h3 class="title l3 t:mt-3!">
+                                <a href="">
+                                    Đại tá Trần Viết Năng được bổ nhiệm giữ chức Chính ủy Bộ Chỉ huy Quân sự tỉnh Thái Nguyên
+                                </a>
+                            </h3>
                         </div>
-                        <h3 class="merriweather t:text-[18px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:group-hover:text-[#30A14A]">
-                            Đại tá Trần Viết Năng được bổ nhiệm giữ chức Chính ủy Bộ Chỉ huy Quân sự tỉnh Thái Nguyên
-                        </h3>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>

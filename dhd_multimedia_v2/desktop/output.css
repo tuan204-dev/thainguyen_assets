@@ -299,6 +299,9 @@
   .t\:grid {
     display: grid;
   }
+  .t\:hidden {
+    display: none;
+  }
   .t\:aspect-9\/16 {
     aspect-ratio: 9/16;
   }
@@ -309,6 +312,10 @@
   .t\:size-9 {
     width: calc(var(--t-spacing) * 9);
     height: calc(var(--t-spacing) * 9);
+  }
+  .t\:size-14 {
+    width: calc(var(--t-spacing) * 14);
+    height: calc(var(--t-spacing) * 14);
   }
   .t\:size-26 {
     width: calc(var(--t-spacing) * 26);
@@ -392,8 +399,16 @@
   .t\:shrink-0 {
     flex-shrink: 0;
   }
+  .t\:-translate-x-1\/2 {
+    --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .t\:translate-x-0\.5 {
     --tw-translate-x: calc(var(--t-spacing) * 0.5);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .t\:translate-x-1\/2 {
+    --tw-translate-x: calc(1 / 2 * 100%);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .t\:-translate-y-1\/2 {
@@ -541,6 +556,9 @@
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--t-color-black) 10%, transparent);
     }
+  }
+  .t\:border-white {
+    border-color: var(--t-color-white);
   }
   .t\:bg-\[\#30A14A\] {
     background-color: #30A14A;
@@ -815,6 +833,16 @@
     --tw-outline-style: none;
     outline-style: none;
   }
+  .t\:hover\:bg-white\/20 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--t-color-white);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--t-color-white) 20%, transparent);
+        }
+      }
+    }
+  }
   .t\:hover\:bg-white\/25 {
     &:hover {
       @media (hover: hover) {
@@ -954,6 +982,11 @@
   .t\:min-\[1200px\]\:grid-cols-\[auto_1fr_auto\] {
     @media (width >= 1200px) {
       grid-template-columns: auto 1fr auto;
+    }
+  }
+  .t\:md\:flex {
+    @media (width >= 48rem) {
+      display: flex;
     }
   }
   .t\:md\:hidden {
@@ -1117,6 +1150,18 @@
 .featured-clip-swiper .swiper-slide, .featured-clip-swiper .swiper-slide > a {
   height: auto !important;
 }
+.featured-clip-swiper .swiper-slide > a {
+  position: relative;
+  display: block;
+}
+.featured-clip-swiper .swiper-slide:not(.swiper-slide-active) > a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
 .featured-caption-wrap {
   height: auto !important;
   overflow: visible !important;
@@ -1185,9 +1230,6 @@
   .t\:pc\:gap-x-4 {
     column-gap: 16px;
   }
-}
-.featured-nav-btn {
-  background: rgba(0, 0, 0, 0.22);
 }
 .featured-nav-btn--prev {
   left: 7% !important;

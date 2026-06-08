@@ -173,6 +173,20 @@
     height: auto !important;
 }
 
+.featured-clip-swiper .swiper-slide > a {
+    position: relative;
+    display: block;
+}
+
+.featured-clip-swiper .swiper-slide:not(.swiper-slide-active) > a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
 .featured-caption-wrap {
     height: auto !important;
     overflow: visible !important;
@@ -262,7 +276,7 @@
 
 /* Keep featured slider navigation in the side gutters, outside the active image. */
 .featured-nav-btn {
-    background: rgba(0, 0, 0, 0.22);
+    /* Removed background so tailwind bg-transparent works */
 }
 
 .featured-nav-btn--prev {
