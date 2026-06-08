@@ -1325,7 +1325,7 @@
 }
 .article-prose {
   color: #23262f;
-  font-family: "Merriweather", serif;
+  font-family: "Noto Serif", serif;
   font-size: 18px;
   line-height: 1.78;
   overflow-wrap: anywhere;
@@ -1340,7 +1340,7 @@ main h1 {
 .article-prose h2 {
   margin: 30px 0 14px;
   color: #151515;
-  font-family: "Merriweather", serif;
+  font-family: "Noto Serif", serif;
   font-size: 26px;
   font-weight: 700;
   line-height: 1.35;
@@ -1376,7 +1376,7 @@ main h1 {
   border-bottom: 1px solid #e5e7eb;
   padding-bottom: 14px;
   color: #151515;
-  font-family: "Merriweather", serif;
+  font-family: "Noto Serif", serif;
   font-size: 15px;
   font-weight: 700;
   line-height: 1.55;
@@ -1427,7 +1427,7 @@ main h1 {
 }
 .ranked-item > span {
   color: #0a64b4;
-  font-family: "Merriweather", serif;
+  font-family: "Noto Serif", serif;
   font-size: 34px;
   font-style: italic;
   font-weight: 900;

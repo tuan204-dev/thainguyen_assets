@@ -888,7 +888,7 @@
   font-family: "Roboto", sans-serif;
 }
 .emagazine-comments .comment-more {
-  font-family: "Merriweather", serif;
+  font-family: "Noto Serif", serif;
 }
 .related-vertical-list .img-block {
   width: 100%;
@@ -898,7 +898,7 @@
 .related-vertical-list .title {
   margin-top: 10px;
   color: #151515;
-  font-family: "Merriweather", serif;
+  font-family: "Noto Serif", serif;
   font-weight: 700;
   line-height: 1.45;
 }

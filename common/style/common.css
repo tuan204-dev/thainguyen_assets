@@ -1,6 +1,6 @@
 :root {
     --text-color: #090909;
-    --text-color-soft: #444344;
+    --text-color-soft: #555;
     --text-primary-color: #1b75bc;
     --highlight-color: #30a14a;
 }
@@ -13,11 +13,6 @@ body {
     overflow-x: clip;
 }
 
-.merriweather {
-    font-optical-sizing: auto;
-    font-family: "Merriweather", serif;
-}
-
 .roboto {
     font-family: "Roboto", ui-sans-serif;
 }
@@ -27,6 +22,7 @@ body {
 }
 
 .noto {
+    font-optical-sizing: auto;
     font-family: "Noto Serif", serif;
 }
 
@@ -108,7 +104,7 @@ body {
     color: var(--text-color);
     font-weight: 600;
     margin-top: 4px;
-    font-family: "Merriweather", serif;
+    font-family: "Noto Serif", serif;
 }
 
 .title.l1 {
@@ -312,7 +308,7 @@ a:hover {
     font-weight: 700;
     font-size: 1.35rem;
     text-transform: uppercase;
-    font-family: "Merriweather", serif;
+    font-family: "Noto Serif", serif;
 }
 
 .header-main {
