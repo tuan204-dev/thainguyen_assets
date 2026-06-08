@@ -26,6 +26,16 @@ body {
     font-family: "Roboto", ui-sans-serif !important;
 }
 
+.noto {
+    font-family: "Noto Serif", serif;
+}
+
+.noto\! {
+    font-family: "Noto Serif", serif !important;
+}
+
+
+
 .text-primary {
     color: var(--text-primary-color);
 }
@@ -60,7 +70,7 @@ body {
 /* img */
 
 .img-block {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
     overflow: hidden;
     position: relative;
 }
