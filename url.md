@@ -5,7 +5,7 @@ Bạn là một trợ lý lập trình. Hãy giúp tôi thay đổi đường d�
 Thay thế tất cả các đường dẫn tương đối (relative path) trong đoạn code tôi cung cấp thành đường dẫn tuyệt đối (absolute path).
 
 **Quy tắc:**
-- Base URL: `https://assets.tapchianninhmang.vn`
+- Base URL: `https://pub-31caedea65ce455689b504b7af37b43c.r2.dev`
 - Công thức: Base URL + Relative path (tính từ root)
 
 **Lưu ý:**
