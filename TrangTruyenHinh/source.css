@@ -1,0 +1,191 @@
+@import "tailwindcss" source(none) prefix(t);
+@source "./**/*.{html,js,jsx,ts,tsx}";
+@source "../common/**/*.{js,ts}";
+
+@theme {
+    --color-tw-primary: #212636;
+    --color-tw-secondary: #667085;
+    --color-tw-border: #d0d5dd;
+
+    --breakpoint-bt-xl: 1200px;
+    --breakpoint-pc: 1000px;
+}
+
+:root {
+    color-scheme: dark;
+    --bg-dark: #130001;
+    --panel-dark: #1f0406;
+    --panel-dark-hover: #2d070a;
+    --text-white: #ffffff;
+    --text-muted: #bc9f9f;
+    --brand-red: #e31e24;
+    --brand-red-hover: #c51419;
+    --stroke-dark: #3a0e10;
+}
+
+.logo-white-filter {
+    filter: brightness(0) invert(1) !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body.tv-page {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: "Roboto", sans-serif;
+    overflow-x: hidden;
+}
+
+/* Scrollbar styling for dark red page */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #180203;
+}
+::-webkit-scrollbar-thumb {
+    background: #4a1113;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6a1a1c;
+}
+
+/* Custom styles for sidebar */
+.sidebar-title {
+    font-family: "Merriweather", "Times New Roman", Times, Georgia, serif;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.sidebar-menu-item {
+    font-family: "Roboto", sans-serif;
+    color: #ffd8d8;
+    transition: all 0.2s ease;
+}
+
+.sidebar-menu-item:hover,
+.sidebar-menu-item.active {
+    color: var(--text-white);
+    background-color: #35090b;
+    border-radius: 4px;
+}
+
+/* Player section styles */
+.player-container {
+    background-color: #1a0305;
+    border: 1px solid var(--stroke-dark);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.custom-player-controls {
+    background: linear-gradient(180deg, rgba(29, 3, 5, 0) 0%, rgba(26, 2, 4, 0.95) 100%);
+}
+
+/* Progress bar styling */
+.player-progress-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+.player-progress-fill {
+    height: 100%;
+    background: var(--brand-red);
+    border-radius: 3px;
+    width: 0%;
+}
+
+.player-progress-thumb {
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border: 2px solid var(--brand-red);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.player-progress-bar:hover .player-progress-thumb {
+    display: block;
+}
+
+/* Video grid sections */
+.section-title {
+    font-family: "Merriweather", "Times New Roman", Times, Georgia, serif;
+    font-weight: 700;
+}
+
+.card-item {
+    background-color: var(--panel-dark);
+    border: 1px solid var(--stroke-dark);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-item:hover {
+    transform: translateY(-4px);
+    background-color: var(--panel-dark-hover);
+    border-color: #5d1619;
+    box-shadow: 0 10px 25px -5px rgba(227, 30, 36, 0.15);
+}
+
+/* Arrow buttons */
+.nav-arrow-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #2c0709;
+    border: 1px solid var(--stroke-dark);
+    color: #ffcccc;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-arrow-btn:hover {
+    background-color: var(--brand-red);
+    border-color: var(--brand-red);
+    color: #ffffff;
+}
+
+/* Mobile responsive navigation & header */
+.mobile-menu-item-link {
+    display: block;
+    padding: 12px 16px;
+    color: #ffd8d8;
+    border-bottom: 1px solid #2d0b0d;
+}
+
+.mobile-menu-item-link:hover {
+    background-color: #240507;
+    color: #ffffff;
+}
+
+/* Scroll top button override */
+.scroll-top-button {
+    background: var(--brand-red) !important;
+    box-shadow: 0 0.5rem 1.5rem rgba(227, 30, 36, 0.35) !important;
+}
+
+.scroll-top-button:hover {
+    background: var(--brand-red-hover) !important;
+}
+
+/* Stretch horizontal divider lines to the right edge of the screen on desktop */
+@media (min-width: 768px) {
+    .stretch-right-hr {
+        margin-right: -100vw !important;
+    }
+}
