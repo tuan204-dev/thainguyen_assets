@@ -167,3 +167,8 @@
 .article-date {
     display: none !important;
 }
+.title-cs {
+    font-optical-sizing: auto;
+    font-size: 16px;
+    font-family: "Noto Serif", serif;
+}
