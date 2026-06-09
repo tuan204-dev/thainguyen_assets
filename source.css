@@ -31,12 +31,7 @@
     box-sizing: border-box;
 }
 
-body.tv-page {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    font-family: "Roboto", sans-serif;
-    overflow-x: hidden;
-}
+
 
 /* Scrollbar styling for dark red page */
 ::-webkit-scrollbar {
