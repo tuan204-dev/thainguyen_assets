@@ -648,6 +648,12 @@
   .t\:object-contain {
     object-fit: contain;
   }
+  .t\:object-cover {
+    object-fit: cover;
+  }
+  .t\:object-left {
+    object-position: left;
+  }
   .t\:p-0 {
     padding: calc(var(--t-spacing) * 0);
   }
@@ -993,9 +999,9 @@
       grid-template-columns: minmax(0,2fr) 380px;
     }
   }
-  .t\:pc\:grid-cols-\[minmax\(0\,2fr\)_minmax\(320px\,1fr\)\] {
+  .t\:pc\:grid-cols-\[minmax\(0\,13fr\)_minmax\(320px\,5fr\)\] {
     @media (width >= 1000px) {
-      grid-template-columns: minmax(0,2fr) minmax(320px,1fr);
+      grid-template-columns: minmax(0,13fr) minmax(320px,5fr);
     }
   }
   .t\:pc\:gap-x-4 {
@@ -1312,15 +1318,9 @@
 .multimedia-hero-swiper .swiper-wrapper {
   height: 100%;
 }
-.multimedia-hero-swiper .swiper-slide, .multimedia-hero-swiper .img-block {
+.multimedia-hero-swiper .swiper-slide {
   height: 100%;
-}
-.multimedia-hero-swiper .img-block {
-  display: block;
-  overflow: hidden;
-}
-.multimedia-hero-swiper .img-block img {
-  object-position: left center;
+  width: 100%;
 }
 .multimedia-hero-nav .swiper-button-prev, .multimedia-hero-nav .swiper-button-next {
   position: static;
