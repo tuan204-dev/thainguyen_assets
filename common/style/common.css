@@ -30,6 +30,11 @@ body {
     font-family: "Noto Serif", serif !important;
 }
 
+.merriweather {
+    font-optical-sizing: auto;
+    font-family: "Merriweather", serif;
+}
+
 .text-primary {
     color: var(--text-primary-color);
 }
