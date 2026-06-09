@@ -553,16 +553,47 @@
     --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
+  .t\:-translate-x-\[-50\%\] {
+    --tw-translate-x: calc(-50% * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .t\:translate-x-\[-50\%\] {
+    --tw-translate-x: -50%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .t\:-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .t\:-translate-y-\[-50\%\] {
+    --tw-translate-y: calc(-50% * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .t\:translate-y-1 {
     --tw-translate-y: calc(var(--t-spacing) * 1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
+  .t\:translate-y-1\/2 {
+    --tw-translate-y: calc(1 / 2 * 100%);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .t\:translate-y-\[-50\%\] {
+    --tw-translate-y: -50%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .t\:translate-y-\[4px\] {
+    --tw-translate-y: 4px;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .t\:translate-y-\[10px\] {
+    --tw-translate-y: 10px;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .t\:rotate-90 {
     rotate: 90deg;
+  }
+  .t\:transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .t\:cursor-pointer {
     cursor: pointer;
@@ -751,6 +782,10 @@
     --tw-border-style: dashed;
     border-style: dashed;
   }
+  .t\:border-dashed\! {
+    --tw-border-style: dashed !important;
+    border-style: dashed !important;
+  }
   .t\:border-\[\#BC0000\] {
     border-color: #BC0000;
   }
@@ -893,6 +928,9 @@
     }
     background-image: linear-gradient(var(--tw-gradient-stops));
   }
+  .t\:bg-\[linear-gradient\(180deg\,rgba\(48\,161\,74\,0\)_0\%\,rgba\(48\,161\,74\,0\.2\)_100\%\)\] {
+    background-image: linear-gradient(180deg,rgba(48,161,74,0) 0%,rgba(48,161,74,0.2) 100%);
+  }
   .t\:from-\[\#0B0B11E6\] {
     --tw-gradient-from: #0B0B11E6;
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
@@ -941,6 +979,9 @@
   }
   .t\:bg-center {
     background-position: center;
+  }
+  .t\:bg-top {
+    background-position: top;
   }
   .t\:bg-no-repeat {
     background-repeat: no-repeat;
@@ -1672,14 +1713,29 @@
       position: relative;
     }
   }
+  .t\:pc\:sticky {
+    @media (width >= 1000px) {
+      position: sticky;
+    }
+  }
   .t\:pc\:top-0 {
     @media (width >= 1000px) {
       top: calc(var(--t-spacing) * 0);
     }
   }
+  .t\:pc\:top-4 {
+    @media (width >= 1000px) {
+      top: calc(var(--t-spacing) * 4);
+    }
+  }
   .t\:pc\:right-full {
     @media (width >= 1000px) {
       right: 100%;
+    }
+  }
+  .t\:pc\:bottom-0 {
+    @media (width >= 1000px) {
+      bottom: calc(var(--t-spacing) * 0);
     }
   }
   .t\:pc\:order-9 {
@@ -2582,6 +2638,14 @@
       }
     }
   }
+  .t\:pc\:\[\&\>\*\]\:border-dashed {
+    @media (width >= 1000px) {
+      &>* {
+        --tw-border-style: dashed;
+        border-style: dashed;
+      }
+    }
+  }
   .t\:md\:\[\&\>\*\]\:px-4 {
     @media (width >= 48rem) {
       &>* {
@@ -3029,6 +3093,26 @@
   inherits: false;
   initial-value: 0;
 }
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-divide-x-reverse {
   syntax: "*";
   inherits: false;
@@ -3271,6 +3355,11 @@
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
       --tw-divide-x-reverse: 0;
       --tw-border-style: solid;
       --tw-divide-y-reverse: 0;
