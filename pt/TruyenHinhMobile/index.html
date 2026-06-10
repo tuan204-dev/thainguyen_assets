@@ -1,0 +1,1080 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Xem Truyền Hình Trực Tuyến - Báo Thái Nguyên</title>
+        <link rel="stylesheet" href="./output.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-noto-serif-vn.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-roboto-vn.css" />
+        <link rel="stylesheet" href="../../common/style/common.css" />
+        <link rel="stylesheet" href="../../common/style/dropdown.css" />
+        <link rel="stylesheet" href="../../common/style/icon.css" />
+        <link rel="stylesheet" href="../../common/style/overlay.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
+        />
+        <link rel="stylesheet" href="../../common/style/overlayscrollbar.css" />
+        <link rel="stylesheet" href="../../common/vendor/swiper-bundle.min.css" />
+    </head>
+    <body class="t:bg-[#150204] t:text-white roboto t:min-h-screen t:flex t:flex-col">
+        <header class="t:bg-[#e31a22] t:sticky t:top-0 t:z-50 t:w-full">
+            <div class="t:px-4 t:py-2.5 t:flex t:items-center t:justify-between t:h-[52px]">
+                <button
+                    type="button"
+                    aria-label="Menu"
+                    class="t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:flex t:items-center"
+                >
+                    <i class="material-symbols--menu-rounded t:text-white t:text-[28px]"></i>
+                </button>
+
+                <a href="/" class="t:flex t:items-center t:justify-center t:flex-1 t:mx-4">
+                    <img
+                        src="../../common/assets/logo-white.png"
+                        alt="Báo Thái Nguyên"
+                        class="t:h-9 t:w-auto t:object-contain"
+                    />
+                </a>
+
+                <div class="t:flex t:items-center t:gap-3">
+                    <a href="#" class="t:text-white t:text-sm t:font-bold roboto t:hover:opacity-80 t:transition-opacity">
+                        EN
+                    </a>
+                    <span class="t:w-px t:h-3.5 t:bg-white/40"></span>
+                    <button
+                        type="button"
+                        aria-label="Tìm kiếm"
+                        class="t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:flex t:items-center t:hover:opacity-80">
+                        <i class="majesticons--search-line t:text-white t:text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="t:flex-1 t:w-full t:max-w-md t:mx-auto">
+            <div class="t:relative t:w-full t:aspect-video t:bg-black t:group">
+                <img
+                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/anh_man_hinh_2026-03-26_luc_13.16.39_20260326131655.png?width=600&height=-&type=resize"
+                    alt="Live Stream Cartoon"
+                    class="t:w-full t:h-full t:object-cover"
+                />
+
+                <div class="t:absolute t:top-3 t:right-3 t:w-8 t:h-8 t:bg-white/10 t:backdrop-blur-xs t:rounded-full t:flex t:items-center t:justify-center t:opacity-90">
+                    <span class="t:text-[10px] t:font-bold t:text-red-500">TN</span>
+                </div>
+
+                <div class="t:absolute t:bottom-12 t:left-3 t:bg-black/60 t:px-2 t:py-0.5 t:rounded t:text-[10px] t:font-mono t:text-white/90">
+                    17:46:28
+                </div>
+
+                <div
+                    class="t:absolute t:bottom-0 t:left-0 t:right-0 t:bg-gradient-to-t t:from-black/80 t:to-transparent t:px-3 t:py-2.5 t:flex t:items-center t:gap-3"
+                >
+                    <button
+                        type="button"
+                        aria-label="Mute"
+                        class="t:text-white/90 t:hover:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer"
+                    >
+                        <svg
+                            class="t:w-5 t:h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M12 18.75V5.25L7.75 9.5H4.5v5h3.25L12 18.75z"
+                            />
+                        </svg>
+                    </button>
+
+                    <div
+                        class="t:flex-1 t:h-1.5 t:bg-white/30 t:rounded-full t:relative t:cursor-pointer"
+                    >
+                        <div
+                            class="t:absolute t:left-0 t:top-0 t:bottom-0 t:w-4/5 t:bg-white t:rounded-full"
+                        ></div>
+                        <div
+                            class="t:absolute t:left-[80%] t:top-1/2 t:-translate-y-1/2 t:w-3.5 t:h-3.5 t:bg-white t:rounded-full t:shadow-md"
+                        ></div>
+                    </div>
+
+                    <div
+                        class="t:flex t:items-center t:gap-1.5 t:text-[11px] t:font-bold t:tracking-wider t:text-white/95 uppercase"
+                    >
+                        <span
+                            class="t:w-2 t:h-2 t:bg-red-600 t:rounded-full t:animate-pulse"
+                        ></span>
+                        LIVE
+                    </div>
+                </div>
+            </div>
+
+            <div class="t:px-4 t:py-6">
+                <h1
+                    class="noto t:text-[23px] t:font-bold t:leading-tight t:tracking-wide t:text-white"
+                >
+                    XEM TRUYỀN HÌNH TRỰC TUYẾN
+                </h1>
+            </div>
+
+            <div class="t:px-4 t:pb-8">
+                <div
+                    class="t:flex t:items-center t:gap-2.5 t:pb-3.5 t:mb-4 t:border-b t:border-white/10"
+                >
+                    <i
+                        class="material-symbols--calendar-month-rounded t:text-white/70 t:text-xl"
+                    ></i>
+                    <h2 class="noto t:text-lg t:font-bold t:text-white">Lịch phát sóng</h2>
+                </div>
+
+                <div class="t:max-h-[310px] t:overflow-y-auto t:pr-1 t:flex t:flex-col t:gap-3 custom-scrollbar">
+                    <div
+                        class="t:flex t:items-center t:justify-between t:p-4 t:bg-[#200a0d] t:border t:border-white/[0.04] t:rounded-xl t:hover:bg-[#2c0f13] t:transition-colors"
+                    >
+                        <div class="t:flex t:items-center t:gap-4.5 t:flex-1">
+                            <span
+                                class="t:text-[19px] t:font-bold t:text-white/90 t:w-14 t:shrink-0"
+                            >
+                                20:00
+                            </span>
+                            <div class="t:flex t:flex-col">
+                                <span class="t:text-sm t:font-bold t:text-white t:tracking-wide">
+                                    PHIM HOẠT HÌNH
+                                </span>
+                            </div>
+                        </div>
+                        <button
+                            type="button"
+                            class="t:inline-flex t:items-center t:gap-1.5 t:px-3 t:py-1 t:bg-white/[0.04] t:hover:bg-white/10 t:border t:border-white/20 t:rounded-full t:text-[11px] t:font-medium t:text-white/80 t:transition-all"
+                        >
+                            <span>Xem lại</span>
+                            <svg
+                                class="t:w-3.5 t:h-3.5"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                <path d="M3 3v5h5" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div
+                        class="t:flex t:items-center t:justify-between t:p-4 t:bg-[#200a0d] t:border t:border-white/[0.04] t:rounded-xl t:hover:bg-[#2c0f13] t:transition-colors"
+                    >
+                        <div class="t:flex t:items-center t:gap-4.5 t:flex-1">
+                            <span
+                                class="t:text-[19px] t:font-bold t:text-white/90 t:w-14 t:shrink-0"
+                            >
+                                20:30
+                            </span>
+                            <div class="t:flex t:flex-col">
+                                <span class="t:text-sm t:font-bold t:text-white t:tracking-wide">
+                                    Thể thao
+                                </span>
+                                <span class="t:text-xs t:italic t:text-white/60 t:mt-0.5">
+                                    Kết nối thể thao
+                                </span>
+                            </div>
+                        </div>
+                        <button
+                            type="button"
+                            class="t:inline-flex t:items-center t:gap-1.5 t:px-3 t:py-1 t:bg-white/[0.04] t:hover:bg-white/10 t:border t:border-white/20 t:rounded-full t:text-[11px] t:font-medium t:text-white/80 t:transition-all"
+                        >
+                            <span>Xem lại</span>
+                            <svg
+                                class="t:w-3.5 t:h-3.5"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                <path d="M3 3v5h5" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="t:flex t:items-center t:justify-between t:p-4 t:bg-[#200a0d] t:border t:border-white/[0.04] t:rounded-xl t:hover:bg-[#2c0f13] t:transition-colors">
+                        <div class="t:flex t:items-center t:gap-4.5 t:flex-1">
+                            <span class="t:text-[19px] t:font-bold t:text-white/90 t:w-14 t:shrink-0">
+                                21:00
+                            </span>
+                            <div class="t:flex t:flex-col">
+                                <span class="t:text-sm t:font-bold t:text-white t:tracking-wide">
+                                    Thể thao
+                                </span>
+                                <span class="t:text-xs t:italic t:text-white/60 t:mt-0.5">
+                                    Kết nối thể thao
+                                </span>
+                            </div>
+                        </div>
+                        <button
+                            type="button"
+                            class="t:inline-flex t:items-center t:gap-1.5 t:px-3 t:py-1 t:bg-white/[0.04] t:hover:bg-white/10 t:border t:border-white/20 t:rounded-full t:text-[11px] t:font-medium t:text-white/80 t:transition-all"
+                        >
+                            <span>Xem lại</span>
+                            <svg
+                                class="t:w-3.5 t:h-3.5"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                <path d="M3 3v5h5" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div
+                        class="t:flex t:items-center t:justify-between t:p-4 t:bg-[#200a0d] t:border t:border-white/[0.04] t:rounded-xl t:hover:bg-[#2c0f13] t:transition-colors"
+                    >
+                        <div class="t:flex t:items-center t:gap-4.5 t:flex-1">
+                            <span
+                                class="t:text-[19px] t:font-bold t:text-white/90 t:w-14 t:shrink-0"
+                            >
+                                22:00
+                            </span>
+                            <div class="t:flex t:flex-col">
+                                <span class="t:text-sm t:font-bold t:text-white t:tracking-wide">
+                                    Thể thao
+                                </span>
+                                <span class="t:text-xs t:italic t:text-white/60 t:mt-0.5">
+                                    Kết nối thể thao
+                                </span>
+                            </div>
+                        </div>
+                        <button
+                            type="button"
+                            class="t:inline-flex t:items-center t:gap-1.5 t:px-3 t:py-1 t:bg-white/[0.04] t:hover:bg-white/10 t:border t:border-white/20 t:rounded-full t:text-[11px] t:font-medium t:text-white/80 t:transition-all"
+                        >
+                            <span>Xem lại</span>
+                            <svg
+                                class="t:w-3.5 t:h-3.5"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                <path d="M3 3v5h5" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div
+                        class="t:flex t:items-center t:justify-between t:p-4 t:bg-[#200a0d] t:border t:border-white/[0.04] t:rounded-xl t:hover:bg-[#2c0f13] t:transition-colors"
+                    >
+                        <div class="t:flex t:items-center t:gap-4.5 t:flex-1">
+                            <span
+                                class="t:text-[19px] t:font-bold t:text-white/90 t:w-14 t:shrink-0"
+                            >
+                                22:00
+                            </span>
+                            <div class="t:flex t:flex-col">
+                                <span class="t:text-sm t:font-bold t:text-white t:tracking-wide">
+                                    Thể thao
+                                </span>
+                                <span class="t:text-xs t:italic t:text-white/60 t:mt-0.5">
+                                    Kết nối thể thao
+                                </span>
+                            </div>
+                        </div>
+                        <button
+                            type="button"
+                            class="t:inline-flex t:items-center t:gap-1.5 t:px-3 t:py-1 t:bg-white/[0.04] t:hover:bg-white/10 t:border t:border-white/20 t:rounded-full t:text-[11px] t:font-medium t:text-white/80 t:transition-all"
+                        >
+                            <span>Xem lại</span>
+                            <svg
+                                class="t:w-3.5 t:h-3.5"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                <path d="M3 3v5h5" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="t:flex t:items-center t:justify-between t:p-4 t:bg-[#200a0d] t:border t:border-white/[0.04] t:rounded-xl t:hover:bg-[#2c0f13] t:transition-colors">
+                        <div class="t:flex t:items-center t:gap-4.5 t:flex-1">
+                            <span class="t:text-[19px] t:font-bold t:text-white/90 t:w-14 t:shrink-0">
+                                22:30
+                            </span>
+                            <div class="t:flex t:flex-col">
+                                <span class="t:text-sm t:font-bold t:text-white t:tracking-wide">
+                                    Thời sự Thái Nguyên
+                                </span>
+                                <span class="t:text-xs t:italic t:text-white/60 t:mt-0.5">
+                                    Tin tức trong ngày
+                                </span>
+                            </div>
+                        </div>
+                        <button type="button" class="t:inline-flex t:items-center t:gap-1.5 t:px-3 t:py-1 t:bg-white/[0.04] t:hover:bg-white/10 t:border t:border-white/20 t:rounded-full t:text-[11px] t:font-medium t:text-white/80 t:transition-all">
+                            <span>Xem lại</span>
+                            <svg
+                                class="t:w-3.5 t:h-3.5"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                <path d="M3 3v5h5" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="t:flex t:items-center t:justify-between t:p-4 t:bg-[#200a0d] t:border t:border-white/[0.04] t:rounded-xl t:hover:bg-[#2c0f13] t:transition-colors">
+                        <div class="t:flex t:items-center t:gap-4.5 t:flex-1">
+                            <span  class="t:text-[19px] t:font-bold t:text-white/90 t:w-14 t:shrink-0">
+                                23:00
+                            </span>
+                            <div class="t:flex t:flex-col">
+                                <span class="t:text-sm t:font-bold t:text-white t:tracking-wide">
+                                    PHIM TRUYỆN ĐÊM
+                                </span>
+                            </div>
+                        </div>
+                        <button
+                            type="button"
+                            class="t:inline-flex t:items-center t:gap-1.5 t:px-3 t:py-1 t:bg-white/[0.04] t:hover:bg-white/10 t:border t:border-white/20 t:rounded-full t:text-[11px] t:font-medium t:text-white/80 t:transition-all"
+                        >
+                            <span>Xem lại</span>
+                            <svg
+                                class="t:w-3.5 t:h-3.5"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                <path d="M3 3v5h5" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <section class="t:px-4 t:pb-10">
+                <div class="tv-section-divider tv-section-divider--first">
+                    <h2 class="noto t:text-[23px] t:font-bold t:leading-tight t:text-white t:mb-7">
+                        BẢN TIN THỜI SỰ
+                    </h2>
+
+                    <div class="t:flex t:flex-col t:gap-6">
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/659082651_1243446534618936_4923900977363093798_n_20260326112035.jpg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[20px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Chương trình thời sự Thái Nguyên tối 2-5</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/img_8713_20260326075710.jpeg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[20px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Chương trình thời sự Thái Nguyên tối 2-5</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/img_8713_20260326075710.jpeg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[20px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Chương trình thời sự Thái Nguyên tối 2-5</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="tv-section-divider">
+                    <h2 class="noto t:text-[27px] t:font-bold t:leading-tight t:text-white t:mb-7">
+                        CHUYỆN CUỐI TUẦN
+                    </h2>
+
+                    <div class="t:flex t:flex-col t:gap-6">
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/659082651_1243446534618936_4923900977363093798_n_20260326112035.jpg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[14px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Thành công từ sự đồng thuận</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/img_8713_20260326075710.jpeg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[14px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Ngập úng đô thị - Hệ quả của mưa <br>lớn và hạ tầng quá tải</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/img_8713_20260326075710.jpeg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[14px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Thái Nguyên - Hương sắc danh trà</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="tv-section-divider">
+                    <h2 class="noto t:text-[23px] t:font-bold t:leading-tight t:text-white t:mb-7">
+                        SHORT VIDEO
+                    </h2>
+
+                    <div class="t:flex t:flex-col t:gap-6">
+                        <div
+                            class="swiper no-scrollbar t:mt-5 t:overflow-x-auto! t:[&_.swiper-wrapper]:gap-4 t:[&_.swiper-slide]:w-[74%]! t:[&_.swiper-slide]:shrink-0"
+                            data-swiper
+                            data-swiper-slides-per-view="1.35"
+                            data-swiper-space-between="16"
+                        >
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="" class="t:block t:relative">
+                                    <figure class="t:relative t:overflow-hidden">
+                                        <img
+                                            src="../../homev2/desktop/image/pre1.png"
+                                            class="t:w-[280.27px] t:h-[500px] t:rounded-[13.45px] t:object-cover"
+                                            alt="Đưa Nghị quyết của Đảng vào cuộc sống"
+                                            loading="lazy"
+                                        />
+                                        <figcaption hidden>
+                                            Đưa Nghị quyết của Đảng vào cuộc sống
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="" class="t:block t:relative">
+                                    <figure class="t:relative t:overflow-hidden">
+                                        <img
+                                            src="../../homev2/desktop/image/pre2.png"
+                                            class="t:w-[280.27px] t:h-[500px] t:rounded-[13.45px] t:object-cover"
+                                            alt="Học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh"
+                                            loading="lazy"
+                                        />
+                                        <figcaption hidden>
+                                            Học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="" class="t:block t:relative">
+                                    <figure class="t:relative t:overflow-hidden">
+                                        <img
+                                            src="../../homev2/desktop/image/pre3.png"
+                                            class="t:w-[280.27px] t:h-[500px] t:rounded-[13.45px] t:object-cover"
+                                            alt="Quy hoạch tỉnh Thái Nguyên thời kỳ 2021 - 2030, tầm nhìn đến năm 2050"
+                                            loading="lazy"
+                                        />
+                                        <figcaption hidden>
+                                            Quy hoạch tỉnh Thái Nguyên thời kỳ 2021 - 2030, tầm nhìn đến năm
+                                            2050
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="" class="t:block t:relative">
+                                    <figure class="t:relative t:overflow-hidden">
+                                        <img
+                                            src="../../homev2/desktop/image/pre 4.png"
+                                            class="t:w-[280.27px] t:h-[500px] t:rounded-[13.45px] t:object-cover"
+                                            alt="Đồng hành cùng doanh nghiệp"
+                                            loading="lazy"
+                                        />
+                                        <figcaption hidden>Đồng hành cùng doanh nghiệp</figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="tv-section-divider">
+                    <h2 class="noto t:text-[23px] t:font-bold t:leading-tight t:text-white t:mb-7">
+                        BẢN TIN AN NINH TRẬT TỰ
+                    </h2>
+
+                    <div class="t:flex t:flex-col t:gap-6">
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/659082651_1243446534618936_4923900977363093798_n_20260326112035.jpg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[14px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Bản tin ANTT tuần 5 tháng 04: <br> Xuyên đêm làm rõ tài xế gây tai nạn rồi bỏ trốn</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/img_8713_20260326075710.jpeg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[14px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Bản tin ANTT tuần 4 tháng 04: Xét <br> Xử 14 bị cáo gây rối trật tự công cộng</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/img_8713_20260326075710.jpeg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[14px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Bản tin ANTT tuần 3 tháng 04: Phát hiện quả bom nặng khoảng 200kg khi thi công kè </a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="tv-section-divider">
+                    <h2 class="noto t:text-[22px] t:font-bold t:leading-tight t:text-white t:mb-7">
+                        BẢN TIN KINH TẾ TÀI NGUYÊN
+                    </h2>
+
+                    <div class="t:flex t:flex-col t:gap-6">
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/659082651_1243446534618936_4923900977363093798_n_20260326112035.jpg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[14px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Bản tin Kinh tế tuần 5 tháng 4: Không nghỉ lễ, dự án chống ngập tăng tốc về đích</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/img_8713_20260326075710.jpeg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[14px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Bản tin Kinh tế tuần 4 tháng 4: Posco đầu tư dự án 282 triệu USD tại Thái Nguyên</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/img_8713_20260326075710.jpeg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[14px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Bản tin Kinh tế tuần 3 tháng 4: Thái Nguyên dẫn đầu cả nước về năng xuất siêu</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="tv-section-divider">
+                    <h2 class="noto t:text-[22px] t:font-bold t:leading-tight t:text-white t:mb-7">
+                        BẢN TIN THỜI TIẾT 
+                    </h2>
+
+                    <div class="t:flex t:flex-col t:gap-6">
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/659082651_1243446534618936_4923900977363093798_n_20260326112035.jpg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[14px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Dự án thời tiết Thái Nguyên đêm 2-5 và ngày 3-5</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/img_8713_20260326075710.jpeg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[14px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Dự án thời tiết Thái Nguyên đêm 2-5 và ngày 3-5</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="t:overflow-hidden t:rounded-xl t:bg-[#3b1518]">
+                            <a href="#" class="t:block">
+                                <img
+                                    src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/img_8713_20260326075710.jpeg?width=600&height=-&type=resize"
+                                    alt="Chương trình thời sự Thái Nguyên tối 2-5"
+                                    loading="lazy"
+                                    class="t:w-full t:aspect-video t:object-cover"
+                                />
+                            </a>
+                            <div class="t:flex t:items-center t:gap-4 t:px-5 t:py-5">
+                                <h3 class="noto t:flex-1 t:text-[14px] t:font-bold t:leading-snug t:text-white">
+                                    <a href="#">Dự án thời tiết Thái Nguyên đêm 2-5 và ngày 3-5</a>
+                                </h3>
+                                <button
+                                    type="button"
+                                    aria-label="Chia sẻ"
+                                    class="t:w-[54px] t:h-12 t:shrink-0 t:border-l t:border-white/20 t:bg-transparent t:text-white t:flex t:items-center t:justify-end t:cursor-pointer t:hover:text-white/75 t:transition-colors"
+                                >
+                                    <svg
+                                        class="t:w-7 t:h-7"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <path d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .12.84L8.91 8.45a3 3 0 1 0 0 7.1l6.21 3.61A3 3 0 1 0 16 17a3 3 0 0 0-.12.84L9.67 14.23a3.02 3.02 0 0 0 0-4.46l6.21-3.61A3 3 0 0 0 18 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+
+            </section>
+        </main>
+
+        <footer class="t:w-full t:bg-[#F8F8F8] t:text-[#212636] t:px-5 t:pt-8 t:pb-10 roboto t:mt-10">
+            <div class="t:container t:mx-auto">
+                <div class="t:grid t:gap-y-6 t:pc:grid-cols-[1fr_auto] t:min-[1200px]:grid-cols-[auto_1fr_auto] t:pc:gap-x-10 t:min-[1200px]:gap-x-20 t:items-start">
+                    
+                    <!-- Column 1: Logo -->
+                    <div class="t:my-auto t:max-pc:flex t:max-pc:justify-center">
+                        <img
+                            src="../../common/assets/logo.png"
+                            alt="Báo Thái Nguyên"
+                            class="t:max-w-[320px] t:w-full t:object-contain"
+                        />
+                    </div>
+
+                    <!-- Column 2: Contact Details -->
+                    <div class="t:flex t:flex-col t:gap-y-3 t:text-xs t:leading-relaxed t:pc:order-9 t:pc:col-span-2 t:min-[1200px]:col-span-1 t:min-[1200px]:order-none">
+                        <div class="t:flex t:gap-x-4 t:items-start">
+                            <p class="t:w-[110px] t:shrink-0 t:text-[#667085]">Trụ sở:</p>
+                            <p class="t:flex-1 t:font-semibold t:text-[#212636]">
+                                Cơ sở 1 số 226 đường Bến Oánh; Cơ sở 2 số 19 phố Nhị Quý, phường Phan Đình Phùng, tỉnh Thái Nguyên
+                            </p>
+                        </div>
+                        <div class="t:flex t:gap-x-4 t:items-start">
+                            <p class="t:w-[110px] t:shrink-0 t:text-[#667085]">Giám đốc:</p>
+                            <p class="t:flex-1 t:font-semibold t:text-[#212636]">Đỗ Xuân Hòa</p>
+                        </div>
+                        <div class="t:flex t:gap-x-4 t:items-start">
+                            <p class="t:w-[110px] t:shrink-0 t:text-[#667085]">Phó Giám đốc:</p>
+                            <p class="t:flex-1 t:font-semibold t:text-[#212636]">Nguyễn Ngọc Sơn</p>
+                        </div>
+                        <div class="t:flex t:gap-x-4 t:items-start">
+                            <p class="t:w-[110px] t:shrink-0 t:text-[#667085]">Điện thoại:</p>
+                            <p class="t:flex-1 t:font-semibold t:text-[#212636]">
+                                <a href="tel:02083859666" class="t:hover:text-[#e31a22]">0208.3859.666</a>
+                            </p>
+                        </div>
+                        <div class="t:flex t:gap-x-4 t:items-start">
+                            <p class="t:w-[110px] t:shrink-0 t:text-[#667085]">Đường dây nóng:</p>
+                            <p class="t:flex-1 t:font-semibold t:text-[#212636]">
+                                <a href="tel:0902006113" class="t:hover:text-[#e31a22]">0902006113</a> - <a href="tel:0912039880" class="t:hover:text-[#e31a22]">091 2039880</a>
+                            </p>
+                        </div>
+                        <div class="t:flex t:gap-x-4 t:items-start">
+                            <p class="t:w-[110px] t:shrink-0 t:text-[#667085]">Email:</p>
+                            <p class="t:flex-1 t:font-semibold t:text-[#212636] t:break-all">
+                                <a href="mailto:toasoan@baothainguyen.vn" class="t:hover:text-[#e31a22]">toasoan@baothainguyen.vn</a>;<br />
+                                <a href="mailto:toasoan@baothainguyen.com.vn" class="t:hover:text-[#e31a22]">toasoan@baothainguyen.com.vn</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: QR Codes -->
+                    <div class="t:flex t:flex-col t:gap-y-3 t:w-full t:pc:w-fit t:ml-auto t:max-pc:items-center">
+                        <hr class="t:w-full t:border-0 t:border-t t:border-dashed t:border-[#DCDFE4] t:mt-2 t:pc:mt-4" />
+                        <p class="t:text-xs t:text-[#667085] t:text-center t:pc:text-left">Quét mã tải ứng dụng tại:</p>
+                        <img
+                            src="./Qr/6afd6312fc9b41b97329ebf44d6ab0ada8e8bbc5.png"
+                            alt="Quét mã tải ứng dụng"
+                            class="t:w-[260px] t:h-auto t:object-contain"
+                        />
+                    </div>
+                </div>
+
+                <!-- Dashed Line -->
+                <hr class="t:my-6 t:border-0 t:border-t t:border-dashed t:border-[#DCDFE4]" />
+
+                <!-- Copyright and License -->
+                <div class="t:flex t:flex-col t:gap-y-2 t:text-xs t:font-semibold t:text-[#212636] t:leading-relaxed">
+                    <p>
+                        Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT cấp ngày 20 tháng 11 năm 2023.
+                    </p>
+                    <p>
+                        Bản quyền thuộc về Báo và Phát thanh, Truyền hình Thái Nguyên. Ghi rõ nguồn “
+                        <a href="https://baothainguyen.vn" class="t:font-semibold t:text-[#212636] t:hover:text-[#e31a22]">https://baothainguyen.vn</a>
+                        ” khi phát hành lại thông tin từ website này
+                    </p>
+                </div>
+            </div>
+        </footer>
+        
+        <script type="module" src="../../common/swiper.js"></script>
+    </body>
+</html>
