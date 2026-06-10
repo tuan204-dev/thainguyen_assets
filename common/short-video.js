@@ -357,14 +357,14 @@
             </span>`
             : "";
         return `<div class="swiper-slide">
-        <button type="button" data-short-video-index="${i}"
+        <div role="button" tabindex="0" data-short-video-index="${i}"
                 class="t:relative t:block t:w-full t:aspect-9/16 t:rounded-lg t:overflow-hidden t:bg-cover t:bg-center t:cursor-pointer t:shadow-md"
                 style="background-image:url('${esc(item.thumbnail)}')">
             ${viewBadge}
             <div class="t:absolute t:inset-x-0 t:bottom-0 t:p-3 t:pt-9 t:text-left t:text-white t:text-sm t:font-semibold t:line-clamp-3 t:bg-linear-to-b t:from-[rgba(0,0,0,0)] t:to-[rgba(0,0,0,0.95)]">
                 <h3 class="title l3 t:text-white!">${esc(item.title)}</h3>
             </div>
-        </button>
+        </div>
     </div>`;
     }
 
