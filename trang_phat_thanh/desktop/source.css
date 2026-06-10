@@ -27,3 +27,74 @@
 * {
     box-sizing: border-box;
 }
+
+.short-video-section .swiper {
+    overflow: visible !important;
+    padding-bottom: 20px !important;
+    padding-top: 10px !important;
+    clip-path: inset(-100px -100vw -100px 0);
+}
+.short-video-section .swiper-slide {
+    width: 65vw !important;
+}
+@media (min-width: 1000px) {
+    .short-video-section .swiper {
+        padding-bottom: 60px !important;
+    }
+    .short-video-section .swiper-slide {
+        width: 200px !important;
+    }
+}
+.short-video-section .swiper-slide > div[role="button"] > span.t\:absolute,
+.short-video-section .swiper-slide > div[role="button"] > div.t\:absolute {
+    display: none !important;
+}
+.short-video-section .swiper-slide > div[role="button"] {
+    border-radius: 12px !important;
+}
+.short-video-section .swiper {
+    padding-bottom: 60px !important;
+    padding-top: 10px !important;
+    overflow: visible !important;
+    clip-path: inset(-100% -100vw -100% 0) !important;
+}
+.short-video-section .swiper-button-prev,
+.short-video-section .swiper-button-next {
+    top: auto !important;
+    bottom: 0 !important;
+    width: 68px !important;
+    height: 32px !important;
+    background-color: #3d1313 !important;
+    border-radius: 9999px !important;
+    margin: 0 !important;
+}
+.short-video-section .swiper-button-prev:hover,
+.short-video-section .swiper-button-next:hover {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    transform: none !important;
+}
+.short-video-section .swiper-button-prev {
+    left: calc(50% - 72px) !important;
+    right: auto !important;
+}
+.short-video-section .swiper-button-next {
+    left: calc(50% + 4px) !important;
+    right: auto !important;
+}
+.short-video-section .swiper-button-prev::after,
+.short-video-section .swiper-button-next::after {
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    transition: all 0.2s ease;
+}
+.short-video-section .swiper-button-prev:hover::after,
+.short-video-section .swiper-button-next:hover::after {
+    color: #3d1313 !important;
+}
+@media (max-width: 999px) {
+    .short-video-section .swiper-button-prev,
+    .short-video-section .swiper-button-next {
+        display: none !important;
+    }
+}
