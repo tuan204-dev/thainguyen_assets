@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xem truyền hình trực tuyến - Báo Thái Nguyên</title>
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../common/style/fonts-merriweather-vn.css" />
+    <link rel="stylesheet" href="../common/style/fonts-roboto-vn.css" />
+    <link rel="stylesheet" href="../common/style/common.css" />
+    <link rel="stylesheet" href="../common/style/dropdown.css" />
+    <link rel="stylesheet" href="../common/style/icon.css" />
+    <link rel="stylesheet" href="../common/style/overlay.css" />
+    <link rel="stylesheet" href="../common/vendor/overlayscrollbars.min.css" />
+    <link rel="stylesheet" href="../common/style/overlayscrollbar.css" />
+    <link rel="stylesheet" href="../common/vendor/swiper-bundle.min.css" />
+</head>
+
+<body class="tv-page">
+    <!-- Desktop Header -->
+    <header class="home-header t:hidden t:md:block">
+        <div class="home-header-main t:bg-[#E31E24] t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.15)]">
+            <div class="t:container t:mx-auto">
+                <div class="t:flex t:items-center t:justify-between t:gap-x-4 t:h-14 t:py-0.5">
+                    <div class="t:flex t:items-center t:gap-x-6">
+                        <button type="button" data-overlay-target="desktop-main-menu"
+                            class="t:flex t:items-center t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:hover:opacity-80">
+                            <i class="material-symbols--menu-rounded t:text-2xl"></i>
+                        </button>
+
+                        <a href="/" class="t:flex t:items-center t:shrink-0">
+                            <img src="../common/assets/logo-white.png" alt="Báo Thái Nguyên"
+                                class="logo-header t:h-[36px] t:w-[175.73px] logo-white-filter" />
+                        </a>
+                    </div>
+
+                    <!-- Menu Pills -->
+                    <nav class="t:flex t:items-center t:gap-x-3 roboto t:text-xs t:font-bold">
+                        <a href="./index.html"
+                            class="t:flex t:items-center t:gap-x-1.5 t:px-4 t:py-2 t:bg-red t:text-[#efe9e9] t:rounded-full t:transition-all">
+                            <i class="ph--monitor t:text-base"></i>
+                            <span>TRUYỀN HÌNH</span>
+                        </a>
+                        <a href="#"
+                            class="t:flex t:items-center t:gap-x-1.5 t:px-4 t:py-2 t:text-white t:hover:bg-white/15 t:rounded-full t:transition-all">
+                            <i class="ph--radio t:text-base"></i>
+                            <span>PHÁT THANH</span>
+                        </a>
+                        <a href="../doc_bao_in/index.html"
+                            class="t:flex t:items-center t:gap-x-1.5 t:px-4 t:py-2 t:text-white t:hover:bg-white/15 t:rounded-full t:transition-all">
+                            <i class="ph--newspaper t:text-base"></i>
+                            <span>BÁO IN</span>
+                        </a>
+                        <a href="#"
+                            class="t:flex t:items-center t:gap-x-1.5 t:px-4 t:py-2 t:text-white t:hover:bg-white/15 t:rounded-full t:transition-all">
+                            <i class="ph--globe-simple t:text-base"></i>
+                            <span>NỀN TẢNG SỐ</span>
+                        </a>
+                    </nav>
+
+                    <div class="t:flex t:items-center t:gap-x-2.5">
+                        <button type="button" aria-label="Tìm kiếm"
+                            class="t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:flex t:items-center t:hover:opacity-80">
+                            <i class="majesticons--search-line t:text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Header -->
+    <header
+        class="home-mobile-header t:md:hidden t:bg-[#E31E24] t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.15)] t:sticky t:top-0 t:z-50">
+        <div class="t:px-4">
+            <div class="t:grid t:grid-cols-[auto_1fr_auto] t:items-center t:gap-x-3 t:h-13">
+                <button type="button" data-overlay-target="mobile-main-menu" aria-label="Mở menu"
+                    class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:opacity-80">
+                    <i class="material-symbols--menu-rounded t:text-2xl"></i>
+                </button>
+
+                <a href="/" class="t:flex t:items-center t:justify-center t:min-w-0 t:overflow-hidden">
+                    <img src="img/logo.png" alt="Báo Thái Nguyên"
+                        class="t:h-8 t:max-w-[180px] t:w-auto t:object-contain logo-white-filter" />
+                </a>
+
+                <div class="t:flex t:items-center t:gap-x-2.5">
+                    <button type="button" aria-label="Tìm kiếm"
+                        class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:opacity-80">
+                        <i class="majesticons--search-line t:text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Aside Menu (Sidebar overlay) -->
+    <aside class="home-menu-aside t:hidden t:md:block">
+        <div class="overlay home-main-overlay" data-overlay-id="desktop-main-menu" data-overlay-variant="fullscreen">
+            <div class="overlay__backdrop"></div>
+            <div
+                class="overlay__content t:p-0! t:w-full t:bg-[#1f0406] t:overflow-y-auto home-main-overlay-content t:border-l t:border-[#3a0e10]">
+                <div class="t:bg-[#130001] t:border-b t:border-[#3a0e10]">
+                    <div class="t:container t:mx-auto">
+                        <div class="t:flex t:items-center t:justify-between t:h-[70px] t:px-4">
+                            <a href="/" class="t:flex t:items-center">
+                                <img src="img/logo.png" alt="Báo Thái Nguyên"
+                                    class="t:max-h-12 t:w-auto logo-white-filter" />
+                            </a>
+                            <button type="button" data-overlay-target="desktop-main-menu" aria-label="Đóng"
+                                class="t:size-6 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:text-[#E31E24]">
+                                <i class="material-symbols--close-rounded t:text-2xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="t:py-8 t:container t:mx-auto t:px-4">
+                    <h2 class="sidebar-title t:text-2xl t:mb-6 t:text-white">Danh mục chính</h2>
+                    <ul class="t:flex t:flex-col t:gap-y-3 t:text-lg">
+                        <li>
+                            <a href="#" class="t:text-white hover:t:text-[#E31E24]">
+                                Trang chủ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="t:text-white hover:t:text-[#E31E24]">
+                                Truyền hình trực tuyến
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="t:text-white hover:t:text-[#E31E24]">
+                                Phát thanh trực tuyến
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../doc_bao_in/index.html" class="t:text-white hover:t:text-[#E31E24]">
+                                Đọc báo in
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Grid -->
+    <main class="t:container t:mx-auto t:py-6 t:px-4 t:md:py-8">
+        <div class="t:grid t:grid-cols-1 t:md:grid-cols-[240px_1fr] t:gap-y-8 t:md:gap-x-0">
+            <!-- Left Sidebar Column -->
+            <aside class="t:hidden t:md:block t:border-r t:border-white t:pr-8 t:md:-my-8 t:md:py-8">
+                <div class="t:sticky t:top-18">
+                    <h2
+                        class="sidebar-title t:text-xl t:uppercase t:border-b t:border-white/15 t:pb-3 t:mb-4 t:tracking-wide t:md:-mr-8">
+                        PHÁT THANH
+                    </h2>
+                    <ul class="t:flex t:flex-col t:gap-y-1">
+                        <li>
+                            <a href="#"
+                                class="sidebar-menu-item active t:flex t:items-center t:px-3 t:py-2.5 t:text-sm t:font-medium">
+                                Bản tin thời sự
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="sidebar-menu-item t:flex t:items-center t:px-3 t:py-2.5 t:text-sm t:font-medium">
+                                Chuyên mục 1
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="sidebar-menu-item t:flex t:items-center t:px-3 t:py-2.5 t:text-sm t:font-medium">
+                                Chuyên mục 2
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="sidebar-menu-item t:flex t:items-center t:px-3 t:py-2.5 t:text-sm t:font-medium">
+                                Chuyên mục 3
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Right Content Column -->
+            <div class="t:md:pl-8">
+                <!-- Page Title -->
+                <h1
+                    class="sidebar-title t:text-2xl t:md:text-[28px] t:font-bold t:uppercase t:mb-6 t:text-white t:tracking-wide">
+                    Xem truyền hình trực tuyến
+                </h1>
+
+                <!-- Main Video Player Section -->
+                <section class="player-container t:mb-10" aria-label="Trình phát video trực tuyến">
+                    <div class="t:grid t:grid-cols-1 t:lg:grid-cols-[62%_38%]">
+                        <!-- Video Screen -->
+                        <div class="t:relative t:w-full t:aspect-video t:bg-black t:overflow-hidden t:group">
+                            <video id="main-video" class="t:w-full t:h-full t:object-cover" preload="metadata"
+                                src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"></video>
+
+                            <!-- Video Poster Cover Overlay -->
+                            <div id="video-cover"
+                                class="t:absolute t:inset-0 t:flex t:items-center t:justify-center t:bg-cover t:bg-center"
+                                style="background-image: url(&quot;./img/1.png&quot;)">
+                                <div class="t:absolute t:inset-0 t:bg-black/20"></div>
+                                <!-- Big Play Circle -->
+                                <button id="main-play-btn" type="button" aria-label="Phát video"
+                                    class="t:relative t:z-10 t:size-16 t:bg-black/60 t:hover:bg-[#E31E24] t:border t:border-white/30 t:rounded-full t:flex t:items-center t:justify-center t:cursor-pointer t:transition-all t:scale-100 hover:t:scale-110">
+                                    <i class="ph--play-fill t:text-white t:text-2xl t:ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video Info & Controls Panel -->
+                        <div class="t:p-5 t:md:p-6 t:flex t:flex-col t:justify-between t:bg-[#1a0305]">
+                            <div>
+                                <h3
+                                    class="sidebar-title t:text-xl t:md:text-22 t:font-bold t:text-white t:leading-snug t:mb-4">
+                                    Viên ngọc xanh giữa núi rừng Việt Bắc
+                                </h3>
+                            </div>
+
+                            <!-- Custom Controller interface -->
+                            <div class="t:bg-black/30 t:border t:border-white/5 t:p-4 t:rounded-lg">
+                                <!-- Play status / progress bar -->
+                                <div class="t:flex t:items-center t:gap-x-4 t:mb-3">
+                                    <button id="play-pause-btn" type="button"
+                                        class="t:size-8 t:bg-[#E31E24] t:hover:bg-[#c51419] t:rounded-full t:flex t:items-center t:justify-center t:text-white t:cursor-pointer t:transition-colors t:shrink-0">
+                                        <i id="play-icon" class="ph--play-fill t:text-sm t:ml-0.5"></i>
+                                        <!-- Pause icon (using custom SVG or text, since ph--pause is standard text) -->
+                                        <span id="pause-icon" class="t:hidden t:font-bold t:text-xs">
+                                            ||
+                                        </span>
+                                    </button>
+
+                                    <!-- Progress slider -->
+                                    <div id="progress-bar" class="player-progress-bar t:flex-1">
+                                        <div id="progress-fill" class="player-progress-fill"></div>
+                                        <div id="progress-thumb" class="player-progress-thumb"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Meta bar: Time and Volume -->
+                                <div class="t:flex t:items-center t:justify-between t:text-xs t:text-white/70">
+                                    <span id="time-label">00:00 / 04:15</span>
+
+                                    <div class="t:flex t:items-center t:gap-x-2">
+                                        <!-- Speaker icon -->
+                                        <span class="t:text-base">🔊</span>
+                                        <div id="volume-bar"
+                                            class="t:w-16 t:h-1 t:bg-white/20 t:rounded-full t:relative t:cursor-pointer">
+                                            <div id="volume-fill"
+                                                class="t:absolute t:left-0 t:top-0 t:h-full t:bg-white t:rounded-full"
+                                                style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="t:border-white/50 t:mb-12 t:md:-ml-8 stretch-right-hr" />
+
+                <!-- SECTION 1: BẢN TIN THỜI SỰ -->
+                <section class="t:mb-12" aria-labelledby="section-thoi-su">
+                    <div class="t:flex t:items-center t:justify-between t:pb-3 t:mb-6">
+                        <h2 id="section-thoi-su"
+                            class="section-title t:text-lg t:md:text-xl t:font-bold t:uppercase t:text-white">
+                            Bản tin thời sự
+                        </h2>
+                        <a href="#"
+                            class="t:flex t:items-center t:gap-x-1 t:px-3 t:py-1 t:text-xs t:text-[#ffd8d8] t:border t:border-white/15 t:rounded-full t:hover:bg-white/5 t:transition-colors">
+                            <span>Xem Thêm</span>
+                            <i class="material-symbols--chevron-right-rounded t:text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- Grid content -->
+                    <div class="t:grid t:grid-cols-1 t:md:grid-cols-3 t:gap-6">
+                        <!-- Card 1 -->
+                        <article class="card-item t:flex t:flex-col">
+                            <div class="t:relative t:aspect-video t:overflow-hidden">
+                                <img src="img/2.png" alt="Tổng Bí thư, Chủ tịch nước Tô Lâm"
+                                    class="t:w-full t:h-full t:object-cover" />
+                                <div class="t:absolute t:inset-0 t:bg-black/10"></div>
+                            </div>
+                            <div class="t:p-4 t:flex-1 t:flex t:items-start t:justify-between t:gap-x-2">
+                                <h3 class="t:text-sm t:font-bold t:leading-snug t:text-white/95 t:line-clamp-2">
+                                    Tổng Bí thư, Chủ tịch nước Tô Lâm tiếp Thủ tướng Nhật Bản
+                                    Takaichi Sanae
+                                </h3>
+                                <button type="button" aria-label="Chia sẻ"
+                                    class="t:shrink-0 t:mt-0.5 t:p-1 t:rounded t:hover:bg-white/10">
+                                    <svg class="t:size-4.5 t:text-white/60 hover:t:text-white" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="card-item t:flex t:flex-col">
+                            <div class="t:relative t:aspect-video t:overflow-hidden">
+                                <img src="img/2.png" alt="Tổng Bí thư, Chủ tịch nước Tô Lâm"
+                                    class="t:w-full t:h-full t:object-cover" />
+                                <div class="t:absolute t:inset-0 t:bg-black/10"></div>
+                            </div>
+                            <div class="t:p-4 t:flex-1 t:flex t:items-start t:justify-between t:gap-x-2">
+                                <h3 class="t:text-sm t:font-bold t:leading-snug t:text-white/95 t:line-clamp-2">
+                                    Tổng Bí thư, Chủ tịch nước Tô Lâm tiếp Thủ tướng Nhật Bản
+                                    Takaichi Sanae
+                                </h3>
+                                <button type="button" aria-label="Chia sẻ"
+                                    class="t:shrink-0 t:mt-0.5 t:p-1 t:rounded t:hover:bg-white/10">
+                                    <svg class="t:size-4.5 t:text-white/60 hover:t:text-white" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="card-item t:flex t:flex-col">
+                            <div class="t:relative t:aspect-video t:overflow-hidden">
+                                <img src="img/2.png" alt="Tổng Bí thư, Chủ tịch nước Tô Lâm"
+                                    class="t:w-full t:h-full t:object-cover" />
+                                <div class="t:absolute t:inset-0 t:bg-black/10"></div>
+                            </div>
+                            <div class="t:p-4 t:flex-1 t:flex t:items-start t:justify-between t:gap-x-2">
+                                <h3 class="t:text-sm t:font-bold t:leading-snug t:text-white/95 t:line-clamp-2">
+                                    Tổng Bí thư, Chủ tịch nước Tô Lâm tiếp Thủ tướng Nhật Bản
+                                    Takaichi Sanae
+                                </h3>
+                                <button type="button" aria-label="Chia sẻ"
+                                    class="t:shrink-0 t:mt-0.5 t:p-1 t:rounded t:hover:bg-white/10">
+                                    <svg class="t:size-4.5 t:text-white/60 hover:t:text-white" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Prev/Next Slider Control arrows -->
+                    <div class="t:flex t:items-center t:justify-center t:gap-x-3 t:mt-6">
+                        <button type="button" aria-label="Trang trước" class="nav-arrow-btn">
+                            <i class="material-symbols--chevron-left-rounded"></i>
+                        </button>
+                        <button type="button" aria-label="Trang sau" class="nav-arrow-btn">
+                            <i class="material-symbols--chevron-right-rounded"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <hr class="t:border-white/50 t:mb-12 t:md:-ml-8 stretch-right-hr" />
+
+                <!-- SECTION 2: CHUYÊN MỤC 1 -->
+                <section class="t:mb-12" aria-labelledby="section-chuyen-muc-1">
+                    <div class="t:flex t:items-center t:justify-between t:pb-3 t:mb-6">
+                        <h2 id="section-chuyen-muc-1"
+                            class="section-title t:text-lg t:md:text-xl t:font-bold t:uppercase t:text-white">
+                            Chuyên mục 1
+                        </h2>
+                        <a href="#"
+                            class="t:flex t:items-center t:gap-x-1 t:px-3 t:py-1 t:text-xs t:text-[#ffd8d8] t:border t:border-white/15 t:rounded-full t:hover:bg-white/5 t:transition-colors">
+                            <span>Xem Thêm</span>
+                            <i class="material-symbols--chevron-right-rounded t:text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- Grid content -->
+                    <div class="t:grid t:grid-cols-1 t:md:grid-cols-3 t:gap-6">
+                        <!-- Card 1 -->
+                        <article class="card-item t:flex t:flex-col">
+                            <div class="t:relative t:aspect-video t:overflow-hidden">
+                                <img src="img/3.png" alt="Thành công từ sự đồng thuận"
+                                    class="t:w-full t:h-full t:object-cover" />
+                                <div class="t:absolute t:inset-0 t:bg-black/10"></div>
+                            </div>
+                            <div class="t:p-4 t:flex-1 t:flex t:items-start t:justify-between t:gap-x-2">
+                                <h3 class="t:text-sm t:font-bold t:leading-snug t:text-white/95 t:line-clamp-2">
+                                    Thành công từ sự đồng thuận
+                                </h3>
+                                <button type="button" aria-label="Chia sẻ"
+                                    class="t:shrink-0 t:mt-0.5 t:p-1 t:rounded t:hover:bg-white/10">
+                                    <svg class="t:size-4.5 t:text-white/60 hover:t:text-white" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="card-item t:flex t:flex-col">
+                            <div class="t:relative t:aspect-video t:overflow-hidden">
+                                <img src="img/4.png" alt="Ngập úng đô thị" class="t:w-full t:h-full t:object-cover" />
+                                <div class="t:absolute t:inset-0 t:bg-black/10"></div>
+                            </div>
+                            <div class="t:p-4 t:flex-1 t:flex t:items-start t:justify-between t:gap-x-2">
+                                <h3 class="t:text-sm t:font-bold t:leading-snug t:text-white/95 t:line-clamp-2">
+                                    Ngập úng đô thị - Hệ quả của mưa lớn và hạ tầng quá tải
+                                </h3>
+                                <button type="button" aria-label="Chia sẻ"
+                                    class="t:shrink-0 t:mt-0.5 t:p-1 t:rounded t:hover:bg-white/10">
+                                    <svg class="t:size-4.5 t:text-white/60 hover:t:text-white" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="card-item t:flex t:flex-col">
+                            <div class="t:relative t:aspect-video t:overflow-hidden">
+                                <img src="img/5.png" alt="Thái Nguyên - Hương sắc danh trà"
+                                    class="t:w-full t:h-full t:object-cover" />
+                                <div class="t:absolute t:inset-0 t:bg-black/10"></div>
+                            </div>
+                            <div class="t:p-4 t:flex-1 t:flex t:items-start t:justify-between t:gap-x-2">
+                                <h3 class="t:text-sm t:font-bold t:leading-snug t:text-white/95 t:line-clamp-2">
+                                    Thái Nguyên - Hương sắc danh trà
+                                </h3>
+                                <button type="button" aria-label="Chia sẻ"
+                                    class="t:shrink-0 t:mt-0.5 t:p-1 t:rounded t:hover:bg-white/10">
+                                    <svg class="t:size-4.5 t:text-white/60 hover:t:text-white" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="t:flex t:items-center t:justify-center t:gap-x-3 t:mt-6">
+                        <button type="button" aria-label="Trang trước" class="nav-arrow-btn">
+                            <i class="material-symbols--chevron-left-rounded"></i>
+                        </button>
+                        <button type="button" aria-label="Trang sau" class="nav-arrow-btn">
+                            <i class="material-symbols--chevron-right-rounded"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <hr class="t:border-white t:mb-12 t:md:-ml-8 stretch-right-hr" />
+
+                <!-- SECTION 3: CHUYÊN MỤC 2 -->
+                <section class="t:mb-12" aria-labelledby="section-chuyen-muc-2">
+                    <div class="t:flex t:items-center t:justify-between t:pb-3 t:mb-6">
+                        <h2 id="section-chuyen-muc-2"
+                            class="section-title t:text-lg t:md:text-xl t:font-bold t:uppercase t:text-white">
+                            Chuyên mục 2
+                        </h2>
+                        <a href="#"
+                            class="t:flex t:items-center t:gap-x-1 t:px-3 t:py-1 t:text-xs t:text-[#ffd8d8] t:border t:border-white/15 t:rounded-full t:hover:bg-white/5 t:transition-colors">
+                            <span>Xem Thêm</span>
+                            <i class="material-symbols--chevron-right-rounded t:text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- Grid content -->
+                    <div class="t:grid t:grid-cols-1 t:md:grid-cols-3 t:gap-6">
+                        <!-- Card 1 -->
+                        <article class="card-item t:flex t:flex-col">
+                            <div class="t:relative t:aspect-video t:overflow-hidden">
+                                <img src="img/6.png" alt="Bản tin ANTT tuần 5 tháng 04"
+                                    class="t:w-full t:h-full t:object-cover" />
+                                <div class="t:absolute t:inset-0 t:bg-black/10"></div>
+                            </div>
+                            <div class="t:p-4 t:flex-1 t:flex t:items-start t:justify-between t:gap-x-2">
+                                <h3 class="t:text-sm t:font-bold t:leading-snug t:text-white/95 t:line-clamp-2">
+                                    Bản tin ANTT tuần 5 tháng 04: Xuyên đêm làm rõ tài xế gây
+                                    tai nạn rồi bỏ chạy
+                                </h3>
+                                <button type="button" aria-label="Chia sẻ"
+                                    class="t:shrink-0 t:mt-0.5 t:p-1 t:rounded t:hover:bg-white/10">
+                                    <svg class="t:size-4.5 t:text-white/60 hover:t:text-white" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="card-item t:flex t:flex-col">
+                            <div class="t:relative t:aspect-video t:overflow-hidden">
+                                <img src="img/7.png" alt="Bản tin ANTT tuần 4 tháng 04"
+                                    class="t:w-full t:h-full t:object-cover" />
+                                <div class="t:absolute t:inset-0 t:bg-black/10"></div>
+                            </div>
+                            <div class="t:p-4 t:flex-1 t:flex t:items-start t:justify-between t:gap-x-2">
+                                <h3 class="t:text-sm t:font-bold t:leading-snug t:text-white/95 t:line-clamp-2">
+                                    Bản tin ANTT tuần 4 tháng 04: Xét xử 14 bị cáo gây rối trật
+                                    tự công cộng
+                                </h3>
+                                <button type="button" aria-label="Chia sẻ"
+                                    class="t:shrink-0 t:mt-0.5 t:p-1 t:rounded t:hover:bg-white/10">
+                                    <svg class="t:size-4.5 t:text-white/60 hover:t:text-white" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="card-item t:flex t:flex-col">
+                            <div class="t:relative t:aspect-video t:overflow-hidden">
+                                <img src="img/7.png" alt="Bản tin ANTT tuần 3 tháng 04"
+                                    class="t:w-full t:h-full t:object-cover" />
+                                <div class="t:absolute t:inset-0 t:bg-black/10"></div>
+                            </div>
+                            <div class="t:p-4 t:flex-1 t:flex t:items-start t:justify-between t:gap-x-2">
+                                <h3 class="t:text-sm t:font-bold t:leading-snug t:text-white/95 t:line-clamp-2">
+                                    Bản tin ANTT tuần 3 tháng 04: Phát hiện quả bom nặng khoảng
+                                    200kg khi thi công kè
+                                </h3>
+                                <button type="button" aria-label="Chia sẻ"
+                                    class="t:shrink-0 t:mt-0.5 t:p-1 t:rounded t:hover:bg-white/10">
+                                    <svg class="t:size-4.5 t:text-white/60 hover:t:text-white" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="t:flex t:items-center t:justify-center t:gap-x-3 t:mt-6">
+                        <button type="button" aria-label="Trang trước" class="nav-arrow-btn">
+                            <i class="material-symbols--chevron-left-rounded"></i>
+                        </button>
+                        <button type="button" aria-label="Trang sau" class="nav-arrow-btn">
+                            <i class="material-symbols--chevron-right-rounded"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <hr class="t:border-white t:mb-12 t:md:-ml-8 stretch-right-hr" />
+
+                <!-- SECTION 4: CHUYÊN MỤC 3 -->
+                <section class="t:mb-12" aria-labelledby="section-chuyen-muc-3">
+                    <div class="t:flex t:items-center t:justify-between t:pb-3 t:mb-6">
+                        <h2 id="section-chuyen-muc-3"
+                            class="section-title t:text-lg t:md:text-xl t:font-bold t:uppercase t:text-white">
+                            Chuyên mục 3
+                        </h2>
+                        <a href="#"
+                            class="t:flex t:items-center t:gap-x-1 t:px-3 t:py-1 t:text-xs t:text-[#ffd8d8] t:border t:border-white/15 t:rounded-full t:hover:bg-white/5 t:transition-colors">
+                            <span>Xem Thêm</span>
+                            <i class="material-symbols--chevron-right-rounded t:text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- Grid content -->
+                    <div class="t:grid t:grid-cols-1 t:md:grid-cols-3 t:gap-6">
+                        <!-- Card 1 -->
+                        <article class="card-item t:flex t:flex-col">
+                            <div class="t:relative t:aspect-video t:overflow-hidden">
+                                <img src="img/8.png" alt="Bản tin Kinh tế tuần 5"
+                                    class="t:w-full t:h-full t:object-cover" />
+                                <div class="t:absolute t:inset-0 t:bg-black/10"></div>
+                            </div>
+                            <div class="t:p-4 t:flex-1 t:flex t:items-start t:justify-between t:gap-x-2">
+                                <h3 class="t:text-sm t:font-bold t:leading-snug t:text-white/95 t:line-clamp-2">
+                                    Bản tin Kinh tế tuần 5 tháng 4: Không nghỉ lễ, dự án chống
+                                    ngập tăng tốc về đích
+                                </h3>
+                                <button type="button" aria-label="Chia sẻ"
+                                    class="t:shrink-0 t:mt-0.5 t:p-1 t:rounded t:hover:bg-white/10">
+                                    <svg class="t:size-4.5 t:text-white/60 hover:t:text-white" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="card-item t:flex t:flex-col">
+                            <div class="t:relative t:aspect-video t:overflow-hidden">
+                                <img src="img/9.png" alt="Posco đầu tư dự án"
+                                    class="t:w-full t:h-full t:object-cover" />
+                                <div class="t:absolute t:inset-0 t:bg-black/10"></div>
+                            </div>
+                            <div class="t:p-4 t:flex-1 t:flex t:items-start t:justify-between t:gap-x-2">
+                                <h3 class="t:text-sm t:font-bold t:leading-snug t:text-white/95 t:line-clamp-2">
+                                    Bản tin Kinh tế tuần 4 tháng 4: Posco đầu tư dự án 282 triệu
+                                    USD tại Thái Nguyên
+                                </h3>
+                                <button type="button" aria-label="Chia sẻ"
+                                    class="t:shrink-0 t:mt-0.5 t:p-1 t:rounded t:hover:bg-white/10">
+                                    <svg class="t:size-4.5 t:text-white/60 hover:t:text-white" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="card-item t:flex t:flex-col">
+                            <div class="t:relative t:aspect-video t:overflow-hidden">
+                                <img src="img/10.png" alt="Thái Nguyên dẫn đầu cả nước về xuất siêu"
+                                    class="t:w-full t:h-full t:object-cover" />
+                                <div class="t:absolute t:inset-0 t:bg-black/10"></div>
+                            </div>
+                            <div class="t:p-4 t:flex-1 t:flex t:items-start t:justify-between t:gap-x-2">
+                                <h3 class="t:text-sm t:font-bold t:leading-snug t:text-white/95 t:line-clamp-2">
+                                    Bản tin Kinh tế tuần 3 tháng 4: Thái Nguyên dẫn đầu cả nước
+                                    về xuất siêu
+                                </h3>
+                                <button type="button" aria-label="Chia sẻ"
+                                    class="t:shrink-0 t:mt-0.5 t:p-1 t:rounded t:hover:bg-white/10">
+                                    <svg class="t:size-4.5 t:text-white/60 hover:t:text-white" fill="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="t:flex t:items-center t:justify-center t:gap-x-3 t:mt-6">
+                        <button type="button" aria-label="Trang trước" class="nav-arrow-btn">
+                            <i class="material-symbols--chevron-left-rounded"></i>
+                        </button>
+                        <button type="button" aria-label="Trang sau" class="nav-arrow-btn">
+                            <i class="material-symbols--chevron-right-rounded"></i>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="t:bg-[#6e0d0d] t:border-t t:border-[#ece4e4] t:pt-10 t:pb-6 roboto">
+        <div class="t:container t:mx-auto t:px-4">
+            <div
+                class="t:grid t:grid-cols-1 t:pc:grid-cols-[1fr_auto] t:min-[1200px]:grid-cols-[auto_1fr_auto] t:gap-y-8 t:pc:gap-x-20 t:items-start">
+                <!-- Footer Logo -->
+                <div class="t:my-auto t:min-[1200px]:mt-0">
+                    <img src="../common/assets/logo-white.png" alt="TV Thái Nguyên"
+                        class="t:object-contain t:max-w-[350px] t:w-full logo-white-filter" />
+                    <p class="t:text-[10px] t:text-[#bc9f9f] t:mt-2 t:max-w-[350px] t:uppercase t:leading-relaxed">
+                        Cơ quan của Đảng bộ Đảng Cộng sản Việt Nam tỉnh Thái Nguyên
+                    </p>
+                </div>
+
+                <!-- Footer Contact Info -->
+                <div
+                    class="t:flex t:flex-col t:gap-y-2 t:text-xs t:leading-[1.5] t:pc:order-9 t:pc:col-span-2 t:min-[1200px]:col-span-1 t:min-[1200px]:order-none">
+                    <div class="t:flex t:gap-x-4 t:items-start">
+                        <p class="t:w-25 t:shrink-0 t:text-[#bc9f9f]">Trụ sở:</p>
+                        <p class="t:flex-1 t:font-semibold t:text-[#ffd8d8]">
+                            Cơ sở 1 số 226 đường Bến Oánh; Cơ sở 2 số 19 phố Nhị Quý, phường
+                            Phan Đình Phùng, tỉnh Thái Nguyên
+                        </p>
+                    </div>
+                    <div class="t:flex t:gap-x-4 t:items-start">
+                        <p class="t:w-25 t:shrink-0 t:text-[#bc9f9f]">Giám đốc:</p>
+                        <p class="t:flex-1 t:font-semibold t:text-[#ffd8d8]">Đỗ Xuân Hòa</p>
+                    </div>
+                    <div class="t:flex t:gap-x-4 t:items-start">
+                        <p class="t:w-25 t:shrink-0 t:text-[#bc9f9f]">Phó Giám đốc:</p>
+                        <p class="t:flex-1 t:font-semibold t:text-[#ffd8d8]">Nguyễn Ngọc Sơn</p>
+                    </div>
+                    <div class="t:flex t:gap-x-4 t:items-start">
+                        <p class="t:w-25 t:shrink-0 t:text-[#bc9f9f]">Điện thoại:</p>
+                        <p class="t:flex-1 t:font-semibold t:text-[#ffd8d8]">
+                            <a href="tel:02083859666" class="t:hover:text-[#E31E24] t:transition-colors">
+                                0208.3859.666
+                            </a>
+                        </p>
+                    </div>
+                    <div class="t:flex t:gap-x-4 t:items-start">
+                        <p class="t:w-25 t:shrink-0 t:text-[#bc9f9f]">Đường dây nóng:</p>
+                        <p class="t:flex-1 t:font-semibold t:text-[#ffd8d8]">
+                            <a href="tel:0902006113" class="t:hover:text-[#E31E24] t:transition-colors">
+                                0902006113
+                            </a>
+                            -
+                            <a href="tel:0912039880" class="t:hover:text-[#E31E24] t:transition-colors">
+                                091 2039880
+                            </a>
+                        </p>
+                    </div>
+                    <div class="t:flex t:gap-x-4 t:items-start">
+                        <p class="t:w-25 t:shrink-0 t:text-[#bc9f9f]">Email:</p>
+                        <p class="t:flex-1 t:font-semibold t:text-[#ffd8d8] t:break-all">
+                            <a href="mailto:toasoan@baothainguyen.vn"
+                                class="t:hover:text-[#E31E24] t:transition-colors">
+                                toasoan@baothainguyen.vn
+                            </a>
+                            ;
+                            <a href="mailto:toasoan@baothainguyen.com.vn"
+                                class="t:hover:text-[#E31E24] t:transition-colors">
+                                toasoan@baothainguyen.com.vn
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Footer QR App Download -->
+                <div class="t:flex t:flex-col t:gap-y-3 t:w-full t:pc:w-fit t:ml-auto">
+                    <p class="t:text-xs t:text-[#ffd8d8]">Quét mã tải ứng dụng tại:</p>
+                    <div class="t:flex t:gap-x-4">
+                        <img src="img/MaQR.png" alt="Quét mã tải ứng dụng Android và iOS"
+                            class="t:h-[100px] t:w-auto t:object-contain t:rounded t:border t:border-white/10" />
+                    </div>
+                </div>
+            </div>
+
+            <hr class="t:my-5 t:border-0 t:border-t t:border-white" />
+
+            <!-- Copyright / License bar -->
+            <div class="t:flex t:flex-col t:gap-y-1 t:text-[11px] t:text-[#f4f2f2] t:leading-relaxed">
+                <p>
+                    Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT cấp ngày 20 tháng 11
+                    năm 2023.
+                </p>
+                <p>
+                    Bản quyền thuộc về Báo và Phát thanh, Truyền hình Thái Nguyên. Ghi rõ nguồn
+                    “
+                    <a href="https://baothainguyen.vn"
+                        class="t:text-[#ffd8d8] t:hover:text-[#E31E24] t:transition-colors">
+                        https://baothainguyen.vn
+                    </a>
+                    ” khi phát hành lại thông tin từ website này.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button type="button" id="scrollToTopBtn" aria-label="Lên đầu trang" class="scroll-top-button t:hidden t:md:flex">
+        ↑
+    </button>
+
+    <!-- Script Section -->
+    <script>
+        (function () {
+            // Scroll to top button behavior
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            if (scrollToTopBtn) {
+                const toggleVisibility = () => {
+                    const isVisible = window.scrollY > 280;
+                    scrollToTopBtn.classList.toggle("is-visible", isVisible);
+                };
+                window.addEventListener("scroll", toggleVisibility, { passive: true });
+                scrollToTopBtn.addEventListener("click", () => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+                toggleVisibility();
+            }
+
+            // Custom video player behavior
+            const video = document.getElementById("main-video");
+            const playPauseBtn = document.getElementById("play-pause-btn");
+            const playIcon = document.getElementById("play-icon");
+            const pauseIcon = document.getElementById("pause-icon");
+            const progressBar = document.getElementById("progress-bar");
+            const progressFill = document.getElementById("progress-fill");
+            const timeLabel = document.getElementById("time-label");
+            const volumeBar = document.getElementById("volume-bar");
+            const volumeFill = document.getElementById("volume-fill");
+
+            const videoCover = document.getElementById("video-cover");
+            const mainPlayBtn = document.getElementById("main-play-btn");
+
+            function togglePlay() {
+                if (!video) return;
+                if (video.paused) {
+                    video.play();
+                    if (videoCover) videoCover.style.display = "none";
+                    playIcon.classList.add("t:hidden");
+                    pauseIcon.classList.remove("t:hidden");
+                } else {
+                    video.pause();
+                    playIcon.classList.remove("t:hidden");
+                    pauseIcon.classList.add("t:hidden");
+                }
+            }
+
+            if (mainPlayBtn) mainPlayBtn.addEventListener("click", togglePlay);
+            if (playPauseBtn) playPauseBtn.addEventListener("click", togglePlay);
+            if (videoCover) videoCover.addEventListener("click", togglePlay);
+            if (video) video.addEventListener("click", togglePlay);
+
+            // Update progress fill and time label
+            if (video && progressFill && timeLabel) {
+                video.addEventListener("timeupdate", () => {
+                    if (!video.duration) return;
+                    const pct = (video.currentTime / video.duration) * 100;
+                    progressFill.style.width = pct + "%";
+
+                    const formatTime = (time) => {
+                        const mins = Math.floor(time / 60)
+                            .toString()
+                            .padStart(2, "0");
+                        const secs = Math.floor(time % 60)
+                            .toString()
+                            .padStart(2, "0");
+                        return `${mins}:${secs}`;
+                    };
+                    timeLabel.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+                });
+            }
+
+            // Progress bar scrubbing
+            if (progressBar && video) {
+                progressBar.addEventListener("click", (e) => {
+                    const rect = progressBar.getBoundingClientRect();
+                    const pct = (e.clientX - rect.left) / rect.width;
+                    video.currentTime = pct * video.duration;
+                });
+            }
+
+            // Volume slider behavior
+            if (volumeBar && volumeFill && video) {
+                volumeBar.addEventListener("click", (e) => {
+                    const rect = volumeBar.getBoundingClientRect();
+                    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+                    volumeFill.style.width = pct * 100 + "%";
+                    video.volume = pct;
+                });
+            }
+        })();
+    </script>
+
+    <!-- Normalize all diacritics to NFC format dynamically to prevent browser rendering issues -->
+    <script>
+        (function () {
+            function normalizeTextNodes(node) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    node.nodeValue = node.nodeValue.normalize("NFC");
+                } else if (
+                    node.nodeType === Node.ELEMENT_NODE &&
+                    node.tagName !== "SCRIPT" &&
+                    node.tagName !== "STYLE" &&
+                    node.tagName !== "TEXTAREA"
+                ) {
+                    for (let i = 0; i < node.childNodes.length; i++) {
+                        normalizeTextNodes(node.childNodes[i]);
+                    }
+                }
+            }
+            normalizeTextNodes(document.body);
+        })();
+    </script>
+
+    <script src="../common/common.js"></script>
+    <script type="module" src="../common/swiper.js"></script>
+    <script type="module" src="../common/floating-dropdown.js"></script>
+    <script type="module" src="../common/overlay.js"></script>
+    <script type="module" src="../common/overlayscrollbar.js"></script>
+    <script type="module" src="../common/short-video.js"></script>
+    <script type="module" src="../common/header-sticky.js"></script>
+    <script type="module" src="../common/header.js"></script>
+</body>
+
+</html>

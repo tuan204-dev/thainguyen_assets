@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trang tin tức đặc biệt - Báo Thái Nguyên</title>
+        <link rel="stylesheet" href="./output.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../common/style/fonts-merriweather-vn.css" />
+        <link rel="stylesheet" href="../common/style/fonts-roboto-vn.css" />
+        <link rel="stylesheet" href="../common/style/common.css" />
+        <link rel="stylesheet" href="../common/style/dropdown.css" />
+        <link rel="stylesheet" href="../common/style/icon.css" />
+        <link rel="stylesheet" href="../common/style/overlay.css" />
+    </head>
+    <body class="t:bg-[#FDFDFD] t:text-[#111111]">
+        <!-- TOP HEADER BAR -->
+        <header class="t:w-full t:bg-[#E31E24] t:shadow-md t:sticky t:top-0 t:z-50">
+            <div class="t:container t:mx-auto t:px-4">
+                <div class="t:flex t:items-center t:justify-between t:h-14">
+                    <!-- Left: Menu Toggle Button -->
+                    <div class="t:flex t:items-center t:gap-x-2">
+                        <button
+                            type="button"
+                            class="t:flex t:items-center t:gap-x-2 t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:hover:opacity-85 t:transition-opacity focus:t:outline-none"
+                        >
+                            <i class="material-symbols--menu-rounded t:text-2xl"></i>
+                            <span class="t:hidden t:sm:inline t:text-sm t:font-bold t:tracking-wide">DANH MỤC</span>
+                        </button>
+                    </div>
+
+                    <!-- Center: White Logo -->
+                    <div class="t:flex t:items-center">
+                        <a href="/" class="t:flex t:items-center">
+                            <img
+                                src="../common/assets/logo-white.png"
+                                alt="Báo Thái Nguyên"
+                                class="t:h-9 t:w-auto t:object-contain"
+                            />
+                        </a>
+                    </div>
+
+                    <!-- Right: Languages & Search -->
+                    <div class="t:flex t:items-center t:gap-x-4">
+                        <div class="t:hidden t:md:flex t:items-center t:gap-x-2 t:text-white/80 t:text-xs">
+                            <a href="#" class="hover:t:text-white t:transition-colors">English</a>
+                            <span>|</span>
+                            <a href="#" class="hover:t:text-white t:transition-colors">中文</a>
+                            <span>|</span>
+                            <a href="#" class="hover:t:text-white t:transition-colors">한국어</a>
+                        </div>
+                        <button
+                            type="button"
+                            aria-label="Tìm kiếm"
+                            class="t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:flex t:items-center t:hover:opacity-85 t:transition-opacity"
+                        >
+                            <i class="majesticons--search-line t:text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUB HEADER NAVIGATION (MENU PILLS) -->
+            <div class="t:w-full t:bg-white t:border-b t:border-gray-200">
+                <div class="t:container t:mx-auto t:px-4">
+                    <nav class="t:flex t:items-center t:justify-center t:gap-x-2 t:sm:gap-x-8 t:py-2.5 roboto t:text-[11px] t:sm:text-xs t:font-bold">
+                        <a
+                            href="#"
+                            class="t:flex t:items-center t:gap-x-1.5 t:px-3.5 t:py-1.5 t:text-gray-700 hover:t:text-[#E31E24] t:transition-all hover:t:bg-red-50/50 t:rounded-full"
+                        >
+                            <i class="ph--monitor t:text-base t:text-red-600"></i>
+                            <span>TRUYỀN HÌNH</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="t:flex t:items-center t:gap-x-1.5 t:px-3.5 t:py-1.5 t:text-gray-700 hover:t:text-[#E31E24] t:transition-all hover:t:bg-red-50/50 t:rounded-full"
+                        >
+                            <i class="ph--radio t:text-base t:text-red-600"></i>
+                            <span>PHÁT THANH</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="t:flex t:items-center t:gap-x-1.5 t:px-3.5 t:py-1.5 t:text-gray-700 hover:t:text-[#E31E24] t:transition-all hover:t:bg-red-50/50 t:rounded-full"
+                        >
+                            <i class="ph--newspaper t:text-base t:text-red-600"></i>
+                            <span>BÁO IN</span>
+                        </a>
+                        <a
+                            href="#"
+                            class="t:flex t:items-center t:gap-x-1.5 t:px-3.5 t:py-1.5 t:text-gray-700 hover:t:text-[#E31E24] t:transition-all hover:t:bg-red-50/50 t:rounded-full"
+                        >
+                            <i class="ph--globe-simple t:text-base t:text-red-600"></i>
+                            <span>NỀN TẢNG SỐ</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO SECTION (LEADER FOCUS & TOP NEWS) -->
+        <section class="hero-watermark t:py-10 t:lg:py-16 t:bg-gradient-to-br t:from-red-50/10 t:via-white t:to-gray-50/10">
+            <div class="t:container t:mx-auto t:px-4">
+                <div class="t:grid t:grid-cols-1 t:lg:grid-cols-12 t:gap-8 t:items-center">
+                    <!-- Column 1: Leader Info (3/12 width on desktop) -->
+                    <div class="t:lg:col-span-3 t:text-center t:lg:text-left t:z-10">
+                        <span class="roboto t:text-sm t:font-bold t:text-red-600 t:tracking-widest t:uppercase">
+                            Đồng chí
+                        </span>
+                        <h1 class="merriweather t:text-3xl t:sm:text-4xl t:lg:text-[42px] t:font-black t:text-gray-900 t:mt-2 t:mb-4 t:leading-tight">
+                            Trịnh Xuân Trường
+                        </h1>
+                        <p class="roboto t:text-sm t:font-medium t:text-gray-700 t:leading-relaxed t:border-l-2 t:border-red-600 t:pl-4 t:inline-block t:text-left">
+                            Ủy viên Trung ương Đảng,<br class="t:hidden t:lg:inline" />
+                            Bí thư Tỉnh ủy Thái Nguyên
+                        </p>
+                    </div>
+
+                    <!-- Column 2: Leader Portrait (5/12 width on desktop) -->
+                    <div class="t:lg:col-span-5 t:flex t:justify-center t:items-end t:z-10">
+                        <div class="t:relative t:max-w-sm t:sm:max-w-md t:lg:max-w-[420px] t:w-full">
+                            <img
+                                src="img/CB1.png"
+                                alt="Đồng chí Trịnh Xuân Trường"
+                                class="t:w-full t:h-auto t:object-contain hover:t:scale-[1.02] t:transition-transform t:duration-500"
+                            />
+                            <!-- Fade out bottom of portrait to blend with the background -->
+                            <div class="t:pointer-events-none t:absolute t:bottom-0 t:inset-x-0 t:h-24 t:bg-gradient-to-t t:from-white t:via-white/80 t:to-transparent t:z-20" aria-hidden="true"></div>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Top Text News List (4/12 width on desktop) -->
+                    <div class="t:lg:col-span-4 t:z-10">
+                        <div class="t:flex t:flex-col t:gap-y-5">
+                            <!-- News Item 1 -->
+                            <div class="t:group t:cursor-pointer t:border-b t:border-gray-200/80 t:pb-4 last:t:border-none last:t:pb-0">
+                                <a href="#" class="t:block">
+                                    <h3 class="merriweather t:text-sm t:font-bold t:text-gray-800 group-hover:t:text-[#E31E24] t:leading-snug t:transition-colors">
+                                        Tăng cường kiểm soát quyền lực, xử lý dứt điểm các nguy cơ thất thoát, lãng phí
+                                    </h3>
+                                    <span class="roboto t:text-[10px] t:text-gray-400 t:mt-1.5 t:block">Báo điện tử</span>
+                                </a>
+                            </div>
+
+                            <!-- News Item 2 -->
+                            <div class="t:group t:cursor-pointer t:border-b t:border-gray-200/80 t:pb-4 last:t:border-none last:t:pb-0">
+                                <a href="#" class="t:block">
+                                    <h3 class="merriweather t:text-sm t:font-bold t:text-gray-800 group-hover:t:text-[#E31E24] t:leading-snug t:transition-colors">
+                                        Thái Nguyên: Gặp mặt nhân kỷ niệm Ngày truyền thống ngành Xây dựng
+                                    </h3>
+                                    <span class="roboto t:text-[10px] t:text-gray-400 t:mt-1.5 t:block">Báo điện tử</span>
+                                </a>
+                            </div>
+
+                            <!-- News Item 3 -->
+                            <div class="t:group t:cursor-pointer t:border-b t:border-gray-200/80 t:pb-4 last:t:border-none last:t:pb-0">
+                                <a href="#" class="t:block">
+                                    <h3 class="merriweather t:text-sm t:font-bold t:text-gray-800 group-hover:t:text-[#E31E24] t:leading-snug t:transition-colors">
+                                        Đồng chí Nguyễn Thị Loan được bầu bổ sung vào Ban Thường vụ Tỉnh ủy Thái Nguyên
+                                    </h3>
+                                    <span class="roboto t:text-[10px] t:text-gray-400 t:mt-1.5 t:block">Báo điện tử</span>
+                                </a>
+                            </div>
+
+                            <!-- News Item 4 -->
+                            <div class="t:group t:cursor-pointer">
+                                <a href="#" class="t:block">
+                                    <h3 class="merriweather t:text-sm t:font-bold t:text-gray-800 group-hover:t:text-[#E31E24] t:leading-snug t:transition-colors">
+                                        Thái Nguyên công bố quyết định điều động, luân chuyển, chỉ định, bổ nhiệm 39 cán bộ
+                                    </h3>
+                                    <span class="roboto t:text-[10px] t:text-gray-400 t:mt-1.5 t:block">Báo điện tử</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: THÔNG TIN CHUYÊN LUẬN -->
+        <section class="t:py-16 t:bg-white t:border-t t:border-gray-100">
+            <div class="t:container t:mx-auto t:px-4">
+                <!-- Section Header -->
+                <div class="t:text-center t:mb-10">
+                    <h2 class="roboto t:text-2xl t:sm:text-3xl t:font-black t:text-[#E31E24] t:tracking-wider t:uppercase">
+                        THÔNG TIN CHUYÊN LUẬN
+                    </h2>
+                    <!-- Hammer and sickle logo + lines divider -->
+                    <div class="t:flex t:items-center t:justify-center t:gap-x-4 t:mt-3">
+                        <span class="t:h-px t:w-16 t:bg-gray-200 t:hidden t:sm:block"></span>
+                        <div class="t:text-[#E31E24] t:flex t:items-center">
+                            <svg class="t:h-5 t:w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.3 2a10 10 0 0 0-4.6 1.1L9 4.3a8 8 0 1 1-4.8 6.4l-1.2-.2A10 10 0 1 0 12.3 2z M7 13.2a4 4 0 1 1 5.3-5.3l.9-.9a5.3 5.3 0 1 0-7.1 7.1l.9-.9z"/>
+                            </svg>
+                        </div>
+                        <span class="t:h-px t:w-16 t:bg-gray-200 t:hidden t:sm:block"></span>
+                    </div>
+                </div>
+
+                <!-- 8-Card Grid -->
+                <div class="t:grid t:grid-cols-1 t:sm:grid-cols-2 t:lg:grid-cols-4 t:gap-6">
+                    <!-- Card 1 -->
+                    <article class="news-card t:flex t:flex-col t:overflow-hidden t:bg-[#F9FAFB] t:rounded-lg t:border t:border-gray-100">
+                        <div class="t:relative t:aspect-[4/3] t:overflow-hidden">
+                            <img src="../TrangTruyenHinh/img/1.png" alt="Đại tướng Phan Văn Giang" class="t:w-full t:h-full t:object-cover" />
+                        </div>
+                        <div class="t:p-4 t:flex-1 t:flex t:flex-col t:justify-between">
+                            <h3 class="roboto t:text-sm t:font-bold t:text-gray-900 t:leading-snug hover:t:text-[#E31E24] t:transition-colors">
+                                Đại tướng Phan Văn Giang tặng quà gia đình chính sách, người có công tại Thái Nguyên
+                            </h3>
+                            <span class="roboto t:text-xs t:text-gray-400 t:mt-3 t:block">Sự kiện chính trị</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="news-card t:flex t:flex-col t:overflow-hidden t:bg-[#F9FAFB] t:rounded-lg t:border t:border-gray-100">
+                        <div class="t:relative t:aspect-[4/3] t:overflow-hidden">
+                            <img src="../TrangTruyenHinh/img/2.png" alt="Đại biểu Quốc hội tiếp xúc cử tri" class="t:w-full t:h-full t:object-cover" />
+                        </div>
+                        <div class="t:p-4 t:flex-1 t:flex t:flex-col t:justify-between">
+                            <h3 class="roboto t:text-sm t:font-bold t:text-gray-900 t:leading-snug hover:t:text-[#E31E24] t:transition-colors">
+                                Đoàn đại biểu Quốc hội tỉnh Thái Nguyên tiếp xúc cử tri sau Kỳ họp thứ nhất, Quốc hội khóa XVI
+                            </h3>
+                            <span class="roboto t:text-xs t:text-gray-400 t:mt-3 t:block">Hoạt động Quốc hội</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="news-card t:flex t:flex-col t:overflow-hidden t:bg-[#F9FAFB] t:rounded-lg t:border t:border-gray-100">
+                        <div class="t:relative t:aspect-[4/3] t:overflow-hidden">
+                            <img src="../TrangTruyenHinh/img/3.png" alt="Dâng hương Anh hùng liệt sĩ" class="t:w-full t:h-full t:object-cover" />
+                        </div>
+                        <div class="t:p-4 t:flex-1 t:flex t:flex-col t:justify-between">
+                            <h3 class="roboto t:text-sm t:font-bold t:text-gray-900 t:leading-snug hover:t:text-[#E31E24] t:transition-colors">
+                                Đại tướng Phan Văn Giang dâng hương tưởng niệm các Anh hùng liệt sĩ TNXP tại Thái Nguyên
+                            </h3>
+                            <span class="roboto t:text-xs t:text-gray-400 t:mt-3 t:block">Đền ơn đáp nghĩa</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="news-card t:flex t:flex-col t:overflow-hidden t:bg-[#F9FAFB] t:rounded-lg t:border t:border-gray-100">
+                        <div class="t:relative t:aspect-[4/3] t:overflow-hidden">
+                            <img src="../TrangTruyenHinh/img/4.png" alt="Khởi công dự án" class="t:w-full t:h-full t:object-cover" />
+                        </div>
+                        <div class="t:p-4 t:flex-1 t:flex t:flex-col t:justify-between">
+                            <h3 class="roboto t:text-sm t:font-bold t:text-gray-900 t:leading-snug hover:t:text-[#E31E24] t:transition-colors">
+                                Thái Nguyên đồng loạt khởi công 10 dự án, tổng vốn đầu tư gần 8.500 tỷ đồng
+                            </h3>
+                            <span class="roboto t:text-xs t:text-gray-400 t:mt-3 t:block">Phát triển kinh tế</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                    <article class="news-card t:flex t:flex-col t:overflow-hidden t:bg-[#F9FAFB] t:rounded-lg t:border t:border-gray-100">
+                        <div class="t:relative t:aspect-[4/3] t:overflow-hidden">
+                            <img src="../TrangTruyenHinh/img/5.png" alt="Hội nghị Ban Thường vụ Tỉnh ủy" class="t:w-full t:h-full t:object-cover" />
+                        </div>
+                        <div class="t:p-4 t:flex-1 t:flex t:flex-col t:justify-between">
+                            <h3 class="roboto t:text-sm t:font-bold t:text-gray-900 t:leading-snug hover:t:text-[#E31E24] t:transition-colors">
+                                Ban Thường vụ Tỉnh ủy cho ý kiến vào nhiều nội dung quan trọng
+                            </h3>
+                            <span class="roboto t:text-xs t:text-gray-400 t:mt-3 t:block">Xây dựng Đảng</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="news-card t:flex t:flex-col t:overflow-hidden t:bg-[#F9FAFB] t:rounded-lg t:border t:border-gray-100">
+                        <div class="t:relative t:aspect-[4/3] t:overflow-hidden">
+                            <img src="../TrangTruyenHinh/img/6.png" alt="Khu công nghiệp Thái Nguyên" class="t:w-full t:h-full t:object-cover" />
+                        </div>
+                        <div class="t:p-4 t:flex-1 t:flex t:flex-col t:justify-between">
+                            <h3 class="roboto t:text-sm t:font-bold t:text-gray-900 t:leading-snug hover:t:text-[#E31E24] t:transition-colors">
+                                Xây dựng các khu, cụm công nghiệp phù hợp với mục tiêu tổng thể phát triển kinh tế - xã hội
+                            </h3>
+                            <span class="roboto t:text-xs t:text-gray-400 t:mt-3 t:block">Kế hoạch & Quy hoạch</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 7 -->
+                    <article class="news-card t:flex t:flex-col t:overflow-hidden t:bg-[#F9FAFB] t:rounded-lg t:border t:border-gray-100">
+                        <div class="t:relative t:aspect-[4/3] t:overflow-hidden">
+                            <img src="../TrangTruyenHinh/img/7.png" alt="Diễn tập phòng thủ" class="t:w-full t:h-full t:object-cover" />
+                        </div>
+                        <div class="t:p-4 t:flex-1 t:flex t:flex-col t:justify-between">
+                            <h3 class="roboto t:text-sm t:font-bold t:text-gray-900 t:leading-snug hover:t:text-[#E31E24] t:transition-colors">
+                                Thái Nguyên chuẩn bị kỹ lưỡng cho diễn tập khu vực phòng thủ
+                            </h3>
+                            <span class="roboto t:text-xs t:text-gray-400 t:mt-3 t:block">Quốc phòng an ninh</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 8 -->
+                    <article class="news-card t:flex t:flex-col t:overflow-hidden t:bg-[#F9FAFB] t:rounded-lg t:border t:border-gray-100">
+                        <div class="t:relative t:aspect-[4/3] t:overflow-hidden">
+                            <img src="../TrangTruyenHinh/img/8.png" alt="Bổ nhiệm quân sự" class="t:w-full t:h-full t:object-cover" />
+                        </div>
+                        <div class="t:p-4 t:flex-1 t:flex t:flex-col t:justify-between">
+                            <h3 class="roboto t:text-sm t:font-bold t:text-gray-900 t:leading-snug hover:t:text-[#E31E24] t:transition-colors">
+                                Đại tá Trần Viết Năng được bổ nhiệm giữ chức Chính ủy Bộ Chỉ huy Quân sự tỉnh Thái Nguyên
+                            </h3>
+                            <span class="roboto t:text-xs t:text-gray-400 t:mt-3 t:block">Công tác cán bộ</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: CÁC CHUYÊN ĐỀ KHÁC (LEADERS) -->
+        <section class="t:py-16 t:bg-gray-50 t:border-t t:border-b t:border-gray-200/50">
+            <div class="t:container t:mx-auto t:px-4">
+                <!-- Section Header -->
+                <div class="t:text-center t:mb-12">
+                    <h2 class="roboto t:text-2xl t:sm:text-3xl t:font-black t:text-[#E31E24] t:tracking-wider t:uppercase">
+                        CÁC CHUYÊN ĐỀ KHÁC
+                    </h2>
+                    <!-- Hammer and sickle logo + lines divider -->
+                    <div class="t:flex t:items-center t:justify-center t:gap-x-4 t:mt-3">
+                        <span class="t:h-px t:w-16 t:bg-gray-300 t:hidden t:sm:block"></span>
+                        <div class="t:text-[#E31E24] t:flex t:items-center">
+                            <svg class="t:h-5 t:w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.3 2a10 10 0 0 0-4.6 1.1L9 4.3a8 8 0 1 1-4.8 6.4l-1.2-.2A10 10 0 1 0 12.3 2z M7 13.2a4 4 0 1 1 5.3-5.3l.9-.9a5.3 5.3 0 1 0-7.1 7.1l.9-.9z"/>
+                            </svg>
+                        </div>
+                        <span class="t:h-px t:w-16 t:bg-gray-300 t:hidden t:sm:block"></span>
+                    </div>
+                </div>
+
+                <!-- Leaders Row (4 Columns Grid) -->
+                <div class="t:grid t:grid-cols-1 t:sm:grid-cols-2 t:lg:grid-cols-4 t:gap-8">
+                    <!-- Leader 1 -->
+                    <div class="leader-card t:bg-white t:rounded-xl t:shadow-sm t:p-6 t:text-center t:border t:border-gray-100">
+                        <div class="t:relative t:size-28 t:mx-auto t:rounded-full t:overflow-hidden t:border-2 t:border-red-100 hover:t:border-[#E31E24] t:transition-colors">
+                            <img
+                                src="../common/assets/vuong_quoc_tuan.png"
+                                alt="Đồng chí Vương Quốc Tuấn"
+                                class="t:w-full t:h-full t:object-cover"
+                            />
+                        </div>
+                        <span class="roboto t:text-[10px] t:font-bold t:text-red-600 t:uppercase t:tracking-wider t:block t:mt-4">
+                            Đồng chí
+                        </span>
+                        <h3 class="roboto t:text-base t:font-black t:text-gray-900 t:mt-1">
+                            Vương Quốc Tuấn
+                        </h3>
+                        <p class="roboto t:text-[11px] t:text-gray-500 t:mt-2 t:leading-relaxed">
+                            Ủy viên Trung ương Đảng, Phó Bí thư Tỉnh ủy, Chủ tịch UBND tỉnh Thái Nguyên
+                        </p>
+                    </div>
+
+                    <!-- Leader 2 -->
+                    <div class="leader-card t:bg-white t:rounded-xl t:shadow-sm t:p-6 t:text-center t:border t:border-gray-100">
+                        <div class="t:relative t:size-28 t:mx-auto t:rounded-full t:overflow-hidden t:border-2 t:border-red-100 hover:t:border-[#E31E24] t:transition-colors">
+                            <img
+                                src="../common/assets/nguyen_dang_binh.png"
+                                alt="Đồng chí Nguyễn Đăng Bình"
+                                class="t:w-full t:h-full t:object-cover"
+                            />
+                        </div>
+                        <span class="roboto t:text-[10px] t:font-bold t:text-red-600 t:uppercase t:tracking-wider t:block t:mt-4">
+                            Đồng chí
+                        </span>
+                        <h3 class="roboto t:text-base t:font-black t:text-gray-900 t:mt-1">
+                            Nguyễn Đăng Bình
+                        </h3>
+                        <p class="roboto t:text-[11px] t:text-gray-500 t:mt-2 t:leading-relaxed">
+                            Phó Bí thư Thường trực Tỉnh ủy, Trưởng Đoàn đại biểu Quốc hội tỉnh Thái Nguyên
+                        </p>
+                    </div>
+
+                    <!-- Leader 3 -->
+                    <div class="leader-card t:bg-white t:rounded-xl t:shadow-sm t:p-6 t:text-center t:border t:border-gray-100">
+                        <div class="t:relative t:size-28 t:mx-auto t:rounded-full t:overflow-hidden t:border-2 t:border-red-100 hover:t:border-[#E31E24] t:transition-colors">
+                            <img
+                                src="../common/assets/bui_van_luong.png"
+                                alt="Đồng chí Bùi Văn Lương"
+                                class="t:w-full t:h-full t:object-cover"
+                            />
+                        </div>
+                        <span class="roboto t:text-[10px] t:font-bold t:text-red-600 t:uppercase t:tracking-wider t:block t:mt-4">
+                            Đồng chí
+                        </span>
+                        <h3 class="roboto t:text-base t:font-black t:text-gray-900 t:mt-1">
+                            Bùi Văn Lương
+                        </h3>
+                        <p class="roboto t:text-[11px] t:text-gray-500 t:mt-2 t:leading-relaxed">
+                            Phó Bí thư Tỉnh ủy, Chủ tịch HĐND tỉnh Thái Nguyên
+                        </p>
+                    </div>
+
+                    <!-- Leader 4 -->
+                    <div class="leader-card t:bg-white t:rounded-xl t:shadow-sm t:p-6 t:text-center t:border t:border-gray-100">
+                        <div class="t:relative t:size-28 t:mx-auto t:rounded-full t:overflow-hidden t:border-2 t:border-red-100 hover:t:border-[#E31E24] t:transition-colors">
+                            <img
+                                src="../common/assets/dinh_quang_tuyen.png"
+                                alt="Đồng chí Đinh Quang Tuyên"
+                                class="t:w-full t:h-full t:object-cover"
+                            />
+                        </div>
+                        <span class="roboto t:text-[10px] t:font-bold t:text-red-600 t:uppercase t:tracking-wider t:block t:mt-4">
+                            Đồng chí
+                        </span>
+                        <h3 class="roboto t:text-base t:font-black t:text-gray-900 t:mt-1">
+                            Đinh Quang Tuyên
+                        </h3>
+                        <p class="roboto t:text-[11px] t:text-gray-500 t:mt-2 t:leading-relaxed">
+                            Phó Bí thư Tỉnh ủy, Chủ tịch Ủy ban MTTQ Việt Nam tỉnh Thái Nguyên
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="t:bg-white t:text-gray-600 t:pt-14 t:pb-8 t:border-t t:border-gray-200">
+            <div class="t:container t:mx-auto t:px-4">
+                <div class="t:grid t:grid-cols-1 t:lg:grid-cols-12 t:gap-8 t:pb-10">
+                    <!-- Column 1: Logo & Agency Name (4/12 width) -->
+                    <div class="t:lg:col-span-4 t:flex t:flex-col t:gap-y-4">
+                        <img
+                            src="../common/assets/logo.png"
+                            alt="Báo Thái Nguyên"
+                            class="t:h-12 t:w-auto t:object-contain t:self-start"
+                        />
+                        <p class="roboto t:text-[10px] t:text-[#E31E24] t:font-bold t:tracking-wider t:uppercase">
+                            CƠ QUAN CỦA ĐẢNG BỘ ĐẢNG CỘNG SẢN VIỆT NAM TỈNH THÁI NGUYÊN
+                        </p>
+                    </div>
+
+                    <!-- Column 2: Contact Details (5/12 width) -->
+                    <div class="t:lg:col-span-5 t:text-xs t:flex t:flex-col t:gap-y-3.5">
+                        <div class="t:flex t:gap-x-4">
+                            <span class="t:w-20 t:shrink-0 t:text-gray-400">Trụ sở:</span>
+                            <span class="t:font-medium t:text-gray-800">
+                                Cơ sở 1 số 226 đường Bến Oánh; Cơ sở 2 số 19 phố Nhị Quý, phường Phan Đình Phùng, tỉnh Thái Nguyên
+                            </span>
+                        </div>
+                        <div class="t:flex t:gap-x-4">
+                            <span class="t:w-20 t:shrink-0 t:text-gray-400">Giám đốc:</span>
+                            <span class="t:font-medium t:text-gray-800">Đỗ Xuân Hòa</span>
+                        </div>
+                        <div class="t:flex t:gap-x-4">
+                            <span class="t:w-20 t:shrink-0 t:text-gray-400">Phó Giám đốc:</span>
+                            <span class="t:font-medium t:text-gray-800">Nguyễn Ngọc Sơn</span>
+                        </div>
+                        <div class="t:flex t:gap-x-4">
+                            <span class="t:w-20 t:shrink-0 t:text-gray-400">Điện thoại:</span>
+                            <span class="t:font-medium t:text-gray-800">0208.3859.666</span>
+                        </div>
+                        <div class="t:flex t:gap-x-4">
+                            <span class="t:w-20 t:shrink-0 t:text-gray-400">Hotline:</span>
+                            <span class="t:font-medium t:text-gray-800">0902006113 - 091 2039880</span>
+                        </div>
+                        <div class="t:flex t:gap-x-4">
+                            <span class="t:w-20 t:shrink-0 t:text-gray-400">Email:</span>
+                            <span class="t:font-medium t:text-gray-800">toasoan@baothainguyen.vn</span>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: QR Codes (3/12 width) -->
+                    <div class="t:lg:col-span-3 t:flex t:flex-col t:gap-y-3 t:items-center t:lg:items-start">
+                        <span class="roboto t:text-xs t:font-bold t:text-gray-800">Quét mã tải ứng dụng tại:</span>
+                        <div class="t:flex t:gap-x-4">
+                            <div class="t:text-center">
+                                <img
+                                    src="../common/assets/android.jpg"
+                                    alt="Mã QR Android"
+                                    class="t:size-16 t:rounded t:border t:border-gray-200 t:p-1"
+                                />
+                                <span class="t:text-[10px] t:text-gray-500 t:mt-1 t:block">Bản Android</span>
+                            </div>
+                            <div class="t:text-center">
+                                <img
+                                    src="../common/assets/ios.jpg"
+                                    alt="Mã QR iOS"
+                                    class="t:size-16 t:rounded t:border t:border-gray-200 t:p-1"
+                                />
+                                <span class="t:text-[10px] t:text-gray-500 t:mt-1 t:block">Bản iOS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom License Text -->
+                <div class="t:border-t t:border-gray-200/60 t:pt-6 t:text-center t:text-[11px] t:text-gray-400 t:leading-relaxed">
+                    <p>Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT cấp ngày 20 tháng 11 năm 2023.</p>
+                    <p class="t:mt-1">
+                        Bản quyền thuộc về Báo và Phát thanh, Truyền hình tỉnh Thái Nguyên. Ghi rõ nguồn
+                        "https://baothainguyen.vn" khi phát hành lại thông tin từ website này.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
