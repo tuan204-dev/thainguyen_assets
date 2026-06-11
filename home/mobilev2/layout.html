@@ -2209,6 +2209,7 @@
                         >
                             <a
                                 href=""
+                                data-tv-tab="1"
                                 class="t:flex t:items-center t:justify-center t:gap-x-2 t:rounded t:px-3 t:py-2 t:bg-[#30A14A] t:border t:border-white t:hover:bg-[#268D3F]"
                             >
                                 <span
@@ -2232,6 +2233,7 @@
                             </a>
                             <a
                                 href=""
+                                data-tv-tab="2"
                                 class="t:flex t:items-center t:justify-center t:gap-x-2 t:rounded t:px-3 t:py-2 t:bg-white t:border t:border-white/20 t:hover:bg-[#F7F7F7]"
                             >
                                 <span
@@ -2258,15 +2260,16 @@
                         <div class="t:grid t:gap-6 t:max-pc:gap-y-5">
                             <div>
                                 <figure
-                                    class="img-block t:aspect-[16/9]! t:overflow-hidden t:-mx-4"
+                                    class="img-block t:aspect-[16/9]! t:overflow-hidden t:-mx-4 t:bg-black"
                                 >
-                                    <a href="">
-                                        <img
-                                            src="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/659082651_1243446534618936_4923900977363093798_n_20260326112035.jpg?width=600&height=-&type=resize"
-                                            alt="TNTV - Phát sóng trực tiếp"
-                                            loading="lazy"
-                                        />
-                                    </a>
+                                    <video
+                                        id="tv-player"
+                                        class="t:size-full t:object-cover t:bg-black"
+                                        poster="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/assets/img_tv1.jpg"
+                                        controls
+                                        playsinline
+                                        preload="none"
+                                    ></video>
                                 </figure>
                             </div>
 
@@ -2281,318 +2284,14 @@
                                 </div>
 
                                 <div
+                                    id="tv-schedule-scroll"
                                     class="t:flex t:flex-col t:gap-y-2 t:max-pc:max-h-[340px] t:max-[1200px]:max-h-[260px] t:max-[1400px]:max-h-[360px] t:max-h-[470px]"
                                     data-scroll
                                     data-scroll-auto-hide="leave"
                                     data-scroll-overflow-x="hidden"
                                     data-scroll-theme="os-theme-dark"
                                 >
-                                    <div class="t:flex t:flex-col t:gap-y-1">
-                                        <a
-                                            href=""
-                                            class="t:flex t:items-center t:gap-x-2 t:px-3 t:py-2 t:rounded-lg t:bg-white t:hover:bg-[#F7F7F7]"
-                                        >
-                                            <span
-                                                class="roboto t:text-sm t:text-[#212636] t:shrink-0 t:w-[70px]"
-                                            >
-                                                20:00
-                                            </span>
-                                            <span
-                                                class="roboto t:flex-1 t:min-w-0 t:text-xs t:text-[#212636] t:tracking-[0.15px]"
-                                            >
-                                                PHIM HOẠT HÌNH:
-                                            </span>
-                                            <span
-                                                class="t:inline-flex t:items-center t:gap-x-0.5 t:shrink-0 t:rounded-full t:bg-white t:border t:border-[#DCDFE4] t:pl-1.5 t:pr-1 t:py-0.5"
-                                            >
-                                                <span
-                                                    class="roboto t:text-[8px] t:text-[#8A94A6] t:tracking-[0.15px] t:whitespace-nowrap"
-                                                >
-                                                    Xem lại
-                                                </span>
-                                                <i
-                                                    class="material-symbols--play-circle-outline-rounded t:text-[#8A94A6] t:text-[12px]"
-                                                ></i>
-                                            </span>
-                                        </a>
-
-                                        <a
-                                            href=""
-                                            class="t:flex t:items-center t:gap-x-2 t:px-3 t:py-2 t:rounded-lg t:bg-white t:hover:bg-[#F7F7F7]"
-                                        >
-                                            <span
-                                                class="roboto t:text-sm t:text-[#212636] t:shrink-0 t:w-[70px]"
-                                            >
-                                                20:30
-                                            </span>
-                                            <span
-                                                class="t:flex-1 t:min-w-0 t:flex t:flex-col t:gap-y-1 t:text-sm t:text-[#212636] t:tracking-[0.15px]"
-                                            >
-                                                <span class="roboto">Thể thao</span>
-                                                <span class="roboto t:italic t:font-light">
-                                                    Chương Trình Thể Thao
-                                                </span>
-                                            </span>
-                                            <span
-                                                class="t:inline-flex t:items-center t:gap-x-0.5 t:shrink-0 t:rounded-full t:bg-white t:border t:border-[#DCDFE4] t:pl-1.5 t:pr-1 t:py-0.5"
-                                            >
-                                                <span
-                                                    class="roboto t:text-[8px] t:text-[#8A94A6] t:tracking-[0.15px] t:whitespace-nowrap"
-                                                >
-                                                    Xem lại
-                                                </span>
-                                                <i
-                                                    class="material-symbols--play-circle-outline-rounded t:text-[#8A94A6] t:text-[12px]"
-                                                ></i>
-                                            </span>
-                                        </a>
-
-                                        <a
-                                            href=""
-                                            class="t:flex t:items-center t:gap-x-2 t:px-3 t:py-2 t:rounded-lg t:bg-white t:hover:bg-[#F7F7F7]"
-                                        >
-                                            <span
-                                                class="roboto t:text-sm t:text-[#212636] t:shrink-0 t:w-[70px]"
-                                            >
-                                                21:00
-                                            </span>
-                                            <span
-                                                class="t:flex-1 t:min-w-0 t:flex t:flex-col t:gap-y-1 t:text-sm t:text-[#212636] t:tracking-[0.15px]"
-                                            >
-                                                <span class="roboto">Thời sự</span>
-                                                <span class="roboto t:italic t:font-light">
-                                                    Ngày 30/04/2026
-                                                </span>
-                                            </span>
-                                            <span
-                                                class="t:inline-flex t:items-center t:gap-x-0.5 t:shrink-0 t:rounded-full t:bg-white t:border t:border-[#DCDFE4] t:pl-1.5 t:pr-1 t:py-0.5"
-                                            >
-                                                <span
-                                                    class="roboto t:text-[8px] t:text-[#8A94A6] t:tracking-[0.15px] t:whitespace-nowrap"
-                                                >
-                                                    Xem lại
-                                                </span>
-                                                <i
-                                                    class="material-symbols--play-circle-outline-rounded t:text-[#8A94A6] t:text-[12px]"
-                                                ></i>
-                                            </span>
-                                        </a>
-
-                                        <a
-                                            href=""
-                                            class="t:flex t:items-center t:gap-x-2 t:px-3 t:py-2 t:rounded-lg t:bg-white t:hover:bg-[#F7F7F7]"
-                                        >
-                                            <span
-                                                class="roboto t:text-sm t:text-[#212636] t:shrink-0 t:w-[70px]"
-                                            >
-                                                22:00
-                                            </span>
-                                            <span
-                                                class="t:flex-1 t:min-w-0 t:flex t:flex-col t:gap-y-1 t:text-sm t:text-[#212636] t:tracking-[0.15px]"
-                                            >
-                                                <span class="roboto">Thời tiết</span>
-                                                <span class="roboto t:italic t:font-light">
-                                                    Chuyên mục dự báo thời tiết
-                                                </span>
-                                            </span>
-                                            <span
-                                                class="t:inline-flex t:items-center t:gap-x-0.5 t:shrink-0 t:rounded-full t:bg-white t:border t:border-[#DCDFE4] t:pl-1.5 t:pr-1 t:py-0.5"
-                                            >
-                                                <span
-                                                    class="roboto t:text-[8px] t:text-[#8A94A6] t:tracking-[0.15px] t:whitespace-nowrap"
-                                                >
-                                                    Xem lại
-                                                </span>
-                                                <i
-                                                    class="material-symbols--play-circle-outline-rounded t:text-[#8A94A6] t:text-[12px]"
-                                                ></i>
-                                            </span>
-                                        </a>
-
-                                        <a
-                                            href=""
-                                            class="t:flex t:items-center t:gap-x-2 t:px-3 t:py-2 t:rounded-lg t:bg-white t:hover:bg-[#F7F7F7]"
-                                        >
-                                            <span
-                                                class="roboto t:text-sm t:text-[#212636] t:shrink-0 t:w-[70px]"
-                                            >
-                                                22:30
-                                            </span>
-                                            <span
-                                                class="t:flex-1 t:min-w-0 t:flex t:flex-col t:gap-y-1 t:text-sm t:text-[#212636] t:tracking-[0.15px]"
-                                            >
-                                                <span class="roboto">Thể thao</span>
-                                                <span class="roboto t:italic t:font-light">
-                                                    Kết nối thể thao
-                                                </span>
-                                            </span>
-                                            <span
-                                                class="t:inline-flex t:items-center t:gap-x-0.5 t:shrink-0 t:rounded-full t:bg-white t:border t:border-[#DCDFE4] t:pl-1.5 t:pr-1 t:py-0.5"
-                                            >
-                                                <span
-                                                    class="roboto t:text-[8px] t:text-[#8A94A6] t:tracking-[0.15px] t:whitespace-nowrap"
-                                                >
-                                                    Xem lại
-                                                </span>
-                                                <i
-                                                    class="material-symbols--play-circle-outline-rounded t:text-[#8A94A6] t:text-[12px]"
-                                                ></i>
-                                            </span>
-                                        </a>
-
-                                        <a
-                                            href=""
-                                            class="t:flex t:items-center t:gap-x-2 t:px-3 t:py-2 t:rounded-lg t:bg-white t:hover:bg-[#F7F7F7]"
-                                        >
-                                            <span
-                                                class="roboto t:text-sm t:text-[#212636] t:shrink-0 t:w-[70px]"
-                                            >
-                                                23:00
-                                            </span>
-                                            <span
-                                                class="t:flex-1 t:min-w-0 t:flex t:flex-col t:gap-y-1 t:text-sm t:text-[#212636] t:tracking-[0.15px]"
-                                            >
-                                                <span class="roboto">Thể thao</span>
-                                                <span class="roboto t:italic t:font-light">
-                                                    Kết nối thể thao
-                                                </span>
-                                            </span>
-                                            <span
-                                                class="t:inline-flex t:items-center t:gap-x-0.5 t:shrink-0 t:rounded-full t:bg-white t:border t:border-[#DCDFE4] t:pl-1.5 t:pr-1 t:py-0.5"
-                                            >
-                                                <span
-                                                    class="roboto t:text-[8px] t:text-[#8A94A6] t:tracking-[0.15px] t:whitespace-nowrap"
-                                                >
-                                                    Xem lại
-                                                </span>
-                                                <i
-                                                    class="material-symbols--play-circle-outline-rounded t:text-[#8A94A6] t:text-[12px]"
-                                                ></i>
-                                            </span>
-                                        </a>
-
-                                        <a
-                                            href=""
-                                            class="t:flex t:items-center t:gap-x-2 t:px-3 t:py-2 t:rounded-lg t:bg-white t:hover:bg-[#F7F7F7]"
-                                        >
-                                            <span
-                                                class="roboto t:text-sm t:text-[#212636] t:shrink-0 t:w-[70px]"
-                                            >
-                                                23:30
-                                            </span>
-                                            <span
-                                                class="t:flex-1 t:min-w-0 t:flex t:flex-col t:gap-y-1 t:text-sm t:text-[#212636] t:tracking-[0.15px]"
-                                            >
-                                                <span class="roboto">Thể thao</span>
-                                                <span class="roboto t:italic t:font-light">
-                                                    Kết nối thể thao
-                                                </span>
-                                            </span>
-                                            <span
-                                                class="t:inline-flex t:items-center t:gap-x-0.5 t:shrink-0 t:rounded-full t:bg-white t:border t:border-[#DCDFE4] t:pl-1.5 t:pr-1 t:py-0.5"
-                                            >
-                                                <span
-                                                    class="roboto t:text-[8px] t:text-[#8A94A6] t:tracking-[0.15px] t:whitespace-nowrap"
-                                                >
-                                                    Xem lại
-                                                </span>
-                                                <i
-                                                    class="material-symbols--play-circle-outline-rounded t:text-[#8A94A6] t:text-[12px]"
-                                                ></i>
-                                            </span>
-                                        </a>
-
-                                        <a
-                                            href=""
-                                            class="t:flex t:items-center t:gap-x-2 t:px-3 t:py-2 t:rounded-lg t:bg-white t:hover:bg-[#F7F7F7]"
-                                        >
-                                            <span
-                                                class="roboto t:text-sm t:text-[#212636] t:shrink-0 t:w-[70px]"
-                                            >
-                                                00:00
-                                            </span>
-                                            <span
-                                                class="t:flex-1 t:min-w-0 t:flex t:flex-col t:gap-y-1 t:text-sm t:text-[#212636] t:tracking-[0.15px]"
-                                            >
-                                                <span class="roboto">Thể thao</span>
-                                                <span class="roboto t:italic t:font-light">
-                                                    Kết nối thể thao
-                                                </span>
-                                            </span>
-                                            <span
-                                                class="t:inline-flex t:items-center t:gap-x-0.5 t:shrink-0 t:rounded-full t:bg-white t:border t:border-[#DCDFE4] t:pl-1.5 t:pr-1 t:py-0.5"
-                                            >
-                                                <span
-                                                    class="roboto t:text-[8px] t:text-[#8A94A6] t:tracking-[0.15px] t:whitespace-nowrap"
-                                                >
-                                                    Xem lại
-                                                </span>
-                                                <i
-                                                    class="material-symbols--play-circle-outline-rounded t:text-[#8A94A6] t:text-[12px]"
-                                                ></i>
-                                            </span>
-                                        </a>
-                                        <a
-                                            href=""
-                                            class="t:flex t:items-center t:gap-x-2 t:px-3 t:py-2 t:rounded-lg t:bg-white t:hover:bg-[#F7F7F7]"
-                                        >
-                                            <span
-                                                class="roboto t:text-sm t:text-[#212636] t:shrink-0 t:w-[70px]"
-                                            >
-                                                00:00
-                                            </span>
-                                            <span
-                                                class="t:flex-1 t:min-w-0 t:flex t:flex-col t:gap-y-1 t:text-sm t:text-[#212636] t:tracking-[0.15px]"
-                                            >
-                                                <span class="roboto">Thể thao</span>
-                                                <span class="roboto t:italic t:font-light">
-                                                    Kết nối thể thao
-                                                </span>
-                                            </span>
-                                            <span
-                                                class="t:inline-flex t:items-center t:gap-x-0.5 t:shrink-0 t:rounded-full t:bg-white t:border t:border-[#DCDFE4] t:pl-1.5 t:pr-1 t:py-0.5"
-                                            >
-                                                <span
-                                                    class="roboto t:text-[8px] t:text-[#8A94A6] t:tracking-[0.15px] t:whitespace-nowrap"
-                                                >
-                                                    Xem lại
-                                                </span>
-                                                <i
-                                                    class="material-symbols--play-circle-outline-rounded t:text-[#8A94A6] t:text-[12px]"
-                                                ></i>
-                                            </span>
-                                        </a>
-                                        <a
-                                            href=""
-                                            class="t:flex t:items-center t:gap-x-2 t:px-3 t:py-2 t:rounded-lg t:bg-white t:hover:bg-[#F7F7F7]"
-                                        >
-                                            <span
-                                                class="roboto t:text-sm t:text-[#212636] t:shrink-0 t:w-[70px]"
-                                            >
-                                                00:00
-                                            </span>
-                                            <span
-                                                class="t:flex-1 t:min-w-0 t:flex t:flex-col t:gap-y-1 t:text-sm t:text-[#212636] t:tracking-[0.15px]"
-                                            >
-                                                <span class="roboto">Thể thao</span>
-                                                <span class="roboto t:italic t:font-light">
-                                                    Kết nối thể thao
-                                                </span>
-                                            </span>
-                                            <span
-                                                class="t:inline-flex t:items-center t:gap-x-0.5 t:shrink-0 t:rounded-full t:bg-white t:border t:border-[#DCDFE4] t:pl-1.5 t:pr-1 t:py-0.5"
-                                            >
-                                                <span
-                                                    class="roboto t:text-[8px] t:text-[#8A94A6] t:tracking-[0.15px] t:whitespace-nowrap"
-                                                >
-                                                    Xem lại
-                                                </span>
-                                                <i
-                                                    class="material-symbols--play-circle-outline-rounded t:text-[#8A94A6] t:text-[12px]"
-                                                ></i>
-                                            </span>
-                                        </a>
-                                    </div>
+                                    <div id="tv-schedule-list" class="t:flex t:flex-col t:gap-y-1"></div>
                                 </div>
                             </div>
                         </div>
@@ -5018,5 +4717,6 @@
         <script type="module" src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/header-sticky.js"></script>
         <script type="module" src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/header.js"></script>
         <script type="module" src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/home/mobilev2/home.js"></script>
+        <script src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/home/mobilev2/truyen_hinh.js"></script>
     </body>
 </html>
