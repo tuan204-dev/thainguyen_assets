@@ -20,6 +20,26 @@
     </head>
 
     <body class="home-page">
+        <style>
+            @media (min-width: 1000px) and (max-width: 1099px) {
+                #desktop-cate-list > *:nth-child(n + 10) {
+                    display: none;
+                }
+            }
+
+            @media (min-width: 1100px) and (max-width: 1199px) {
+                #desktop-cate-list > *:nth-child(n + 11) {
+                    display: none;
+                }
+            }
+
+            @media (min-width: 1200px) {
+                #desktop-cate-list > *:nth-child(n + 12) {
+                    display: none;
+                }
+            }
+        </style>
+
         <header class="home-header t:max-md:hidden">
             <div class="home-header-main t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]">
                 <div class="t:bg-[#30A14A]">
@@ -83,6 +103,7 @@
             <div class="t:container">
                 <nav
                     aria-label="Danh mục nổi bật"
+                    id="desktop-cate-list"
                     class="t:flex t:items-center t:justify-center t:gap-x-6 t:h-9 t:text-xs t:font-medium t:text-[#8A94A6] t:whitespace-nowrap"
                 >
                     <div class="t:group t:relative t:flex t:items-center t:h-full">
@@ -2351,9 +2372,10 @@
                     </div>
                 </div>
             </section>
+
+            
             <section
                 class="t:py-10 t:max-pc:py-8 home-tntv-tnradio-section t:bg-linear-to-b t:from-[#DFFFE6] t:to-[#DFFFE6]/0"
-                data-node-id="19224:2734"
             >
                 <div class="t:container">
                     <div class="t:flex t:flex-col t:gap-y-4">
@@ -2752,6 +2774,8 @@
                     </div>
                 </div>
             </section>
+
+            
             <section class="t:pb-8 t:pc:pb-5 home-video-section">
                 <div class="t:container">
                     <div class="t:border-t t:border-[#DCDFE4] t:pt-4">
@@ -6902,5 +6926,6 @@
         <script type="module" src="../../common/header-sticky.js"></script>
         <script type="module" src="../../common/header.js"></script>
         <script type="module" src="./home.js"></script>
+        <script type="module" src="./truyen_hinh.js"></script>
     </body>
 </html>
