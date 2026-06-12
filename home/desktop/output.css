@@ -1408,6 +1408,13 @@
       }
     }
   }
+  .t\:hover\:text-inherit {
+    &:hover {
+      @media (hover: hover) {
+        color: inherit;
+      }
+    }
+  }
   .t\:hover\:text-white {
     &:hover {
       @media (hover: hover) {
@@ -2781,6 +2788,11 @@
   .t\:\[\&\>\*\:nth-child\(odd\)\]\:pr-4 {
     &>*:nth-child(odd) {
       padding-right: calc(var(--t-spacing) * 4);
+    }
+  }
+  .t\:\[\&\>a\:hover\]\:text-white\! {
+    &>a:hover {
+      color: var(--t-color-white) !important;
     }
   }
   .t\:max-pc\:\[\&\>article\:nth-child\(2\)\]\:border-0\! {
