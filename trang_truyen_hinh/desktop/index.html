@@ -921,8 +921,28 @@
                 <div class="t:flex t:flex-col">
                     <!-- XEM TRUYỀN HÌNH TRỰC TUYẾN -->
                     <section class="t:pt-0 t:pb-6 t:pc:py-8 t:pl-0 t:pc:pl-6">
+                        <style>
+                            @media (max-width: 1024px) {
+                                .tv-grid-override {
+                                    display: flex !important;
+                                    flex-direction: column !important;
+                                }
+                                .tv-schedule-outer-override {
+                                    display: flex !important;
+                                    flex-direction: column !important;
+                                    position: static !important;
+                                    margin-top: 1rem !important;
+                                }
+                                .tv-schedule-inner-override {
+                                    position: static !important;
+                                }
+                                .tv-schedule-scroll-override {
+                                    max-height: 250px !important;
+                                }
+                            }
+                        </style>
                         <div
-                            class="t:flex t:flex-col t:pc:grid t:pc:grid-cols-[1fr_320px] t:gap-x-6 t:gap-y-0 t:pc:gap-y-6">
+                            class="tv-grid-override t:flex t:flex-col t:pc:grid t:pc:grid-cols-[1fr_320px] t:gap-x-6 t:gap-y-0 t:pc:gap-y-6">
                             <h2
                                 class="t:order-2 t:pc:order-1 t:pc:col-span-2 noto t:text-[22px] t:font-bold t:uppercase t:mb-0 t:pc:mb-5 t:mt-4 t:pc:mt-0 t:break-words">
                                 XEM TRUYỀN HÌNH TRỰC TUYẾN</h2>
@@ -936,15 +956,16 @@
 
                             <!-- Lịch phát sóng -->
                             <div
-                                class="t:order-3 t:pc:order-3 t:flex t:flex-col t:pc:block t:pc:relative t:mt-4 t:pc:mt-0">
-                                <div class="t:flex t:flex-col t:pc:absolute t:pc:inset-0">
+                                class="tv-schedule-outer-override t:order-3 t:pc:order-3 t:flex t:flex-col t:pc:block t:pc:relative t:mt-4 t:pc:mt-0">
+                                <div class="tv-schedule-inner-override t:flex t:flex-col t:pc:absolute t:pc:inset-0">
                                     <div class="t:flex t:items-center t:gap-x-2 t:font-bold t:mb-4 t:shrink-0">
                                         <img src="./images/ic_calender.png" alt="Calendar"
                                             class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert" />
                                         <span class="noto t:text-base">Lịch phát sóng</span>
                                     </div>
-                                    <div
-                                        class="t:flex-1 t:max-pc:max-h-[400px] t:overflow-y-auto t:pr-1 t:flex t:flex-col t:gap-y-3 custom-scrollbar">
+                                    <div data-scroll data-scroll-theme="os-theme-light"
+                                        class="tv-schedule-scroll-override t:flex-1 t:max-pc:max-h-[250px] t:overflow-y-auto t:pr-1 custom-scrollbar">
+                                        <div class="t:flex t:flex-col t:gap-y-3">
                                         <!-- item -->
                                         <div
                                             class="t:bg-[#3d1313] t:rounded t:px-4 t:py-3 t:flex t:items-center t:justify-between t:group hover:t:bg-[#4a1717] t:cursor-pointer t:transition-colors">
@@ -1057,6 +1078,7 @@
                                                 Xem lại <img src="./images/ic_return.png" alt=""
                                                     class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
                                             </button>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
