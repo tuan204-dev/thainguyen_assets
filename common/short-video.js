@@ -341,8 +341,8 @@
         container.querySelectorAll("[data-short-video]").forEach((el) => el.remove());
         container.insertAdjacentHTML(
             "beforeend",
-            `<div class="swiper" data-swiper data-swiper-slides-per-view="1.4" data-swiper-space-between="16"
-             data-swiper-breakpoints='{"640":{"slidesPerView":2.4},"880":{"slidesPerView":3.4},"1100":{"slidesPerView":4.4}}'>
+            `<div class="swiper" data-swiper data-swiper-slides-per-view="1.8" data-swiper-space-between="16"
+             data-swiper-breakpoints='{"425":{"slidesPerView":2.4},"640":{"slidesPerView":3.4},"1100":{"slidesPerView":4.4}}'>
             <div class="swiper-wrapper">${items.map(cardHTML).join("")}</div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>

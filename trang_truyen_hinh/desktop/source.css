@@ -34,15 +34,9 @@
     padding-top: 10px !important;
     clip-path: inset(-100px -100vw -100px 0);
 }
-.short-video-section .swiper-slide {
-    width: 65vw !important;
-}
 @media (min-width: 1000px) {
     .short-video-section .swiper {
         padding-bottom: 60px !important;
-    }
-    .short-video-section .swiper-slide {
-        width: 200px !important;
     }
 }
 .short-video-section .swiper-slide > div[role="button"] > span.t\:absolute,
@@ -52,12 +46,7 @@
 .short-video-section .swiper-slide > div[role="button"] {
     border-radius: 12px !important;
 }
-.short-video-section .swiper {
-    padding-bottom: 60px !important;
-    padding-top: 10px !important;
-    overflow: visible !important;
-    clip-path: inset(-100% -100vw -100% 0) !important;
-}
+
 .short-video-section .swiper-button-prev,
 .short-video-section .swiper-button-next {
     top: auto !important;
@@ -91,6 +80,15 @@
 .short-video-section .swiper-button-prev:hover::after,
 .short-video-section .swiper-button-next:hover::after {
     color: #3d1313 !important;
+}
+.bot-nav-icon {
+    background-color: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
 }
 @media (max-width: 999px) {
     .short-video-section .swiper-button-prev,
