@@ -1177,13 +1177,6 @@
       content: var(--tw-content);
     }
   }
-  .t\:hover\:bg-\[\#FF6666\]\/40 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: color-mix(in oklab, #FF6666 40%, transparent);
-      }
-    }
-  }
   .t\:hover\:bg-white {
     &:hover {
       @media (hover: hover) {
@@ -1219,6 +1212,13 @@
     &:hover {
       @media (hover: hover) {
         color: #EC1C23;
+      }
+    }
+  }
+  .t\:hover\:text-white\! {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--t-color-white) !important;
       }
     }
   }
@@ -1264,11 +1264,6 @@
   .t\:max-pc\:\!h-auto {
     @media (width < 1000px) {
       height: auto !important;
-    }
-  }
-  .t\:max-pc\:max-h-\[400px\] {
-    @media (width < 1000px) {
-      max-height: 400px;
     }
   }
   .t\:max-pc\:\!w-full {
@@ -1529,6 +1524,16 @@
   .t\:min-\[1200px\]\:pb-6 {
     @media (width >= 1200px) {
       padding-bottom: calc(var(--t-spacing) * 6);
+    }
+  }
+  .t\:min-\[1300px\]\:gap-x-6 {
+    @media (width >= 1300px) {
+      column-gap: calc(var(--t-spacing) * 6);
+    }
+  }
+  .t\:min-\[1300px\]\:px-4 {
+    @media (width >= 1300px) {
+      padding-inline: calc(var(--t-spacing) * 4);
     }
   }
   .t\:sm\:hidden {

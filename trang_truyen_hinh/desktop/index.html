@@ -40,30 +40,30 @@
                         <div
                             class="t:hidden t:min-[1200px]:flex t:items-stretch t:h-full t:absolute t:left-1/2 t:-translate-x-1/2">
                             <nav id="desktopNav"
-                                class="t:relative t:flex t:items-stretch t:text-white t:text-[14px] t:font-medium t:h-full noto t:z-0">
+                                class="t:relative t:flex t:items-stretch t:gap-x-2 t:min-[1300px]:gap-x-6 t:text-white t:text-[14px] t:font-medium t:h-full noto t:z-0">
                                 <div id="desktopIndicator"
                                     class="t:absolute t:top-0 t:left-0 t:h-full t:bg-[#FF6666] t:-z-10 t:transition-all t:duration-300 t:ease-out t:after:content-[''] t:after:absolute t:after:top-full t:after:left-1/2 t:after:-translate-x-1/2 t:after:border-[8px] t:after:border-solid t:after:border-t-[#FF6666] t:after:border-x-transparent t:after:border-b-transparent">
                                 </div>
                                 <a href="#"
-                                    class="t:flex t:items-center t:px-2 t:min-[1300px]:px-5 t:transition-all t:duration-300 t:gap-x-2 t:hover:bg-[#FF6666]/40">
+                                    class="t:flex t:items-center t:px-2 t:min-[1300px]:px-4 t:transition-all t:duration-300 t:gap-x-2 t:hover:text-white!">
                                     <img src="./images/ic_bot_home.png"
                                         class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert" alt="">
                                     <span class="t:whitespace-nowrap">TRUYỀN HÌNH</span>
                                 </a>
                                 <a href="#"
-                                    class="t:flex t:items-center t:px-2 t:min-[1300px]:px-5 t:transition-all t:duration-300 t:gap-x-2 t:hover:bg-[#FF6666]/40">
+                                    class="t:flex t:items-center t:px-2 t:min-[1300px]:px-4 t:transition-all t:duration-300 t:gap-x-2 t:hover:text-white!">
                                     <img src="./images/ic_bot_audio.png"
                                         class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert" alt="">
                                     <span class="t:whitespace-nowrap">PHÁT THANH</span>
                                 </a>
                                 <a href="#"
-                                    class="t:flex t:items-center t:px-2 t:min-[1300px]:px-5 t:transition-all t:duration-300 t:gap-x-2 t:hover:bg-[#FF6666]/40">
+                                    class="t:flex t:items-center t:px-2 t:min-[1300px]:px-4 t:transition-all t:duration-300 t:gap-x-2 t:hover:text-white!">
                                     <img src="./images/ic_bot_news.png"
                                         class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert" alt="">
                                     <span class="t:whitespace-nowrap">BÁO IN</span>
                                 </a>
                                 <a href="#"
-                                    class="t:flex t:items-center t:px-2 t:min-[1300px]:px-5 t:transition-all t:duration-300 t:gap-x-2 t:hover:bg-[#FF6666]/40">
+                                    class="t:flex t:items-center t:px-2 t:min-[1300px]:px-4 t:transition-all t:duration-300 t:gap-x-2 t:hover:text-white!">
                                     <img src="./images/ic_bot_global.png"
                                         class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert" alt="">
                                     <span class="t:whitespace-nowrap">NỀN TẢNG SỐ</span>
@@ -975,8 +975,7 @@
                                             </div>
                                             <button
                                                 class="t:text-[11px] t:flex t:items-center t:gap-x-1.5 t:border t:border-white/30 t:rounded-full t:px-2.5 t:py-1 t:hover:bg-white t:hover:text-[#3d1313] t:transition-all t:group-hover:border-white">
-                                                Xem lại <img src="./images/ic_return.png" alt=""
-                                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
+                                                Xem lại
                                             </button>
                                         </div>
                                         <!-- item 2 -->
@@ -2266,23 +2265,37 @@
             const desktopIndicator = document.getElementById("desktopIndicator");
             const mobileIndicator = document.getElementById("mobileIndicator");
 
-            // Initialize desktop indicator
-            if (desktopItems.length > 0 && desktopIndicator) {
-                const firstItem = desktopItems[0];
-                desktopIndicator.style.width = firstItem.offsetWidth + "px";
-                desktopIndicator.style.transform = `translateX(${firstItem.offsetLeft}px)`;
-            }
-
-            const imgActive = "t:w-6 t:h-6 t:object-contain t:brightness-0 t:invert t:transition-all t:duration-300";
-            const imgInactive = "t:w-6 t:h-6 t:object-contain t:transition-all t:duration-300";
-
-            const updateNav = (index) => {
-                // Update desktop indicator
+            const positionDesktopIndicator = (index) => {
                 if (desktopItems[index] && desktopIndicator) {
                     const item = desktopItems[index];
                     desktopIndicator.style.width = item.offsetWidth + "px";
                     desktopIndicator.style.transform = `translateX(${item.offsetLeft}px)`;
                 }
+            };
+
+            // Initialize desktop indicator
+            positionDesktopIndicator(0);
+
+            // Recalculate once the (serif) webfont has loaded so the indicator
+            // width matches the final rendered text width, not the fallback font.
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(() => positionDesktopIndicator(getActiveIndex()));
+            }
+
+            const imgActive = "t:w-6 t:h-6 t:object-contain t:brightness-0 t:invert t:transition-all t:duration-300";
+            const imgInactive = "t:w-6 t:h-6 t:object-contain t:transition-all t:duration-300";
+
+            const getActiveIndex = () => {
+                let activeIndex = 0;
+                mobileItems.forEach((el, i) => {
+                    if (el.classList.contains("t:text-white")) activeIndex = i;
+                });
+                return activeIndex;
+            };
+
+            const updateNav = (index) => {
+                // Update desktop indicator
+                positionDesktopIndicator(index);
 
                 // Update mobile indicator
                 if (mobileIndicator) {
@@ -2320,15 +2333,7 @@
 
             // Recalculate desktop indicator on resize
             window.addEventListener("resize", () => {
-                let activeIndex = 0;
-                mobileItems.forEach((el, i) => {
-                    if (el.classList.contains("t:text-white")) activeIndex = i;
-                });
-                if (desktopItems[activeIndex] && desktopIndicator) {
-                    const item = desktopItems[activeIndex];
-                    desktopIndicator.style.width = item.offsetWidth + "px";
-                    desktopIndicator.style.transform = `translateX(${item.offsetLeft}px)`;
-                }
+                positionDesktopIndicator(getActiveIndex());
             });
         });
     </script>
