@@ -419,6 +419,9 @@
   .t\:max-h-15 {
     max-height: calc(var(--t-spacing) * 15);
   }
+  .t\:max-h-\[200px\] {
+    max-height: 200px;
+  }
   .t\:min-h-screen {
     min-height: 100vh;
   }
@@ -538,6 +541,9 @@
   .t\:gap-4 {
     gap: calc(var(--t-spacing) * 4);
   }
+  .t\:gap-x-1\.5 {
+    column-gap: calc(var(--t-spacing) * 1.5);
+  }
   .t\:gap-x-2 {
     column-gap: calc(var(--t-spacing) * 2);
   }
@@ -645,6 +651,12 @@
     border-color: var(--t-color-white);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--t-color-white) 20%, transparent);
+    }
+  }
+  .t\:border-white\/30 {
+    border-color: var(--t-color-white);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--t-color-white) 30%, transparent);
     }
   }
   .t\:bg-\[\#2a0404\] {
@@ -772,6 +784,9 @@
   .t\:px-2 {
     padding-inline: calc(var(--t-spacing) * 2);
   }
+  .t\:px-2\.5 {
+    padding-inline: calc(var(--t-spacing) * 2.5);
+  }
   .t\:px-4 {
     padding-inline: calc(var(--t-spacing) * 4);
   }
@@ -816,6 +831,9 @@
   }
   .t\:pt-10 {
     padding-top: calc(var(--t-spacing) * 10);
+  }
+  .t\:pr-1 {
+    padding-right: calc(var(--t-spacing) * 1);
   }
   .t\:pr-6 {
     padding-right: calc(var(--t-spacing) * 6);
@@ -870,6 +888,9 @@
   .t\:text-xs {
     font-size: var(--t-text-xs);
     line-height: var(--tw-leading, var(--t-text-xs--line-height));
+  }
+  .t\:text-\[11px\] {
+    font-size: 11px;
   }
   .t\:text-\[12px\] {
     font-size: 12px;
@@ -946,6 +967,12 @@
   .t\:text-white\! {
     color: var(--t-color-white) !important;
   }
+  .t\:text-white\/70 {
+    color: var(--t-color-white);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--t-color-white) 70%, transparent);
+    }
+  }
   .t\:text-white\/80 {
     color: var(--t-color-white);
     @supports (color: color-mix(in lab, red, red)) {
@@ -954,6 +981,9 @@
   }
   .t\:uppercase {
     text-transform: uppercase;
+  }
+  .t\:italic {
+    font-style: italic;
   }
   .t\:underline {
     text-decoration-line: underline;
@@ -1019,6 +1049,13 @@
   .t\:outline-none {
     --tw-outline-style: none;
     outline-style: none;
+  }
+  .t\:group-hover\:border-white {
+    &:is(:where(.t\:group):hover *) {
+      @media (hover: hover) {
+        border-color: var(--t-color-white);
+      }
+    }
   }
   .t\:group-hover\:text-\[\#EC1C23\] {
     &:is(:where(.t\:group):hover *) {
