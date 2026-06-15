@@ -1330,6 +1330,11 @@
       padding-inline: calc(var(--t-spacing) * 4);
     }
   }
+  .t\:pc\:py-8 {
+    @media (width >= 1000px) {
+      padding-block: calc(var(--t-spacing) * 8);
+    }
+  }
   .t\:pc\:pt-8 {
     @media (width >= 1000px) {
       padding-top: calc(var(--t-spacing) * 8);
@@ -1586,6 +1591,15 @@
       }
     }
   }
+  .t\:md\:max-pc\:\[\&\>\*\]\:py-8 {
+    @media (width >= 48rem) {
+      @media (width < 1000px) {
+        &>* {
+          padding-block: calc(var(--t-spacing) * 8);
+        }
+      }
+    }
+  }
   .t\:md\:max-pc\:\[\&\>\*\]\:pt-8 {
     @media (width >= 48rem) {
       @media (width < 1000px) {
@@ -1611,10 +1625,56 @@
       }
     }
   }
+  .t\:pc\:\[\&\>\*\:first-child\>\*\]\:pt-0 {
+    @media (width >= 1000px) {
+      &>*:first-child>* {
+        padding-top: calc(var(--t-spacing) * 0);
+      }
+    }
+  }
+  .t\:max-md\:\[\&\>\*\:first-child\>\*\:first-child\]\:pt-0 {
+    @media (width < 48rem) {
+      &>*:first-child>*:first-child {
+        padding-top: calc(var(--t-spacing) * 0);
+      }
+    }
+  }
+  .t\:md\:max-pc\:\[\&\>\*\:first-child\>\*\:nth-child\(-n\+2\)\]\:pt-0 {
+    @media (width >= 48rem) {
+      @media (width < 1000px) {
+        &>*:first-child>*:nth-child(-n+2) {
+          padding-top: calc(var(--t-spacing) * 0);
+        }
+      }
+    }
+  }
   .t\:max-md\:\[\&\>\*\:last-child\]\:pb-0 {
     @media (width < 48rem) {
       &>*:last-child {
         padding-bottom: calc(var(--t-spacing) * 0);
+      }
+    }
+  }
+  .t\:pc\:\[\&\>\*\:last-child\>\*\]\:pb-0 {
+    @media (width >= 1000px) {
+      &>*:last-child>* {
+        padding-bottom: calc(var(--t-spacing) * 0);
+      }
+    }
+  }
+  .t\:max-md\:\[\&\>\*\:last-child\>\*\:last-child\]\:pb-0 {
+    @media (width < 48rem) {
+      &>*:last-child>*:last-child {
+        padding-bottom: calc(var(--t-spacing) * 0);
+      }
+    }
+  }
+  .t\:md\:max-pc\:\[\&\>\*\:last-child\>\*\:nth-child\(n\+3\)\]\:pb-0 {
+    @media (width >= 48rem) {
+      @media (width < 1000px) {
+        &>*:last-child>*:nth-child(n+3) {
+          padding-bottom: calc(var(--t-spacing) * 0);
+        }
       }
     }
   }
