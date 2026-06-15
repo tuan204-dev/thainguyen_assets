@@ -153,6 +153,12 @@ a:hover {
     color: var(--highlight-color);
 }
 
+/* Giữ nguyên màu chữ khi hover (ghi đè a:hover ở trên) */
+.no-hover-color:hover,
+.no-hover-color:hover span {
+    color: inherit !important;
+}
+
 /* swiper */
 .swiper-pagination .swiper-pagination-bullet {
     width: 12px;
