@@ -1,1211 +1,186 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <portlet name="cate_seo" />
+        
+        <link
+            rel="stylesheet"
+            href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/output.css?v=7"
+        />
+        <link
+            rel="stylesheet"
+            href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/fonts-noto-serif-vn.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/fonts-roboto-vn.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/common.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/dropdown.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/icon.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/overlay.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/overlayscrollbar.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/vendor/swiper-bundle.min.css"
+        />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trang Truyền Hình</title>
-    <link rel="stylesheet" href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/output.css?v=7" />
-    <link rel="stylesheet" href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/fonts-noto-serif-vn.css" />
-    <link rel="stylesheet" href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/fonts-roboto-vn.css" />
-    <link rel="stylesheet" href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/common.css" />
-    <link rel="stylesheet" href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/dropdown.css" />
-    <link rel="stylesheet" href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/icon.css" />
-    <link rel="stylesheet" href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/overlay.css" />
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css" />
-    <link rel="stylesheet" href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/style/overlayscrollbar.css" />
-    <link rel="stylesheet" href="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/vendor/swiper-bundle.min.css" />
-</head>
+    <body class="home-page">
+        <portlet name="truyen_hinh_header" />
 
-<body class="home-page">
-    
-    <portlet name="truyen_hinh_header" />
+        <main class="t:bg-[#2a0404] t:text-white t:min-h-screen t:overflow-x-clip">
+            <div class="t:container">
+                <div
+                    class="t:grid t:grid-cols-1 t:pc:grid-cols-[220px_minmax(0,1fr)] t:relative t:before:hidden t:pc:before:block t:before:absolute t:before:top-0 t:before:bottom-0 t:before:left-[220px] t:before:w-px t:before:bg-white"
+                >
+                    <!-- portlet: truyen_hinh_sidebar -->
+                   <portlet name="truyen_hinh_sidebar" />
 
-    <main class="t:bg-[#2a0404] t:text-white t:min-h-screen t:overflow-x-clip">
-        <div class="t:container">
-            <div
-                class="t:grid t:grid-cols-1 t:pc:grid-cols-[220px_minmax(0,1fr)] t:relative t:before:hidden t:pc:before:block t:before:absolute t:before:top-0 t:before:bottom-0 t:before:left-[220px] t:before:w-px t:before:bg-white">
-                <aside class="t:max-pc:hidden t:pr-6 t:py-8 t:sticky t:top-[52px] t:min-[1200px]:top-[64px] t:self-start">
-                    <h3 class="merriweather t:text-[22px] t:font-bold t:text-white t:uppercase t:mb-6">TRUYỀN HÌNH</h3>
-                    <ul data-cate-nav
-                        class="t:flex t:flex-col t:gap-y-5 t:text-[15px] t:font-bold t:pl-4"></ul>
-                </aside>
+                    <div class="t:flex t:flex-col">
 
-                <div class="t:flex t:flex-col">
-                    <section class="t:pt-0 t:pb-6 t:pc:py-8 t:pl-0 t:pc:pl-6">
-                        <style>
-                            @media (max-width: 1200px) {
-                                .tv-grid-override {
-                                    display: flex !important;
-                                    flex-direction: column !important;
-                                }
-                                .tv-schedule-outer-override {
-                                    display: flex !important;
-                                    flex-direction: column !important;
-                                    position: static !important;
-                                    margin-top: 1rem !important;
-                                }
-                                .tv-schedule-inner-override {
-                                    position: static !important;
-                                }
-                                .tv-schedule-scroll-override {
-                                    max-height: 250px !important;
-                                }
-                            }
-                        </style>
-                        <div
-                            class="tv-grid-override t:flex t:flex-col t:pc:grid t:pc:grid-cols-[1fr_320px] t:gap-x-6 t:gap-y-0 t:pc:gap-y-6">
-                            <h2
-                                class="t:order-2 t:pc:order-1 t:pc:col-span-2 noto t:text-[22px] t:font-bold t:uppercase t:mb-0 t:pc:mb-5 t:mt-4 t:pc:mt-0 t:break-words">
-                                XEM TRUYỀN HÌNH TRỰC TUYẾN</h2>
+                        <!-- portlet: truyen_hinh_player -->
+                        <portlet name="truyen_hinh_player" />
 
-                            <div
-                                class="t:order-1 t:pc:order-2 t:aspect-video t:bg-black t:relative t:overflow-hidden t:w-[100vw] t:left-1/2 t:-translate-x-1/2 t:pc:w-auto t:pc:left-auto t:pc:translate-x-0 t:pc:rounded">
-                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/assets/logo-white.png" alt="Logo"
-                                    class="t:absolute t:top-4 t:right-4 t:h-8 t:w-auto" />
-                            </div>
+                        <!-- portlet: truyen_hinh_section_1 -->
+                        <portlet name="truyen_hinh_section_1" />
 
-                            <div
-                                class="tv-schedule-outer-override t:order-3 t:pc:order-3 t:flex t:flex-col t:pc:block t:pc:relative t:mt-4 t:pc:mt-0">
-                                <div class="tv-schedule-inner-override t:flex t:flex-col t:pc:absolute t:pc:inset-0">
-                                    <div class="t:flex t:items-center t:gap-x-2 t:font-bold t:mb-4 t:shrink-0">
-                                        <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_calender.png" alt="Calendar"
-                                            class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert" />
-                                        <span class="noto t:text-base">Lịch phát sóng</span>
-                                    </div>
-                                    <div data-scroll data-scroll-theme="os-theme-light"
-                                        class="tv-schedule-scroll-override t:flex-1 t:pr-1">
-                                        <div class="t:flex t:flex-col t:gap-y-3">
-                                        <div
-                                            class="t:bg-[#3d1313] t:rounded t:px-4 t:py-3 t:flex t:items-center t:justify-between t:group hover:t:bg-[#4a1717] t:cursor-pointer t:transition-colors">
-                                            <div class="t:flex t:items-center t:gap-x-4">
-                                                <span class="t:font-medium t:text-[15px]">20:00</span>
-                                                <span class="t:text-sm t:uppercase t:font-bold">PHIM HOẠT HÌNH</span>
-                                            </div>
-                                            <button
-                                                class="t:text-[11px] t:flex t:items-center t:gap-x-1.5 t:border t:border-white/30 t:rounded-full t:px-2.5 t:py-1 t:hover:bg-white t:hover:text-[#3d1313] t:transition-all t:group-hover:border-white">
-                                                Xem lại
-                                            </button>
-                                        </div>
-                                        <div
-                                            class="t:bg-[#3d1313] t:rounded t:px-4 t:py-3 t:flex t:items-center t:justify-between t:group hover:t:bg-[#4a1717] t:cursor-pointer t:transition-colors">
-                                            <div class="t:flex t:items-center t:gap-x-4">
-                                                <span class="t:font-medium t:text-[15px]">20:30</span>
-                                                <div class="t:flex t:flex-col t:gap-y-0.5">
-                                                    <span class="t:text-sm t:font-bold">Thời sự</span>
-                                                    <span class="t:text-xs t:italic t:text-white/70">Ngày
-                                                        02/05/2026</span>
-                                                </div>
-                                            </div>
-                                            <button
-                                                class="t:text-[11px] t:flex t:items-center t:gap-x-1.5 t:border t:border-white/30 t:rounded-full t:px-2.5 t:py-1 t:hover:bg-white t:hover:text-[#3d1313] t:transition-all t:group-hover:border-white">
-                                                Xem lại <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_return.png" alt=""
-                                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                                            </button>
-                                        </div>
-                                        <div
-                                            class="t:bg-[#3d1313] t:rounded t:px-4 t:py-3 t:flex t:items-center t:justify-between t:group hover:t:bg-[#4a1717] t:cursor-pointer t:transition-colors">
-                                            <div class="t:flex t:items-center t:gap-x-4">
-                                                <span class="t:font-medium t:text-[15px]">20:30</span>
-                                                <div class="t:flex t:flex-col t:gap-y-0.5">
-                                                    <span class="t:text-sm t:font-bold">Thời sự</span>
-                                                    <span class="t:text-xs t:italic t:text-white/70">Ngày
-                                                        02/05/2026</span>
-                                                </div>
-                                            </div>
-                                            <button
-                                                class="t:text-[11px] t:flex t:items-center t:gap-x-1.5 t:border t:border-white/30 t:rounded-full t:px-2.5 t:py-1 t:hover:bg-white t:hover:text-[#3d1313] t:transition-all t:group-hover:border-white">
-                                                Xem lại <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_return.png" alt=""
-                                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                                            </button>
-                                        </div>
-                                        <div
-                                            class="t:bg-[#3d1313] t:rounded t:px-4 t:py-3 t:flex t:items-center t:justify-between t:group hover:t:bg-[#4a1717] t:cursor-pointer t:transition-colors">
-                                            <div class="t:flex t:items-center t:gap-x-4">
-                                                <span class="t:font-medium t:text-[15px]">20:30</span>
-                                                <div class="t:flex t:flex-col t:gap-y-0.5">
-                                                    <span class="t:text-sm t:font-bold">Thời sự</span>
-                                                    <span class="t:text-xs t:italic t:text-white/70">Ngày
-                                                        02/05/2026</span>
-                                                </div>
-                                            </div>
-                                            <button
-                                                class="t:text-[11px] t:flex t:items-center t:gap-x-1.5 t:border t:border-white/30 t:rounded-full t:px-2.5 t:py-1 t:hover:bg-white t:hover:text-[#3d1313] t:transition-all t:group-hover:border-white">
-                                                Xem lại <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_return.png" alt=""
-                                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                                            </button>
-                                        </div>
-                                        <div
-                                            class="t:bg-[#3d1313] t:rounded t:px-4 t:py-3 t:flex t:items-center t:justify-between t:group hover:t:bg-[#4a1717] t:cursor-pointer t:transition-colors">
-                                            <div class="t:flex t:items-center t:gap-x-4">
-                                                <span class="t:font-medium t:text-[15px]">20:30</span>
-                                                <div class="t:flex t:flex-col t:gap-y-0.5">
-                                                    <span class="t:text-sm t:font-bold">Thời sự</span>
-                                                    <span class="t:text-xs t:italic t:text-white/70">Ngày
-                                                        02/05/2026</span>
-                                                </div>
-                                            </div>
-                                            <button
-                                                class="t:text-[11px] t:flex t:items-center t:gap-x-1.5 t:border t:border-white/30 t:rounded-full t:px-2.5 t:py-1 t:hover:bg-white t:hover:text-[#3d1313] t:transition-all t:group-hover:border-white">
-                                                Xem lại <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_return.png" alt=""
-                                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                                            </button>
-                                        </div>
-                                        <div
-                                            class="t:bg-[#3d1313] t:rounded t:px-4 t:py-3 t:flex t:items-center t:justify-between t:group hover:t:bg-[#4a1717] t:cursor-pointer t:transition-colors">
-                                            <div class="t:flex t:items-center t:gap-x-4">
-                                                <span class="t:font-medium t:text-[15px]">20:30</span>
-                                                <div class="t:flex t:flex-col t:gap-y-0.5">
-                                                    <span class="t:text-sm t:font-bold">Thời sự</span>
-                                                    <span class="t:text-xs t:italic t:text-white/70">Ngày
-                                                        02/05/2026</span>
-                                                </div>
-                                            </div>
-                                            <button
-                                                class="t:text-[11px] t:flex t:items-center t:gap-x-1.5 t:border t:border-white/30 t:rounded-full t:px-2.5 t:py-1 t:hover:bg-white t:hover:text-[#3d1313] t:transition-all t:group-hover:border-white">
-                                                Xem lại <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_return.png" alt=""
-                                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                                            </button>
-                                        </div>
-                                        <div
-                                            class="t:bg-[#3d1313] t:rounded t:px-4 t:py-3 t:flex t:items-center t:justify-between t:group hover:t:bg-[#4a1717] t:cursor-pointer t:transition-colors">
-                                            <div class="t:flex t:items-center t:gap-x-4">
-                                                <span class="t:font-medium t:text-[15px]">20:30</span>
-                                                <div class="t:flex t:flex-col t:gap-y-0.5">
-                                                    <span class="t:text-sm t:font-bold">Thời sự</span>
-                                                    <span class="t:text-xs t:italic t:text-white/70">Ngày
-                                                        02/05/2026</span>
-                                                </div>
-                                            </div>
-                                            <button
-                                                class="t:text-[11px] t:flex t:items-center t:gap-x-1.5 t:border t:border-white/30 t:rounded-full t:px-2.5 t:py-1 t:hover:bg-white t:hover:text-[#3d1313] t:transition-all t:group-hover:border-white">
-                                                Xem lại <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_return.png" alt=""
-                                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                                            </button>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </section>
 
-                    <section data-title-cate="Bản tin thời sự" id="ban-tin-thoi-su"
-                        class="t:relative t:py-6 t:pc:py-8 t:pl-0 t:pc:pl-6 t:before:hidden t:pc:before:block t:before:absolute t:before:top-0 t:before:left-0 t:before:w-[100vw] t:before:h-px t:before:bg-white">
-                        <div class="t:border-t t:border-white/20 t:w-[calc(100%-32px)] t:mx-auto t:pc:hidden t:mb-6">
-                        </div>
-                        <div class="t:flex t:items-center t:justify-between t:mb-6 t:px-4 t:pc:px-0">
-                            <h2 class="noto t:text-[22px] t:font-bold t:uppercase">BẢN TIN THỜI SỰ</h2>
-                            <a href="#"
-                                class="t:max-pc:hidden t:text-[13px] t:font-medium t:flex t:items-center t:gap-x-2 t:bg-[#3d1313] t:px-4 t:py-2 t:rounded-full t:hover:bg-white t:hover:text-[#3d1313] t:transition-colors t:group">
-                                Xem Thêm <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_arrow_right.png" alt=""
-                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                            </a>
-                        </div>
-                        <div class="swiper" data-swiper data-swiper-slides-per-view="1"
-                            data-swiper-breakpoints='{"640": {"slidesPerView": 2}, "1200": {"slidesPerView": 3}}'
-                            data-swiper-space-between="24">
-                            <div
-                                class="swiper-wrapper t:max-pc:!grid t:max-pc:!grid-cols-2 t:max-sm:!grid-cols-1 t:max-pc:gap-6 t:max-pc:!transform-none t:max-pc:!w-full t:max-pc:!h-auto t:max-pc:!box-border">
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="t:max-pc:hidden t:flex t:justify-center t:gap-x-4 t:mt-6">
-                                <button
-                                    class="swiper-button-prev t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                                <button
-                                    class="swiper-button-next t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section data-title-cate="Chuyện cuối tuần" id="chuyen-cuoi-tuan"
-                        class="t:relative t:py-6 t:pc:py-8 t:pl-0 t:pc:pl-6 t:before:hidden t:pc:before:block t:before:absolute t:before:top-0 t:before:left-0 t:before:w-[100vw] t:before:h-px t:before:bg-white">
-                        <div class="t:border-t t:border-white/20 t:w-[calc(100%-32px)] t:mx-auto t:pc:hidden t:mb-6">
-                        </div>
-                        <div class="t:flex t:items-center t:justify-between t:mb-6 t:px-4 t:pc:px-0">
-                            <h2 class="noto t:text-[22px] t:font-bold t:uppercase">CHUYỆN CUỐI TUẦN</h2>
-                            <a href="#"
-                                class="t:max-pc:hidden t:text-[13px] t:font-medium t:flex t:items-center t:gap-x-2 t:bg-[#3d1313] t:px-4 t:py-2 t:rounded-full t:hover:bg-white t:hover:text-[#3d1313] t:transition-colors t:group">
-                                Xem Thêm <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_arrow_right.png" alt=""
-                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                            </a>
-                        </div>
-                        <div class="swiper" data-swiper data-swiper-slides-per-view="1"
-                            data-swiper-breakpoints='{"640": {"slidesPerView": 2}, "1200": {"slidesPerView": 3}}'
-                            data-swiper-space-between="24">
-                            <div
-                                class="swiper-wrapper t:max-pc:!grid t:max-pc:!grid-cols-2 t:max-sm:!grid-cols-1 t:max-pc:gap-6 t:max-pc:!transform-none t:max-pc:!w-full t:max-pc:!h-auto t:max-pc:!box-border">
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="t:max-pc:hidden t:flex t:justify-center t:gap-x-4 t:mt-6">
-                                <button
-                                    class="swiper-button-prev t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                                <button
-                                    class="swiper-button-next t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section
-                        class="short-video-section t:relative t:py-6 t:pc:py-8 t:pl-0 t:pc:pl-6 t:before:hidden t:pc:before:block t:before:absolute t:before:top-0 t:before:left-0 t:before:w-[100vw] t:before:h-px t:before:bg-white">
-                        <div class="t:border-t t:border-white/20 t:w-[calc(100%-32px)] t:mx-auto t:pc:hidden t:mb-6">
-                        </div>
-                        <div class="t:flex t:items-center t:justify-between t:mb-6 t:px-4 t:pc:px-0 t:pc:pr-8">
-                            <h2 class="noto t:text-[22px] t:font-bold t:uppercase">SHORT VIDEO</h2>
-                            <a href="#"
-                                class="t:hidden t:pc:flex t:text-[13px] t:font-medium t:items-center t:gap-x-2 t:bg-[#3d1313] t:px-4 t:py-2 t:rounded-full t:hover:bg-white t:hover:text-[#3d1313] t:transition-colors t:group">
-                                Xem Thêm <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_arrow_right.png" alt=""
-                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                            </a>
-                        </div>
-                        <div data-short-video
-                            data-thumbnail="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/3w3ygc2i75ibpbvq3j3ipgoxuy-17558297724261368551836_20260326095703.jpg?width=600&height=-&type=resize"
-                            data-video-src="https://cdn.tapchianninhmang.vn/original/videos/2026-03-15/1773556721699-318980221_20260307181019ba_nguyen_thanh_hai.mp4">
-                        </div>
-                        <div data-short-video
-                            data-thumbnail="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/ndt3255-1774427704511303671121_20260325161422.jpg?width=600&height=-&type=resize"
-                            data-video-src="https://cdn.media-soft.cloud/original/videos/2026-03-19/1773894993174-108779676_bg-ld.mp4">
-                        </div>
-                        <div data-short-video
-                            data-thumbnail="https://tcanninhmang.vn/file//8a10ed2292d4bbf10192d71d3dcd1937/032026/pham_tien_dung_20260325194316.jpg?width=600&height=-&type=resize"
-                            data-video-src="https://cdn.media-soft.cloud/original/videos/2026-03-19/1773894993174-108779676_bg-ld.mp4">
-                        </div>
-                        <div data-short-video
-                            data-thumbnail="https://baodaklak.vn/file/fb9e3a03798789de0179a1704dea238e/032026/tbt_20260324091228.png"
-                            data-video-src="https://cdn.media-soft.cloud/original/videos/2026-03-19/1773894993174-108779676_bg-ld.mp4">
-                        </div>
-                        <div data-short-video
-                            data-thumbnail="https://tcanninhmang.vn/file/adman/8a10ed2292d4bbf10192d71d3dcd1937/f13eaeaa63442578016345c47b8a01f5_20260324103802.PNG"
-                            data-video-src="https://cdn.media-soft.cloud/original/videos/2026-03-19/1773894993174-108779676_bg-ld.mp4">
-                        </div>
-                        <div data-short-video
-                            data-thumbnail="https://tcanninhmang.vn/file/8a10ed2292d4bbf10192d71d3dcd1937/032026/3w3ygc2i75ibpbvq3j3ipgoxuy-17558297724261368551836_20260326095703.jpg?width=600&height=-&type=resize"
-                            data-video-src="https://cdn.media-soft.cloud/original/videos/2026-03-19/1773894993174-108779676_bg-ld.mp4">
-                        </div>
-
-                    </section>
-
-                    <section data-title-cate="Bản tin An ninh Trật tự" id="ban-tin-an-ninh"
-                        class="t:relative t:py-6 t:pc:py-8 t:pl-0 t:pc:pl-6 t:before:hidden t:pc:before:block t:before:absolute t:before:top-0 t:before:left-0 t:before:w-[100vw] t:before:h-px t:before:bg-white">
-                        <div class="t:border-t t:border-white/20 t:w-[calc(100%-32px)] t:mx-auto t:pc:hidden t:mb-6">
-                        </div>
-                        <div class="t:flex t:items-center t:justify-between t:mb-6 t:px-4 t:pc:px-0">
-                            <h2 class="noto t:text-[22px] t:font-bold t:uppercase">Bản tin An ninh Trật tự</h2>
-                            <a href="#"
-                                class="t:max-pc:hidden t:text-[13px] t:font-medium t:flex t:items-center t:gap-x-2 t:bg-[#3d1313] t:px-4 t:py-2 t:rounded-full t:hover:bg-white t:hover:text-[#3d1313] t:transition-colors t:group">
-                                Xem Thêm <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_arrow_right.png" alt=""
-                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                            </a>
-                        </div>
-                        <div class="swiper" data-swiper data-swiper-slides-per-view="1"
-                            data-swiper-breakpoints='{"640": {"slidesPerView": 2}, "1200": {"slidesPerView": 3}}'
-                            data-swiper-space-between="24">
-                            <div
-                                class="swiper-wrapper t:max-pc:!grid t:max-pc:!grid-cols-2 t:max-sm:!grid-cols-1 t:max-pc:gap-6 t:max-pc:!transform-none t:max-pc:!w-full t:max-pc:!h-auto t:max-pc:!box-border">
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="t:max-pc:hidden t:flex t:justify-center t:gap-x-4 t:mt-6">
-                                <button
-                                    class="swiper-button-prev t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                                <button
-                                    class="swiper-button-next t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                            </div>
-                        </div>
-                    </section>
-
-                     <section data-title-cate="Bản tin Kinh tế Thái Nguyên" id="ban-tin-kinh-te"
-                        class="t:relative t:py-6 t:pc:py-8 t:pl-0 t:pc:pl-6 t:before:hidden t:pc:before:block t:before:absolute t:before:top-0 t:before:left-0 t:before:w-[100vw] t:before:h-px t:before:bg-white">
-                        <div class="t:border-t t:border-white/20 t:w-[calc(100%-32px)] t:mx-auto t:pc:hidden t:mb-6">
-                        </div>
-                        <div class="t:flex t:items-center t:justify-between t:mb-6 t:px-4 t:pc:px-0">
-                            <h2 class="noto t:text-[22px] t:font-bold t:uppercase">Bản tin Kinh tế Thái Nguyên</h2>
-                            <a href="#"
-                                class="t:max-pc:hidden t:text-[13px] t:font-medium t:flex t:items-center t:gap-x-2 t:bg-[#3d1313] t:px-4 t:py-2 t:rounded-full t:hover:bg-white t:hover:text-[#3d1313] t:transition-colors t:group">
-                                Xem Thêm <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_arrow_right.png" alt=""
-                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                            </a>
-                        </div>
-                        <div class="swiper" data-swiper data-swiper-slides-per-view="1"
-                            data-swiper-breakpoints='{"640": {"slidesPerView": 2}, "1200": {"slidesPerView": 3}}'
-                            data-swiper-space-between="24">
-                            <div
-                                class="swiper-wrapper t:max-pc:!grid t:max-pc:!grid-cols-2 t:max-sm:!grid-cols-1 t:max-pc:gap-6 t:max-pc:!transform-none t:max-pc:!w-full t:max-pc:!h-auto t:max-pc:!box-border">
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="t:max-pc:hidden t:flex t:justify-center t:gap-x-4 t:mt-6">
-                                <button
-                                    class="swiper-button-prev t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                                <button
-                                    class="swiper-button-next t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                            </div>
-                        </div>
-                    </section>
-
-                       <section data-title-cate="Bản tin Thời tiết" id="ban-tin-thoi-tiet"
-                        class="t:relative t:py-6 t:pc:py-8 t:pl-0 t:pc:pl-6 t:before:hidden t:pc:before:block t:before:absolute t:before:top-0 t:before:left-0 t:before:w-[100vw] t:before:h-px t:before:bg-white">
-                        <div class="t:border-t t:border-white/20 t:w-[calc(100%-32px)] t:mx-auto t:pc:hidden t:mb-6">
-                        </div>
-                        <div class="t:flex t:items-center t:justify-between t:mb-6 t:px-4 t:pc:px-0">
-                            <h2 class="noto t:text-[22px] t:font-bold t:uppercase">Bản tin Thời tiết</h2>
-                            <a href="#"
-                                class="t:max-pc:hidden t:text-[13px] t:font-medium t:flex t:items-center t:gap-x-2 t:bg-[#3d1313] t:px-4 t:py-2 t:rounded-full t:hover:bg-white t:hover:text-[#3d1313] t:transition-colors t:group">
-                                Xem Thêm <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_arrow_right.png" alt=""
-                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                            </a>
-                        </div>
-                        <div class="swiper" data-swiper data-swiper-slides-per-view="1"
-                            data-swiper-breakpoints='{"640": {"slidesPerView": 2}, "1200": {"slidesPerView": 3}}'
-                            data-swiper-space-between="24">
-                            <div
-                                class="swiper-wrapper t:max-pc:!grid t:max-pc:!grid-cols-2 t:max-sm:!grid-cols-1 t:max-pc:gap-6 t:max-pc:!transform-none t:max-pc:!w-full t:max-pc:!h-auto t:max-pc:!box-border">
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="t:max-pc:hidden t:flex t:justify-center t:gap-x-4 t:mt-6">
-                                <button
-                                    class="swiper-button-prev t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                                <button
-                                    class="swiper-button-next t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                            </div>
-                        </div>
-                    </section>
-
-                     <section data-title-cate="Phóng sự - Chuyên đề" id="phong-su-chuyen-de"
-                        class="t:relative t:py-6 t:pc:py-8 t:pl-0 t:pc:pl-6 t:before:hidden t:pc:before:block t:before:absolute t:before:top-0 t:before:left-0 t:before:w-[100vw] t:before:h-px t:before:bg-white">
-                        <div class="t:border-t t:border-white/20 t:w-[calc(100%-32px)] t:mx-auto t:pc:hidden t:mb-6">
-                        </div>
-                        <div class="t:flex t:items-center t:justify-between t:mb-6 t:px-4 t:pc:px-0">
-                            <h2 class="noto t:text-[22px] t:font-bold t:uppercase">Bản tin Thời tiết</h2>
-                            <a href="#"
-                                class="t:max-pc:hidden t:text-[13px] t:font-medium t:flex t:items-center t:gap-x-2 t:bg-[#3d1313] t:px-4 t:py-2 t:rounded-full t:hover:bg-white t:hover:text-[#3d1313] t:transition-colors t:group">
-                                Xem Thêm <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_arrow_right.png" alt=""
-                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                            </a>
-                        </div>
-                        <div class="swiper" data-swiper data-swiper-slides-per-view="1"
-                            data-swiper-breakpoints='{"640": {"slidesPerView": 2}, "1200": {"slidesPerView": 3}}'
-                            data-swiper-space-between="24">
-                            <div
-                                class="swiper-wrapper t:max-pc:!grid t:max-pc:!grid-cols-2 t:max-sm:!grid-cols-1 t:max-pc:gap-6 t:max-pc:!transform-none t:max-pc:!w-full t:max-pc:!h-auto t:max-pc:!box-border">
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="t:max-pc:hidden t:flex t:justify-center t:gap-x-4 t:mt-6">
-                                <button
-                                    class="swiper-button-prev t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                                <button
-                                    class="swiper-button-next t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                            </div>
-                        </div>
-                    </section>
-
-                      <section data-title-cate="Tôi yêu Thái Nguyên" id="toi-yeu-thai-nguyen"
-                        class="t:relative t:py-6 t:pc:py-8 t:pl-0 t:pc:pl-6 t:before:hidden t:pc:before:block t:before:absolute t:before:top-0 t:before:left-0 t:before:w-[100vw] t:before:h-px t:before:bg-white">
-                        <div class="t:border-t t:border-white/20 t:w-[calc(100%-32px)] t:mx-auto t:pc:hidden t:mb-6">
-                        </div>
-                        <div class="t:flex t:items-center t:justify-between t:mb-6 t:px-4 t:pc:px-0">
-                            <h2 class="noto t:text-[22px] t:font-bold t:uppercase">Tôi yêu Thái Nguyên</h2>
-                            <a href="#"
-                                class="t:max-pc:hidden t:text-[13px] t:font-medium t:flex t:items-center t:gap-x-2 t:bg-[#3d1313] t:px-4 t:py-2 t:rounded-full t:hover:bg-white t:hover:text-[#3d1313] t:transition-colors t:group">
-                                Xem Thêm <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_arrow_right.png" alt=""
-                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                            </a>
-                        </div>
-                        <div class="swiper" data-swiper data-swiper-slides-per-view="1"
-                            data-swiper-breakpoints='{"640": {"slidesPerView": 2}, "1200": {"slidesPerView": 3}}'
-                            data-swiper-space-between="24">
-                            <div
-                                class="swiper-wrapper t:max-pc:!grid t:max-pc:!grid-cols-2 t:max-sm:!grid-cols-1 t:max-pc:gap-6 t:max-pc:!transform-none t:max-pc:!w-full t:max-pc:!h-auto t:max-pc:!box-border">
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="t:max-pc:hidden t:flex t:justify-center t:gap-x-4 t:mt-6">
-                                <button
-                                    class="swiper-button-prev t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                                <button
-                                    class="swiper-button-next t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                            </div>
-                        </div>
-                    </section>
-
-                     <section data-title-cate="Ca khúc về Thái Nguyên" id="ca-khuc-ve-thai-nguyen-1"
-                        class="t:relative t:py-6 t:pc:py-8 t:pl-0 t:pc:pl-6 t:before:hidden t:pc:before:block t:before:absolute t:before:top-0 t:before:left-0 t:before:w-[100vw] t:before:h-px t:before:bg-white">
-                        <div class="t:border-t t:border-white/20 t:w-[calc(100%-32px)] t:mx-auto t:pc:hidden t:mb-6">
-                        </div>
-                        <div class="t:flex t:items-center t:justify-between t:mb-6 t:px-4 t:pc:px-0">
-                            <h2 class="noto t:text-[22px] t:font-bold t:uppercase">CA KHÚC VỀ THÁI NGUYÊN</h2>
-                            <a href="#"
-                                class="t:max-pc:hidden t:text-[13px] t:font-medium t:flex t:items-center t:gap-x-2 t:bg-[#3d1313] t:px-4 t:py-2 t:rounded-full t:hover:bg-white t:hover:text-[#3d1313] t:transition-colors t:group">
-                                Xem Thêm <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_arrow_right.png" alt=""
-                                    class="t:w-3 t:h-3 t:object-contain t:brightness-0 t:invert t:group-hover:invert-0" />
-                            </a>
-                        </div>
-                        <div class="swiper" data-swiper data-swiper-slides-per-view="1"
-                            data-swiper-breakpoints='{"640": {"slidesPerView": 2}, "1200": {"slidesPerView": 3}}'
-                            data-swiper-space-between="24">
-                            <div
-                                class="swiper-wrapper t:max-pc:!grid t:max-pc:!grid-cols-2 t:max-sm:!grid-cols-1 t:max-pc:gap-6 t:max-pc:!transform-none t:max-pc:!w-full t:max-pc:!h-auto t:max-pc:!box-border">
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide t:max-pc:!w-full t:max-pc:!mt-0">
-                                    <div class="t:bg-[#3d1313] t:rounded-lg t:overflow-hidden t:group t:cursor-pointer">
-                                        <figure class="t:aspect-video t:overflow-hidden">
-                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/i1.png" alt="Thumbnail"
-                                                class="t:w-full t:h-full t:object-cover t:transition-transform t:duration-500 group-hover:scale-105" />
-                                        </figure>
-                                        <div class="t:p-4 t:flex t:items-center t:justify-between t:gap-x-4">
-                                            <h3
-                                                class="noto t:text-[15px] t:font-bold t:flex-1 t:group-hover:text-[#EC1C23] t:transition-colors t:leading-snug">
-                                                Chương trình thời sự Thái Nguyên tối 2-5</h3>
-                                            <div
-                                                class="t:w-[1px] t:h-10 t:bg-gradient-to-b t:from-transparent t:via-white/30 t:to-transparent t:shrink-0">
-                                            </div>
-                                            <button
-                                                class="t:shrink-0 t:hover:opacity-80 t:flex t:items-center t:justify-center t:size-6">
-                                                <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/images/ic_share.png" alt="Share"
-                                                    class="t:w-4 t:h-4 t:object-contain t:brightness-0 t:invert" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="t:max-pc:hidden t:flex t:justify-center t:gap-x-4 t:mt-6">
-                                <button
-                                    class="swiper-button-prev t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                                <button
-                                    class="swiper-button-next t:!static t:!mt-0 t:!w-[68px] t:!h-[32px] t:bg-[#3d1313] t:rounded-full t:flex t:items-center t:justify-center hover:t:bg-white/80 t:group t:after:!text-[14px] t:after:!font-[800] t:after:!text-white group-hover:t:after:!text-[#3d1313] t:after:!transition-all"></button>
-                            </div>
-                        </div>
-                    </section>
+                        <!-- portlet: truyen_hinh_short_video -->
+                        <portlet name="truyen_hinh_short_video" />
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
 
-    <portlet name="truyen_hinh_footer" />
+        <portlet name="truyen_hinh_footer" />
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const desktopItems = document.querySelectorAll("#desktopNav a");
-            const mobileItems = document.querySelectorAll("#mobileNav a");
-            const desktopIndicator = document.getElementById("desktopIndicator");
-            const mobileIndicator = document.getElementById("mobileIndicator");
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const desktopItems = document.querySelectorAll("#desktopNav a");
+                const mobileItems = document.querySelectorAll("#mobileNav a");
+                const desktopIndicator = document.getElementById("desktopIndicator");
+                const mobileIndicator = document.getElementById("mobileIndicator");
 
-            const positionDesktopIndicator = (index) => {
-                if (desktopItems[index] && desktopIndicator) {
-                    const item = desktopItems[index];
-                    desktopIndicator.style.width = item.offsetWidth + "px";
-                    desktopIndicator.style.transform = `translateX(${item.offsetLeft}px)`;
-                }
-            };
+                const positionDesktopIndicator = (index) => {
+                    if (desktopItems[index] && desktopIndicator) {
+                        const item = desktopItems[index];
+                        desktopIndicator.style.width = item.offsetWidth + "px";
+                        desktopIndicator.style.transform = `translateX(${item.offsetLeft}px)`;
+                    }
+                };
 
-            positionDesktopIndicator(0);
+                positionDesktopIndicator(0);
 
-            if (document.fonts && document.fonts.ready) {
-                document.fonts.ready.then(() => positionDesktopIndicator(getActiveIndex()));
-            }
-
-            const imgActive = "t:w-6 t:h-6 t:object-contain t:brightness-0 t:invert t:transition-all t:duration-300";
-            const imgInactive = "t:w-6 t:h-6 t:object-contain t:transition-all t:duration-300";
-
-            const getActiveIndex = () => {
-                let activeIndex = 0;
-                mobileItems.forEach((el, i) => {
-                    if (el.classList.contains("t:text-white")) activeIndex = i;
-                });
-                return activeIndex;
-            };
-
-            const updateNav = (index) => {
-                positionDesktopIndicator(index);
-
-                if (mobileIndicator) {
-                    mobileIndicator.style.transform = `translateX(${index * 100}%)`;
+                if (document.fonts && document.fonts.ready) {
+                    document.fonts.ready.then(() => positionDesktopIndicator(getActiveIndex()));
                 }
 
-                mobileItems.forEach((el, i) => {
-                    if (i === index) {
-                        el.classList.add("t:text-white");
-                        el.classList.remove("t:text-[#8F9BB3]");
-                    } else {
-                        el.classList.add("t:text-[#8F9BB3]");
-                        el.classList.remove("t:text-white");
+                const imgActive =
+                    "t:w-6 t:h-6 t:object-contain t:brightness-0 t:invert t:transition-all t:duration-300";
+                const imgInactive = "t:w-6 t:h-6 t:object-contain t:transition-all t:duration-300";
+
+                const getActiveIndex = () => {
+                    let activeIndex = 0;
+                    mobileItems.forEach((el, i) => {
+                        if (el.classList.contains("t:text-white")) activeIndex = i;
+                    });
+                    return activeIndex;
+                };
+
+                const updateNav = (index) => {
+                    positionDesktopIndicator(index);
+
+                    if (mobileIndicator) {
+                        mobileIndicator.style.transform = `translateX(${index * 100}%)`;
                     }
-                    const img = el.querySelector("img");
-                    if (img) {
-                        img.className = (i === index) ? imgActive : imgInactive;
-                    }
-                });
-            };
 
-            desktopItems.forEach((item, i) => {
-                item.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    updateNav(i);
+                    mobileItems.forEach((el, i) => {
+                        if (i === index) {
+                            el.classList.add("t:text-white");
+                            el.classList.remove("t:text-[#8F9BB3]");
+                        } else {
+                            el.classList.add("t:text-[#8F9BB3]");
+                            el.classList.remove("t:text-white");
+                        }
+                        const img = el.querySelector("img");
+                        if (img) {
+                            img.className = i === index ? imgActive : imgInactive;
+                        }
+                    });
+                };
+
+                desktopItems.forEach((item, i) => {
+                    item.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        updateNav(i);
+                    });
+                });
+
+                mobileItems.forEach((item, i) => {
+                    item.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        updateNav(i);
+                    });
+                });
+
+                window.addEventListener("resize", () => {
+                    positionDesktopIndicator(getActiveIndex());
                 });
             });
-
-            mobileItems.forEach((item, i) => {
-                item.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    updateNav(i);
-                });
-            });
-
-            window.addEventListener("resize", () => {
-                positionDesktopIndicator(getActiveIndex());
-            });
-        });
-    </script>
-    <script src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/common.js"></script>
-    <script type="module" src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/swiper.js"></script>
-    <script type="module" src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/floating-dropdown.js"></script>
-    <script type="module" src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/overlay.js"></script>
-    <script type="module" src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/overlayscrollbar.js"></script>
-    <script type="module" src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/short-video.js?v=6"></script>
-    <script type="module" src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/header-sticky.js"></script>
-    <script type="module" src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/header.js"></script>
-    <script type="module" src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/home.js"></script>
-    <script src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/script/index.js"></script>
-</body>
-
+        </script>
+        <script src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/common.js"></script>
+        <script
+            type="module"
+            src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/swiper.js"
+        ></script>
+        <script
+            type="module"
+            src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/floating-dropdown.js"
+        ></script>
+        <script
+            type="module"
+            src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/overlay.js"
+        ></script>
+        <script
+            type="module"
+            src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/overlayscrollbar.js"
+        ></script>
+        <script
+            type="module"
+            src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/short-video.js?v=6"
+        ></script>
+        <script
+            type="module"
+            src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/header-sticky.js"
+        ></script>
+        <script
+            type="module"
+            src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/header.js"
+        ></script>
+        <script
+            type="module"
+            src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/home.js"
+        ></script>
+        <script src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_truyen_hinh/desktop/script/index.js"></script>
+    </body>
 </html>
