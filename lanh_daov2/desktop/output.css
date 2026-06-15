@@ -286,14 +286,8 @@
   .t\:mt-1 {
     margin-top: calc(var(--t-spacing) * 1);
   }
-  .t\:mt-1\.5\! {
-    margin-top: calc(var(--t-spacing) * 1.5) !important;
-  }
   .t\:mt-2\! {
     margin-top: calc(var(--t-spacing) * 2) !important;
-  }
-  .t\:mt-3\! {
-    margin-top: calc(var(--t-spacing) * 3) !important;
   }
   .t\:mt-4 {
     margin-top: calc(var(--t-spacing) * 4);
@@ -1223,6 +1217,11 @@
   .t\:pc\:-mx-4 {
     @media (width >= 1000px) {
       margin-inline: calc(var(--t-spacing) * -4);
+    }
+  }
+  .t\:pc\:mt-8 {
+    @media (width >= 1000px) {
+      margin-top: calc(var(--t-spacing) * 8);
     }
   }
   .t\:pc\:flex {
