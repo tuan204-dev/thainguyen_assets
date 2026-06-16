@@ -1493,6 +1493,16 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  .t\:\[\&\>\.swiper-slide\]\:h-auto\! {
+    &>.swiper-slide {
+      height: auto !important;
+    }
+  }
+  .t\:\[\&\>\.swiper-slide\>div\]\:h-full {
+    &>.swiper-slide>div {
+      height: 100%;
+    }
+  }
 }
 :root {
   color-scheme: light;
