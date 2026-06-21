@@ -732,6 +732,9 @@
   .t\:py-6\! {
     padding-block: calc(var(--t-spacing) * 6) !important;
   }
+  .t\:py-8 {
+    padding-block: calc(var(--t-spacing) * 8);
+  }
   .t\:pt-2 {
     padding-top: calc(var(--t-spacing) * 2);
   }
@@ -854,6 +857,9 @@
   }
   .t\:text-\[\#BC0000\] {
     color: #BC0000;
+  }
+  .t\:text-\[\#C0392B\] {
+    color: #C0392B;
   }
   .t\:text-\[\#EA2736\] {
     color: #EA2736;
