@@ -37,21 +37,30 @@
         'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
         '<path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 
+    function addBadge(card) {
+        if (card.querySelector(".info-card__badge")) return;
+        card.classList.add("info-card--has-image");
+        const badge = document.createElement("span");
+        badge.className = "info-card__badge";
+        badge.setAttribute("aria-hidden", "true");
+        badge.innerHTML = BADGE_SVG;
+        card.appendChild(badge);
+    }
+
     document.querySelectorAll('figure img[alt^="Đồng chí"]').forEach((img) => {
         const card = img.closest(cardSelector);
         if (!card) return;
         card.classList.add("info-card");
 
         // thẻ có data-info-url -> render icon ở góc trên phải
-        if (card.dataset.infoUrl && !card.querySelector(".info-card__badge")) {
-            card.classList.add("info-card--has-image");
-            const badge = document.createElement("span");
-            badge.className = "info-card__badge";
-            badge.setAttribute("aria-hidden", "true");
-            badge.innerHTML = BADGE_SVG;
-            card.appendChild(badge);
-        }
+        if (card.dataset.infoUrl) addBadge(card);
     });
+
+    // Ban Thường vụ: mọi thẻ đều có badge góc đỏ như trang gốc
+    const btvSection = document.getElementById("btvSection");
+    if (btvSection) {
+        btvSection.querySelectorAll(".info-card").forEach(addBadge);
+    }
 
     /* ── trích xuất thông tin từ một thẻ ───────────────────────── */
     function readCard(card) {

@@ -360,6 +360,18 @@
                     line-height: 23px;
                 }
             }
+
+            /* ── Multimedia: ảnh giữ đúng tỉ lệ gốc ──────────────── */
+            /* .img-block mặc định ép 3:2 + cover; mục này dùng ảnh ~16:9
+               nên cho hiển thị theo tỉ lệ tự nhiên như trang gốc */
+            .mm-section .img-block {
+                aspect-ratio: auto;
+            }
+            .mm-section .img-block img {
+                position: static;
+                transform: none;
+                height: auto;
+            }
         </style>
     </head>
 
@@ -767,7 +779,7 @@
         </section>
 
         <section
-            class="t:bg-cover t:bg-no-repeat t:bg-bottom t:py-8 t:pc:py-10"
+            class="mm-section t:bg-cover t:bg-no-repeat t:bg-center t:py-8 t:pc:py-10"
             style="background-image: url(&quot;./images/bg_multi.png&quot;)"
         >
             <div class="t:container">
@@ -834,11 +846,6 @@
                             alt="Tiểu sử Phó Bí thư Tỉnh ủy Thái Nguyên Bùi Văn Lương"
                             loading="lazy"
                         />
-                        <span class="t:absolute t:inset-0 t:flex t:items-center t:justify-center">
-                            <i
-                                class="ph--play-circle t:text-white t:text-6xl t:drop-shadow-lg t:opacity-90 t:transition-transform t:group-hover:scale-110"
-                            ></i>
-                        </span>
                     </figure>
                     <div class="t:flex t:items-center t:p-6 t:pc:p-8">
                         <h3
@@ -869,13 +876,6 @@
                                         alt="Mục tiêu tăng trưởng GRDP giai đoạn 2026-2030 theo tỉnh, thành phố"
                                         loading="lazy"
                                     />
-                                    <span
-                                        class="t:absolute t:inset-0 t:flex t:items-center t:justify-center"
-                                    >
-                                        <i
-                                            class="ph--play-circle t:text-white t:text-5xl t:drop-shadow-lg t:opacity-90 t:transition-transform t:group-hover:scale-110"
-                                        ></i>
-                                    </span>
                                 </figure>
                                 <h4
                                     class="t:p-4 t:text-xl t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
@@ -896,13 +896,6 @@
                                         alt="(Ảnh) Chân dung 19 đồng chí Ủy viên Bộ Chính trị khóa XIV"
                                         loading="lazy"
                                     />
-                                    <span
-                                        class="t:absolute t:inset-0 t:flex t:items-center t:justify-center"
-                                    >
-                                        <i
-                                            class="ph--play-circle t:text-white t:text-5xl t:drop-shadow-lg t:opacity-90 t:transition-transform t:group-hover:scale-110"
-                                        ></i>
-                                    </span>
                                 </figure>
                                 <h4
                                     class="t:p-4 t:text-xl t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
@@ -922,13 +915,6 @@
                                         alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại hội XIV"
                                         loading="lazy"
                                     />
-                                    <span
-                                        class="t:absolute t:inset-0 t:flex t:items-center t:justify-center"
-                                    >
-                                        <i
-                                            class="ph--play-circle t:text-white t:text-5xl t:drop-shadow-lg t:opacity-90 t:transition-transform t:group-hover:scale-110"
-                                        ></i>
-                                    </span>
                                 </figure>
                                 <h4
                                     class="t:p-4 t:text-xl t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
@@ -949,13 +935,6 @@
                                         alt="(Ảnh) Đoàn đại biểu Đảng bộ tỉnh Thái Nguyên tại phiên bế mạc Đại hội XIV"
                                         loading="lazy"
                                     />
-                                    <span
-                                        class="t:absolute t:inset-0 t:flex t:items-center t:justify-center"
-                                    >
-                                        <i
-                                            class="ph--play-circle t:text-white t:text-5xl t:drop-shadow-lg t:opacity-90 t:transition-transform t:group-hover:scale-110"
-                                        ></i>
-                                    </span>
                                 </figure>
                                 <h4
                                     class="t:p-4 t:text-xl t:font-semibold t:leading-snug t:text-white t:group-hover:text-white"
@@ -1260,7 +1239,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-01.png"
@@ -1292,7 +1271,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-02.png"
@@ -1325,7 +1304,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-03.png"
@@ -1357,7 +1336,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-04.png"
@@ -1389,7 +1368,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-05.png"
@@ -1421,7 +1400,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-06.png"
@@ -1453,7 +1432,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-07.png"
@@ -1485,7 +1464,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-08.png"
@@ -1517,7 +1496,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-09.png"
@@ -1549,7 +1528,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-10.png"
@@ -1581,7 +1560,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-11.png"
@@ -1616,7 +1595,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-12.png"
@@ -1651,7 +1630,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-13.png"
@@ -1686,7 +1665,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-14.png"
@@ -1721,7 +1700,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-15.png"
@@ -1753,7 +1732,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-16.png"
@@ -1788,7 +1767,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-17.png"
@@ -1820,7 +1799,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-18.png"
@@ -1855,7 +1834,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-19.png"
@@ -1890,7 +1869,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-20.png"
@@ -1925,7 +1904,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-21.png"
@@ -1960,7 +1939,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-22.png"
@@ -1995,7 +1974,7 @@
                             class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
                             <figure
-                                class="t:shrink-0 t:w-[96px] t:aspect-square t:overflow-hidden t:rounded-[8px] t:m-0"
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
                             >
                                 <img
                                     src="./images/tn-23.png"
@@ -2054,421 +2033,324 @@
                     </div>
 
                     <div
-                        class="t:grid t:grid-cols-1 t:gap-5 t:w-full t:md:max-pc:grid-cols-2 t:pc:grid-cols-3"
+                        class="t:grid t:grid-cols-1 t:md:max-pc:grid-cols-2 t:pc:grid-cols-3 t:gap-[24px] t:w-full"
                     >
-                        <div
-                            class="t:relative t:overflow-hidden t:rounded-[8px] t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:px-[8px] t:py-[20px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
+                        <article
+                            class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
-                            <img
-                                src="./images/bk-bg-pattern.png"
-                                alt=""
-                                aria-hidden="true"
-                                class="t:pointer-events-none t:absolute t:inset-0 t:h-full t:w-full t:object-cover t:opacity-[0.06]"
-                            />
-                            <div class="t:relative t:flex t:items-start t:gap-[8px]">
-                                <div class="t:shrink-0 t:px-[4px]">
-                                    <figure
-                                        class="t:m-0 t:w-[120px] t:overflow-hidden t:rounded-[8px]"
-                                    >
-                                        <img
-                                            src="./images/bk-duong-thiet-son.png"
-                                            alt="Đồng chí Dương Thiết Sơn"
-                                            class="t:block t:w-full t:h-auto t:object-cover"
-                                        />
-                                    </figure>
-                                </div>
-                                <div class="t:min-w-0 t:flex-1 t:px-[4px]">
-                                    <p
-                                        class="t:m-0 t:text-[14px] t:font-bold t:leading-[21px] t:text-[#c28214]"
-                                    >
-                                        Đồng chí
-                                    </p>
-                                    <p
-                                        class="t:m-0 t:text-[16px] t:font-bold t:leading-[24px] t:text-black"
-                                    >
-                                        Dương Thiết Sơn
-                                    </p>
-                                    <div class="t:text-[12px] t:leading-[18px] t:text-black">
-                                        <p class="t:m-0">Bí thư Tỉnh ủy</p>
-                                        <p class="t:m-0">(từ tháng 6/1947 đến tháng 1/1959)</p>
-                                    </div>
-                                </div>
+                            <figure
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
+                            >
+                                <img
+                                    src="./images/bk-duong-thiet-son.png"
+                                    alt="Đồng chí Dương Thiết Sơn"
+                                    class="t:w-full t:h-full t:object-cover"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:min-w-0">
+                                <span
+                                    class="t:text-[14px] t:font-semibold t:text-[#c28214] t:leading-[20px]"
+                                >
+                                    Đồng chí
+                                </span>
+                                <h3
+                                    class="t:text-[18px] t:font-bold t:text-[#333] t:leading-[24px] t:m-0"
+                                >
+                                    Dương Thiết Sơn
+                                </h3>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Bí thư Tỉnh ủy
+                            </p>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                (từ tháng 6/1947 đến tháng 1/1959)
+                            </p>
                             </div>
-                        </div>
-
-                        <div
-                            class="t:relative t:overflow-hidden t:rounded-[8px] t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:px-[8px] t:py-[20px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
+                        </article>
+                        <article
+                            class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
-                            <img
-                                src="./images/bk-bg-pattern.png"
-                                alt=""
-                                aria-hidden="true"
-                                class="t:pointer-events-none t:absolute t:inset-0 t:h-full t:w-full t:object-cover t:opacity-[0.06]"
-                            />
-                            <div class="t:relative t:flex t:items-start t:gap-[8px]">
-                                <div class="t:shrink-0 t:px-[4px]">
-                                    <figure
-                                        class="t:m-0 t:w-[120px] t:overflow-hidden t:rounded-[8px]"
-                                    >
-                                        <img
-                                            src="./images/bk-doanh-hang.png"
-                                            alt="Đồng chí Doanh Hằng"
-                                            class="t:block t:w-full t:h-auto t:object-cover"
-                                        />
-                                    </figure>
-                                </div>
-                                <div class="t:min-w-0 t:flex-1 t:px-[4px]">
-                                    <p
-                                        class="t:m-0 t:text-[14px] t:font-bold t:leading-[21px] t:text-[#c28214]"
-                                    >
-                                        Đồng chí
-                                    </p>
-                                    <p
-                                        class="t:m-0 t:text-[16px] t:font-bold t:leading-[24px] t:text-black"
-                                    >
-                                        Doanh Hằng
-                                    </p>
-                                    <div class="t:text-[12px] t:leading-[18px] t:text-black">
-                                        <p class="t:m-0">Bí thư Tỉnh ủy</p>
-                                        <p class="t:m-0">(từ tháng 2/1959 đến tháng 3/1961)</p>
-                                    </div>
-                                </div>
+                            <figure
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
+                            >
+                                <img
+                                    src="./images/bk-doanh-hang.png"
+                                    alt="Đồng chí Doanh Hằng"
+                                    class="t:w-full t:h-full t:object-cover"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:min-w-0">
+                                <span
+                                    class="t:text-[14px] t:font-semibold t:text-[#c28214] t:leading-[20px]"
+                                >
+                                    Đồng chí
+                                </span>
+                                <h3
+                                    class="t:text-[18px] t:font-bold t:text-[#333] t:leading-[24px] t:m-0"
+                                >
+                                    Doanh Hằng
+                                </h3>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Bí thư Tỉnh ủy
+                            </p>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                (từ tháng 2/1959 đến tháng 3/1961)
+                            </p>
                             </div>
-                        </div>
-
-                        <div
-                            class="t:relative t:overflow-hidden t:rounded-[8px] t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:px-[8px] t:py-[20px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
+                        </article>
+                        <article
+                            class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
-                            <img
-                                src="./images/bk-bg-pattern.png"
-                                alt=""
-                                aria-hidden="true"
-                                class="t:pointer-events-none t:absolute t:inset-0 t:h-full t:w-full t:object-cover t:opacity-[0.06]"
-                            />
-                            <div class="t:relative t:flex t:items-start t:gap-[8px]">
-                                <div class="t:shrink-0 t:px-[4px]">
-                                    <figure
-                                        class="t:m-0 t:w-[120px] t:overflow-hidden t:rounded-[8px]"
-                                    >
-                                        <img
-                                            src="./images/bk-nguyen-viet-vinh.png"
-                                            alt="Đồng chí Nguyễn Việt Vinh"
-                                            class="t:block t:w-full t:h-auto t:object-cover"
-                                        />
-                                    </figure>
-                                </div>
-                                <div class="t:min-w-0 t:flex-1 t:px-[4px]">
-                                    <p
-                                        class="t:m-0 t:text-[14px] t:font-bold t:leading-[21px] t:text-[#c28214]"
-                                    >
-                                        Đồng chí
-                                    </p>
-                                    <p
-                                        class="t:m-0 t:text-[16px] t:font-bold t:leading-[24px] t:text-black"
-                                    >
-                                        Nguyễn Việt Vinh
-                                    </p>
-                                    <div class="t:text-[12px] t:leading-[18px] t:text-black">
-                                        <p class="t:m-0">Bí thư Tỉnh ủy</p>
-                                        <p class="t:m-0">(từ tháng 3/1961 đến tháng 6/1965)</p>
-                                    </div>
-                                </div>
+                            <figure
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
+                            >
+                                <img
+                                    src="./images/bk-nguyen-viet-vinh.png"
+                                    alt="Đồng chí Nguyễn Việt Vinh"
+                                    class="t:w-full t:h-full t:object-cover"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:min-w-0">
+                                <span
+                                    class="t:text-[14px] t:font-semibold t:text-[#c28214] t:leading-[20px]"
+                                >
+                                    Đồng chí
+                                </span>
+                                <h3
+                                    class="t:text-[18px] t:font-bold t:text-[#333] t:leading-[24px] t:m-0"
+                                >
+                                    Nguyễn Việt Vinh
+                                </h3>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Bí thư Tỉnh ủy
+                            </p>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                (từ tháng 3/1961 đến tháng 6/1965)
+                            </p>
                             </div>
-                        </div>
-
-                        <div
-                            class="t:relative t:overflow-hidden t:rounded-[8px] t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:px-[8px] t:py-[20px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
+                        </article>
+                        <article
+                            class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
-                            <img
-                                src="./images/bk-bg-pattern.png"
-                                alt=""
-                                aria-hidden="true"
-                                class="t:pointer-events-none t:absolute t:inset-0 t:h-full t:w-full t:object-cover t:opacity-[0.06]"
-                            />
-                            <div class="t:relative t:flex t:items-start t:gap-[8px]">
-                                <div class="t:shrink-0 t:px-[4px]">
-                                    <figure
-                                        class="t:m-0 t:w-[120px] t:overflow-hidden t:rounded-[8px]"
-                                    >
-                                        <img
-                                            src="./images/bk-ha-van-phung.png"
-                                            alt="Đồng chí Hà Văn Phụng"
-                                            class="t:block t:w-full t:h-auto t:object-cover"
-                                        />
-                                    </figure>
-                                </div>
-                                <div class="t:min-w-0 t:flex-1 t:px-[4px]">
-                                    <p
-                                        class="t:m-0 t:text-[14px] t:font-bold t:leading-[21px] t:text-[#c28214]"
-                                    >
-                                        Đồng chí
-                                    </p>
-                                    <p
-                                        class="t:m-0 t:text-[16px] t:font-bold t:leading-[24px] t:text-black"
-                                    >
-                                        Hà Văn Phụng
-                                    </p>
-                                    <div class="t:text-[12px] t:leading-[18px] t:text-black">
-                                        <p class="t:m-0">Bí thư Tỉnh ủy</p>
-                                        <p class="t:m-0">(từ tháng 1/1997 đến tháng 6/2004)</p>
-                                    </div>
-                                </div>
+                            <figure
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
+                            >
+                                <img
+                                    src="./images/bk-ha-van-phung.png"
+                                    alt="Đồng chí Hà Văn Phụng"
+                                    class="t:w-full t:h-full t:object-cover"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:min-w-0">
+                                <span
+                                    class="t:text-[14px] t:font-semibold t:text-[#c28214] t:leading-[20px]"
+                                >
+                                    Đồng chí
+                                </span>
+                                <h3
+                                    class="t:text-[18px] t:font-bold t:text-[#333] t:leading-[24px] t:m-0"
+                                >
+                                    Hà Văn Phụng
+                                </h3>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Bí thư Tỉnh ủy
+                            </p>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                (từ tháng 1/1997 đến tháng 6/2004)
+                            </p>
                             </div>
-                        </div>
-
-                        <div
-                            class="t:relative t:overflow-hidden t:rounded-[8px] t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:px-[8px] t:py-[20px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
+                        </article>
+                        <article
+                            class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
-                            <img
-                                src="./images/bk-bg-pattern.png"
-                                alt=""
-                                aria-hidden="true"
-                                class="t:pointer-events-none t:absolute t:inset-0 t:h-full t:w-full t:object-cover t:opacity-[0.06]"
-                            />
-                            <div class="t:relative t:flex t:items-start t:gap-[8px]">
-                                <div class="t:shrink-0 t:px-[4px]">
-                                    <figure
-                                        class="t:m-0 t:w-[120px] t:overflow-hidden t:rounded-[8px]"
-                                    >
-                                        <img
-                                            src="./images/bk-mai-the-duong.png"
-                                            alt="Đồng chí Mai Thế Dương"
-                                            class="t:block t:w-full t:h-auto t:object-cover"
-                                        />
-                                    </figure>
-                                </div>
-                                <div class="t:min-w-0 t:flex-1 t:px-[4px]">
-                                    <p
-                                        class="t:m-0 t:text-[14px] t:font-bold t:leading-[21px] t:text-[#c28214]"
-                                    >
-                                        Đồng chí
-                                    </p>
-                                    <p
-                                        class="t:m-0 t:text-[16px] t:font-bold t:leading-[24px] t:text-black"
-                                    >
-                                        Mai Thế Dương
-                                    </p>
-                                    <div class="t:text-[12px] t:leading-[18px] t:text-black">
-                                        <p class="t:m-0">Ủy viên Trung ương Đảng</p>
-                                        <p class="t:m-0">
-                                            Bí thư Tỉnh ủy (từ tháng 7/2004 đến tháng 3/2009)
-                                        </p>
-                                    </div>
-                                </div>
+                            <figure
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
+                            >
+                                <img
+                                    src="./images/bk-mai-the-duong.png"
+                                    alt="Đồng chí Mai Thế Dương"
+                                    class="t:w-full t:h-full t:object-cover"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:min-w-0">
+                                <span
+                                    class="t:text-[14px] t:font-semibold t:text-[#c28214] t:leading-[20px]"
+                                >
+                                    Đồng chí
+                                </span>
+                                <h3
+                                    class="t:text-[18px] t:font-bold t:text-[#333] t:leading-[24px] t:m-0"
+                                >
+                                    Mai Thế Dương
+                                </h3>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Ủy viên Trung ương Đảng
+                            </p>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Bí thư Tỉnh ủy (từ tháng 7/2004 đến tháng 3/2009)
+                            </p>
                             </div>
-                        </div>
-
-                        <div
-                            class="t:relative t:overflow-hidden t:rounded-[8px] t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:px-[8px] t:py-[20px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
+                        </article>
+                        <article
+                            class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
-                            <img
-                                src="./images/bk-bg-pattern.png"
-                                alt=""
-                                aria-hidden="true"
-                                class="t:pointer-events-none t:absolute t:inset-0 t:h-full t:w-full t:object-cover t:opacity-[0.06]"
-                            />
-                            <div class="t:relative t:flex t:items-start t:gap-[8px]">
-                                <div class="t:shrink-0 t:px-[4px]">
-                                    <figure
-                                        class="t:m-0 t:w-[120px] t:overflow-hidden t:rounded-[8px]"
-                                    >
-                                        <img
-                                            src="./images/bk-duong-dinh-han.png"
-                                            alt="Đồng chí Dương Đình Hân"
-                                            class="t:block t:w-full t:h-auto t:object-cover"
-                                        />
-                                    </figure>
-                                </div>
-                                <div class="t:min-w-0 t:flex-1 t:px-[4px]">
-                                    <p
-                                        class="t:m-0 t:text-[14px] t:font-bold t:leading-[21px] t:text-[#c28214]"
-                                    >
-                                        Đồng chí
-                                    </p>
-                                    <p
-                                        class="t:m-0 t:text-[16px] t:font-bold t:leading-[24px] t:text-black"
-                                    >
-                                        Dương Đình Hân
-                                    </p>
-                                    <div class="t:text-[12px] t:leading-[18px] t:text-black">
-                                        <p class="t:m-0">Bí thư Tỉnh ủy</p>
-                                        <p class="t:m-0">(từ tháng 11/2009 đến tháng 5/2010)</p>
-                                    </div>
-                                </div>
+                            <figure
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
+                            >
+                                <img
+                                    src="./images/bk-duong-dinh-han.png"
+                                    alt="Đồng chí Dương Đình Hân"
+                                    class="t:w-full t:h-full t:object-cover"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:min-w-0">
+                                <span
+                                    class="t:text-[14px] t:font-semibold t:text-[#c28214] t:leading-[20px]"
+                                >
+                                    Đồng chí
+                                </span>
+                                <h3
+                                    class="t:text-[18px] t:font-bold t:text-[#333] t:leading-[24px] t:m-0"
+                                >
+                                    Dương Đình Hân
+                                </h3>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Bí thư Tỉnh ủy
+                            </p>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                (từ tháng 11/2009 đến tháng 5/2010)
+                            </p>
                             </div>
-                        </div>
-
-                        <div
-                            class="t:relative t:overflow-hidden t:rounded-[8px] t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:px-[8px] t:py-[20px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
+                        </article>
+                        <article
+                            class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
-                            <img
-                                src="./images/bk-bg-pattern.png"
-                                alt=""
-                                aria-hidden="true"
-                                class="t:pointer-events-none t:absolute t:inset-0 t:h-full t:w-full t:object-cover t:opacity-[0.06]"
-                            />
-                            <div class="t:relative t:flex t:items-start t:gap-[8px]">
-                                <div class="t:shrink-0 t:px-[4px]">
-                                    <figure
-                                        class="t:m-0 t:w-[120px] t:overflow-hidden t:rounded-[8px]"
-                                    >
-                                        <img
-                                            src="./images/bk-nguyen-xuan-cuong.png"
-                                            alt="Đồng chí Nguyễn Xuân Cường"
-                                            class="t:block t:w-full t:h-auto t:object-cover"
-                                        />
-                                    </figure>
-                                </div>
-                                <div class="t:min-w-0 t:flex-1 t:px-[4px]">
-                                    <p
-                                        class="t:m-0 t:text-[14px] t:font-bold t:leading-[21px] t:text-[#c28214]"
-                                    >
-                                        Đồng chí
-                                    </p>
-                                    <p
-                                        class="t:m-0 t:text-[16px] t:font-bold t:leading-[24px] t:text-black"
-                                    >
-                                        Nguyễn Xuân Cường
-                                    </p>
-                                    <div class="t:text-[12px] t:leading-[18px] t:text-black">
-                                        <p class="t:m-0">Ủy viên Trung ương Đảng</p>
-                                        <p class="t:m-0">
-                                            Bí thư Tỉnh ủy (từ tháng 5/2010 đến tháng 1/2013)
-                                        </p>
-                                    </div>
-                                </div>
+                            <figure
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
+                            >
+                                <img
+                                    src="./images/bk-nguyen-xuan-cuong.png"
+                                    alt="Đồng chí Nguyễn Xuân Cường"
+                                    class="t:w-full t:h-full t:object-cover"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:min-w-0">
+                                <span
+                                    class="t:text-[14px] t:font-semibold t:text-[#c28214] t:leading-[20px]"
+                                >
+                                    Đồng chí
+                                </span>
+                                <h3
+                                    class="t:text-[18px] t:font-bold t:text-[#333] t:leading-[24px] t:m-0"
+                                >
+                                    Nguyễn Xuân Cường
+                                </h3>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Ủy viên Trung ương Đảng
+                            </p>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Bí thư Tỉnh ủy (từ tháng 5/2010 đến tháng 1/2013)
+                            </p>
                             </div>
-                        </div>
-
-                        <div
-                            class="t:relative t:overflow-hidden t:rounded-[8px] t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:px-[8px] t:py-[20px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
+                        </article>
+                        <article
+                            class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
-                            <img
-                                src="./images/bk-bg-pattern.png"
-                                alt=""
-                                aria-hidden="true"
-                                class="t:pointer-events-none t:absolute t:inset-0 t:h-full t:w-full t:object-cover t:opacity-[0.06]"
-                            />
-                            <div class="t:relative t:flex t:items-start t:gap-[8px]">
-                                <div class="t:shrink-0 t:px-[4px]">
-                                    <figure
-                                        class="t:m-0 t:w-[120px] t:overflow-hidden t:rounded-[8px]"
-                                    >
-                                        <img
-                                            src="./images/bk-ha-van-khoat.png"
-                                            alt="Đồng chí Hà Văn Khoát"
-                                            class="t:block t:w-full t:h-auto t:object-cover"
-                                        />
-                                    </figure>
-                                </div>
-                                <div class="t:min-w-0 t:flex-1 t:px-[4px]">
-                                    <p
-                                        class="t:m-0 t:text-[14px] t:font-bold t:leading-[21px] t:text-[#c28214]"
-                                    >
-                                        Đồng chí
-                                    </p>
-                                    <p
-                                        class="t:m-0 t:text-[16px] t:font-bold t:leading-[24px] t:text-black"
-                                    >
-                                        Hà Văn Khoát
-                                    </p>
-                                    <div class="t:text-[12px] t:leading-[18px] t:text-black">
-                                        <p class="t:m-0">Bí thư Tỉnh ủy</p>
-                                        <p class="t:m-0">(từ tháng 3/2013 đến tháng 3/2015)</p>
-                                    </div>
-                                </div>
+                            <figure
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
+                            >
+                                <img
+                                    src="./images/bk-ha-van-khoat.png"
+                                    alt="Đồng chí Hà Văn Khoát"
+                                    class="t:w-full t:h-full t:object-cover"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:min-w-0">
+                                <span
+                                    class="t:text-[14px] t:font-semibold t:text-[#c28214] t:leading-[20px]"
+                                >
+                                    Đồng chí
+                                </span>
+                                <h3
+                                    class="t:text-[18px] t:font-bold t:text-[#333] t:leading-[24px] t:m-0"
+                                >
+                                    Hà Văn Khoát
+                                </h3>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Bí thư Tỉnh ủy
+                            </p>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                (từ tháng 3/2013 đến tháng 3/2015)
+                            </p>
                             </div>
-                        </div>
-
-                        <div
-                            class="t:relative t:overflow-hidden t:rounded-[8px] t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:px-[8px] t:py-[20px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
+                        </article>
+                        <article
+                            class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
-                            <img
-                                src="./images/bk-bg-pattern.png"
-                                alt=""
-                                aria-hidden="true"
-                                class="t:pointer-events-none t:absolute t:inset-0 t:h-full t:w-full t:object-cover t:opacity-[0.06]"
-                            />
-                            <div class="t:relative t:flex t:items-start t:gap-[8px]">
-                                <div class="t:shrink-0 t:px-[4px]">
-                                    <figure
-                                        class="t:m-0 t:w-[120px] t:overflow-hidden t:rounded-[8px]"
-                                    >
-                                        <img
-                                            src="./images/bk-nguyen-van-du.png"
-                                            alt="Đồng chí Nguyễn Văn Du"
-                                            class="t:block t:w-full t:h-auto t:object-cover"
-                                        />
-                                    </figure>
-                                </div>
-                                <div class="t:min-w-0 t:flex-1 t:px-[4px]">
-                                    <p
-                                        class="t:m-0 t:text-[14px] t:font-bold t:leading-[21px] t:text-[#c28214]"
-                                    >
-                                        Đồng chí
-                                    </p>
-                                    <p
-                                        class="t:m-0 t:text-[16px] t:font-bold t:leading-[24px] t:text-black"
-                                    >
-                                        Nguyễn Văn Du
-                                    </p>
-                                    <div class="t:text-[12px] t:leading-[18px] t:text-black">
-                                        <p class="t:m-0">Ủy viên Trung ương Đảng</p>
-                                        <p class="t:m-0">
-                                            Bí thư Tỉnh ủy (từ tháng 3/2015 đến tháng 10/2020)
-                                        </p>
-                                    </div>
-                                </div>
+                            <figure
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
+                            >
+                                <img
+                                    src="./images/bk-nguyen-van-du.png"
+                                    alt="Đồng chí Nguyễn Văn Du"
+                                    class="t:w-full t:h-full t:object-cover"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:min-w-0">
+                                <span
+                                    class="t:text-[14px] t:font-semibold t:text-[#c28214] t:leading-[20px]"
+                                >
+                                    Đồng chí
+                                </span>
+                                <h3
+                                    class="t:text-[18px] t:font-bold t:text-[#333] t:leading-[24px] t:m-0"
+                                >
+                                    Nguyễn Văn Du
+                                </h3>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Ủy viên Trung ương Đảng
+                            </p>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Bí thư Tỉnh ủy (từ tháng 3/2015 đến tháng 10/2020)
+                            </p>
                             </div>
-                        </div>
-
-                        <div
-                            class="t:relative t:overflow-hidden t:rounded-[8px] t:border t:border-[#f4f6fa] t:bg-[#fffaf4] t:px-[8px] t:py-[20px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
+                        </article>
+                        <article
+                            class="t:flex t:items-start t:gap-[16px] t:bg-[#fffaf4] t:border t:border-[#f4f6fa] t:rounded-[8px] t:p-[16px] t:shadow-[0px_0px_20px_0px_rgba(51,51,51,0.08)]"
                         >
-                            <img
-                                src="./images/bk-bg-pattern.png"
-                                alt=""
-                                aria-hidden="true"
-                                class="t:pointer-events-none t:absolute t:inset-0 t:h-full t:w-full t:object-cover t:opacity-[0.06]"
-                            />
-                            <div class="t:relative t:flex t:items-start t:gap-[8px]">
-                                <div class="t:shrink-0 t:px-[4px]">
-                                    <figure
-                                        class="t:m-0 t:w-[120px] t:overflow-hidden t:rounded-[8px]"
-                                    >
-                                        <img
-                                            src="./images/bk-hoang-duy-chinh.png"
-                                            alt="Đồng chí Hoàng Duy Chinh"
-                                            class="t:block t:w-full t:h-auto t:object-cover"
-                                        />
-                                    </figure>
-                                </div>
-                                <div class="t:min-w-0 t:flex-1 t:px-[4px]">
-                                    <p
-                                        class="t:m-0 t:text-[14px] t:font-bold t:leading-[21px] t:text-[#c28214]"
-                                    >
-                                        Đồng chí
-                                    </p>
-                                    <p
-                                        class="t:m-0 t:text-[16px] t:font-bold t:leading-[24px] t:text-black"
-                                    >
-                                        Hoàng Duy Chinh
-                                    </p>
-                                    <div class="t:text-[12px] t:leading-[18px] t:text-black">
-                                        <p class="t:m-0">Ủy viên Trung ương Đảng</p>
-                                        <p class="t:m-0">
-                                            Bí thư Tỉnh ủy (từ tháng 10/2020 đến tháng 6/2025)
-                                        </p>
-                                    </div>
-                                </div>
+                            <figure
+                                class="t:shrink-0 t:w-[96px] t:aspect-[2/3] t:overflow-hidden t:rounded-[8px] t:m-0"
+                            >
+                                <img
+                                    src="./images/bk-hoang-duy-chinh.png"
+                                    alt="Đồng chí Hoàng Duy Chinh"
+                                    class="t:w-full t:h-full t:object-cover"
+                                />
+                            </figure>
+                            <div class="t:flex t:flex-col t:min-w-0">
+                                <span
+                                    class="t:text-[14px] t:font-semibold t:text-[#c28214] t:leading-[20px]"
+                                >
+                                    Đồng chí
+                                </span>
+                                <h3
+                                    class="t:text-[18px] t:font-bold t:text-[#333] t:leading-[24px] t:m-0"
+                                >
+                                    Hoàng Duy Chinh
+                                </h3>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Ủy viên Trung ương Đảng
+                            </p>
+                            <p class="t:text-[14px] t:text-[#333] t:leading-[20px] t:m-0">
+                                Bí thư Tỉnh ủy (từ tháng 10/2020 đến tháng 6/2025)
+                            </p>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="t:py-[30px]">
+        <section id="btvSection" class="t:py-[30px]">
             <div class="t:container">
                 <div
                     class="t:flex t:flex-col t:items-center t:gap-5 t:w-full t:max-w-[1200px] t:mx-auto"
