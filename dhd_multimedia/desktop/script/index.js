@@ -5,9 +5,25 @@ if (heroSwiperEl) {
     const sideItems = [...document.querySelectorAll(".hero-side-item")];
 
     if (swiper && sideItems.length) {
+        const tabsPanel = document.querySelector(".multimedia-hero-tabs");
+
+        // Khi panel cuộn (>2 bài), giữ item đang active luôn hiển thị
+        const ensureVisible = (item) => {
+            if (!tabsPanel || tabsPanel.scrollHeight <= tabsPanel.clientHeight) return;
+            const ir = item.getBoundingClientRect();
+            const pr = tabsPanel.getBoundingClientRect();
+            if (ir.top < pr.top) {
+                tabsPanel.scrollBy({ top: ir.top - pr.top, behavior: "smooth" });
+            } else if (ir.bottom > pr.bottom) {
+                tabsPanel.scrollBy({ top: ir.bottom - pr.bottom, behavior: "smooth" });
+            }
+        };
+
         const updateActive = (realIndex) => {
             sideItems.forEach((item, i) => {
-                item.classList.toggle("is-active", i === realIndex);
+                const active = i === realIndex;
+                item.classList.toggle("is-active", active);
+                if (active) ensureVisible(item);
             });
         };
         swiper.on("slideChange", () => {

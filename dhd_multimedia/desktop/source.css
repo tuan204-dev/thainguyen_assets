@@ -220,7 +220,21 @@
 }
 
 .multimedia-hero-tabs {
+    /* Cao bằng đúng 2 item (2 × 240px); item thứ 3 trở đi sẽ cuộn */
     height: 480px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+}
+
+.multimedia-hero-tabs::-webkit-scrollbar {
+    width: 6px;
+}
+
+.multimedia-hero-tabs::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 3px;
 }
 
 .multimedia-hero-tabs .hero-side-item {
@@ -229,6 +243,11 @@
     min-height: 0;
     overflow: hidden;
     padding: 16px 20px;
+}
+
+/* Đường kẻ giữa các item (tự áp dụng cho mọi số lượng item) */
+.multimedia-hero-tabs .hero-side-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 999px) {

@@ -439,9 +439,6 @@
   .t\:gap-4 {
     gap: calc(var(--t-spacing) * 4);
   }
-  .t\:gap-6 {
-    gap: calc(var(--t-spacing) * 6);
-  }
   .t\:gap-8 {
     gap: calc(var(--t-spacing) * 8);
   }
@@ -1354,6 +1351,17 @@
 }
 .multimedia-hero-tabs {
   height: 480px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+}
+.multimedia-hero-tabs::-webkit-scrollbar {
+  width: 6px;
+}
+.multimedia-hero-tabs::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 3px;
 }
 .multimedia-hero-tabs .hero-side-item {
   gap: 10px;
@@ -1361,6 +1369,9 @@
   min-height: 0;
   overflow: hidden;
   padding: 16px 20px;
+}
+.multimedia-hero-tabs .hero-side-item:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 @media (max-width: 999px) {
   .multimedia-hero-tabs {
