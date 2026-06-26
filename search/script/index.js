@@ -1,10 +1,11 @@
 (function () {
-    var cfg = function (id) {
-        var el = document.getElementById(id);
-        return (el ? el.textContent : '').trim().replace(/\/+$/, '');
+    var pageInfo = document.getElementById('page_info');
+    var cfg = function (name) {
+        var v = pageInfo ? (pageInfo.getAttribute('data-' + name) || '') : '';
+        return v.trim().replace(/\/+$/, '');
     };
-    var PUBLIC_API_URL = cfg('public_api_url');
-    var CDN_URL = cfg('cdn_url');
+    var PUBLIC_API_URL = cfg('public-api-url');
+    var CDN_URL = cfg('cdn-url');
     var BASE_IMAGE_URL = CDN_URL + '/w300/';
     var LIMIT = 10;
 
