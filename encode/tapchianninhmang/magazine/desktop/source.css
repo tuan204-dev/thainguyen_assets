@@ -1,0 +1,304 @@
+@import "tailwindcss" source(none) prefix(t);
+@plugin "@tailwindcss/typography";
+@source "./**/*.{html,js,jsx,ts,tsx}";
+
+@theme {
+    --color-tw-primary: #212636;
+    --color-tw-secondary: #667085;
+    --color-tw-border: #d0d5dd;
+
+    --breakpoint-bt-xl: 1200px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Magazine Layout — DMagazine-inspired editorial long-form
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Minimal Header ──────────────────────────────────────────── */
+.mag-header {
+    background: #0a64b4;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-height: 56px;
+}
+
+.mag-header__back {
+    position: absolute;
+    left: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.mag-header__back:hover {
+    opacity: 1;
+    color: #fff;
+}
+
+.mag-header__logo img {
+    max-height: 36px;
+    width: auto;
+}
+
+.mag-header__share {
+    position: absolute;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.mag-header__share:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.mag-header__share i {
+    font-size: 18px;
+}
+
+/* ── Hero Section ────────────────────────────────────────────── */
+.mag-hero {
+    width: 100%;
+    max-width: none;
+    line-height: 0;
+    margin: 0;
+}
+
+.mag-hero img {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    display: block;
+}
+
+/* ── Content Column ──────────────────────────────────────────── */
+.article-prose {
+    width: 100%;
+    max-width: 880px;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 20px;
+    font-family: "Noto Serif", serif;
+    line-height: 1.85;
+    color: var(--text-color);
+}
+
+.article-prose p {
+    margin-bottom: 1.25rem;
+    text-align: justify;
+}
+
+.article-prose figure {
+    margin: 2rem 0;
+}
+
+.article-prose strong {
+    font-weight: 700;
+}
+
+.article-prose h2 {
+    font-family: "Merriweather", serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2.5rem 0 1rem;
+}
+
+.article-prose h3 {
+    font-family: "Merriweather", serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 2rem 0 0.75rem;
+}
+
+/* ── Sapo / Lead Paragraph ───────────────────────────────────── */
+.mag-sapo {
+    font-family: "Noto Serif", serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--text-color-soft);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* ── Section Divider ─────────────────────────────────────────── */
+.mag-section-divider {
+    text-align: center;
+    padding: 48px 0 32px;
+    position: relative;
+}
+
+.mag-section-divider__num {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-primary-color);
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.mag-section-divider__title {
+    font-family: "Merriweather", serif;
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    position: relative;
+    display: inline-block;
+}
+
+.mag-section-divider__title::before,
+.mag-section-divider__title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 1px;
+    background: var(--text-primary-color);
+    opacity: 0.4;
+}
+
+.mag-section-divider__title::before {
+    right: calc(100% + 16px);
+}
+
+.mag-section-divider__title::after {
+    left: calc(100% + 16px);
+}
+
+/* ── Magazine Quote ──────────────────────────────────────────── */
+.mag-quote {
+    text-align: center;
+    padding: 40px 24px;
+    margin: 2.5rem 0;
+    position: relative;
+}
+
+.mag-quote::before,
+.mag-quote::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--text-primary-color);
+    opacity: 0.4;
+    margin: 0 auto;
+}
+
+.mag-quote::before {
+    margin-bottom: 24px;
+}
+
+.mag-quote::after {
+    margin-top: 24px;
+}
+
+.mag-quote__icon {
+    color: var(--text-primary-color);
+    opacity: 0.25;
+    margin-bottom: 16px;
+}
+
+.mag-quote__text {
+    font-family: "Noto Serif", serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.mag-quote__cite {
+    display: block;
+    margin-top: 16px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-color-soft);
+}
+
+/* ── Tag Pills ───────────────────────────────────────────────── */
+.mag-tag {
+    display: inline-block;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9375rem;
+    color: #333;
+    background: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 3px 10px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.mag-tag:hover {
+    background: #e0e0e0;
+    color: #333;
+}
+
+/* ── Bottom Section ──────────────────────────────────────────── */
+.mag-bottom {
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    padding-bottom: 40px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .mag-bottom {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .mag-bottom {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .mag-bottom {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .mag-bottom {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .mag-bottom {
+        max-width: 1320px;
+    }
+}

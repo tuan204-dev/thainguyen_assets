@@ -1,0 +1,30 @@
+node_modules
+bun.lock
+package-lock.json
+yarn.lock
+
+# Tailwind generated outputs
+**/output.css
+
+# Build & vendor
+dist
+build
+.next
+.cache
+coverage
+
+# Binary / media
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.webp
+*.pdf
+
+# OS
+.DS_Store
+
+# Git
+.git

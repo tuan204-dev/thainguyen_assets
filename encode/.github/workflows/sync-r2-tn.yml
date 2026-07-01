@@ -1,0 +1,38 @@
+name: Sync to Cloudflare R2 Thai Nguyen
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    environment: secrets
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Sync all files to R2
+        run: |
+          set -euo pipefail
+
+          ENDPOINT_URL="https://3b24c5155db1e2c2b38a2140476e57a3.r2.cloudflarestorage.com"
+          BUCKET="s3://thai-nguyen-r2"
+
+          aws s3 sync . "${BUCKET}" \
+            --endpoint-url "$ENDPOINT_URL" \
+            --region auto \
+            --cache-control "public, max-age=2592000" \
+            --exclude "*" \
+            --include "*/*" \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "api/*" \
+            --exclude "node_modules/*" \
+            --exclude "*/node_modules/*" \
+            --exclude "*.md" \
+            --only-show-errors
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.TCA_R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.TCA_R2_SECRET_ACCESS_KEY }}

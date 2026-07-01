@@ -1,0 +1,610 @@
+@import "tailwindcss" source(none) prefix(t);
+@source "./**/*.{html,js,jsx,ts,tsx}";
+@source "../../common/**/*.{js,ts}";
+
+@theme {
+    --color-tw-primary: #212636;
+    --color-tw-secondary: #667085;
+    --color-tw-border: #d0d5dd;
+
+    --breakpoint-bt-xl: 1200px;
+    --breakpoint-pc: 1000px;
+}
+
+:root {
+    color-scheme: light;
+    --bg: #f3f7fb;
+    --panel: #ffffff;
+    --ink: #132033;
+    --ink-soft: #506079;
+    --stroke: #d7dfeb;
+    --action: #1f3b68;
+    --action-hover: #142949;
+    --danger: #b91c1c;
+    --danger-bg: #fee2e2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* mobile */
+
+.mobile-menu-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.mobile-menu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 20px;
+    background: transparent;
+    border: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #151515;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mobile-menu-caret {
+    font-size: 20px;
+    color: #333;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+/* Only rotate the DIRECT trigger's caret, not nested ones */
+.mobile-menu-item.is-open > .mobile-menu-trigger > .mobile-menu-caret {
+    transform: rotate(90deg);
+}
+
+.mobile-menu-sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+/* Only expand the DIRECT child sub panel */
+.mobile-menu-item.is-open > .mobile-menu-sub {
+    max-height: 2000px;
+}
+
+.mobile-menu-sub > a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    border-top: 1px solid #f0f0f0;
+    text-decoration: none;
+}
+
+.mobile-menu-sub > a:hover {
+    background: #f9f9f9;
+}
+
+.mobile-menu-item.is-open > .mobile-menu-trigger {
+    color: #30a14a;
+    background: #f0f7ff;
+}
+
+/* ── Nested sub-items (level 3+) ── */
+
+.mobile-menu-item--nested {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+/* Trigger aligns with sibling <a> links at the SAME level (padding-left: 20px) */
+.mobile-menu-trigger--nested {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    font-weight: 400;
+}
+
+.mobile-menu-trigger--nested .mobile-menu-caret {
+    font-size: 16px;
+}
+
+.mobile-menu-item--nested.is-open > .mobile-menu-trigger--nested {
+    color: #30a14a;
+    background: #f0f7ff;
+}
+
+/* Children inside nested sub-panels get progressively more left padding */
+.mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 32px;
+    font-size: 13px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 56px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+    padding-left: 32px;
+}
+
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
+    padding-left: 56px;
+}
+
+/* Desktop overlay right column reuses mobile accordion UI */
+.desktop-overlay-menu-root {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.desktop-overlay-menu-root > .mobile-menu-sub {
+    max-height: none;
+}
+
+/* ============================================================
+   DHD microsite — section-specific overrides
+   ============================================================ */
+
+/* HỎI-ĐÁP — prev/next nằm trên title bar, dạng nút tròn viền đỏ.
+   (swiper.js bind navigation từ .swiper-button-prev/next bên trong .swiper) */
+.qa-nav.swiper-button-prev,
+.qa-nav.swiper-button-next {
+    position: static;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    border: 1px solid #ef2424;
+    border-radius: 9999px;
+    color: #ef2424;
+    background: transparent;
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+.qa-nav.swiper-button-prev::after,
+.qa-nav.swiper-button-next::after {
+    content: none;
+}
+.qa-nav:hover {
+    background: #ef2424;
+    color: #fff;
+}
+.qa-nav.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* HERO FEATURED — nút điều hướng tròn viền đỏ, căn giữa theo ảnh 16/9.
+   Dùng container query (cqw) để tâm nút luôn nằm giữa ảnh, không bị lệch
+   xuống phần tiêu đề + mô tả bên dưới slide. */
+.hero-feature-swiper {
+    container-type: inline-size;
+}
+.hero-feature-swiper .hero-nav {
+    --hero-red: #e11718;
+    position: absolute;
+    top: 28.125cqw; /* nửa chiều cao ảnh = (100% * 9/16) / 2 */
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    border: 1.5px solid var(--hero-red);
+    background: #fff;
+    color: var(--hero-red);
+    cursor: pointer;
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+.hero-feature-swiper .hero-nav i {
+    width: 18px;
+    height: 18px;
+}
+.hero-feature-swiper .hero-nav--prev {
+    left: 12px;
+}
+.hero-feature-swiper .hero-nav--next {
+    right: 12px;
+}
+.hero-feature-swiper .hero-nav::after {
+    content: none !important;
+}
+.hero-feature-swiper .hero-nav:hover {
+    background: var(--hero-red);
+    color: #fff;
+}
+.hero-feature-swiper .hero-nav.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+.hero-feature-swiper .hero-nav.swiper-button-lock {
+    display: none !important;
+}
+
+/* CÁC CÔNG TRÌNH, DỰ ÁN — nút tròn đỏ 2 bên slider */
+.ct-section .ct-nav {
+    --ct-red: #e11718;
+    position: absolute;
+    top: 50%;
+    margin-top: 0;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 9999px;
+    border: 1.5px solid var(--ct-red);
+    background: #fff;
+    color: var(--ct-red);
+    cursor: pointer;
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+.ct-section .ct-nav i {
+    width: 18px;
+    height: 18px;
+}
+.ct-section .ct-nav--prev {
+    left: 0;
+}
+.ct-section .ct-nav--next {
+    right: 0;
+}
+.ct-section .ct-nav::after {
+    content: none !important;
+}
+.ct-section .ct-nav:hover {
+    background: var(--ct-red);
+    color: #fff;
+}
+.ct-section .ct-nav.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+.ct-section .ct-nav.swiper-button-lock {
+    display: none !important;
+}
+
+/* ĐA PHƯƠNG TIỆN — nút tròn viền đỏ 2 bên slider, căn giữa theo ảnh 16/9.
+   Dùng container query (cqw): tâm nút = nửa chiều cao ảnh của 1 slide.
+   Chiều rộng slide thay đổi theo số slide/view ở mỗi breakpoint nên top
+   được tính lại cho từng breakpoint (khớp với data-swiper-breakpoints). */
+.mm-swiper {
+    container-type: inline-size;
+}
+.mm-swiper .mm-nav {
+    --mm-red: #e11718;
+    position: absolute;
+    top: 28.125cqw; /* base: 1 slide/view → nửa ảnh = 100cqw * 9/16 / 2 */
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    border: 1.5px solid var(--mm-red);
+    background: #fff;
+    color: var(--mm-red);
+    cursor: pointer;
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+.mm-swiper .mm-nav i {
+    width: 18px;
+    height: 18px;
+}
+.mm-swiper .mm-nav--prev {
+    left: 8px;
+}
+.mm-swiper .mm-nav--next {
+    right: 8px;
+}
+.mm-swiper .mm-nav::after {
+    content: none !important;
+}
+.mm-swiper .mm-nav:hover {
+    background: var(--mm-red);
+    color: #fff;
+}
+.mm-swiper .mm-nav.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+.mm-swiper .mm-nav.swiper-button-lock {
+    display: none !important;
+}
+/* ≥640px: 2 slide/view, space-between 16px */
+@media (min-width: 640px) {
+    .mm-swiper .mm-nav {
+        top: calc((100cqw - 16px) * 9 / 64);
+    }
+}
+/* ≥1000px: 3 slide/view, space-between 24px */
+@media (min-width: 1000px) {
+    .mm-swiper .mm-nav {
+        top: calc((100cqw - 48px) * 3 / 32);
+    }
+}
+
+/* VĂN KIỆN — prev/next nằm trong thanh tiêu đề (không phải overlay phủ slide) */
+.vk-control {
+    position: static !important;
+    transform: none;
+    height: auto;
+    padding-left: 0;
+    background: none;
+    gap: 6px;
+    flex-shrink: 0;
+}
+.vk-swiper.swiper:has(.swiper-control .swiper-button-next:not(.swiper-button-lock)) {
+    padding-right: 20px !important;
+}
+
+/* ============================================================
+   CÁC KỲ ĐẠI HỘI ĐẢNG — timeline dọc zigzag, trục giữa
+   ============================================================ */
+.ky-timeline {
+    position: relative;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1120px;
+}
+/* trục dọc chính giữa (nét đứt) — chỉ ở PC */
+.ky-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 1px dashed #c6c1c1;
+}
+.ky-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    column-gap: 64px;
+    min-height: 260px;
+    padding: 0 0 46px;
+}
+.ky-media {
+    grid-row: 1;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 10px;
+    box-shadow: 0 10px 28px rgba(36, 42, 46, 0.12);
+}
+.ky-body {
+    grid-row: 1;
+    max-width: 440px;
+    padding: 28px 0;
+}
+.ky-title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #151515;
+}
+.ky-title a {
+    color: inherit;
+}
+.ky-title a:hover {
+    color: #ef2424;
+}
+.ky-desc {
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #5f5f5f;
+    -webkit-line-clamp: unset;
+}
+
+/* ----- ZIGZAG: lẻ = ảnh trái / chẵn = ảnh phải ----- */
+.ky-row:nth-child(odd) .ky-media {
+    grid-column: 1;
+    justify-self: end;
+}
+.ky-row:nth-child(odd) .ky-body {
+    grid-column: 2;
+    justify-self: start;
+    text-align: left;
+}
+.ky-row:nth-child(even) .ky-media {
+    grid-column: 2;
+    justify-self: start;
+}
+.ky-row:nth-child(even) .ky-body {
+    grid-column: 1;
+    justify-self: end;
+    text-align: right;
+}
+
+/* ----- BADGE số tròn cam-đỏ, nằm trên trục giữa ----- */
+.ky-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    border: 2px solid #fff;
+    background: #ef2424;
+    box-shadow: 0 0 0 2px #d91d27;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+}
+/* ----- RIBBON năm (parallelogram đỏ), cạnh badge trên trục ----- */
+.ky-year.dhd-flag-label {
+    position: absolute !important;
+    top: -3px;
+    z-index: 4;
+    --dhd-flag-min-width: 112px;
+    --dhd-flag-height: 42px;
+}
+.ky-year.dhd-flag-label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 34px;
+    height: 1px;
+    background: #ef2424;
+}
+.ky-row:nth-child(odd) .ky-year {
+    left: 50%;
+    margin-left: 54px;
+}
+.ky-row:nth-child(odd) .ky-year::after {
+    right: 100%;
+}
+.ky-row:nth-child(even) .ky-year {
+    right: 50%;
+    margin-right: 54px;
+}
+.ky-row:nth-child(even) .ky-year::after {
+    left: 100%;
+}
+
+/* First row is the current leader card, not a congress milestone. */
+.ky-row:first-child {
+    min-height: 220px;
+}
+.ky-row:first-child .ky-media {
+    max-width: 360px;
+    aspect-ratio: 4 / 5;
+}
+.ky-row:first-child .ky-media img {
+    object-position: center top;
+}
+.ky-row:first-child .ky-body {
+    align-self: center;
+}
+
+/* ============ MOBILE (<1000px): 1 cột, bỏ trục giữa ============ */
+@media (max-width: 999.98px) {
+    .ky-timeline::before {
+        display: none;
+    }
+    .ky-row,
+    .ky-row:nth-child(odd),
+    .ky-row:nth-child(even) {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        min-height: 0;
+        padding-bottom: 30px;
+    }
+    .ky-row:nth-child(odd) .ky-media,
+    .ky-row:nth-child(even) .ky-media {
+        grid-row: auto;
+        grid-column: 1;
+        justify-self: stretch;
+        max-width: none;
+    }
+    .ky-row:nth-child(odd) .ky-body,
+    .ky-row:nth-child(even) .ky-body {
+        grid-row: auto;
+        grid-column: 1;
+        justify-self: stretch;
+        max-width: none;
+        padding: 0;
+        text-align: left;
+    }
+    .ky-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        left: auto;
+        transform: none;
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+    }
+    .ky-row:nth-child(odd) .ky-year,
+    .ky-row:nth-child(even) .ky-year {
+        position: relative !important;
+        left: auto;
+        right: auto;
+        margin: 0 0 8px;
+        order: -1;
+        --dhd-flag-min-width: 112px;
+        --dhd-flag-height: 40px;
+        font-size: 20px;
+    }
+    .ky-year.dhd-flag-label::after {
+        display: none;
+    }
+    .ky-title {
+        font-size: 20px;
+    }
+    .ky-desc {
+        font-size: 15px;
+        line-height: 1.55;
+    }
+    .ky-row:first-child .ky-media {
+        max-width: none;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1199px) {
+    .ky-row {
+        column-gap: 48px;
+    }
+    .ky-media {
+        max-width: 440px;
+    }
+}
+
+/* Danh sách Tổng Bí thư: khóa khung ảnh để các card bằng nhau. */
+.secretary-grid figure {
+    aspect-ratio: 3 / 4;
+    width: 100%;
+}
+
+.secretary-grid figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

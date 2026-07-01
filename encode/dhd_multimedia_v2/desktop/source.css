@@ -1,0 +1,298 @@
+@import "tailwindcss" source(none) prefix(t);
+@source "./**/*.{html,js,jsx,ts,tsx}";
+@source "../../common/**/*.{js,ts}";
+
+@theme {
+    --color-tw-primary: #212636;
+    --color-tw-secondary: #667085;
+    --color-tw-border: #d0d5dd;
+
+    --breakpoint-bt-xl: 1200px;
+    --breakpoint-pc: 1000px;
+}
+
+:root {
+    color-scheme: light;
+    --bg: #f3f7fb;
+    --panel: #ffffff;
+    --ink: #132033;
+    --ink-soft: #506079;
+    --stroke: #d7dfeb;
+    --action: #1f3b68;
+    --action-hover: #142949;
+    --danger: #b91c1c;
+    --danger-bg: #fee2e2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* mobile */
+
+.mobile-menu-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.mobile-menu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 20px;
+    background: transparent;
+    border: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #151515;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mobile-menu-caret {
+    font-size: 20px;
+    color: #333;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+/* Only rotate the DIRECT trigger's caret, not nested ones */
+.mobile-menu-item.is-open > .mobile-menu-trigger > .mobile-menu-caret {
+    transform: rotate(90deg);
+}
+
+.mobile-menu-sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+/* Only expand the DIRECT child sub panel */
+.mobile-menu-item.is-open > .mobile-menu-sub {
+    max-height: 2000px;
+}
+
+.mobile-menu-sub > a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    border-top: 1px solid #f0f0f0;
+    text-decoration: none;
+}
+
+.mobile-menu-sub > a:hover {
+    background: #f9f9f9;
+}
+
+.mobile-menu-item.is-open > .mobile-menu-trigger {
+    color: #30a14a;
+    background: #f0f7ff;
+}
+
+/* ── Nested sub-items (level 3+) ── */
+
+.mobile-menu-item--nested {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+/* Trigger aligns with sibling <a> links at the SAME level (padding-left: 20px) */
+.mobile-menu-trigger--nested {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    font-weight: 400;
+}
+
+.mobile-menu-trigger--nested .mobile-menu-caret {
+    font-size: 16px;
+}
+
+.mobile-menu-item--nested.is-open > .mobile-menu-trigger--nested {
+    color: #30a14a;
+    background: #f0f7ff;
+}
+
+/* Children inside nested sub-panels get progressively more left padding */
+.mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 32px;
+    font-size: 13px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 56px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+    padding-left: 32px;
+}
+
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
+    padding-left: 56px;
+}
+
+/* Desktop overlay right column reuses mobile accordion UI */
+.desktop-overlay-menu-root {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.desktop-overlay-menu-root > .mobile-menu-sub {
+    max-height: none;
+}
+
+.featured-clip-swiper {
+    height: auto !important;
+}
+
+.featured-clip-swiper .swiper-slide,
+.featured-clip-swiper .swiper-slide > a {
+    height: auto !important;
+}
+
+.featured-clip-swiper .swiper-slide > a {
+    position: relative;
+    display: block;
+}
+
+.featured-clip-swiper .swiper-slide:not(.swiper-slide-active) > a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.featured-caption-wrap {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+.featured-caption-text {
+    display: block !important;
+    overflow: visible !important;
+}
+
+#clipGrid .img-block {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+.article-date {
+    display: flex !important;
+}
+
+#search-pagination {
+    clear: both;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+#search-pagination button,
+#search-pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    border: 1px solid #d0d5dd;
+    border-radius: 4px;
+    background: #fff;
+    color: #212636;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+#search-pagination button:hover:not(:disabled):not([aria-current="page"]) {
+    border-color: #935f25;
+    color: #935f25;
+}
+
+#search-pagination button[aria-current="page"] {
+    border-color: #935f25;
+    background: #935f25;
+    color: #fff;
+    cursor: default;
+}
+
+#search-pagination button:disabled {
+    border-color: #d0d5dd;
+    background: #fff;
+    color: #8a94a6;
+    cursor: default;
+}
+
+.t\:border-t {
+    border-top: 1px solid;
+}
+
+.t\:border-\[\#DCDFE4\] {
+    border-color: #dcdfe4;
+}
+
+.t\:text-\[\#935F25\] {
+    color: #935f25;
+}
+
+.t\:mb-5 {
+    margin-bottom: 20px;
+}
+
+@media (min-width: 1000px) {
+    .t\:pc\:gap-x-4 {
+        column-gap: 16px;
+    }
+}
+
+/* Keep featured slider navigation in the side gutters, outside the active image. */
+.featured-nav-btn {
+    /* Removed background so tailwind bg-transparent works */
+}
+
+.featured-nav-btn--prev {
+    left: 7% !important;
+}
+
+.featured-nav-btn--next {
+    right: 7% !important;
+}
+
+@media (min-width: 1024px) {
+    .featured-nav-btn--prev {
+        left: 19% !important;
+    }
+
+    .featured-nav-btn--next {
+        right: 19% !important;
+    }
+}

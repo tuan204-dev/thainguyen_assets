@@ -1,0 +1,466 @@
+@import "tailwindcss" source(none) prefix(t);
+@source "./**/*.{html,js,jsx,ts,tsx}";
+@source "../../common/**/*.{js,ts}";
+
+@theme {
+    --color-tw-primary: #212636;
+    --color-tw-secondary: #667085;
+    --color-tw-border: #d0d5dd;
+
+    --breakpoint-bt-xl: 1200px;
+    --breakpoint-pc: 1000px;
+}
+
+:root {
+    color-scheme: light;
+    --bg: #f3f7fb;
+    --panel: #ffffff;
+    --ink: #132033;
+    --ink-soft: #506079;
+    --stroke: #d7dfeb;
+    --action: #1f3b68;
+    --action-hover: #142949;
+    --danger: #b91c1c;
+    --danger-bg: #fee2e2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* mobile */
+
+.mobile-menu-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.mobile-menu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 20px;
+    background: transparent;
+    border: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #151515;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mobile-menu-caret {
+    font-size: 20px;
+    color: #333;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+/* Only rotate the DIRECT trigger's caret, not nested ones */
+.mobile-menu-item.is-open > .mobile-menu-trigger > .mobile-menu-caret {
+    transform: rotate(90deg);
+}
+
+.mobile-menu-sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+/* Only expand the DIRECT child sub panel */
+.mobile-menu-item.is-open > .mobile-menu-sub {
+    max-height: 2000px;
+}
+
+.mobile-menu-sub > a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    border-top: 1px solid #f0f0f0;
+    text-decoration: none;
+}
+
+.mobile-menu-sub > a:hover {
+    background: #f9f9f9;
+}
+
+.mobile-menu-item.is-open > .mobile-menu-trigger {
+    color: #30a14a;
+    background: #f0f7ff;
+}
+
+/* ── Nested sub-items (level 3+) ── */
+
+.mobile-menu-item--nested {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+/* Trigger aligns with sibling <a> links at the SAME level (padding-left: 20px) */
+.mobile-menu-trigger--nested {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    font-weight: 400;
+}
+
+.mobile-menu-trigger--nested .mobile-menu-caret {
+    font-size: 16px;
+}
+
+.mobile-menu-item--nested.is-open > .mobile-menu-trigger--nested {
+    color: #30a14a;
+    background: #f0f7ff;
+}
+
+/* Children inside nested sub-panels get progressively more left padding */
+.mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 32px;
+    font-size: 13px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 56px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+    padding-left: 32px;
+}
+
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
+    padding-left: 56px;
+}
+
+/* Desktop overlay right column reuses mobile accordion UI */
+.desktop-overlay-menu-root {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.desktop-overlay-menu-root > .mobile-menu-sub {
+    max-height: none;
+}
+
+/* ── Multimedia hero slider ── */
+.multimedia-hero-swiper {
+    height: 480px;
+    background: #f4f4f4;
+}
+
+.multimedia-hero-swiper .swiper-wrapper {
+    height: 100%;
+}
+
+.multimedia-hero-swiper .swiper-slide {
+    height: 100%;
+    width: 100%;
+}
+
+.multimedia-hero-nav .swiper-button-prev,
+.multimedia-hero-nav .swiper-button-next {
+    position: static;
+    inset: auto;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.multimedia-hero-nav .swiper-button-prev::after,
+.multimedia-hero-nav .swiper-button-next::after {
+    content: "";
+}
+
+@media (max-width: 999px) {
+    .multimedia-hero-swiper {
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+    }
+
+    .multimedia-hero-swiper .swiper-wrapper,
+    .multimedia-hero-swiper .swiper-slide,
+    .multimedia-hero-swiper .img-block {
+        height: 100% !important;
+    }
+}
+
+/* ── Multimedia hero side panel ── */
+.hero-side-item {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+    background-color: #687074;
+    transition: background-color 0.25s;
+}
+
+.multimedia-hero-tabs {
+    /* Cao bằng đúng 2 item (2 × 240px); item thứ 3 trở đi sẽ cuộn */
+    height: 480px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+}
+
+.multimedia-hero-tabs::-webkit-scrollbar {
+    width: 6px;
+}
+
+.multimedia-hero-tabs::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 3px;
+}
+
+.multimedia-hero-tabs .hero-side-item {
+    gap: 10px;
+    height: 240px;
+    min-height: 0;
+    overflow: hidden;
+    padding: 16px 20px;
+}
+
+/* Đường kẻ giữa các item (tự áp dụng cho mọi số lượng item) */
+.multimedia-hero-tabs .hero-side-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 999px) {
+    .multimedia-hero-tabs {
+        height: auto;
+        overflow: hidden;
+    }
+
+    .multimedia-hero-tabs .hero-side-item {
+        height: auto;
+        min-height: 0;
+        justify-content: flex-start;
+    }
+
+    .hero-side-item .title {
+        font-size: 20px;
+    }
+
+    .hero-side-item .des {
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+    }
+
+    .hero-side-item .cate_title_multi {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1199px) {
+    .multimedia-hero-tabs .hero-side-item {
+        gap: 8px;
+        padding: 14px;
+    }
+
+    .hero-side-item .title {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .hero-side-item .des {
+        font-size: 14px !important;
+        line-height: 1.55 !important;
+    }
+
+    .hero-side-item .cate_title_multi {
+        font-size: 20px;
+    }
+}
+
+.hero-side-item.is-active {
+    background-color: #1e1e1e;
+}
+
+.hero-side-item .title {
+    margin: 0;
+    color: #fff;
+    font-family: "Noto Serif", serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+.hero-side-item .title:hover {
+    color: #d6a45e;
+}
+
+.hero-side-item .des {
+    color: rgba(255, 255, 255, 0.82) !important;
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+}
+
+.hero-side-item .hero-side-desc {
+    color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.hero-side-item .cate_title_multi {
+    color: #fff;
+    font-family: "Noto Serif", serif;
+    font-size: 21px;
+    line-height: 1.2;
+}
+
+.hero-side-item .cate_title_multi:hover {
+    color: #d6a45e;
+}
+
+.multimedia-hero-mobile {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .multimedia-hero-desktop {
+        display: none !important;
+    }
+
+    .multimedia-hero-mobile {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 12px;
+    }
+
+    .multimedia-hero-mobile > article:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .multimedia-hero-mobile .img-block {
+        margin-bottom: 10px;
+    }
+
+    .multimedia-hero-mobile .title {
+        overflow-wrap: break-word;
+    }
+
+    .multimedia-hero-mobile > article:first-child .title {
+        font-size: 24px !important;
+        line-height: 1.35 !important;
+    }
+
+    .multimedia-hero-mobile > article:not(:first-child) .title {
+        font-size: 16px !important;
+        line-height: 1.45 !important;
+    }
+
+    .multimedia-hero-mobile .desc {
+        margin-top: 8px;
+        color: #333 !important;
+        font-size: 16px;
+        line-height: 1.55;
+    }
+
+    .multimedia-hero-mobile > article:not(:first-child) .desc {
+        display: none !important;
+    }
+}
+
+/* ── Section category title ── */
+.multimedia-section-title {
+    border-bottom: 2px solid #dcdfe4;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.multimedia-card-cate {
+    display: inline-block;
+    margin-top: 10px;
+    color: #935f25;
+    font-family: "Noto Serif", serif;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.multimedia-card-cate:hover {
+    color: #30a14a;
+}
+
+.cate_child_multimedia .row30 {
+    margin-bottom: 30px;
+}
+
+.cate_child_multimedia .cate-label h2,
+.multimedia-mostread .cate-label h2 {
+    color: #935f25;
+}
+
+.cate_child_multimedia .row20 {
+    margin-bottom: 20px;
+}
+
+.cate_child_multimedia .row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 767px) {
+    .cate_child_multimedia .row {
+        gap: 16px 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .multimedia-featured-list {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        column-gap: 12px !important;
+        row-gap: 18px !important;
+    }
+
+    .multimedia-featured-list > article:first-child {
+        display: none !important;
+    }
+
+    .multimedia-featured-list > article {
+        border-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .multimedia-featured-list .img-block {
+        float: none !important;
+        width: 100% !important;
+        margin-right: 0 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .multimedia-featured-list .title {
+        font-size: 16px !important;
+        line-height: 1.45 !important;
+    }
+
+    .multimedia-featured-list .multimedia-card-cate {
+        display: none;
+    }
+}

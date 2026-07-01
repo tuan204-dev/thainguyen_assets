@@ -1,0 +1,17 @@
+const publicApiUrlEl=document.getElementById("public_api_url"),cdnUrlEl=document.getElementById("cdn_url"),publicApiUrl=publicApiUrlEl?publicApiUrlEl.innerHTML:"",cdnUrl=cdnUrlEl?cdnUrlEl.innerHTML:"";function JoinUrl(...n){return n.map((i,l)=>l===0?i.trim().replace(/\/+$/,""):i.trim().replace(/^\/+|\/+$/g,"")).filter(i=>i.length>0).join("/")}function escapeHtml(n){return n==null?"":String(n).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}function formatDate(n){const i=new Date(n);if(isNaN(i.getTime()))return"";const l=String(i.getDate()).padStart(2,"0"),c=String(i.getMonth()+1).padStart(2,"0"),o=i.getFullYear();return`${l}/${c}/${o}`}function truncateDesc(n,i=150){if(!n)return"";const l=n.trim();if(l.length<=i)return l;const c=l.slice(0,i),o=c.lastIndexOf(" ");return(o>0?c.slice(0,o):c)+"\u2026"}function buildArticleHref(n){return n?n.startsWith("/")?n:"/"+n:"#"}(function(){const n=publicApiUrl||"https://api-public.baothainguyen.vn",i=cdnUrl||"https://cdn.baothainguyen.vn",l=["t:bg-[#30A14A]","t:text-white","t:hover:text-white!"],c=["t:bg-white","t:hover:text-inherit"];let o=null,d=[],u=null;function g(t,r){t.classList.remove(...r?c:l),t.classList.add(...r?l:c)}function m(t){const r=t.avatar1&&t.avatar1.file_url||t.files&&t.files[0]&&t.files[0].file_url||"";return r?JoinUrl(i,r)+"?width=1200&height=-&type=resize":""}function h(t){return t.map(r=>{const e=escapeHtml(buildArticleHref(r.slug)),a=escapeHtml(r.title),s=escapeHtml(m(r));return`
+                <div class="swiper-slide">
+                    <div class="t:relative t:rounded-xl t:overflow-hidden">
+                        <figure class="img-block">
+                            <a href="${e}">
+                                <img src="${s}" alt="${a}" loading="lazy" />
+                            </a>
+                        </figure>
+                        <div
+                            class="t:absolute t:bottom-0 t:left-0 t:right-0 t:p-4 t:md:p-6 t:pt-16 t:bg-linear-to-t t:from-[#0B0B11E6] t:via-[#0B0B1199] t:to-transparent"
+                        >
+                            <h3 class="title l2 t:text-white! t:font-bold">
+                                <a href="${e}">${a}</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>`}).join("")}async function y(t){const r=JoinUrl(n,"v1/category",String(t),"articles")+"?page=1&limit=5",e=await fetch(r);if(!e.ok)throw new Error("HTTP "+e.status);const a=await e.json();return Array.isArray(a&&a.data)?a.data:[]}async function f(t,r){if(t!==o){o=t,d.forEach(e=>g(e,e===r));try{const e=await y(t);if(t!==o||!e.length||!u)return;const a=u.querySelector(".swiper-wrapper");if(!a)return;const s=window.SwiperManager;s&&s.destroy(u),a.innerHTML=h(e),s&&s.init(u)}catch(e){console.error("[multimedia] load failed:",e)}}}function p(){const t=document.querySelector(".home-multimedia-hero-section");if(!t||(d=Array.from(t.querySelectorAll("a[data-cate-id]")),!d.length))return;u=Array.from(t.querySelectorAll("[data-swiper]")).find(e=>e.querySelector(".swiper-pagination")),d.forEach(e=>{e.addEventListener("click",a=>{a.preventDefault(),f(e.dataset.cateId,e)})});const r=t.querySelector("h2[data-cate-id]");r&&(r.querySelector("a")||r).addEventListener("click",a=>{a.preventDefault(),f(r.dataset.cateId,null)})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",p):p()})();

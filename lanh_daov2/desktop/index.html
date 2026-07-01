@@ -1539,11 +1539,23 @@
                 class="lanhdao-hero t:relative t:overflow-hidden t:bg-white t:bg-cover t:bg-center t:bg-no-repeat t:h-[calc(100dvh-90px)]! t:min-h-[460px] t:pc:min-h-150"
                 style="background-image: url(&quot;./images/header_background.png&quot;)"
             >
-                <img
-                    src="./images/trinhxuantruong1.png"
-                    alt="Đồng chí Trịnh Xuân Trường"
-                    class="t:absolute t:left-1/2 t:bottom-0 t:-translate-x-1/2 t:w-[129%] t:max-w-none t:md:w-auto t:md:max-w-[75%] t:pc:max-w-[320px] t:min-[1200px]:max-w-[440px] t:min-[1400px]:max-w-[540px] t:object-contain t:object-bottom t:z-10 t:h-[85%] t:pc:h-[86%]"
-                />
+                <picture>
+                    <!-- Trên 1000px -->
+                    <source
+                        media="(min-width: 1000px)"
+                        srcset="./images/trinhxuantruong1.png"
+                    />
+                    <!-- Dưới 1000px -->
+                    <source
+                        media="(max-width: 999.98px)"
+                        srcset="./images/trinhxuantruong1.png"
+                    />
+                    <img
+                        src="./images/trinhxuantruong1.png"
+                        alt="Đồng chí Trịnh Xuân Trường"
+                        class="t:absolute t:left-1/2 t:bottom-0 t:-translate-x-1/2 t:w-[129%] t:max-w-none t:md:w-auto t:md:max-w-[75%] t:pc:max-w-[320px] t:min-[1200px]:max-w-[440px] t:min-[1400px]:max-w-[540px] t:object-contain t:object-bottom t:z-10 t:h-[85%] t:pc:h-[86%]"
+                    />
+                </picture>
 
                 <div
                     class="t:pointer-events-none t:absolute t:inset-x-0 t:bottom-0 t:z-20 t:h-[200px] t:bg-linear-to-t t:from-white t:to-transparent"
