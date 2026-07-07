@@ -1032,6 +1032,13 @@
       }
     }
   }
+  .t\:hover\:text-\[\#268D3F\] {
+    &:hover {
+      @media (hover: hover) {
+        color: #268D3F;
+      }
+    }
+  }
   .t\:hover\:opacity-80 {
     &:hover {
       @media (hover: hover) {
