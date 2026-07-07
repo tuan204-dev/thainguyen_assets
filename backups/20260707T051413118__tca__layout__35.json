@@ -1,0 +1,23 @@
+{
+ "target": "tca",
+ "kind": "layout",
+ "entityId": 35,
+ "op": "layouts_update",
+ "tool": "edit_layout",
+ "label": "Căn giữa mobile",
+ "before": {
+  "id": 35,
+  "name": "Căn giữa mobile",
+  "desc": "",
+  "content": "<!DOCTYPE html>\n<html lang=\"vi\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n    <portlet name=\"detail_head_seo\" />\n\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/fonts-merriweather-vn.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/fonts-roboto-vn.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/fonts-chakra-petch-vn.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/fonts-noto-serif-vn.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/common.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/icon.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/overlay.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/dropdown.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/article-image.css?v=3\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/centered_2/desktop/output.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/vendor/swiper-bundle.min.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/image-gallery.css\">\n</head>\n\n<body class=\"\">\n    <portlet name=\"page_info\" />\n    <portlet name=\"clamp-text-js\" />\n    <portlet name=\"lazy-images\" />\n    <portlet name=\"link-prefetch\" />\n    <portlet name=\"m_header\" />\n\n    <portlet name=\"detail_center_info\" />\n\n\n    <div class=\"detail-main-wrapper t:bg-white t:py-5\">\n        <div class=\"t:max-w-[800px] t:mx-auto t:px-5\">\n            <div>\n                <div class=\"detail-main-column\">\n\n                    <portlet name=\"detail_center_content\" />\n\n                    <!-- portlet: detail_actions -->\n                    <portlet name=\"detail_actions\" />\n\n                    <!-- portlet: detail_info_meta -->\n                    <portlet name=\"detail_info_meta\" />\n\n                    <!-- portlet: detail_comment -->\n                    <portlet name=\"detail_comment\" />\n\n                    <!-- portlet: detail_related -->\n                    <portlet name=\"detail_related\" />\n\n                </div>\n\n            </div>\n        </div>\n    </div>\n\n\n    <portlet name=\"footer\" />\n\n\n    <portlet name=\"event_count\" />\n    <portlet name=\"resize_detail_page_images\" />\n    <script type=\"module\" src=\"https://assets.tapchianninhmang.vn/encode/common/floating-dropdown.js\"></script>\n    <script type=\"module\" src=\"https://assets.tapchianninhmang.vn/encode/common/overlay.js\"></script>\n    <script type=\"module\" src=\"https://assets.tapchianninhmang.vn/encode/common/header-sticky.js\"></script>\n    <script type=\"module\" src=\"https://assets.tapchianninhmang.vn/encode/common/image-gallery.js\"></script>\n    <script type=\"module\" src=\"https://assets.tapchianninhmang.vn/encode/common/js/script_article.js\"></script>\n\n</body>\n\n</html>",
+  "status_id": 2,
+  "layout_type_id": 1,
+  "is_default": false,
+  "is_mobile": true,
+  "avatar_id": 38031,
+  "extend_article_fields": [],
+  "pair_layout_id": null
+ },
+ "id": "20260707T051413118__tca__layout__35",
+ "at": "2026-07-07T05:14:13.118Z"
+}

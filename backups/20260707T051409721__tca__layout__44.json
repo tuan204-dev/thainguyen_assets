@@ -1,0 +1,23 @@
+{
+ "target": "tca",
+ "kind": "layout",
+ "entityId": 44,
+ "op": "layouts_update",
+ "tool": "edit_layout",
+ "label": "Cuộc thi ANM countdown",
+ "before": {
+  "id": 44,
+  "name": "Cuộc thi ANM countdown",
+  "desc": "",
+  "content": "<!DOCTYPE html>\n<html lang=\"vi\">\n\n<head>\n    \n    <portlet name=\"cate_seo\"></portlet>\n\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/cuoc-thi_2/desktop/output.css?v=20260703\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/fonts-merriweather-vn.css?v=20260703\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/fonts-roboto-vn.css?v=20260703\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/common.css?v=20260703\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/dropdown.css?v=20260703\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/icon.css?v=20260703\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/overlay.css?v=20260703\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/vendor/swiper-bundle.min.css?v=20260703\">\n</head>\n\n<body class=\"cuoc-thi-page\">\n\n    <portlet name=\"d_header\"></portlet>\n    <portlet name=\"m_header\"></portlet>\n\n    <portlet name=\"cuoc_thi_content\"></portlet>\n\n    <portlet name=\"footer\"></portlet>\n\n    <script src=\"https://assets.tapchianninhmang.vn/encode/common/common.js?v-20260703\"></script>\n    <script type=\"module\" src=\"https://assets.tapchianninhmang.vn/encode/common/swiper.js?v-20260703\"></script>\n    <script type=\"module\" src=\"https://assets.tapchianninhmang.vn/encode/common/floating-dropdown.js?v-20260703\"></script>\n    <script type=\"module\" src=\"https://assets.tapchianninhmang.vn/encode/common/overlay.js?v-20260703\"></script>\n    <script type=\"module\" src=\"https://assets.tapchianninhmang.vn/encode/common/header-sticky.js?v-20260703\"></script>\n    <script type=\"module\" src=\"https://assets.tapchianninhmang.vn/encode/cuoc-thi_2/desktop/cuoc-thi.js?v-20260703\"></script>\n</body>\n\n</html>",
+  "status_id": 2,
+  "layout_type_id": 2,
+  "is_default": false,
+  "is_mobile": false,
+  "avatar_id": null,
+  "extend_article_fields": [],
+  "pair_layout_id": null
+ },
+ "id": "20260707T051409721__tca__layout__44",
+ "at": "2026-07-07T05:14:09.721Z"
+}

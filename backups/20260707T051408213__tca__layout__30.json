@@ -1,0 +1,23 @@
+{
+ "target": "tca",
+ "kind": "layout",
+ "entityId": 30,
+ "op": "layouts_update",
+ "tool": "edit_layout",
+ "label": "Emagazine",
+ "before": {
+  "id": 30,
+  "name": "Emagazine",
+  "desc": "",
+  "content": "<!DOCTYPE html>\n<html lang=\"vi\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <portlet name=\"detail_head_seo\" />\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/fonts-merriweather-vn.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/fonts-roboto-vn.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/fonts-chakra-petch-vn.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/fonts-noto-serif-vn.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/common.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/icon.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/vendor/swiper-bundle.min.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/image-gallery.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/common/style/article-image.css?v=20260703\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/magazine/desktop/output.css\">\n    <link rel=\"stylesheet\" href=\"https://assets.tapchianninhmang.vn/encode/magazine/desktop/custom.css\">\n</head>\n\n<body class=\"t:flex t:flex-col\">\n\n\n    <portlet name=\"page_info\" />\n\n    <portlet name=\"header_emagazine\" />\n\n\n    <portlet name=\"content_emagazine\" />\n\n    <portlet name=\"related_emagazine\" />\n\n    <portlet name=\"footer\" />\n\n\n    <portlet name=\"event_count\" />\n    <script src=\"https://assets.tapchianninhmang.vn/encode/common/common.js\"></script>\n    <script type=\"module\" src=\"https://assets.tapchianninhmang.vn/encode/common/image-gallery.js\"></script>\n    <portlet name=\"resize_detail_page_images\" />\n    <script type=\"module\" src=\"https://assets.tapchianninhmang.vn/encode/common/js/script_article.js\"></script>\n</body>\n\n</html>",
+  "status_id": 2,
+  "layout_type_id": 1,
+  "is_default": false,
+  "is_mobile": false,
+  "avatar_id": 22204,
+  "extend_article_fields": [],
+  "pair_layout_id": 31
+ },
+ "id": "20260707T051408213__tca__layout__30",
+ "at": "2026-07-07T05:14:08.213Z"
+}
