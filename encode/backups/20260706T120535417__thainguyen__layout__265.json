@@ -1,0 +1,23 @@
+{
+ "target": "thainguyen",
+ "kind": "layout",
+ "entityId": 265,
+ "op": "layouts_update",
+ "tool": "save_layout",
+ "label": "Video_Detail_New",
+ "before": {
+  "id": 265,
+  "name": "Video_Detail_New",
+  "desc": null,
+  "content": "",
+  "status_id": 2,
+  "layout_type_id": 1,
+  "is_default": false,
+  "is_mobile": false,
+  "avatar_id": null,
+  "extend_article_fields": [],
+  "pair_layout_id": null
+ },
+ "id": "20260706T120535417__thainguyen__layout__265",
+ "at": "2026-07-06T12:05:35.417Z"
+}

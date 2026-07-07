@@ -1,0 +1,11 @@
+{
+ "target": "thainguyen",
+ "kind": "portlet",
+ "entityId": 208,
+ "op": "portlet_create",
+ "tool": "save_portlet",
+ "label": "video_detail_cate_sections",
+ "before": null,
+ "id": "20260706T120238021__thainguyen__portlet__208",
+ "at": "2026-07-06T12:02:38.021Z"
+}
