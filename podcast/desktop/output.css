@@ -795,6 +795,9 @@
   .t\:text-\[\#8A94A6\] {
     color: #8A94A6;
   }
+  .t\:text-\[\#30A14A\] {
+    color: #30A14A;
+  }
   .t\:text-\[\#888\] {
     color: #888;
   }
@@ -965,6 +968,13 @@
     &:hover {
       @media (hover: hover) {
         color: #30A14A;
+      }
+    }
+  }
+  .t\:hover\:text-\[\#268D3F\] {
+    &:hover {
+      @media (hover: hover) {
+        color: #268D3F;
       }
     }
   }
