@@ -1,0 +1,388 @@
+@import "tailwindcss" source(none) prefix(t);
+@source "./**/*.{html,js,jsx,ts,tsx}";
+@source "../common/**/*.{js,ts}";
+
+@theme {
+    --color-tw-primary: #212636;
+    --color-tw-secondary: #667085;
+    --color-tw-border: #d0d5dd;
+
+    --breakpoint-bt-xl: 1200px;
+    --breakpoint-pc: 1000px;
+}
+
+:root {
+    color-scheme: light;
+    --bg: #f3f7fb;
+    --panel: #ffffff;
+    --ink: #132033;
+    --ink-soft: #506079;
+    --stroke: #d7dfeb;
+    --action: #1f3b68;
+    --action-hover: #142949;
+    --danger: #b91c1c;
+    --danger-bg: #fee2e2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* mobile */
+
+.mobile-menu-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.mobile-menu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 20px;
+    background: transparent;
+    border: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #151515;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mobile-menu-caret {
+    font-size: 20px;
+    color: #333;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+/* Only rotate the DIRECT trigger's caret, not nested ones */
+.mobile-menu-item.is-open > .mobile-menu-trigger > .mobile-menu-caret {
+    transform: rotate(90deg);
+}
+
+.mobile-menu-sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+/* Only expand the DIRECT child sub panel */
+.mobile-menu-item.is-open > .mobile-menu-sub {
+    max-height: 2000px;
+}
+
+.mobile-menu-sub > a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    border-top: 1px solid #f0f0f0;
+    text-decoration: none;
+}
+
+.mobile-menu-sub > a:hover {
+    background: #f9f9f9;
+}
+
+.mobile-menu-item.is-open > .mobile-menu-trigger {
+    color: #30a14a;
+    background: #f0f7ff;
+}
+
+/* ── Nested sub-items (level 3+) ── */
+
+.mobile-menu-item--nested {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+/* Trigger aligns with sibling <a> links at the SAME level (padding-left: 20px) */
+.mobile-menu-trigger--nested {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #151515;
+    font-weight: 400;
+}
+
+.mobile-menu-trigger--nested .mobile-menu-caret {
+    font-size: 16px;
+}
+
+.mobile-menu-item--nested.is-open > .mobile-menu-trigger--nested {
+    color: #30a14a;
+    background: #f0f7ff;
+}
+
+/* Children inside nested sub-panels get progressively more left padding */
+.mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 32px;
+    font-size: 13px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-sub > a {
+    padding-left: 56px;
+}
+
+.mobile-menu-item--nested .mobile-menu-item--nested .mobile-menu-trigger--nested {
+    padding-left: 32px;
+}
+
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
+    padding-left: 44px;
+}
+
+.mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-item--nested
+    .mobile-menu-trigger--nested {
+    padding-left: 56px;
+}
+
+/* Desktop overlay right column reuses mobile accordion UI */
+.desktop-overlay-menu-root {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.desktop-overlay-menu-root > .mobile-menu-sub {
+    max-height: none;
+}
+
+.article-date {
+    display: none !important;
+}
+
+.search-results-list > li {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.search-results-list .img-block {
+    width: 260px;
+    max-width: 36%;
+    margin-right: 16px;
+    margin-bottom: 8px;
+}
+
+.search-results-list .img-block img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.search-results-list li > p:first-of-type {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 10px;
+    color: #344054;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.search-results-list li > p:first-of-type i {
+    color: #0a64b4;
+    font-size: 16px;
+}
+
+.search-results-list .desc {
+    margin-top: 0;
+    color: #344054;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+#search-pagination {
+    clear: both;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+#search-pagination button,
+#search-pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    border: 1px solid #d0d5dd;
+    border-radius: 4px;
+    background: #fff;
+    color: #212636;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+#search-pagination button:hover:not(:disabled):not([aria-current="page"]) {
+    border-color: #935f25;
+    color: #935f25;
+}
+
+#search-pagination button[aria-current="page"] {
+    border-color: #935f25;
+    background: #935f25;
+    color: #fff;
+    cursor: default;
+}
+
+#search-pagination button:disabled {
+    border-color: #d0d5dd;
+    background: #fff;
+    color: #8a94a6;
+    cursor: default;
+}
+
+@media (max-width: 767px) {
+    .search-results-list > li {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .search-results-list .img-block {
+        width: 200px !important;
+        max-width: 50%;
+        margin-right: 12px;
+    }
+
+    .search-results-list .title.l3 {
+        font-size: 17px;
+        line-height: 1.35;
+    }
+
+    .search-results-list .desc {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
+/* ── Xu hướng sidebar (ported from dhd_detail) ── */
+.sidebar-tab-label {
+    color: #667085;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.sidebar-tab-label.is-active {
+    color: #30a14a;
+}
+
+.sidebar-trending-section .sidebar-tab-label {
+    font-weight: 700;
+    font-size: 2.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #30a14a;
+    font-family: "Chakra Petch", sans-serif;
+    line-height: 1;
+    transition: color 0.15s;
+}
+
+.sidebar-trending-section .sidebar-tab-label.is-active {
+    color: #ea2736;
+}
+
+/* ── Google CSE (searchresults-only) overrides ── */
+
+/* Ép kết quả hiển thị inline (không overlay/popup) */
+.gsc-modal-background-color {
+    display: none !important;
+}
+
+.gsc-results-wrapper-overlay {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    top: auto !important;
+    left: auto !important;
+    z-index: auto !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+    padding: 0 !important;
+}
+
+.gsc-results-close-btn,
+.gsc-results-close-btn-visible {
+    display: none !important;
+}
+
+.gsc-results-wrapper-visible {
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.gsc-webResult.gsc-result {
+    border-bottom: 1px solid #dcdfe4 !important;
+    padding: 16px 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+}
+
+.gs-title {
+    font-size: 15px !important;
+    font-family: inherit !important;
+}
+
+.gs-visibleUrl {
+    color: #506079 !important;
+    font-size: 12px !important;
+}
+
+.gsc-result-info {
+    font-size: 13px !important;
+    color: #667085 !important;
+    padding-left: 0 !important;
+    margin-bottom: 8px !important;
+}
+
+.gsc-orderby-container {
+    padding-right: 0 !important;
+}
+
+.gsc-cursor-box {
+    margin-top: 16px !important;
+    text-align: center !important;
+}
+
+.gsc-cursor-page {
+    color: #212636 !important;
+    border: 1px solid #dcdfe4 !important;
+    border-radius: 4px !important;
+    padding: 4px 10px !important;
+    font-size: 13px !important;
+}
+
+.gsc-cursor-current-page {
+    color: #fff !important;
+    background: #c0392b !important;
+    border-color: #c0392b !important;
+}
