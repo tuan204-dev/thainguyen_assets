@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Khu văn hóa, thể thao, công viên cây xanh phường Vạn Xuân</title>
+        <link rel="stylesheet" href="./output.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-noto-serif-vn.css" />
+        <link rel="stylesheet" href="../../common/style/fonts-roboto-vn.css" />
+        <link rel="stylesheet" href="../../common/style/common.css" />
+        <link rel="stylesheet" href="../../common/style/dhd-header.css" />
+        <link rel="stylesheet" href="../../common/style/dropdown.css" />
+        <link rel="stylesheet" href="../../common/style/icon.css" />
+        <link rel="stylesheet" href="../../common/style/overlay.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/styles/overlayscrollbars.min.css"
+        />
+        <link rel="stylesheet" href="../../common/style/overlayscrollbar.css" />
+        <link rel="stylesheet" href="../../common/vendor/swiper-bundle.min.css" />
+    </head>
+
+    <body class="dhd-page">
+        <div class="detail_st1">
+            <!-- ====== Menu nổi trên ảnh hero (trang detail không có banner header) ====== -->
+            <div class="wrap_menu_detail">
+                <div class="t:container">
+                    <div class="dhd_menu_detail">
+                        <div class="menutop">
+                            <nav id="main-nav">
+                                <nav class="navbar t:container">
+                                    <input id="main-menu-state" type="checkbox" />
+                                    <label class="main-menu-btn" for="main-menu-state">
+                                        <span class="main-menu-btn-icon"></span>
+                                        Toggle main menu visibility
+                                    </label>
+                                    <div class="clear"></div>
+
+                                    <ul
+                                        id="main-menu"
+                                        class="sm sm-clean"
+                                        data-toggle="collapse-nav"
+                                        data-target="#more-menu-1"
+                                    >
+                                        <li class="home_menu">
+                                            <a href="../../home/desktop/index.html">
+                                                <i class="material-symbols--keyboard-arrow-left"></i>
+                                                Về trang chủ
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/">
+                                                <img
+                                                    src="../../dhd_cac_lanh_dao/desktop/images/home_icon.png"
+                                                    alt="Trang chủ Đại hội Đảng"
+                                                />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/tin-tuc/">
+                                                <span class="bd">Tin tức - Sự kiện</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/multimedia/">
+                                                <span class="bd">Multimedia</span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="/dhd/video/">
+                                                        <span class="bd">Video</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/dhd/photo/">
+                                                        <span class="bd">Ảnh</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/dhd/infographic/">
+                                                        <span class="bd">Infographic</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/dhd/emagazine/">
+                                                        <span class="bd">Emagazine</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/hoi-dap/"><span class="bd">Hỏi-đáp</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/ky-dhd/">
+                                                <span class="bd">Các kỳ đại hội Đảng</span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="/dhd/ky-dhd/">
+                                                        <span class="bd">ĐẠI HỘI ĐẢNG TOÀN QUỐC</span>
+                                                    </a>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="/dhd/ky-dhd/">
+                                                                <span class="bd">Các kỳ Đại hội</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/dhd/ky-dhd/dh-dang-csvn/tbt/">
+                                                                <span class="bd">Tổng Bí thư</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="/dhd/ky-dhd/dhdb-tn/">
+                                                        <span class="bd">
+                                                            Đại hội Đảng bộ tỉnh Thái Nguyên
+                                                        </span>
+                                                    </a>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="/dhd/ky-dhd/dhdb-tn/btty/">
+                                                                <span class="bd">
+                                                                    Bí thư Tỉnh ủy Bắc Thái - Thái
+                                                                    Nguyên các thời kỳ
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a
+                                                                href="/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/"
+                                                            >
+                                                                <span class="bd">
+                                                                    Bí thư Tỉnh ủy Bắc Kạn các thời kỳ
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/dhd/ky-dhd/dhdb-tn/btv/">
+                                                                <span class="bd">
+                                                                    Ban Thường vụ Tỉnh ủy đương nhiệm
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/dhd/ky-dhd/dhdb-tn/bch/">
+                                                                <span class="bd">
+                                                                    Ban Chấp hành Đảng bộ tỉnh đương
+                                                                    nhiệm
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/dhd/ky-dhd/dhdb-tn/cttd/">
+                                                                <span class="bd">
+                                                                    Các Công trình, dự án chào mừng
+                                                                    Đại hội
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="/dhd/vk-vb/">
+                                                <span class="bd">Văn kiện - Văn bản</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tim-kiem/">
+                                                <img
+                                                    src="../../dhd_cac_lanh_dao/desktop/images/search_icon.png"
+                                                    alt="Tìm kiếm"
+                                                />
+                                            </a>
+                                        </li>
+                                        <li id="more-menu-1"></li>
+                                    </ul>
+                                </nav>
+                            </nav>
+
+                            <section class="navigation_scroll nav_user section_nav section_nav_v2">
+                                <div class="t:container">
+                                    <div class="wrap-scroll-nav">
+                                        <ul class="menu_bread" id="auto_breadcrumb_bar">
+                                            <li>
+                                                <a href="/dhd/">
+                                                    <img
+                                                        src="../../dhd_cac_lanh_dao/desktop/images/home_icon.png"
+                                                        alt="Trang chủ Đại hội Đảng"
+                                                    />
+                                                </a>
+                                            </li>
+                                            <li><a href="/dhd/tin-tuc/">Tin tức - Sự kiện</a></li>
+                                            <li><a href="/dhd/multimedia/">Multimedia</a></li>
+                                            <li><a href="/dhd/hoi-dap/">Hỏi-đáp</a></li>
+                                            <li><a href="/dhd/ky-dhd/">Các kỳ đại hội Đảng</a></li>
+                                            <li><a href="/dhd/vk-vb/">Văn kiện - Văn bản</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <span class="next-nav"></span>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== Ảnh đại diện bài viết (hero full-width, gradient kem trên/dưới) ====== -->
+            <div class="detail-boxtop_style1">
+                <div class="avatar_detail_style1">
+                    <span class="avatar43">
+                        <img
+                            src="./images/detail-hero.jpg"
+                            alt="Khu văn hóa, thể thao, công viên cây xanh phường Vạn Xuân"
+                        />
+                    </span>
+                </div>
+            </div>
+
+            <!-- ====== Nội dung bài viết ====== -->
+            <div class="t:container">
+                <div class="wrap_content_style1">
+                    <!-- Ruy-băng tên chuyên mục -->
+                    <div class="cate_title_nav">
+                        <div class="bg_left item_cell_table">
+                            <img src="./images/ky-title-left.gif" alt="" aria-hidden="true" />
+                        </div>
+                        <div class="bg_center item_cell_table">
+                            <a href="/dhd/ky-dhd/dhdb-tn/cttd/" class="title">
+                                Các Công trình, dự án chào mừng Đại hội
+                            </a>
+                        </div>
+                        <div class="bg_right item_cell_table">
+                            <img src="./images/ky-title-right.gif" alt="" aria-hidden="true" />
+                        </div>
+                    </div>
+
+                    <h1 class="head_title row20">
+                        Khu văn hóa, thể thao, công viên cây xanh phường Vạn Xuân
+                    </h1>
+                    <div class="date">
+                        <span class="author">TNĐT -</span>
+                        10:57, 16/09/2025
+                    </div>
+
+                    <!-- Thân bài: giữ nguyên cấu trúc HTML bài viết do CMS xuất ra (table.image) -->
+                    <div id="content" class="content-detail detail_style1">
+                        <p>
+                            <strong>
+                                Dự án xây dựng Khu văn hóa, thể thao, công viên cây xanh phường Vạn
+                                Xuân được triển khai trên diện tích 42ha, tổng mức đầu tư 400 tỷ
+                                đồng.
+                            </strong>
+                        </p>
+
+                        <div>
+                            <table align="center" class="image center">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img
+                                                src="./images/detail-img-1.jpg"
+                                                alt="Khu văn hóa, thể thao, công viên cây xanh phường Vạn Xuân nhìn từ trên cao"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="desc">&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p>
+                            Công trình được thiết kế theo phong cách hiện đại, gồm các hạng mục
+                            chính: Cung văn hóa &ndash; nhà hát lớn; sân sinh hoạt văn hóa ngoài
+                            trời; đường giao thông nội bộ, khuôn viên cây xanh&hellip; nhằm tạo
+                            không gian vui chơi giải trí, thể thao, nâng cao đời sống văn hóa cho
+                            người dân. Công trình đã được hoàn thành đưa vào sử dụng, là một thiết
+                            chế văn hóa quan trọng, điểm nhấn đô thị phía Nam tỉnh.
+                        </p>
+
+                        <div>
+                            <table align="center" class="image center">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img
+                                                src="./images/detail-img-2.jpg"
+                                                alt="Toàn cảnh Quảng trường Vạn Xuân"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="desc">&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div>
+                            <table align="center" class="image center">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img
+                                                src="./images/detail-img-3.jpg"
+                                                alt="Cung văn hóa - nhà hát lớn trong Khu văn hóa, thể thao phường Vạn Xuân"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="desc">&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== Tin tức khác ====== -->
+            <div class="t:container">
+                <div class="block_new_related">
+                    <div class="cate_title_1">
+                        <a class="title" href="/dhd/ky-dhd/dhdb-tn/cttd/">Tin tức khác</a>
+                    </div>
+                    <div class="list_item">
+                        <div class="rel-row">
+                            <a
+                                href="/dhd/ky-dhd/dhdb-tn/cttd/202509/du-an-xay-dung-truong-thpt-tuc-tranh-6c52d64/"
+                                class="rel-avatar"
+                            >
+                                <img
+                                    src="./images/rel-thpt-tuc-tranh.jpg"
+                                    alt="Dự án xây dựng Trường THPT Tức Tranh"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <div class="rel-body">
+                                <a
+                                    href="/dhd/ky-dhd/dhdb-tn/cttd/202509/du-an-xay-dung-truong-thpt-tuc-tranh-6c52d64/"
+                                    class="title3"
+                                >
+                                    Dự án xây dựng Trường THPT Tức Tranh
+                                </a>
+                                <div class="des">
+                                    Dự án xây dựng Trường THPT Tức Tranh (xã Vô Tranh) được khởi
+                                    công giữa năm 2022, với tổng mức đầu tư hơn 90 tỷ đồng. Công
+                                    trình đã được hoàn thành, đưa vào sử dụng sớm hơn kế hoạch.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rel-row">
+                            <a
+                                href="/dhd/ky-dhd/dhdb-tn/cttd/202509/trung-tam-phu-san-phau-thuat-gay-me-hoi-suc-va-thiet-bi-y-te-benh-vien-a-thai-nguyen-267212d/"
+                                class="rel-avatar"
+                            >
+                                <img
+                                    src="./images/rel-benh-vien-a.jpg"
+                                    alt="Trung tâm Phụ - Sản - Phẫu thuật gây mê hồi sức và thiết bị y tế, Bệnh viện A Thái Nguyên"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <div class="rel-body">
+                                <a
+                                    href="/dhd/ky-dhd/dhdb-tn/cttd/202509/trung-tam-phu-san-phau-thuat-gay-me-hoi-suc-va-thiet-bi-y-te-benh-vien-a-thai-nguyen-267212d/"
+                                    class="title3"
+                                >
+                                    Trung tâm Phụ - Sản - Phẫu thuật gây mê hồi sức và thiết bị y
+                                    tế, Bệnh viện A Thái Nguyên
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="rel-row">
+                            <a
+                                href="/dhd/ky-dhd/dhdb-tn/cttd/202508/du-an-xay-dung-tuyen-duong-quang-khe-khang-ninh-4706aec/"
+                                class="rel-avatar"
+                            >
+                                <img
+                                    src="./images/rel-duong-quang-khe.jpg"
+                                    alt="Dự án xây dựng Tuyến đường Quảng Khê – Khang Ninh"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <div class="rel-body">
+                                <a
+                                    href="/dhd/ky-dhd/dhdb-tn/cttd/202508/du-an-xay-dung-tuyen-duong-quang-khe-khang-ninh-4706aec/"
+                                    class="title3"
+                                >
+                                    Dự án xây dựng Tuyến đường Quảng Khê – Khang Ninh
+                                </a>
+                                <div class="des">
+                                    Tuyến đường Quảng Khê – Khang Ninh dài gần 17,8km, tổng vốn đầu
+                                    tư 439 tỷ đồng, do Ban Quản lý dự án đầu tư xây dựng công trình
+                                    giao thông và nông nghiệp phía Bắc làm chủ đầu tư.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rel-row">
+                            <a
+                                href="/dhd/ky-dhd/dhdb-tn/cttd/202508/du-an-xay-dung-trung-tam-y-te-ngan-son-5ed10a3/"
+                                class="rel-avatar"
+                            >
+                                <img
+                                    src="./images/rel-tt-y-te-ngan-son.jpg"
+                                    alt="Dự án xây dựng Trung tâm Y tế Ngân Sơn"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <div class="rel-body">
+                                <a
+                                    href="/dhd/ky-dhd/dhdb-tn/cttd/202508/du-an-xay-dung-trung-tam-y-te-ngan-son-5ed10a3/"
+                                    class="title3"
+                                >
+                                    Dự án xây dựng Trung tâm Y tế Ngân Sơn
+                                </a>
+                                <div class="des">
+                                    Trung tâm Y tế Ngân Sơn – Công trình trọng điểm nâng cao chất
+                                    lượng chăm sóc sức khỏe
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rel-row">
+                            <a
+                                href="/dhd/ky-dhd/dhdb-tn/cttd/202503/den-tho-ly-nam-de-6cf1c44/"
+                                class="rel-avatar"
+                            >
+                                <img
+                                    src="./images/rel-den-tho-ly-nam-de.jpg"
+                                    alt="Đền thờ Lý Nam Đế"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <div class="rel-body">
+                                <a
+                                    href="/dhd/ky-dhd/dhdb-tn/cttd/202503/den-tho-ly-nam-de-6cf1c44/"
+                                    class="title3"
+                                >
+                                    Đền thờ Lý Nam Đế
+                                </a>
+                                <div class="des">Đền thờ Lý Nam Đế</div>
+                            </div>
+                        </div>
+
+                        <div class="rel-row">
+                            <a
+                                href="/dhd/ky-dhd/dhdb-tn/cttd/202503/tru-so-lam-viec-khoi-cac-co-quan-tinh-thai-nguyen-5701d24/"
+                                class="rel-avatar"
+                            >
+                                <img
+                                    src="./images/rel-tru-so-khoi-co-quan.jpg"
+                                    alt="Trụ sở làm việc Khối các cơ quan tỉnh Thái Nguyên"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <div class="rel-body">
+                                <a
+                                    href="/dhd/ky-dhd/dhdb-tn/cttd/202503/tru-so-lam-viec-khoi-cac-co-quan-tinh-thai-nguyen-5701d24/"
+                                    class="title3"
+                                >
+                                    Trụ sở làm việc Khối các cơ quan tỉnh Thái Nguyên
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="rel-row">
+                            <a
+                                href="/dhd/ky-dhd/dhdb-tn/cttd/202503/toa-nha-prime-thai-nguyen-c161e40/"
+                                class="rel-avatar"
+                            >
+                                <img
+                                    src="./images/rel-toa-nha-prime.jpg"
+                                    alt="Tòa nhà Prime Thái Nguyên"
+                                    loading="lazy"
+                                />
+                            </a>
+                            <div class="rel-body">
+                                <a
+                                    href="/dhd/ky-dhd/dhdb-tn/cttd/202503/toa-nha-prime-thai-nguyen-c161e40/"
+                                    class="title3"
+                                >
+                                    Tòa nhà Prime Thái Nguyên
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer
+            class="t:relative t:w-full t:bg-[#a80000] t:bg-cover t:bg-center t:py-[30px] t:text-white"
+            style="background-image: url(&quot;./images/ft-bg.png&quot;)"
+        >
+            <div class="t:container">
+                <div
+                    class="t:flex t:flex-col t:gap-[24px] t:w-full t:max-w-[1200px] t:mx-auto t:px-[12px]"
+                >
+                    <div class="t:flex t:justify-start t:max-pc:justify-center">
+                        <img
+                            src="./images/ft-logo.svg"
+                            alt="Báo và Phát thanh, Truyền hình Thái Nguyên điện tử"
+                            class="t:h-auto t:w-full t:max-w-[280px] t:object-contain"
+                        />
+                    </div>
+
+                    <div
+                        class="t:flex t:flex-row t:items-start t:justify-between t:gap-[40px] t:w-full t:max-pc:flex-col t:max-pc:gap-[18px]"
+                    >
+                        <div
+                            class="t:flex t:flex-col t:gap-[9.3px] t:text-[15px] t:leading-[22.5px]"
+                        >
+                            <p>
+                                Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT cấp ngày 20
+                                tháng 11 năm 2023.
+                            </p>
+                            <p class="t:font-bold">
+                                Báo và Phát thanh, Truyền hình Thái Nguyên điện tử.
+                            </p>
+                            <p class="t:font-bold">
+                                Ghi rõ nguồn &ldquo;&nbsp;https://baothainguyen.vn&nbsp;&rdquo; khi
+                                phát hành lại thông tin từ website này
+                            </p>
+                        </div>
+
+                        <div
+                            class="t:flex t:flex-col t:gap-[9.3px] t:text-[15px] t:leading-[22.5px] t:text-right t:max-pc:text-left"
+                        >
+                            <p>
+                                Tổng Biên tập Báo và Phát thanh, Truyền hình Thái Nguyên: Đỗ Xuân
+                                Hòa
+                            </p>
+                            <p>Điện thoại: 0208.3859.666</p>
+                            <p>
+                                Đường dây nóng: 0902006113 - 091 2039880 Email:&nbsp;
+                                <a
+                                    href="mailto:toasoan@baothainguyen.vn"
+                                    class="t:text-white t:underline"
+                                >
+                                    toasoan@baothainguyen.vn
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="../../dhd_cac_lanh_dao/desktop/script/menu.js"></script>
+
+        <script src="../../common/common.js"></script>
+        <script type="module" src="../../common/swiper.js"></script>
+        <script type="module" src="../../common/floating-dropdown.js"></script>
+        <script type="module" src="../../common/overlay.js"></script>
+        <script type="module" src="../../common/overlayscrollbar.js"></script>
+    </body>
+</html>
