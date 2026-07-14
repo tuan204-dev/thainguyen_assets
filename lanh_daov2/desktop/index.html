@@ -1536,29 +1536,17 @@
 
         <main class="home-main-content">
             <section
-                class="lanhdao-hero t:relative t:overflow-hidden t:bg-white t:bg-cover t:bg-center t:bg-no-repeat t:h-[calc(100dvh-90px)]! t:min-h-[460px] t:pc:min-h-150"
-                style="background-image: url(&quot;./images/header_background.png&quot;)"
+                class="lanhdao-hero t:relative t:overflow-hidden t:bg-white t:h-[calc(100dvh-90px)]! t:min-h-[460px] t:pc:min-h-150"
             >
-                <picture>
-                    <!-- Trên 1000px -->
-                    <source
-                        media="(min-width: 1000px)"
-                        srcset="./images/trinhxuantruong1.png"
-                    />
-                    <!-- Dưới 1000px -->
-                    <source
-                        media="(max-width: 999.98px)"
-                        srcset="./images/trinhxuantruong1.png"
-                    />
-                    <img
-                        src="./images/trinhxuantruong1.png"
-                        alt="Đồng chí Trịnh Xuân Trường"
-                        class="t:absolute t:left-1/2 t:bottom-0 t:-translate-x-1/2 t:w-[129%] t:max-w-none t:md:w-auto t:md:max-w-[75%] t:pc:max-w-[320px] t:min-[1200px]:max-w-[440px] t:min-[1400px]:max-w-[540px] t:object-contain t:object-bottom t:z-10 t:h-[85%] t:pc:h-[86%]"
-                    />
-                </picture>
-
+                <!-- Nền hero responsive: mobile dùng ảnh -mobile, desktop dùng ảnh thường -->
                 <div
-                    class="t:pointer-events-none t:absolute t:inset-x-0 t:bottom-0 t:z-20 t:h-[200px] t:bg-linear-to-t t:from-white t:to-transparent"
+                    class="t:absolute t:inset-0 t:bg-cover t:bg-center t:bg-no-repeat t:pc:hidden"
+                    style="background-image: url(&quot;./images/nguyendangbinh1-mobile.jpg&quot;)"
+                    aria-hidden="true"
+                ></div>
+                <div
+                    class="t:absolute t:inset-0 t:bg-cover t:bg-no-repeat t:hidden t:pc:flex"
+                    style="background-image: url(&quot;./images/nguyendangbinh1.jpg&quot;); background-position: 43% center"
                     aria-hidden="true"
                 ></div>
 
@@ -1571,54 +1559,51 @@
                             class="t:absolute t:inset-x-0 t:bottom-8 t:text-[#212636] t:flex t:flex-col t:pc:static t:pc:max-w-[350px] t:min-[1200px]:max-w-[400px] t:min-[1400px]:max-w-[450px]"
                         >
                             <p
-                                class="title t:font-bold t:text-[18px] t:pc:text-[20px] t:leading-[1.2] t:text-[#212636] t:max-pc:text-[#BC0000]"
+                                class="title t:font-bold t:text-[18px] t:pc:text-[20px] t:leading-[1.2] t:text-white! t:max-pc:text-[#BC0000]"
                             >
                                 Đồng chí
                             </p>
                             <p
-                                class="title t:font-bold t:leading-[1.2] t:text-[28px] t:pc:text-[32px] t:min-[1200px]:text-[36px] t:min-[1400px]:text-[42px] t:text-[#212636] t:mt-1"
+                                class="title t:font-bold t:leading-[1.2] t:text-[28px] t:pc:text-[32px] t:min-[1200px]:text-[36px] t:min-[1400px]:text-[42px] t:text-white! t:mt-1"
                             >
-                                Trịnh Xuân Trường
+                                Nguyễn Đăng Bình
                             </p>
                             <p
-                                class="t:text-[14px] t:pc:text-[15px] t:min-[1400px]:text-[16px] t:leading-[1.5] t:text-[#212636] t:mt-4"
+                                class="t:text-[14px] t:pc:text-[15px] t:min-[1400px]:text-[16px] t:leading-[1.5] t:text-white t:mt-4"
                             >
-                                Ủy viên Trung ương Đảng,
+                                Phó Bí thư Thường trực Tỉnh ủy
                                 <br />
-                                Bí thư Tỉnh ủy Thái Nguyên
+                                Trưởng Đoàn đại biểu Quốc hội tỉnh Thái Nguyên
                             </p>
                         </div>
 
                         <!-- related news (desktop only — overlaid white text, right) -->
                         <div
-                            class="t:hidden t:pc:flex t:pc:max-w-[28%] t:min-[1200px]:max-w-[30%] t:min-[1400px]:max-w-[320px] t:flex-col t:text-[#212636] t:divide-y t:divide-[#E5E5E5]"
+                            class="t:hidden t:pc:flex t:pc:max-w-[28%] t:min-[1200px]:max-w-[30%] t:min-[1400px]:max-w-[320px] t:flex-col t:text-white t:divide-y t:divide-[#E5E5E5]"
                         >
                             <a
                                 href=""
                                 class="title-cs t:text-[16px] t:min-[1400px]:text-[18px] t:font-semibold t:leading-[1.5] t:hover:text-[#30A14A] t:pb-4"
                             >
-                                Tăng cường kiểm soát quyền lực, xử lý dứt điểm các nguy cơ thất
-                                thoát, lãng phí
+                                Ban Thường vụ Tỉnh ủy Thái Nguyên: Cho ý kiến về nhiều cơ chế, chính sách tạo động lực phát triển kinh tế - xã hội
                             </a>
                             <a
                                 href=""
                                 class="title-cs t:text-[16px] t:min-[1400px]:text-[18px] t:font-semibold t:leading-[1.5] t:hover:text-[#30A14A] t:py-4"
                             >
-                                Thái Nguyên: Gặp mặt nhân Kỷ niệm Ngày truyền thống ngành Xây dựng
+                                Chủ động tham mưu chiến lược, nâng cao hiệu quả phòng, chống tham nhũng, lãng phí
                             </a>
                             <a
                                 href=""
                                 class="title-cs t:text-[16px] t:min-[1400px]:text-[18px] t:font-semibold t:leading-[1.5] t:hover:text-[#30A14A] t:py-4"
                             >
-                                Đồng chí Nguyễn Thị Loan được bầu bổ sung vào Ban Thường vụ Tỉnh ủy
-                                Thái Nguyên
+                                Xây dựng lực lượng An ninh nhân dân trong sạch, vững mạnh, chính quy, tinh nhuệ, hiện đại
                             </a>
                             <a
                                 href=""
                                 class="title-cs t:text-[16px] t:min-[1400px]:text-[18px] t:font-semibold t:leading-[1.5] t:hover:text-[#30A14A] t:pt-4"
                             >
-                                Thái Nguyên công bố quyết định điều động, luân chuyển, chỉ định, bổ
-                                nhiệm 39 cán bộ
+                                Thảo luận thẳng thắn, hiến kế tháo gỡ điểm nghẽn, quyết tâm hoàn thành mục tiêu năm 2026
                             </a>
                         </div>
                     </div>
@@ -1635,28 +1620,25 @@
                             href=""
                             class="title t:text-[16px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:pb-3 t:hover:text-[#30A14A]"
                         >
-                            Tăng cường kiểm soát quyền lực, xử lý dứt điểm các nguy cơ thất thoát,
-                            lãng phí
+                            Ban Thường vụ Tỉnh ủy Thái Nguyên: Cho ý kiến về nhiều cơ chế, chính sách tạo động lực phát triển kinh tế - xã hội
                         </a>
                         <a
                             href=""
                             class="title t:text-[16px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:py-3 t:hover:text-[#30A14A]"
                         >
-                            Thái Nguyên: Gặp mặt nhân Kỷ niệm Ngày truyền thống ngành Xây dựng
+                            Chủ động tham mưu chiến lược, nâng cao hiệu quả phòng, chống tham nhũng, lãng phí
                         </a>
                         <a
                             href=""
                             class="title t:text-[16px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:py-3 t:hover:text-[#30A14A]"
                         >
-                            Đồng chí Nguyễn Thị Loan được bầu bổ sung vào Ban Thường vụ Tỉnh ủy Thái
-                            Nguyên
+                            Xây dựng lực lượng An ninh nhân dân trong sạch, vững mạnh, chính quy, tinh nhuệ, hiện đại
                         </a>
                         <a
                             href=""
                             class="title t:text-[16px] t:font-semibold t:leading-[1.5] t:text-[#212636] t:pt-3 t:hover:text-[#30A14A]"
                         >
-                            Thái Nguyên công bố quyết định điều động, luân chuyển, chỉ định, bổ
-                            nhiệm 39 cán bộ
+                            Thảo luận thẳng thắn, hiến kế tháo gỡ điểm nghẽn, quyết tâm hoàn thành mục tiêu năm 2026
                         </a>
                     </div>
                 </div>
