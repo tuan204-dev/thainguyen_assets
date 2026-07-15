@@ -1,0 +1,304 @@
+@import "tailwindcss" source(none) prefix(t);
+@source "./**/*.{html,js,jsx,ts,tsx}";
+@source "../../common/**/*.{js,ts}";
+
+@theme {
+    --color-tw-primary: #212636;
+    --color-tw-secondary: #667085;
+    --color-tw-border: #d0d5dd;
+
+    --breakpoint-bt-xl: 1200px;
+    --breakpoint-pc: 1000px;
+}
+
+:root {
+    color-scheme: light;
+    --bg: #f3f7fb;
+    --panel: #ffffff;
+    --ink: #132033;
+    --ink-soft: #506079;
+    --stroke: #d7dfeb;
+    --action: #1f3b68;
+    --action-hover: #142949;
+    --danger: #b91c1c;
+    --danger-bg: #fee2e2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #fbfaf9;
+}
+
+.row20 {
+    margin-bottom: 20px !important;
+}
+
+/* ============================================================
+   DHD DETAIL STYLE 1 — trang chi tiết bài viết
+   (menu nổi trên ảnh hero, không có banner header)
+   ============================================================ */
+.detail_st1 {
+    position: relative;
+}
+
+/* ---- Menu nổi trên hero ---- */
+.wrap_menu_detail {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+.dhd_menu_detail .menutop {
+    position: relative;
+    z-index: 9;
+    top: 30px;
+    border-radius: 12px;
+    padding-left: 10px;
+}
+
+/* ---- Ảnh đại diện full-width, tỷ lệ 3:1, gradient kem trên/dưới ---- */
+.avatar_detail_style1 {
+    width: 100%;
+    text-align: center;
+}
+.avatar43 {
+    display: block;
+    width: 100%;
+    max-width: 1440px;
+    position: relative;
+    height: 0;
+    padding: 33% 0 0 0;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.avatar43::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(0deg, rgba(255, 249, 249, 0) 36.53%, #ffefd4 100%);
+    pointer-events: none;
+    z-index: 9;
+}
+.avatar43::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(0deg, #ffefd4 1%, rgba(255, 249, 249, 0) 100%);
+    pointer-events: none;
+    z-index: 9;
+}
+.avatar43 img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    inset: 0;
+    margin: auto;
+}
+
+/* ---- Khối nội dung kéo đè lên mép dưới hero ---- */
+.wrap_content_style1 {
+    margin-top: -100px;
+    position: relative;
+    z-index: 10;
+}
+
+/* ---- Ruy-băng tên chuyên mục (cờ 2 đầu + nền đỏ) ---- */
+.cate_title_nav {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: 30px 0;
+}
+.cate_title_nav .bg_left img,
+.cate_title_nav .bg_right img {
+    display: block;
+    height: 52px;
+    width: auto;
+}
+.cate_title_nav .bg_center {
+    display: flex;
+    align-items: center;
+    background: #ef2424;
+    min-height: 52px;
+}
+/* font-family + margin-top: trung hoà rule `.title` (Noto Serif) của common.css */
+.cate_title_nav a.title {
+    display: block;
+    font-size: 26px;
+    line-height: 26px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    margin-top: 0;
+}
+.cate_title_nav a.title:hover {
+    color: #fff;
+}
+
+/* ---- Tiêu đề + ngày đăng ---- */
+.detail_st1 h1.head_title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 54px;
+    text-align: center;
+    color: #000;
+}
+.detail_st1 .date {
+    color: #999;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ---- Thân bài (HTML bài viết do CMS xuất ra) ---- */
+.detail_style1 {
+    max-width: 790px;
+    margin: 0 auto;
+}
+#content p {
+    margin-bottom: 10px;
+    color: #403c3c;
+    font-size: 1.125rem;
+    text-align: justify;
+}
+#content img {
+    max-width: 100%;
+    height: auto !important;
+}
+.detail_style1 table td,
+.detail_style1 table p,
+.detail_style1 table div {
+    text-align: center;
+    color: #1e72cb;
+}
+/* Ảnh trong bài tràn rộng hơn cột chữ (live: bảng 1265px trên cột 790px ≈ 160%),
+   chặn max theo viewport để không tràn màn hình nhỏ */
+.detail_style1 table.image {
+    width: min(160%, 100vw - 24px);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px 0;
+    border-collapse: collapse;
+}
+.detail_style1 table.image td {
+    padding: 0;
+}
+.detail_style1 table.image img {
+    display: block;
+    width: 100%;
+}
+/* display/line-clamp/margin: trung hoà rule `.desc` (line-clamp 3) của common.css */
+.detail_style1 table.image .desc {
+    background: #fbfaf9;
+    padding: 5px;
+    color: #0e6b91;
+    font-size: 16px;
+    display: table-cell;
+    -webkit-line-clamp: unset;
+    margin-top: 0;
+    overflow: visible;
+}
+
+/* ---- Tin tức khác ---- */
+.block_new_related {
+    margin-bottom: 30px;
+}
+.cate_title_1 {
+    background: url("./images/related-title-flag.png") no-repeat left center;
+    padding-left: 90px;
+    margin: 20px 0;
+    min-height: 32px;
+    line-height: 32px;
+}
+.cate_title_1 .title {
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #000;
+    font-family: "Roboto", sans-serif;
+    margin-top: 0;
+}
+.cate_title_1 .title:hover {
+    color: #ef2424;
+}
+.block_new_related .rel-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 24px;
+    align-items: start;
+    margin-bottom: 20px;
+}
+.rel-avatar {
+    display: block;
+    position: relative;
+    height: 0;
+    padding-top: 56.25%;
+    overflow: hidden;
+    border-radius: calc(3% + 5px);
+}
+.rel-avatar img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    inset: 0;
+    margin: auto;
+}
+.rel-body .title3 {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #000;
+}
+.rel-body .title3:hover {
+    color: #ef2424;
+}
+.rel-body .des {
+    margin-top: 2px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #5f5f5f;
+}
+
+/* ============ MOBILE (<768px) ============ */
+@media (max-width: 767.98px) {
+    .dhd_menu_detail .menutop {
+        top: 10px;
+    }
+    .avatar43 {
+        padding: 50% 0 0 0;
+    }
+    .wrap_content_style1 {
+        margin-top: 0;
+        position: static;
+    }
+    .cate_title_nav a.title {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .detail_st1 h1.head_title {
+        font-size: 22px;
+        line-height: 40px;
+    }
+    .detail_style1 table.image {
+        width: 100%;
+        left: auto;
+        transform: none;
+    }
+    .cate_title_1 .title {
+        font-size: 18px;
+    }
+    .cate_title_1 {
+        padding-left: 80px;
+    }
+}

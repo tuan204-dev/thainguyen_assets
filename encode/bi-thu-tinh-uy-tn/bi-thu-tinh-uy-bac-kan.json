@@ -1,0 +1,85 @@
+{
+  "tieu_de": "Bí thư Tỉnh ủy Bắc Kạn các thời kỳ",
+  "danh_sach": [
+    {
+      "stt": 1,
+      "ho_ten": "Dương Thiết Sơn",
+      "chuc_vu": "Bí thư Tỉnh ủy",
+      "thoi_gian": "Từ tháng 6/1947 đến tháng 1/1959",
+      "anh": "images/Dương Thiết Sơn.png",
+      "url": "/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/202509/dong-chi-duong-thiet-son-7a406d1/"
+    },
+    {
+      "stt": 2,
+      "ho_ten": "Doanh Hằng",
+      "chuc_vu": "Bí thư Tỉnh ủy",
+      "thoi_gian": "Từ tháng 2/1959 đến tháng 3/1961",
+      "anh": "images/Doanh Hằng.png",
+      "url": "/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/202509/dong-chi-doanh-hang-03907ad/"
+    },
+    {
+      "stt": 3,
+      "ho_ten": "Nguyễn Việt Vinh",
+      "chuc_vu": "Bí thư Tỉnh ủy",
+      "thoi_gian": "Từ tháng 3/1961 đến tháng 6/1965",
+      "anh": "images/Nguyễn Việt Vinh.png",
+      "url": "/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/202509/dong-chi-nguyen-viet-vinh-162080c/"
+    },
+    {
+      "stt": 4,
+      "ho_ten": "Hà Văn Phụng",
+      "chuc_vu": "Bí thư Tỉnh ủy",
+      "thoi_gian": "Từ tháng 1/1997 đến tháng 6/2004",
+      "anh": "images/Hà Văn Phụng.png",
+      "url": "/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/202509/dong-chi-ha-van-phung-6db0965/"
+    },
+    {
+      "stt": 5,
+      "ho_ten": "Mai Thế Dương",
+      "chuc_vu": "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy",
+      "thoi_gian": "Từ tháng 7/2004 đến tháng 3/2009",
+      "anh": "images/Mai Thế Dương.png",
+      "url": "/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/202509/dong-chi-mai-the-duong-b3809f6/"
+    },
+    {
+      "stt": 6,
+      "ho_ten": "Dương Đình Hân",
+      "chuc_vu": "Bí thư Tỉnh ủy",
+      "thoi_gian": "Từ tháng 11/2009 đến tháng 5/2010",
+      "anh": "images/Dương Đình Hân.png",
+      "url": "/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/202509/dong-chi-duong-dinh-han-0d90b4b/"
+    },
+    {
+      "stt": 7,
+      "ho_ten": "Nguyễn Xuân Cường",
+      "chuc_vu": "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy",
+      "thoi_gian": "Từ tháng 5/2010 đến tháng 1/2013",
+      "anh": "images/Nguyễn Xuân Cường.png",
+      "url": "/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/202509/dong-chi-nguyen-xuan-cuong-62e0bd1/"
+    },
+    {
+      "stt": 8,
+      "ho_ten": "Hà Văn Khoát",
+      "chuc_vu": "Bí thư Tỉnh ủy",
+      "thoi_gian": "Từ tháng 3/2013 đến tháng 3/2015",
+      "anh": "images/Hà Văn Khoát.png",
+      "url": "/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/202509/dong-chi-ha-van-khoat-b8b0c8e/"
+    },
+    {
+      "stt": 9,
+      "ho_ten": "Nguyễn Văn Du",
+      "chuc_vu": "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy",
+      "thoi_gian": "Từ tháng 3/2015 đến tháng 10/2020",
+      "anh": "images/Nguyễn Văn Du.png",
+      "url": "/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/202509/dong-chi-nguyen-van-du-7d90d4f/"
+    },
+    {
+      "stt": 10,
+      "ho_ten": "Hoàng Duy Chinh",
+      "chuc_vu": "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy",
+      "thoi_gian": "Từ tháng 10/2020 đến tháng 6/2025",
+      "anh": "images/Hoàng Duy Chinh.png",
+      "url": "/dhd/ky-dhd/dhdb-tn/bi-thu-tinh-uy-bac-kan-cac-thoi-ky/202509/dong-chi-hoang-duy-chinh-2750ddf/"
+    }
+  ]
+}
