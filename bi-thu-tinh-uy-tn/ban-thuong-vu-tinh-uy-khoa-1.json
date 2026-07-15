@@ -1,10 +1,11 @@
 {
   "tieu_de": "Ban Thường vụ Tỉnh ủy khóa I, nhiệm kỳ 2025-2030",
-  "lanh_dao": [
+  "danh_sach": [
     {
       "stt": 1,
       "ho_ten": "Trịnh Xuân Trường",
       "chuc_vu": "Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy",
+      "nhom": "lanh_dao",
       "anh": "",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202509/dong-chi-trinh-xuan-truong-e6111a0/"
     },
@@ -12,6 +13,7 @@
       "stt": 2,
       "ho_ten": "Vương Quốc Tuấn",
       "chuc_vu": "Ủy viên Trung ương Đảng, Phó Bí thư Tỉnh ủy, Chủ tịch UBND tỉnh",
+      "nhom": "lanh_dao",
       "anh": "",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202511/dong-chi-vuong-quoc-tuan-edb06c6/"
     },
@@ -19,6 +21,7 @@
       "stt": 3,
       "ho_ten": "Nguyễn Đăng Bình",
       "chuc_vu": "Phó Bí thư Thường trực Tỉnh ủy, Trưởng Đoàn đại biểu Quốc hội tỉnh Thái Nguyên",
+      "nhom": "lanh_dao",
       "anh": "",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202507/nguyen-dang-binh-6d021d5/"
     },
@@ -26,6 +29,7 @@
       "stt": 4,
       "ho_ten": "Bùi Văn Lương",
       "chuc_vu": "Phó Bí thư Tỉnh ủy, Chủ tịch HĐND tỉnh Thái Nguyên",
+      "nhom": "lanh_dao",
       "anh": "",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202603/pho-chu-tich-thuong-truc-ubnd-tinh-thai-nguyen-40c4cf7/"
     },
@@ -33,15 +37,15 @@
       "stt": 5,
       "ho_ten": "Đinh Quang Tuyên",
       "chuc_vu": "Phó Bí thư Tỉnh ủy, Chủ tịch Ủy ban MTTQ tỉnh",
+      "nhom": "lanh_dao",
       "anh": "",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202507/dinh-quang-tuyen-fae2253/"
-    }
-  ],
-  "uy_vien": [
+    },
     {
       "stt": 6,
       "ho_ten": "Đỗ Đức Công",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Phó Chủ tịch Thường trực HĐND tỉnh Thái Nguyên",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Đỗ Đức Công.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202503/do-duc-cong-512142e/"
     },
@@ -49,6 +53,7 @@
       "stt": 7,
       "ho_ten": "Bùi Đức Hải",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Giám đốc Công an tỉnh",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Bùi Đức Hải.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202503/dong-chi-bui-duc-hai-5741257/"
     },
@@ -56,6 +61,7 @@
       "stt": 8,
       "ho_ten": "Đỗ Thị Minh Hoa",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Trưởng Ban Tuyên giáo và Dân vận Tỉnh ủy",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Đỗ Thị Minh Hoa.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202507/dong-chi-do-thi-minh-hoa-e092425/"
     },
@@ -63,6 +69,7 @@
       "stt": 9,
       "ho_ten": "Vũ Duy Hoàng",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Phó Chủ tịch Thường trực Ủy ban MTTQ tỉnh",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Vũ Duy Hoàng.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202503/dong-chi-vu-duy-hoang-71c149b/"
     },
@@ -70,6 +77,7 @@
       "stt": 10,
       "ho_ten": "Trần Thị Lộc",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Phó Chủ tịch HĐND tỉnh",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Trần Thị Lộc.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202507/dong-chi-tran-thi-loc-9452460/"
     },
@@ -77,6 +85,7 @@
       "stt": 11,
       "ho_ten": "Bùi Văn Lương",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Phó Chủ tịch UBND tỉnh",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Bùi Văn Lương.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202503/dong-chi-bui-van-luong-2f61573/"
     },
@@ -84,6 +93,7 @@
       "stt": 12,
       "ho_ten": "Lường Đức Thắng",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Trưởng Ban Nội chính Tỉnh ủy",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Lường Đức Thắng.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202507/dong-chi-luong-duc-thang-ec924ff/"
     },
@@ -91,6 +101,7 @@
       "stt": 13,
       "ho_ten": "Phạm Văn Thọ",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Giám đốc Sở Công thương tỉnh",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Phạm Văn Thọ.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202503/dong-chi-pham-van-tho-67914fb/"
     },
@@ -98,6 +109,7 @@
       "stt": 14,
       "ho_ten": "Dương Văn Tiến",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Trưởng Ban Tổ chức Tỉnh ủy",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Dương Văn Tiến.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202503/dong-chi-duong-van-tien-e731528/"
     },
@@ -105,6 +117,7 @@
       "stt": 15,
       "ho_ten": "Hoàng Thị Thu Trang",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Chủ nhiệm Ủy ban Kiểm tra Tỉnh ủy",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Hoàng Thị Thu Trang.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202507/dong-chi-hoang-thi-thu-trang-15d2570/"
     },
@@ -112,6 +125,7 @@
       "stt": 16,
       "ho_ten": "Nguyễn Thành Minh",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Chánh Văn phòng Tỉnh ủy",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Nguyễn Thành Minh.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202509/dong-chi-nguyen-thanh-minh-f63784d/"
     },
@@ -119,6 +133,7 @@
       "stt": 17,
       "ho_ten": "Ngô Tuấn Anh",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Chỉ huy trưởng Bộ CHQS tỉnh",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Ngô Tuấn Anh.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202509/dai-ta-ngo-tuan-anh-8587922/"
     },
@@ -126,6 +141,7 @@
       "stt": 18,
       "ho_ten": "Nguyễn Linh",
       "chuc_vu": "Ủy viên Ban Thường vụ Tỉnh ủy, Phó Chủ tịch UBND tỉnh",
+      "nhom": "uy_vien",
       "anh": "images/Đồng chí Nguyễn Linh.jpg",
       "url": "/dhd/ky-dhd/dhdb-tn/btv/202510/dong-chi-nguyen-linh-f5a14d7/"
     }
