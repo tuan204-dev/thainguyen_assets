@@ -1216,6 +1216,11 @@
       margin-right: calc(var(--t-spacing) * 3);
     }
   }
+  .t\:max-md\:mb-4 {
+    @media (width < 48rem) {
+      margin-bottom: calc(var(--t-spacing) * 4);
+    }
+  }
   .t\:max-md\:ml-0 {
     @media (width < 48rem) {
       margin-left: calc(var(--t-spacing) * 0);
