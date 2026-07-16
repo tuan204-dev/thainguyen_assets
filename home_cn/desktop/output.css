@@ -1320,6 +1320,11 @@
       padding-top: calc(var(--t-spacing) * 0);
     }
   }
+  .t\:max-md\:text-\[1rem\]\! {
+    @media (width < 48rem) {
+      font-size: 1rem !important;
+    }
+  }
   .t\:max-md\:\*\:border-b {
     @media (width < 48rem) {
       :is(& > *) {
