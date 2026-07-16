@@ -1201,6 +1201,11 @@
       float: left;
     }
   }
+  .t\:max-md\:mt-0\! {
+    @media (width < 48rem) {
+      margin-top: calc(var(--t-spacing) * 0) !important;
+    }
+  }
   .t\:max-md\:mr-2 {
     @media (width < 48rem) {
       margin-right: calc(var(--t-spacing) * 2);
