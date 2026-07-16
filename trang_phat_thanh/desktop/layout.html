@@ -1167,136 +1167,40 @@
 
                     <div class="t:flex t:flex-col">
                         <section class="t:pt-0 t:pb-6 t:pc:py-8 t:pl-0 t:pc:pl-6">
-                            <div
-                                class="t:flex t:flex-col t:pc:grid t:pc:grid-cols-[500px_1fr] t:gap-x-8 t:gap-y-0 t:pc:gap-y-6"
-                            >
-                                <h2
-                                    class="t:order-2 t:pc:order-1 t:pc:col-span-2 noto t:text-[22px] t:hidden t:font-bold t:uppercase t:mb-0 t:pc:mb-5 t:mt-4 t:pc:mt-0 t:break-words"
-                                >
-                                    XEM TRUYỀN HÌNH TRỰC TUYẾN
-                                </h2>
-
-                                <div
-                                    class="t:order-1 t:pc:order-2 t:aspect-video t:bg-black t:relative t:overflow-hidden t:w-[100vw] t:left-1/2 t:-translate-x-1/2 t:pc:w-full t:pc:left-auto t:pc:translate-x-0 t:pc:rounded-lg group"
-                                >
-                                    <video
-                                        id="custom-video-player"
-                                        src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_phat_thanh/desktop/video/video_test.mp4"
-                                        class="t:w-full t:h-full t:object-cover t:absolute t:inset-0 cursor-pointer"
-                                    ></video>
+                            <style>
+                                @media (max-width: 1200px) {
+                                    .pt-grid-override { display: flex !important; flex-direction: column !important; }
+                                    .pt-schedule-outer-override { display: flex !important; flex-direction: column !important; position: static !important; margin-top: 1rem !important; }
+                                    .pt-schedule-inner-override { position: static !important; }
+                                    .pt-schedule-scroll-override { max-height: 250px !important; }
+                                }
+                            </style>
+                            <div class="pt-grid-override t:flex t:flex-col t:pc:grid t:pc:grid-cols-[1fr_320px] t:gap-x-6 t:gap-y-0 t:pc:gap-y-6">
+                                <h2 class="t:order-2 t:pc:order-1 t:pc:col-span-2 noto t:text-[22px] t:font-bold t:uppercase t:mb-0 t:pc:mb-5 t:mt-4 t:pc:mt-0 t:break-words">NGHE PHÁT THANH TRỰC TUYẾN</h2>
+                                <div class="t:order-1 t:pc:order-2 t:aspect-video t:bg-black t:relative t:overflow-hidden t:w-[100vw] t:left-1/2 t:-translate-x-1/2 t:pc:w-auto t:pc:left-auto t:pc:translate-x-0 t:pc:rounded">
+                                    <video id="pt-player-main" class="t:absolute t:object-contain t:bg-black" style="inset: 0; width: 100%; height: 100%;" poster="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/assets/img_radio.jpg" controls playsinline preload="none" aria-label="Kênh TNRadio - Phát trực tiếp"></video>
+                                    <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/assets/logo-white.png" alt="" class="t:absolute t:top-4 t:right-4 t:h-8 t:w-auto t:z-10" style="pointer-events: none;" />
+                                    <div id="pt-player-error" style="display: none; position: absolute; inset: 0; z-index: 20; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 16px; text-align: center; background: rgba(0, 0, 0, 0.72);">
+                                        <span style="font-size: 14px; color: #fff;">Không tải được luồng trực tiếp. Vui lòng thử lại.</span>
+                                        <button type="button" id="pt-player-retry" style="font-size: 13px; color: #fff; background: transparent; border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 9999px; padding: 6px 18px; cursor: pointer;">Thử lại</button>
+                                    </div>
                                 </div>
-
-                                <div
-                                    class="t:order-3 t:pc:order-3 t:flex t:flex-col t:mt-4 t:pc:mt-0 t:justify-start t:pc:pl-2"
-                                >
-                                    <h3
-                                        class="noto t:text-[18px] t:pc:text-[22px] t:font-bold t:mb-4 t:pc:mb-6 t:text-white"
-                                    >
-                                        Viên ngọc xanh giữa núi rừng Việt Bắc
-                                    </h3>
-                                    <div class="t:flex t:items-center t:gap-x-4">
-                                        <button
-                                            id="custom-video-play-btn"
-                                            class="t:w-10 t:h-10 t:rounded-full t:bg-white/20 t:flex t:items-center t:justify-center t:shrink-0 hover:t:bg-white/30 t:transition-colors"
-                                        >
-                                            <img
-                                                id="custom-video-play-icon"
-                                                src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_phat_thanh/desktop/images/ic_control_play.png"
-                                                alt="Play"
-                                                class="t:w-4 t:h-4 t:object-contain t:ml-1"
-                                            />
-                                            <svg
-                                                id="custom-video-pause-icon"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="18"
-                                                height="18"
-                                                viewBox="0 0 24 24"
-                                                fill="currentColor"
-                                                class="t:text-white t:hidden"
-                                            >
-                                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                                            </svg>
-                                        </button>
-                                        <div
-                                            id="custom-video-progress-container"
-                                            class="t:flex-1 t:h-4 t:flex t:items-center t:relative t:cursor-pointer group"
-                                        >
-                                            <div
-                                                class="t:w-full t:h-1.5 t:bg-white/20 t:rounded-full t:relative"
-                                            >
-                                                <div
-                                                    id="custom-video-progress-bar"
-                                                    class="t:absolute t:left-0 t:top-0 t:h-full t:bg-[#EC1C23] t:rounded-full t:pointer-events-none"
-                                                    style="width: 0%"
-                                                ></div>
-                                            </div>
-                                            <div
-                                                id="custom-video-progress-thumb-wrapper"
-                                                class="t:absolute t:top-1/2 t:-translate-y-1/2 t:left-0 t:pointer-events-none t:z-10"
-                                                style="left: 0%"
-                                            >
-                                                <div
-                                                    id="custom-video-progress-thumb"
-                                                    class="t:w-3.5 t:h-3.5 t:-ml-[7px] t:bg-[#EC1C23] t:rounded-full"
-                                                ></div>
-                                            </div>
+                                <div class="pt-schedule-outer-override t:order-3 t:pc:order-3 t:flex t:flex-col t:pc:block t:pc:relative t:mt-4 t:pc:mt-0">
+                                    <div class="pt-schedule-inner-override t:flex t:flex-col t:pc:absolute t:pc:inset-0">
+                                        <div class="t:flex t:items-center t:gap-x-2 t:font-bold t:mb-4 t:shrink-0">
+                                            <img src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_phat_thanh/desktop/images/ic_calender.png" alt="" class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert" />
+                                            <span class="noto t:text-base">Lịch phát sóng</span>
                                         </div>
-                                        <div
-                                            id="custom-video-time"
-                                            class="t:text-[12px] t:text-[#A1A1A1] t:shrink-0 t:font-medium t:min-w-[70px] t:text-center"
-                                        >
-                                            00:00 / 00:00
-                                        </div>
-                                        <div
-                                            class="t:flex t:items-center t:gap-x-2 t:shrink-0 t:ml-2"
-                                        >
-                                            <button
-                                                id="custom-video-mute-btn"
-                                                class="hover:t:opacity-80 t:transition-opacity"
-                                            >
-                                                <img
-                                                    id="custom-video-vol-up-icon"
-                                                    src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/trang_phat_thanh/desktop/images/ic_control_volum.png"
-                                                    alt="Volume"
-                                                    class="t:w-4 t:h-4 t:object-contain"
-                                                />
-                                                <svg
-                                                    id="custom-video-vol-off-icon"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="16"
-                                                    height="16"
-                                                    viewBox="0 0 24 24"
-                                                    fill="currentColor"
-                                                    class="t:text-white t:hidden"
-                                                >
-                                                    <path
-                                                        d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"
-                                                    />
-                                                </svg>
-                                            </button>
-                                            <div
-                                                id="custom-video-vol-container"
-                                                class="t:w-12 t:h-4 t:flex t:items-center t:relative t:cursor-pointer group"
-                                            >
-                                                <div
-                                                    class="t:w-full t:h-1.5 t:bg-white/20 t:rounded-full t:relative"
-                                                >
-                                                    <div
-                                                        id="custom-video-vol-bar"
-                                                        class="t:absolute t:left-0 t:top-0 t:h-full t:bg-[#EC1C23] t:rounded-full t:pointer-events-none"
-                                                        style="width: 100%"
-                                                    ></div>
+                                        <div data-scroll data-scroll-theme="os-theme-light" class="pt-schedule-scroll-override t:flex-1 t:pr-1">
+                                            <div id="pt-schedule-list-main" class="t:flex t:flex-col t:gap-y-3">
+                                                <!-- Mẫu tĩnh: giữ để Tailwind build đủ class cho item lịch do JS render -->
+                                                <div class="tv-sch-item t:rounded t:px-4 t:py-3 t:flex t:items-center t:justify-between t:gap-x-3 t:transition-colors" data-minutes="0" style="background-color: #3d1313">
+                                                    <div class="t:flex t:items-center t:gap-x-4 t:min-w-0">
+                                                        <span class="t:font-medium t:text-[15px] t:shrink-0" style="min-width: 44px">05:55</span>
+                                                        <span class="t:text-sm t:font-bold t:min-w-0 t:leading-snug">Nhạc hiệu + Giới thiệu chương trình</span>
+                                                    </div>
                                                 </div>
-                                                <div
-                                                    id="custom-video-vol-thumb-wrapper"
-                                                    class="t:absolute t:top-1/2 t:-translate-y-1/2 t:left-0 t:pointer-events-none t:z-10"
-                                                    style="left: 100%"
-                                                >
-                                                    <div
-                                                        id="custom-video-vol-thumb"
-                                                        class="t:w-3 t:h-3 t:-ml-1.5 t:bg-[#EC1C23] t:rounded-full"
-                                                    ></div>
-                                                </div>
+                                                <div class="t:px-4 t:py-3 t:text-sm t:text-white/70">Đang tải lịch phát sóng...</div>
                                             </div>
                                         </div>
                                     </div>
