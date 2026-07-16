@@ -1518,6 +1518,11 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  .t\:\[\&\>\.swiper-slide\]\:h-auto\! {
+    &>.swiper-slide {
+      height: auto !important;
+    }
+  }
 }
 :root {
   color-scheme: light;

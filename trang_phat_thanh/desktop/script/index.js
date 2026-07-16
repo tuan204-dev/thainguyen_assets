@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const sidebarLinks = document.querySelectorAll(".sidebar-link");
     const headerOffset = 100;
+    const LINK_CLASS =
+        "t:text-white t:hover:text-[#EC1C23] t:transition-colors t:block sidebar-link";
+
+    // Build the category sidebar from each section's `id` + `data-title-cate`.
+    // Clicking an item smooth-scrolls to its section; the scrollspy below keeps
+    // the matching item highlighted while scrolling.
+    buildCateNav();
+
+    const sidebarLinks = document.querySelectorAll(".sidebar-link");
 
     sidebarLinks.forEach((link) => {
         link.addEventListener("click", (e) => {
@@ -66,6 +74,32 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
+
+    // Render one sidebar item per `<section data-title-cate>` that also has an id.
+    // Order follows the sections' order in the document.
+    function buildCateNav() {
+        const nav = document.querySelector("[data-cate-nav]");
+        if (!nav) return;
+
+        const sections = document.querySelectorAll("section[data-title-cate]");
+        const frag = document.createDocumentFragment();
+
+        sections.forEach((section) => {
+            const id = section.id;
+            const title = (section.getAttribute("data-title-cate") || "").trim();
+            if (!id || !title) return;
+
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = `#${id}`;
+            a.className = LINK_CLASS;
+            a.textContent = title;
+            li.appendChild(a);
+            frag.appendChild(li);
+        });
+
+        nav.replaceChildren(frag);
+    }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
