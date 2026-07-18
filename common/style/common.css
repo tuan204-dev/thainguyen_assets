@@ -1,3 +1,6 @@
+/* IBM Plex Serif (self-hosted) — dùng cho toàn bộ phiên bản mobile (≤1000px). */
+@import url("fonts-ibm-plex-serif-vn.css");
+
 :root {
     --text-color: #090909;
     --text-color-soft: #555;
@@ -376,4 +379,30 @@ figcaption * {
 
 img.loading {
     filter: blur(6px);
+}
+
+/* =====================================================================
+   MOBILE (≤1000px) — IBM Plex Serif cho TOÀN BỘ phiên bản mobile.
+   Ghi đè mọi vai trò font hiện có (body/Roboto + Noto Serif + Merriweather
+   + .title + .cate-label). Desktop (>1000px) giữ nguyên như cũ.
+   Icon dùng SVG mask (không có font-family) nên KHÔNG bị ảnh hưởng.
+   Breakpoint 1000px = đúng breakpoint "pc" của dự án.
+   ===================================================================== */
+@media (max-width: 1000px) {
+    body,
+    button,
+    input,
+    optgroup,
+    select,
+    textarea,
+    .roboto,
+    .roboto\!,
+    .noto,
+    .noto\!,
+    .merriweather,
+    .title,
+    .cate-label h2,
+    .cate-label h3 {
+        font-family: "IBM Plex Serif", serif !important;
+    }
 }
