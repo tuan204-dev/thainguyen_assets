@@ -1,3 +1,6 @@
+/* IBM Plex Serif (self-hosted) — chỉ dùng cho #content của trang chi tiết trên mobile. */
+@import url("fonts-ibm-plex-serif-vn.css");
+
 :root {
     --text-color: #090909;
     --text-color-soft: #555;
@@ -376,4 +379,16 @@ figcaption * {
 
 img.loading {
     filter: blur(6px);
+}
+
+/* =====================================================================
+   Trang CHI TIẾT — nội dung bài viết (#content) dùng IBM Plex Serif,
+   CHỈ trên mobile (≤1000px = breakpoint "pc"). Desktop giữ nguyên.
+   #content chỉ tồn tại ở layout chi tiết nên rule này vô hại nơi khác.
+   ===================================================================== */
+@media (max-width: 1000px) {
+    #content,
+    #content * {
+        font-family: "IBM Plex Serif", serif !important;
+    }
 }
