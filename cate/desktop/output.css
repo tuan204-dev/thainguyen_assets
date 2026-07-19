@@ -1309,6 +1309,17 @@
       align-items: center;
     }
   }
+  .t\:\[\&\>\*\:not\(\:first-child\)\]\:border-t {
+    &>*:not(:first-child) {
+      border-top-style: var(--tw-border-style);
+      border-top-width: 1px;
+    }
+  }
+  .t\:\[\&\>\*\:not\(\:first-child\)\]\:border-\[\#DCDFE4\] {
+    &>*:not(:first-child) {
+      border-color: #DCDFE4;
+    }
+  }
   .t\:max-pc\:\[\&\>\*\:nth-child\(n\+3\)\]\:hidden {
     @media (width < 1000px) {
       &>*:nth-child(n+3) {
