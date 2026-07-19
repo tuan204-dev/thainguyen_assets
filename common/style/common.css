@@ -1,6 +1,3 @@
-/* IBM Plex Serif (self-hosted) — chỉ dùng cho #content của trang chi tiết trên mobile. */
-@import url("fonts-ibm-plex-serif-vn.css");
-
 :root {
     --text-color: #090909;
     --text-color-soft: #555;
@@ -379,28 +376,4 @@ figcaption * {
 
 img.loading {
     filter: blur(6px);
-}
-
-/* =====================================================================
-   Trang CHI TIẾT — nội dung bài viết (#content) dùng IBM Plex Serif,
-   CHỈ trên mobile (≤1000px = breakpoint "pc"). Desktop giữ nguyên.
-   #content chỉ tồn tại ở layout chi tiết nên rule này vô hại nơi khác.
-   ===================================================================== */
-@media (max-width: 1000px) {
-    #content,
-    #content * {
-        font-family: "IBM Plex Serif", serif !important;
-    }
-}
-
-/* Cỡ chữ thân bài trang chi tiết trên mobile: 16px → 19px.
-   Dùng 767px cho khớp breakpoint mobile sẵn có của .article-prose
-   (>767px vẫn 18px như cũ). CHỈ đặt trên #content để phần tử có cỡ
-   riêng (vd .article-prose h2 = 21px) giữ nguyên thứ bậc; các thẻ
-   con không khai báo cỡ sẽ kế thừa 19px. line-height 1.78 không có
-   đơn vị nên tự co giãn theo cỡ chữ. */
-@media (max-width: 767px) {
-    #content {
-        font-size: 19px !important;
-    }
 }

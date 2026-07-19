@@ -1,0 +1,34 @@
+/* ---------------------------------------------------------------------------
+   Trang CHI TIẾT — typography cho #content (thân bài viết).
+
+   Vì các layout chi tiết đã INLINE common.css vào <style> (head-optimization),
+   @import trong common.css bị loại bỏ khi inline => @font-face IBM Plex Serif
+   KHÔNG được nạp và chữ rơi về serif hệ thống. Nên gom cả @font-face lẫn rule
+   #content vào ĐÚNG 1 file ngoài, chỉ <link> ở các layout chi tiết:
+     - nạp ngoài từ r2.dev/common/style/ nên @import + đường dẫn tương đối
+       trong fonts-ibm-plex-serif-vn.css resolve đúng;
+     - không phình inline CSS của mọi layout khác.
+
+   #content chỉ tồn tại ở trang chi tiết nên file này vô hại nếu link nhầm.
+   --------------------------------------------------------------------------- */
+
+@import url("fonts-ibm-plex-serif-vn.css");
+
+/* Font chữ thân bài: IBM Plex Serif trên mobile (≤1000px = breakpoint "pc"). */
+@media (max-width: 1000px) {
+    #content,
+    #content * {
+        font-family: "IBM Plex Serif", serif !important;
+    }
+}
+
+/* Cỡ chữ thân bài trên mobile: 16px → 19px.
+   Dùng 767px cho khớp breakpoint mobile sẵn có của .article-prose
+   (>767px vẫn 18px). CHỈ đặt trên #content để phần tử có cỡ riêng
+   (vd .article-prose h2 = 21px) giữ nguyên thứ bậc; thẻ con không khai báo
+   cỡ sẽ kế thừa 19px. line-height 1.78/1.7 không đơn vị nên tự co giãn. */
+@media (max-width: 767px) {
+    #content {
+        font-size: 19px !important;
+    }
+}
