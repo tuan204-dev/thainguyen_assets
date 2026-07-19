@@ -392,3 +392,15 @@ img.loading {
         font-family: "IBM Plex Serif", serif !important;
     }
 }
+
+/* Cỡ chữ thân bài trang chi tiết trên mobile: 16px → 19px.
+   Dùng 767px cho khớp breakpoint mobile sẵn có của .article-prose
+   (>767px vẫn 18px như cũ). CHỈ đặt trên #content để phần tử có cỡ
+   riêng (vd .article-prose h2 = 21px) giữ nguyên thứ bậc; các thẻ
+   con không khai báo cỡ sẽ kế thừa 19px. line-height 1.78 không có
+   đơn vị nên tự co giãn theo cỡ chữ. */
+@media (max-width: 767px) {
+    #content {
+        font-size: 19px !important;
+    }
+}

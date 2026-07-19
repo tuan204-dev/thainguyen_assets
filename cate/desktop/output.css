@@ -241,9 +241,6 @@
   .t\:order-2 {
     order: 2;
   }
-  .t\:col-span-2 {
-    grid-column: span 2 / span 2;
-  }
   .t\:float-left {
     float: left;
   }
@@ -1085,11 +1082,6 @@
       order: 9;
     }
   }
-  .t\:pc\:col-span-1 {
-    @media (width >= 1000px) {
-      grid-column: span 1 / span 1;
-    }
-  }
   .t\:pc\:col-span-1\! {
     @media (width >= 1000px) {
       grid-column: span 1 / span 1 !important;
@@ -1113,11 +1105,6 @@
   .t\:pc\:w-fit {
     @media (width >= 1000px) {
       width: fit-content;
-    }
-  }
-  .t\:pc\:grid-cols-1 {
-    @media (width >= 1000px) {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
     }
   }
   .t\:pc\:grid-cols-1\! {
@@ -1309,13 +1296,6 @@
       align-items: center;
     }
   }
-  .t\:max-pc\:\[\&\>\*\:nth-child\(n\+3\)\]\:hidden {
-    @media (width < 1000px) {
-      &>*:nth-child(n+3) {
-        display: none;
-      }
-    }
-  }
   .t\:max-md\:\[\&\>\*\:nth-child\(n\+3\)\]\:hidden {
     @media (width < 48rem) {
       &>*:nth-child(n+3) {
@@ -1327,6 +1307,15 @@
     @media (width < 1000px) {
       &>*:nth-child(n+4) {
         display: none;
+      }
+    }
+  }
+  .t\:pc\:max-\[1400px\]\:\[\&\>\*\:nth-child\(n\+7\)\]\:hidden {
+    @media (width >= 1000px) {
+      @media (width < 1400px) {
+        &>*:nth-child(n+7) {
+          display: none;
+        }
       }
     }
   }
