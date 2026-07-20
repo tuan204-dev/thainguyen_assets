@@ -1,0 +1,177 @@
+/* ---------------------------------------------------------------------------
+   Trang CHI TIẾT — khối "TIN LIÊN QUAN" LEGACY nằm trong thân bài.
+
+   Markup KHÔNG do template CMS sinh ra: trình soạn thảo đời cũ bake cứng vào
+   articles.content (28.830 bài, vẫn đang được sinh ra năm 2026):
+
+     #content .related > table.rl.unset > tbody
+        > tr.image_related_2 > td[colspan=2] > a           (chỉ tiêu đề — 25.209 bài)
+        > tr.image_related_1 > td[width=1%] > a > img      (thumbnail — 3.559 bài)
+                             + td > a                       + tiêu đề
+
+   Nguồn style: tapchianninhmang/detail/desktop/{source.css,custom.css}.
+   Đã LỌC bỏ mọi rule dùng chung của tcam (img trần, table.image/left/right,
+   .desc, .detail-main-column, #content span|p, #content table) — chúng không
+   thuộc khối này và sẽ phá typography/ảnh thân bài của thainguyen.
+
+   RÀNG BUỘC (đọc trước khi sửa):
+   - Nạp bằng <link>, TUYỆT ĐỐI không @import: layout chi tiết inline critical
+     CSS và inline sẽ NUỐT @import (xem detail-content-font.css).
+   - CSS THUẦN, không dùng utility Tailwind (t:*): layout 1271/1272 "Căn giữa"
+     không link output.css ngoài, và `tw --build` xoá class chỉ có trong CMS.
+   - KHÔNG khai báo font-family/font-size: detail-content-font.css đang giữ
+     #content = IBM Plex Serif + 19px (mobile). Bản tcam đặt 22px vì thân bài
+     tcam là 22px — copy sang đây là sai ngữ cảnh.
+   - Mọi selector prefix #content: (a) .related là tên class quá generic, file
+     này link vào 20 layout nên phải chặn rò rỉ; (b) ID (1,0,x,x) cần thiết để
+     thắng <style> inline của portlet detail_content (179) — style đó nằm trong
+     body nên thắng mọi CSS ngoài có cùng specificity.
+   --------------------------------------------------------------------------- */
+
+/* --- 1. Phòng thủ khối rỗng ------------------------------------------------
+   144 bài có <div class="related">&nbsp;</div> trống trơn, và rải rác các dòng
+   <td colspan="2">&nbsp;</td> không link. Không guard thì chấm đỏ nhấp nháy +
+   đường timeline sẽ trỏ vào khoảng trắng. !important để khỏi đấu specificity
+   với .image_related_2{display:block} bên dưới. */
+#content .related:not(:has(a[href])),
+#content .related table:not(:has(a[href])),
+#content .related tbody > tr:not(:has(a[href])) {
+    display: none !important;
+}
+
+/* --- 2. Khung chung -------------------------------------------------------- */
+#content .related {
+    margin: 15px 0;
+}
+
+#content .related table {
+    width: 100%;
+}
+
+#content .related td {
+    border-bottom: 1px dotted #ccc;
+    padding: 8px 0 !important;
+    vertical-align: middle !important;
+
+    /* Gỡ rule caption của portlet 179 đang lọt sang đây:
+       `.article-prose table.rl tr + tr td { color:#0E6B91; font-size:15px }`
+       — selector đó nhắm bảng ẢNH (dòng 2 = chú thích), nhưng table.rl là bảng
+       tin liên quan NHIỀU DÒNG nên mọi dòng từ thứ 2 trở đi bị tô xanh mòng két
+       15px trong khi dòng đầu giữ màu thường (17.843 bài lệch màu). inherit trả
+       td về đúng màu/cỡ thân bài. Sửa tại đây thay vì sửa portlet 179 vì portlet
+       đó nằm trên cả 20/20 layout chi tiết — blast radius toàn site. */
+    color: inherit;
+    font-size: inherit;
+}
+
+/* Tắt kẻ dotted ở dòng cuối (custom.css của tcam). */
+#content .related table tbody tr:last-child td {
+    border-bottom: 0 !important;
+}
+
+#content .related a {
+    text-decoration: none !important;
+}
+
+/* --- 3. Kiểu 1 — item có thumbnail ----------------------------------------
+   NGỦ: portlet 179 đang ẩn ô thumbnail bằng
+   `.article-prose table td[width="1%"] { display: none }`
+   (lý do ghi trong portlet: "ảnh này không liên quan nội dung bài" — quyết định
+   2026-07-19, giữ nguyên). Rule dưới đây vì thế chưa có hiệu lực, để sẵn cho
+   ngày muốn bật lại: bỏ comment đúng 1 dòng `display: table-cell` bên dưới là
+   ảnh hiện, không cần đụng portlet.
+
+   width:120px cố ý ghi đè inline style="width:50px" của editor; max-width:unset
+   để thắng preflight Tailwind `img,video{max-width:100%}` — chính cái max-width
+   này từng bóp ảnh 50px xuống 8px vì ô mẹ rộng 1%. */
+/* #content .related td[width="1%"] { display: table-cell; } */
+
+#content .related .image_related_1 img {
+    width: 120px !important;
+    max-width: unset !important;
+    margin: 0 10px 0 0 !important;
+}
+
+/* border trên <tr> chỉ hiện nhờ table{border-collapse:collapse} (preflight). */
+#content .related table.rl tr.image_related_1 {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#content .related table.rl tr.image_related_1:last-child {
+    border-bottom: none;
+}
+
+/* --- 4. Kiểu 2 — timeline chỉ tiêu đề (biến thể chủ đạo) ------------------- */
+
+/* Đường dọc bên trái, chỉ bật khi tbody thực sự chứa item kiểu 2.
+   Gốc tcam dùng oklch(92.2% 0 0) ≈ #e5e5e5 — dùng hex cho khớp mục 3. */
+#content .related tbody:has(.image_related_2) {
+    border-left: 1px solid #e5e5e5;
+}
+
+/* display:block trên <tr> là CỐ Ý: thoát table-layout để position:relative ăn,
+   nhờ đó ::before/::after neo đúng lên đường dọc. */
+#content .related .image_related_2 {
+    display: block;
+    padding-left: 16px;
+    position: relative;
+    border: none;
+}
+
+/* Huỷ kẻ dotted của mục 2 cho item kiểu 2. */
+#content .related .image_related_2 td {
+    border: none;
+}
+
+/* Hover: !important để thắng common.css `a:hover{color:var(--highlight-color)}`
+   (#30a14a xanh lá). Dùng biến brand thainguyen — KHÔNG hardcode #0a64b4 của
+   tapchianninhmang. */
+#content .related .image_related_2 *:hover {
+    color: var(--text-primary-color, #1b75bc) !important;
+}
+
+/* Chấm sonar: ::after = chấm xám tĩnh làm nền, ::before = chấm đỏ nhấp nháy. */
+#content .related .image_related_2::before,
+#content .related .image_related_2::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: -5px;
+    top: 15px;
+    border-radius: 999px;
+}
+
+#content .related .image_related_2::before {
+    background: red;
+    z-index: 1;
+    animation: pencisonar 1.5s ease infinite;
+}
+
+#content .related .image_related_2::after {
+    background: #ccc;
+    z-index: 0;
+}
+
+/* @keyframes là at-rule — không scope được. Tên `pencisonar` chưa tồn tại ở
+   bất kỳ đâu trên thainguyen (đã grep repo + portlets). */
+@keyframes pencisonar {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    50% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+/* Tôn trọng người dùng tắt hiệu ứng chuyển động. */
+@media (prefers-reduced-motion: reduce) {
+    #content .related .image_related_2::before {
+        animation: none;
+    }
+}
