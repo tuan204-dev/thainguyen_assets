@@ -46,8 +46,11 @@ const TCAVideoPlayer = (() => {
         pauseWhenOffscreen: true,   // cuộn ra khỏi màn hình thì dừng
         pipOnScrollAway: true,      // ...nhưng ưu tiên thu nhỏ thành PiP nếu được
         pipRequireEngagement: false,// true = chỉ PiP khi user đã tương tác (bật tiếng/bấm phát)
-        startMuted: true,           // BẮT BUỘC: trình duyệt chỉ cho autoplay khi muted
+        startMuted: true,           // mặc định câm (trình duyệt thường chỉ cho autoplay khi muted)
+        autoplayUnmutedIfAllowed: true, // ...nhưng nếu trình duyệt ĐÃ cho phép thì phát có tiếng luôn
+        rememberSoundChoice: true,  // nhớ lựa chọn bật/tắt tiếng của user trong phiên
         showUnmuteHint: true,       // hiện nút "Bật tiếng" khi đang autoplay câm
+        showMuteHint: true,         // ...và nút "Tắt tiếng" khi tiếng TỰ bật
         resumeAfterUserPause: false,// user bấm dừng tay thì không tự phát lại nữa
         singlePlayback: true,       // chỉ 1 video phát tại một thời điểm
         respectReducedMotion: true, // tôn trọng prefers-reduced-motion
@@ -118,6 +121,7 @@ const TCAVideoPlayer = (() => {
 /* ...nhưng đang focus bằng bàn phím thì luôn hiện lại */
 .${NS}:focus-within .${NS}__ui{opacity:1!important;visibility:visible!important}
 .${NS}.is-idle:not(:focus-within){cursor:none}
+.${NS}__sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .${NS}__surface{position:absolute;inset:0;pointer-events:auto;border:0;padding:0;margin:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
 
 /* Nút play lớn ở giữa */
@@ -135,6 +139,12 @@ const TCAVideoPlayer = (() => {
 .${NS}__unmute{position:absolute;top:12px;right:12px;display:none;align-items:center;gap:6px;height:32px;padding:0 12px;border:0;border-radius:16px;background:rgba(0,0,0,.65);color:#fff;font-size:13px;font-weight:500;cursor:pointer;pointer-events:auto;transition:background .18s ease}
 .${NS}__unmute svg{width:16px;height:16px}
 .${NS}.is-mutedhint .${NS}__unmute{display:flex}
+/* Tiếng tự bật thì PHẢI có cách tắt ngay và luôn thấy được — không ẩn theo idle,
+   vì sau 2.6s thanh điều khiển biến mất mà tiếng thì vẫn phát. */
+.${NS}__mute{position:absolute;top:12px;right:12px;display:none;align-items:center;gap:6px;height:32px;padding:0 12px;border:0;border-radius:16px;background:rgba(0,0,0,.72);color:#fff;font-size:13px;font-weight:500;cursor:pointer;pointer-events:auto;transition:background .18s ease}
+.${NS}__mute svg{width:16px;height:16px}
+.${NS}.is-soundhint .${NS}__mute{display:flex}
+.${NS}.is-idle .${NS}__mute{opacity:1;visibility:visible}
 
 /* Thanh điều khiển dưới */
 .${NS}__bar{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 6px;pointer-events:auto;background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,0) 100%)}
@@ -204,7 +214,7 @@ const TCAVideoPlayer = (() => {
    sau khi chạm nên nút vừa bấm bị kẹt trạng thái sáng, thanh progress kẹt dày. */
 @media (hover:hover) and (pointer:fine){
 .${NS}__big:hover{background:var(--${NS}-accent);transform:translate(-50%,-50%) scale(1.06)}
-.${NS}__unmute:hover{background:var(--${NS}-accent)}
+.${NS}__unmute:hover,.${NS}__mute:hover{background:var(--${NS}-accent)}
 .${NS}__btn:hover{background:rgba(255,255,255,.16);opacity:1}
 .${NS}__menu button:hover{background:rgba(255,255,255,.13)}
 .${NS}__retry:hover{background:var(--${NS}-accent);border-color:var(--${NS}-accent)}
@@ -285,6 +295,110 @@ const TCAVideoPlayer = (() => {
         if (CONFIG.respectReducedMotion && prefersReducedMotion()) return false;
         if (CONFIG.respectSaveData && saveDataOn()) return false;
         return true;
+    }
+
+    // -----------------------------------------------------------------------
+    // "Đã có quyền mở tiếng chưa?"
+    //
+    // Trình duyệt chỉ cho autoplay CÓ TIẾNG khi người dùng đã tương tác đủ nhiều
+    // với site (Chrome: Media Engagement Index). Không có cách hỏi nào chắc chắn:
+    // navigator.getAutoplayPolicy() lý thuyết trả lời được nhưng đo trên Chrome 150
+    // thì API này KHÔNG tồn tại. Nên chiến lược là: dùng API nếu có, còn lại thì
+    // thử phát có tiếng đúng một lần rồi ghi nhớ kết quả cho cả trang.
+    // -----------------------------------------------------------------------
+    const SOUND_KEY = `${NS}:sound`;       // phiên hiện tại: "1"/"0" (+ mức âm lượng)
+    const SOUND_OFF_KEY = `${NS}:sound-off`; // "đừng phát tiếng" — nhớ lâu, xem ghi chú dưới
+    const SOUND_OFF_TTL = 30 * 24 * 3600 * 1000; // 30 ngày
+    let soundAllowed = null;  // null = chưa biết · true = phát có tiếng được · false = bị chặn
+    let soundProbing = false; // đang có 1 lần dò chạy dở => video khác đừng dò song song
+
+    function policySaysAllowed() {
+        if (typeof navigator.getAutoplayPolicy !== "function") return null;
+        try {
+            return navigator.getAutoplayPolicy("mediaelement") === "allowed";
+        } catch (_) {
+            return null;
+        }
+    }
+
+    /**
+     * Ghi nhớ lựa chọn âm thanh — CỐ Ý bất đối xứng:
+     * - "Tắt tiếng" ghi vào localStorage (30 ngày): người đọc nói "đừng phát tiếng"
+     *   thì không có nghĩa là "đừng phát tiếng trong 20 phút". Bắt họ tắt lại ở mỗi
+     *   tab mới là làm phiền.
+     * - "Bật tiếng" chỉ ghi sessionStorage: quyền phát tiếng không nên kéo dài vô hạn
+     *   sang các lần truy cập sau, vì bối cảnh người đọc đã khác (có thể đang ở nơi công cộng).
+     * Trả về: true = muốn có tiếng · false = muốn im · null = chưa có ý kiến.
+     */
+    function soundPref() {
+        if (!CONFIG.rememberSoundChoice) return null;
+        try {
+            const off = localStorage.getItem(SOUND_OFF_KEY);
+            if (off !== null && Date.now() - Number(off) < SOUND_OFF_TTL) return false;
+        } catch (_) { /* private mode */ }
+        try {
+            const v = sessionStorage.getItem(SOUND_KEY);
+            if (v === null) return null;
+            return Number(v) > 0;
+        } catch (_) {
+            return null; // Safari private mode có thể ném lỗi
+        }
+    }
+
+    // Mức âm lượng đã lưu (0..1), null nếu chưa có
+    function soundLevel() {
+        if (!CONFIG.rememberSoundChoice) return null;
+        try {
+            const v = sessionStorage.getItem(SOUND_KEY);
+            if (v === null) return null;
+            const n = Number(v);
+            return isFinite(n) && n > 0 ? Math.min(n, 1) : null;
+        } catch (_) {
+            return null;
+        }
+    }
+
+    function setSoundPref(on, level) {
+        if (!CONFIG.rememberSoundChoice) return;
+        const val = on ? (isFinite(level) && level > 0 ? Math.min(level, 1) : 1) : 0;
+        try { sessionStorage.setItem(SOUND_KEY, String(val)); } catch (_) { /* noop */ }
+        try {
+            if (on) localStorage.removeItem(SOUND_OFF_KEY);
+            else localStorage.setItem(SOUND_OFF_KEY, String(Date.now()));
+        } catch (_) { /* noop */ }
+    }
+
+    /** Mọi chỗ bật/tắt tiếng đều đi qua đây để trạng thái không bao giờ lệch nhau. */
+    function applySoundChoice(state, on) {
+        const v = state.video;
+        v.muted = !on;
+        state.userUnmuted = on;
+        state.mutedByUser = !on;
+        state.engaged = true;
+        if (on) {
+            soundAllowed = true; // user tự bấm => chắc chắn phát có tiếng được
+            if (v.volume === 0 && VOLUME_SETTABLE) v.volume = 1;
+        }
+        setSoundPref(on, v.volume);
+    }
+
+    function shouldStartWithSound(state) {
+        if (!CONFIG.autoplayUnmutedIfAllowed) return false;
+        // Ý người dùng đứng TRÊN mọi suy đoán về khả năng của trình duyệt.
+        const pref = soundPref();
+        if (pref === false) return false;
+        if (state.userUnmuted || pref === true) {
+            return soundAllowed !== false;
+        }
+        if (soundAllowed === false) return false;
+        if (soundAllowed === true) return true;
+        const policy = policySaysAllowed();
+        if (policy !== null) {
+            soundAllowed = policy;
+            return policy;
+        }
+        // Chưa biết gì: cho ĐÚNG MỘT video dò, các video khác chờ kết quả.
+        return !soundProbing;
     }
 
     // -----------------------------------------------------------------------
@@ -643,19 +757,48 @@ const TCAVideoPlayer = (() => {
         if (state.ended || state.errored) return;
         if (!state.video.paused) return;
         attachSources(state);
-        if (CONFIG.startMuted && !state.userUnmuted) state.video.muted = true;
-        state.autoPaused = false;
-        const p = state.video.play();
-        if (p && typeof p.catch === "function") {
-            p.catch(() => {
-                // Bị chặn (thường vì chưa muted) — thử lại đúng 1 lần ở chế độ câm
-                if (!state.video.muted) {
-                    state.video.muted = true;
-                    const p2 = state.video.play();
-                    if (p2 && typeof p2.catch === "function") p2.catch(() => {});
-                }
-            });
+
+        const v = state.video;
+        const wantSound = shouldStartWithSound(state);
+        v.muted = !wantSound;
+        if (wantSound && VOLUME_SETTABLE) {
+            const lvl = soundLevel();
+            if (lvl !== null) v.volume = lvl;
         }
+        state.autoPaused = false;
+
+        const probing = wantSound && soundAllowed === null;
+        if (probing) soundProbing = true;
+
+        const p = v.play();
+        if (!p || typeof p.then !== "function") {
+            soundProbing = false;
+            return;
+        }
+        p.then(() => {
+            if (probing) soundProbing = false;
+            // Phát được mà KHÔNG câm => origin này đã đủ quyền, các video sau khỏi dò lại
+            if (!v.muted) soundAllowed = true;
+        }).catch((err) => {
+            if (probing) soundProbing = false;
+            if (v.muted) return;
+
+            // QUAN TRỌNG: chỉ NotAllowedError mới có nghĩa "bị chặn vì có tiếng".
+            // AbortError = play() bị pause() cắt ngang (user bấm dừng, cuộn qua,
+            // hoặc single-playback nhường video khác) — hiểu nhầm thành lỗi âm thanh
+            // sẽ vừa ghi sai soundAllowed vừa TỰ PHÁT LẠI video mà user vừa dừng.
+            if (!err || err.name !== "NotAllowedError") return;
+
+            soundAllowed = false;
+            v.muted = true;
+
+            // Trạng thái có thể đã đổi trong lúc chờ promise -> kiểm lại trước khi phát.
+            if (state.userPaused || state.errored ||
+                state.ratio < CONFIG.autoplayThreshold || inPip(v)) return;
+
+            const p2 = v.play();
+            if (p2 && typeof p2.catch === "function") p2.catch(() => {});
+        });
     }
 
     // -----------------------------------------------------------------------
@@ -690,6 +833,7 @@ const TCAVideoPlayer = (() => {
             autoPip: false,      // PiP do cuộn qua tự mở (khác với user tự bấm)
             pipPending: false,
             engaged: false,      // user đã chủ động tương tác với player này chưa
+            mutedByUser: false,  // user CHỦ ĐỘNG tắt tiếng (khác với mặc định câm)
             ended: false,
             errored: false,
             netRetried: false,
@@ -731,6 +875,8 @@ const TCAVideoPlayer = (() => {
 <div class="${NS}__spinner" aria-hidden="true"></div>
 <button type="button" class="${NS}__big" tabindex="-1" aria-hidden="true" data-state="play">${ICON.play}</button>
 <button type="button" class="${NS}__unmute">${ICON.muted}<span>Bật tiếng</span></button>
+<button type="button" class="${NS}__mute">${ICON.volume}<span>Tắt tiếng</span></button>
+<span class="${NS}__sr" aria-live="polite"></span>
 <div class="${NS}__error" role="alert"><span>Không phát được video này.</span><button type="button" class="${NS}__retry">Thử lại</button></div>
 <div class="${NS}__pipnote"><span>Đang phát ở cửa sổ thu nhỏ</span><button type="button" class="${NS}__pipback">Đưa video về lại</button></div>
 <div class="${NS}__bar">
@@ -765,6 +911,8 @@ const TCAVideoPlayer = (() => {
             surface: q(`.${NS}__surface`),
             big: q(`.${NS}__big`),
             unmute: q(`.${NS}__unmute`),
+            mute: q(`.${NS}__mute`),
+            sr: q(`.${NS}__sr`),
             retry: q(`.${NS}__retry`),
             pipBack: q(`.${NS}__pipback`),
             bar: q(`.${NS}__bar`),
@@ -837,10 +985,23 @@ const TCAVideoPlayer = (() => {
             el.muteBtn.innerHTML = off ? ICON.muted : ICON.volume;
             el.muteBtn.setAttribute("aria-label", off ? "Bật tiếng" : "Tắt tiếng");
             if (el.volInput) el.volInput.value = String(off ? 0 : video.volume);
+
+            // Gợi ý "Bật tiếng": chỉ khi user CHƯA tự quyết định gì về âm thanh.
+            // Đã tự tắt rồi mà còn mời bật lại thì phản cảm.
             wrap.classList.toggle(
                 "is-mutedhint",
-                CONFIG.showUnmuteHint && off && !video.paused && !state.userUnmuted
+                CONFIG.showUnmuteHint && off && !video.paused &&
+                !state.userUnmuted && !state.mutedByUser && soundPref() !== false
             );
+            // Gợi ý "Tắt tiếng": khi tiếng TỰ bật mà user chưa hề đụng vào.
+            wrap.classList.toggle(
+                "is-soundhint",
+                CONFIG.showMuteHint && !off && !video.paused && !state.engaged
+            );
+        };
+
+        const announce = (msg) => {
+            if (el.sr) el.sr.textContent = msg;
         };
 
         const renderProgress = () => {
@@ -1005,19 +1166,18 @@ const TCAVideoPlayer = (() => {
         });
 
         el.muteBtn.addEventListener("click", () => {
-            state.engaged = true;
-            video.muted = !video.muted;
-            if (!video.muted) {
-                state.userUnmuted = true;
-                if (video.volume === 0 && VOLUME_SETTABLE) video.volume = 1;
-            }
+            applySoundChoice(state, video.muted);
+            announce(video.muted ? "Đã tắt tiếng" : "Đã bật tiếng");
             setVolIcon();
         });
         el.unmute.addEventListener("click", () => {
-            state.engaged = true;
-            video.muted = false;
-            state.userUnmuted = true;
-            if (video.volume === 0 && VOLUME_SETTABLE) video.volume = 1;
+            applySoundChoice(state, true);
+            announce("Đã bật tiếng");
+            setVolIcon();
+        });
+        el.mute.addEventListener("click", () => {
+            applySoundChoice(state, false);
+            announce("Đã tắt tiếng");
             setVolIcon();
         });
         if (el.volInput) {
@@ -1025,7 +1185,11 @@ const TCAVideoPlayer = (() => {
                 const v = Number(el.volInput.value);
                 video.volume = v;
                 video.muted = v === 0;
-                if (v > 0) state.userUnmuted = true;
+                state.engaged = true;
+                state.userUnmuted = v > 0;
+                state.mutedByUser = v === 0;
+                if (v > 0) soundAllowed = true;
+                setSoundPref(v > 0, v);
                 setVolIcon();
             });
         }
@@ -1165,16 +1329,21 @@ const TCAVideoPlayer = (() => {
                 case "l": seekBy(CONFIG.seekStepLong); break;
                 case "arrowup":
                     if (!VOLUME_SETTABLE) { handled = false; break; }
-                    video.muted = false; state.userUnmuted = true;
                     video.volume = clamp(video.volume + CONFIG.volumeStep, 0, 1);
+                    applySoundChoice(state, true);
+                    setVolIcon();
                     break;
                 case "arrowdown":
                     if (!VOLUME_SETTABLE) { handled = false; break; }
                     video.volume = clamp(video.volume - CONFIG.volumeStep, 0, 1);
+                    if (video.volume === 0) applySoundChoice(state, false);
+                    else setSoundPref(true, video.volume);
+                    setVolIcon();
                     break;
                 case "m":
-                    video.muted = !video.muted;
-                    if (!video.muted) state.userUnmuted = true;
+                    applySoundChoice(state, video.muted);
+                    announce(video.muted ? "Đã tắt tiếng" : "Đã bật tiếng");
+                    setVolIcon();
                     break;
                 case "f": toggleFs(); break;
                 case "escape":
