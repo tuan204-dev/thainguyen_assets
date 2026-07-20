@@ -8,6 +8,9 @@
  * - Thuần JS, KHÔNG phụ thuộc thư viện (không video.js / hls.js / npm package).
  * - Tự quét toàn bộ <video> trong thân bài và thay bằng UI custom.
  * - Tất cả cấu hình fix cứng trong CONFIG bên dưới.
+ * - UI THUẦN ICON, không có chữ hiển thị => dùng được ở mọi ngôn ngữ, khỏi dịch.
+ *   Nhãn cho screen reader nằm trong LABELS (en/vi/zh/ko), tự chọn theo <html lang>,
+ *   ghi đè bằng TCAVideoPlayer.setLabels("ko" | {play:"...", ...}).
  *
  * HIỆU NĂNG — vì sao không làm chậm load bài viết:
  * 1. <video> của CMS bị THAY bằng element mới tinh khôi; element cũ được gọi
@@ -75,6 +78,65 @@ const TCAVideoPlayer = (() => {
         skip: ".short-video, .image-gallery, .swiper, .video-card, [data-no-tcavp]",
     };
 
+    /**
+     * Nhãn cho công nghệ trợ giúp (screen reader). KHÔNG có chữ nào hiển thị ra
+     * màn hình — UI thuần icon nên dùng được ở mọi ngôn ngữ mà không cần dịch.
+     * Nhưng aria-label thì KHÔNG được bỏ: bỏ đi là người dùng screen reader mất
+     * hoàn toàn khả năng dùng player.
+     *
+     * Chọn ngôn ngữ: <html lang> -> LABELS -> "en".
+     * LƯU Ý: nhiều template đa ngữ trong các repo này để lang="en" cho cả trang
+     * Trung/Hàn, nên hãy ghi đè thủ công khi cần:
+     *     TCAVideoPlayer.setLabels("ko")                  // dùng bộ có sẵn
+     *     TCAVideoPlayer.setLabels({ play: "재생", ... })  // hoặc bộ riêng
+     * Gọi trước khi script quét, hoặc gọi rồi TCAVideoPlayer.scan() lại.
+     */
+    const LABELS = {
+        en: { player: "Video player", play: "Play", pause: "Pause", replay: "Replay",
+              mute: "Mute", unmute: "Unmute", volume: "Volume", progress: "Seek",
+              settings: "Settings", speed: "Playback speed", pip: "Picture in picture",
+              pipExit: "Exit picture in picture", pipActive: "Playing in picture in picture",
+              restore: "Return video here", fullscreen: "Full screen", fullscreenExit: "Exit full screen",
+              error: "This video could not be played", retry: "Retry",
+              soundOn: "Sound on", soundOff: "Sound off", of: "of" },
+        vi: { player: "Trình phát video", play: "Phát", pause: "Tạm dừng", replay: "Xem lại",
+              mute: "Tắt tiếng", unmute: "Bật tiếng", volume: "Âm lượng", progress: "Tua",
+              settings: "Cài đặt", speed: "Tốc độ phát", pip: "Thu nhỏ màn hình",
+              pipExit: "Thoát thu nhỏ màn hình", pipActive: "Đang phát ở cửa sổ thu nhỏ",
+              restore: "Đưa video về lại", fullscreen: "Toàn màn hình", fullscreenExit: "Thoát toàn màn hình",
+              error: "Không phát được video này", retry: "Thử lại",
+              soundOn: "Đã bật tiếng", soundOff: "Đã tắt tiếng", of: "trên" },
+        zh: { player: "视频播放器", play: "播放", pause: "暂停", replay: "重播",
+              mute: "静音", unmute: "取消静音", volume: "音量", progress: "进度",
+              settings: "设置", speed: "播放速度", pip: "画中画",
+              pipExit: "退出画中画", pipActive: "正在画中画播放",
+              restore: "返回视频", fullscreen: "全屏", fullscreenExit: "退出全屏",
+              error: "无法播放此视频", retry: "重试",
+              soundOn: "已开启声音", soundOff: "已静音", of: "/" },
+        ko: { player: "동영상 플레이어", play: "재생", pause: "일시정지", replay: "다시 재생",
+              mute: "음소거", unmute: "음소거 해제", volume: "볼륨", progress: "탐색",
+              settings: "설정", speed: "재생 속도", pip: "화면 속 화면",
+              pipExit: "화면 속 화면 종료", pipActive: "화면 속 화면으로 재생 중",
+              restore: "동영상 되돌리기", fullscreen: "전체 화면", fullscreenExit: "전체 화면 종료",
+              error: "이 동영상을 재생할 수 없습니다", retry: "다시 시도",
+              soundOn: "소리 켜짐", soundOff: "소리 꺼짐", of: "/" },
+    };
+
+    let L = LABELS.en;
+    function pickLabels() {
+        const lang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+        const base = lang.split("-")[0];
+        L = LABELS[base] || LABELS.en;
+    }
+    pickLabels();
+
+    /** Đổi ngôn ngữ nhãn trợ năng: mã ngôn ngữ có sẵn, hoặc object nhãn riêng. */
+    function setLabels(langOrMap) {
+        if (typeof langOrMap === "string") L = LABELS[langOrMap.toLowerCase().split("-")[0]] || LABELS.en;
+        else if (langOrMap && typeof langOrMap === "object") L = Object.assign({}, LABELS.en, langOrMap);
+        allStates.forEach(relabel);
+    }
+
     const NS = "tcavp";
     const ACCENT = "#30a14a"; // xanh thương hiệu Thái Nguyên
     const HAVE_FUTURE_DATA = 3;
@@ -102,6 +164,8 @@ const TCAVideoPlayer = (() => {
         enterFull: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9V4h5v2H6v3H4Zm11-5h5v5h-2V6h-3V4ZM4 15h2v3h3v2H4v-5Zm14 0h2v5h-5v-2h3v-3Z"/></svg>`,
         exitFull: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 4h2v5H4V7h5V4Zm6 0h2v3h3v2h-5V4ZM4 15h5v5H7v-3H4v-2Zm11 0h5v2h-3v3h-2v-5Z"/></svg>`,
         pip: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5.5A1.5 1.5 0 0 1 4.5 4h15A1.5 1.5 0 0 1 21 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5v-13ZM5 6v12h14V6H5Zm6 6h6v4h-6v-4Z"/></svg>`,
+        warning: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.2a1.3 1.3 0 0 1 1.13.66l8.2 14.4A1.3 1.3 0 0 1 20.2 20.2H3.8a1.3 1.3 0 0 1-1.13-1.94l8.2-14.4A1.3 1.3 0 0 1 12 3.2Zm0 4.3a1 1 0 0 0-1 1v4.6a1 1 0 1 0 2 0V8.5a1 1 0 0 0-1-1Zm0 8a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/></svg>`,
+        restore: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5v-13ZM6 6v12h12V6H6Zm5.3 2.3a1 1 0 0 1 1.4 1.4L11.4 11H15a1 1 0 1 1 0 2h-3.6l1.3 1.3a1 1 0 0 1-1.4 1.4l-3-3a1 1 0 0 1 0-1.4l3-3Z"/></svg>`,
         settings: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 7h9a3 3 0 0 1 6 0h1a1 1 0 1 1 0 2h-1a3 3 0 0 1-6 0H4a1 1 0 0 1 0-2Zm12-1.2a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4ZM4 15h1a3 3 0 0 1 6 0h9a1 1 0 1 1 0 2h-9a3 3 0 0 1-6 0H4a1 1 0 1 1 0-2Zm4-1.2a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z"/></svg>`,
     };
 
@@ -136,13 +200,13 @@ const TCAVideoPlayer = (() => {
 @keyframes ${NS}-spin{to{transform:rotate(360deg)}}
 
 /* Nút bật tiếng */
-.${NS}__unmute{position:absolute;top:12px;right:12px;display:none;align-items:center;gap:6px;height:32px;padding:0 12px;border:0;border-radius:16px;background:rgba(0,0,0,.65);color:#fff;font-size:13px;font-weight:500;cursor:pointer;pointer-events:auto;transition:background .18s ease}
-.${NS}__unmute svg{width:16px;height:16px}
+.${NS}__unmute{position:absolute;top:12px;right:12px;display:none;align-items:center;justify-content:center;width:38px;height:38px;padding:0;border:0;border-radius:50%;background:rgba(0,0,0,.65);color:#fff;font-size:13px;font-weight:500;cursor:pointer;pointer-events:auto;transition:background .18s ease}
+.${NS}__unmute svg{width:19px;height:19px}
 .${NS}.is-mutedhint .${NS}__unmute{display:flex}
 /* Tiếng tự bật thì PHẢI có cách tắt ngay và luôn thấy được — không ẩn theo idle,
    vì sau 2.6s thanh điều khiển biến mất mà tiếng thì vẫn phát. */
-.${NS}__mute{position:absolute;top:12px;right:12px;display:none;align-items:center;gap:6px;height:32px;padding:0 12px;border:0;border-radius:16px;background:rgba(0,0,0,.72);color:#fff;font-size:13px;font-weight:500;cursor:pointer;pointer-events:auto;transition:background .18s ease}
-.${NS}__mute svg{width:16px;height:16px}
+.${NS}__mute{position:absolute;top:12px;right:12px;display:none;align-items:center;justify-content:center;width:38px;height:38px;padding:0;border:0;border-radius:50%;background:rgba(0,0,0,.72);color:#fff;font-size:13px;font-weight:500;cursor:pointer;pointer-events:auto;transition:background .18s ease}
+.${NS}__mute svg{width:19px;height:19px}
 .${NS}.is-soundhint .${NS}__mute{display:flex}
 .${NS}.is-idle .${NS}__mute{opacity:1;visibility:visible}
 
@@ -185,11 +249,6 @@ const TCAVideoPlayer = (() => {
 .${NS}__menuwrap{position:relative;flex:none}
 .${NS}__menu{position:absolute;right:0;bottom:calc(100% + 8px);min-width:132px;max-width:min(190px,92cqw);padding:4px 0;border-radius:6px;background:rgba(18,18,18,.96);box-shadow:0 4px 18px rgba(0,0,0,.5);display:none}
 .${NS}__menu.is-open{display:block}
-/* KHÔNG dùng <h1..h6> ở đây. CSS thân bài thường style h2..h6 kèm !important,
-   mà !important thắng cả inline style nên heading trong player sẽ bị bóp méo
-   (đã gặp thật trên TCA: .article-prose h4{font-size:1.4rem!important}).
-   Div + class riêng thì miễn nhiễm; font-size vẫn để !important phòng thủ. */
-.${NS}__menu-title{margin:0;padding:6px 12px;font-weight:500;font-size:10px!important;line-height:1.3;letter-spacing:.5px;text-transform:uppercase;opacity:.55;white-space:nowrap}
 .${NS}__menu button{display:flex;align-items:center;gap:8px;width:100%;padding:6px 12px;border:0;background:transparent;color:#fff;font-weight:400;font-size:12.5px;line-height:1.35;text-align:left;white-space:nowrap;cursor:pointer}
 .${NS}__menu button[aria-checked=true]{color:var(--${NS}-accent);font-weight:600}
 .${NS}__menu button::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;opacity:0;flex:none}
@@ -199,7 +258,10 @@ const TCAVideoPlayer = (() => {
 .${NS}__error{position:absolute;inset:0;z-index:2;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center;background:rgba(0,0,0,.82);font-size:14px;pointer-events:auto}
 .${NS}.is-error .${NS}__error{display:flex}
 .${NS}.is-error .${NS}__big,.${NS}.is-error .${NS}__spinner{display:none}
-.${NS}__retry,.${NS}__pipback{padding:7px 18px;border:1px solid rgba(255,255,255,.55);border-radius:16px;background:transparent;color:#fff;font-size:13px;cursor:pointer}
+.${NS}__retry,.${NS}__pipback{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:9px;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:transparent;color:#fff;cursor:pointer}
+.${NS}__retry svg,.${NS}__pipback svg{width:100%;height:100%}
+.${NS}__erricon,.${NS}__pipicon{display:block;width:30px;height:30px;opacity:.75}
+.${NS}__erricon svg,.${NS}__pipicon svg{width:100%;height:100%}
 
 /* Đang phát ở cửa sổ PiP: chỗ video trong bài chỉ còn ô đen nên phải nói rõ */
 .${NS}__pipnote{position:absolute;inset:0;z-index:1;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;text-align:center;background:#000;font-size:13.5px;color:rgba(255,255,255,.8);pointer-events:auto}
@@ -233,7 +295,7 @@ const TCAVideoPlayer = (() => {
 .${NS}__big{width:54px;height:54px}
 .${NS}__big svg{width:24px;height:24px}
 .${NS}__time{font-size:11.5px;padding:0 5px}
-.${NS}__unmute{height:28px;padding:0 10px;font-size:12px}
+.${NS}__unmute,.${NS}__mute{width:34px;height:34px}
 .${NS}__vol .${NS}__volslider{display:none}
 }
 @container (max-width:340px){
@@ -242,7 +304,6 @@ const TCAVideoPlayer = (() => {
 .${NS}__big{width:44px;height:44px}
 .${NS}__big svg{width:20px;height:20px}
 .${NS}__time{font-size:10.5px;padding:0 3px}
-.${NS}__menu-title{font-size:9.5px!important;padding:5px 10px}
 .${NS}__menu button{font-size:11.5px;padding:5px 10px}
 .${NS}__spinner{width:40px;height:40px;margin:-20px 0 0 -20px;border-width:3px}
 }
@@ -505,7 +566,7 @@ const TCAVideoPlayer = (() => {
         allStates.forEach((st) => {
             const on = cur === st.wrap;
             st.el.fsBtn.innerHTML = on ? ICON.exitFull : ICON.enterFull;
-            st.el.fsBtn.setAttribute("aria-label", on ? "Thoát toàn màn hình" : "Toàn màn hình");
+            st.el.fsBtn.setAttribute("aria-label", on ? L.fullscreenExit : L.fullscreen);
         });
     }
     document.addEventListener("fullscreenchange", syncAllFs);
@@ -801,6 +862,29 @@ const TCAVideoPlayer = (() => {
         });
     }
 
+    /** Áp lại toàn bộ nhãn trợ năng cho một player đã dựng. */
+    function relabel(state) {
+        const { wrap, el, video } = state;
+        const cap = wrap.getAttribute("data-caption") || "";
+        wrap.setAttribute("aria-label", cap ? `${L.player}: ${cap}` : L.player);
+        el.progress.setAttribute("aria-label", L.progress);
+        el.playBtn.setAttribute("aria-label", video.paused ? L.play : L.pause);
+        el.muteBtn.setAttribute("aria-label", video.muted ? L.unmute : L.mute);
+        el.unmute.setAttribute("aria-label", L.unmute);
+        el.mute.setAttribute("aria-label", L.mute);
+        el.retry.setAttribute("aria-label", L.retry);
+        el.settingsBtn.setAttribute("aria-label", L.settings);
+        el.menu.setAttribute("aria-label", L.speed);
+        el.pipBack.setAttribute("aria-label", L.restore);
+        el.fsBtn.setAttribute("aria-label", fsElement() === wrap ? L.fullscreenExit : L.fullscreen);
+        if (el.pipBtn) el.pipBtn.setAttribute("aria-label", inPip(video) ? L.pipExit : L.pip);
+        if (el.volInput) el.volInput.setAttribute("aria-label", L.volume);
+        const err = wrap.querySelector(`.${NS}__error`);
+        if (err) err.setAttribute("aria-label", L.error);
+        const note = wrap.querySelector(`.${NS}__pipnote`);
+        if (note) note.setAttribute("aria-label", L.pipActive);
+    }
+
     // -----------------------------------------------------------------------
     // Dựng 1 player
     // -----------------------------------------------------------------------
@@ -851,7 +935,8 @@ const TCAVideoPlayer = (() => {
         const fig = video.closest("figure");
         const cap = fig && fig.querySelector("figcaption");
         const capText = cap ? cap.textContent.trim().replace(/\s+/g, " ").slice(0, 80) : "";
-        wrap.setAttribute("aria-label", capText ? `Trình phát video: ${capText}` : "Trình phát video");
+        if (capText) wrap.setAttribute("data-caption", capText);
+        wrap.setAttribute("aria-label", capText ? `${L.player}: ${capText}` : L.player);
         video.parentNode.insertBefore(wrap, video);
         wrap.appendChild(video);
         state.wrap = wrap;
@@ -874,13 +959,13 @@ const TCAVideoPlayer = (() => {
 <button type="button" class="${NS}__surface" tabindex="-1" aria-hidden="true"></button>
 <div class="${NS}__spinner" aria-hidden="true"></div>
 <button type="button" class="${NS}__big" tabindex="-1" aria-hidden="true" data-state="play">${ICON.play}</button>
-<button type="button" class="${NS}__unmute">${ICON.muted}<span>Bật tiếng</span></button>
-<button type="button" class="${NS}__mute">${ICON.volume}<span>Tắt tiếng</span></button>
+<button type="button" class="${NS}__unmute" aria-label="${L.unmute}">${ICON.muted}</button>
+<button type="button" class="${NS}__mute" aria-label="${L.mute}">${ICON.volume}</button>
 <span class="${NS}__sr" aria-live="polite"></span>
-<div class="${NS}__error" role="alert"><span>Không phát được video này.</span><button type="button" class="${NS}__retry">Thử lại</button></div>
-<div class="${NS}__pipnote"><span>Đang phát ở cửa sổ thu nhỏ</span><button type="button" class="${NS}__pipback">Đưa video về lại</button></div>
+<div class="${NS}__error" role="alert" aria-label="${L.error}"><span class="${NS}__erricon" aria-hidden="true">${ICON.warning}</span><button type="button" class="${NS}__retry" aria-label="${L.retry}">${ICON.replay}</button></div>
+<div class="${NS}__pipnote" role="status" aria-label="${L.pipActive}"><span class="${NS}__pipicon" aria-hidden="true">${ICON.pip}</span><button type="button" class="${NS}__pipback" aria-label="${L.restore}">${ICON.restore}</button></div>
 <div class="${NS}__bar">
-  <div class="${NS}__progress" role="slider" tabindex="0" aria-label="Tiến trình video" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+  <div class="${NS}__progress" role="slider" tabindex="0" aria-label="${L.progress}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
     <div class="${NS}__track" aria-hidden="true">
       <div class="${NS}__buffer"></div>
       <div class="${NS}__played"></div>
@@ -889,19 +974,19 @@ const TCAVideoPlayer = (() => {
     <div class="${NS}__tip" aria-hidden="true">0:00</div>
   </div>
   <div class="${NS}__row">
-    <button type="button" class="${NS}__btn" data-act="play" aria-label="Phát">${ICON.play}</button>
+    <button type="button" class="${NS}__btn" data-act="play" aria-label="${L.play}">${ICON.play}</button>
     <div class="${NS}__vol">
-      <button type="button" class="${NS}__btn" data-act="mute" aria-label="Tắt tiếng">${ICON.volume}</button>
-      <div class="${NS}__volslider"><input type="range" min="0" max="1" step="0.05" value="1" aria-label="Âm lượng"></div>
+      <button type="button" class="${NS}__btn" data-act="mute" aria-label="${L.mute}">${ICON.volume}</button>
+      <div class="${NS}__volslider"><input type="range" min="0" max="1" step="0.05" value="1" aria-label="${L.volume}"></div>
     </div>
     <div class="${NS}__time"><span data-cur>0:00</span> <b>/</b> <span data-dur>0:00</span></div>
     <div class="${NS}__spacer"></div>
     <div class="${NS}__menuwrap">
-      <button type="button" class="${NS}__btn" data-act="settings" aria-label="Cài đặt" aria-haspopup="true" aria-expanded="false">${ICON.settings}</button>
-      <div class="${NS}__menu" role="menu" aria-label="Tốc độ phát"><div class="${NS}__menu-title" aria-hidden="true">Tốc độ phát</div></div>
+      <button type="button" class="${NS}__btn" data-act="settings" aria-label="${L.settings}" aria-haspopup="true" aria-expanded="false">${ICON.settings}</button>
+      <div class="${NS}__menu" role="menu" aria-label="${L.speed}"></div>
     </div>
-    <button type="button" class="${NS}__btn" data-act="pip" aria-label="Thu nhỏ màn hình">${ICON.pip}</button>
-    <button type="button" class="${NS}__btn" data-act="fs" aria-label="Toàn màn hình">${ICON.enterFull}</button>
+    <button type="button" class="${NS}__btn" data-act="pip" aria-label="${L.pip}">${ICON.pip}</button>
+    <button type="button" class="${NS}__btn" data-act="fs" aria-label="${L.fullscreen}">${ICON.enterFull}</button>
   </div>
 </div>`;
         wrap.appendChild(ui);
@@ -947,7 +1032,7 @@ const TCAVideoPlayer = (() => {
             b.setAttribute("role", "menuitemradio");
             b.setAttribute("aria-checked", r === 1 ? "true" : "false");
             b.dataset.rate = String(r);
-            b.textContent = r === 1 ? "Chuẩn" : `${r}x`;
+            b.textContent = `${r}x`;
             el.menu.appendChild(b);
         });
 
@@ -975,7 +1060,7 @@ const TCAVideoPlayer = (() => {
         const setPlayIcon = () => {
             const playing = !video.paused && !video.ended;
             el.playBtn.innerHTML = playing ? ICON.pause : ICON.play;
-            el.playBtn.setAttribute("aria-label", playing ? "Tạm dừng" : "Phát");
+            el.playBtn.setAttribute("aria-label", playing ? L.pause : L.play);
             el.big.innerHTML = video.ended ? ICON.replay : ICON.play;
             el.big.dataset.state = video.ended ? "replay" : "play";
         };
@@ -983,7 +1068,7 @@ const TCAVideoPlayer = (() => {
         const setVolIcon = () => {
             const off = video.muted || video.volume === 0;
             el.muteBtn.innerHTML = off ? ICON.muted : ICON.volume;
-            el.muteBtn.setAttribute("aria-label", off ? "Bật tiếng" : "Tắt tiếng");
+            el.muteBtn.setAttribute("aria-label", off ? L.unmute : L.mute);
             if (el.volInput) el.volInput.value = String(off ? 0 : video.volume);
 
             // Gợi ý "Bật tiếng": chỉ khi user CHƯA tự quyết định gì về âm thanh.
@@ -1012,7 +1097,7 @@ const TCAVideoPlayer = (() => {
             el.handle.style.left = `${pct}%`;
             el.cur.textContent = fmtTime(video.currentTime);
             el.progress.setAttribute("aria-valuenow", String(Math.round(pct)));
-            el.progress.setAttribute("aria-valuetext", `${fmtTime(video.currentTime)} trên ${fmtTime(d)}`);
+            el.progress.setAttribute("aria-valuetext", `${fmtTime(video.currentTime)} ${L.of} ${fmtTime(d)}`);
             if (video.buffered.length) {
                 let end = 0;
                 for (let i = 0; i < video.buffered.length; i++) {
@@ -1167,17 +1252,17 @@ const TCAVideoPlayer = (() => {
 
         el.muteBtn.addEventListener("click", () => {
             applySoundChoice(state, video.muted);
-            announce(video.muted ? "Đã tắt tiếng" : "Đã bật tiếng");
+            announce(video.muted ? L.soundOff : L.soundOn);
             setVolIcon();
         });
         el.unmute.addEventListener("click", () => {
             applySoundChoice(state, true);
-            announce("Đã bật tiếng");
+            announce(L.soundOn);
             setVolIcon();
         });
         el.mute.addEventListener("click", () => {
             applySoundChoice(state, false);
-            announce("Đã tắt tiếng");
+            announce(L.soundOff);
             setVolIcon();
         });
         if (el.volInput) {
@@ -1291,6 +1376,7 @@ const TCAVideoPlayer = (() => {
         const syncPip = () => {
             const on = inPip(video);
             wrap.classList.toggle("is-pip", on);
+            if (el.pipBtn) el.pipBtn.setAttribute("aria-label", on ? L.pipExit : L.pip);
             if (on) return;
             state.autoPip = false;
             // User đóng PiP trong lúc video vẫn ngoài tầm nhìn => dừng hẳn,
@@ -1342,7 +1428,7 @@ const TCAVideoPlayer = (() => {
                     break;
                 case "m":
                     applySoundChoice(state, video.muted);
-                    announce(video.muted ? "Đã tắt tiếng" : "Đã bật tiếng");
+                    announce(video.muted ? L.soundOff : L.soundOn);
                     setVolIcon();
                     break;
                 case "f": toggleFs(); break;
@@ -1420,7 +1506,7 @@ const TCAVideoPlayer = (() => {
         init();
     }
 
-    return { init, scan, upgrade, CONFIG };
+    return { init, scan, upgrade, setLabels, LABELS, CONFIG };
 })();
 
 if (typeof window !== "undefined") window.TCAVideoPlayer = TCAVideoPlayer;
