@@ -32,7 +32,7 @@
  * preload="none" và <source data-src="..."> (xem README/ghi chú khi gắn CMS).
  *
  * Cách nhúng:
- *   <script type="module" src="https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/video-player.js"></script>
+ *   <script type="module" src="https://r2-thainguyen.media-soft.cloud/common/video-player.js"></script>
  */
 
 const TCAVideoPlayer = (() => {

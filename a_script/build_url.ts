@@ -1,7 +1,7 @@
 import { readdir, stat } from "node:fs/promises";
 import { join, relative, resolve } from "node:path";
 
-const baseURL = "https://pub-31caedea65ce455689b504b7af37b43c.r2.dev";
+const baseURL = "https://r2-thainguyen.media-soft.cloud";
 
 async function getAllFiles(dirPath: string, arrayOfFiles: string[] = []) {
     const files = await readdir(dirPath);

@@ -1,6 +1,6 @@
 (function () {
 const POSTER =
-    "https://pub-31caedea65ce455689b504b7af37b43c.r2.dev/common/assets/img_tv1.jpg";
+    "https://r2-thainguyen.media-soft.cloud/common/assets/img_tv1.jpg";
 
 const CHANNELS = {
     1: {
