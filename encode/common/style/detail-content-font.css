@@ -1,1 +1,1 @@
-@import "fonts-ibm-plex-serif-vn.css";@media (width<=1000px){#content,#content *{font-family:IBM Plex Serif,serif!important}}@media (width<=767px){#content{font-size:19px!important}}
+@import "fonts-ibm-plex-serif-vn.css";@media (width<=1000px){#content,#content *{font-family:IBM Plex Serif,serif!important}}#content b,#content strong{font-weight:600}@media (width<=767px){#content{font-size:19px!important}}

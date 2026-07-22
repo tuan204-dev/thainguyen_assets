@@ -22,6 +22,22 @@
     }
 }
 
+/* Độ đậm chữ in đậm trong thân bài: 600 thay vì `bolder` của preflight.
+   Preflight Tailwind đặt `b, strong { font-weight: bolder }` — `bolder` là giá
+   trị TƯƠNG ĐỐI so với cha nên cùng 1 thẻ cho ra 2 kết quả khác nhau:
+     - trong <p> (400) → 700;
+     - trong .article-prose h2 (700) → 900, mà IBM Plex Serif chỉ nạp tới 700
+       ⇒ trình duyệt giả lập bold (nhoè nét).
+   Chốt giá trị TUYỆT ĐỐI 600: cả Noto Serif (desktop) lẫn IBM Plex Serif
+   (mobile) đều có real 600 nên không còn fake bold, và sapo bớt nặng.
+   Áp cho MỌI khổ màn hình (không bọc media query).
+   `#content` là ID (1,0,1) nên thắng preflight (0,0,1) — khỏi cần !important.
+   Style cả `b` lẫn `strong` vì editor bake cả hai vào articles.content. */
+#content b,
+#content strong {
+    font-weight: 600;
+}
+
 /* Cỡ chữ thân bài trên mobile: 16px → 19px.
    Dùng 767px cho khớp breakpoint mobile sẵn có của .article-prose
    (>767px vẫn 18px). CHỈ đặt trên #content để phần tử có cỡ riêng
