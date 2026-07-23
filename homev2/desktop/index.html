@@ -27,25 +27,28 @@
                 <div class="t:border-b t:border-[#DCDFE4]">
                     <div class="t:container">
                         <div
-                            class="t:flex t:items-center t:justify-between t:gap-x-4 t:py-0.5"
+                            class="t:grid t:grid-cols-[168px_1fr_168px] t:items-center t:gap-x-4 t:py-0.5"
                         >
                             <button
                                 type="button"
                                 data-overlay-target="desktop-main-menu"
-                                class="t:flex t:items-center t:gap-x-3 t:text-[#242A2E] t:bg-transparent t:border-0 t:p-0 t:cursor-pointer roboto t:text-sm t:font-medium t:hover:opacity-80"
+                                class="t:justify-self-start t:flex t:items-center t:gap-x-3 t:text-[#242A2E] t:bg-transparent t:border-0 t:p-0 t:cursor-pointer roboto t:text-sm t:font-medium t:hover:opacity-80"
                             >
                                 <i class="material-symbols--menu-rounded t:text-2xl"></i>
                             </button>
 
-                            <a href="/" class="t:flex t:items-center t:shrink-0 t:py-1">
+                            <a
+                                href="/"
+                                class="t:flex t:items-center t:justify-center t:min-w-0 t:py-1"
+                            >
                                 <img
                                     src="../../common/assets/logo.png"
                                     alt="Báo Thái Nguyên"
-                                    class="logo-header t:max-h-20 t:w-auto t:transition-all t:duration-500"
+                                    class="logo-header t:max-h-20 t:max-w-full t:w-auto t:object-contain t:transition-all t:duration-500"
                                 />
                             </a>
 
-                            <div class="t:flex t:items-center t:gap-x-2.5">
+                            <div class="t:justify-self-end t:flex t:items-center t:gap-x-2.5">
                                 <div
                                     class="t:flex t:items-center t:gap-x-2 t:text-[#242A2E] t:text-xs"
                                 >
@@ -606,42 +609,42 @@
         <header
             class="home-mobile-header t:md:hidden t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
         >
-            <div class="t:bg-[#30A14A]">
-                <div class="t:px-4">
+            <div class="t:border-b t:border-[#DCDFE4]">
+                <div class="t:px-2">
                     <div
-                        class="t:grid t:grid-cols-[auto_1fr_auto] t:items-center t:gap-x-3 t:h-13"
+                        class="t:grid t:grid-cols-[68px_1fr_68px] t:items-center t:gap-x-2 t:py-0.5"
                     >
                         <button
                             type="button"
                             data-overlay-target="mobile-main-menu"
                             aria-label="Mở menu"
-                            class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:opacity-80"
+                            class="t:justify-self-start t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-[#242A2E] t:hover:opacity-80"
                         >
                             <i class="material-symbols--menu-rounded t:text-2xl"></i>
                         </button>
 
                         <a
                             href="/"
-                            class="t:flex t:items-center t:justify-center t:min-w-0 t:overflow-hidden"
+                            class="t:justify-self-center t:flex t:items-center t:justify-center t:min-w-0 t:max-w-60 t:overflow-hidden t:py-1"
                         >
                             <img
-                                src="../../common/assets/logo-white.png"
+                                src="../../common/assets/logo.png"
                                 alt="Báo Thái Nguyên"
-                                class="t:h-9 t:max-w-[200px] t:w-auto t:object-contain"
+                                class="logo-header t:max-h-14.5 t:max-w-full t:w-auto t:object-contain t:transition-all t:duration-500"
                             />
                         </a>
 
-                        <div class="t:flex t:items-center t:gap-x-2.5">
+                        <div class="t:justify-self-end t:flex t:items-center t:gap-x-2.5">
                             <a
                                 href=""
-                                class="t:text-white t:text-xs t:font-medium t:hover:opacity-80 t:transition-opacity"
+                                class="t:text-[#242A2E] t:text-xs t:font-medium t:hover:opacity-80 t:transition-opacity"
                             >
                                 EN
                             </a>
                             <button
                                 type="button"
                                 aria-label="Tìm kiếm"
-                                class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:opacity-80"
+                                class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-[#242A2E] t:hover:opacity-80"
                             >
                                 <i class="majesticons--search-line"></i>
                             </button>
@@ -1157,9 +1160,6 @@
                                 0902006113 - 091 2039880
                             </p>
                             <p class="t:break-all">
-                                    <div
-                                class="t:grid t:grid-cols-1 t:md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] t:gap-x-4 t:gap-y-3 t:items-start t:max-md:col-span-2 t:max-md:order-1 t:max-md:border-b t:max-md:border-dashed t:max-md:border-[#DCDFE4] t:max-md:pb-4"
-                            >
                                 <strong>Email:</strong>
                                 toasoan@baothainguyen.vn; toasoan@baothainguyen.com.vn
                             </p>
