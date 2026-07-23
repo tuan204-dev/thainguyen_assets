@@ -2998,9 +2998,6 @@
 .desktop-overlay-menu-root > .mobile-menu-sub {
   max-height: none;
 }
-.article-date {
-  display: none !important;
-}
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;
