@@ -255,6 +255,15 @@
     row-gap: 24px;
 }
 
+/* Grid item mặc định có min-width:auto nên KHÔNG co được dưới min-content của
+   nội dung: dải chuyên mục (cuộn ngang) và hàng swiper sẽ đội cột rộng ra, đẩy
+   nút "Đọc toàn bộ số báo" / "Xem thêm" ra ngoài màn hình ở khổ hẹp.
+   common.css có sẵn `.t\:grid > * { min-width: 0 }` nhưng .baoin-layout là grid
+   CSS thuần nên không dính rule đó — phải tự khai báo. */
+.baoin-layout > * {
+    min-width: 0;
+}
+
 /* ── Cột trái ── */
 
 .baoin-sidebar__heading {
