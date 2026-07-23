@@ -964,7 +964,7 @@
         </aside>
 
         <header
-            class="home-mobile-header t:md:hidden t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
+            class="home-mobile-header t:md:hidden t:bg-white"
         >
             <div class="t:bg-[#30A14A]">
                 <div class="t:px-4">
@@ -4635,50 +4635,229 @@
         <nav
             data-portlet="m_menu_nen_tang"
             aria-label="Menu nền tảng"
-            class="home-menu-nen-tang t:md:hidden"
+            class="home-menu-nen-tang"
         >
             <style>
-                @media (max-width: 767.98px) {
+                /* Breakpoint 1000px THUẦN CSS (không dùng t:md:hidden vì md = 768px) */
+                @media (min-width: 1000px) {
+                    [data-portlet="m_menu_nen_tang"] {
+                        display: none !important;
+                    }
+                }
+                @media (max-width: 999.98px) {
                     #scrollToTopBtn {
                         bottom: calc(72px + env(safe-area-inset-bottom)) !important;
                     }
                 }
+                [data-portlet="m_menu_nen_tang"] .pfm-cell {
+                    position: relative;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-btn {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 4px;
+                    margin: 0;
+                    padding: 8px 0;
+                    background: none;
+                    border: 0;
+                    cursor: pointer;
+                    font: inherit;
+                    color: #667085;
+                    transition: color 0.2s ease;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-cell.is-open .pfm-btn,
+                [data-portlet="m_menu_nen_tang"] .pfm-btn:hover {
+                    color: #30a14a;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-pop {
+                    position: absolute;
+                    right: 6px;
+                    bottom: calc(100% + 12px);
+                    display: flex;
+                    gap: 6px;
+                    padding: 10px;
+                    background: #fff;
+                    border: 1px solid #dcdfe4;
+                    border-radius: 16px;
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateY(10px) scale(0.95);
+                    transform-origin: bottom right;
+                    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+                    z-index: 95;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-cell.is-open .pfm-pop {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0) scale(1);
+                    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-pop::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    right: 22px;
+                    border: 7px solid transparent;
+                    border-top-color: #fff;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 5px;
+                    width: 58px;
+                    text-decoration: none;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-ico {
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 9999px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #f4f6f8;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-ico i {
+                    width: 24px;
+                    height: 24px;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-label {
+                    font-size: 10px;
+                    color: #667085;
+                    text-align: center;
+                    line-height: 1.2;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-bar {
+                    position: fixed;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 130;
+                    background: #fff;
+                    border-top: 1px solid #dcdfe4;
+                    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+                    padding-bottom: env(safe-area-inset-bottom);
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-spacer {
+                    height: 64px;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, minmax(0, 1fr));
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-link {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 4px;
+                    padding: 8px 0;
+                    color: #667085;
+                    text-decoration: none;
+                    transition: color 0.2s ease;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-link:hover {
+                    color: #30a14a;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-link > i,
+                [data-portlet="m_menu_nen_tang"] .pfm-btn > i {
+                    font-size: 22px;
+                }
+                [data-portlet="m_menu_nen_tang"] .pfm-text {
+                    font-size: 12px;
+                    line-height: 1.2;
+                    text-align: center;
+                }
             </style>
-            <div class="t:h-16" aria-hidden="true"></div>
-            <div
-                class="t:fixed t:bottom-0 t:inset-x-0 t:z-[90] t:bg-white t:border-t t:border-[#DCDFE4] t:shadow-[0_-2px_8px_rgba(0,0,0,0.06)] t:pb-[env(safe-area-inset-bottom)]"
-            >
-                <div class="t:grid t:grid-cols-4">
-                    <a
-                        href="/truyen-hinh"
-                        class="t:flex t:flex-col t:items-center t:justify-center t:gap-y-1 t:py-2 t:text-[#667085] t:hover:text-[#30A14A] t:transition-colors"
-                    >
-                        <i class="ph--monitor t:text-[22px]"></i>
-                        <span class="roboto t:text-xs t:text-center">Truyền Hình</span>
+            <div class="pfm-spacer" aria-hidden="true"></div>
+            <div class="pfm-bar">
+                <div class="pfm-grid">
+                    <a href="/truyen-hinh" class="pfm-link">
+                        <i class="ph--monitor"></i>
+                        <span class="roboto pfm-text">Truyền Hình</span>
                     </a>
-                    <a
-                        href="/phat-thanh"
-                        class="t:flex t:flex-col t:items-center t:justify-center t:gap-y-1 t:py-2 t:text-[#667085] t:hover:text-[#30A14A] t:transition-colors"
-                    >
-                        <i class="iconoir--voice-circle t:text-[22px]"></i>
-                        <span class="roboto t:text-xs t:text-center">Phát Thanh</span>
+                    <a href="/phat-thanh" class="pfm-link">
+                        <i class="iconoir--voice-circle"></i>
+                        <span class="roboto pfm-text">Phát Thanh</span>
                     </a>
-                    <a
-                        href="/doc-bao-in/"
-                        class="t:flex t:flex-col t:items-center t:justify-center t:gap-y-1 t:py-2 t:text-[#667085] t:hover:text-[#30A14A] t:transition-colors"
-                    >
-                        <i class="ph--newspaper t:text-[22px]"></i>
-                        <span class="roboto t:text-xs t:text-center">Báo In</span>
+                    <a href="/doc-bao-in/" class="pfm-link">
+                        <i class="ph--newspaper"></i>
+                        <span class="roboto pfm-text">Báo In</span>
                     </a>
-                    <a
-                        href=""
-                        class="t:flex t:flex-col t:items-center t:justify-center t:gap-y-1 t:py-2 t:text-[#667085] t:hover:text-[#30A14A] t:transition-colors"
-                    >
-                        <i class="ph--globe-simple t:text-[22px]"></i>
-                        <span class="roboto t:text-xs t:text-center">Nền Tảng Số</span>
-                    </a>
+                    <div class="pfm-cell" data-pfm-cell>
+                        <button
+                            type="button"
+                            class="pfm-btn"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            aria-label="Nền tảng số"
+                            data-pfm-toggle
+                        >
+                            <i class="ph--globe-simple"></i>
+                            <span class="roboto pfm-text">Nền Tảng Số</span>
+                        </button>
+                        <div class="pfm-pop" data-pfm-pop role="menu">
+                            <a
+                                class="pfm-item"
+                                href="https://web.facebook.com/baoptththainguyen"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                role="menuitem"
+                            >
+                                <span class="pfm-ico"><i class="logos--facebook" style="color: #1877f2"></i></span>
+                                <span class="pfm-label">Facebook</span>
+                            </a>
+                            <a
+                                class="pfm-item"
+                                href="https://www.tiktok.com/@baothainguyen.official"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                role="menuitem"
+                            >
+                                <span class="pfm-ico"><i class="logos--tiktok" style="color: #111111"></i></span>
+                                <span class="pfm-label">TikTok</span>
+                            </a>
+                            <a
+                                class="pfm-item"
+                                href="https://www.youtube.com/c/daiptththainguyentntv"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                role="menuitem"
+                            >
+                                <span class="pfm-ico"><i class="logos--youtube" style="color: #ff0000"></i></span>
+                                <span class="pfm-label">YouTube</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <script>
+                (function () {
+                    var root = document.querySelector("[data-portlet=m_menu_nen_tang]");
+                    if (!root) return;
+                    var cell = root.querySelector("[data-pfm-cell]");
+                    var btn = root.querySelector("[data-pfm-toggle]");
+                    if (!cell || !btn) return;
+                    function setOpen(open) {
+                        cell.classList.toggle("is-open", open);
+                        btn.setAttribute("aria-expanded", open ? "true" : "false");
+                    }
+                    btn.addEventListener("click", function (e) {
+                        e.stopPropagation();
+                        setOpen(!cell.classList.contains("is-open"));
+                    });
+                    document.addEventListener("click", function (e) {
+                        if (!cell.contains(e.target)) setOpen(false);
+                    });
+                    document.addEventListener("keydown", function (e) {
+                        if (e.key === "Escape") setOpen(false);
+                    });
+                })();
+            </script>
         </nav>
 
         <button
