@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Đọc báo in - Báo Thái Nguyên</title>
-        <link rel="stylesheet" href="./output.css" />
+        <link rel="stylesheet" href="./output.css?v=1" />
         <link rel="stylesheet" href="../common/style/fonts-noto-serif-vn.css" />
         <link rel="stylesheet" href="../common/style/fonts-roboto-vn.css" />
         <link rel="stylesheet" href="../common/style/common.css" />
@@ -17,51 +17,98 @@
     </head>
 
     <body class="home-page">
-        <style>
-            @media (min-width: 1000px) and (max-width: 1099px) {
-                #desktop-cate-list > *:nth-child(n + 10) {
-                    display: none;
-                }
-            }
-
-            @media (min-width: 1100px) and (max-width: 1199px) {
-                #desktop-cate-list > *:nth-child(n + 11) {
-                    display: none;
-                }
-            }
-
-            @media (min-width: 1200px) {
-                #desktop-cate-list > *:nth-child(n + 12) {
-                    display: none;
-                }
-            }
-        </style>
-
         <header class="home-header t:max-md:hidden">
-            <div class="home-header-main t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]">
-                <div class="t:bg-[#30A14A]">
+            <div
+                class="home-header-main header-main t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
+            >
+                <div class="t:bg-[#EC1C23]">
                     <div class="t:container">
                         <div
-                            class="t:flex t:items-center t:justify-between t:gap-x-4 t:h-13 t:py-0.5"
+                            class="t:flex t:items-center t:justify-between t:h-13 t:min-[1200px]:h-16 t:relative"
                         >
-                            <button
-                                type="button"
-                                data-overlay-target="desktop-main-menu"
-                                class="t:flex t:items-center t:gap-x-3 t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer roboto t:text-sm t:font-medium t:hover:opacity-80"
-                            >
-                                <i class="material-symbols--menu-rounded t:text-2xl"></i>
-                            </button>
+                            <div class="t:flex t:items-center t:gap-x-4 t:min-[1200px]:gap-x-6">
+                                <button
+                                    type="button"
+                                    data-overlay-target="desktop-main-menu"
+                                    class="t:flex t:items-center t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:hover:opacity-80"
+                                >
+                                    <i class="material-symbols--menu-rounded t:text-2xl"></i>
+                                </button>
 
-                            <a href="/" class="t:flex t:items-center t:shrink-0">
-                                <img
-                                    src="../../common/assets/logo-white.png"
-                                    alt="Báo Thái Nguyên"
-                                    class="logo-header t:max-h-10 t:w-auto t:transition-all t:duration-500"
-                                />
-                            </a>
+                                <a href="/" class="t:flex t:items-center t:shrink-0">
+                                    <img
+                                        src="../../common/assets/logo-white.png"
+                                        alt="Báo Thái Nguyên"
+                                        class="logo-header t:max-h-8 t:min-[1200px]:max-h-10 t:w-auto t:transition-all t:duration-500"
+                                    />
+                                </a>
+                            </div>
+
+                            <!-- Chuyển nền tảng — chỉ đủ chỗ từ 1200px trở lên -->
+                            <div
+                                class="t:hidden t:min-[1200px]:flex t:items-stretch t:h-full t:absolute t:left-1/2 t:-translate-x-1/2"
+                            >
+                                <nav
+                                    id="desktopNav"
+                                    aria-label="Nền tảng"
+                                    class="t:relative t:flex t:items-stretch t:gap-x-2 t:min-[1300px]:gap-x-6 t:text-white t:text-[14px] t:font-medium t:h-full noto t:z-0"
+                                >
+                                    <div
+                                        id="desktopIndicator"
+                                        class="t:absolute t:top-0 t:left-0 t:h-full t:bg-[#FF6666] t:-z-10 t:transition-all t:duration-300 t:ease-out"
+                                    ></div>
+                                    <a
+                                        href="/truyen-hinh/"
+                                        class="no-hover-color t:flex t:items-center t:justify-center t:shrink-0 t:px-2 t:min-[1300px]:px-4 t:transition-all t:duration-300 t:gap-x-2 t:hover:text-white!"
+                                    >
+                                        <img
+                                            src="./images/ic_bot_home.png"
+                                            class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert"
+                                            alt=""
+                                        />
+                                        <span class="t:whitespace-nowrap">TRUYỀN HÌNH</span>
+                                    </a>
+                                    <a
+                                        href="/phat-thanh/"
+                                        class="no-hover-color t:flex t:items-center t:justify-center t:shrink-0 t:px-2 t:min-[1300px]:px-4 t:transition-all t:duration-300 t:gap-x-2 t:hover:text-white!"
+                                    >
+                                        <img
+                                            src="./images/ic_bot_audio.png"
+                                            class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert"
+                                            alt=""
+                                        />
+                                        <span class="t:whitespace-nowrap">PHÁT THANH</span>
+                                    </a>
+                                    <a
+                                        href="/doc-bao-in/"
+                                        aria-current="page"
+                                        class="no-hover-color t:flex t:items-center t:justify-center t:shrink-0 t:px-2 t:min-[1300px]:px-4 t:transition-all t:duration-300 t:gap-x-2 t:hover:text-white!"
+                                    >
+                                        <img
+                                            src="./images/ic_bot_news.png"
+                                            class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert"
+                                            alt=""
+                                        />
+                                        <span class="t:whitespace-nowrap">BÁO IN</span>
+                                    </a>
+                                    <a
+                                        href="/nen-tang-so/"
+                                        class="no-hover-color t:flex t:items-center t:justify-center t:shrink-0 t:px-2 t:min-[1300px]:px-4 t:transition-all t:duration-300 t:gap-x-2 t:hover:text-white!"
+                                    >
+                                        <img
+                                            src="./images/ic_bot_global.png"
+                                            class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert"
+                                            alt=""
+                                        />
+                                        <span class="t:whitespace-nowrap">NỀN TẢNG SỐ</span>
+                                    </a>
+                                </nav>
+                            </div>
 
                             <div class="t:flex t:items-center t:gap-x-2.5">
-                                <div class="t:flex t:items-center t:gap-x-2 t:text-white t:text-xs">
+                                <div
+                                    class="t:flex t:min-[1200px]:hidden t:items-center t:gap-x-2 t:text-white t:text-xs"
+                                >
                                     <a href="" class="t:hover:opacity-80 t:transition-opacity">
                                         English
                                     </a>
@@ -85,7 +132,7 @@
                                     aria-label="Tìm kiếm"
                                     class="t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:flex t:items-center t:hover:opacity-80"
                                 >
-                                    <i class="majesticons--search-line"></i>
+                                    <i class="majesticons--search-line t:text-2xl"></i>
                                 </button>
                             </div>
                         </div>
@@ -93,403 +140,6 @@
                 </div>
             </div>
         </header>
-
-        <div
-            class="home-header-nav t:max-md:hidden t:bg-white t:border-b t:border-[#DCDFE4] t:sticky t:top-0 t:z-50 t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
-        >
-            <div class="t:container">
-                <nav
-                    aria-label="Danh mục nổi bật"
-                    id="desktop-cate-list"
-                    class="t:flex t:items-center t:justify-center t:gap-x-6 t:h-9 t:text-xs t:font-medium t:text-[#8A94A6] t:whitespace-nowrap"
-                >
-                    <div class="t:group t:relative t:flex t:items-center t:h-full">
-                        <a
-                            href=""
-                            class="t:uppercase t:transition-colors t:group-hover:text-[#30A14A] noto! t:inline-flex t:items-center"
-                        >
-                            Tiêu điểm
-                        </a>
-                        <div
-                            class="t:absolute t:top-full t:left-1/2 t:-translate-x-1/2 t:z-50 t:pt-2.5 t:invisible t:opacity-0 t:translate-y-1 t:transition t:duration-200 t:ease-out t:group-hover:visible t:group-hover:opacity-100 t:group-hover:translate-y-0 t:group-focus-within:visible t:group-focus-within:opacity-100 t:group-focus-within:translate-y-0"
-                        >
-                            <ul
-                                class="t:min-w-[220px] t:bg-white t:rounded-lg t:border t:border-[#DCDFE4] t:shadow-[0_12px_28px_rgba(15,23,42,0.14)] t:py-2 t:flex t:flex-col"
-                            >
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Tin nổi bật
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Sự kiện
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Bình luận
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="t:group t:relative t:flex t:items-center t:h-full">
-                        <a
-                            href=""
-                            class="t:uppercase t:transition-colors t:group-hover:text-[#30A14A] noto! t:inline-flex t:items-center"
-                        >
-                            Thời sự Thái Nguyên
-                        </a>
-                        <div
-                            class="t:absolute t:top-full t:left-1/2 t:-translate-x-1/2 t:z-50 t:pt-2.5 t:invisible t:opacity-0 t:translate-y-1 t:transition t:duration-200 t:ease-out t:group-hover:visible t:group-hover:opacity-100 t:group-hover:translate-y-0 t:group-focus-within:visible t:group-focus-within:opacity-100 t:group-focus-within:translate-y-0"
-                        >
-                            <ul
-                                class="t:min-w-[220px] t:bg-white t:rounded-lg t:border t:border-[#DCDFE4] t:shadow-[0_12px_28px_rgba(15,23,42,0.14)] t:py-2 t:flex t:flex-col"
-                            >
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Trong tỉnh
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Trong nước
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Quốc tế
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="t:group t:relative t:flex t:items-center t:h-full">
-                        <a
-                            href=""
-                            class="t:uppercase t:transition-colors t:group-hover:text-[#30A14A] noto! t:inline-flex t:items-center"
-                        >
-                            Chính trị
-                        </a>
-                        <div
-                            class="t:absolute t:top-full t:left-1/2 t:-translate-x-1/2 t:z-50 t:pt-2.5 t:invisible t:opacity-0 t:translate-y-1 t:transition t:duration-200 t:ease-out t:group-hover:visible t:group-hover:opacity-100 t:group-hover:translate-y-0 t:group-focus-within:visible t:group-focus-within:opacity-100 t:group-focus-within:translate-y-0"
-                        >
-                            <ul
-                                class="t:min-w-[220px] t:bg-white t:rounded-lg t:border t:border-[#DCDFE4] t:shadow-[0_12px_28px_rgba(15,23,42,0.14)] t:py-2 t:flex t:flex-col"
-                            >
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Đưa Nghị quyết của Đảng vào cuộc sống
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Bầu cử ĐBQH và đại biểu HĐND các cấp
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Lịch sử - Truyền thống
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Đại hội Đảng
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="t:group t:relative t:flex t:items-center t:h-full">
-                        <a
-                            href=""
-                            class="t:uppercase t:transition-colors t:group-hover:text-[#30A14A] noto! t:inline-flex t:items-center"
-                        >
-                            Nghị quyết 57
-                        </a>
-                        <div
-                            class="t:absolute t:top-full t:left-1/2 t:-translate-x-1/2 t:z-50 t:pt-2.5 t:invisible t:opacity-0 t:translate-y-1 t:transition t:duration-200 t:ease-out t:group-hover:visible t:group-hover:opacity-100 t:group-hover:translate-y-0 t:group-focus-within:visible t:group-focus-within:opacity-100 t:group-focus-within:translate-y-0"
-                        >
-                            <ul
-                                class="t:min-w-[220px] t:bg-white t:rounded-lg t:border t:border-[#DCDFE4] t:shadow-[0_12px_28px_rgba(15,23,42,0.14)] t:py-2 t:flex t:flex-col"
-                            >
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Khoa học công nghệ
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Đổi mới sáng tạo
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Chuyển đổi số
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="t:group t:relative t:flex t:items-center t:h-full">
-                        <a
-                            href=""
-                            class="t:uppercase t:transition-colors t:group-hover:text-[#30A14A] noto! t:inline-flex t:items-center"
-                        >
-                            Kinh tế
-                        </a>
-                        <div
-                            class="t:absolute t:top-full t:left-1/2 t:-translate-x-1/2 t:z-50 t:pt-2.5 t:invisible t:opacity-0 t:translate-y-1 t:transition t:duration-200 t:ease-out t:group-hover:visible t:group-hover:opacity-100 t:group-hover:translate-y-0 t:group-focus-within:visible t:group-focus-within:opacity-100 t:group-focus-within:translate-y-0"
-                        >
-                            <ul
-                                class="t:min-w-[220px] t:bg-white t:rounded-lg t:border t:border-[#DCDFE4] t:shadow-[0_12px_28px_rgba(15,23,42,0.14)] t:py-2 t:flex t:flex-col"
-                            >
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Công nghiệp
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Đầu tư
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Nông nghiệp - Nông thôn
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Tài chính
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="t:group t:relative t:flex t:items-center t:h-full">
-                        <a
-                            href=""
-                            class="t:uppercase t:transition-colors t:group-hover:text-[#30A14A] noto! t:inline-flex t:items-center"
-                        >
-                            Văn hóa
-                        </a>
-                        <div
-                            class="t:absolute t:top-full t:left-1/2 t:-translate-x-1/2 t:z-50 t:pt-2.5 t:invisible t:opacity-0 t:translate-y-1 t:transition t:duration-200 t:ease-out t:group-hover:visible t:group-hover:opacity-100 t:group-hover:translate-y-0 t:group-focus-within:visible t:group-focus-within:opacity-100 t:group-focus-within:translate-y-0"
-                        >
-                            <ul
-                                class="t:min-w-[220px] t:bg-white t:rounded-lg t:border t:border-[#DCDFE4] t:shadow-[0_12px_28px_rgba(15,23,42,0.14)] t:py-2 t:flex t:flex-col"
-                            >
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Văn học - Nghệ thuật
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Di sản
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Du lịch
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="t:group t:relative t:flex t:items-center t:h-full">
-                        <a
-                            href=""
-                            class="t:uppercase t:transition-colors t:group-hover:text-[#30A14A] noto! t:inline-flex t:items-center"
-                        >
-                            Xã hội
-                        </a>
-                        <div
-                            class="t:absolute t:top-full t:left-1/2 t:-translate-x-1/2 t:z-50 t:pt-2.5 t:invisible t:opacity-0 t:translate-y-1 t:transition t:duration-200 t:ease-out t:group-hover:visible t:group-hover:opacity-100 t:group-hover:translate-y-0 t:group-focus-within:visible t:group-focus-within:opacity-100 t:group-focus-within:translate-y-0"
-                        >
-                            <ul
-                                class="t:min-w-[220px] t:bg-white t:rounded-lg t:border t:border-[#DCDFE4] t:shadow-[0_12px_28px_rgba(15,23,42,0.14)] t:py-2 t:flex t:flex-col"
-                            >
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Chính sách xã hội
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Chính sách BHXH - BHYT
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Đời sống
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="t:group t:relative t:flex t:items-center t:h-full">
-                        <a
-                            href=""
-                            class="t:uppercase t:transition-colors t:group-hover:text-[#30A14A] noto! t:inline-flex t:items-center"
-                        >
-                            Y tế
-                        </a>
-                        <div
-                            class="t:absolute t:top-full t:left-1/2 t:-translate-x-1/2 t:z-50 t:pt-2.5 t:invisible t:opacity-0 t:translate-y-1 t:transition t:duration-200 t:ease-out t:group-hover:visible t:group-hover:opacity-100 t:group-hover:translate-y-0 t:group-focus-within:visible t:group-focus-within:opacity-100 t:group-focus-within:translate-y-0"
-                        >
-                            <ul
-                                class="t:min-w-[220px] t:bg-white t:rounded-lg t:border t:border-[#DCDFE4] t:shadow-[0_12px_28px_rgba(15,23,42,0.14)] t:py-2 t:flex t:flex-col"
-                            >
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Sức khỏe
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Y tế cộng đồng
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Phòng chống dịch bệnh
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="t:group t:relative t:flex t:items-center t:h-full">
-                        <a
-                            href=""
-                            class="t:uppercase t:transition-colors t:group-hover:text-[#30A14A] noto! t:inline-flex t:items-center"
-                        >
-                            Giáo dục
-                        </a>
-                        <div
-                            class="t:absolute t:top-full t:left-1/2 t:-translate-x-1/2 t:z-50 t:pt-2.5 t:invisible t:opacity-0 t:translate-y-1 t:transition t:duration-200 t:ease-out t:group-hover:visible t:group-hover:opacity-100 t:group-hover:translate-y-0 t:group-focus-within:visible t:group-focus-within:opacity-100 t:group-focus-within:translate-y-0"
-                        >
-                            <ul
-                                class="t:min-w-[220px] t:bg-white t:rounded-lg t:border t:border-[#DCDFE4] t:shadow-[0_12px_28px_rgba(15,23,42,0.14)] t:py-2 t:flex t:flex-col"
-                            >
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Tuyển sinh
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Học đường
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href=""
-                                        class="t:block t:px-4 t:py-2 t:normal-case t:text-[13px] t:font-normal t:text-[#212636] t:transition-colors t:hover:bg-[#F0F7FF] t:hover:text-[#30A14A] noto!"
-                                    >
-                                        Khuyến học
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
 
         <aside class="home-menu-aside t:max-md:hidden">
             <div
@@ -984,7 +634,7 @@
         <header
             class="home-mobile-header t:md:hidden t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
         >
-            <div class="t:bg-[#30A14A]">
+            <div class="t:bg-[#EC1C23]">
                 <div class="t:px-4">
                     <div class="t:grid t:grid-cols-[auto_1fr_auto] t:items-center t:gap-x-3 t:h-13">
                         <button
@@ -1026,103 +676,6 @@
                 </div>
             </div>
         </header>
-
-        <div
-            class="home-mobile-header-nav t:md:hidden t:bg-white t:border-b t:border-[#DCDFE4] t:sticky t:top-0 t:z-50 t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
-        >
-            <div class="t:px-4">
-                <div
-                    class="swiper t:relative t:text-xs t:font-medium t:text-[#8A94A6] t:h-9 t:[&_.swiper-wrapper]:items-center t:[&_.swiper-slide]:w-auto! t:[&_.swiper-slide]:px-3 t:[&_.swiper-slide]:flex t:[&_.swiper-slide]:items-center"
-                    data-swiper
-                    data-swiper-slides-per-view="auto"
-                    data-swiper-space-between="0"
-                    data-swiper-free-mode="true"
-                >
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <a
-                                href=""
-                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
-                            >
-                                Tiêu điểm
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a
-                                href=""
-                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
-                            >
-                                Thời sự Thái Nguyên
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a
-                                href=""
-                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
-                            >
-                                Chính trị
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a
-                                href=""
-                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
-                            >
-                                Nghị quyết 57
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a
-                                href=""
-                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
-                            >
-                                Kinh tế
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a
-                                href=""
-                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
-                            >
-                                Văn hóa
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a
-                                href=""
-                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
-                            >
-                                Xã hội
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a
-                                href=""
-                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
-                            >
-                                Y tế
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a
-                                href=""
-                                class="t:uppercase t:whitespace-nowrap t:transition-colors t:hover:text-[#30A14A] t:flex t:items-center t:h-full"
-                            >
-                                Giáo dục
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-control">
-                        <button
-                            type="button"
-                            aria-label="Trước"
-                            class="swiper-button-prev"
-                        ></button>
-                        <button type="button" aria-label="Sau" class="swiper-button-next"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <aside class="home-mobile-menu-aside t:md:hidden">
             <div
@@ -1533,57 +1086,314 @@
 
         <!-- Main content -->
         <main class="noto t:bg-white t:pt-7 t:pb-10 t:md:pt-9 t:md:pb-12">
-            <section aria-labelledby="print-newspaper-title">
-                <div class="t:container t:mx-auto">
-                    <div class="t:border-b t:border-[#D8D3CB] t:pb-3 t:md:pb-4 t:mb-7 t:md:mb-9">
-                        <h1
-                            id="print-newspaper-title"
-                            class="t:text-[28px] t:max-pc:text-[22px] t:leading-tight t:font-bold t:uppercase t:text-[#935F25] t:mb-2"
-                        >
-                            Đọc báo in
+            <div class="t:container t:mx-auto">
+                <div class="baoin-layout">
+                    <!-- ── Cột trái: chuyên mục ── -->
+                    <aside class="baoin-sidebar">
+                        <h1 id="print-newspaper-title" class="baoin-sidebar__heading">
+                            <a href="/doc-bao-in/">Đọc báo in</a>
                         </h1>
-                        <div
-                            class="swiper t:relative t:mt-2 t:text-sm t:font-bold t:text-[#777] t:[&:has(.swiper-button-next:not(.swiper-button-lock))]:pr-14 t:[&_.swiper-wrapper]:items-center t:[&_.swiper-slide]:w-auto! t:[&_.swiper-slide]:px-3 t:[&_.swiper-slide]:border-l t:[&_.swiper-slide]:border-[#D8D3CB] t:[&_.swiper-slide:first-child]:pl-0 t:[&_.swiper-slide:first-child]:border-l-0 t:[&_.swiper-button-next]:size-6! t:[&_.swiper-button-next]:mt-0! t:[&_.swiper-button-next]:text-[#8A94A6] t:[&_.swiper-button-next]:bg-white t:[&_.swiper-button-next]:right-0! t:[&_.swiper-button-next]:top-1/2 t:[&_.swiper-button-next]:-translate-y-1/2 t:[&_.swiper-button-next]:after:text-[14px]! t:[&_.swiper-button-next]:hover:text-[#935F25] t:[&_.swiper-button-prev]:size-6! t:[&_.swiper-button-prev]:mt-0! t:[&_.swiper-button-prev]:text-[#8A94A6] t:[&_.swiper-button-prev]:bg-linear-to-r t:[&_.swiper-button-prev]:from-white/0 t:[&_.swiper-button-prev]:to-white t:[&_.swiper-button-prev]:left-auto! t:[&_.swiper-button-prev]:right-6! t:[&_.swiper-button-prev]:top-1/2 t:[&_.swiper-button-prev]:-translate-y-1/2 t:[&_.swiper-button-prev]:after:text-[14px]! t:[&_.swiper-button-prev]:hover:text-[#935F25] t:[&_.swiper-button-prev.swiper-button-disabled]:hidden!"
-                            data-swiper
-                            data-swiper-slides-per-view="auto"
-                            data-swiper-space-between="0"
-                            data-swiper-free-mode="true"
-                        >
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a
-                                        href="/doc-bao-in/van-nghe-thai-nguyen/"
-                                        class="t:whitespace-nowrap t:hover:text-[#935F25]"
-                                    >
-                                        Văn nghệ Thái Nguyên
-                                    </a>
+                        <nav class="baoin-catenav" aria-label="Chuyên mục báo in">
+                            <a class="baoin-catenav__item is-active" href="/doc-bao-in/">
+                                Báo Thái Nguyên hằng ngày
+                            </a>
+                            <a class="baoin-catenav__item" href="/doc-bao-in/van-nghe-thai-nguyen/">
+                                Văn nghệ Thái Nguyên
+                            </a>
+                            <a
+                                class="baoin-catenav__item"
+                                href="/doc-bao-in/thai-nguyen-mien-nui---vung-cao/"
+                            >
+                                Thái Nguyên miền núi - vùng cao
+                            </a>
+                        </nav>
+                    </aside>
+
+                    <!-- ── Cột phải: trình xem PDF + danh sách ấn phẩm ── -->
+                    <div class="baoin-content">
+                        <!-- Số mới nhất -->
+                        <section aria-labelledby="baoin-latest-title">
+                            <div class="baoin-blockhead">
+                                <div class="t:min-w-0">
+                                    <h2 id="baoin-latest-title" class="baoin-blockhead__title">
+                                        Số mới nhất
+                                    </h2>
+                                    <p class="baoin-blockhead__meta" id="baoin-latest-meta"></p>
                                 </div>
-                                <div class="swiper-slide">
-                                    <a
-                                        href="/doc-bao-in/thai-nguyen-mien-nui---vung-cao/"
-                                        class="t:whitespace-nowrap t:hover:text-[#935F25]"
+                                <a
+                                    class="baoin-blockhead__action"
+                                    id="baoin-latest-link"
+                                    href="/doc-bao-in/"
+                                >
+                                    Đọc toàn bộ số báo
+                                </a>
+                            </div>
+
+                            <div class="baoin-viewer" id="baoin-viewer">
+                                <div class="baoin-viewer__counter" id="baoin-page-counter">
+                                    1 / 1
+                                </div>
+
+                                <button
+                                    type="button"
+                                    class="baoin-viewer__nav baoin-viewer__nav--prev"
+                                    id="baoin-prev"
+                                    aria-label="Trang trước"
+                                >
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z" />
+                                    </svg>
+                                </button>
+                                <button
+                                    type="button"
+                                    class="baoin-viewer__nav baoin-viewer__nav--next"
+                                    id="baoin-next"
+                                    aria-label="Trang sau"
+                                >
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z" />
+                                    </svg>
+                                </button>
+
+                                <!-- DFlip gắn vào đây -->
+                                <div id="epaper_preview"></div>
+
+                                <!-- Mục lục -->
+                                <div class="baoin-toc" id="baoin-toc">
+                                    <div class="baoin-toc__head">
+                                        <span>Mục lục</span>
+                                        <button
+                                            type="button"
+                                            class="baoin-toc__close"
+                                            id="baoin-toc-close"
+                                            aria-label="Đóng mục lục"
+                                        >
+                                            ✕
+                                        </button>
+                                    </div>
+                                    <div class="baoin-toc__list" id="baoin-toc-list"></div>
+                                </div>
+
+                                <!-- Chia sẻ -->
+                                <div class="baoin-share" id="baoin-share">
+                                    <div class="baoin-share__box">
+                                        <h3>Chia sẻ số báo này</h3>
+                                        <div class="baoin-share__row">
+                                            <input type="text" id="baoin-share-url" readonly />
+                                            <button type="button" id="baoin-share-copy">
+                                                Sao chép
+                                            </button>
+                                        </div>
+                                        <button
+                                            type="button"
+                                            class="baoin-share__close"
+                                            id="baoin-share-close"
+                                        >
+                                            Đóng
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Thanh công cụ -->
+                                <div class="baoin-viewer__toolbar">
+                                    <button
+                                        type="button"
+                                        class="baoin-tb-btn"
+                                        id="baoin-zoom-in"
+                                        title="Phóng to"
+                                        aria-label="Phóng to"
                                     >
-                                        Thái Nguyên miền núi - vùng cao
-                                    </a>
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path
+                                                d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14M10 7H9v2H7v1h2v2h1v-2h2V9h-2z"
+                                            />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="baoin-tb-btn"
+                                        id="baoin-zoom-out"
+                                        title="Thu nhỏ"
+                                        aria-label="Thu nhỏ"
+                                    >
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path
+                                                d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14M7 9h5v1H7z"
+                                            />
+                                        </svg>
+                                    </button>
+                                    <div class="baoin-tb-sep"></div>
+                                    <button
+                                        type="button"
+                                        class="baoin-tb-btn"
+                                        id="baoin-play"
+                                        title="Tự động lật trang"
+                                        aria-label="Tự động lật trang"
+                                    >
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="baoin-tb-btn"
+                                        id="baoin-toc-open"
+                                        title="Mục lục"
+                                        aria-label="Mục lục"
+                                    >
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path
+                                                d="M3 5h2v2H3zm0 6h2v2H3zm0 6h2v2H3zM7 5h14v2H7zm0 6h14v2H7zm0 6h14v2H7z"
+                                            />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="baoin-tb-btn"
+                                        id="baoin-share-open"
+                                        title="Chia sẻ"
+                                        aria-label="Chia sẻ"
+                                    >
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path
+                                                d="M18 16.08a2.9 2.9 0 0 0-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.5.48 1.18.78 1.94.78a3 3 0 1 0-3-3c0 .24.04.47.09.7L7.94 9.78A3 3 0 1 0 6 15a2.9 2.9 0 0 0 1.94-.78l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 1 0 3.02-2.95"
+                                            />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="baoin-tb-btn"
+                                        id="baoin-sound"
+                                        title="Bật âm thanh lật trang"
+                                        aria-label="Bật âm thanh lật trang"
+                                    >
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path
+                                                d="M16.5 12A4.5 4.5 0 0 0 14 7.97v2.21l2.45 2.45c.03-.2.05-.41.05-.63m2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.8 8.8 0 0 0 21 12a8.99 8.99 0 0 0-7-8.77v2.06A7 7 0 0 1 19 12M4.27 3 3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25A7 7 0 0 1 14 18.7v2.06a9 9 0 0 0 3.69-1.81L19.73 21 21 19.73l-9-9zM12 4 9.91 6.09 12 8.18z"
+                                            />
+                                        </svg>
+                                    </button>
+                                    <div class="baoin-tb-sep"></div>
+                                    <button
+                                        type="button"
+                                        class="baoin-tb-btn"
+                                        id="baoin-fullscreen"
+                                        title="Toàn màn hình"
+                                        aria-label="Toàn màn hình"
+                                    >
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path
+                                                d="M7 14H5v5h5v-2H7zm-2-4h2V7h3V5H5zm12 7h-3v2h5v-5h-2zM14 5v2h3v3h2V5z"
+                                            />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <!-- Lớp phủ trước khi nạp trình xem -->
+                                <button
+                                    type="button"
+                                    class="baoin-viewer__poster"
+                                    id="baoin-viewer-poster"
+                                >
+                                    <img id="baoin-viewer-poster-img" src="" alt="" />
+                                    <span>Bấm để đọc số báo này</span>
+                                </button>
+                                <div class="baoin-viewer__spinner" id="baoin-viewer-spinner" hidden>
+                                    Đang tải số báo…
                                 </div>
                             </div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
+                        </section>
+
+                        <hr class="baoin-divider" />
+
+                        <!-- Mỗi chuyên mục = 1 hàng swiper.
+                             script/index.js đổ slide vào .swiper-wrapper theo data-cate
+                             rồi gọi SwiperManager.init(). Tiêu đề + nút "Xem thêm" để
+                             tĩnh để trang vẫn đọc được khi JS chưa chạy. -->
+                        <section data-cate="hang-ngay" aria-labelledby="baoin-cate-hang-ngay">
+                            <div class="baoin-blockhead">
+                                <h2 id="baoin-cate-hang-ngay" class="baoin-blockhead__title">
+                                    Báo Thái Nguyên hằng ngày
+                                </h2>
+                                <a class="baoin-blockhead__action" href="/doc-bao-in/">
+                                    Xem thêm
+                                    <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
+
+                            <div
+                                class="swiper baoin-cate-swiper"
+                                data-swiper
+                                data-swiper-slides-per-view="1.15"
+                                data-swiper-space-between="20"
+                                data-swiper-breakpoints='{"520":{"slidesPerView":2},"1280":{"slidesPerView":3}}'
+                            >
+                                <div class="swiper-wrapper"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </section>
+
+                        <hr class="baoin-divider" />
+
+                        <section data-cate="van-nghe" aria-labelledby="baoin-cate-van-nghe">
+                            <div class="baoin-blockhead">
+                                <h2 id="baoin-cate-van-nghe" class="baoin-blockhead__title">
+                                    Văn nghệ Thái Nguyên
+                                </h2>
+                                <a
+                                    class="baoin-blockhead__action"
+                                    href="/doc-bao-in/van-nghe-thai-nguyen/"
+                                >
+                                    Xem thêm
+                                    <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
+
+                            <div
+                                class="swiper baoin-cate-swiper"
+                                data-swiper
+                                data-swiper-slides-per-view="1.15"
+                                data-swiper-space-between="20"
+                                data-swiper-breakpoints='{"520":{"slidesPerView":2},"1280":{"slidesPerView":3}}'
+                            >
+                                <div class="swiper-wrapper"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </section>
+
+                        <hr class="baoin-divider" />
+
+                        <section data-cate="mien-nui" aria-labelledby="baoin-cate-mien-nui">
+                            <div class="baoin-blockhead">
+                                <h2 id="baoin-cate-mien-nui" class="baoin-blockhead__title">
+                                    Thái Nguyên miền núi - vùng cao
+                                </h2>
+                                <a
+                                    class="baoin-blockhead__action"
+                                    href="/doc-bao-in/thai-nguyen-mien-nui---vung-cao/"
+                                >
+                                    Xem thêm
+                                    <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
+
+                            <div
+                                class="swiper baoin-cate-swiper"
+                                data-swiper
+                                data-swiper-slides-per-view="1.15"
+                                data-swiper-space-between="20"
+                                data-swiper-breakpoints='{"520":{"slidesPerView":2},"1280":{"slidesPerView":3}}'
+                            >
+                                <div class="swiper-wrapper"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </section>
                     </div>
-
-                    <div
-                        id="print-newspaper-list"
-                        class="t:grid t:grid-cols-1 t:max-pc:gap-y-7 t:md:max-pc:grid-cols-2 t:md:max-pc:gap-x-5 t:pc:grid-cols-3 t:pc:gap-x-7 t:pc:gap-y-7"
-                    ></div>
-
-                    <nav
-                        id="print-newspaper-pagination"
-                        aria-label="Phân trang đọc báo in"
-                        class="t:flex t:items-center t:justify-center t:gap-x-1 t:mt-8 t:w-full roboto"
-                    ></nav>
                 </div>
-            </section>
+            </div>
         </main>
 
         <!-- Footer -->
@@ -1688,6 +1498,80 @@
             </div>
         </footer>
 
+        <!-- Thanh chuyển nền tảng cố định đáy — bản mobile của #desktopNav.
+             Chỉ hiện dưới sm vì từ sm trở lên đã có nav trên header. -->
+        <div
+            class="baoin-platform-bar t:fixed t:bottom-0 t:left-0 t:right-0 t:z-[60] t:bg-[#FCF5F5] t:flex t:sm:hidden t:px-1.5 t:py-1.5 t:shadow-[0_-2px_10px_rgba(0,0,0,0.05)]"
+        >
+            <nav
+                id="mobileNav"
+                aria-label="Nền tảng"
+                class="t:relative t:flex t:w-full t:justify-between t:items-center noto t:text-[12px] t:font-medium t:z-0"
+            >
+                <div
+                    id="mobileIndicator"
+                    class="t:absolute t:top-0 t:left-0 t:h-full t:w-1/4 t:bg-[#EC1C23] t:rounded-lg t:-z-10 t:transition-transform t:duration-300 t:ease-out"
+                ></div>
+
+                <a
+                    href="/truyen-hinh/"
+                    class="t:flex-1 t:flex t:flex-col t:items-center t:justify-center t:text-[#8F9BB3] t:py-1.5 t:gap-y-0.5 t:transition-all t:duration-300"
+                >
+                    <div
+                        class="bot-nav-icon t:w-6 t:h-6 t:transition-all t:duration-300"
+                        style="
+                            -webkit-mask-image: url(&quot;./images/ic_bot_home.png&quot;);
+                            mask-image: url(&quot;./images/ic_bot_home.png&quot;);
+                        "
+                    ></div>
+                    <span class="t:whitespace-nowrap">Truyền Hình</span>
+                </a>
+
+                <a
+                    href="/phat-thanh/"
+                    class="t:flex-1 t:flex t:flex-col t:items-center t:justify-center t:text-[#8F9BB3] t:py-1.5 t:gap-y-0.5 t:transition-all t:duration-300"
+                >
+                    <div
+                        class="bot-nav-icon t:w-6 t:h-6 t:transition-all t:duration-300"
+                        style="
+                            -webkit-mask-image: url(&quot;./images/ic_bot_audio.png&quot;);
+                            mask-image: url(&quot;./images/ic_bot_audio.png&quot;);
+                        "
+                    ></div>
+                    <span class="t:whitespace-nowrap">Phát Thanh</span>
+                </a>
+
+                <a
+                    href="/doc-bao-in/"
+                    aria-current="page"
+                    class="t:flex-1 t:flex t:flex-col t:items-center t:justify-center t:text-white t:py-1.5 t:gap-y-0.5 t:transition-all t:duration-300"
+                >
+                    <div
+                        class="bot-nav-icon t:w-6 t:h-6 t:transition-all t:duration-300"
+                        style="
+                            -webkit-mask-image: url(&quot;./images/ic_bot_news.png&quot;);
+                            mask-image: url(&quot;./images/ic_bot_news.png&quot;);
+                        "
+                    ></div>
+                    <span class="t:whitespace-nowrap">Báo In</span>
+                </a>
+
+                <a
+                    href="/nen-tang-so/"
+                    class="t:flex-1 t:flex t:flex-col t:items-center t:justify-center t:text-[#8F9BB3] t:py-1.5 t:gap-y-0.5 t:transition-all t:duration-300"
+                >
+                    <div
+                        class="bot-nav-icon t:w-6 t:h-6 t:transition-all t:duration-300"
+                        style="
+                            -webkit-mask-image: url(&quot;./images/ic_bot_global.png&quot;);
+                            mask-image: url(&quot;./images/ic_bot_global.png&quot;);
+                        "
+                    ></div>
+                    <span class="t:whitespace-nowrap">Nền Tảng Số</span>
+                </a>
+            </nav>
+        </div>
+
         <button
             type="button"
             id="scrollToTopBtn"
@@ -1716,6 +1600,57 @@
             })();
         </script>
 
+        <script>
+            /* Thanh trượt nền dưới mục nền tảng đang xem (#desktopNav).
+               Mục đang xem đánh dấu bằng aria-current="page" ngay trong HTML —
+               không dò theo class như bản trang_truyen_hinh, để trang nào cũng
+               chỉ cần sửa markup là đúng. */
+            (function () {
+                const activeIndexOf = (nav) =>
+                    Math.max(
+                        0,
+                        [...nav.querySelectorAll("a")].findIndex(
+                            (el) => el.getAttribute("aria-current") === "page",
+                        ),
+                    );
+
+                /* Header desktop: thanh trượt bám đúng bề rộng mục đang xem. */
+                const desktopNav = document.getElementById("desktopNav");
+                const desktopIndicator = document.getElementById("desktopIndicator");
+
+                function positionDesktop() {
+                    if (!desktopNav || !desktopIndicator) return;
+                    const item = desktopNav.querySelectorAll("a")[activeIndexOf(desktopNav)];
+                    if (!item) return;
+                    desktopIndicator.style.width = `${item.offsetWidth}px`;
+                    desktopIndicator.style.transform = `translateX(${item.offsetLeft}px)`;
+                }
+
+                /* Thanh đáy mobile: 4 mục chia đều, indicator rộng 1/4 nên chỉ
+                   cần dịch theo bội số 100%. */
+                const mobileNav = document.getElementById("mobileNav");
+                const mobileIndicator = document.getElementById("mobileIndicator");
+
+                function positionMobile() {
+                    if (!mobileNav || !mobileIndicator) return;
+                    mobileIndicator.style.transform = `translateX(${activeIndexOf(mobileNav) * 100}%)`;
+                }
+
+                function positionAll() {
+                    positionDesktop();
+                    positionMobile();
+                }
+
+                positionAll();
+
+                /* Nav dùng font noto — chữ đổi bề rộng khi font thật nạp xong,
+                   phải đo lại nếu không thanh trượt sẽ lệch. */
+                if (document.fonts?.ready) document.fonts.ready.then(positionAll);
+
+                window.addEventListener("resize", positionAll);
+            })();
+        </script>
+
         <script src="../common/common.js"></script>
         <script type="module" src="../common/swiper.js"></script>
         <script type="module" src="../common/floating-dropdown.js"></script>
@@ -1725,5 +1660,6 @@
         <script type="module" src="../common/header-sticky.js"></script>
         <script type="module" src="../common/header.js"></script>
         <script type="module" src="./script/index.js"></script>
+        <script type="module" src="./script/epaper.js"></script>
     </body>
 </html>

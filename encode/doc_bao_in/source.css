@@ -168,6 +168,43 @@
     display: none !important;
 }
 
+/* ── Thanh chuyển nền tảng cố định đáy (chỉ dưới 640px) ──────────────
+ * trang_truyen_hinh dùng class `t:pb-safe` nhưng class đó KHÔNG được định
+ * nghĩa ở đâu cả — ở đây làm bằng env() thật, và chừa chỗ dưới trang để
+ * thanh không che mất chân footer.
+ */
+
+.baoin-platform-bar {
+    padding-bottom: calc(0.375rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Layout 254/300 dùng chung portlet phat_thanh_footer, và thanh nền tảng của
+   nó gọi `t:pb-safe` — một class KHÔNG hề tồn tại trong Tailwind lẫn repo, nên
+   ở mọi trang khác nó im lặng không làm gì. Định nghĩa thật ngay trong bundle
+   của trang này để thanh không dính sát vạch home indicator trên iPhone. */
+.t\:pb-safe {
+    padding-bottom: calc(0.375rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Thanh cao ~68px — chừa dư một chút để chân footer không bị che. */
+@media (max-width: 639px) {
+    body.home-page {
+        padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+/* Icon thanh nền tảng: tô màu bằng mask nên đổi màu theo currentColor,
+   dùng chung cho trạng thái đang xem (trắng) và chưa xem (xám). */
+.bot-nav-icon {
+    background-color: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
 .scroll-top-button {
     position: fixed;
     right: 1.5rem;
@@ -204,50 +241,690 @@
     background: #07528f;
 }
 
-/* pagination */
+/* ─────────────────────────────────────────────────────────────────────
+ * Đọc báo in — bố cục 2 cột
+ * Cột trái: chuyên mục chính + các chuyên mục phụ (sticky ở desktop).
+ * Cột phải: trình xem PDF số mới nhất + danh sách ấn phẩm.
+ * Viết bằng CSS thuần (không phải utility) vì thứ tự emit của
+ * t:pc:* / t:md:* trong output.css không đảm bảo — xem tw-pc-md-breakpoint-order.
+ * ───────────────────────────────────────────────────────────────────── */
 
-#print-newspaper-pagination {
-    clear: both;
-    gap: 8px;
-    margin-bottom: 24px;
+.baoin-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
 }
 
-#print-newspaper-pagination button,
-#print-newspaper-pagination span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 32px;
-    height: 32px;
-    border: 1px solid #d0d5dd;
-    border-radius: 4px;
-    background: #fff;
-    color: #212636;
-    font-family: "Roboto", sans-serif;
+/* ── Cột trái ── */
+
+.baoin-sidebar__heading {
+    margin: 0;
+    font-family: "Noto Serif", serif;
+    font-size: 22px;
+    line-height: 1.25;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #935f25;
+}
+
+/* common.css có rule TOÀN CỤC `a:hover { color: #30a14a }` nạp SAU output.css.
+   Cần độ đặc hiệu cao hơn (0,2,1) để giữ tông nâu của trang Đọc báo in. */
+.baoin-sidebar__heading a,
+.baoin-sidebar__heading a:hover {
+    color: inherit;
+}
+
+.baoin-catenav {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.baoin-catenav::-webkit-scrollbar {
+    display: none;
+}
+
+.baoin-catenav__item {
+    flex: 0 0 auto;
+    padding: 7px 14px;
+    border: 1px solid #e0d9cd;
+    border-radius: 999px;
+    background: #faf7f2;
+    color: #5b5b5b;
+    font-family: "Noto Serif", serif;
     font-size: 14px;
-    line-height: 1;
-    cursor: pointer;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
     transition:
         color 0.2s ease,
         border-color 0.2s ease,
         background-color 0.2s ease;
 }
 
-#print-newspaper-pagination button:hover:not(:disabled):not([aria-current="page"]) {
+.baoin-catenav__item:hover {
+    color: #935f25;
     border-color: #935f25;
+    background: #fff;
+}
+
+.baoin-catenav__item.is-active {
+    color: #fff;
+    background: #935f25;
+    border-color: #935f25;
+}
+
+/* ── Tiêu đề khối trong cột phải ── */
+
+.baoin-blockhead {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.baoin-blockhead__title {
+    margin: 0;
+    font-family: "Noto Serif", serif;
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 700;
+    text-transform: uppercase;
     color: #935f25;
 }
 
-#print-newspaper-pagination button[aria-current="page"] {
-    border-color: #935f25;
-    background: #935f25;
-    color: #fff;
-    cursor: default;
+.baoin-blockhead__meta {
+    margin: 4px 0 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    color: #777;
 }
 
-#print-newspaper-pagination button:disabled {
-    border-color: #d0d5dd;
-    background: #fff;
-    color: #8a94a6;
+.baoin-blockhead__action {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: #935f25;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.baoin-blockhead__action:hover {
+    background: #7e4f1d;
+    color: #fff;
+}
+
+.baoin-divider {
+    height: 1px;
+    margin: 28px 0;
+    border: 0;
+    background: #e2dbd1;
+}
+
+@media (min-width: 1000px) {
+    .baoin-layout {
+        grid-template-columns: 210px minmax(0, 1fr);
+        column-gap: 28px;
+        row-gap: 0;
+        align-items: start;
+    }
+
+    .baoin-sidebar {
+        position: sticky;
+        top: var(--baoin-sticky-top, 72px);
+    }
+
+    .baoin-content {
+        min-width: 0;
+        border-left: 1px solid #e2dbd1;
+        padding-left: 28px;
+    }
+
+    .baoin-sidebar__heading {
+        font-size: 24px;
+    }
+
+    .baoin-catenav {
+        display: block;
+        margin-top: 16px;
+        overflow: visible;
+    }
+
+    .baoin-catenav__item {
+        display: block;
+        padding: 10px 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        color: #333;
+        font-size: 15px;
+        white-space: normal;
+    }
+
+    .baoin-catenav__item + .baoin-catenav__item {
+        border-top: 1px solid #efe9df;
+    }
+
+    .baoin-catenav__item:hover,
+    .baoin-catenav__item.is-active {
+        background: transparent;
+        color: #935f25;
+    }
+
+    .baoin-blockhead__title {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .baoin-layout {
+        grid-template-columns: 240px minmax(0, 1fr);
+        column-gap: 40px;
+    }
+
+    .baoin-content {
+        padding-left: 40px;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * Trình xem PDF nhúng (DFlip) — phỏng theo dhd_page_flit nhưng chạy
+ * trong một khối cao cố định giữa trang cuộn, theme sáng.
+ * ───────────────────────────────────────────────────────────────────── */
+
+.baoin-viewer {
+    position: relative;
+    background: #efeae2;
+    border: 1px solid #ded6c9;
+    border-radius: 4px;
+    overflow: hidden;
+    /* chiều cao khớp giá trị JS truyền vào DFlip (xem script/epaper.js) */
+    height: 500px;
+}
+
+@media (min-width: 768px) {
+    .baoin-viewer {
+        height: 520px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .baoin-viewer {
+        height: 620px;
+    }
+}
+
+#epaper_preview {
+    width: 100%;
+    height: 100%;
+}
+
+/* DFlip tự sinh thanh điều khiển riêng — ẩn đi, dùng toolbar tuỳ biến bên dưới.
+   display:none vẫn cho phép .trigger("click") bằng JS.
+   LƯU Ý: cặp mũi tên lớn hai bên sách KHÔNG nằm trong .df-ui-wrapper mà được
+   append thẳng vào .df-container, nên phải ẩn riêng — nếu không sẽ chồng lên
+   nút .baoin-viewer__nav của mình. */
+.baoin-viewer .df-ui-wrapper,
+.baoin-viewer .df-outline-container,
+.baoin-viewer .df-thumb-container,
+.baoin-viewer .df-container > .df-ui-btn {
+    display: none !important;
+}
+
+/* Trên thiết bị cảm ứng, DFlip đăng ký touchmove vô điều kiện và
+   preventDefault() khi lệch ngang > 15px → vuốt dọc vừa lật trang vừa mất
+   cuộn trang. pan-y trả quyền cuộn dọc lại cho trình duyệt. */
+.baoin-viewer .df-book-stage,
+.baoin-viewer .df-page-wrapper,
+.baoin-viewer canvas {
+    touch-action: pan-y;
+}
+
+/* Chỉ báo tiến độ của DFlip — đổi sang tông sáng cho khớp trang. */
+.baoin-viewer .loading-info {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #8a7a63;
+    border-radius: 999px;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+}
+
+/* ── Lớp phủ "bấm để đọc" trước khi nạp DFlip ── */
+
+.baoin-viewer__poster {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 0;
+    width: 100%;
+    background: #efeae2;
+    color: #935f25;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.baoin-viewer__poster img {
+    max-height: 62%;
+    width: auto;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.baoin-viewer__poster[hidden] {
+    display: none;
+}
+
+.baoin-viewer__spinner {
+    position: absolute;
+    inset: 0;
+    z-index: 25;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8a7a63;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+}
+
+.baoin-viewer__spinner[hidden] {
+    display: none;
+}
+
+/* ── Bộ đếm trang ── */
+
+.baoin-viewer__counter {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 20;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    pointer-events: none;
+}
+
+/* ── Nút lật trang hai bên ── */
+
+.baoin-viewer__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 64px;
+    padding: 0;
+    border: 0;
+    background: rgba(0, 0, 0, 0.24);
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease;
+}
+
+.baoin-viewer__nav:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.baoin-viewer__nav:disabled {
+    opacity: 0.25;
     cursor: default;
+    pointer-events: none;
+}
+
+.baoin-viewer__nav--prev {
+    left: 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.baoin-viewer__nav--next {
+    right: 0;
+    border-radius: 4px 0 0 4px;
+}
+
+.baoin-viewer__nav svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+}
+
+/* ── Thanh công cụ dưới ── */
+
+.baoin-viewer__toolbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.baoin-tb-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #4a4a4a;
+    cursor: pointer;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+.baoin-tb-btn svg {
+    width: 19px;
+    height: 19px;
+    fill: currentColor;
+}
+
+.baoin-tb-btn:hover {
+    background: rgba(147, 95, 37, 0.1);
+    color: #935f25;
+}
+
+.baoin-tb-btn.is-active {
+    color: #935f25;
+}
+
+.baoin-tb-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+    pointer-events: none;
+}
+
+.baoin-tb-sep {
+    width: 1px;
+    height: 20px;
+    margin: 0 5px;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+/* ── Mục lục (trượt từ trái, nằm TRONG khung xem) ── */
+
+.baoin-toc {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 40;
+    width: 214px;
+    background: #fff;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.16);
+    transform: translateX(-100%);
+    transition: transform 0.26s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.baoin-toc.is-open {
+    transform: translateX(0);
+}
+
+.baoin-toc__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-bottom: 1px solid #eee;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #935f25;
+}
+
+.baoin-toc__close {
+    border: 0;
+    background: none;
+    color: #aaa;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+}
+
+.baoin-toc__close:hover {
+    color: #333;
+}
+
+.baoin-toc__list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.baoin-toc__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 9px 16px;
+    border: 0;
+    border-bottom: 1px solid #f2f2f2;
+    background: none;
+    color: #333;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    text-align: left;
+}
+
+.baoin-toc__item span {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.baoin-toc__item:hover {
+    background: #faf7f2;
+}
+
+.baoin-toc__item.is-current {
+    background: #f6efe6;
+    color: #935f25;
+    font-weight: 600;
+}
+
+/* ── Hộp chia sẻ ── */
+
+.baoin-share {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 16px;
+}
+
+.baoin-share.is-open {
+    display: flex;
+}
+
+.baoin-share__box {
+    width: 320px;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    font-family: "Roboto", sans-serif;
+}
+
+.baoin-share__box h3 {
+    margin: 0 0 12px;
+    font-size: 14px;
+    color: #222;
+}
+
+.baoin-share__row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.baoin-share__row input {
+    flex: 1;
+    min-width: 0;
+    padding: 7px 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #333;
+    outline: none;
+}
+
+.baoin-share__row button {
+    padding: 7px 14px;
+    border: 0;
+    border-radius: 6px;
+    background: #935f25;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.baoin-share__row button:hover {
+    background: #7e4f1d;
+}
+
+.baoin-share__close {
+    display: block;
+    width: 100%;
+    border: 0;
+    background: none;
+    color: #888;
+    font-size: 12px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.baoin-share__close:hover {
+    color: #333;
+}
+
+/* ── Toàn màn hình ── */
+
+.baoin-viewer:fullscreen {
+    height: 100vh;
+    border: 0;
+    border-radius: 0;
+}
+
+.baoin-viewer:-webkit-full-screen {
+    height: 100vh;
+    border: 0;
+    border-radius: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * Hàng ấn phẩm theo chuyên mục — mỗi chuyên mục 1 swiper.
+ * Nút điều hướng nằm GIỮA, BÊN DƯỚI hàng thẻ: .swiper có overflow:hidden
+ * nên phải chừa padding-bottom rồi neo nút vào đúng dải padding đó
+ * (nội dung trong padding vẫn nằm trong hộp nên không bị cắt).
+ * ───────────────────────────────────────────────────────────────────── */
+
+/* .swiper (0,1,0) trong swiper-bundle.min.css đặt padding:0 và file đó nạp SAU
+   output.css → phải dùng .swiper.baoin-cate-swiper (0,2,0) mới thắng. */
+.swiper.baoin-cate-swiper {
+    padding-bottom: 52px;
+}
+
+/* Thẻ cao bằng nhau: slide phải h-auto để stretch, thẻ bên trong h-full. */
+.baoin-cate-swiper .swiper-slide {
+    height: auto;
+}
+
+.baoin-cate-swiper .swiper-button-prev,
+.baoin-cate-swiper .swiper-button-next {
+    top: auto;
+    bottom: 0;
+    right: auto;
+    width: 46px;
+    height: 32px;
+    margin: 0;
+    border-radius: 999px;
+    background: #f4efe7;
+    color: #935f25;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.baoin-cate-swiper .swiper-button-prev {
+    left: 50%;
+    transform: translateX(-52px);
+}
+
+.baoin-cate-swiper .swiper-button-next {
+    left: 50%;
+    transform: translateX(6px);
+}
+
+.baoin-cate-swiper .swiper-button-prev::after,
+.baoin-cate-swiper .swiper-button-next::after {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.baoin-cate-swiper .swiper-button-prev:hover,
+.baoin-cate-swiper .swiper-button-next:hover {
+    background: #935f25;
+    color: #fff;
+}
+
+/* Đủ slide để lấp khung → Swiper gắn .swiper-button-lock (bundle đã ẩn sẵn),
+   nên thu lại luôn dải padding chừa cho nút. */
+.swiper.baoin-cate-swiper:has(.swiper-button-next.swiper-button-lock) {
+    padding-bottom: 0;
+}
+
+/* Slide chờ khi đang nạp thêm ấn phẩm (chỉ hiện nếu nguồn dữ liệu chậm). */
+.baoin-slide-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    border: 1px dashed #ded6c9;
+    border-radius: 4px;
+    background: #faf7f2;
+    color: #8a7a63;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
 }

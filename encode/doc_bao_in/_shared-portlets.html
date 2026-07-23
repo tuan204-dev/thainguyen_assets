@@ -1,0 +1,629 @@
+<!--
+  KHÔNG PHẢI TRANG — chỉ là NGUỒN QUÉT CLASS cho Tailwind.
+
+  Layout Cate_Baoin (254) / Cate_mobile_baoin (300) dùng chung hai portlet
+  header/footer của trang Phát thanh (phat_thanh_header #286, phat_thanh_footer
+  #285). Markup đó nằm trong CMS chứ không nằm trong repo, mà
+  doc_bao_in/source.css chỉ quét ./**/*.html — thiếu file này thì
+  `bun run tw doc_bao_in --build` sẽ không sinh class Tailwind của header/footer
+  và trang mất style.
+
+  Sinh lại khi hai portlet đó đổi markup:
+    psql … -c "SELECT content FROM portlets WHERE code IN ('phat_thanh_header','phat_thanh_footer')"
+-->
+<footer data-portlet="phat_thanh_footer" class="t:bg-[#550000] t:pt-10 t:pb-24 t:min-[1200px]:pb-6 home-footer noto">
+    <div class="t:container t:mx-auto">
+        <div class="t:grid t:gap-y-6 t:pc:grid-cols-[1fr_auto] t:min-[1200px]:grid-cols-[auto_1fr_auto] t:pc:gap-x-20 t:items-start">
+            <div class="t:my-auto t:min-[1200px]:mt-0">
+                <img src="https://r2-thainguyen.media-soft.cloud/trang_phat_thanh/desktop/images/logo_light.png" alt="Báo Thái Nguyên" class="t:object-contain t:max-w-[450px] t:min-[1200px]:max-w-[350px] t:w-full" />
+            </div>
+
+            <div class="t:flex t:flex-col t:gap-y-2 t:text-xs t:leading-[1.5] t:pc:order-9 t:pc:col-span-2 t:min-[1200px]:col-span-1 t:min-[1200px]:order-none">
+                <div class="t:flex t:gap-x-4 t:items-start">
+                    <p class="t:w-25 t:shrink-0 t:text-white/80">Trụ sở:</p>
+                    <p class="t:flex-1 t:font-semibold t:text-white">Cơ sở 1 số 226 đường Bến Oánh; Cơ sở 2 số 19 phố Nhị Quý, phường Phan Đình Phùng, tỉnh Thái Nguyên</p>
+                </div>
+                <div class="t:flex t:gap-x-4 t:items-start">
+                    <p class="t:w-25 t:shrink-0 t:text-white/80">Giám đốc:</p>
+                    <p class="t:flex-1 t:font-semibold t:text-white">Đỗ Xuân Hòa</p>
+                </div>
+                <div class="t:flex t:gap-x-4 t:items-start">
+                    <p class="t:w-25 t:shrink-0 t:text-white/80">Phó Giám đốc:</p>
+                    <p class="t:flex-1 t:font-semibold t:text-white">Nguyễn Ngọc Sơn</p>
+                </div>
+                <div class="t:flex t:gap-x-4 t:items-start">
+                    <p class="t:w-25 t:shrink-0 t:text-white/80">Điện thoại:</p>
+                    <p class="t:flex-1 t:font-semibold t:text-white"><a href="tel:02083859666">0208.3859.666</a></p>
+                </div>
+                <div class="t:flex t:gap-x-4 t:items-start">
+                    <p class="t:w-25 t:shrink-0 t:text-white/80">Đường dây nóng:</p>
+                    <p class="t:flex-1 t:font-semibold t:text-white"><a href="tel:0902006113">0902006113</a> - <a href="tel:0912039880">091 2039880</a></p>
+                </div>
+                <div class="t:flex t:gap-x-4 t:items-start">
+                    <p class="t:w-25 t:shrink-0 t:text-white/80">Email:</p>
+                    <p class="t:flex-1 t:font-semibold t:text-white t:break-all"><a href="mailto:toasoan@baothainguyen.vn">toasoan@baothainguyen.vn</a>; <a href="mailto:toasoan@baothainguyen.com.vn">toasoan@baothainguyen.com.vn</a></p>
+                </div>
+            </div>
+
+            <div class="t:flex t:flex-col t:gap-y-3 t:w-full t:pc:w-fit t:ml-auto">
+                <p class="t:text-xs t:text-white">Quét mã tải ứng dụng tại:</p>
+                <div class="t:flex t:gap-x-4">
+                    <div class="t:flex t:flex-col t:items-center t:gap-y-1">
+                        <img src="https://r2-thainguyen.media-soft.cloud/common/assets/android.jpg" alt="Tải bản Android" class="t:size-26 t:object-contain" />
+                        <span class="t:text-xs t:text-white">Bản Android</span>
+                    </div>
+                    <div class="t:flex t:flex-col t:items-center t:gap-y-1">
+                        <img src="https://r2-thainguyen.media-soft.cloud/common/assets/ios.jpg" alt="Tải bản iOS" class="t:size-26 t:object-contain" />
+                        <span class="t:text-xs t:text-white">Bản IOS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="t:my-4 t:border-0 t:border-t t:border-white/20" />
+
+        <div class="t:flex t:flex-col t:gap-y-1 t:text-xs t:font-semibold t:text-white t:leading-[1.5]">
+            <p>Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT cấp ngày 20 tháng 11 năm 2023.</p>
+            <p>Bản quyền thuộc về Báo và Phát thanh, Truyền hình Thái Nguyên. Ghi rõ nguồn “<a href="https://baothainguyen.vn">https://baothainguyen.vn</a>” khi phát hành lại thông tin từ website này</p>
+        </div>
+    </div>
+</footer>
+
+<button type="button" id="scrollToTopBtn" data-portlet="phat_thanh_footer" aria-label="Lên đầu trang" class="" style="position: fixed; right: 24px; bottom: 24px; width: 44px; height: 44px; border: none; border-radius: 9999px; background: #ec1c23; color: #fff; display: none; align-items: center; justify-content: center; cursor: pointer; font-size: 18px; line-height: 1; z-index: 120; box-shadow: 0 8px 24px rgba(10, 100, 180, 0.35); opacity: 0; transform: translateY(8px); transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.25s ease;">↑</button>
+
+<div data-portlet="phat_thanh_footer" class="t:fixed t:bottom-0 t:left-0 t:right-0 t:z-[60] t:bg-[#FCF5F5] t:flex t:sm:hidden t:px-1.5 t:py-1.5 t:shadow-[0_-2px_10px_rgba(0,0,0,0.05)] t:pb-safe">
+            <style>
+            [data-portlet=phat_thanh_footer] .tvn-cell { position: relative; flex: 1 1 0%; display: flex; }
+            [data-portlet=phat_thanh_footer] .tvn-btn { width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; margin: 0; padding: 6px 0; background: none; border: 0; cursor: pointer; font: inherit; color: #8F9BB3; transition: color .3s ease; -webkit-tap-highlight-color: transparent; }
+            [data-portlet=phat_thanh_footer] .tvn-cell.is-open .tvn-btn { color: #EC1C23; }
+            [data-portlet=phat_thanh_footer] .tvn-pop { position: absolute; right: 0; bottom: calc(100% + 14px); display: flex; gap: 6px; padding: 10px; background: #fff; border: 1px solid #DCDFE4; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,.18); opacity: 0; visibility: hidden; transform: translateY(10px) scale(.95); transform-origin: bottom right; transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s; z-index: 95; }
+            [data-portlet=phat_thanh_footer] .tvn-cell.is-open .tvn-pop { opacity: 1; visibility: visible; transform: translateY(0) scale(1); transition: opacity .2s ease, transform .2s ease, visibility 0s; }
+            [data-portlet=phat_thanh_footer] .tvn-pop::after { content: ""; position: absolute; top: 100%; right: 26px; border: 7px solid transparent; border-top-color: #fff; }
+            [data-portlet=phat_thanh_footer] .tvn-item { display: flex; flex-direction: column; align-items: center; gap: 5px; width: 58px; text-decoration: none; }
+            [data-portlet=phat_thanh_footer] .tvn-ico { width: 44px; height: 44px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; background: #F4F6F8; }
+            [data-portlet=phat_thanh_footer] .tvn-ico i { width: 24px; height: 24px; font-size: 24px; }
+            [data-portlet=phat_thanh_footer] .tvn-label { font-size: 10px; color: #667085; text-align: center; line-height: 1.2; }
+            @media (max-width: 639.98px) {
+                #scrollToTopBtn { bottom: calc(88px + env(safe-area-inset-bottom)) !important; }
+            }
+        </style>
+<nav id="mobileNav" class="t:relative t:flex t:w-full t:justify-between t:items-center noto t:text-[12px] t:font-medium t:z-0">
+        <div id="mobileIndicator" class="t:absolute t:top-0 t:left-0 t:h-full t:w-1/4 t:bg-[#EC1C23] t:rounded-lg t:-z-10 t:transition-transform t:duration-300 t:ease-out" style="transform: translateX(100%)"></div>
+
+        <a href="<%= absUrl('/truyen-hinh') %>" class="t:flex-1 t:flex t:flex-col t:items-center t:justify-center t:text-[#8F9BB3] t:py-1.5 t:gap-y-0.5 t:transition-all t:duration-300">
+            <i class="ph--monitor" style="font-size: 24px"></i>
+            <span class="t:whitespace-nowrap">Truyền Hình</span>
+        </a>
+
+        <a href="<%= absUrl('/phat-thanh') %>" class="t:flex-1 t:flex t:flex-col t:items-center t:justify-center t:text-white t:py-1.5 t:gap-y-0.5 t:transition-all t:duration-300">
+            <i class="iconoir--voice-circle" style="font-size: 24px"></i>
+            <span class="t:whitespace-nowrap">Phát Thanh</span>
+        </a>
+
+        <a href="<%= absUrl('/doc-bao-in') %>" class="t:flex-1 t:flex t:flex-col t:items-center t:justify-center t:text-[#8F9BB3] t:py-1.5 t:gap-y-0.5 t:transition-all t:duration-300">
+            <i class="ph--newspaper" style="font-size: 24px"></i>
+            <span class="t:whitespace-nowrap">Báo In</span>
+        </a>
+
+        <div class="tvn-cell" data-tvn-cell>
+            <button type="button" class="tvn-btn" aria-expanded="false" aria-haspopup="true" aria-label="Nền tảng số" data-tvn-toggle>
+                <i class="ph--globe-simple" style="font-size: 24px"></i>
+                <span class="t:whitespace-nowrap">Nền Tảng Số</span>
+            </button>
+            <div class="tvn-pop" data-tvn-pop role="menu">
+                <a class="tvn-item" href="https://web.facebook.com/baoptththainguyen" target="_blank" rel="noopener noreferrer" role="menuitem">
+                    <span class="tvn-ico"><i class="logos--facebook" style="color:#1877F2"></i></span>
+                    <span class="tvn-label">Facebook</span>
+                </a>
+                <a class="tvn-item" href="https://www.tiktok.com/@baothainguyen.official" target="_blank" rel="noopener noreferrer" role="menuitem">
+                    <span class="tvn-ico"><i class="logos--tiktok" style="color:#111111"></i></span>
+                    <span class="tvn-label">TikTok</span>
+                </a>
+                <a class="tvn-item" href="https://www.youtube.com/c/daiptththainguyentntv" target="_blank" rel="noopener noreferrer" role="menuitem">
+                    <span class="tvn-ico"><i class="logos--youtube" style="color:#FF0000"></i></span>
+                    <span class="tvn-label">YouTube</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+        <script>
+            (function () {
+                var cell = document.querySelector('[data-portlet=phat_thanh_footer] [data-tvn-cell]');
+                var btn = cell ? cell.querySelector('[data-tvn-toggle]') : null;
+                if (!cell || !btn) return;
+                function setOpen(open) {
+                    cell.classList.toggle('is-open', open);
+                    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                }
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    setOpen(!cell.classList.contains('is-open'));
+                });
+                document.addEventListener('click', function (e) {
+                    if (!cell.contains(e.target)) setOpen(false);
+                });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') setOpen(false);
+                });
+            })();
+        </script>
+
+</div>
+
+<script>
+    (function () {
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        if (!scrollToTopBtn) return;
+
+        const toggleVisibility = () => {
+            const isVisible = window.scrollY > 280;
+            if (isVisible) {
+                if (scrollToTopBtn.style.display !== "flex") {
+                    scrollToTopBtn.style.display = "flex";
+                    requestAnimationFrame(() => {
+                        scrollToTopBtn.style.opacity = "1";
+                        scrollToTopBtn.style.transform = "translateY(0)";
+                    });
+                }
+            } else {
+                scrollToTopBtn.style.opacity = "0";
+                scrollToTopBtn.style.transform = "translateY(8px)";
+                setTimeout(() => {
+                    if (window.scrollY <= 280) {
+                        scrollToTopBtn.style.display = "none";
+                    }
+                }, 250);
+            }
+        };
+
+        window.addEventListener("scroll", toggleVisibility, { passive: true });
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        toggleVisibility();
+    })();
+</script>
+<% var MENU_SOURCE = (typeof MENU_LIST !== 'undefined' && Array.isArray(MENU_LIST)) ? MENU_LIST : [];
+   var MAX_MENU_DEPTH_INPUT = typeof MENU_MAX_DEPTH !== 'undefined' ? Number(MENU_MAX_DEPTH) : 3;
+   var MAX_MENU_DEPTH = Number.isFinite(MAX_MENU_DEPTH_INPUT) && MAX_MENU_DEPTH_INPUT > 0 ? Math.floor(MAX_MENU_DEPTH_INPUT) : 3;
+
+   function buildCategoryHref(item) {
+   var rawSlug = String(item && item.slug != null ? item.slug : '').trim();
+   if (rawSlug === '/') return '/';
+   var slug = rawSlug.replace(/^\/+|\/+$/g, '');
+   if (!slug) return '#';
+   var parts = slug.split('/').filter(function (part) { return part !== ''; }).map(function (part) { return encodeURIComponent(part); });
+   return parts.length ? '/' + parts.join('/') : '#';
+   }
+
+   var sourceById = {};
+   MENU_SOURCE.forEach(function (item) { if (!item || item.id === null || item.id === undefined) return; sourceById[String(item.id)] = item; });
+
+   function hasVisibleAncestors(item) {
+   if (!item) return false;
+   var parentId = item.parent_id;
+   var visited = {};
+   while (parentId !== null && parentId !== undefined) {
+   var parentKey = String(parentId);
+   if (visited[parentKey]) return false;
+   visited[parentKey] = true;
+   var parent = sourceById[parentKey];
+   if (!parent || parent.show_menu !== true) return false;
+   parentId = parent.parent_id;
+   }
+   return true;
+   }
+
+   var visibleNodes = [];
+   MENU_SOURCE.forEach(function (item) {
+   if (!item || item.show_menu !== true) return;
+   if (!hasVisibleAncestors(item)) return;
+   var displayOrder = Number(item.display_order);
+   if (!Number.isFinite(displayOrder)) displayOrder = 999999999;
+   visibleNodes.push({ id: item.id, parent_id: item.parent_id, name: item.name, slug: item.slug, display_order: displayOrder, status_id: item.status_id, is_assignable: item.is_assignable, children: [] });
+   });
+
+   var nodeById = {};
+   visibleNodes.forEach(function (node) { if (node.id === null || node.id === undefined) return; nodeById[String(node.id)] = node; });
+
+   var topCategories = [];
+   visibleNodes.forEach(function (node) {
+   var parentKey = node.parent_id === null || node.parent_id === undefined ? null : String(node.parent_id);
+   if (parentKey && Object.prototype.hasOwnProperty.call(nodeById, parentKey)) { nodeById[parentKey].children.push(node); return; }
+   topCategories.push(node);
+   });
+
+   function compareNodes(a, b) {
+   if (a.display_order !== b.display_order) return a.display_order - b.display_order;
+   return String(a.name == null ? '' : a.name).localeCompare(String(b.name == null ? '' : b.name), 'vi', { sensitivity: 'base' });
+   }
+   function sortNodes(nodes) { nodes.sort(compareNodes); nodes.forEach(function (node) { if (Array.isArray(node.children) && node.children.length > 1) sortNodes(node.children); }); }
+   sortNodes(topCategories);
+
+   function isOverlayVisible(node) { return !!node && node.status_id === 2 && node.is_assignable === true; }
+   function overlayChildren(node) { return (node && Array.isArray(node.children) ? node.children : []).filter(isOverlayVisible); }
+   var overlayCategories = topCategories.filter(isOverlayVisible);
+%>
+
+<style>
+    /* .home-header-main creates a stacking context (drop-shadow filter) while
+       position:static, so the NỀN TẢNG SỐ dropdown would paint under <main>.
+       Specificity stays below .header-main--sticky (fixed/z-100) and .overlay (z-1000). */
+    .home-header-main {
+        position: relative;
+        z-index: 90;
+    }
+</style>
+
+<header data-portlet="phat_thanh_header" class="home-header t:max-md:hidden">
+    <div class="home-header-main header-main t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]">
+        <div class="t:bg-[#EC1C23]">
+            <div class="t:container">
+                <div class="t:flex t:items-center t:justify-between t:h-13 t:min-[1200px]:h-16 t:relative">
+                    <div class="t:flex t:items-center t:gap-x-4 t:min-[1200px]:gap-x-6">
+                        <button type="button" data-overlay-target="desktop-main-menu"
+                            class="t:flex t:items-center t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:hover:opacity-80">
+                            <i class="material-symbols--menu-rounded t:text-2xl"></i>
+                        </button>
+
+                        <a href="<%= absUrl('/') %>" class="t:flex t:items-center t:shrink-0">
+                            <img src="https://r2-thainguyen.media-soft.cloud/common/assets/logo-white.png"
+                                alt="Báo Thái Nguyên"
+                                class="logo-header t:max-h-8 t:min-[1200px]:max-h-10 t:w-auto t:transition-all t:duration-500" />
+                        </a>
+                    </div>
+
+                    <div class="t:hidden t:min-[1200px]:flex t:items-stretch t:h-full t:absolute t:left-1/2 t:-translate-x-1/2">
+                        <nav id="desktopNav"
+                            class="t:relative t:flex t:items-stretch t:text-white t:text-[14px] t:font-medium t:h-full noto t:z-0">
+                            <div id="desktopIndicator"
+                                class="t:absolute t:top-0 t:left-0 t:h-full t:bg-[#FF6666] t:-z-10 t:transition-all t:duration-300 t:ease-out">
+                            </div>
+                            <a href="<%= absUrl('/truyen-hinh') %>"
+                                class="no-hover-color t:flex t:items-center t:justify-center t:shrink-0 t:px-2 t:min-[1300px]:px-5 t:transition-all t:duration-300 t:gap-x-2 t:hover:bg-[#FF6666]/40">
+                                <img src="https://r2-thainguyen.media-soft.cloud/trang_phat_thanh/desktop/images/ic_bot_home.png"
+                                    class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert" alt="" />
+                                <span class="t:whitespace-nowrap">TRUYỀN HÌNH</span>
+                            </a>
+                            <a href="<%= absUrl('/phat-thanh') %>"
+                                class="no-hover-color t:flex t:items-center t:justify-center t:shrink-0 t:px-2 t:min-[1300px]:px-5 t:transition-all t:duration-300 t:gap-x-2 t:hover:bg-[#FF6666]/40">
+                                <img src="https://r2-thainguyen.media-soft.cloud/trang_phat_thanh/desktop/images/ic_bot_audio.png"
+                                    class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert" alt="" />
+                                <span class="t:whitespace-nowrap">PHÁT THANH</span>
+                            </a>
+                            <a href="<%= absUrl('/doc-bao-in') %>"
+                                class="no-hover-color t:flex t:items-center t:justify-center t:shrink-0 t:px-2 t:min-[1300px]:px-5 t:transition-all t:duration-300 t:gap-x-2 t:hover:bg-[#FF6666]/40">
+                                <img src="https://r2-thainguyen.media-soft.cloud/trang_phat_thanh/desktop/images/ic_bot_news.png"
+                                    class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert" alt="" />
+                                <span class="t:whitespace-nowrap">BÁO IN</span>
+                            </a>
+                            <div data-floating-dropdown data-trigger="click"
+                                class="t:relative t:flex t:items-stretch">
+                                <button type="button" data-floating-trigger aria-haspopup="true"
+                                    class="no-hover-color t:flex t:items-center t:justify-center t:shrink-0 t:px-2 t:min-[1300px]:px-5 t:transition-all t:duration-300 t:gap-x-2 t:bg-transparent t:border-0 t:cursor-pointer t:text-white t:hover:bg-[#FF6666]/40">
+                                    <img src="https://r2-thainguyen.media-soft.cloud/trang_phat_thanh/desktop/images/ic_bot_global.png"
+                                        class="t:w-5 t:h-5 t:object-contain t:brightness-0 t:invert" alt="" />
+                                    <span class="t:whitespace-nowrap">NỀN TẢNG SỐ</span>
+                                    <span class="caret" aria-hidden="true">▾</span>
+                                </button>
+                                <div data-floating-menu class="dropdown-menu is-hidden">
+                                    <a class="dropdown-item" href="https://web.facebook.com/baoptththainguyen"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <span class="t:flex t:items-center t:gap-x-2" style="text-transform:none"><i
+                                                class="logos--facebook" style="font-size:18px"></i>Facebook</span>
+                                    </a>
+                                    <a class="dropdown-item" href="https://www.tiktok.com/@baothainguyen.official"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <span class="t:flex t:items-center t:gap-x-2" style="text-transform:none"><i
+                                                class="logos--tiktok" style="font-size:18px"></i>TikTok</span>
+                                    </a>
+                                    <a class="dropdown-item" href="https://www.youtube.com/c/daiptththainguyentntv"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <span class="t:flex t:items-center t:gap-x-2" style="text-transform:none"><i
+                                                class="logos--youtube" style="font-size:18px"></i>YouTube</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="t:flex t:items-center t:gap-x-4">
+                        <a href=""
+                            class="t:flex t:min-[1200px]:hidden t:text-white t:text-[15px] t:font-medium t:hover:opacity-80 t:transition-opacity roboto">
+                            EN
+                        </a>
+                        <a href="<%= absUrl('/tim-kiem') %>" aria-label="Tìm kiếm"
+                            class="t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:flex t:items-center t:hover:opacity-80">
+                            <i class="majesticons--search-line t:text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<aside data-portlet="phat_thanh_header" class="home-menu-aside t:max-md:hidden">
+    <div class="overlay home-main-overlay" data-overlay-id="desktop-main-menu" data-overlay-variant="fullscreen">
+        <div class="overlay__backdrop"></div>
+
+        <div class="overlay__content t:p-0! t:w-full t:bg-[#F7F7F7] t:overflow-y-auto home-main-overlay-content">
+            <div class="t:bg-white">
+                <div class="t:container">
+                    <div class="t:flex t:items-center t:justify-center t:h-[70px]">
+                        <a href="<%= absUrl('/') %>" class="t:flex t:items-center">
+                            <img src="https://r2-thainguyen.media-soft.cloud/common/assets/logo.png"
+                                alt="Báo Thái Nguyên" class="t:max-h-15 t:w-auto" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="t:bg-[#F7F7F7] t:py-5">
+                <div class="t:container">
+                    <div class="t:flex t:items-end t:justify-between t:gap-x-4 t:border-b t:border-black/10 t:pb-2.5 t:mb-5">
+                        <h2 class="noto t:text-xl t:font-bold t:text-[#212636] t:leading-tight">
+                            Tất cả chuyên mục
+                        </h2>
+                        <button type="button" data-overlay-target="desktop-main-menu" aria-label="Đóng"
+                            class="t:size-6 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-[#212636] t:hover:text-[#EC1C23]">
+                            <i class="material-symbols--close-rounded t:text-xl"></i>
+                        </button>
+                    </div>
+
+                    <div class="t:grid t:grid-cols-1 t:pc:grid-cols-[minmax(0,1fr)_320px] t:gap-x-8 t:gap-y-6">
+                        <div class="t:grid t:grid-cols-2 t:md:grid-cols-3 t:pc:grid-cols-4 t:gap-x-8 t:gap-y-5">
+                            <% overlayCategories.forEach(function (category) {
+                               var children = overlayChildren(category);
+                               var hasChildren = children.length > 0;
+                            %>
+                                <div class="t:flex t:flex-col t:gap-y-2.5">
+                                    <h3
+                                        class="noto t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5">
+                                        <a href="<%= absUrl(buildCategoryHref(category)) %>"
+                                            class="t:hover:opacity-80"><%= category.name %></a>
+                                    </h3>
+                                    <% if (hasChildren) { %>
+                                        <ul data-collapsible-list
+                                            class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]">
+                                            <% children.forEach(function (child) { %>
+                                                <li>
+                                                    <a href="<%= absUrl(buildCategoryHref(child)) %>"
+                                                        class="t:hover:text-[#EC1C23]"><%= child.name %></a>
+                                                </li>
+                                                <% }); %>
+                                            <li>
+                                                <a href="#"
+                                                    class="t:text-[13px] t:text-[#888] t:underline t:hover:text-[#EC1C23]"
+                                                    data-collapsible-toggle>
+                                                    Xem...
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <% } %>
+                                </div>
+                                <% }); %>
+                        </div>
+
+                        <div class="t:flex t:flex-col t:gap-y-5 t:pc:border-l t:pc:border-[#D4D4D4] t:pc:pl-8">
+                            <div class="t:border-b t:border-[#D4D4D4] t:pb-5">
+                                <label class="t:block t:text-base t:font-medium t:text-[#212636] t:mb-2"
+                                    for="overlay-search">
+                                    Tìm kiếm
+                                </label>
+                                <form action="/tim-kiem" method="get" class="t:flex t:items-stretch">
+                                    <input id="overlay-search" name="key" type="text" placeholder="Nhập từ khoá..."
+                                        class="t:flex-1 t:min-w-0 t:bg-white t:border t:border-[#DCDCDC] t:rounded-l t:px-4 t:py-2 t:text-sm t:text-[#212636] t:placeholder-[#AAAEB2] t:outline-none t:focus:border-[#BC0000]" />
+                                    <button type="submit" aria-label="Tìm kiếm"
+                                        class="t:w-10 t:shrink-0 t:bg-[#BC0000] t:border t:border-[#BC0000] t:rounded-r t:flex t:items-center t:justify-center t:text-white t:cursor-pointer t:hover:opacity-90">
+                                        <i class="majesticons--search-line t:text-base"></i>
+                                    </button>
+                                </form>
+                            </div>
+
+                            <ul class="t:flex t:flex-col t:gap-y-2.5 t:text-base t:font-medium t:text-[#212636] t:border-b t:border-[#D4D4D4] t:pb-5">
+                                <li>
+                                    <a href="" class="t:hover:text-[#EC1C23]">Tiếng Anh</a>
+                                </li>
+                                <li>
+                                    <a href="" class="t:hover:text-[#EC1C23]">Tâm điểm</a>
+                                </li>
+                                <li>
+                                    <a href="<%= absUrl('/truyen-hinh') %>" class="t:hover:text-[#EC1C23]">
+                                        Truyền hình
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="t:flex t:flex-col t:gap-y-2.5 t:text-sm t:text-[#212636]">
+                                <h4 class="noto t:text-lg t:font-bold t:text-[#BC0000] t:uppercase">
+                                    Báo và Phát thanh, Truyền hình Thái Nguyên điện tử
+                                </h4>
+                                <p>
+                                    Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT cấp
+                                    ngày 20 tháng 11 năm 2023.
+                                </p>
+                                <p>
+                                    <strong>Giám đốc:</strong>
+                                    Đỗ Xuân Hòa
+                                </p>
+                                <p>
+                                    <strong>Phó Giám đốc phụ trách:</strong>
+                                    Nguyễn Ngọc Sơn
+                                </p>
+                                <p class="t:pt-3">
+                                    <strong>Trụ sở:</strong>
+                                    Cơ sở 1 số 226 đường Bến Oánh; Cơ sở 2 số 19 phố Nhị
+                                    Quý, phường Phan Đình Phùng, tỉnh Thái Nguyên
+                                </p>
+                                <p>
+                                    <strong>Điện thoại:</strong>
+                                    0208.3859.666
+                                </p>
+                                <p>
+                                    <strong>Đường dây nóng:</strong>
+                                    0902006113 - 091 2039880
+                                </p>
+                                <p class="t:break-all">
+                                    <strong>Email:</strong>
+                                    toasoan@baothainguyen.vn; toasoan@baothainguyen.com.vn
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<header data-portlet="phat_thanh_header" class="home-mobile-header t:md:hidden t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]">
+    <div class="t:bg-[#EC1C23]">
+        <div class="t:px-4">
+            <div class="t:grid t:grid-cols-[auto_1fr_auto] t:items-center t:gap-x-3 t:h-13">
+                <button type="button" data-overlay-target="mobile-main-menu" aria-label="Mở menu" style="margin-left:-9px"
+                    class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:opacity-80">
+                    <i class="material-symbols--menu-rounded t:text-2xl"></i>
+                </button>
+
+                <a href="<%= absUrl('/') %>" class="t:flex t:items-center t:justify-center t:min-w-0 t:overflow-hidden">
+                    <img src="https://r2-thainguyen.media-soft.cloud/common/assets/logo-white.png"
+                        alt="Báo Thái Nguyên" class="t:h-9 t:max-w-[200px] t:w-auto t:object-contain" />
+                </a>
+
+                <div class="t:flex t:items-center t:gap-x-2.5" style="margin-right:-9px;column-gap:4px">
+                    <a href="" class="t:text-white t:text-xs t:font-medium t:hover:opacity-80 t:transition-opacity">
+                        EN
+                    </a>
+                    <a href="<%= absUrl('/tim-kiem') %>" aria-label="Tìm kiếm"
+                        class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:opacity-80">
+                        <i class="majesticons--search-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<aside data-portlet="phat_thanh_header" class="home-mobile-menu-aside t:md:hidden">
+    <div class="overlay home-mobile-overlay" data-overlay-id="mobile-main-menu" data-overlay-variant="fullscreen">
+        <div class="overlay__backdrop"></div>
+
+        <div class="overlay__content t:p-0! t:w-full t:bg-[#F7F7F7] t:overflow-y-auto">
+            <div class="t:bg-white t:px-5">
+                <div class="t:relative t:flex t:items-center t:justify-center t:h-[70px]">
+                    <button type="button" data-overlay-target="mobile-main-menu" aria-label="Đóng" style="margin-left:-15px"
+                        class="t:absolute t:left-0 t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-[#212636] t:hover:text-[#BC0000]">
+                        <i class="material-symbols--close-rounded t:text-2xl"></i>
+                    </button>
+                    <a href="<%= absUrl('/') %>" class="t:flex t:items-center">
+                        <img src="https://r2-thainguyen.media-soft.cloud/common/assets/logo.png"
+                            alt="Báo Thái Nguyên" class="t:max-h-12 t:w-auto" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="t:bg-[#F7F7F7] t:px-5 t:py-5 t:flex t:flex-col t:gap-y-5">
+                <div>
+                    <label for="mobile-overlay-search" class="t:block t:text-sm t:font-medium t:text-[#212636] t:mb-2">
+                        Tìm kiếm
+                    </label>
+                    <form action="/tim-kiem" method="get" class="t:flex t:items-stretch t:relative">
+                        <input id="mobile-overlay-search" name="key" type="text" placeholder="Nhập từ khoá..."
+                            class="t:flex-1 t:min-w-0 t:bg-white t:border t:border-[#DCDCDC] t:rounded-l t:px-4 t:py-2 t:text-sm t:text-[#212636] t:placeholder-[#AAAEB2] t:outline-none t:focus:border-[#BC0000]" />
+                        <button type="submit" aria-label="Tìm kiếm"
+                            class="t:w-10 t:shrink-0 t:bg-[#BC0000] t:border t:border-[#BC0000] t:rounded-r t:flex t:items-center t:justify-center t:text-white t:cursor-pointer t:hover:opacity-90">
+                            <i class="majesticons--search-line t:text-base"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="t:bg-black/5 t:rounded t:py-3 t:px-4 t:text-center">
+                    <h2 class="noto t:text-lg t:font-bold t:text-[#212636]">
+                        Tất cả chuyên mục
+                    </h2>
+                </div>
+
+                <div class="t:flex t:flex-col t:gap-y-5">
+                    <% overlayCategories.forEach(function (category) {
+                       var children = overlayChildren(category);
+                       var hasChildren = children.length > 0;
+                    %>
+                        <div class="t:flex t:flex-col t:gap-y-2.5">
+                            <h3
+                                class="noto t:text-base t:font-medium t:text-[#BC0000] t:uppercase t:border-b t:border-[#D4D4D4] t:pb-1.5">
+                                <a href="<%= absUrl(buildCategoryHref(category)) %>"
+                                    class="t:hover:opacity-80"><%= category.name %></a>
+                            </h3>
+                            <% if (hasChildren) { %>
+                                <ul data-collapsible-list data-collapsible-limit="2"
+                                    class="t:flex t:flex-col t:gap-y-2 t:text-sm t:text-[#212636]">
+                                    <% children.forEach(function (child) { %>
+                                        <li>
+                                            <a href="<%= absUrl(buildCategoryHref(child)) %>"
+                                                class="t:hover:text-[#EC1C23]"><%= child.name %></a>
+                                        </li>
+                                        <% }); %>
+                                    <li>
+                                        <a href="#" data-collapsible-toggle
+                                            class="t:text-[13px] t:text-[#888] t:underline t:hover:text-[#EC1C23]">
+                                            Xem...
+                                        </a>
+                                    </li>
+                                </ul>
+                                <% } %>
+                        </div>
+                        <% }); %>
+                </div>
+
+                <ul class="t:flex t:flex-col t:gap-y-2.5 t:text-base t:font-medium t:text-[#212636] t:border-y t:border-[#D4D4D4] t:py-5">
+                    <li>
+                        <a href="" class="t:hover:text-[#EC1C23]">Tiếng Anh</a>
+                    </li>
+                    <li>
+                        <a href="" class="t:hover:text-[#EC1C23]">Tâm điểm</a>
+                    </li>
+                    <li>
+                        <a href="<%= absUrl('/truyen-hinh') %>" class="t:hover:text-[#EC1C23]">Truyền hình</a>
+                    </li>
+                </ul>
+
+                <div class="t:flex t:flex-col t:gap-y-2.5 t:text-sm t:text-[#212636]">
+                    <h4 class="noto t:text-base t:font-bold t:text-[#BC0000] t:uppercase">
+                        Báo và Phát thanh, Truyền hình Thái Nguyên điện tử
+                    </h4>
+                    <p>
+                        Giấy phép hoạt động báo chí điện tử số: 431/GP-BTTTT cấp ngày 20
+                        tháng 11 năm 2023.
+                    </p>
+                    <p>
+                        <strong>Giám đốc:</strong>
+                        Đỗ Xuân Hòa
+                    </p>
+                    <p>
+                        <strong>Phó Giám đốc phụ trách:</strong>
+                        Nguyễn Ngọc Sơn
+                    </p>
+                    <p class="t:pt-2">
+                        <strong>Trụ sở:</strong>
+                        Cơ sở 1 số 226 đường Bến Oánh; Cơ sở 2 số 19 phố Nhị Quý, phường
+                        Phan Đình Phùng, tỉnh Thái Nguyên
+                    </p>
+                    <p>
+                        <strong>Điện thoại:</strong>
+                        0208.3859.666
+                    </p>
+                    <p>
+                        <strong>Đường dây nóng:</strong>
+                        0902006113 - 091 2039880
+                    </p>
+                    <p class="t:break-all">
+                        <strong>Email:</strong>
+                        toasoan@baothainguyen.vn; toasoan@baothainguyen.com.vn
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
