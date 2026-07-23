@@ -418,9 +418,6 @@
   .t\:h-11 {
     height: calc(var(--t-spacing) * 11);
   }
-  .t\:h-13 {
-    height: calc(var(--t-spacing) * 13);
-  }
   .t\:h-16 {
     height: calc(var(--t-spacing) * 16);
   }
@@ -429,9 +426,6 @@
   }
   .t\:h-full {
     height: 100%;
-  }
-  .t\:max-h-10 {
-    max-height: calc(var(--t-spacing) * 10);
   }
   .t\:max-h-12 {
     max-height: calc(var(--t-spacing) * 12);
@@ -471,9 +465,6 @@
   }
   .t\:max-w-60 {
     max-width: calc(var(--t-spacing) * 60);
-  }
-  .t\:max-w-\[200px\] {
-    max-width: 200px;
   }
   .t\:max-w-\[450px\] {
     max-width: 450px;
@@ -517,14 +508,11 @@
   .t\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-  .t\:grid-cols-\[68px_1fr_68px\] {
-    grid-template-columns: 68px 1fr 68px;
+  .t\:grid-cols-\[80px_1fr_80px\] {
+    grid-template-columns: 80px 1fr 80px;
   }
-  .t\:grid-cols-\[168px_1fr_168px\] {
-    grid-template-columns: 168px 1fr 168px;
-  }
-  .t\:grid-cols-\[auto_1fr_auto\] {
-    grid-template-columns: auto 1fr auto;
+  .t\:grid-cols-\[200px_1fr_200px\] {
+    grid-template-columns: 200px 1fr 200px;
   }
   .t\:grid-rows-\[auto_1fr\] {
     grid-template-rows: auto 1fr;
@@ -708,9 +696,6 @@
       border-color: color-mix(in oklab, var(--t-color-black) 10%, transparent);
     }
   }
-  .t\:bg-\[\#30A14A\] {
-    background-color: #30A14A;
-  }
   .t\:bg-\[\#242A2E\]\/70 {
     background-color: color-mix(in oklab, #242A2E 70%, transparent);
   }
@@ -751,12 +736,6 @@
     background-color: var(--t-color-white);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--t-color-white) 15%, transparent);
-    }
-  }
-  .t\:bg-white\/70 {
-    background-color: var(--t-color-white);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--t-color-white) 70%, transparent);
     }
   }
   .t\:bg-white\/90 {

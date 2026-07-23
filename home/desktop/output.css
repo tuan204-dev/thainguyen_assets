@@ -497,23 +497,23 @@
   .t\:h-11 {
     height: calc(var(--t-spacing) * 11);
   }
-  .t\:h-13 {
-    height: calc(var(--t-spacing) * 13);
-  }
   .t\:h-\[70px\] {
     height: 70px;
   }
   .t\:h-full {
     height: 100%;
   }
-  .t\:max-h-10 {
-    max-height: calc(var(--t-spacing) * 10);
-  }
   .t\:max-h-12 {
     max-height: calc(var(--t-spacing) * 12);
   }
+  .t\:max-h-14\.5 {
+    max-height: calc(var(--t-spacing) * 14.5);
+  }
   .t\:max-h-15 {
     max-height: calc(var(--t-spacing) * 15);
+  }
+  .t\:max-h-20 {
+    max-height: calc(var(--t-spacing) * 20);
   }
   .t\:max-h-\[470px\] {
     max-height: 470px;
@@ -548,11 +548,14 @@
   .t\:w-px {
     width: 1px;
   }
-  .t\:max-w-\[200px\] {
-    max-width: 200px;
+  .t\:max-w-60 {
+    max-width: calc(var(--t-spacing) * 60);
   }
   .t\:max-w-\[450px\] {
     max-width: 450px;
+  }
+  .t\:max-w-full {
+    max-width: 100%;
   }
   .t\:max-w-none {
     max-width: none;
@@ -596,8 +599,11 @@
   .t\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .t\:grid-cols-\[auto_1fr_auto\] {
-    grid-template-columns: auto 1fr auto;
+  .t\:grid-cols-\[80px_1fr_80px\] {
+    grid-template-columns: 80px 1fr 80px;
+  }
+  .t\:grid-cols-\[200px_1fr_200px\] {
+    grid-template-columns: 200px 1fr 200px;
   }
   .t\:grid-rows-\[auto_1fr\] {
     grid-template-rows: auto 1fr;
@@ -718,6 +724,15 @@
   .t\:self-stretch {
     align-self: stretch;
   }
+  .t\:justify-self-center {
+    justify-self: center;
+  }
+  .t\:justify-self-end {
+    justify-self: flex-end;
+  }
+  .t\:justify-self-start {
+    justify-self: flex-start;
+  }
   .t\:overflow-hidden {
     overflow: hidden;
   }
@@ -801,6 +816,9 @@
   .t\:bg-\[\#30A14A\] {
     background-color: #30A14A;
   }
+  .t\:bg-\[\#242A2E\]\/70 {
+    background-color: color-mix(in oklab, #242A2E 70%, transparent);
+  }
   .t\:bg-\[\#BC0000\] {
     background-color: #BC0000;
   }
@@ -871,12 +889,6 @@
     background-color: var(--t-color-white);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--t-color-white) 50%, transparent);
-    }
-  }
-  .t\:bg-white\/70 {
-    background-color: var(--t-color-white);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--t-color-white) 70%, transparent);
     }
   }
   .t\:bg-white\/90 {
@@ -1175,6 +1187,9 @@
   }
   .t\:text-\[\#30A14A\] {
     color: #30A14A;
+  }
+  .t\:text-\[\#242A2E\] {
+    color: #242A2E;
   }
   .t\:text-\[\#555\] {
     color: #555;

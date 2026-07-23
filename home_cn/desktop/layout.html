@@ -36,41 +36,46 @@
 
         <header class="home-header t:max-md:hidden">
             <div class="home-header-main t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]">
-                <div class="t:bg-[#30A14A]">
+                <div class="t:border-b t:border-[#DCDFE4]">
                     <div class="t:container">
                         <div
-                            class="t:flex t:items-center t:justify-between t:gap-x-4 t:h-13 t:py-0.5"
+                            class="t:grid t:grid-cols-[200px_1fr_200px] t:items-center t:gap-x-4 t:py-0.5"
                         >
                             <button
                                 type="button"
                                 data-overlay-target="desktop-main-menu"
-                                class="t:flex t:items-center t:gap-x-3 t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer roboto t:text-sm t:font-medium t:hover:opacity-80"
+                                class="t:justify-self-start t:flex t:items-center t:gap-x-3 t:text-[#242A2E] t:bg-transparent t:border-0 t:p-0 t:cursor-pointer roboto t:text-sm t:font-medium t:hover:opacity-80"
                             >
                                 <i class="material-symbols--menu-rounded t:text-2xl"></i>
                             </button>
 
-                            <a href="https://r2-thainguyen.media-soft.cloud/" class="t:flex t:items-center t:shrink-0">
+                            <a
+                                href="https://r2-thainguyen.media-soft.cloud/"
+                                class="t:flex t:items-center t:justify-center t:min-w-0 t:py-1"
+                            >
                                 <img
-                                    src="https://r2-thainguyen.media-soft.cloud/common/assets/cn/logo-white.png"
+                                    src="https://r2-thainguyen.media-soft.cloud/common/assets/cn/logo.png"
                                     alt="太原报"
-                                    class="logo-header t:max-h-10 t:w-auto t:transition-all t:duration-500"
+                                    class="logo-header t:max-h-20 t:max-w-full t:w-auto t:object-contain t:transition-all t:duration-500"
                                 />
                             </a>
 
-                            <div class="t:flex t:items-center t:gap-x-2.5">
-                                <div class="t:flex t:items-center t:gap-x-2 t:text-white t:text-xs">
+                            <div class="t:justify-self-end t:flex t:items-center t:gap-x-2.5">
+                                <div
+                                    class="t:flex t:items-center t:gap-x-2 t:text-[#242A2E] t:text-xs"
+                                >
                                     <a href="" class="t:hover:opacity-80 t:transition-opacity">
                                         English
                                     </a>
                                     <span
-                                        class="t:w-px t:h-3 t:bg-white/70"
+                                        class="t:w-px t:h-3 t:bg-[#242A2E]/70"
                                         aria-hidden="true"
                                     ></span>
                                     <a href="" class="t:hover:opacity-80 t:transition-opacity">
                                         中文
                                     </a>
                                     <span
-                                        class="t:w-px t:h-3 t:bg-white/70"
+                                        class="t:w-px t:h-3 t:bg-[#242A2E]/70"
                                         aria-hidden="true"
                                     ></span>
                                     <a href="" class="t:hover:opacity-80 t:transition-opacity">
@@ -80,7 +85,7 @@
                                 <button
                                     type="button"
                                     aria-label="搜索"
-                                    class="t:text-white t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:flex t:items-center t:hover:opacity-80"
+                                    class="t:text-[#242A2E] t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:flex t:items-center t:hover:opacity-80"
                                 >
                                     <i class="majesticons--search-line"></i>
                                 </button>
@@ -819,38 +824,40 @@
         <header
             class="home-mobile-header t:md:hidden t:bg-white t:drop-shadow-[0_2px_3px_rgba(0,0,0,0.08)]"
         >
-            <div class="t:bg-[#30A14A]">
-                <div class="t:px-4">
-                    <div class="t:grid t:grid-cols-[auto_1fr_auto] t:items-center t:gap-x-3 t:h-13">
+            <div class="t:border-b t:border-[#DCDFE4]">
+                <div class="t:px-2">
+                    <div
+                        class="t:grid t:grid-cols-[80px_1fr_80px] t:items-center t:gap-x-2 t:py-0.5"
+                    >
                         <button
                             type="button"
                             data-overlay-target="mobile-main-menu"
                             aria-label="打开菜单"
-                            class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:opacity-80"
+                            class="t:justify-self-start t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-[#242A2E] t:hover:opacity-80"
                         >
                             <i class="material-symbols--menu-rounded t:text-2xl"></i>
                         </button>
 
                         <a
                             href="https://r2-thainguyen.media-soft.cloud/"
-                            class="t:flex t:items-center t:justify-center t:min-w-0 t:overflow-hidden"
+                            class="t:justify-self-center t:flex t:items-center t:justify-center t:min-w-0 t:max-w-60 t:overflow-hidden t:py-1"
                         >
                             <img
-                                src="https://r2-thainguyen.media-soft.cloud/common/assets/cn/logo-white.png"
+                                src="https://r2-thainguyen.media-soft.cloud/common/assets/cn/logo.png"
                                 alt="太原报"
-                                class="t:h-9 t:max-w-[200px] t:w-auto t:object-contain"
+                                class="logo-header t:max-h-14.5 t:max-w-full t:w-auto t:object-contain t:transition-all t:duration-500"
                             />
                         </a>
 
-                        <div class="t:flex t:items-center t:gap-x-2.5">
+                        <div class="t:justify-self-end t:flex t:items-center t:gap-x-2.5">
                             <a
                                 href=""
-                                class="t:text-white t:text-xs t:font-medium t:hover:opacity-80 t:transition-opacity"
+                                class="t:text-[#242A2E] t:text-xs t:font-medium t:hover:opacity-80 t:transition-opacity"
                             >CN</a>
                             <button
                                 type="button"
                                 aria-label="搜索"
-                                class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-white t:hover:opacity-80"
+                                class="t:size-9 t:flex t:items-center t:justify-center t:bg-transparent t:border-0 t:p-0 t:cursor-pointer t:text-[#242A2E] t:hover:opacity-80"
                             >
                                 <i class="majesticons--search-line"></i>
                             </button>
