@@ -25,6 +25,11 @@ function clampByWordsFromTailwind(el) {
     }
     const originalText = target.dataset.originalText;
     const words = originalText.split(/\s+/);
+    // Chữ CJK (zh/ja) không có khoảng trắng nên tách theo từ không cắt được gì —
+    // khi "từ" trung bình quá dài thì chuyển sang cắt theo ký tự (join "" giữ nguyên văn bản gốc).
+    const useChars = originalText.length / words.length > 12;
+    const units = useChars ? Array.from(originalText) : words;
+    const joiner = useChars ? "" : " ";
 
     target.innerText = originalText;
 
@@ -38,10 +43,10 @@ function clampByWordsFromTailwind(el) {
     if (el.scrollHeight <= maxHeight) return;
 
     let lo = 0,
-        hi = words.length - 1;
+        hi = units.length - 1;
     while (lo < hi) {
         const mid = (lo + hi + 1) >> 1;
-        target.innerText = words.slice(0, mid + 1).join(" ") + "…";
+        target.innerText = units.slice(0, mid + 1).join(joiner) + "…";
         if (el.scrollHeight <= maxHeight) {
             lo = mid;
         } else {
@@ -49,7 +54,8 @@ function clampByWordsFromTailwind(el) {
         }
     }
 
-    target.innerText = lo >= 0 ? words.slice(0, lo + 1).join(" ") + "…" : "…";
+    const cut = units.slice(0, lo + 1).join(joiner);
+    target.innerText = lo >= 0 ? (useChars ? cut.replace(/[\s,，、。;；:：]+$/, "") : cut) + "…" : "…";
 }
 
 function handleClampText() {
