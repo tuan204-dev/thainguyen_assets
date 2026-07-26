@@ -448,10 +448,16 @@
 
     function headerOffset() {
         var h = 0;
-        var topbar = document.querySelector('.topbar');
-        var subnav = document.querySelector('.subnav');
-        if (topbar && getComputedStyle(topbar).position === 'sticky') h += topbar.offsetHeight;
-        if (subnav && getComputedStyle(subnav).position === 'sticky') h += subnav.offsetHeight;
+        // Trang dùng header home: thanh nav (desktop/mobile) VÀ subnav đều sticky
+        // → cộng dồn chiều cao của mọi thanh đang hiển thị, không chỉ .topbar.
+        var bars = document.querySelectorAll(
+            '.topbar, .home-header-nav, .home-mobile-header-nav, .subnav'
+        );
+        Array.prototype.forEach.call(bars, function (el) {
+            var cs = getComputedStyle(el);
+            if (cs.position !== 'sticky' || cs.display === 'none') return;
+            h += el.offsetHeight;
+        });
         return h + 12;
     }
 
@@ -563,6 +569,8 @@
         // HOẶC overlay đang ở chế độ VIDEO (player native, không dùng bar dưới).
         var hide = !playerActivated || (overlayOpen && (bigCardVisible || detailIsVideo));
         bottomPlayer.classList.toggle('is-hidden', hide);
+        // Chỉ chừa chỗ dưới chân trang khi thanh player ĐANG hiện (nó position: fixed).
+        document.body.classList.toggle('has-player', !hide);
     }
 
     // Sơn thanh tiến trình + thời gian cho CẢ player dưới và overlay chi tiết.
