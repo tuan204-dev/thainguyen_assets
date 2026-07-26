@@ -1,0 +1,34 @@
+@import "tailwindcss" source(none) prefix(t);
+@source "./**/*.{html,js,jsx,ts,tsx}";
+@source "../../../common/**/*.{js,ts}";
+
+@theme {
+    --color-tw-primary: #212636;
+    --color-tw-secondary: #667085;
+    --color-tw-border: #d0d5dd;
+
+    --breakpoint-bt-xl: 1200px;
+    --breakpoint-pc: 1000px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Ảnh giữ ĐÚNG tỉ lệ 5:3 (240×144) của VnExpress — ngoại lệ Rule 3 (16/9) đã
+   chốt với người dùng cho layout này. common.css đặt .img-block 16/9 (0-1-0)
+   và nạp SAU output.css nên phải thắng bằng specificity 0-1-1. */
+main .img-block {
+    aspect-ratio: 5 / 3;
+}
+
+/* Hover tiêu đề theo VnExpress: chuyển #757575 (common.css đặt a:hover xanh
+   #30a14a, 0-1-1 → cần 0-2-1 để thắng) */
+.title a:hover {
+    color: #757575;
+}
+
+/* Thanh chuyên mục: hover chuyển xanh #065e9d như live */
+.cate-nav a:hover {
+    color: #065e9d;
+}
