@@ -697,9 +697,20 @@ const TCAVideoPlayer = (() => {
     // -----------------------------------------------------------------------
     // Lấy tỉ lệ + thời lượng SIÊU RẺ từ playlist HLS (~557 B, thay vì ~1 MB metadata)
     // -----------------------------------------------------------------------
-    function applyAspect(state, w, h) {
-        if (!w || !h || state.aspectKnown) return;
-        state.aspectKnown = true;
+    // Cấp độ tin cậy của số đo tỉ lệ — số LỚN HƠN được phép ghi đè số nhỏ hơn.
+    // Poster chỉ là ước lượng TẠM: rất nhiều poster cũ bị cắt lệch so với video
+    // (đo 2026-07: poster .gif sinh từ V1 có tỉ lệ rải từ 1.53 đến 2.19 trong khi
+    // video luôn 16/9), tin vào nó là khung sai vĩnh viễn vì guard cũ khoá luôn.
+    const ASPECT_POSTER = 1; // đoán từ ảnh poster
+    const ASPECT_META = 2; // CMS render sẵn (data-w/data-h) hoặc RESOLUTION trong HLS
+    const ASPECT_EXACT = 3; // videoWidth/videoHeight — sự thật cuối cùng
+
+    function applyAspect(state, w, h, level) {
+        const lv = level || ASPECT_EXACT;
+        if (!w || !h || lv <= state.aspectLevel) return;
+        state.aspectLevel = lv;
+        // "Biết chắc" chỉ tính từ mức META trở lên; poster không được coi là chốt.
+        state.aspectKnown = lv >= ASPECT_META;
         const wrap = state.wrap;
         const ar = w / h;
         wrap.style.aspectRatio = `${w} / ${h}`;
@@ -709,6 +720,13 @@ const TCAVideoPlayer = (() => {
             wrap.style.maxWidth = `calc(${CONFIG.portraitMaxHeight} * ${ar.toFixed(4)})`;
             wrap.style.marginLeft = "auto";
             wrap.style.marginRight = "auto";
+        } else {
+            // Lần đặt trước có thể là DỌC (poster dọc mà video ngang) → gỡ giới hạn,
+            // nếu không khung sẽ bị bó lại theo số đo cũ.
+            wrap.style.maxHeight = "";
+            wrap.style.maxWidth = "";
+            wrap.style.marginLeft = "";
+            wrap.style.marginRight = "";
         }
     }
 
@@ -719,13 +737,21 @@ const TCAVideoPlayer = (() => {
         // 1. Rẻ nhất: kích thước do CMS render sẵn, không tốn request nào
         const dw = Number(state.video.dataset.w);
         const dh = Number(state.video.dataset.h);
-        if (dw > 0 && dh > 0) applyAspect(state, dw, dh);
+        if (dw > 0 && dh > 0) applyAspect(state, dw, dh, ASPECT_META);
 
-        // 2. Có poster thì đọc kích thước từ ảnh (ảnh không bị chặn CORS như fetch)
+        // 2. Có poster thì đọc kích thước từ ảnh (ảnh không bị chặn CORS như fetch).
+        //    CHỈ tin poster khi nó DỌC — đó là trường hợp duy nhất mà tỉ lệ mặc định
+        //    16/9 sai hẳn và cần báo trước để khỏi nhảy khung. Poster NGANG thì bỏ
+        //    qua: video ngang gần như luôn 16/9, trong khi poster ngang rất hay bị
+        //    cắt lệch (1.40 → 2.19), tin vào nó là khung sai suốt.
         const poster = state.video.getAttribute("poster");
         if (!state.aspectKnown && poster) {
             const img = new Image();
-            img.onload = () => applyAspect(state, img.naturalWidth, img.naturalHeight);
+            img.onload = () => {
+                if (img.naturalWidth < img.naturalHeight) {
+                    applyAspect(state, img.naturalWidth, img.naturalHeight, ASPECT_POSTER);
+                }
+            };
             img.src = poster;
         }
 
@@ -745,7 +771,7 @@ const TCAVideoPlayer = (() => {
             const master = await res.text();
 
             const mr = /RESOLUTION=(\d+)x(\d+)/i.exec(master);
-            if (mr) applyAspect(state, Number(mr[1]), Number(mr[2]));
+            if (mr) applyAspect(state, Number(mr[1]), Number(mr[2]), ASPECT_META);
 
             if (state.durationKnown) return;
             const child = master.split(/\r?\n/).find((l) => l.trim() && l.trim()[0] !== "#");
@@ -908,6 +934,7 @@ const TCAVideoPlayer = (() => {
             attached: false,
             probed: false,
             aspectKnown: false,
+            aspectLevel: 0,
             durationKnown: false,
             probeDuration: 0,
             userPaused: false,
@@ -1160,7 +1187,7 @@ const TCAVideoPlayer = (() => {
         video.addEventListener("loadedmetadata", () => {
             state.durationKnown = isFinite(video.duration) && video.duration > 0;
             el.dur.textContent = fmtTime(effDuration());
-            applyAspect(state, video.videoWidth, video.videoHeight);
+            applyAspect(state, video.videoWidth, video.videoHeight, ASPECT_EXACT);
             renderProgress();
         });
         video.addEventListener("timeupdate", () => { renderProgress(); updateLoading(); });
