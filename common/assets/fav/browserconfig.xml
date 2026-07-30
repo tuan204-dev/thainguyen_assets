@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square70x70logo src="https://r2-thainguyen.media-soft.cloud/encode/common/assets/fav/mstile-70x70.png" />
+            <square150x150logo src="https://r2-thainguyen.media-soft.cloud/encode/common/assets/fav/mstile-150x150.png" />
+            <square310x310logo src="https://r2-thainguyen.media-soft.cloud/encode/common/assets/fav/mstile-310x310.png" />
+            <TileColor>#30A14A</TileColor>
+        </tile>
+    </msapplication>
+</browserconfig>
