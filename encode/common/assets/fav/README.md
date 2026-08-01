@@ -14,7 +14,8 @@ logo is centered on a square canvas without distortion.
 | `android-chrome-maskable-*.png` (70% safe zone) | Android adaptive icon |
 | `safari-pinned-tab.svg` | Safari pinned tab |
 | `mstile-70/150/310.png` + `browserconfig.xml` | Windows tiles |
-| `site.webmanifest` | PWA manifest |
+| `site.webmanifest` | PWA manifest (VI - thainguyen.media-soft.cloud) |
+| `site-en / site-cn / site-kr.webmanifest` | PWA manifest for the en/cn/kr subdomains |
 
 The deployed base URL is
 `https://r2-thainguyen.media-soft.cloud/encode/common/assets/fav/`.
