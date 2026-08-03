@@ -121,10 +121,13 @@
                     renderMessage(listEl, "Chưa có bài viết.");
                     return;
                 }
+                // ⚠️ KHÔNG gọi clampByWordsFromTailwind() lên container này.
+                // Hàm đó ghi `target.innerText = …` (common/common.js) nên sẽ XOÁ SẠCH
+                // markup card, biến cả danh sách thành một cục text bị cắt "…".
+                // Nó chỉ dành cho MỘT phần tử text có class `desc` / `line-clamp-n`,
+                // và bản thân common.js đã tự quét các phần tử đó rồi.
+                // Tiêu đề bài phải hiện đủ (README Rule 1) nên không clamp.
                 listEl.innerHTML = items.slice(0, LIMIT).map(card).join("");
-                if (typeof window.clampByWordsFromTailwind === "function") {
-                    window.clampByWordsFromTailwind(listEl);
-                }
             })
             .catch(function () {
                 renderMessage(listEl, "Không tải được bài viết.");
