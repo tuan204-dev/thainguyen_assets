@@ -1,0 +1,171 @@
+@import "tailwindcss" source(none) prefix(t);
+@source "./**/*.{html,js}";
+@source "../../common/**/*.{js,ts}";
+
+@theme {
+    --breakpoint-bt-xl: 1200px;
+    --breakpoint-pc: 1000px;
+}
+
+:root {
+    --rss-green: #30a14a;
+    --rss-green-dark: #23803a;
+    --rss-ink: #212636;
+    --rss-soft: #667085;
+    --rss-line: #dcdfe4;
+}
+
+/* ── Breadcrumb ─────────────────────────────────────────────────────────── */
+
+.rss-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--rss-soft);
+}
+
+.rss-breadcrumb a:hover {
+    color: var(--rss-green);
+}
+
+.rss-breadcrumb .is-current {
+    color: var(--rss-ink);
+    font-weight: 500;
+}
+
+/* ── Tiêu đề ────────────────────────────────────────────────────────────── */
+
+.rss-title {
+    font-family: "Noto Serif", serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.25;
+    color: var(--rss-ink);
+    margin-top: 12px;
+}
+
+@media (max-width: 999.98px) {
+    .rss-title {
+        font-size: 24px;
+    }
+}
+
+.rss-intro {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--rss-soft);
+}
+
+.rss-intro p + p {
+    margin-top: 12px;
+}
+
+.rss-intro strong {
+    color: var(--rss-ink);
+    font-weight: 600;
+}
+
+/* ── Khối ───────────────────────────────────────────────────────────────── */
+
+.rss-section {
+    margin-top: 36px;
+}
+
+.rss-section-title {
+    font-family: "Noto Serif", serif;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: var(--rss-green);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rss-line);
+}
+
+/* ── Danh sách kênh ─────────────────────────────────────────────────────── */
+
+.rss-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+@media (min-width: 768px) {
+    .rss-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1000px) {
+    .rss-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.rss-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 1px solid var(--rss-line);
+    border-radius: 8px;
+    background: #fff;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.rss-list a:hover {
+    border-color: var(--rss-green);
+    background: #f2faf4;
+}
+
+.rss-list__name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--rss-ink);
+    line-height: 1.4;
+}
+
+.rss-list a:hover .rss-list__name {
+    color: var(--rss-green-dark);
+}
+
+.rss-list__badge {
+    flex-shrink: 0;
+    padding: 3px 9px;
+    border-radius: 4px;
+    background: #f2faf4;
+    color: var(--rss-green-dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.rss-list a:hover .rss-list__badge {
+    background: var(--rss-green);
+    color: #fff;
+}
+
+/* Kênh tổng hợp — nổi bật hơn các kênh chuyên mục */
+.rss-list--primary a {
+    border-color: var(--rss-green);
+    background: #f2faf4;
+}
+
+/* ── Điều khoản ─────────────────────────────────────────────────────────── */
+
+.rss-terms {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--rss-soft);
+}
+
+.rss-terms p + p {
+    margin-top: 12px;
+}

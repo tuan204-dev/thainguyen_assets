@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <title>Không tìm thấy trang | Báo và Phát thanh, truyền hình Thái Nguyên</title>
+
+    <link rel="preconnect" href="https://r2-thainguyen.media-soft.cloud" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.baothainguyen.vn">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="https://r2-thainguyen.media-soft.cloud/common/fonts/google/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBHMdazTgWw.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="https://r2-thainguyen.media-soft.cloud/common/fonts/google/s/notoserif/v33/ga6faw1J5X9T9RW6j9bNfFIMZhhWnFTyNZIQD1-_P3Dct-FG.woff2">
+
+    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/404/desktop/output.css?v=20260803">
+    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/common/style/fonts-noto-serif-vn.css?v=20260803">
+    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/common/style/fonts-roboto-vn.css?v=20260803">
+    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/common/style/common.css?v=20260803">
+    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/common/style/icon.css?v=20260803">
+</head>
+
+<body class="home-page">
+    <!-- ⚠️ site-go render layout 404 với SQLParams = nil (page.go renderNotFound) — KHÔNG
+         portlet nào ở đây được dùng datasource, nếu không SQL sẽ lỗi và khối render rỗng.
+         Vì vậy dùng notfound_header (tĩnh) thay cho header_desktop/header_mobile, và danh
+         sách bài lấy qua REST ở client. footer(2) không có datasource nên dùng lại được. -->
+    <portlet name="notfound_header"></portlet>
+
+    <portlet name="notfound_content"></portlet>
+
+    <portlet name="notfound_latest" data-priority="idle"></portlet>
+
+    <portlet name="footer" data-priority="idle"></portlet>
+
+    <script defer src="https://r2-thainguyen.media-soft.cloud/common/common.js"></script>
+    <script defer src="https://r2-thainguyen.media-soft.cloud/404/desktop/script/index.js?v=20260803"></script>
+</body>
+
+</html>
