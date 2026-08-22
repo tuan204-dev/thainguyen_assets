@@ -1,8 +1,8 @@
 {
     "name": "Báo và Phát thanh, Truyền hình Thái Nguyên",
     "short_name": "Báo Thái Nguyên",
-    "start_url": "https://kr.thainguyen.media-soft.cloud/",
-    "scope": "https://kr.thainguyen.media-soft.cloud/",
+    "start_url": "https://kr.baothainguyen.vn/",
+    "scope": "https://kr.baothainguyen.vn/",
     "icons": [
         {
             "src": "https://r2-thainguyen.media-soft.cloud/encode/common/assets/fav/android-chrome-192x192.png",
