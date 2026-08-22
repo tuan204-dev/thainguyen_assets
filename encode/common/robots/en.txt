@@ -1,3 +1,10 @@
 User-agent: *
-Disallow: /search
-Disallow: /search?
+Disallow: /tim-kiem
+Disallow: /tim-kiem?
+
+Sitemap: https://en.baothainguyen.vn/sitemap.xml
+Sitemap: https://en.baothainguyen.vn/sitemap-article-daily.xml
+Sitemap: https://en.baothainguyen.vn/sitemap-news.xml
+Sitemap: https://en.baothainguyen.vn/sitemap-category.xml
+Sitemap: https://en.baothainguyen.vn/rss.xml
+Sitemap: https://en.baothainguyen.vn/rss/news.xml
