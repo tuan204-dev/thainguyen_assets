@@ -22,7 +22,7 @@
     var API_ORIGIN = 'https://api-public.baothainguyen.vn';
     var API_BASE = API_ORIGIN + '/v1/article';
     // Trang chi tiết bài (dựng href + fetch bóc media).
-    var SITE_ORIGIN = 'https://thainguyen.media-soft.cloud';
+    var SITE_ORIGIN = 'https://baothainguyen.vn';
     // Ảnh qua CDN ảnh của toà soạn; /wNNN/ là tiền tố resize theo bề rộng.
     var CDN_ORIGIN = 'https://cdn.baothainguyen.vn';
     var IMG_PREFIX = '/w600/';
