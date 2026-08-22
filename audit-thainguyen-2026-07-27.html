@@ -352,7 +352,7 @@ GET /chinh-tri → 200, 2.087 byte, 0 data-portlet
   "pageParams":{"category_id":5871,…}  "layoutName":""  "serverErrors":null</pre>
 Chuyên mục 2665 lại là cha của các trang con đang chạy tốt (<code>/chinh-tri/xay-dung-dang</code>, <code>/chinh-tri/dan-van-kheo</code>), nên chỉ trang cha bị chết.</dd></div>
           <div class="row"><dt>Tái hiện</dt><dd><pre>for i in 1 2 3 4 5; do curl -s -o /dev/null -w "%{http_code} %{size_download}\n" \
-  https://thainguyen.media-soft.cloud/chinh-tri; done</pre></dd></div>
+  https://baothainguyen.vn/chinh-tri; done</pre></dd></div>
           <div class="row"><dt>Hậu quả</dt><dd>Chuyên mục quan trọng nhất của một báo đảng địa phương trả trang trắng, và nó được link từ menu chính nên độc giả gặp ngay. Không có thông báo lỗi nào để đội vận hành biết.</dd></div>
           <div class="row"><dt>Đề xuất</dt><dd>Xử lý chuyên mục 5871 (đổi slug hoặc chuyển INACTIVE) để <code>/chinh-tri</code> resolve về 2665. Rà toàn bộ bảng chuyên mục tìm slug trùng khác. Đồng thời cân nhắc: chuyên mục không có layout nên trả 404 hoặc kế thừa layout cha, chứ không phải 200-trắng.</dd></div>
         </dl>
@@ -404,8 +404,8 @@ for i in $(seq 20); do curl -s -o /dev/null -w "%{size_download}\n" \
         <p class="scale">100% sitemap con của host EN</p>
         <dl class="rows">
           <div class="row"><dt>Bằng chứng</dt><dd><pre>GET https://en.thainguyen.media-soft.cloud/sitemap.xml
-  &lt;loc&gt;https://thainguyen.media-soft.cloud/sitemap-category.xml&lt;/loc&gt;
-  &lt;loc&gt;https://thainguyen.media-soft.cloud/sitemap-article-2026-06-27.xml&lt;/loc&gt;
+  &lt;loc&gt;https://baothainguyen.vn/sitemap-category.xml&lt;/loc&gt;
+  &lt;loc&gt;https://baothainguyen.vn/sitemap-article-2026-06-27.xml&lt;/loc&gt;
         ↑ host tiếng Việt, không phải en.</pre></dd></div>
           <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://en.thainguyen.media-soft.cloud/sitemap.xml | grep -o '&lt;loc&gt;[^&lt;]*' | head</pre></dd></div>
           <div class="row"><dt>Hậu quả</dt><dd>Cùng gốc với #5 nhưng biểu hiện khác: sitemap EN chỉ liệt kê lại nội dung tiếng Việt. Nội dung tiếng Anh không có đường vào từ sitemap. Nên sửa chung một chỗ.</dd></div>
@@ -442,7 +442,7 @@ Nghịch lý: HTTPS <em>có</em> khai HSTS (<code>max-age=31536000; includeSubDo
         <dl class="rows">
           <div class="row"><dt>Bằng chứng</dt><dd><pre>Phân bố lang trên 112 chuyên mục VI:   vi = 81,  en = 31
 5 trang chi tiết bài lấy từ sitemap ngày:  en, en, en, en, en</pre></dd></div>
-          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://thainguyen.media-soft.cloud/kinh-te | grep -o '&lt;html lang="[^"]*"'</pre></dd></div>
+          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://baothainguyen.vn/kinh-te | grep -o '&lt;html lang="[^"]*"'</pre></dd></div>
           <div class="row"><dt>Hậu quả</dt><dd>Google có thể xếp trang vào thị trường tiếng Anh; trình đọc màn hình đọc tiếng Việt bằng giọng tiếng Anh nên gần như không nghe hiểu được; trình duyệt gợi ý dịch sai. Trang chi tiết bài là loại trang chiếm phần lớn traffic nên quy mô thực tế rất lớn.</dd></div>
           <div class="row"><dt>Đề xuất</dt><dd>Thuộc tính <code>lang</code> nằm trong layout, không phải portlet — rà các layout detail và cate, đặt <code>lang</code> theo department (2→vi, 3→zh, 4→en, 5→ko).</dd></div>
         </dl>
@@ -506,7 +506,7 @@ X-Content-Type-Options: nosniff
   notFoundPortletList: ["phat_thanh_section_3","phat_thanh_section_4"]
   serverErrors: null</pre>
 Layout gọi 2 portlet mà site-go không tìm thấy (không tồn tại hoặc không ACTIVE), nên bỏ qua im lặng — trang vẫn 200 và trông “bình thường”.</dd></div>
-          <div class="row"><dt>Tái hiện</dt><dd><pre>M=$(curl -s https://thainguyen.media-soft.cloud/phat-thanh | grep -o '/_ms/[^"]*msdata\.js' | head -1)
+          <div class="row"><dt>Tái hiện</dt><dd><pre>M=$(curl -s https://baothainguyen.vn/phat-thanh | grep -o '/_ms/[^"]*msdata\.js' | head -1)
 curl -s "https://thainguyen.media-soft.cloud$M" | grep -o 'notFoundPortletList[^]]*]'</pre></dd></div>
           <div class="row"><dt>Hậu quả</dt><dd>Hai khối nội dung đã thiết kế nhưng không bao giờ hiển thị. Không ai biết vì không có lỗi nào nổi lên.</dd></div>
           <div class="row"><dt>Đề xuất</dt><dd>Xác định 2 portlet này đã bị xoá hay đang INACTIVE rồi kích hoạt lại / bỏ khỏi layout. Đáng làm hơn: quét <code>notFoundPortletList</code> trên toàn bộ trang như một kiểm tra thường kỳ — đây là loại lỗi chỉ sidecar mới thấy.</dd></div>
@@ -524,7 +524,7 @@ curl -s "https://thainguyen.media-soft.cloud$M" | grep -o 'notFoundPortletList[^
           <div class="row"><dt>Bằng chứng</dt><dd><pre>grep -o 'href="#"' trang-chu.html | wc -l   →  23
 grep -o 'href=""'  trang-chu.html | wc -l   →   0</pre>
 Nguyên nhân theo agent quét: portlet sinh href từ slug bài, bài nào slug NULL thì ra <code>#</code>. Số 23 là tôi tự đếm; con số “40 bài” chưa tự kiểm chứng lại.</dd></div>
-          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://thainguyen.media-soft.cloud/ | grep -o 'href="#"' | wc -l</pre></dd></div>
+          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://baothainguyen.vn/ | grep -o 'href="#"' | wc -l</pre></dd></div>
           <div class="row"><dt>Hậu quả</dt><dd>Độc giả bấm vào tiêu đề hoặc ảnh bài mà trang chỉ tải lại chính nó. Bot cũng không vào được bài đó. Một phần 23 link này thuộc mega menu (“Xem…”) nên có thể là thiết kế, phần còn lại là bài thật.</dd></div>
           <div class="row"><dt>Đề xuất</dt><dd>Hai lớp: chặn ở CMS để bài không xuất bản được khi slug rỗng, và ở portlet thì ẩn/không bọc thẻ <code>a</code> khi thiếu slug thay vì sinh <code>href="#"</code>.</dd></div>
         </dl>
@@ -541,7 +541,7 @@ Nguyên nhân theo agent quét: portlet sinh href từ slug bài, bài nào slug
           <div class="row"><dt>Bằng chứng</dt><dd><pre>trang chủ VI            : 0 thẻ &lt;h1&gt;
 chuyên mục không có h1  : 109/112</pre>
 Agent a11y báo thêm: thiếu h1 ở 13/21 loại trang, gồm cả 4 trang chủ ngôn ngữ, 4 trang tag và toàn bộ 9 bài Emagazine (chưa tự kiểm chứng lại phần này).</dd></div>
-          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://thainguyen.media-soft.cloud/ | grep -c '&lt;h1'</pre></dd></div>
+          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://baothainguyen.vn/ | grep -c '&lt;h1'</pre></dd></div>
           <div class="row"><dt>Hậu quả</dt><dd>Mất tín hiệu chủ đề mạnh nhất của trang với máy tìm kiếm. Với trình đọc màn hình, mất luôn mốc điều hướng đầu tiên — người dùng không có cách nhảy tới nội dung chính.</dd></div>
           <div class="row"><dt>Đề xuất</dt><dd>Mỗi loại trang chọn đúng một tiêu đề làm <code>h1</code>: chuyên mục dùng tên chuyên mục, trang chủ dùng tên báo (có thể ẩn bằng kỹ thuật nhưng vẫn đọc được). Rà lại thứ bậc heading cùng lúc.</dd></div>
         </dl>
@@ -659,8 +659,8 @@ curl -s -o /dev/null -w "%{http_code}\n" https://cn.thainguyen.media-soft.cloud/
           <div class="row"><dt>Bằng chứng</dt><dd><pre>Accept-Encoding: br    → 347.039 byte  (KHÔNG nén)
 Accept-Encoding: gzip  →  56.668 byte</pre>
 Origin có gzip nhưng không có brotli, và không fallback về gzip khi client chỉ khai <code>br</code>.</dd></div>
-          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s -o /dev/null -H "Accept-Encoding: br"   -w "br: %{size_download}\n"   https://thainguyen.media-soft.cloud/
-curl -s -o /dev/null -H "Accept-Encoding: gzip" -w "gzip: %{size_download}\n" https://thainguyen.media-soft.cloud/</pre></dd></div>
+          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s -o /dev/null -H "Accept-Encoding: br"   -w "br: %{size_download}\n"   https://baothainguyen.vn/
+curl -s -o /dev/null -H "Accept-Encoding: gzip" -w "gzip: %{size_download}\n" https://baothainguyen.vn/</pre></dd></div>
           <div class="row"><dt>Hậu quả</dt><dd>Trình duyệt thật luôn khai cả <code>gzip</code> nên đa số vẫn được nén — nhưng client/proxy nào chỉ khai <code>br</code> sẽ tải gấp 6 lần. Bật brotli còn giảm thêm ~15–20% so với gzip.</dd></div>
           <div class="row"><dt>Đề xuất</dt><dd>Bật <code>brotli on</code> ở nginx, và đảm bảo có fallback gzip khi không thương lượng được thuật toán.</dd></div>
         </dl>
@@ -678,7 +678,7 @@ curl -s -o /dev/null -H "Accept-Encoding: gzip" -w "gzip: %{size_download}\n" ht
                                         ↑ có dấu * nên cho phép mọi nguồn
    KHÔNG có frame-ancestors, KHÔNG có X-Frame-Options
    KHÔNG có Referrer-Policy, KHÔNG có Permissions-Policy</pre></dd></div>
-          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -sI https://thainguyen.media-soft.cloud/ | grep -iE 'content-security|frame|referrer|permissions'</pre></dd></div>
+          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -sI https://baothainguyen.vn/ | grep -iE 'content-security|frame|referrer|permissions'</pre></dd></div>
           <div class="row"><dt>Hậu quả</dt><dd>CSP hiện tại không ngăn được gì — có <code>*</code> thì mọi nguồn script đều hợp lệ. Thiếu <code>frame-ancestors</code> nên site nhúng được vào iframe của trang khác, mở đường clickjacking và mạo danh — rủi ro đáng kể với báo chí nhà nước.</dd></div>
           <div class="row"><dt>Đề xuất</dt><dd>Việc nhanh và đáng làm ngay: thêm <code>frame-ancestors 'self'</code> (hoặc <code>X-Frame-Options: SAMEORIGIN</code>) và <code>Referrer-Policy</code>. Siết CSP là việc dài hơi vì site đang dùng inline script/style nhiều.</dd></div>
         </dl>
@@ -692,10 +692,10 @@ curl -s -o /dev/null -H "Accept-Encoding: gzip" -w "gzip: %{size_download}\n" ht
         </div>
         <p class="scale">Site + CDN ảnh (CDN qua Cloudflare vẫn có HTTP/2 ở biên)</p>
         <dl class="rows">
-          <div class="row"><dt>Bằng chứng</dt><dd><pre>curl --http2 https://thainguyen.media-soft.cloud/  →  HTTP/1.1 200 OK
+          <div class="row"><dt>Bằng chứng</dt><dd><pre>curl --http2 https://baothainguyen.vn/  →  HTTP/1.1 200 OK
 Server: nginx</pre>
 Ép <code>--http2</code> vẫn thương lượng xuống 1.1, nên origin chưa bật.</dd></div>
-          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -sI --http2 https://thainguyen.media-soft.cloud/ | head -1</pre></dd></div>
+          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -sI --http2 https://baothainguyen.vn/ | head -1</pre></dd></div>
           <div class="row"><dt>Hậu quả</dt><dd>Trang chủ có 148 ảnh cộng hàng chục CSS/JS — trên HTTP/1.1 số kết nối song song bị giới hạn 6/host nên phải xếp hàng. Đây là hệ số nhân cho vấn đề #9.</dd></div>
           <div class="row"><dt>Đề xuất</dt><dd>Bật <code>listen 443 ssl http2</code> ở nginx. Chi phí thấp, hiệu quả rõ với trang nhiều tài nguyên như thế này.</dd></div>
         </dl>
@@ -732,7 +732,7 @@ Disallow: /search?
 
   ← không có dòng Sitemap:
   ← /search không tồn tại trên site; trang tìm kiếm thật là /tim-kiem</pre></dd></div>
-          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://thainguyen.media-soft.cloud/robots.txt</pre></dd></div>
+          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://baothainguyen.vn/robots.txt</pre></dd></div>
           <div class="row"><dt>Hậu quả</dt><dd>Quy tắc chặn không có tác dụng nào (chặn đường không tồn tại) trong khi trang tìm kiếm thật vẫn mở cho bot — dễ sinh vô số URL tham số. Thiếu <code>Sitemap:</code> làm chậm khám phá khi launch.</dd></div>
           <div class="row"><dt>Đề xuất</dt><dd>Đổi thành <code>Disallow: /tim-kiem</code> và thêm dòng <code>Sitemap:</code> đúng host cho từng ngôn ngữ. Nhớ làm cả 4 host — sau khi đã sửa #5, #6, #18.</dd></div>
         </dl>
@@ -754,7 +754,7 @@ Disallow: /search?
 · 6.870 &lt;lastmod&gt; trong sitemap index giống hệt nhau, cũ hơn nội dung 2 ngày
 · sitemap-news khai news:name là tên host staging thay vì tên toà soạn</pre>
 Breadcrumb tôi có thấy trực tiếp trên <code>/chinh-tri</code>: hai mục trỏ hai URL khác nhau, đúng cấu trúc — nên lỗi này có thể chỉ xảy ra ở một số loại trang, cần khoanh lại.</dd></div>
-          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://thainguyen.media-soft.cloud/kinh-te \
+          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://baothainguyen.vn/kinh-te \
   | grep -oE '(og:image|application/ld\+json)[^&gt;]*' | head</pre></dd></div>
           <div class="row"><dt>Hậu quả</dt><dd>Ảnh xem trước khi chia sẻ lên Facebook/Zalo bị sai tỉ lệ hoặc không tải. Rich result tin tức có thể bị loại vì logo publisher sai định dạng. <code>lastmod</code> đồng loạt làm Google mất tín hiệu ưu tiên crawl bài mới — đáng chú ý với báo điện tử.</dd></div>
           <div class="row"><dt>Đề xuất</dt><dd>Kiểm chứng lại từng mục rồi xử theo nhóm: nguồn ảnh og/JSON-LD chuyển sang CDN, bỏ khai cứng kích thước (hoặc lấy đúng), logo publisher đổi sang PNG, <code>lastmod</code> lấy theo thời điểm sửa thật của từng URL.</dd></div>
@@ -778,7 +778,7 @@ Breadcrumb tôi có thấy trực tiếp trên <code>/chinh-tri</code>: hai mụ
 · 6/7 ô tìm kiếm nâng cao và 3/4 ô form bình luận không có label
 · vùng chạm nút chuyển slide nhỏ hơn 24×24px
 · ảnh quảng cáo và 74/149 ảnh bìa ở /doc-bao-in thiếu alt</pre></dd></div>
-          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://thainguyen.media-soft.cloud/truyen-hinh \
+          <div class="row"><dt>Tái hiện</dt><dd><pre>curl -s https://baothainguyen.vn/truyen-hinh \
   | grep -oE '&lt;a[^&gt;]*&gt;[^&lt;]*&lt;button' | wc -l</pre></dd></div>
           <div class="row"><dt>Hậu quả</dt><dd>Người dùng bàn phím và trình đọc màn hình gần như không dùng được menu chính. <code>button</code> lồng trong <code>a</code> là HTML không hợp lệ nên hành vi khác nhau giữa các trình duyệt. Với site của cơ quan nhà nước, đây cũng là vấn đề tuân thủ, không chỉ trải nghiệm.</dd></div>
           <div class="row"><dt>Đề xuất</dt><dd>Xử theo thứ tự đòn bẩy: (1) tên khả truy cập + <code>aria-expanded</code> cho hamburger và overlay, (2) gỡ <code>button</code> lồng trong <code>a</code>, (3) skip link, (4) label cho form. Bốn việc này gỡ phần lớn rào cản với chi phí thấp.</dd></div>
