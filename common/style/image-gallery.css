@@ -76,7 +76,25 @@
     user-select: none;
 }
 
-.image-gallery__img {
+/* ── Khung zoom: Swiper phóng to <img> bên trong và translate khung này khi pan ──
+   Ghi đè .swiper-zoom-container (mặc định width/height: 100%) để khung ôm sát ảnh,
+   nhờ vậy figcaption vẫn nằm ngay dưới ảnh đúng như trước khi có zoom. */
+.image-gallery__zoom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* Selector đôi: bản có .image-gallery__zoom phải thắng
+   .swiper-zoom-container > img của swiper-bundle.min.css (max-height: 100%). */
+.image-gallery__img,
+.image-gallery__zoom > .image-gallery__img {
     display: block;
     max-width: 100%;
     max-height: 78vh;
@@ -86,6 +104,18 @@
     border-radius: 4px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     -webkit-user-drag: none;
+    cursor: zoom-in;
+}
+
+/* Đang phóng to: nhường màn hình cho ảnh, đổi con trỏ sang "kéo để xem". */
+.image-gallery[data-zoomed="true"] .image-gallery__img {
+    cursor: move;
+}
+
+.image-gallery[data-zoomed="true"] .image-gallery__nav,
+.image-gallery[data-zoomed="true"] .image-gallery__caption {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .image-gallery__caption {
@@ -96,6 +126,7 @@
     max-width: 80ch;
     line-height: 1.5;
     padding: 0 8px;
+    transition: opacity 0.2s ease;
 }
 
 /* ── Top corner buttons ── */
@@ -232,7 +263,8 @@
         font-size: 0.75rem;
     }
 
-    .image-gallery__img {
+    .image-gallery__img,
+    .image-gallery__zoom > .image-gallery__img {
         max-height: 70vh;
     }
 }

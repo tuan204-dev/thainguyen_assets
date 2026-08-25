@@ -9,6 +9,10 @@ const ImageGallery = (() => {
     const EXCLUDE_SELECTORS = ['[class^="related-"]', '[class*=" related-"]'];
     const EXCLUDE_SELECTOR = EXCLUDE_SELECTORS.join(",");
 
+    /* Zoom bằng tay: pinch 2 ngón trên mobile, double-tap / double-click, kéo để pan.
+       Do module Zoom của Swiper đảm nhiệm (đã có sẵn trong swiper-bundle). */
+    const ZOOM_MAX_RATIO = 3;
+
     let root = null;
     let counterEl = null;
     let swiperEl = null;
@@ -54,6 +58,7 @@ const ImageGallery = (() => {
             if (e.target.closest("[data-gallery-close]")) return close();
             if (e.target.closest("[data-gallery-download]")) return downloadCurrent();
             if (e.target.closest(".image-gallery__btn")) return;
+            if (e.target.closest(".image-gallery__zoom")) return;
             if (e.target.closest(".image-gallery__img")) return;
             close();
         });
@@ -95,7 +100,9 @@ const ImageGallery = (() => {
                 return `
                     <div class="swiper-slide">
                         <figure class="image-gallery__figure">
-                            <img class="image-gallery__img" src="${src}" alt="${alt}">
+                            <div class="swiper-zoom-container image-gallery__zoom">
+                                <img class="image-gallery__img" src="${src}" alt="${alt}">
+                            </div>
                             ${caption ? `<figcaption class="image-gallery__caption">${caption}</figcaption>` : ""}
                         </figure>
                     </div>
@@ -109,6 +116,10 @@ const ImageGallery = (() => {
         if (root) root.dataset.single = total <= 1 ? "true" : "false";
     }
 
+    function setZoomed(isZoomed) {
+        if (root) root.dataset.zoomed = isZoomed ? "true" : "false";
+    }
+
     function createSwiper(initialSlide) {
         return new Swiper(swiperEl, {
             initialSlide,
@@ -116,6 +127,12 @@ const ImageGallery = (() => {
             spaceBetween: 40,
             slidesPerView: 1,
             keyboard: { enabled: true, onlyInViewport: false },
+            zoom: {
+                enabled: true,
+                minRatio: 1,
+                maxRatio: ZOOM_MAX_RATIO,
+                toggle: true,
+            },
             navigation: {
                 prevEl: root.querySelector(".image-gallery__nav--prev"),
                 nextEl: root.querySelector(".image-gallery__nav--next"),
@@ -123,9 +140,14 @@ const ImageGallery = (() => {
             on: {
                 init(s) {
                     updateCounter(s.activeIndex, s.slides.length);
+                    setZoomed(false);
                 },
                 slideChange(s) {
                     updateCounter(s.activeIndex, s.slides.length);
+                    setZoomed(false);
+                },
+                zoomChange(s, scale) {
+                    setZoomed(scale > 1);
                 },
             },
         });
@@ -151,6 +173,16 @@ const ImageGallery = (() => {
 
     function close() {
         if (!root || !root.classList.contains("is-active")) return;
+
+        if (swiperInstance && swiperInstance.zoom) {
+            try {
+                swiperInstance.zoom.out();
+            } catch {
+                /* swiper đã bị hủy — bỏ qua */
+            }
+        }
+        setZoomed(false);
+
         root.classList.remove("is-active");
         root.setAttribute("aria-hidden", "true");
         document.body.classList.remove("overlay-open");
