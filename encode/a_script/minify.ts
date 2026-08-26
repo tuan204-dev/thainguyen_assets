@@ -28,7 +28,7 @@ import { mkdir, stat, readdir, rm, rmdir } from "node:fs/promises";
 import { watch } from "node:fs";
 import { dirname, join, relative, resolve, sep } from "node:path";
 import * as esbuild from "esbuild";
-import { transform as lightningTransform } from "lightningcss";
+import { transform as lightningTransform, Features } from "lightningcss";
 import { minify as htmlMinify } from "html-minifier-terser";
 
 // ---------------------------------------------------------------------------
@@ -73,6 +73,39 @@ const TAILWIND_SOURCE_RE =
 // `{{…}}` của Handlebars/Vue/Mustache) -> copy nguyên trạng để khỏi hỏng cú pháp template.
 // Lưu ý: KHÔNG bắt `}}` đơn lẻ (rất hay gặp trong JS inline lồng object).
 const SERVER_TAG_RE = /<%|<\?(?:php|=)|\{\{[^}]*?\}\}/;
+
+// ---------------------------------------------------------------------------
+// Sàn trình duyệt cho asset phát hành
+// ---------------------------------------------------------------------------
+
+/**
+ * Chrome 109 là bản Chrome CUỐI CÙNG cho Windows 7/8.1 (01/2023) — máy đó không
+ * nâng cấp được nữa. Tailwind v4 lại nhắm Chrome 111+, nên output của nó dùng
+ * CSS nesting (Chrome 112), oklch()/oklab() (111) và color-mix() (111).
+ *
+ * Không truyền `targets` thì lightningcss CHỈ nén khoảng trắng và GIỮ NGUYÊN cú
+ * pháp mới -> trang vỡ style trên Chrome 109. Đây là điểm chặn duy nhất cho toàn
+ * bộ CSS phát hành: mọi URL công khai của site đều trỏ vào encode/.
+ *
+ * Số version là 24-bit, mỗi byte một thành phần semver: major<<16 | minor<<8 | patch.
+ *
+ * KHÔNG hạ cấp được (nằm ngoài tầm với của mọi công cụ, xem docs/legacy-browser-support.md):
+ *   @layer -> Chrome 99 · :has() -> 105 · translate:/rotate:/scale: -> 104
+ */
+export const CSS_TARGETS = {
+  chrome: 90 << 16,
+  edge: 90 << 16,
+  firefox: 91 << 16,
+  safari: (15 << 16) | (6 << 8),
+  ios_saf: (15 << 16) | (6 << 8),
+  samsung: 15 << 16,
+};
+
+/**
+ * Sàn cú pháp cho JS. esbuild chỉ kiểm CÚ PHÁP, không kiểm API — các API hậu-109
+ * (.toSorted, Object.groupBy, ...) do a_script/check-legacy.ts chặn.
+ */
+export const JS_TARGET = ["chrome109"];
 
 // ---------------------------------------------------------------------------
 // Tiện ích
@@ -128,10 +161,55 @@ export async function minifyJs(code: string, relPath: string): Promise<string> {
     minify: true,
     legalComments: "none",
     sourcefile: relPath,
+    target: JS_TARGET,
   });
-  // Kiểm tra lại: output phải parse được như JS hợp lệ.
-  await esbuild.transform(res.code, { loader: "js", sourcefile: relPath });
+  // Kiểm tra lại: output phải parse được ở ĐÚNG sàn đã hạ cấp (trước đây chạy
+  // mặc định "esnext" nên không bắt được cú pháp vượt mức hỗ trợ).
+  await esbuild.transform(res.code, { loader: "js", sourcefile: relPath, target: JS_TARGET });
   return res.code;
+}
+
+/**
+ * Sửa giá trị fallback của modifier độ mờ.
+ *
+ * Tailwind v4 biên dịch `t:bg-black/5` thành hai lớp: một khai báo thường dùng
+ * MÀU ĐẶC, rồi một khai báo `color-mix()` bọc trong `@supports`. Trình duyệt
+ * không có `color-mix()` (Chrome < 111) dừng ở lớp đầu và nhận màu đặc 100%,
+ * nên lớp phủ che kín nội dung bên dưới.
+ *
+ * Hàm này thay màu đặc đó bằng `rgba()` tương đương — `color-mix(in oklab, C p%,
+ * transparent)` cho ra đúng C với alpha nhân p%, nên đây là giá trị chính xác
+ * chứ không phải xấp xỉ. Trình duyệt hiện đại vẫn đọc nhánh `@supports` như cũ,
+ * không đổi gì; sửa TẠI CHỖ nên cũng không đụng tới thứ tự cascade.
+ *
+ * Chỉ xử lý được khi màu gốc quy về hex trong `@theme`/`:root` của chính file đó.
+ * Trường hợp không quy được (`currentcolor`, màu oklch) thì để nguyên.
+ */
+export function fixOpacityFallback(css: string): string {
+  const vars = new Map<string, string>();
+  for (const m of css.matchAll(/(--[\w-]*color[\w-]*)\s*:\s*(#[0-9a-fA-F]{3,8})\s*[;}]/g)) {
+    if (!vars.has(m[1]!)) vars.set(m[1]!, m[2]!);
+  }
+
+  const toRgba = (hex: string, pct: number): string | null => {
+    let h = hex.slice(1);
+    if (h.length === 3) h = h.split("").map((c) => c + c).join("");
+    if (h.length !== 6) return null; // bỏ qua hex đã có alpha
+    const [r, g, b] = [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16));
+    const a = String(Math.round(pct) / 100).replace(/^0\./, ".");
+    return `rgba(${r}, ${g}, ${b}, ${a})`;
+  };
+
+  // `prop: var(--x);` … `@supports (color: color-mix(in lab, red, red)) { prop: color-mix(in oklab, var(--x) N%, transparent) }`
+  const RE =
+    /([-\w]+)\s*:\s*var\((--[\w-]+)\)\s*;(\s*@supports\s*\(color:\s*color-mix\(in lab,\s*red,\s*red\)\)\s*\{\s*)\1\s*:\s*color-mix\(in oklab,\s*var\(\2\)\s+([\d.]+)%,\s*transparent\)/g;
+
+  return css.replace(RE, (whole, prop, name, mid, pct) => {
+    const hex = vars.get(name);
+    const rgba = hex && toRgba(hex, parseFloat(pct));
+    if (!rgba) return whole;
+    return `${prop}: ${rgba};${mid}${prop}: color-mix(in oklab, var(${name}) ${pct}%, transparent)`;
+  });
 }
 
 export function minifyCss(code: string, relPath: string): string {
@@ -140,8 +218,11 @@ export function minifyCss(code: string, relPath: string): string {
   }
   const res = lightningTransform({
     filename: relPath,
-    code: Buffer.from(code),
+    code: Buffer.from(fixOpacityFallback(code)),
     minify: true,
+    targets: CSS_TARGETS,
+    // Ép làm phẳng nesting kể cả khi ai đó nới CSS_TARGETS về sau.
+    include: Features.Nesting,
   });
   const out = new TextDecoder().decode(res.code);
   // Kiểm tra lại: output phải parse được như CSS hợp lệ.

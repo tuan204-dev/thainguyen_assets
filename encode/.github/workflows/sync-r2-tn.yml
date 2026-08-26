@@ -13,6 +13,27 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      # Cổng tương thích trình duyệt cũ: chặn không cho cú pháp vượt sàn
+
+      # Chrome 109 (bản cuối cho Windows 7/8.1) lọt lên CDN. Bản địa phương
+
+      # đã chặn ở bun run sync, đây là lưới an toàn cho push trực tiếp.
+
+      - name: Setup Bun
+
+        uses: oven-sh/setup-bun@v2
+
+
+      - name: Install deps
+
+        run: bun install --frozen-lockfile
+
+
+      - name: Check legacy browser compatibility
+
+        run: bun a_script/check-legacy.ts
+
+
       - name: Sync all files to R2
         run: |
           set -euo pipefail
