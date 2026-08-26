@@ -800,7 +800,7 @@
 
     // ===== Đồng bộ URL với bài đang phát =====
     // Đẩy path của bài (pageUrl) lên thanh địa chỉ — chỉ lấy path vì pushState
-    // yêu cầu same-origin (link bài trỏ về thainguyen.media-soft.cloud).
+    // yêu cầu same-origin (link bài trỏ về baothainguyen.vn).
     function syncUrlToCard(card) {
         if (suppressUrlSync || !card || !card.__item || !card.__item.pageUrl) return;
         try {
