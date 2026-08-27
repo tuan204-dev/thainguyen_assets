@@ -15,47 +15,13 @@ const customMsg = process.argv.slice(2).join(" ").trim();
 
 // 1) Minify (lỗi -> throw -> dừng trước khi commit)
 console.log("🔧 Đang minify…");
-await /**
- * minify-push.ts — Minify assets vào encode/ rồi git add + commit + push.
- *
- * Dùng:
- *   bun run minify:push                # commit message mặc định (kèm timestamp)
- *   bun run minify:push "message"      # commit message tùy chọn
- *
- * - Chạy a_script/minify.ts trước; minify LỖI thì DỪNG, không commit/push.
- * - Rồi a_script/check-legacy.ts; cú pháp vượt sàn Chrome 109 thì DỪNG luôn.
- * - Không có thay đổi nào để commit → bỏ qua commit, vẫn thử push (an toàn).
- */
-import { $ } from "bun";
-
-const customMsg = process.argv.slice(2).join(" ").trim();
-
-// 1) Minify (lỗi -> throw -> dừng trước khi commit)
-console.log("🔧 Đang minify…");
-bun ${import.meta.dir}/minify.ts`;
+await $`bun ${import.meta.dir}/minify.ts`;
 
 // 2) Cổng tương thích trình duyệt cũ. Tailwind v4 nhắm Chrome 111+ trong khi
 //    Chrome 109 là bản cuối cho Windows 7/8.1 — chặn tại đây để cú pháp mới
 //    không lọt lên CDN. Exit ≠ 0 -> throw -> dừng trước khi commit.
 console.log("🔎 Đang kiểm tra tương thích trình duyệt cũ…");
-await /**
- * minify-push.ts — Minify assets vào encode/ rồi git add + commit + push.
- *
- * Dùng:
- *   bun run minify:push                # commit message mặc định (kèm timestamp)
- *   bun run minify:push "message"      # commit message tùy chọn
- *
- * - Chạy a_script/minify.ts trước; minify LỖI thì DỪNG, không commit/push.
- * - Rồi a_script/check-legacy.ts; cú pháp vượt sàn Chrome 109 thì DỪNG luôn.
- * - Không có thay đổi nào để commit → bỏ qua commit, vẫn thử push (an toàn).
- */
-import { $ } from "bun";
-
-const customMsg = process.argv.slice(2).join(" ").trim();
-
-// 1) Minify (lỗi -> throw -> dừng trước khi commit)
-console.log("🔧 Đang minify…");
-bun ${import.meta.dir}/check-legacy.ts`;
+await $`bun ${import.meta.dir}/check-legacy.ts`;
 
 // 3) Stage toàn bộ thay đổi
 await $`git add -A`;
