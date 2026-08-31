@@ -48,3 +48,40 @@
         font-size: 19px !important;
     }
 }
+
+/* ---------------------------------------------------------------------------
+   Bảng bọc ảnh của bài MIGRATE từ hệ thống cũ tràn ra ngoài cột nội dung.
+
+   Bài cũ chèn ảnh bằng <table class="image center" width="1200"> (có bài tới
+   5520px) trong khi cột #content chỉ rộng 826px (desktop 1440px) => bảng đè
+   lên sidebar. Thủ phạm là cái BẢNG chứ không phải cái ảnh: preflight đã có
+   `img,video{max-width:100%}` nên <img style="width:1200px"> tự nó luôn bị kẹp
+   vừa cột — đo thực tế bằng Chrome: img đứng một mình 826px, nhưng nằm trong
+   table[width=1200] thì nở ra đúng 1200px vì % của max-width tính theo ô <td>
+   mà ô lại ăn theo width của bảng.
+
+   Vì sao bảng THƯỜNG không bị: layout có sẵn JS bọc bảng rộng vào khung cuộn
+   ngang (.ms-table-scroll.is-wide), nhưng selector của nó là
+     table[border]:not([border="0"]):not(.image):not(.rl):not(.picture)
+   — tức LOẠI TRỪ đúng bảng ảnh, và cũng bỏ qua bảng không khai báo border.
+
+   Rà 269.127 bài: 348 bài dính, 338 trong số đó là bài có old_id (migrate).
+
+   Chỉ kẹp max-width, KHÔNG ép width:100%, và loại trừ [data-align-table] để
+   không phá ảnh full-bleed/emagazine cố ý rộng; ảnh nhỏ cố ý (vd width:300px)
+   cũng giữ nguyên vì width:auto chỉ đặt trên BẢNG, không đặt trên <img>.
+   --------------------------------------------------------------------------- */
+#content table.image:not([data-align-table]),
+#content table.rl:not([data-align-table]),
+#content table.picture:not([data-align-table]) {
+    max-width: 100% !important;
+    width: auto !important;
+}
+
+/* Bảng không phải bảng ảnh và KHÔNG được JS bọc scroll (thiếu border, hoặc
+   border="0") thì cũng phải tự kẹp, kẻo tràn y hệt. Bảng có border thật vẫn
+   để nguyên cho .ms-table-scroll cuộn ngang — kẹp lại sẽ làm bí nội dung. */
+#content table:not([data-align-table]):not(.image):not(.rl):not(.picture):not([border]),
+#content table[border="0"]:not([data-align-table]):not(.image):not(.rl):not(.picture) {
+    max-width: 100% !important;
+}
