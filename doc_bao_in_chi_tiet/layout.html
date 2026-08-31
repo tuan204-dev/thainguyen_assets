@@ -21,6 +21,17 @@
                 padding-top: 0 !important;
             }
 
+            /* vendor/dflip.css paints a 20%-wide gradient slab on the inner (gutter) edge of every
+               page via .df-page-front:before / .df-page-back:before. It ships ONLY the legacy
+               -webkit-/-moz-/-ms- prefixed gradient syntax, where the angle is measured the old
+               way, so the fade runs vertically instead of toward the spine — leaving two flat grey
+               bands straddling the gutter. Purely decorative; drop it. */
+            .df-page-front:before,
+            .df-page-back:before {
+                background-image: none !important;
+                display: none !important;
+            }
+
             /* ── Header responsive ── */
             .header-title {
                 color: #fff;
