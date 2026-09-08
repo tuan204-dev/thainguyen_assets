@@ -14,7 +14,7 @@
  * Exit 1 nếu có lỗi CHẶN. Cảnh báo (WARN) không làm fail.
  */
 
-import { readdir, readFile } from "node:fs/promises";
+import { readFile, readdir, stat } from "node:fs/promises";
 import { join, relative } from "node:path";
 import * as esbuild from "esbuild";
 import { JS_TARGET } from "./minify.ts";
@@ -190,6 +190,42 @@ for await (const path of walk(root)) {
   if (rel.endsWith("source.css")) continue;
   if (rel.endsWith(".css")) { nCss++; findings.push(...checkCss(await readFile(path, "utf8"), rel)); }
   else if (/\.(js|mjs|cjs)$/.test(rel)) { nJs++; findings.push(...await checkJs(await readFile(path, "utf8"), rel)); }
+}
+
+/**
+ * NGÂN SÁCH BYTE — tính bằng byte của bản ĐÃ MINIFY.
+ *
+ * Vì sao cần một cổng chứ không phải một lời hứa: một lời hứa không có cổng thì không sống qua
+ * người đóng góp tiếp theo. `engage.js` chạy trên MỌI trang của bạn đọc; nó phình ra 20 KB cũng
+ * chẳng có gì trên màn hình báo, chỉ có hoá đơn băng thông và một giây đầu chậm hơn.
+ *
+ * File không tồn tại thì bỏ qua — repo này phục vụ nhiều bố cục, không phải cái nào cũng có.
+ */
+const SIZE_BUDGET: Record<string, number> = {
+  // 5 KB. Cùng trần với bản `tcanm-assets`, và cố ý giữ bằng nhau: hai repo phát hành CÙNG một
+  // tệp cho hai site, nên hai trần khác nhau thì cái lỏng hơn là cái duy nhất có tác dụng.
+  //
+  // ⚠ Vượt trần lần nữa thì câu trả lời gần như chắc chắn KHÔNG phải nâng tiếp mà là TÁCH TỆP.
+  // Nâng trần lần thứ ba là lúc con số này thôi có nghĩa.
+  "encode/common/engage.js": 5 * 1024,
+};
+
+for (const [rel, budget] of Object.entries(SIZE_BUDGET)) {
+  let size: number;
+  try {
+    size = (await stat(rel)).size;
+  } catch {
+    continue;
+  }
+  if (size > budget) {
+    findings.push({
+      file: rel,
+      line: 1,
+      kind: "vượt ngân sách byte",
+      level: "ERR",
+      detail: `${size} B > ${budget} B (bản đã minify)`,
+    });
+  }
 }
 
 const errors = findings.filter((f) => f.level === "ERR");
