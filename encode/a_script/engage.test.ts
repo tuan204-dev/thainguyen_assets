@@ -60,6 +60,8 @@ interface Options {
     seedUserId?: string;
     /** Một <div id="article_id"> LẠC ở thân trang, NGOÀI khối #page_info. */
     strayArticleId?: string;
+    /** Mô phỏng: rời trang, rồi Back ⇒ trình duyệt khôi phục từ bfcache. */
+    bfcacheRestore?: boolean;
 }
 
 function runFull(opts: Options = {}): Run {
@@ -85,6 +87,7 @@ function runFull(opts: Options = {}): Run {
         storageThrows = false,
         seedUserId = '',
         strayArticleId = '',
+        bfcacheRestore = false,
     } = opts;
 
     const beacons: Beacon[] = [];
@@ -230,6 +233,14 @@ function runFull(opts: Options = {}): Run {
 
     // Rời trang ⇒ script phải gửi beacon đo hành vi.
     for (const cb of listeners.get('pagehide') ?? []) cb({});
+
+    if (bfcacheRestore) {
+        // Back ⇒ trình duyệt khôi phục trang; script KHÔNG chạy lại.
+        for (const cb of listeners.get('pageshow') ?? []) cb({ persisted: true });
+        for (const t of timeouts.splice(0)) t();
+        // Rời trang lần hai.
+        for (const cb of listeners.get('pagehide') ?? []) cb({});
+    }
     return { beacons, events, injectedScripts, storage };
 }
 
@@ -536,5 +547,37 @@ describe('⭐ sub_target_id chỉ có nghĩa trên hàng ARTICLE', () => {
         const [b] = runFull().beacons;
         expect(b.payload.target_type).toBe('ARTICLE');
         expect(b.payload.sub_target_id).toBe(2651);
+    });
+});
+
+/**
+ * ⭐ bfcache. "Chuyên mục → bài → Back → bài khác → Back" là lối đọc phổ biến nhất của một tờ
+ * báo. Nếu cờ `sent` không mở lại, mọi lần quay lại đều đo được 0 — và triệu chứng chỉ là những
+ * con số thấp khó hiểu, không phải một lỗi ai nhìn thấy.
+ */
+describe('⭐ bfcache: Back phải đo lại được', () => {
+    it('khôi phục từ bfcache ⇒ gửi beacon THỨ HAI', () => {
+        const r = runFull({ bfcacheRestore: true });
+        expect(r.beacons).toHaveLength(2);
+        expect(r.beacons[1].payload.target_id).toBe(1388957);
+    });
+
+    it('hàng thứ hai KHÔNG cộng dồn quãng đọc đã gửi lần đầu', () => {
+        const r = runFull({ bfcacheRestore: true });
+        expect(r.beacons[1].payload.max_depth).toBe(0);
+        expect(r.beacons[1].payload.rage).toBe(0);
+        expect(r.beacons[1].payload.dead).toBe(0);
+        expect(r.beacons[1].payload.clicks).toEqual({});
+        expect(r.beacons[1].payload.attention).toEqual([0,0,0,0,0,0,0,0,0,0]);
+    });
+
+    it('⛔ bfcache KHÔNG đếm lại view chuyên mục (giữ so sánh được với bộ đếm bài)', () => {
+        const r = runFull({ articleId: '', catView: '1', bfcacheRestore: true });
+        expect(r.events).toHaveLength(1);
+    });
+
+    it('pageshow của lần tải ĐẦU (persisted=false) không mở khoá ⇒ không nhân đôi', () => {
+        const r = runFull();   // không bfcache
+        expect(r.beacons).toHaveLength(1);
     });
 });

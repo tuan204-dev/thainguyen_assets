@@ -227,7 +227,7 @@
     // Một `setInterval` mỗi giây là thứ rẻ nhất trả lời được "người đọc đang nhìn đoạn nào".
     // rAF chạy 60 lần/giây để trả lời cùng câu hỏi, còn theo dõi mousemove thì vừa tốn vừa
     // dựng lại được quỹ đạo con trỏ — thứ bảng dữ liệu này cố ý không chứa.
-    var timer = setInterval(function () {
+    function tick() {
         if (document.visibilityState !== 'visible') return;
         if (Date.now() - lastInput > 30000) return;   // tab mở nhưng người đã bỏ đi
         engaged++;
@@ -236,7 +236,8 @@
         var i = Math.floor((centre / h) * DECILES);
         if (i < 0) i = 0; if (i >= DECILES) i = DECILES - 1;
         if (attention[i] < 255) attention[i]++;
-    }, 1000);
+    }
+    var timer = setInterval(tick, 1000);
 
     // ── Độ sâu cuộn: passive + tiết lưu 200 ms ─────────────────────────────────────────
     var scrollAt = 0;
@@ -356,10 +357,56 @@
     // ⛔ KHÔNG dùng `beforeunload`: chỉ cần đăng ký nó là trang mất quyền vào bfcache, tức là
     // đổi hiệu năng điều hướng của bạn đọc để lấy một con số đo lường. `pagehide` +
     // `visibilitychange` phủ đủ mọi đường rời trang, kể cả chuyển sang app khác trên di động.
+    /**
+     * ⚠ GIỚI HẠN ĐÃ BIẾT, CỐ Ý KHÔNG SỬA Ở TẦNG NÀY — "ẩn tab rồi quay lại".
+     *
+     * Bạn đọc di động mở bài, đọc 4 giây, nhận thông báo, chuyển sang app khác (hidden ⇒ gửi
+     * engaged_sec≈4), rồi quay lại đọc tiếp 3 phút: ba phút đó KHÔNG được ghi, vì `sent` đã đóng.
+     *
+     * Vì sao không mở khoá như trường hợp bfcache: một lần khôi phục bfcache là một LƯỢT XEM MỚI
+     * (bạn đọc bấm Back và trang hiện lại), còn quay lại tab thì vẫn là CÙNG một lượt xem. Mở
+     * khoá ở đây sẽ sinh hàng thứ hai cho cùng một lượt xem, mà `event_engagement_daily.pageviews`
+     * lại ĐẾM SỐ HÀNG ⇒ số lượt xem phồng lên một cách thầm lặng.
+     *
+     * Sửa đúng chỗ là ở TẦNG DỮ LIỆU (cho phép nhiều đoạn cho một lượt xem, rồi cộng
+     * `engaged_sec` và lấy `max()` của `max_depth` lúc gộp) — một quyết định về ý nghĩa của bảng,
+     * không phải một quyết định của tệp này. Cho tới lúc đó: `engaged_sec` là THỜI GIAN ĐỌC TỚI
+     * LẦN RỜI MẮT ĐẦU TIÊN, không phải tổng thời gian đọc. Đừng đọc nó như tổng.
+     */
     addEventListener('visibilitychange', function () {
         if (document.visibilityState === 'hidden') send();
     });
     addEventListener('pagehide', send);
+
+    /**
+     * ⭐ bfcache: trang được KHÔI PHỤC nguyên trạng và script KHÔNG chạy lại.
+     *
+     * Lối đọc phổ biến nhất của một tờ báo là "chuyên mục → bài → Back → bài khác → Back". Mỗi
+     * lần Back, `pagehide` đã bắn ⇒ `sent = true` và `timer` đã bị huỷ. Không mở khoá ở đây thì
+     * MỌI lần quay lại đều không đo được gì: không giây đọc, không độ sâu, không cú nhấp — và
+     * triệu chứng chỉ là những con số thấp một cách khó hiểu, không phải một lỗi.
+     *
+     * `persisted === true` mới là khôi phục bfcache; lần tải đầu cũng bắn `pageshow` nhưng với
+     * persisted=false, và mở khoá ở đó sẽ nhân đôi hàng ngay lập tức.
+     *
+     * Đặt lại TOÀN BỘ bộ tích luỹ, không chỉ cờ `sent`: giữ lại số cũ thì hàng thứ hai cộng dồn
+     * cả quãng đọc đã gửi một lần rồi.
+     *
+     * ⛔ CỐ Ý không đụng bộ đếm view chuyên mục: portlet `event_count` bên trang BÀI cũng không
+     * đếm lại sau bfcache (script không chạy lại), nên đếm lại ở đây sẽ làm số chuyên mục và số
+     * bài không còn so sánh được với nhau.
+     */
+    addEventListener('pageshow', function (ev) {
+        if (!ev || !ev.persisted) return;
+        sent = false;
+        engaged = 0; maxDepth = 0; rage = 0; dead = 0;
+        clicks = {};
+        for (var i = 0; i < DECILES; i++) attention[i] = 0;
+        lastCell = -1; sameCell = 0;
+        lastInput = Date.now();
+        clearInterval(timer);
+        timer = setInterval(tick, 1000);
+    });
 
     // ═══════════════════════════════════════════════════════════════════════════════════════
     // ⛔ GHI PHIÊN (rrweb): CỐ Ý KHÔNG CÓ TRONG BẢN CỦA THÁI NGUYÊN
