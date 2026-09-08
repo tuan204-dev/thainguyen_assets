@@ -15,10 +15,19 @@
  * `site-go` KHÔNG bị sửa một dòng nào.
  *
  * ═══ NÚT ĐIỀU KHIỂN NẰM TRÊN THẺ SCRIPT, KHÔNG NẰM TRONG FILE ═══
- *   <script async src=".../engage.js?v=20260909"
+ *   <script defer src=".../engage.js?v=20260909"
  *           data-api="https://api-public.baothainguyen.vn"
- *           data-sample="1" data-cat-view="1" data-rec="0" data-nosnippet></script>
- * Tắt đếm chuyên mục = sửa thuộc tính trên layout. Không deploy asset, không purge cache.
+ *           data-sample="1" data-nosnippet></script>
+ *
+ * ⚠ `defer` chứ KHÔNG phải `async`: #page_info là phần tử ĐẦU TIÊN của <body>, ngay sau thẻ này.
+ *   `async` được chạy ngay khi tải xong, tức có thể chạy TRƯỚC khi khối đó tồn tại.
+ *
+ * ⛔ `data-cat-view="1"` là OPT-IN, và CHỈ dán lên layout CHUYÊN MỤC THẬT.
+ *   Trang chủ / tìm kiếm / tag cũng mang category_id, nên chốt trong mã KHÔNG phân biệt được
+ *   chúng — đó là việc của danh sách cho phép ở tầng layout. Dán nhầm lên trang chủ là chuyên
+ *   mục "Trang chủ" đứng đầu bảng xếp hạng bằng toàn bộ lưu lượng trang chủ.
+ *
+ * (Không có data-rec / data-rec-sample / data-rrweb trong bản này — xem khối cuối tệp.)
  *
  * ⛔ Đây chỉ là KHUYẾN NGHỊ. Trang đã nằm trong page-cache của site-go vẫn chạy bản cũ, nên nút
  * tắt THẬT nằm ở server. Cờ ở đây chỉ để không phải chờ cache.
@@ -49,7 +58,11 @@
 
     // ── Cửa 2: xem trước ──
     var path = location.pathname;
-    if (path === '/p' || path === '/preview' || path.indexOf('/p/') === 0 ||
+    // ⚠ Danh sách này phải khớp `isPreviewRoute` trong site-go/internal/router/proxy.go — kể cả
+    // `/pv`, hiện chưa gắn nhưng đã được khai ở đó. Hai danh sách nằm ở hai repo khác nhau, sau
+    // một CDN cache 30 ngày; lệch nhau là đo nhầm bản nháp và ghi token xem trước vào nhật ký.
+    if (path === '/p' || path === '/pv' || path === '/preview' ||
+        path.indexOf('/p/') === 0 || path.indexOf('/pv/') === 0 ||
         path.indexOf('/preview/') === 0 || location.search.indexOf('token=') >= 0) return;
 
     /**
@@ -80,16 +93,30 @@
     //   · cms_dev:    phần tử con mang giá trị    → <div id="page_info"><div id="article_id">123</div>
     // Chỉ đọc một dạng là ở tenant kia script bail ở cửa 1 và KHÔNG ghi gì. Nên đọc cả hai.
     var info = document.getElementById('page_info');
-    var root = info || document;
 
+    /**
+     * ⛔ PHẠM VI TRA CỨU LÀ MỘT CHỐT AN TOÀN, KHÔNG PHẢI CHI TIẾT CÀI ĐẶT.
+     *
+     * Khi #page_info TỒN TẠI, chỉ được tra BÊN TRONG nó. Bản trước rơi thẳng ra
+     * `document.getElementById(key)` khi thuộc tính rỗng — mà trên Thái Nguyên trang chuyên mục
+     * LUÔN có `data-article-id` RỖNG, nên nhánh đó chạy trên MỌI lượt xem chuyên mục.
+     *
+     * Từ khi thân script hoãn tới DOMContentLoaded, toàn bộ <body> đã dựng xong lúc tra. Chỉ cần
+     * một portlet danh sách bài render `<div id="article_id">` là trang chuyên mục bị đọc thành
+     * trang BÀI ⇒ bộ đếm chuyên mục im lặng vĩnh viễn VÀ hành vi đọc bị gán nhầm sang bài đó.
+     * Đo 09/09/2026 trên /rao-vat/: hiện 0 phần tử như vậy — nên đây là bẫy chưa nổ, không phải
+     * lỗi đang chảy máu. Bịt vì nó rẻ và vì triệu chứng của nó là một bảng trống.
+     */
     function readInfo(key) {
         if (info) {
             var attr = info.getAttribute('data-' + key.replace(/_/g, '-'));
             if (attr !== null && attr !== '') return attr;
+            // Dạng cms_dev: phần tử CON mang giá trị. Vẫn nằm TRONG khối.
+            var kid = info.querySelector ? info.querySelector('#' + key) : null;
+            return kid ? (kid.textContent || '').trim() : '';
         }
-        var el = root.querySelector ? root.querySelector('#' + key) : null;
-        if (!el && root !== document) el = document.getElementById(key);
-        if (!el && root === document) el = document.getElementById(key);
+        // Không có #page_info: đây là lối DUY NHẤT được phép tra toàn tài liệu.
+        var el = document.getElementById(key);
         return el ? (el.textContent || '').trim() : '';
     }
 
@@ -125,8 +152,12 @@
 
         // Chỉ trang 1. `/xa-hoi/?page=2` là cùng một chuyên mục được cuộn tiếp, không phải một
         // lượt xem mới — đếm nó là thưởng điểm cho chuyên mục nào có nhiều trang nhất.
-        var pg = /[?&]page=(\d+)/.exec(location.search);
-        if (pg && pg[1] !== '1') return;
+        // Chặn theo hướng DƯƠNG: chỉ đếm khi đây là trang gốc của chuyên mục. Bản trước chỉ
+        // nhìn đúng tham số `page` trong query string, nên `?page_index=2` hay `/xa-hoi/trang-2`
+        // vẫn đếm — thưởng điểm cho chuyên mục nào nhiều trang nhất.
+        var pg = /[?&](?:page|p|trang|page_index)=(\d+)/i.exec(location.search);
+        if (pg && parseInt(pg[1], 10) !== 1) return;
+        if (/\/(?:trang|page)[-/]\d+\/?$/i.test(path)) return;
 
         setTimeout(function () {
             // Tab mở ngầm (mở-trong-tab-mới, khôi phục phiên) không phải một lượt đọc.
@@ -293,7 +324,10 @@
         var payload = {
             target_type: targetType,
             target_id: targetId,
-            sub_target_id: categoryId > 0 ? categoryId : null,
+            // Chỉ có nghĩa trên hàng ARTICLE ("bài này thuộc chuyên mục nào"). Trên hàng
+            // CATEGORY nó chỉ lặp lại target_id, khiến `WHERE sub_target_id = X` gộp nhầm lượt
+            // xem TRANG chuyên mục vào hành vi đọc BÀI của chuyên mục đó.
+            sub_target_id: (targetType === 'ARTICLE' && categoryId > 0) ? categoryId : null,
             device: device(),
             vw: Math.round((window.innerWidth || 0) / 10),
             vh: Math.round((window.innerHeight || 0) / 10),

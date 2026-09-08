@@ -58,6 +58,8 @@ interface Options {
     hidden?: boolean;
     storageThrows?: boolean;
     seedUserId?: string;
+    /** Một <div id="article_id"> LẠC ở thân trang, NGOÀI khối #page_info. */
+    strayArticleId?: string;
 }
 
 function runFull(opts: Options = {}): Run {
@@ -82,6 +84,7 @@ function runFull(opts: Options = {}): Run {
         hidden = false,
         storageThrows = false,
         seedUserId = '',
+        strayArticleId = '',
     } = opts;
 
     const beacons: Beacon[] = [];
@@ -136,8 +139,12 @@ function runFull(opts: Options = {}): Run {
         addEventListener: (type: string, fn: (ev: unknown) => void) => {
             docListeners.set(type, [...(docListeners.get(type) ?? []), fn]);
         },
-        getElementById: (id: string) =>
-            id === 'page_info' ? (pageInfoVisible ? pageInfo : null) : (children[id] ?? null),
+        getElementById: (id: string) => {
+            if (id === 'page_info') return pageInfoVisible ? pageInfo : null;
+            // Phần tử LẠC ở thân trang: chỉ thấy được qua document, KHÔNG qua #page_info.
+            if (id === 'article_id' && strayArticleId) return el({}, strayArticleId);
+            return children[id] ?? null;
+        },
         querySelectorAll: () => [],
         createElement: () => ({ async: false, src: '', onload: null }) as Record<string, unknown>,
         head: {
@@ -462,5 +469,72 @@ describe('⛔ bản Thái Nguyên KHÔNG có móc ghi phiên', () => {
         const r = runFull({ dataRec: '1', recSample: '1', rrwebSrc: '/rrweb.js' });
         expect(r.beacons).toHaveLength(1);
         expect(r.beacons[0].url).toContain('/v1/page-engagement');
+    });
+});
+
+/**
+ * ⭐ PHẠM VI TRA CỨU. Từ khi thân script hoãn tới DOMContentLoaded, toàn bộ <body> đã dựng xong,
+ * nên một lần rơi ra `document` là chạm được vào mọi phần tử của trang.
+ */
+describe('⭐ readInfo không được tra ra NGOÀI #page_info', () => {
+    it('⛔ #article_id LẠC ở thân trang KHÔNG được biến trang chuyên mục thành trang bài', () => {
+        // Trên TN, trang chuyên mục luôn có data-article-id RỖNG ⇒ nhánh dự phòng chạy MỌI lượt.
+        // Nếu nó với ra document, một portlet danh sách bài là đủ giết bộ đếm của cả layout.
+        const r = runFull({ articleId: '', catView: '1', strayArticleId: '987654' });
+        expect(r.beacons).toHaveLength(1);
+        expect(r.beacons[0].payload.target_type).toBe('CATEGORY');
+        expect(r.beacons[0].payload.target_id).toBe(2651);
+        expect(r.events).toHaveLength(1);              // bộ đếm vẫn sống
+        expect(r.events[0].payload.target_id).toBe(2651);
+    });
+
+    it('không có #page_info ⇒ VẪN được tra toàn tài liệu (giữ đường cms_dev)', () => {
+        const r = runFull({ shape: 'none', strayArticleId: '987654' });
+        expect(r.beacons).toHaveLength(1);
+        expect(r.beacons[0].payload.target_id).toBe(987654);
+    });
+});
+
+describe('⭐ cửa xem trước phải khớp site-go proxy.go', () => {
+    it('/pv và /pv/* im lặng (site-go coi là đường xem trước)', () => {
+        for (const pathname of ['/pv', '/pv/abc', '/pv/m/xyz']) {
+            expect(runFull({ pathname }).beacons, `pathname ${pathname}`).toHaveLength(0);
+            expect(runFull({ pathname, articleId: '', catView: '1' }).events).toHaveLength(0);
+        }
+    });
+});
+
+describe('⭐ chốt trang-1 chặn theo hướng dương', () => {
+    it('mọi tên tham số phân trang đều chặn', () => {
+        for (const search of ['?page=2', '?page_index=2', '?trang=3', '?p=4', '?PAGE=2']) {
+            expect(runFull({ articleId: '', catView: '1', search }).events, search).toHaveLength(0);
+        }
+    });
+
+    it('phân trang theo ĐƯỜNG DẪN cũng chặn', () => {
+        for (const pathname of ['/xa-hoi/trang-2', '/xa-hoi/page-3', '/xa-hoi/page/4']) {
+            expect(runFull({ articleId: '', catView: '1', pathname }).events, pathname).toHaveLength(0);
+        }
+    });
+
+    it('trang gốc và ?page=1 vẫn đếm', () => {
+        expect(runFull({ articleId: '', catView: '1', pathname: '/xa-hoi' }).events).toHaveLength(1);
+        expect(runFull({ articleId: '', catView: '1', search: '?page=1' }).events).toHaveLength(1);
+        expect(runFull({ articleId: '', catView: '1', search: '?q=abc' }).events).toHaveLength(1);
+    });
+});
+
+describe('⭐ sub_target_id chỉ có nghĩa trên hàng ARTICLE', () => {
+    it('hàng CATEGORY: sub_target_id = null, không lặp lại target_id', () => {
+        const [b] = runFull({ articleId: '' }).beacons;
+        expect(b.payload.target_type).toBe('CATEGORY');
+        expect(b.payload.target_id).toBe(2651);
+        expect(b.payload.sub_target_id).toBeNull();
+    });
+
+    it('hàng ARTICLE: sub_target_id vẫn chở category_id', () => {
+        const [b] = runFull().beacons;
+        expect(b.payload.target_type).toBe('ARTICLE');
+        expect(b.payload.sub_target_id).toBe(2651);
     });
 });
