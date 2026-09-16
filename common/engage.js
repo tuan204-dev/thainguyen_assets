@@ -22,10 +22,14 @@
  * ⚠ `defer` chứ KHÔNG phải `async`: #page_info là phần tử ĐẦU TIÊN của <body>, ngay sau thẻ này.
  *   `async` được chạy ngay khi tải xong, tức có thể chạy TRƯỚC khi khối đó tồn tại.
  *
- * ⛔ `data-cat-view="1"` là OPT-IN, và CHỈ dán lên layout CHUYÊN MỤC THẬT.
- *   Trang chủ / tìm kiếm / tag cũng mang category_id, nên chốt trong mã KHÔNG phân biệt được
- *   chúng — đó là việc của danh sách cho phép ở tầng layout. Dán nhầm lên trang chủ là chuyên
- *   mục "Trang chủ" đứng đầu bảng xếp hạng bằng toàn bộ lưu lượng trang chủ.
+ * ⛔ `data-cat-view="1"` là OPT-IN. Trang chủ / tìm kiếm / tag cũng mang category_id, nên chốt
+ *   trong mã KHÔNG phân biệt được chúng — đó là việc của danh sách cho phép ở tầng layout.
+ *
+ *   ⚠ 09/09/2026: TRANG CHỦ ĐÃ ĐƯỢC BẬT CÓ CHỦ Ý (264/255 tiếng Việt + 243/298 EN + 291/295 CN
+ *   + 267/269 KR) theo yêu cầu toà soạn. Hệ quả đã biết và đã chấp nhận: chuyên mục "Trang chủ"
+ *   (cate 5855) đứng đầu bảng xếp hạng lượt xem bằng toàn bộ lưu lượng trang chủ. ĐỪNG "sửa"
+ *   ngược lại vì tưởng là dán nhầm. Vẫn để "0" ở: tìm kiếm, tag, /trang-chu-v2/ (281/278),
+ *   dhd_home (279) và mọi layout BÀI CHI TIẾT (bài đã do portlet event_count id 36 đếm).
  *
  * (Không có data-rec / data-rec-sample / data-rrweb trong bản này — xem khối cuối tệp.)
  *
