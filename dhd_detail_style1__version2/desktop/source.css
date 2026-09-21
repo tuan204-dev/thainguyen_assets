@@ -44,16 +44,15 @@ body {
     position: relative;
 }
 
-/* ---- Menu nổi trên hero ---- */
+/* ---- Menu (không còn hero nên đứng trong flow bình thường) ---- */
 .wrap_menu_detail {
-    position: absolute;
+    position: relative;
     width: 100%;
     z-index: 10;
 }
 .dhd_menu_detail .menutop {
     position: relative;
     z-index: 9;
-    top: 30px;
     border-radius: 12px;
     padding-left: 10px;
 }
@@ -103,9 +102,9 @@ body {
     margin: auto;
 }
 
-/* ---- Khối nội dung kéo đè lên mép dưới hero ---- */
+/* ---- Khối nội dung (không còn hero nên không kéo đè lên nữa) ---- */
 .wrap_content_style1 {
-    margin-top: -100px;
+    margin-top: 0;
     position: relative;
     z-index: 10;
 }
@@ -242,7 +241,7 @@ body {
     display: block;
     position: relative;
     height: 0;
-    padding-top: 56.25%;
+    padding-top: 177.78%;
     overflow: hidden;
     border-radius: calc(3% + 5px);
 }
@@ -272,9 +271,6 @@ body {
 
 /* ============ MOBILE (<768px) ============ */
 @media (max-width: 767.98px) {
-    .dhd_menu_detail .menutop {
-        top: 10px;
-    }
     .avatar43 {
         padding: 50% 0 0 0;
     }
