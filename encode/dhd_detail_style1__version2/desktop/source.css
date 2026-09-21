@@ -232,7 +232,7 @@ body {
 }
 .block_new_related .rel-row {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 200px 1fr;
     column-gap: 24px;
     align-items: start;
     margin-bottom: 20px;
@@ -273,6 +273,9 @@ body {
 @media (max-width: 767.98px) {
     .avatar43 {
         padding: 50% 0 0 0;
+    }
+    .block_new_related .rel-row {
+        grid-template-columns: 1fr 2fr;
     }
     .wrap_content_style1 {
         margin-top: 0;
