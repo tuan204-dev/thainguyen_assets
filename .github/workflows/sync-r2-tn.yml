@@ -4,6 +4,15 @@ on:
   push:
     branches: [ "main" ]
 
+# Xếp hàng chứ không chạy chồng: lượt cũ không ghi đè file của lượt mới.
+concurrency:
+  group: sync-r2
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: read # gh run list: tìm lượt sync thành công gần nhất
+
 jobs:
   upload:
     runs-on: ubuntu-latest
@@ -11,7 +20,10 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # cần commit của lượt sync trước để diff
+          filter: blob:none # chỉ tải commit/tree, không tải blob cũ
 
       # Cổng tương thích trình duyệt cũ: chặn không cho cú pháp vượt sàn
 
@@ -34,7 +46,25 @@ jobs:
         run: bun a_script/check-legacy.ts
 
 
-      - name: Sync all files to R2
+      # checkout đặt mtime mọi file = lúc checkout ⇒ aws s3 sync tưởng file nào cũng mới, upload lại TOÀN BỘ.
+      # Lùi mtime mọi file về 1970 (sync bỏ qua), rồi chỉ touch file đổi kể từ lượt sync thành công gần nhất.
+      # File thiếu trên R2 hoặc khác size vẫn được upload. Không tìm được lượt trước ⇒ upload toàn bộ như cũ.
+      - name: Mark changed files
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          BASE=$(gh run list -w sync-r2-tn.yml -b main -s success -L 1 --json headSha -q '.[0].headSha' || true)
+          if [ -n "$BASE" ] && git cat-file -e "$BASE^{commit}" 2>/dev/null; then
+            git ls-files -z | xargs -0 touch -c -d @0
+            git diff -z --name-only --no-renames --diff-filter=d "$BASE" HEAD | xargs -0 -r touch -c
+            echo "::notice::Chỉ upload file đổi từ ${BASE:0:7}"
+          else
+            echo "::warning::Không tìm được lượt sync thành công trước đó, upload toàn bộ"
+          fi
+
+      - name: Sync changed files to R2
         run: |
           set -euo pipefail
 
@@ -53,7 +83,7 @@ jobs:
             --exclude "node_modules/*" \
             --exclude "*/node_modules/*" \
             --exclude "*.md" \
-            --only-show-errors
+            --no-progress
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.TCA_R2_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.TCA_R2_SECRET_ACCESS_KEY }}
