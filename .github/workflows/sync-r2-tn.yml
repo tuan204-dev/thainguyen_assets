@@ -46,32 +46,28 @@ jobs:
         run: bun a_script/check-legacy.ts
 
 
-      # checkout đặt mtime mọi file = lúc checkout ⇒ aws s3 sync tưởng file nào cũng mới, upload lại TOÀN BỘ.
-      # Lùi mtime mọi file về 1970 (sync bỏ qua), rồi chỉ touch file đổi kể từ lượt sync thành công gần nhất.
-      # File thiếu trên R2 hoặc khác size vẫn được upload. Không tìm được lượt trước ⇒ upload toàn bộ như cũ.
-      - name: Mark changed files
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-        run: |
-          set -euo pipefail
-          BASE=$(gh run list -w sync-r2-tn.yml -b main -s success -L 1 --json headSha -q '.[0].headSha' || true)
-          if [ -n "$BASE" ] && git cat-file -e "$BASE^{commit}" 2>/dev/null; then
-            git ls-files -z | xargs -0 touch -c -d @0
-            git diff -z --name-only --no-renames --diff-filter=d "$BASE" HEAD | xargs -0 -r touch -c
-            echo "::notice::Chỉ upload file đổi từ ${BASE:0:7}"
-          else
-            echo "::warning::Không tìm được lượt sync thành công trước đó, upload toàn bộ"
-          fi
-
-      - name: Sync changed files to R2
+      # Chỉ upload file đổi kể từ lượt sync thành công gần nhất (chép ra thư mục tạm rồi `aws s3 cp`).
+      # Không dùng `aws s3 sync`: checkout làm mtime mọi file mới hơn R2 ⇒ upload lại TOÀN BỘ; R2 còn liệt kê
+      # x.woff2 trước x.woff ⇒ sync luôn tưởng x.woff chưa có. Không tìm được lượt trước ⇒ upload toàn bộ.
+      - name: Upload changed files to R2
         run: |
           set -euo pipefail
 
           ENDPOINT_URL="https://3b24c5155db1e2c2b38a2140476e57a3.r2.cloudflarestorage.com"
           BUCKET="s3://thai-nguyen-r2"
 
-          aws s3 sync . "${BUCKET}" \
+          SRC=.
+          BASE=$(gh run list -w sync-r2-tn.yml -b main -s success -L 1 --json headSha -q '.[0].headSha' || true)
+          if [ -n "$BASE" ] && git cat-file -e "$BASE^{commit}" 2>/dev/null; then
+            SRC="$RUNNER_TEMP/changed"
+            mkdir -p "$SRC"
+            git diff -z --name-only --no-renames --diff-filter=d "$BASE" HEAD | xargs -0 -r cp --parents -t "$SRC" --
+            echo "::notice::Chỉ upload file đổi từ ${BASE:0:7}"
+          else
+            echo "::warning::Không tìm được lượt sync thành công trước đó, upload toàn bộ"
+          fi
+
+          aws s3 cp "$SRC" "${BUCKET}" --recursive \
             --endpoint-url "$ENDPOINT_URL" \
             --region auto \
             --cache-control "public, max-age=2592000" \
@@ -87,3 +83,5 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.TCA_R2_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.TCA_R2_SECRET_ACCESS_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
