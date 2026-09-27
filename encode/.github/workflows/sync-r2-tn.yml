@@ -4,6 +4,15 @@ on:
   push:
     branches: [ "main" ]
 
+# Xếp hàng chứ không chạy chồng: lượt cũ không ghi đè file của lượt mới.
+concurrency:
+  group: sync-r2
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: read # gh run list: tìm lượt sync thành công gần nhất
+
 jobs:
   upload:
     runs-on: ubuntu-latest
@@ -11,7 +20,10 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # cần commit của lượt sync trước để diff
+          filter: blob:none # chỉ tải commit/tree, không tải blob cũ
 
       # Cổng tương thích trình duyệt cũ: chặn không cho cú pháp vượt sàn
 
@@ -34,14 +46,28 @@ jobs:
         run: bun a_script/check-legacy.ts
 
 
-      - name: Sync all files to R2
+      # Chỉ upload file đổi kể từ lượt sync thành công gần nhất (chép ra thư mục tạm rồi `aws s3 cp`).
+      # Không dùng `aws s3 sync`: checkout làm mtime mọi file mới hơn R2 ⇒ upload lại TOÀN BỘ; R2 còn liệt kê
+      # x.woff2 trước x.woff ⇒ sync luôn tưởng x.woff chưa có. Không tìm được lượt trước ⇒ upload toàn bộ.
+      - name: Upload changed files to R2
         run: |
           set -euo pipefail
 
           ENDPOINT_URL="https://3b24c5155db1e2c2b38a2140476e57a3.r2.cloudflarestorage.com"
           BUCKET="s3://thai-nguyen-r2"
 
-          aws s3 sync . "${BUCKET}" \
+          SRC=.
+          BASE=$(gh run list -w sync-r2-tn.yml -b main -s success -L 1 --json headSha -q '.[0].headSha' || true)
+          if [ -n "$BASE" ] && git cat-file -e "$BASE^{commit}" 2>/dev/null; then
+            SRC="$RUNNER_TEMP/changed"
+            mkdir -p "$SRC"
+            git diff -z --name-only --no-renames --diff-filter=d "$BASE" HEAD | xargs -0 -r cp --parents -t "$SRC" --
+            echo "::notice::Chỉ upload file đổi từ ${BASE:0:7}"
+          else
+            echo "::warning::Không tìm được lượt sync thành công trước đó, upload toàn bộ"
+          fi
+
+          aws s3 cp "$SRC" "${BUCKET}" --recursive \
             --endpoint-url "$ENDPOINT_URL" \
             --region auto \
             --cache-control "public, max-age=2592000" \
@@ -53,7 +79,9 @@ jobs:
             --exclude "node_modules/*" \
             --exclude "*/node_modules/*" \
             --exclude "*.md" \
-            --only-show-errors
+            --no-progress
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.TCA_R2_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.TCA_R2_SECRET_ACCESS_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
