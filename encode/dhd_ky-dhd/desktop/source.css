@@ -506,21 +506,6 @@
     left: 100%;
 }
 
-/* First row is the current leader card, not a congress milestone. */
-.ky-row:first-child {
-    min-height: 220px;
-}
-.ky-row:first-child .ky-media {
-    max-width: 360px;
-    aspect-ratio: 4 / 5;
-}
-.ky-row:first-child .ky-media img {
-    object-position: center top;
-}
-.ky-row:first-child .ky-body {
-    align-self: center;
-}
-
 /* ============ MOBILE (<1000px): 1 cột, bỏ trục giữa ============ */
 @media (max-width: 999.98px) {
     .ky-timeline::before {
@@ -581,10 +566,6 @@
     .ky-desc {
         font-size: 15px;
         line-height: 1.55;
-    }
-    .ky-row:first-child .ky-media {
-        max-width: none;
-        aspect-ratio: 1 / 1;
     }
 }
 
