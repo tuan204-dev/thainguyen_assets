@@ -40,6 +40,7 @@
                 data-endpoint: API ghi phiếu (Cloudflare Worker, repo cf_worker/thainguyen).
                 data-sitekey của .cf-turnstile: site key Turnstile (secret tương ứng nằm ở Worker).
                 Value của <select name="xa_phuong_id"> là id bảng xa_phuong trong D1 — không đánh số lại.
+                Danh sách = 45 phường, xã thu được tín hiệu DVB-T2 năm 2026 (15 phường + 30 xã).
             -->
             <form id="ks-form" class="ks-form" novalidate data-endpoint="https://khaosat-thainguyen.mediasoft.com.vn/dvbt2">
                 <p class="ks-note">Các mục có dấu <span class="ks-req">*</span> là bắt buộc.</p>
@@ -83,83 +84,36 @@
                             <option value="14">Phường Trung Thành</option>
                             <option value="15">Phường Vạn Xuân</option>
                         </optgroup>
-                        <optgroup label="Xã (77)">
-                            <option value="16">Xã An Khánh</option>
-                            <option value="17">Xã Ba Bể</option>
+                        <optgroup label="Xã (30)">
                             <option value="18">Xã Bạch Thông</option>
-                            <option value="19">Xã Bằng Thành</option>
-                            <option value="20">Xã Bằng Vân</option>
-                            <option value="21">Xã Bình Thành</option>
                             <option value="22">Xã Bình Yên</option>
-                            <option value="23">Xã Cao Minh</option>
                             <option value="24">Xã Cẩm Giàng</option>
-                            <option value="25">Xã Chợ Đồn</option>
                             <option value="26">Xã Chợ Mới</option>
-                            <option value="27">Xã Chợ Rã</option>
-                            <option value="28">Xã Côn Minh</option>
-                            <option value="29">Xã Cường Lợi</option>
-                            <option value="30">Xã Dân Tiến</option>
-                            <option value="31">Xã Đại Phúc</option>
                             <option value="32">Xã Đại Từ</option>
                             <option value="33">Xã Điềm Thụy</option>
                             <option value="34">Xã Định Hóa</option>
                             <option value="35">Xã Đồng Hỷ</option>
-                            <option value="36">Xã Đồng Phúc</option>
-                            <option value="37">Xã Đức Lương</option>
-                            <option value="38">Xã Hiệp Lực</option>
                             <option value="39">Xã Hợp Thành</option>
                             <option value="40">Xã Kha Sơn</option>
-                            <option value="41">Xã Kim Phượng</option>
                             <option value="42">Xã La Bằng</option>
-                            <option value="43">Xã La Hiên</option>
-                            <option value="44">Xã Lam Vỹ</option>
-                            <option value="45">Xã Nà Phặc</option>
-                            <option value="46">Xã Na Rì</option>
-                            <option value="47">Xã Nam Cường</option>
                             <option value="48">Xã Nam Hòa</option>
-                            <option value="49">Xã Ngân Sơn</option>
-                            <option value="50">Xã Nghĩa Tá</option>
-                            <option value="51">Xã Nghiên Loan</option>
-                            <option value="52">Xã Nghinh Tường</option>
                             <option value="53">Xã Phong Quang</option>
                             <option value="54">Xã Phú Bình</option>
                             <option value="55">Xã Phú Đình</option>
-                            <option value="56">Xã Phú Lạc</option>
                             <option value="57">Xã Phú Lương</option>
                             <option value="58">Xã Phú Thịnh</option>
-                            <option value="59">Xã Phủ Thông</option>
                             <option value="60">Xã Phú Xuyên</option>
-                            <option value="61">Xã Phúc Lộc</option>
-                            <option value="62">Xã Phượng Tiến</option>
-                            <option value="63">Xã Quảng Bạch</option>
                             <option value="64">Xã Quang Sơn</option>
                             <option value="65">Xã Quân Chu</option>
-                            <option value="66">Xã Sảng Mộc</option>
                             <option value="67">Xã Tân Cương</option>
                             <option value="68">Xã Tân Khánh</option>
                             <option value="69">Xã Tân Kỳ</option>
                             <option value="70">Xã Tân Thành</option>
                             <option value="71">Xã Thành Công</option>
-                            <option value="72">Xã Thanh Mai</option>
-                            <option value="73">Xã Thanh Thịnh</option>
-                            <option value="74">Xã Thần Sa</option>
-                            <option value="75">Xã Thượng Minh</option>
-                            <option value="76">Xã Thượng Quan</option>
                             <option value="77">Xã Trại Cau</option>
-                            <option value="78">Xã Tràng Xá</option>
-                            <option value="79">Xã Trần Phú</option>
-                            <option value="80">Xã Trung Hội</option>
                             <option value="81">Xã Vạn Phú</option>
-                            <option value="82">Xã Văn Hán</option>
-                            <option value="83">Xã Văn Lang</option>
-                            <option value="84">Xã Văn Lăng</option>
                             <option value="85">Xã Vĩnh Thông</option>
-                            <option value="86">Xã Võ Nhai</option>
                             <option value="87">Xã Vô Tranh</option>
-                            <option value="88">Xã Xuân Dương</option>
-                            <option value="89">Xã Yên Bình</option>
-                            <option value="90">Xã Yên Phong</option>
-                            <option value="91">Xã Yên Thịnh</option>
                             <option value="92">Xã Yên Trạch</option>
                         </optgroup>
                         </select>
