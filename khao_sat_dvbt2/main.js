@@ -55,7 +55,7 @@
         var tokenInput = form.elements['cf-turnstile-response'];
         var token = tokenInput ? tokenInput.value : '';
         if (!token) {
-            showAlert('Đang xác minh chống spam, vui lòng đợi vài giây rồi bấm Gửi lại.');
+            showAlert('Vui lòng tích vào ô "Xác minh bạn là con người" phía trên nút Gửi (nếu ô chưa hiện, đợi vài giây) rồi bấm Gửi lại.');
             return;
         }
 
