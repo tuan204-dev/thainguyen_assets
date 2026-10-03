@@ -5,30 +5,49 @@
     var btn = document.getElementById('ks-submit');
     var alertBox = document.getElementById('ks-alert');
     var done = document.getElementById('ks-done');
+    var khacChk = document.getElementById('uu_diem_khac_chk');
+    var khacInput = form.elements.uu_diem_khac;
     var MSG_NET = 'Chưa gửi được phiếu. Vui lòng kiểm tra kết nối mạng và thử lại.';
 
     var rules = {
         ho_ten: function (v) { return v.trim().length >= 2; },
         to_dan_pho: function (v) { return v.trim().length > 0; },
         xa_phuong_id: function (v) { return /^\d+$/.test(v); },
-        so_tivi: function (v) { return /^([1-9]|10|11\+)$/.test(v); }
+        so_tivi: function (v) { return /^([1-9]|10|11\+)$/.test(v); },
+        xem_dvbt2: function (v) { return /^[123]$/.test(v); },
+        // Câu 2 không bắt buộc, nhưng đã tích "Khác" thì phải ghi rõ.
+        uu_diem_khac: function (v) { return !khacChk.checked || v.trim().length >= 2; }
     };
 
+    // Nhóm radio trả về RadioNodeList (không có tagName) — lấy danh sách ô nhập cụ thể.
+    function inputsOf(name) {
+        var el = form.elements[name];
+        return el.tagName ? [el] : Array.prototype.slice.call(el);
+    }
+
     function check(name) {
-        var input = form.elements[name];
-        var ok = rules[name](input.value);
-        input.closest('.ks-field').classList.toggle('is-invalid', !ok);
-        input.setAttribute('aria-invalid', String(!ok));
+        var first = inputsOf(name)[0];
+        var ok = rules[name](form.elements[name].value);
+        first.closest('.ks-field').classList.toggle('is-invalid', !ok);
+        inputsOf(name).forEach(function (i) { i.setAttribute('aria-invalid', String(!ok)); });
         return ok;
     }
 
     Object.keys(rules).forEach(function (name) {
-        var input = form.elements[name];
-        input.addEventListener('blur', function () { if (input.value) check(name); });
-        input.addEventListener('change', function () { check(name); });
-        input.addEventListener('input', function () {
-            if (input.closest('.ks-field').classList.contains('is-invalid')) check(name);
+        inputsOf(name).forEach(function (input) {
+            input.addEventListener('blur', function () { if (input.value && input.type !== 'radio') check(name); });
+            input.addEventListener('change', function () { check(name); });
+            input.addEventListener('input', function () {
+                if (input.closest('.ks-field').classList.contains('is-invalid')) check(name);
+            });
         });
+    });
+
+    // Gõ ý kiến khác thì tự tích "Khác"; bỏ tích thì xoá chữ.
+    khacInput.addEventListener('input', function () { khacChk.checked = !!khacInput.value.trim(); });
+    khacChk.addEventListener('change', function () {
+        if (khacChk.checked) khacInput.focus();
+        else { khacInput.value = ''; check('uu_diem_khac'); }
     });
 
     function showAlert(msg) {
@@ -47,7 +66,7 @@
 
         var firstBad = null;
         Object.keys(rules).forEach(function (name) {
-            if (!check(name) && !firstBad) firstBad = form.elements[name];
+            if (!check(name) && !firstBad) firstBad = name === 'uu_diem_khac' ? khacInput : inputsOf(name)[0];
         });
         if (firstBad) { firstBad.focus(); return; }
         if (form.elements.website.value) return; // bot
@@ -64,6 +83,9 @@
             to_dan_pho: form.elements.to_dan_pho.value.trim(),
             xa_phuong_id: Number(form.elements.xa_phuong_id.value),
             so_tivi: form.elements.so_tivi.value, // "1".."10" hoặc "11+"
+            xem_dvbt2: form.elements.xem_dvbt2.value, // "1" | "2" | "3"
+            uu_diem: inputsOf('uu_diem').filter(function (i) { return i.checked; }).map(function (i) { return i.value; }),
+            uu_diem_khac: khacChk.checked ? khacInput.value.trim() : '',
             turnstile_token: token
         };
 

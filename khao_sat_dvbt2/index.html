@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phiếu khảo sát DVB-T2 - Báo và Phát thanh, Truyền hình Thái Nguyên</title>
-    <meta name="description" content="Phiếu khảo sát hộ dân trên địa bàn tỉnh xem truyền hình Thái Nguyên trên Tivi bằng thu sóng số mặt đất (DVB-T2)." />
+    <title>Phiếu khảo sát: Hộ dân xem truyền hình Thái Nguyên bằng thu sóng số mặt đất (DVB-T2)</title>
+    <meta name="description" content="Phiếu khảo sát hộ dân trên địa bàn tỉnh, xem truyền hình Thái Nguyên trên Tivi bằng thu sóng số mặt đất (DVB-T2)." />
     <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" href="https://r2-thainguyen.media-soft.cloud/encode/common/assets/favicon.ico" />
     <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/common/style/fonts-roboto-vn.css" />
     <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/common/style/fonts-noto-serif-vn.css" />
-    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/style.css?v=20261003" />
+    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/style.css?v=2026100303" />
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/main.js?v=2026100302" defer></script>
+    <script src="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/main.js?v=2026100303" defer></script>
 </head>
 
 <body>
@@ -28,9 +28,8 @@
         <section class="ks-card">
             <div class="ks-head">
                 <p class="ks-kicker">Phiếu khảo sát</p>
-                <h1 class="ks-title">Xem truyền hình Thái Nguyên qua DVB-T2</h1>
-                <p class="ks-sub">Dành cho <strong>hộ dân trên địa bàn tỉnh</strong> đang xem truyền hình Thái Nguyên
-                    trên Tivi bằng thu sóng số mặt đất (DVB-T2).</p>
+                <h1 class="ks-title">Hộ dân trên địa bàn tỉnh, xem truyền hình Thái Nguyên trên Tivi bằng thu sóng
+                    số mặt đất <span class="ks-nowrap">(DVB-T2)</span></h1>
             </div>
 
             <!--
@@ -44,7 +43,7 @@
                 <div id="ks-alert" class="ks-alert" role="alert"></div>
 
                 <div class="ks-field">
-                    <label class="ks-label" for="ho_ten">Họ và tên chủ hộ (hoặc đại diện hộ gia đình)<span
+                    <label class="ks-label" for="ho_ten">Họ và Tên chủ hộ (hoặc Đại diện Hộ gia đình)<span
                             class="ks-req">*</span></label>
                     <input class="ks-input" id="ho_ten" name="ho_ten" type="text" autocomplete="name"
                         maxlength="100" placeholder="VD: Nguyễn Văn A" required />
@@ -53,16 +52,16 @@
 
                 <div class="ks-row">
                     <div class="ks-field">
-                        <label class="ks-label" for="to_dan_pho">Tổ dân phố / Thôn<span class="ks-req">*</span></label>
+                        <label class="ks-label" for="to_dan_pho">Thuộc Tổ dân phố (thôn)<span class="ks-req">*</span></label>
                         <input class="ks-input" id="to_dan_pho" name="to_dan_pho" type="text" maxlength="100"
                             placeholder="VD: Tổ 5 / Thôn Đồng Tâm" required />
-                        <div class="ks-error">Vui lòng nhập tổ dân phố hoặc thôn.</div>
+                        <div class="ks-error">Vui lòng nhập tổ dân phố (thôn).</div>
                     </div>
 
                     <div class="ks-field">
-                        <label class="ks-label" for="xa_phuong_id">Xã / Phường<span class="ks-req">*</span></label>
+                        <label class="ks-label" for="xa_phuong_id">Xã, phường<span class="ks-req">*</span></label>
                         <select class="ks-input" id="xa_phuong_id" name="xa_phuong_id" required>
-                            <option value="" selected disabled>-- Chọn xã / phường --</option>
+                            <option value="" selected disabled>-- Chọn xã, phường --</option>
                         <optgroup label="Phường (15)">
                             <option value="1">Phường Bá Xuyên</option>
                             <option value="2">Phường Bách Quang</option>
@@ -160,7 +159,7 @@
                             <option value="92">Xã Yên Trạch</option>
                         </optgroup>
                         </select>
-                        <div class="ks-error">Vui lòng chọn xã hoặc phường.</div>
+                        <div class="ks-error">Vui lòng chọn xã, phường.</div>
                     </div>
                 </div>
 
@@ -183,6 +182,34 @@
                     </select>
                     <div class="ks-error">Vui lòng chọn số lượng Tivi.</div>
                 </div>
+
+                <hr class="ks-sep" />
+
+                <!-- Câu hỏi: value là mã lưu ở D1 (xem_dvbt2 1–3; uu_diem → cột ud_*), đổi thì đổi cả Worker. -->
+                <fieldset class="ks-field ks-q">
+                    <legend class="ks-label">1. Hiện nay, gia đình Ông/Bà xem truyền hình Thái Nguyên trên Tivi bằng
+                        sóng truyền hình số mặt đất <em>(Ăng ten thu hoặc đầu thu số mặt đất)</em> không?<span
+                            class="ks-req">*</span></legend>
+                    <label class="ks-opt"><input type="radio" name="xem_dvbt2" value="1" required />Có, thường xuyên</label>
+                    <label class="ks-opt"><input type="radio" name="xem_dvbt2" value="2" />Có, không thường xuyên</label>
+                    <label class="ks-opt"><input type="radio" name="xem_dvbt2" value="3" />Không</label>
+                    <div class="ks-error">Vui lòng chọn một câu trả lời.</div>
+                </fieldset>
+
+                <fieldset class="ks-field ks-q">
+                    <legend class="ks-label">2. Theo Ông/Bà, xem truyền hình Thái Nguyên trên Tivi bằng sóng truyền
+                        hình số mặt đất ưu điểm gì?</legend>
+                    <label class="ks-opt"><input type="checkbox" name="uu_diem" value="de_dung" />Dễ sử dụng, dễ chọn
+                        kênh, không cần thêm thiết bị khác</label>
+                    <label class="ks-opt"><input type="checkbox" name="uu_diem" value="mien_phi" />Miễn phí, không cần
+                        đăng ký thuê bao, không cần Internet</label>
+                    <label class="ks-opt"><input type="checkbox" name="uu_diem" value="du_phong" />Cần thiết, khi hình
+                        thức xem truyền hình khác bị lỗi, sự cố, thiên tai</label>
+                    <label class="ks-opt"><input type="checkbox" id="uu_diem_khac_chk" />Khác (nếu có)</label>
+                    <input class="ks-input" id="uu_diem_khac" name="uu_diem_khac" type="text" maxlength="200"
+                        placeholder="Ghi rõ ý kiến khác" aria-label="Ý kiến khác" />
+                    <div class="ks-error">Vui lòng ghi rõ ý kiến khác.</div>
+                </fieldset>
 
                 <!-- honeypot chống bot: người thật không thấy ô này -->
                 <div class="ks-hp" aria-hidden="true">

@@ -64,20 +64,14 @@ body {
     text-transform: uppercase;
     color: var(--tn-green);
 }
+.ks-nowrap { white-space: nowrap; }
 .ks-title {
-    margin: 0 0 10px;
+    margin: 0;
     font-family: "Noto Serif", Georgia, serif;
-    font-size: 30px;
-    line-height: 1.25;
+    font-size: 24px;
+    line-height: 1.35;
     font-weight: 700;
 }
-.ks-sub {
-    margin: 0 auto;
-    max-width: 560px;
-    color: var(--tn-muted);
-    font-size: 15px;
-}
-.ks-sub strong { color: var(--tn-ink); }
 
 .ks-form { padding: 26px 32px 30px; }
 
@@ -255,8 +249,7 @@ select.ks-input option, select.ks-input optgroup { color: var(--tn-ink); }
     }
     .ks-head { padding: 36px 48px 28px; }
     .ks-kicker { font-size: 14px; }
-    .ks-title { font-size: 36px; }
-    .ks-sub { font-size: 16px; max-width: 640px; }
+    .ks-title { font-size: 28px; }
     .ks-form { padding: 32px 48px 40px; }
     .ks-note { font-size: 15px; }
     .ks-field { margin-bottom: 24px; }
@@ -270,11 +263,11 @@ select.ks-input option, select.ks-input optgroup { color: var(--tn-ink); }
     .ks-privacy { font-size: 14px; }
 }
 
-/* laptop thấp (vd 1366x768): bớt khoảng trống dọc để nút gửi vẫn nằm trong màn hình đầu */
+/* laptop thấp (vd 1366x768): bớt khoảng trống dọc */
 @media (min-width: 1000px) and (max-height: 860px) {
     .ks-main { padding: 16px 16px 24px; }
     .ks-head { padding: 20px 48px 16px; }
-    .ks-title { font-size: 30px; margin-bottom: 6px; }
+    .ks-title { font-size: 26px; }
     .ks-form { padding: 20px 48px 24px; }
     .ks-note { margin-bottom: 14px; }
     .ks-field { margin-bottom: 16px; }
@@ -286,8 +279,7 @@ select.ks-input option, select.ks-input optgroup { color: var(--tn-ink); }
     .ks-header img { height: 40px; }
     .ks-main { padding: 16px 12px 28px; }
     .ks-head { padding: 22px 18px 18px; }
-    .ks-title { font-size: 24px; }
-    .ks-sub { font-size: 14px; }
+    .ks-title { font-size: 20px; }
     .ks-form { padding: 20px 18px 24px; }
     .ks-row { grid-template-columns: 1fr; }
     .ks-done { padding: 36px 18px 40px; }
@@ -296,3 +288,26 @@ select.ks-input option, select.ks-input optgroup { color: var(--tn-ink); }
 /* Turnstile (chống bot): chỉ hiện khi Cloudflare cần người dùng tương tác */
 .ks-captcha { display: flex; justify-content: center; margin-bottom: 16px; }
 .ks-captcha:empty { display: none; }
+
+/* Câu hỏi trắc nghiệm (câu 1 chọn một, câu 2 chọn nhiều) */
+.ks-sep { margin: 28px 0 24px; border: 0; border-top: 1px solid #eee; }
+.ks-q { min-width: 0; margin: 0 0 24px; padding: 0; border: 0; }
+.ks-q legend { padding: 0; font-weight: 700; line-height: 1.45; }
+.ks-q legend em { font-weight: 400; }
+.ks-opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 8px;
+    padding: 10px 12px;
+    border: 1px solid var(--tn-line);
+    border-radius: 6px;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: border-color .15s, background-color .15s;
+}
+.ks-opt:hover { border-color: var(--tn-green); }
+.ks-opt input { flex-shrink: 0; width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--tn-green); }
+.ks-opt:has(input:checked) { border-color: var(--tn-green); background: var(--tn-green-tint); }
+.ks-field.is-invalid .ks-opt:has(input[type="radio"]) { border-color: var(--tn-err); }
+.ks-q .ks-input { margin-top: 8px; }
