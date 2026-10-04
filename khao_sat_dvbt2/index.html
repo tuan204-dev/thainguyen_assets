@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/common/style/overlayscrollbar.css?v=20260719" />
     <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/style.css?v=2026100402" />
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/main.js?v=2026100402" defer></script>
+    <script src="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/main.js?v=2026100403" defer></script>
     <script type="module" src="https://r2-thainguyen.media-soft.cloud/encode/common/overlayscrollbar.js"></script>
 </head>
 
@@ -63,6 +63,15 @@
                     <input class="ks-input" id="ho_ten" name="ho_ten" type="text" autocomplete="name"
                         maxlength="100" placeholder="VD: Nguyễn Văn A" required />
                     <div class="ks-error">Vui lòng nhập họ và tên chủ hộ.</div>
+                </div>
+
+                <!-- Chỉ lưu cho quản trị (admin/CSV), KHÔNG hiện ở danh sách công khai bên dưới. -->
+                <div class="ks-field">
+                    <label class="ks-label" for="so_dien_thoai">Số điện thoại của người đại diện<span
+                            class="ks-req">*</span></label>
+                    <input class="ks-input" id="so_dien_thoai" name="so_dien_thoai" type="tel" inputmode="tel"
+                        autocomplete="tel" maxlength="20" placeholder="VD: 0912 345 678" required />
+                    <div class="ks-error">Vui lòng nhập số điện thoại hợp lệ (di động 10 số, cố định 11 số).</div>
                 </div>
 
                 <div class="ks-row">
