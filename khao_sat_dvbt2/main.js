@@ -9,8 +9,12 @@
     var khacInput = form.elements.uu_diem_khac;
     var MSG_NET = 'Chưa gửi được phiếu. Vui lòng kiểm tra kết nối mạng và thử lại.';
 
+    // Số điện thoại VN: bỏ cách/chấm/gạch/ngoặc, +84 → 0 (giống Worker); di động 10 số, cố định 11 số.
+    var phoneOf = function (v) { return v.replace(/[\s.\-()]/g, '').replace(/^\+?84(?=\d{9,10}$)/, '0'); };
+
     var rules = {
         ho_ten: function (v) { return v.trim().length >= 2; },
+        so_dien_thoai: function (v) { return /^0\d{9,10}$/.test(phoneOf(v)); },
         to_dan_pho: function (v) { return v.trim().length > 0; },
         xa_phuong_id: function (v) { return /^\d+$/.test(v); },
         so_tivi: function (v) { return /^([1-9]|10|11\+)$/.test(v); },
@@ -18,6 +22,8 @@
         // Câu 2 không bắt buộc, nhưng đã tích "Khác" thì phải ghi rõ.
         uu_diem_khac: function (v) { return !khacChk.checked || v.trim().length >= 2; }
     };
+    // HTML cũ (chưa có ô nào đó) vẫn chạy được với bản JS mới: bỏ luật của ô không tồn tại.
+    Object.keys(rules).forEach(function (name) { if (!form.elements[name]) delete rules[name]; });
 
     // Nhóm radio trả về RadioNodeList (không có tagName) — lấy danh sách ô nhập cụ thể.
     function inputsOf(name) {
@@ -80,6 +86,7 @@
 
         var payload = {
             ho_ten: form.elements.ho_ten.value.trim(),
+            so_dien_thoai: form.elements.so_dien_thoai ? phoneOf(form.elements.so_dien_thoai.value) : '',
             to_dan_pho: form.elements.to_dan_pho.value.trim(),
             xa_phuong_id: Number(form.elements.xa_phuong_id.value),
             so_tivi: form.elements.so_tivi.value, // "1".."10" hoặc "11+"
