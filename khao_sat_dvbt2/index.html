@@ -21,9 +21,12 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://r2-thainguyen.media-soft.cloud/encode/common/assets/fav/favicon-16x16.png?v=20260801-1" />
     <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/common/style/fonts-roboto-vn.css" />
     <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/common/style/fonts-noto-serif-vn.css" />
-    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/style.css?v=2026100304" />
+    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/common/vendor/overlayscrollbars.min.css?v=20260719" />
+    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/common/style/overlayscrollbar.css?v=20260719" />
+    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/style.css?v=2026100402" />
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/main.js?v=2026100303" defer></script>
+    <script src="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/main.js?v=2026100402" defer></script>
+    <script type="module" src="https://r2-thainguyen.media-soft.cloud/encode/common/overlayscrollbar.js"></script>
 </head>
 
 <body>
@@ -155,8 +158,8 @@
                     <legend class="ks-label">1. Hiện nay, gia đình Ông/Bà xem truyền hình Thái Nguyên trên Tivi bằng
                         sóng truyền hình số mặt đất <em>(Ăng ten thu hoặc đầu thu số mặt đất)</em> không?<span
                             class="ks-req">*</span></legend>
-                    <label class="ks-opt"><input type="radio" name="xem_dvbt2" value="1" required />Có, thường xuyên</label>
-                    <label class="ks-opt"><input type="radio" name="xem_dvbt2" value="2" />Có, không thường xuyên</label>
+                    <label class="ks-opt"><input type="radio" name="xem_dvbt2" value="1" required />Có, xem thường xuyên</label>
+                    <label class="ks-opt"><input type="radio" name="xem_dvbt2" value="2" />Có, không xem thường xuyên</label>
                     <label class="ks-opt"><input type="radio" name="xem_dvbt2" value="3" />Không</label>
                     <div class="ks-error">Vui lòng chọn một câu trả lời.</div>
                 </fieldset>
@@ -202,6 +205,42 @@
                 <p>Phiếu khảo sát đã được ghi nhận.</p>
                 <button id="ks-again" class="ks-link-btn" type="button">Gửi phiếu cho hộ khác</button>
             </div>
+        </section>
+
+        <!-- Danh sách hộ đã tham gia: dữ liệu từ data-endpoint (GET, 20 dòng/trang, mới nhất trước); ô lọc xã chép từ select của phiếu. -->
+        <section id="ks-list" class="ks-card ks-list" aria-labelledby="ks-list-title"
+            data-endpoint="https://khaosat-thainguyen.mediasoft.com.vn/dvbt2/danh-sach">
+            <div class="ks-list__head">
+                <h2 id="ks-list-title" class="ks-list__title">Danh sách hộ dân đã tham gia khảo sát</h2>
+                <p class="ks-list__count" aria-live="polite"></p>
+            </div>
+            <form class="ks-list__filter" role="search">
+                <input class="ks-input" name="q" type="search" maxlength="100"
+                    placeholder="Tìm theo tên chủ hộ, tổ dân phố (thôn)" aria-label="Tìm theo tên chủ hộ hoặc tổ dân phố (thôn)" />
+                <select class="ks-input" name="xa" aria-label="Lọc theo xã, phường">
+                    <option value="">Tất cả xã, phường</option>
+                </select>
+                <button class="ks-btn ks-list__btn" type="submit">Tìm kiếm</button>
+            </form>
+            <div class="ks-list__wrap" data-scroll data-scroll-auto-hide="leave" data-scroll-overflow-x="hidden">
+                <table class="ks-table">
+                    <thead>
+                        <tr>
+                            <th class="ks-table__stt">STT</th>
+                            <th>Họ và Tên chủ hộ</th>
+                            <th>Tổ dân phố (thôn)</th>
+                            <th>Xã, phường</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <p class="ks-list__empty" hidden></p>
+            <nav class="ks-pager" aria-label="Phân trang" hidden>
+                <button type="button" class="ks-link-btn" data-go="-1">‹ Trước</button>
+                <span class="ks-pager__info"></span>
+                <button type="button" class="ks-link-btn" data-go="1">Sau ›</button>
+            </nav>
         </section>
     </main>
 
