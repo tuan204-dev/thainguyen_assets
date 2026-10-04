@@ -121,6 +121,7 @@
     var list = document.getElementById('ks-list');
     if (list) {
         var lf = list.querySelector('.ks-list__filter');
+        var wrapEl = list.querySelector('.ks-list__wrap');
         var tbody = list.querySelector('tbody');
         var countEl = list.querySelector('.ks-list__count');
         var emptyEl = list.querySelector('.ks-list__empty');
@@ -151,6 +152,8 @@
                 var filtered = !!(state.q || state.xa);
                 state.pages = Math.max(1, Math.ceil(d.total / d.page_size));
                 tbody.textContent = '';
+                // OverlayScrollbars cuộn trên viewport con của nó; chưa khởi tạo thì cuộn chính wrap.
+                (wrapEl.querySelector('[data-overlayscrollbars-viewport]') || wrapEl).scrollTop = 0;
                 d.items.forEach(function (it) {
                     var tr = document.createElement('tr');
                     tr.appendChild(cell(it.stt, 'ks-table__stt'));

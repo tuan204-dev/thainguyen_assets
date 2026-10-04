@@ -320,10 +320,12 @@ select.ks-input option, select.ks-input optgroup { color: var(--tn-ink); }
 .ks-list__count { margin: 0; font-size: 14px; color: var(--tn-muted); }
 .ks-list__filter { display: grid; grid-template-columns: minmax(0, 1fr) 240px auto; gap: 10px; padding: 16px 32px; }
 .ks-list__btn { width: auto; height: 46px; padding: 0 22px; font-size: 15px; }
-.ks-list__wrap { padding: 0 32px; overflow-x: auto; }
+/* Cao tối đa ~11 dòng (và không quá 65% màn hình), dư thì cuộn bên trong bằng OverlayScrollbars (data-scroll);
+   KHÔNG đặt overflow ở đây — thư viện tự quản overflow trên viewport của nó. Tiêu đề cột dính trên cùng. */
+.ks-list__wrap { max-height: min(520px, 65vh); padding: 0 32px; }
 .ks-table { width: 100%; border-collapse: collapse; font-size: 15px; }
 .ks-table th, .ks-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #eef0f3; }
-.ks-table th { background: #f4f7f5; color: var(--tn-muted); font-weight: 600; white-space: nowrap; }
+.ks-table th { position: sticky; top: 0; z-index: 1; background: #f4f7f5; color: var(--tn-muted); font-weight: 600; white-space: nowrap; }
 .ks-table tbody tr:nth-child(even) td { background: #fafbfc; }
 .ks-table .ks-table__stt { width: 1%; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .ks-list.is-loading .ks-list__wrap { opacity: .5; }
