@@ -2,6 +2,7 @@
 <html lang="vi">
 
 <head>
+<% var SYS_CONFIG; var _a = (Array.isArray(SYS_CONFIG) ? SYS_CONFIG : []).find(function(c){ return c.code === 'asset_base_url'; }); var ASSET = (_a && _a.content) || 'https://r2-thainguyen.media-soft.cloud'; %>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phiếu khảo sát: Hộ dân xem truyền hình Thái Nguyên bằng thu sóng số mặt đất (DVB-T2)</title>
@@ -14,26 +15,26 @@
     <meta property="og:description" content="Phiếu khảo sát hộ dân trên địa bàn tỉnh, xem truyền hình Thái Nguyên trên Tivi bằng thu sóng số mặt đất (DVB-T2)." />
     <meta property="og:image" content="https://cdn.baothainguyen.vn/original/assets/banner.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="https://r2-thainguyen.media-soft.cloud/encode/common/assets/fav/favicon.ico?v=20260801-1" sizes="48x48" />
-    <link rel="icon" type="image/svg+xml" href="https://r2-thainguyen.media-soft.cloud/encode/common/assets/fav/favicon.svg?v=20260801-1" />
-    <link rel="icon" type="image/png" sizes="96x96" href="https://r2-thainguyen.media-soft.cloud/encode/common/assets/fav/favicon-96x96.png?v=20260801-1" />
-    <link rel="icon" type="image/png" sizes="32x32" href="https://r2-thainguyen.media-soft.cloud/encode/common/assets/fav/favicon-32x32.png?v=20260801-1" />
-    <link rel="icon" type="image/png" sizes="16x16" href="https://r2-thainguyen.media-soft.cloud/encode/common/assets/fav/favicon-16x16.png?v=20260801-1" />
-    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/common/style/fonts-roboto-vn.css" />
-    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/common/style/fonts-noto-serif-vn.css" />
-    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/common/vendor/overlayscrollbars.min.css?v=20260719" />
-    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/common/style/overlayscrollbar.css?v=20260719" />
-    <link rel="stylesheet" href="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/style.css?v=2026100402" />
+    <link rel="icon" href="<%= ASSET %>/encode/common/assets/fav/favicon.ico?v=20260801-1" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="<%= ASSET %>/encode/common/assets/fav/favicon.svg?v=20260801-1" />
+    <link rel="icon" type="image/png" sizes="96x96" href="<%= ASSET %>/encode/common/assets/fav/favicon-96x96.png?v=20260801-1" />
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= ASSET %>/encode/common/assets/fav/favicon-32x32.png?v=20260801-1" />
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= ASSET %>/encode/common/assets/fav/favicon-16x16.png?v=20260801-1" />
+    <link rel="stylesheet" href="<%= ASSET %>/encode/common/style/fonts-roboto-vn.css" />
+    <link rel="stylesheet" href="<%= ASSET %>/encode/common/style/fonts-noto-serif-vn.css" />
+    <link rel="stylesheet" href="<%= ASSET %>/encode/common/vendor/overlayscrollbars.min.css?v=20260719" />
+    <link rel="stylesheet" href="<%= ASSET %>/encode/common/style/overlayscrollbar.css?v=20260719" />
+    <link rel="stylesheet" href="<%= ASSET %>/encode/khao_sat_dvbt2/style.css?v=2026100501" />
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="https://r2-thainguyen.media-soft.cloud/encode/khao_sat_dvbt2/main.js?v=2026100403" defer></script>
-    <script type="module" src="https://r2-thainguyen.media-soft.cloud/encode/common/overlayscrollbar.js"></script>
+    <script src="<%= ASSET %>/encode/khao_sat_dvbt2/main.js?v=2026100403" defer></script>
+    <script type="module" src="<%= ASSET %>/encode/common/overlayscrollbar.js"></script>
 </head>
 
 <body>
     <header class="ks-header">
         <div class="ks-header__inner">
             <a href="/" aria-label="Trang chủ Báo Thái Nguyên">
-                <img src="https://r2-thainguyen.media-soft.cloud/encode/common/assets/logo.png" alt="Báo và Phát thanh, Truyền hình Thái Nguyên" />
+                <img src="<%= ASSET %>/encode/common/assets/logo.png" alt="Báo và Phát thanh, Truyền hình Thái Nguyên" />
             </a>
         </div>
     </header>
@@ -44,6 +45,7 @@
                 <p class="ks-kicker">Phiếu khảo sát</p>
                 <h1 class="ks-title">Hộ dân trên địa bàn tỉnh, xem truyền hình Thái Nguyên trên Tivi bằng thu sóng
                     số mặt đất <span class="ks-nowrap">(DVB-T2)</span></h1>
+                <p class="ks-subnote">( Thực hiện nhiệm vụ, Ban Tuyên giáo Tỉnh uỷ giao “triển khai khảo sát, đánh giá tình hình người dân, hộ gia đình xem truyền hình Thái Nguyên trên Tivi bằng truyền hình số mặt đất DVB-T2” tại Công văn số 116-CV/BTGTU, <span class="ks-nowrap">ngày 02/10/2026 )</span></p>
             </div>
 
             <!--
@@ -255,7 +257,7 @@
         <div class="ks-footer__inner">
             <div class="ks-footer__grid">
                 <div class="ks-footer__logo">
-                    <img src="https://r2-thainguyen.media-soft.cloud/encode/common/assets/logo.png" alt="Báo Thái Nguyên" />
+                    <img src="<%= ASSET %>/encode/common/assets/logo.png" alt="Báo Thái Nguyên" />
                 </div>
 
                 <div class="ks-footer__info">
@@ -297,11 +299,11 @@
                     <p>Quét mã tải ứng dụng tại:</p>
                     <div class="ks-footer__qr">
                         <figure>
-                            <img src="https://r2-thainguyen.media-soft.cloud/encode/common/assets/android.jpg?v=20260819" alt="Tải bản Android" />
+                            <img src="<%= ASSET %>/encode/common/assets/android.jpg?v=20260819" alt="Tải bản Android" />
                             <figcaption>Bản Android</figcaption>
                         </figure>
                         <figure>
-                            <img src="https://r2-thainguyen.media-soft.cloud/encode/common/assets/ios.jpg?v=20260819" alt="Tải bản iOS" />
+                            <img src="<%= ASSET %>/encode/common/assets/ios.jpg?v=20260819" alt="Tải bản iOS" />
                             <figcaption>Bản IOS</figcaption>
                         </figure>
                     </div>
