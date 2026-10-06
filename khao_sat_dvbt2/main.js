@@ -116,6 +116,8 @@
             done.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }).catch(function (err) {
             showAlert(err instanceof TypeError ? MSG_NET : err.message);
+            // Thông báo nằm đầu phiếu, người dùng đang ở nút Gửi cuối trang ⇒ cuộn lên cho thấy (vd số điện thoại đã gửi phiếu).
+            alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }).finally(function () {
             resetCaptcha();
             btn.disabled = false;
@@ -123,7 +125,7 @@
         });
     });
 
-    // Danh sách hộ đã tham gia: GET data-endpoint của #ks-list (20 dòng/trang, mới nhất trước).
+    // Danh sách hộ đã tham gia: GET data-endpoint của #ks-list (100 dòng/trang, mới nhất trước).
     var reloadList = function () { };
     var list = document.getElementById('ks-list');
     if (list) {
@@ -135,7 +137,7 @@
         var pager = list.querySelector('.ks-pager');
         var state = { page: 1, pages: 1, q: '', xa: '' };
 
-        // Ô lọc chép đúng các nhóm xã, phường của phiếu ⇒ danh sách 45 đơn vị chỉ nằm một chỗ.
+        // Ô lọc chép đúng các nhóm xã, phường của phiếu ⇒ danh sách xã, phường chỉ nằm một chỗ.
         Array.prototype.forEach.call(form.elements.xa_phuong_id.querySelectorAll('optgroup'), function (g) {
             lf.elements.xa.appendChild(g.cloneNode(true));
         });
