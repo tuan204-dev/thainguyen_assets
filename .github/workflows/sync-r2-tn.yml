@@ -3,6 +3,14 @@ name: Sync to Cloudflare R2 Thai Nguyen
 on:
   push:
     branches: [ "main" ]
+  # Chạy tay = upload TOÀN BỘ lên bucket chọn (seed bucket mới, vá bucket lệch).
+  workflow_dispatch:
+    inputs:
+      bucket:
+        description: Bucket upload toàn bộ
+        type: choice
+        options: [ all, thai-nguyen-r2, thai-nguyen-r2-v2 ]
+        default: all
 
 # Xếp hàng chứ không chạy chồng: lượt cũ không ghi đè file của lượt mới.
 concurrency:
@@ -49,7 +57,8 @@ jobs:
       # Chỉ upload file đổi kể từ lượt sync thành công gần nhất (chép ra thư mục tạm rồi `aws s3 cp`).
       # Không dùng `aws s3 sync`: checkout làm mtime mọi file mới hơn R2 ⇒ upload lại TOÀN BỘ; R2 còn liệt kê
       # x.woff2 trước x.woff ⇒ sync luôn tưởng x.woff chưa có. Không tìm được lượt trước ⇒ upload toàn bộ.
-      - name: Upload changed files to R2
+      # Chạy tay (workflow_dispatch) thì luôn upload toàn bộ lên bucket đã chọn.
+      - name: Upload to R2
         run: |
           set -euo pipefail
 
@@ -57,25 +66,25 @@ jobs:
           BUCKETS="s3://thai-nguyen-r2 s3://thai-nguyen-r2-v2"
 
           SRC=.
-          BASE=$(gh run list -w sync-r2-tn.yml -b main -s success -L 1 --json headSha -q '.[0].headSha' || true)
-          if [ -n "$BASE" ] && git cat-file -e "$BASE^{commit}" 2>/dev/null; then
-            SRC="$RUNNER_TEMP/changed"
-            mkdir -p "$SRC"
-            git diff -z --name-only --no-renames --diff-filter=d "$BASE" HEAD | xargs -0 -r cp --parents -t "$SRC" --
-            echo "::notice::Chỉ upload file đổi từ ${BASE:0:7}"
+          if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then
+            [ "$GITHUB_REF" = refs/heads/main ] || { echo "::error::Chỉ upload từ nhánh main"; exit 1; }
+            [ "$BUCKET_INPUT" = all ] || BUCKETS="s3://$BUCKET_INPUT"
+            echo "::notice::Upload toàn bộ lên $BUCKETS"
           else
-            echo "::warning::Không tìm được lượt sync thành công trước đó, upload toàn bộ"
+            # Chỉ lấy lượt push làm mốc: lượt chạy tay có thể chỉ đẩy 1 bucket.
+            BASE=$(gh run list -w sync-r2-tn.yml -b main -e push -s success -L 1 --json headSha -q '.[0].headSha' || true)
+            if [ -n "$BASE" ] && git cat-file -e "$BASE^{commit}" 2>/dev/null; then
+              SRC="$RUNNER_TEMP/changed"
+              mkdir -p "$SRC"
+              git diff -z --name-only --no-renames --diff-filter=d "$BASE" HEAD | xargs -0 -r cp --parents -t "$SRC" --
+              echo "::notice::Chỉ upload file đổi từ ${BASE:0:7}"
+            else
+              echo "::warning::Không tìm được lượt sync thành công trước đó, upload toàn bộ"
+            fi
           fi
 
           for BUCKET in $BUCKETS; do
-            FROM="$SRC"
-            # Bucket rỗng (mới tạo) ⇒ upload toàn bộ, chỉ đẩy file đổi thì bucket sẽ thiếu hết file cũ.
-            if [ -z "$(aws s3 ls "$BUCKET" --endpoint-url "$ENDPOINT_URL" --region auto)" ]; then
-              FROM=.
-              echo "::warning::$BUCKET đang rỗng, upload toàn bộ"
-            fi
-
-            aws s3 cp "$FROM" "$BUCKET" --recursive \
+            aws s3 cp "$SRC" "$BUCKET" --recursive \
               --endpoint-url "$ENDPOINT_URL" \
               --region auto \
               --cache-control "public, max-age=2592000" \
@@ -94,3 +103,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.TCA_R2_SECRET_ACCESS_KEY }}
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
+          BUCKET_INPUT: ${{ inputs.bucket }}
