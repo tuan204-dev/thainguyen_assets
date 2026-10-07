@@ -54,7 +54,7 @@ jobs:
           set -euo pipefail
 
           ENDPOINT_URL="https://3b24c5155db1e2c2b38a2140476e57a3.r2.cloudflarestorage.com"
-          BUCKET="s3://thai-nguyen-r2"
+          BUCKETS="s3://thai-nguyen-r2 s3://thai-nguyen-r2-v2"
 
           SRC=.
           BASE=$(gh run list -w sync-r2-tn.yml -b main -s success -L 1 --json headSha -q '.[0].headSha' || true)
@@ -67,19 +67,28 @@ jobs:
             echo "::warning::Không tìm được lượt sync thành công trước đó, upload toàn bộ"
           fi
 
-          aws s3 cp "$SRC" "${BUCKET}" --recursive \
-            --endpoint-url "$ENDPOINT_URL" \
-            --region auto \
-            --cache-control "public, max-age=2592000" \
-            --exclude "*" \
-            --include "*/*" \
-            --exclude ".git/*" \
-            --exclude ".github/*" \
-            --exclude "api/*" \
-            --exclude "node_modules/*" \
-            --exclude "*/node_modules/*" \
-            --exclude "*.md" \
-            --no-progress
+          for BUCKET in $BUCKETS; do
+            FROM="$SRC"
+            # Bucket rỗng (mới tạo) ⇒ upload toàn bộ, chỉ đẩy file đổi thì bucket sẽ thiếu hết file cũ.
+            if [ -z "$(aws s3 ls "$BUCKET" --endpoint-url "$ENDPOINT_URL" --region auto)" ]; then
+              FROM=.
+              echo "::warning::$BUCKET đang rỗng, upload toàn bộ"
+            fi
+
+            aws s3 cp "$FROM" "$BUCKET" --recursive \
+              --endpoint-url "$ENDPOINT_URL" \
+              --region auto \
+              --cache-control "public, max-age=2592000" \
+              --exclude "*" \
+              --include "*/*" \
+              --exclude ".git/*" \
+              --exclude ".github/*" \
+              --exclude "api/*" \
+              --exclude "node_modules/*" \
+              --exclude "*/node_modules/*" \
+              --exclude "*.md" \
+              --no-progress
+          done
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.TCA_R2_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.TCA_R2_SECRET_ACCESS_KEY }}

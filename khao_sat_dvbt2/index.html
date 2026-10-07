@@ -5,21 +5,35 @@
 <% var SYS_CONFIG; var _a = (Array.isArray(SYS_CONFIG) ? SYS_CONFIG : []).find(function(c){ return c.code === 'asset_base_url'; }); var ASSET = (_a && _a.content) || 'https://r2-thainguyen.media-soft.cloud'; %>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phiếu khảo sát: Hộ dân xem truyền hình Thái Nguyên bằng thu sóng số mặt đất (DVB-T2)</title>
+    <meta name="google" content="notranslate" />
+    <title>Phiếu khảo sát xem truyền hình Thái Nguyên bằng DVB-T2</title>
     <meta name="description" content="Phiếu khảo sát hộ dân trên địa bàn tỉnh, xem truyền hình Thái Nguyên trên Tivi bằng thu sóng số mặt đất (DVB-T2)." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://baothainguyen.vn/khao-sat-dvbt2" />
     <meta property="og:site_name" content="Báo và Phát thanh, truyền hình Thái Nguyên" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
     <meta property="og:url" content="https://baothainguyen.vn/khao-sat-dvbt2" />
     <meta property="og:title" content="Phiếu khảo sát: Hộ dân xem truyền hình Thái Nguyên bằng thu sóng số mặt đất (DVB-T2)" />
     <meta property="og:description" content="Phiếu khảo sát hộ dân trên địa bàn tỉnh, xem truyền hình Thái Nguyên trên Tivi bằng thu sóng số mặt đất (DVB-T2)." />
     <meta property="og:image" content="https://cdn.baothainguyen.vn/original/assets/banner.png" />
+    <meta property="og:image:alt" content="Báo và Phát thanh, truyền hình Thái Nguyên" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Phiếu khảo sát: Hộ dân xem truyền hình Thái Nguyên bằng thu sóng số mặt đất (DVB-T2)" />
+    <meta name="twitter:description" content="Phiếu khảo sát hộ dân trên địa bàn tỉnh, xem truyền hình Thái Nguyên trên Tivi bằng thu sóng số mặt đất (DVB-T2)." />
+    <meta name="twitter:image" content="https://cdn.baothainguyen.vn/original/assets/banner.png" />
     <link rel="icon" href="<%= ASSET %>/encode/common/assets/fav/favicon.ico?v=20260801-1" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="<%= ASSET %>/encode/common/assets/fav/favicon.svg?v=20260801-1" />
     <link rel="icon" type="image/png" sizes="96x96" href="<%= ASSET %>/encode/common/assets/fav/favicon-96x96.png?v=20260801-1" />
     <link rel="icon" type="image/png" sizes="32x32" href="<%= ASSET %>/encode/common/assets/fav/favicon-32x32.png?v=20260801-1" />
     <link rel="icon" type="image/png" sizes="16x16" href="<%= ASSET %>/encode/common/assets/fav/favicon-16x16.png?v=20260801-1" />
+    <link rel="shortcut icon" href="<%= ASSET %>/encode/common/assets/fav/favicon.ico?v=20260801-1" />
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= ASSET %>/encode/common/assets/fav/apple-touch-icon.png?v=20260801-1" />
+    <link rel="mask-icon" href="<%= ASSET %>/encode/common/assets/fav/safari-pinned-tab.svg?v=20260801-1" color="#30A14A" />
+    <link rel="manifest" href="<%= ASSET %>/encode/common/assets/fav/site.webmanifest?v=20260801-1" />
+    <meta name="msapplication-config" content="<%= ASSET %>/encode/common/assets/fav/browserconfig.xml?v=20260801-1" />
+    <meta name="msapplication-TileColor" content="#30A14A" />
+    <meta name="theme-color" content="#30A14A" />
     <link rel="stylesheet" href="<%= ASSET %>/encode/common/style/fonts-roboto-vn.css" />
     <link rel="stylesheet" href="<%= ASSET %>/encode/common/style/fonts-noto-serif-vn.css" />
     <link rel="stylesheet" href="<%= ASSET %>/encode/common/vendor/overlayscrollbars.min.css?v=20260719" />
@@ -28,9 +42,23 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="<%= ASSET %>/encode/khao_sat_dvbt2/main.js?v=2026100601" defer></script>
     <script type="module" src="<%= ASSET %>/encode/common/overlayscrollbar.js"></script>
+    <!-- Đếm lượt xem chuyên mục #35150: engage.js đọc data-category-id trong #page_info ở đầu body. -->
+    <script defer src="<%= ASSET %>/encode/common/engage.js?v=20260909d" data-api="https://api-public.baothainguyen.vn" data-sample="1" data-cat-view="1" data-nosnippet></script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://baothainguyen.vn/#organization","name":"Báo và Phát thanh, truyền hình Thái Nguyên","url":"https://baothainguyen.vn","alternateName":"Báo và Phát thanh, Truyền hình Thái Nguyên điện tử.","logo":{"@type":"ImageObject","url":"<%= ASSET %>/encode/common/assets/logo.png"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://baothainguyen.vn/#website","name":"Báo và Phát thanh, truyền hình Thái Nguyên","alternateName":"Báo và Phát thanh, Truyền hình Thái Nguyên điện tử.","url":"https://baothainguyen.vn","inLanguage":"vi-VN","publisher":{"@id":"https://baothainguyen.vn/#organization"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","@id":"https://baothainguyen.vn/khao-sat-dvbt2#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://baothainguyen.vn","name":"Trang chủ"}},{"@type":"ListItem","position":2,"name":"Khảo sát DVB-T2"}]}</script>
+    <!-- GA4 (G-4136RT111F) — cùng property với mọi trang của site. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4136RT111F"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4136RT111F');
+    </script>
 </head>
 
 <body>
+    <div id="page_info" hidden data-category-id="35150" data-department-id="2"></div>
     <header class="ks-header">
         <div class="ks-header__inner">
             <a href="/" aria-label="Trang chủ Báo Thái Nguyên">
