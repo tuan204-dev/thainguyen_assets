@@ -1,0 +1,67 @@
+name: Compare R2 buckets Thai Nguyen
+
+# Chạy tay: liệt kê 2 bucket rồi so key + dung lượng. Chỉ đọc, không ghi gì lên R2.
+on:
+  workflow_dispatch:
+    inputs:
+      old:
+        description: Bucket gốc
+        default: thai-nguyen-r2
+      new:
+        description: Bucket cần đủ file như bucket gốc
+        default: thai-nguyen-r2-v2
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    environment: secrets
+
+    steps:
+      - name: Compare buckets
+        run: |
+          set -euo pipefail
+          export LC_ALL=C
+          mkdir -p out && cd out
+
+          # Key<TAB>Size, sắp theo key (aws tự phân trang).
+          list() {
+            aws s3api list-objects-v2 --bucket "$1" \
+              --endpoint-url "https://3b24c5155db1e2c2b38a2140476e57a3.r2.cloudflarestorage.com" \
+              --region auto --query 'Contents[].[Key,Size]' --output text \
+              | sed '/^None$/d' | sort -t$'\t' -k1,1
+          }
+          list "$OLD" > old.tsv
+          list "$NEW" > new.tsv
+
+          cut -f1 old.tsv > old.keys
+          cut -f1 new.tsv > new.keys
+          comm -23 old.keys new.keys > only-old.txt
+          comm -13 old.keys new.keys > only-new.txt
+          join -t$'\t' old.tsv new.tsv | awk -F'\t' '$2 != $3' > size-diff.tsv
+
+          {
+            echo "| | Số file |"
+            echo "|---|---|"
+            echo "| $OLD | $(wc -l < old.keys) |"
+            echo "| $NEW | $(wc -l < new.keys) |"
+            echo "| Chỉ có ở $OLD (thiếu trên $NEW) | $(wc -l < only-old.txt) |"
+            echo "| Chỉ có ở $NEW | $(wc -l < only-new.txt) |"
+            echo "| Cùng key, khác dung lượng | $(wc -l < size-diff.tsv) |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          echo "::group::Chỉ có ở $OLD"; cat only-old.txt; echo "::endgroup::"
+          echo "::group::Cùng key, khác dung lượng (key, $OLD, $NEW)"; cat size-diff.tsv; echo "::endgroup::"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.TCA_R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.TCA_R2_SECRET_ACCESS_KEY }}
+          OLD: ${{ inputs.old }}
+          NEW: ${{ inputs.new }}
+
+      - name: Upload lists
+        uses: actions/upload-artifact@v4
+        with:
+          name: r2-compare
+          path: out/

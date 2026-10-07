@@ -32,7 +32,7 @@
  * preload="none" và <source data-src="..."> (xem README/ghi chú khi gắn CMS).
  *
  * Cách nhúng:
- *   <script type="module" src="https://r2-thainguyen.media-soft.cloud/common/video-player.js"></script>
+ *   <script type="module" src="https://thainguyen-r2.mediasoft.com.vn/common/video-player.js"></script>
  */
 
 const TCAVideoPlayer = (() => {
@@ -92,34 +92,42 @@ const TCAVideoPlayer = (() => {
      * Gọi trước khi script quét, hoặc gọi rồi TCAVideoPlayer.scan() lại.
      */
     const LABELS = {
-        en: { player: "Video player", play: "Play", pause: "Pause", replay: "Replay",
-              mute: "Mute", unmute: "Unmute", volume: "Volume", progress: "Seek",
-              settings: "Settings", speed: "Playback speed", pip: "Picture in picture",
-              pipExit: "Exit picture in picture", pipActive: "Playing in picture in picture",
-              restore: "Return video here", fullscreen: "Full screen", fullscreenExit: "Exit full screen",
-              error: "This video could not be played", retry: "Retry",
-              soundOn: "Sound on", soundOff: "Sound off", of: "of" },
-        vi: { player: "Trình phát video", play: "Phát", pause: "Tạm dừng", replay: "Xem lại",
-              mute: "Tắt tiếng", unmute: "Bật tiếng", volume: "Âm lượng", progress: "Tua",
-              settings: "Cài đặt", speed: "Tốc độ phát", pip: "Thu nhỏ màn hình",
-              pipExit: "Thoát thu nhỏ màn hình", pipActive: "Đang phát ở cửa sổ thu nhỏ",
-              restore: "Đưa video về lại", fullscreen: "Toàn màn hình", fullscreenExit: "Thoát toàn màn hình",
-              error: "Không phát được video này", retry: "Thử lại",
-              soundOn: "Đã bật tiếng", soundOff: "Đã tắt tiếng", of: "trên" },
-        zh: { player: "视频播放器", play: "播放", pause: "暂停", replay: "重播",
-              mute: "静音", unmute: "取消静音", volume: "音量", progress: "进度",
-              settings: "设置", speed: "播放速度", pip: "画中画",
-              pipExit: "退出画中画", pipActive: "正在画中画播放",
-              restore: "返回视频", fullscreen: "全屏", fullscreenExit: "退出全屏",
-              error: "无法播放此视频", retry: "重试",
-              soundOn: "已开启声音", soundOff: "已静音", of: "/" },
-        ko: { player: "동영상 플레이어", play: "재생", pause: "일시정지", replay: "다시 재생",
-              mute: "음소거", unmute: "음소거 해제", volume: "볼륨", progress: "탐색",
-              settings: "설정", speed: "재생 속도", pip: "화면 속 화면",
-              pipExit: "화면 속 화면 종료", pipActive: "화면 속 화면으로 재생 중",
-              restore: "동영상 되돌리기", fullscreen: "전체 화면", fullscreenExit: "전체 화면 종료",
-              error: "이 동영상을 재생할 수 없습니다", retry: "다시 시도",
-              soundOn: "소리 켜짐", soundOff: "소리 꺼짐", of: "/" },
+        en: {
+            player: "Video player", play: "Play", pause: "Pause", replay: "Replay",
+            mute: "Mute", unmute: "Unmute", volume: "Volume", progress: "Seek",
+            settings: "Settings", speed: "Playback speed", pip: "Picture in picture",
+            pipExit: "Exit picture in picture", pipActive: "Playing in picture in picture",
+            restore: "Return video here", fullscreen: "Full screen", fullscreenExit: "Exit full screen",
+            error: "This video could not be played", retry: "Retry",
+            soundOn: "Sound on", soundOff: "Sound off", of: "of"
+        },
+        vi: {
+            player: "Trình phát video", play: "Phát", pause: "Tạm dừng", replay: "Xem lại",
+            mute: "Tắt tiếng", unmute: "Bật tiếng", volume: "Âm lượng", progress: "Tua",
+            settings: "Cài đặt", speed: "Tốc độ phát", pip: "Thu nhỏ màn hình",
+            pipExit: "Thoát thu nhỏ màn hình", pipActive: "Đang phát ở cửa sổ thu nhỏ",
+            restore: "Đưa video về lại", fullscreen: "Toàn màn hình", fullscreenExit: "Thoát toàn màn hình",
+            error: "Không phát được video này", retry: "Thử lại",
+            soundOn: "Đã bật tiếng", soundOff: "Đã tắt tiếng", of: "trên"
+        },
+        zh: {
+            player: "视频播放器", play: "播放", pause: "暂停", replay: "重播",
+            mute: "静音", unmute: "取消静音", volume: "音量", progress: "进度",
+            settings: "设置", speed: "播放速度", pip: "画中画",
+            pipExit: "退出画中画", pipActive: "正在画中画播放",
+            restore: "返回视频", fullscreen: "全屏", fullscreenExit: "退出全屏",
+            error: "无法播放此视频", retry: "重试",
+            soundOn: "已开启声音", soundOff: "已静音", of: "/"
+        },
+        ko: {
+            player: "동영상 플레이어", play: "재생", pause: "일시정지", replay: "다시 재생",
+            mute: "음소거", unmute: "음소거 해제", volume: "볼륨", progress: "탐색",
+            settings: "설정", speed: "재생 속도", pip: "화면 속 화면",
+            pipExit: "화면 속 화면 종료", pipActive: "화면 속 화면으로 재생 중",
+            restore: "동영상 되돌리기", fullscreen: "전체 화면", fullscreenExit: "전체 화면 종료",
+            error: "이 동영상을 재생할 수 없습니다", retry: "다시 시도",
+            soundOn: "소리 켜짐", soundOff: "소리 꺼짐", of: "/"
+        },
     };
 
     let L = LABELS.en;
@@ -502,7 +510,7 @@ const TCAVideoPlayer = (() => {
     }
     function requestFs(state) {
         const { wrap, video } = state;
-        if (wrap.requestFullscreen) return wrap.requestFullscreen().catch(() => {});
+        if (wrap.requestFullscreen) return wrap.requestFullscreen().catch(() => { });
         if (wrap.webkitRequestFullscreen) return wrap.webkitRequestFullscreen();
         // iOS Safari: chỉ <video> vào fullscreen được, và phải có source sẵn
         if (video.webkitEnterFullscreen) {
@@ -518,7 +526,7 @@ const TCAVideoPlayer = (() => {
         }
     }
     function exitFs() {
-        if (document.exitFullscreen) return document.exitFullscreen().catch(() => {});
+        if (document.exitFullscreen) return document.exitFullscreen().catch(() => { });
         if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
     }
 
@@ -529,13 +537,13 @@ const TCAVideoPlayer = (() => {
         if (!CONFIG.enablePiP || video.disablePictureInPicture) return false;
         if (document.pictureInPictureEnabled && video.requestPictureInPicture) return true;
         return typeof video.webkitSetPresentationMode === "function" &&
-               video.webkitSupportsPresentationMode &&
-               video.webkitSupportsPresentationMode("picture-in-picture");
+            video.webkitSupportsPresentationMode &&
+            video.webkitSupportsPresentationMode("picture-in-picture");
     }
 
     function inPip(video) {
         return document.pictureInPictureElement === video ||
-               video.webkitPresentationMode === "picture-in-picture";
+            video.webkitPresentationMode === "picture-in-picture";
     }
 
     async function enterPip(video) {
@@ -554,7 +562,7 @@ const TCAVideoPlayer = (() => {
 
     function leavePip(video) {
         if (document.pictureInPictureElement === video) {
-            document.exitPictureInPicture().catch(() => {});
+            document.exitPictureInPicture().catch(() => { });
         } else if (video.webkitPresentationMode === "picture-in-picture" && video.webkitSetPresentationMode) {
             video.webkitSetPresentationMode("inline");
         }
@@ -884,7 +892,7 @@ const TCAVideoPlayer = (() => {
                 state.ratio < CONFIG.autoplayThreshold || inPip(v)) return;
 
             const p2 = v.play();
-            if (p2 && typeof p2.catch === "function") p2.catch(() => {});
+            if (p2 && typeof p2.catch === "function") p2.catch(() => { });
         });
     }
 
@@ -1143,7 +1151,7 @@ const TCAVideoPlayer = (() => {
                 state.userPaused = false;
                 attachSources(state);
                 const p = video.play();
-                if (p && typeof p.catch === "function") p.catch(() => {});
+                if (p && typeof p.catch === "function") p.catch(() => { });
             } else {
                 state.userPaused = true;
                 video.pause();
@@ -1269,7 +1277,7 @@ const TCAVideoPlayer = (() => {
             wrap.classList.remove("is-error");
             resetSources(state);
             const p = video.play();
-            if (p && typeof p.catch === "function") p.catch(() => {});
+            if (p && typeof p.catch === "function") p.catch(() => { });
         });
         wrap.addEventListener("dblclick", (e) => {
             if (e.target.closest(`.${NS}__bar`)) return;
