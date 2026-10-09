@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="<%= ASSET %>/encode/common/style/fonts-noto-serif-vn.css" />
     <link rel="stylesheet" href="<%= ASSET %>/encode/common/vendor/overlayscrollbars.min.css?v=20260719" />
     <link rel="stylesheet" href="<%= ASSET %>/encode/common/style/overlayscrollbar.css?v=20260719" />
-    <link rel="stylesheet" href="<%= ASSET %>/encode/khao_sat_dvbt2/style.css?v=2026100501" />
+    <link rel="stylesheet" href="<%= ASSET %>/encode/khao_sat_dvbt2/style.css?v=2026100901" />
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="<%= ASSET %>/encode/khao_sat_dvbt2/main.js?v=2026100601" defer></script>
     <script type="module" src="<%= ASSET %>/encode/common/overlayscrollbar.js"></script>
@@ -74,13 +74,14 @@
                 <h1 class="ks-title">Hộ dân trên địa bàn tỉnh, xem truyền hình Thái Nguyên trên Tivi bằng thu sóng
                     số mặt đất <span class="ks-nowrap">(DVB-T2)</span></h1>
                 <p class="ks-subnote">( Thực hiện nhiệm vụ, Ban Tuyên giáo Tỉnh uỷ giao “triển khai khảo sát, đánh giá tình hình người dân, hộ gia đình xem truyền hình Thái Nguyên trên Tivi bằng truyền hình số mặt đất DVB-T2” tại Công văn số 116-CV/BTGTU, <span class="ks-nowrap">ngày 02/10/2026 )</span></p>
+                <p class="ks-subnote ks-subnote--deadline">Thời gian dừng và hoàn thành khảo sát, lúc: <span class="ks-nowrap">17 giờ 00 phút ngày 12/10/2026</span></p>
             </div>
 
             <!--
                 data-endpoint: API ghi phiếu (Cloudflare Worker, repo cf_worker/thainguyen).
                 data-sitekey của .cf-turnstile: site key Turnstile (secret tương ứng nằm ở Worker).
                 Value của <select name="xa_phuong_id"> là id bảng xa_phuong trong D1 — không đánh số lại.
-                Danh sách = 45 phường, xã thu được tín hiệu DVB-T2 năm 2026 (15 phường + 30 xã).
+                Danh sách = 35 phường, xã thu được tín hiệu DVB-T2 năm 2026 (14 phường + 21 xã).
             -->
             <form id="ks-form" class="ks-form" novalidate data-endpoint="https://khaosat-thainguyen.mediasoft.com.vn/dvbt2">
                 <p class="ks-note">Các mục có dấu <span class="ks-req">*</span> là bắt buộc.</p>
