@@ -68,6 +68,7 @@ body {
 .ks-nowrap { white-space: nowrap; }
 /* Chú thích căn cứ (công văn) dưới tiêu đề: chữ nhỏ, nghiêng, không đậm */
 .ks-subnote { max-width: 720px; margin: 12px auto 0; font-size: 14px; font-style: italic; font-weight: 400; line-height: 1.55; color: var(--tn-muted); }
+.ks-subnote--deadline { margin-top: 6px; font-style: normal; font-weight: 700; }
 .ks-title {
     margin: 0;
     font-family: "Noto Serif", Georgia, serif;
