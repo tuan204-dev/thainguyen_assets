@@ -44,7 +44,7 @@ jobs:
           set -euo pipefail
 
           : "${MINIO_ENDPOINT:?missing secret MINIO_ENDPOINT}"
-          : "${MINIO_BUCKET:?missing secret MINIO_BUCKET}"
+          : "${MINIO_BUCKET:?missing var MINIO_BUCKET}"
           : "${AWS_ACCESS_KEY_ID:?missing secret MINIO_ACCESS_KEY}"
           : "${AWS_SECRET_ACCESS_KEY:?missing secret MINIO_SECRET_KEY}"
 
@@ -54,7 +54,7 @@ jobs:
           aws configure set default.s3.addressing_style path
           s3() { aws --endpoint-url "$MINIO_ENDPOINT" s3 "$@"; }
 
-          DEST="s3://${MINIO_BUCKET}/assets"
+          DEST="s3://${MINIO_BUCKET}/static-assets"
           MARK="s3://${MINIO_BUCKET}/.sync/${GITHUB_REPOSITORY##*/}.sha"
 
           SRC=.
@@ -83,6 +83,6 @@ jobs:
           git rev-parse HEAD | s3 cp - "$MARK"
         env:
           MINIO_ENDPOINT: ${{ secrets.MINIO_ENDPOINT }}
-          MINIO_BUCKET: ${{ secrets.MINIO_BUCKET }}
+          MINIO_BUCKET: ${{ vars.MINIO_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.MINIO_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.MINIO_SECRET_KEY }}
