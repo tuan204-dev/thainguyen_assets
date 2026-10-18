@@ -1,0 +1,88 @@
+name: Sync to MinIO
+
+on:
+  push:
+    branches: [ "main" ]
+
+# Xếp hàng chứ không chạy chồng: lượt cũ không ghi đè file của lượt mới.
+concurrency:
+  group: sync-minio
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  upload:
+    # Chỉ chạy trên server assets-ci (var ASSETS_CI chỉ khai ở đó): MinIO nằm trong Tailscale,
+    # runner của GitHub không tới được ⇒ trên GitHub job này luôn "skipped".
+    if: vars.ASSETS_CI == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # cần commit của lượt sync trước để diff
+          filter: blob:none # chỉ tải commit/tree, không tải blob cũ
+
+      # Cổng tương thích trình duyệt cũ (như workflow sync R2): chặn cú pháp vượt sàn Chrome 109 lọt lên MinIO.
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install deps
+        run: bun install --frozen-lockfile
+
+      - name: Check legacy browser compatibility
+        run: bun a_script/check-legacy.ts
+
+      # Chỉ upload file đổi kể từ lượt sync thành công gần nhất (chép ra thư mục tạm rồi `aws s3 cp`).
+      # Mốc là SHA ghi vào MinIO (.sync/<repo>.sha) sau mỗi lượt thành công: chạy ngoài GitHub nên không tra được `gh run list`.
+      # Không có mốc (lần đầu) hoặc mốc không còn trong lịch sử ⇒ upload toàn bộ.
+      - name: Upload changed files to MinIO
+        run: |
+          set -euo pipefail
+
+          : "${MINIO_ENDPOINT:?missing secret MINIO_ENDPOINT}"
+          : "${MINIO_BUCKET:?missing secret MINIO_BUCKET}"
+          : "${AWS_ACCESS_KEY_ID:?missing secret MINIO_ACCESS_KEY}"
+          : "${AWS_SECRET_ACCESS_KEY:?missing secret MINIO_SECRET_KEY}"
+
+          # MinIO cần path-style; config riêng cho lượt chạy, không đụng ~/.aws
+          export AWS_CONFIG_FILE="$RUNNER_TEMP/aws-config"
+          aws configure set default.region us-east-1
+          aws configure set default.s3.addressing_style path
+          s3() { aws --endpoint-url "$MINIO_ENDPOINT" s3 "$@"; }
+
+          DEST="s3://${MINIO_BUCKET}/assets"
+          MARK="s3://${MINIO_BUCKET}/.sync/${GITHUB_REPOSITORY##*/}.sha"
+
+          SRC=.
+          BASE=$(s3 cp "$MARK" - 2>/dev/null || true)
+          if [ -n "$BASE" ] && git cat-file -e "$BASE^{commit}" 2>/dev/null; then
+            SRC="$RUNNER_TEMP/changed"
+            mkdir -p "$SRC"
+            git diff -z --name-only --no-renames --diff-filter=d "$BASE" HEAD | xargs -0 -r cp --parents -t "$SRC" --
+            echo "::notice::Chỉ upload file đổi từ ${BASE:0:7}"
+          else
+            echo "::warning::Chưa có mốc sync trước đó, upload toàn bộ"
+          fi
+
+          s3 cp "$SRC" "$DEST" --recursive \
+            --cache-control "public, max-age=2592000" \
+            --exclude "*" \
+            --include "*/*" \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "api/*" \
+            --exclude "node_modules/*" \
+            --exclude "*/node_modules/*" \
+            --exclude "*.md" \
+            --no-progress
+
+          git rev-parse HEAD | s3 cp - "$MARK"
+        env:
+          MINIO_ENDPOINT: ${{ secrets.MINIO_ENDPOINT }}
+          MINIO_BUCKET: ${{ secrets.MINIO_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.MINIO_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.MINIO_SECRET_KEY }}
