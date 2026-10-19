@@ -18,6 +18,6 @@ logo is centered on a square canvas without distortion.
 | `site-en / site-cn / site-kr.webmanifest`       | PWA manifest for the en/cn/kr subdomains |
 
 The deployed base URL is
-`https://thainguyen-r2.mediasoft.com.vn/encode/common/assets/fav/`.
+`https://cdn.baothainguyen.vn/static-assets/encode/common/assets/fav/`.
 Use a version query when the files change because R2 assets are cached for 30
 days.

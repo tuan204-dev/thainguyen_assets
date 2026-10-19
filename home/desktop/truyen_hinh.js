@@ -1,6 +1,6 @@
 (function () {
     const POSTER =
-        "https://thainguyen-r2.mediasoft.com.vn/common/assets/img_tv1.jpg";
+        "https://cdn.baothainguyen.vn/static-assets/common/assets/img_tv1.jpg";
 
     const CHANNELS = {
         1: {
