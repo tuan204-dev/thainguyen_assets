@@ -14,10 +14,8 @@ permissions:
 
 jobs:
   upload:
-    # Chỉ chạy trên server assets-ci (var ASSETS_CI chỉ khai ở đó): MinIO nằm trong Tailscale,
-    # runner của GitHub không tới được ⇒ trên GitHub job này luôn "skipped".
-    if: vars.ASSETS_CI == 'true'
-    runs-on: ubuntu-latest
+    # Self-hosted runner trên máy chủ (repo assets-ci): MinIO nằm trong Tailscale, máy của GitHub không tới được.
+    runs-on: [self-hosted, assets]
 
     steps:
       - name: Checkout repo
@@ -37,7 +35,7 @@ jobs:
         run: bun a_script/check-legacy.ts
 
       # Chỉ upload file đổi kể từ lượt sync thành công gần nhất (chép ra thư mục tạm rồi `aws s3 cp`).
-      # Mốc là SHA ghi vào MinIO (.sync/<repo>.sha) sau mỗi lượt thành công: chạy ngoài GitHub nên không tra được `gh run list`.
+      # Mốc là SHA ghi vào MinIO (.sync/<repo>.sha) sau mỗi lượt thành công: bám đúng dữ liệu đang có trên bucket.
       # Không có mốc (lần đầu) hoặc mốc không còn trong lịch sử ⇒ upload toàn bộ.
       - name: Upload changed files to MinIO
         run: |

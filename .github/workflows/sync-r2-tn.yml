@@ -23,9 +23,7 @@ permissions:
 
 jobs:
   upload:
-    # Chỉ chạy trên GitHub: server assets-ci khai vars.ASSETS_CI=true ⇒ job này skipped ở đó.
-    if: vars.ASSETS_CI != 'true'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, assets] # self-hosted runner trên máy chủ (repo assets-ci)
     environment: secrets
 
     steps:
