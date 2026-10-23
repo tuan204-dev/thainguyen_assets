@@ -40,8 +40,7 @@
         const SELECTOR = "[data-swiper]";
         const INSTANCE_KEY = "__swiperInstance";
         const SWIPER_SCRIPT_URLS = [
-            "https://assets.tapchianninhmang.vn/common/vendor/swiper-bundle.min.js",
-            "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js",
+            "https://cdn.baothainguyen.vn/static-assets/encode/common/vendor/swiper-bundle.min.js",
         ];
 
         let loadingPromise = null;
