@@ -23,7 +23,7 @@ permissions:
 
 jobs:
   upload:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, assets] # self-hosted runner trên máy chủ (repo assets-ci)
     environment: secrets
 
     steps:
