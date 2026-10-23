@@ -63,7 +63,7 @@
         streamStarted = false;
     }
 
-    const HLS_LIB_URL = "https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js";
+    const HLS_LIB_URL = "https://cdn.baothainguyen.vn/static-assets/encode/common/vendor/hls-1.7.3.min.js";
     function loadHlsLib() {
         if (window.Hls) return Promise.resolve();
         if (hlsLibPromise) return hlsLibPromise;

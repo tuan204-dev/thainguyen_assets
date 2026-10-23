@@ -2,9 +2,10 @@
     "use strict";
     const root = doc.defaultView;
 
+    // Lấy cạnh chính file này (luôn nạp bằng type="module") — không trỏ host site khác.
     const DEPS = [
-        { url: "https://assets.tapchianninhmang.vn/common/overlay.js", global: "Overlay" },
-        { url: "https://assets.tapchianninhmang.vn/common/swiper.js", global: "SwiperManager" },
+        { url: new URL("overlay.js", import.meta.url).href, global: "Overlay" },
+        { url: new URL("swiper.js", import.meta.url).href, global: "SwiperManager" },
     ];
 
     const loadScript = (url) =>
