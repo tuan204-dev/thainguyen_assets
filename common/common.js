@@ -105,8 +105,6 @@ function handleLazyImages() {
 }
 
 const prefetchedHrefs = new Set();
-const observedLinks = new WeakSet();
-let linkObserver = null;
 const supportsLinkPrefetch = (() => {
     try {
         const l = document.createElement("link");
@@ -131,62 +129,44 @@ function shouldPrefetchHref(href) {
     return true;
 }
 
-function schedulePrefetch(href) {
-    if (prefetchedHrefs.has(href)) return;
+function prefetchHref(href) {
     prefetchedHrefs.add(href);
-    const run = () => {
-        if (supportsLinkPrefetch) {
-            const l = document.createElement("link");
-            l.rel = "prefetch";
-            l.as = "document";
-            l.href = href;
-            document.head.appendChild(l);
-        } else {
-            fetch(href, { credentials: "same-origin", priority: "low" }).catch(() => {});
-        }
-    };
-    if ("requestIdleCallback" in window) {
-        window.requestIdleCallback(run, { timeout: 2000 });
+    if (supportsLinkPrefetch) {
+        const l = document.createElement("link");
+        l.rel = "prefetch";
+        l.as = "document";
+        l.href = href;
+        document.head.appendChild(l);
     } else {
-        setTimeout(run, 0);
+        fetch(href, { credentials: "same-origin", priority: "low" }).catch(() => {});
     }
 }
 
-function handleLinkPrefetch() {
-    if (typeof IntersectionObserver === "undefined") return;
-    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ""))) return;
-
-    if (!linkObserver) {
-        linkObserver = new IntersectionObserver(
-            (entries) => {
-                for (let i = 0; i < entries.length; i++) {
-                    if (!entries[i].isIntersecting) continue;
-                    const a = entries[i].target;
-                    linkObserver.unobserve(a);
-                    const abs = a.href;
-                    if (shouldPrefetchHref(abs)) schedulePrefetch(abs);
-                }
-            },
-            { rootMargin: "200px 0px" },
-        );
-    }
-
-    document.querySelectorAll("a[href]:not([data-no-prefetch])").forEach((a) => {
-        if (observedLinks.has(a)) return;
-        if (!shouldPrefetchHref(a.href)) return;
-        observedLinks.add(a);
-        linkObserver.observe(a);
+/* Chi prefetch khi CHUOT dung tren link ~65ms (luot qua thi bo); cham/but khong co hover nen bo qua.
+   Uy quyen tren document nen link do JS chen sau cung an. Co __hoverPrefetch dung chung voi
+   portlet link-prefetch: trang nap ca hai thi chi ban chay truoc gan listener. */
+let hoverPrefetchTimer;
+if (!window.__hoverPrefetch) {
+    window.__hoverPrefetch = true;
+    document.addEventListener("pointerover", (e) => {
+        if (e.pointerType !== "mouse") return;
+        const a = e.target.closest && e.target.closest("a[href]:not([data-no-prefetch])");
+        if (!a || !shouldPrefetchHref(a.href)) return;
+        const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ""))) return;
+        clearTimeout(hoverPrefetchTimer);
+        hoverPrefetchTimer = setTimeout(() => prefetchHref(a.href), 65);
+    });
+    document.addEventListener("pointerout", (e) => {
+        if (e.pointerType === "mouse") clearTimeout(hoverPrefetchTimer);
     });
 }
 
 let resizeTimer;
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", handleLazyImages);
-    document.addEventListener("DOMContentLoaded", handleLinkPrefetch);
 } else {
     handleLazyImages();
-    handleLinkPrefetch();
 }
 if (document.readyState === "complete") {
     handleClampText();
@@ -196,14 +176,12 @@ if (document.readyState === "complete") {
 
 handleClampText();
 handleLazyImages();
-handleLinkPrefetch();
 
 window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
         handleClampText();
         handleLazyImages();
-        handleLinkPrefetch();
     }, 150);
 });
 
@@ -228,7 +206,6 @@ function ensureHandlersRun() {
         attempts++;
         handleClampText();
         handleLazyImages();
-        handleLinkPrefetch();
 
         if (isLazyImagesDone() && isClampTextDone()) {
             try {
