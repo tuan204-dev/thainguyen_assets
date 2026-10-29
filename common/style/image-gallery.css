@@ -173,6 +173,12 @@
     color: #fff;
 }
 
+/* Giữ translateY(-50%) khi nhấn: chỉ scale thì nút tụt 24px, nhả chuột ra
+   ngoài nút ⇒ click rơi xuống nền, không next mà còn đóng gallery. */
+.image-gallery__nav:active {
+    transform: translateY(-50%) scale(0.94);
+}
+
 .image-gallery__nav::after {
     content: none;
 }
