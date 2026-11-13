@@ -42,3 +42,5 @@ backups/
 
 # bản clone gốc để đối chiếu, không đưa lên repo
 khacc/desktop/clone.html
+# công cụ thiết kế Impeccable (brief, ảnh chụp review) — chỉ dùng khi dev, không đẩy lên R2
+.impeccable/
