@@ -1,0 +1,27 @@
+<div class="td-qa" data-ms-switch="on" data-no-align>
+<style>
+.td-qa{counter-increment:td-qa;margin:2rem 0!important;padding:18px 16px!important;border:1px solid #d9eadf!important;border-radius:10px!important;background:#f4f9f5!important}
+.td-qa .td-qa__head{display:grid!important;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:start;margin:0!important}
+.td-qa .td-qa__head>*{grid-column:2}
+.td-qa .td-qa__head::before{content:counter(td-qa);grid-column:1;grid-row:1/span 2;display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:34px;height:34px;border:1px solid #d0d5dd;border-radius:50%;background:#fff;color:#667085;font:600 15px/1 Roboto,Arial,sans-serif;font-variant-numeric:tabular-nums;transition:background-color .15s ease-out,border-color .15s ease-out,color .15s ease-out}
+.td-qa .td-qa__q{margin:0!important;padding:0!important;border:0!important;color:#151515!important;font-size:18px!important;font-weight:700!important;line-height:1.5!important}
+.td-qa .td-qa__by{margin:6px 0 0!important;color:#667085!important;font-size:14px!important;font-style:normal!important;line-height:1.4!important}
+.td-qa .td-ans{margin:18px 0 0!important;padding:18px 0 0!important;border-top:1px solid #d9eadf!important}
+.td-qa .td-ans p{margin:0 0 14px!important;font-size:16px!important;line-height:1.7!important}
+.td-qa .td-ans>:last-child{margin-bottom:0!important}
+.td-qa .td-ans p.td-who{margin:0 0 10px!important;line-height:1.3!important}
+.td-qa .td-ans p.td-who:not(:first-child){margin-top:22px!important;padding-top:18px!important;border-top:1px dashed #d9eadf!important}
+.td-qa .td-who__name{display:block;color:#151515;font-size:15px;font-weight:700}
+.td-qa .td-who__role{display:block;margin-top:2px;color:#667085;font-size:13px;font-weight:400;line-height:1.35}
+.td-qa .td-qa__by,.td-qa .td-who,.td-qa .td-who *,#content .td-qa .td-qa__by,#content .td-qa .td-who,#content .td-qa .td-who *{font-family:Roboto,Arial,sans-serif!important}
+@media (min-width:768px){.td-qa{padding:24px 28px!important}.td-qa .td-qa__q{font-size:20px!important}.td-qa .td-ans p{font-size:17px!important;line-height:1.75!important}}
+</style>
+<div class="td-qa__head">
+<h2 class="td-qa__q">Nhập câu hỏi tại đây?</h2>
+<p class="td-qa__by">MC Họ Tên hỏi</p>
+</div>
+<div class="td-ans">
+<p class="td-who"><strong class="td-who__name">Họ tên khách mời</strong><span class="td-who__role">Chức danh, đơn vị</span></p>
+<p>Nhập câu trả lời tại đây.</p>
+</div>
+</div>

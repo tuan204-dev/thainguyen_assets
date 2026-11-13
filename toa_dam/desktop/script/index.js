@@ -3,7 +3,17 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 const scrollBehavior = reduceMotion ? "auto" : "smooth";
 
 const nav = document.querySelector("[data-toc]");
-const sections = Array.from(document.querySelectorAll("[data-qa]"));
+// Box Hỏi–Đáp = template editor "Tọa đàm – Hỏi đáp" (div.td-qa) trong thân bài, bỏ khối TẮT bằng công tắc editor.
+// Gắn id cau-N theo ĐÚNG thứ tự mà portlet toa_dam_toc đã đánh khi dựng mục lục ở server.
+const sections = Array.from(document.querySelectorAll(".article-prose .td-qa")).filter(
+    (el) => (el.getAttribute("data-ms-switch") || "").toLowerCase() !== "off",
+);
+sections.forEach((section, i) => {
+    section.id = `cau-${i + 1}`;
+    section.querySelector(".td-qa__q")?.setAttribute("tabindex", "-1");
+});
+// id chỉ có sau khi script chạy nên trình duyệt đã bỏ lỡ #cau-N trên URL: cuộn lại một lần
+if (/^#cau-\d+$/.test(location.hash)) document.querySelector(location.hash)?.scrollIntoView();
 
 if (nav && sections.length) {
     const links = Array.from(nav.querySelectorAll("[data-toc-link]"));
@@ -34,7 +44,7 @@ if (nav && sections.length) {
         barCount.textContent = index >= 0 ? `Câu ${index + 1}` : "Các câu hỏi";
         barLabel.textContent =
             index >= 0
-                ? links[index].querySelector(".td-toc__q").textContent
+                ? links[index]?.querySelector(".td-toc__q")?.textContent || ""
                 : "Chạm để xem danh sách";
 
         // Mục lục desktop dài hơn màn hình: cuộn riêng danh sách cho câu đang đọc lọt vào khung
@@ -91,7 +101,7 @@ if (nav && sections.length) {
             setOpen(false);
             target.scrollIntoView({ behavior: scrollBehavior, block: "start" });
             history.replaceState(null, "", hash);
-            target.querySelector("h2")?.focus({ preventScroll: true });
+            target.querySelector(".td-qa__q")?.focus({ preventScroll: true });
         });
     });
 }
@@ -149,7 +159,7 @@ if (askForm && askDone) {
     });
 }
 
-document.getElementById("printBtn")?.addEventListener("click", () => window.print());
+// Nút In (#printBtn): portlet detail_content tự chặn ở pha capture và mở bản in kiểu Dân Trí.
 
 document.getElementById("fbShareBtn")?.addEventListener("click", () => {
     const url = encodeURIComponent(window.location.href);

@@ -54,11 +54,12 @@
         </header>
 
         <!--
-            LAYOUT TỌA ĐÀM — bản HTML tĩnh, chưa đưa lên CMS.
+            LAYOUT TỌA ĐÀM — mockup của layout CMS #5965/#5966 (thainguyen).
             Toàn bộ nội dung, tên khách mời, chức danh là MINH HOẠ (nhân vật hư cấu).
             Ảnh chân dung + ảnh hero: Unsplash (giấy phép Unsplash).
-            Khi gắn CMS: hero ← ảnh đại diện + khách mời của bài; thân bài là chữ như bài thường, mỗi section.td-qa ← một box Hỏi–Đáp chèn giữa;
-            mục lục (nav.td-toc) dựng từ chính các box đó.
+            Mỗi div.td-qa = một lần chèn template editor "Tọa đàm – Hỏi đáp" (nguồn: template-hoi-dap.html):
+            số thứ tự là CSS counter, id #cau-N do script/index.js gắn, mục lục (nav.td-toc) trên CMS do portlet
+            toa_dam_toc dựng ở server từ chính các khối đó. Hero vẫn là placeholder tĩnh.
         -->
         <main class="roboto t:bg-white">
             <article class="td">
@@ -309,399 +310,204 @@
                                         Khôi, Đoàn Luật sư tỉnh Thái Nguyên. Chương trình do MC Minh
                                         Phương dẫn dắt.
                                     </p>
-                                    <section
-                                        class="td-qa"
-                                        id="cau-1"
-                                        aria-labelledby="cau-1-q"
-                                        data-qa
-                                    >
-                                        <div class="td-qa__head">
-                                            <span class="td-disc td-disc--lg" aria-hidden="true">
-                                                1
-                                            </span>
-                                            <div>
-                                                <h2 class="td-qa__q" id="cau-1-q" tabindex="-1">
-                                                    <span class="t:sr-only">Câu 1:</span>
-                                                    Thưa TS. Lương Thu Hà, vì sao việc phân loại
-                                                    phải bắt đầu ngay trong mỗi gia đình, thay vì để
-                                                    đơn vị thu gom phân loại ở bãi tập kết?
-                                                </h2>
-                                                <p class="td-qa__by">MC Minh Phương hỏi</p>
-                                            </div>
-                                        </div>
-                                        <div class="td-ans">
-                                            <div class="td-who">
-                                                <img
-                                                    class="td-who__img"
-                                                    src="./images/ts-luong-thu-ha.webp"
-                                                    alt=""
-                                                    width="40"
-                                                    height="40"
-                                                />
-                                                <span>
-                                                    <span class="td-who__name">
-                                                        TS. Lương Thu Hà
-                                                    </span>
-                                                    <span class="td-who__role">
-                                                        Chuyên gia quản lý chất thải rắn
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <p>
-                                                Vì rác chỉ còn giá trị khi chưa bị trộn lẫn. Một hộp
-                                                sữa giấy, một chai nhựa nếu để riêng thì rửa sơ là
-                                                bán được cho cơ sở tái chế. Nhưng khi đã nằm chung
-                                                với cơm thừa, canh thừa, chúng bị bẩn, bị ướt và gần
-                                                như không thể tách ra được nữa.
-                                            </p>
-                                            <p>
-                                                Phân loại ở bãi tập kết tốn kém hơn rất nhiều: cần
-                                                nhân công, máy móc, mà làm kỹ đến đâu cũng không
-                                                sạch bằng việc mỗi nhà bỏ đúng túi ngay từ đầu. Mấy
-                                                giây trong căn bếp nhà mình tiết kiệm rất nhiều công
-                                                sức ở cuối dây chuyền.
-                                            </p>
-                                        </div>
-                                    </section>
+                                    <div class="td-qa" data-ms-switch="on" data-no-align>
+                                    <style>
+.td-qa{counter-increment:td-qa;margin:2rem 0!important;padding:18px 16px!important;border:1px solid #d9eadf!important;border-radius:10px!important;background:#f4f9f5!important}
+.td-qa .td-qa__head{display:grid!important;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:start;margin:0!important}
+.td-qa .td-qa__head>*{grid-column:2}
+.td-qa .td-qa__head::before{content:counter(td-qa);grid-column:1;grid-row:1/span 2;display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:34px;height:34px;border:1px solid #d0d5dd;border-radius:50%;background:#fff;color:#667085;font:600 15px/1 Roboto,Arial,sans-serif;font-variant-numeric:tabular-nums;transition:background-color .15s ease-out,border-color .15s ease-out,color .15s ease-out}
+.td-qa .td-qa__q{margin:0!important;padding:0!important;border:0!important;color:#151515!important;font-size:18px!important;font-weight:700!important;line-height:1.5!important}
+.td-qa .td-qa__by{margin:6px 0 0!important;color:#667085!important;font-size:14px!important;font-style:normal!important;line-height:1.4!important}
+.td-qa .td-ans{margin:18px 0 0!important;padding:18px 0 0!important;border-top:1px solid #d9eadf!important}
+.td-qa .td-ans p{margin:0 0 14px!important;font-size:16px!important;line-height:1.7!important}
+.td-qa .td-ans>:last-child{margin-bottom:0!important}
+.td-qa .td-ans p.td-who{margin:0 0 10px!important;line-height:1.3!important}
+.td-qa .td-ans p.td-who:not(:first-child){margin-top:22px!important;padding-top:18px!important;border-top:1px dashed #d9eadf!important}
+.td-qa .td-who__name{display:block;color:#151515;font-size:15px;font-weight:700}
+.td-qa .td-who__role{display:block;margin-top:2px;color:#667085;font-size:13px;font-weight:400;line-height:1.35}
+.td-qa .td-qa__by,.td-qa .td-who,.td-qa .td-who *,#content .td-qa .td-qa__by,#content .td-qa .td-who,#content .td-qa .td-who *{font-family:Roboto,Arial,sans-serif!important}
+@media (min-width:768px){.td-qa{padding:24px 28px!important}.td-qa .td-qa__q{font-size:20px!important}.td-qa .td-ans p{font-size:17px!important;line-height:1.75!important}}
+</style>
+                                    <div class="td-qa__head">
+                                    <h2 class="td-qa__q">Thưa TS. Lương Thu Hà, vì sao việc phân loại phải bắt đầu ngay trong mỗi gia đình, thay vì để đơn vị thu gom phân loại ở bãi tập kết?</h2>
+                                    <p class="td-qa__by">MC Minh Phương hỏi</p>
+                                    </div>
+                                    <div class="td-ans">
+                                    <p class="td-who"><strong class="td-who__name">TS. Lương Thu Hà</strong><span class="td-who__role">Chuyên gia quản lý chất thải rắn</span></p>
+                                    <p>Vì rác chỉ còn giá trị khi chưa bị trộn lẫn. Một hộp sữa giấy, một chai nhựa nếu để riêng thì rửa sơ là bán được cho cơ sở tái chế. Nhưng khi đã nằm chung với cơm thừa, canh thừa, chúng bị bẩn, bị ướt và gần như không thể tách ra được nữa.</p>
+                                    <p>Phân loại ở bãi tập kết tốn kém hơn rất nhiều: cần nhân công, máy móc, mà làm kỹ đến đâu cũng không sạch bằng việc mỗi nhà bỏ đúng túi ngay từ đầu. Mấy giây trong căn bếp nhà mình tiết kiệm rất nhiều công sức ở cuối dây chuyền.</p>
+                                    </div>
+                                    </div>
                                     <p>
                                         Theo các khách mời, điểm nghẽn hiện nay không chỉ nằm ở nhận
                                         thức của người dân mà còn ở sự đồng bộ giữa các khâu: rác đã
                                         được phân loại thì việc thu gom, vận chuyển cũng phải theo
                                         kịp.
                                     </p>
-                                    <section
-                                        class="td-qa"
-                                        id="cau-2"
-                                        aria-labelledby="cau-2-q"
-                                        data-qa
-                                    >
-                                        <div class="td-qa__head">
-                                            <span class="td-disc td-disc--lg" aria-hidden="true">
-                                                2
-                                            </span>
-                                            <div>
-                                                <h2 class="td-qa__q" id="cau-2-q" tabindex="-1">
-                                                    <span class="t:sr-only">Câu 2:</span>
-                                                    Người dân hay phản ánh: nhà đã chia rác ra mấy
-                                                    túi nhưng xe thu gom lại đổ chung vào một thùng.
-                                                    Thực tế khâu thu gom đang diễn ra thế nào, thưa
-                                                    ông Nguyễn Quang Vinh?
-                                                </h2>
-                                                <p class="td-qa__by">MC Minh Phương hỏi</p>
-                                            </div>
-                                        </div>
-                                        <div class="td-ans">
-                                            <div class="td-who">
-                                                <img
-                                                    class="td-who__img"
-                                                    src="./images/nguyen-quang-vinh.webp"
-                                                    alt=""
-                                                    width="40"
-                                                    height="40"
-                                                />
-                                                <span>
-                                                    <span class="td-who__name">
-                                                        Ông Nguyễn Quang Vinh
-                                                    </span>
-                                                    <span class="td-who__role">
-                                                        Đại diện đơn vị thu gom, vận chuyển rác
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <p>
-                                                Tôi hiểu sự bức xúc đó. Bà con bỏ công phân loại mà
-                                                thấy rác bị đổ chung thì rất dễ nản. Có những nơi
-                                                phương tiện chưa kịp thay đổi, một xe phải chạy
-                                                nhiều loại rác.
-                                            </p>
-                                            <p>
-                                                Chúng tôi đang chuyển dần sang thu gom theo lịch:
-                                                rác hữu cơ thu hằng ngày, rác tái chế thu vào những
-                                                ngày cố định trong tuần. Mỗi chuyến xe chỉ chở một
-                                                loại nên rác không bị trộn lẫn. Lịch thu sẽ được dán
-                                                ở nhà văn hóa tổ dân phố và gửi vào nhóm Zalo của
-                                                khu dân cư.
-                                            </p>
-                                        </div>
-                                    </section>
+                                    <div class="td-qa" data-ms-switch="on" data-no-align>
+                                    <style>
+.td-qa{counter-increment:td-qa;margin:2rem 0!important;padding:18px 16px!important;border:1px solid #d9eadf!important;border-radius:10px!important;background:#f4f9f5!important}
+.td-qa .td-qa__head{display:grid!important;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:start;margin:0!important}
+.td-qa .td-qa__head>*{grid-column:2}
+.td-qa .td-qa__head::before{content:counter(td-qa);grid-column:1;grid-row:1/span 2;display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:34px;height:34px;border:1px solid #d0d5dd;border-radius:50%;background:#fff;color:#667085;font:600 15px/1 Roboto,Arial,sans-serif;font-variant-numeric:tabular-nums;transition:background-color .15s ease-out,border-color .15s ease-out,color .15s ease-out}
+.td-qa .td-qa__q{margin:0!important;padding:0!important;border:0!important;color:#151515!important;font-size:18px!important;font-weight:700!important;line-height:1.5!important}
+.td-qa .td-qa__by{margin:6px 0 0!important;color:#667085!important;font-size:14px!important;font-style:normal!important;line-height:1.4!important}
+.td-qa .td-ans{margin:18px 0 0!important;padding:18px 0 0!important;border-top:1px solid #d9eadf!important}
+.td-qa .td-ans p{margin:0 0 14px!important;font-size:16px!important;line-height:1.7!important}
+.td-qa .td-ans>:last-child{margin-bottom:0!important}
+.td-qa .td-ans p.td-who{margin:0 0 10px!important;line-height:1.3!important}
+.td-qa .td-ans p.td-who:not(:first-child){margin-top:22px!important;padding-top:18px!important;border-top:1px dashed #d9eadf!important}
+.td-qa .td-who__name{display:block;color:#151515;font-size:15px;font-weight:700}
+.td-qa .td-who__role{display:block;margin-top:2px;color:#667085;font-size:13px;font-weight:400;line-height:1.35}
+.td-qa .td-qa__by,.td-qa .td-who,.td-qa .td-who *,#content .td-qa .td-qa__by,#content .td-qa .td-who,#content .td-qa .td-who *{font-family:Roboto,Arial,sans-serif!important}
+@media (min-width:768px){.td-qa{padding:24px 28px!important}.td-qa .td-qa__q{font-size:20px!important}.td-qa .td-ans p{font-size:17px!important;line-height:1.75!important}}
+</style>
+                                    <div class="td-qa__head">
+                                    <h2 class="td-qa__q">Người dân hay phản ánh: nhà đã chia rác ra mấy túi nhưng xe thu gom lại đổ chung vào một thùng. Thực tế khâu thu gom đang diễn ra thế nào, thưa ông Nguyễn Quang Vinh?</h2>
+                                    <p class="td-qa__by">MC Minh Phương hỏi</p>
+                                    </div>
+                                    <div class="td-ans">
+                                    <p class="td-who"><strong class="td-who__name">Ông Nguyễn Quang Vinh</strong><span class="td-who__role">Đại diện đơn vị thu gom, vận chuyển rác</span></p>
+                                    <p>Tôi hiểu sự bức xúc đó. Bà con bỏ công phân loại mà thấy rác bị đổ chung thì rất dễ nản. Có những nơi phương tiện chưa kịp thay đổi, một xe phải chạy nhiều loại rác.</p>
+                                    <p>Chúng tôi đang chuyển dần sang thu gom theo lịch: rác hữu cơ thu hằng ngày, rác tái chế thu vào những ngày cố định trong tuần. Mỗi chuyến xe chỉ chở một loại nên rác không bị trộn lẫn. Lịch thu sẽ được dán ở nhà văn hóa tổ dân phố và gửi vào nhóm Zalo của khu dân cư.</p>
+                                    </div>
+                                    </div>
                                     <h2>Hướng dẫn cụ thể cho từng gia đình</h2>
                                     <p>
                                         Trong thời gian diễn ra tọa đàm, chương trình nhận được
                                         nhiều câu hỏi của bạn đọc, phần lớn xoay quanh những tình
                                         huống rất cụ thể trong sinh hoạt hằng ngày.
                                     </p>
-                                    <section
-                                        class="td-qa"
-                                        id="cau-3"
-                                        aria-labelledby="cau-3-q"
-                                        data-qa
-                                    >
-                                        <div class="td-qa__head">
-                                            <span class="td-disc td-disc--lg" aria-hidden="true">
-                                                3
-                                            </span>
-                                            <div>
-                                                <h2 class="td-qa__q" id="cau-3-q" tabindex="-1">
-                                                    <span class="t:sr-only">Câu 3:</span>
-                                                    Nhà tôi ở chung cư, bếp nhỏ, không có chỗ ủ rác
-                                                    hữu cơ. Vậy tôi nên phân loại thế nào cho đơn
-                                                    giản mà vẫn đúng?
-                                                </h2>
-                                                <p class="td-qa__by">
-                                                    Câu hỏi của bạn đọc Hà Thị Lan
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="td-ans">
-                                            <div class="td-who">
-                                                <img
-                                                    class="td-who__img"
-                                                    src="./images/ts-luong-thu-ha.webp"
-                                                    alt=""
-                                                    width="40"
-                                                    height="40"
-                                                />
-                                                <span>
-                                                    <span class="td-who__name">
-                                                        TS. Lương Thu Hà
-                                                    </span>
-                                                    <span class="td-who__role">
-                                                        Chuyên gia quản lý chất thải rắn
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <p>
-                                                Chị chỉ cần nhớ ba nhóm. Thứ nhất là rác hữu cơ dễ
-                                                phân hủy: thức ăn thừa, vỏ rau củ, bã chè. Thứ hai
-                                                là rác tái chế được: giấy, bìa, chai lọ nhựa, lon
-                                                kim loại. Thứ ba là phần còn lại.
-                                            </p>
-                                            <p>
-                                                Không cần ủ tại nhà. Rác hữu cơ chị cho vào một túi
-                                                riêng, buộc kín và mang xuống điểm tập kết theo lịch
-                                                thu. Rác tái chế nên rửa sơ, ép dẹp chai và hộp cho
-                                                gọn. Riêng pin, bóng đèn hỏng, lọ thuốc thì để riêng
-                                                và mang đến điểm thu gom chất thải nguy hại khi có
-                                                đợt thu.
-                                            </p>
-                                        </div>
-                                    </section>
+                                    <div class="td-qa" data-ms-switch="on" data-no-align>
+                                    <style>
+.td-qa{counter-increment:td-qa;margin:2rem 0!important;padding:18px 16px!important;border:1px solid #d9eadf!important;border-radius:10px!important;background:#f4f9f5!important}
+.td-qa .td-qa__head{display:grid!important;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:start;margin:0!important}
+.td-qa .td-qa__head>*{grid-column:2}
+.td-qa .td-qa__head::before{content:counter(td-qa);grid-column:1;grid-row:1/span 2;display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:34px;height:34px;border:1px solid #d0d5dd;border-radius:50%;background:#fff;color:#667085;font:600 15px/1 Roboto,Arial,sans-serif;font-variant-numeric:tabular-nums;transition:background-color .15s ease-out,border-color .15s ease-out,color .15s ease-out}
+.td-qa .td-qa__q{margin:0!important;padding:0!important;border:0!important;color:#151515!important;font-size:18px!important;font-weight:700!important;line-height:1.5!important}
+.td-qa .td-qa__by{margin:6px 0 0!important;color:#667085!important;font-size:14px!important;font-style:normal!important;line-height:1.4!important}
+.td-qa .td-ans{margin:18px 0 0!important;padding:18px 0 0!important;border-top:1px solid #d9eadf!important}
+.td-qa .td-ans p{margin:0 0 14px!important;font-size:16px!important;line-height:1.7!important}
+.td-qa .td-ans>:last-child{margin-bottom:0!important}
+.td-qa .td-ans p.td-who{margin:0 0 10px!important;line-height:1.3!important}
+.td-qa .td-ans p.td-who:not(:first-child){margin-top:22px!important;padding-top:18px!important;border-top:1px dashed #d9eadf!important}
+.td-qa .td-who__name{display:block;color:#151515;font-size:15px;font-weight:700}
+.td-qa .td-who__role{display:block;margin-top:2px;color:#667085;font-size:13px;font-weight:400;line-height:1.35}
+.td-qa .td-qa__by,.td-qa .td-who,.td-qa .td-who *,#content .td-qa .td-qa__by,#content .td-qa .td-who,#content .td-qa .td-who *{font-family:Roboto,Arial,sans-serif!important}
+@media (min-width:768px){.td-qa{padding:24px 28px!important}.td-qa .td-qa__q{font-size:20px!important}.td-qa .td-ans p{font-size:17px!important;line-height:1.75!important}}
+</style>
+                                    <div class="td-qa__head">
+                                    <h2 class="td-qa__q">Nhà tôi ở chung cư, bếp nhỏ, không có chỗ ủ rác hữu cơ. Vậy tôi nên phân loại thế nào cho đơn giản mà vẫn đúng?</h2>
+                                    <p class="td-qa__by">Câu hỏi của bạn đọc Hà Thị Lan</p>
+                                    </div>
+                                    <div class="td-ans">
+                                    <p class="td-who"><strong class="td-who__name">TS. Lương Thu Hà</strong><span class="td-who__role">Chuyên gia quản lý chất thải rắn</span></p>
+                                    <p>Chị chỉ cần nhớ ba nhóm. Thứ nhất là rác hữu cơ dễ phân hủy: thức ăn thừa, vỏ rau củ, bã chè. Thứ hai là rác tái chế được: giấy, bìa, chai lọ nhựa, lon kim loại. Thứ ba là phần còn lại.</p>
+                                    <p>Không cần ủ tại nhà. Rác hữu cơ chị cho vào một túi riêng, buộc kín và mang xuống điểm tập kết theo lịch thu. Rác tái chế nên rửa sơ, ép dẹp chai và hộp cho gọn. Riêng pin, bóng đèn hỏng, lọ thuốc thì để riêng và mang đến điểm thu gom chất thải nguy hại khi có đợt thu.</p>
+                                    </div>
+                                    </div>
                                     <p>
                                         Bên cạnh hướng dẫn, không ít ý kiến quan tâm đến chế tài khi
                                         hộ gia đình không thực hiện, cũng như quyền của người dân
                                         khi đã phân loại đúng mà rác vẫn bị thu gom lẫn lộn.
                                     </p>
-                                    <section
-                                        class="td-qa"
-                                        id="cau-4"
-                                        aria-labelledby="cau-4-q"
-                                        data-qa
-                                    >
-                                        <div class="td-qa__head">
-                                            <span class="td-disc td-disc--lg" aria-hidden="true">
-                                                4
-                                            </span>
-                                            <div>
-                                                <h2 class="td-qa__q" id="cau-4-q" tabindex="-1">
-                                                    <span class="t:sr-only">Câu 4:</span>
-                                                    Thưa luật sư Đặng Minh Khôi, nếu hộ gia đình
-                                                    không phân loại rác thì có bị xử lý không? Và
-                                                    người dân có quyền gì khi rác đã phân loại lại
-                                                    bị thu gom không đúng?
-                                                </h2>
-                                                <p class="td-qa__by">MC Minh Phương hỏi</p>
-                                            </div>
-                                        </div>
-                                        <div class="td-ans">
-                                            <div class="td-who">
-                                                <img
-                                                    class="td-who__img"
-                                                    src="./images/ls-dang-minh-khoi.webp"
-                                                    alt=""
-                                                    width="40"
-                                                    height="40"
-                                                />
-                                                <span>
-                                                    <span class="td-who__name">
-                                                        Luật sư Đặng Minh Khôi
-                                                    </span>
-                                                    <span class="td-who__role">
-                                                        Đoàn Luật sư tỉnh Thái Nguyên
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <p>
-                                                Luật Bảo vệ môi trường năm 2020 coi phân loại chất
-                                                thải rắn sinh hoạt là nghĩa vụ của hộ gia đình, cá
-                                                nhân. Không phân loại có thể bị xử phạt vi phạm hành
-                                                chính theo quy định của Chính phủ trong lĩnh vực bảo
-                                                vệ môi trường. Luật cũng cho phép đơn vị thu gom từ
-                                                chối nhận rác của hộ không phân loại hoặc không dùng
-                                                bao bì đúng quy định.
-                                            </p>
-                                            <p>
-                                                Ở chiều ngược lại, rác đã phân loại thì phải được
-                                                thu gom, vận chuyển sao cho không bị trộn lẫn trở
-                                                lại. Nếu thấy điều đó không được bảo đảm, bà con
-                                                hoàn toàn có thể phản ánh với chính quyền cơ sở để
-                                                kiểm tra.
-                                            </p>
-                                        </div>
-                                    </section>
+                                    <div class="td-qa" data-ms-switch="on" data-no-align>
+                                    <style>
+.td-qa{counter-increment:td-qa;margin:2rem 0!important;padding:18px 16px!important;border:1px solid #d9eadf!important;border-radius:10px!important;background:#f4f9f5!important}
+.td-qa .td-qa__head{display:grid!important;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:start;margin:0!important}
+.td-qa .td-qa__head>*{grid-column:2}
+.td-qa .td-qa__head::before{content:counter(td-qa);grid-column:1;grid-row:1/span 2;display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:34px;height:34px;border:1px solid #d0d5dd;border-radius:50%;background:#fff;color:#667085;font:600 15px/1 Roboto,Arial,sans-serif;font-variant-numeric:tabular-nums;transition:background-color .15s ease-out,border-color .15s ease-out,color .15s ease-out}
+.td-qa .td-qa__q{margin:0!important;padding:0!important;border:0!important;color:#151515!important;font-size:18px!important;font-weight:700!important;line-height:1.5!important}
+.td-qa .td-qa__by{margin:6px 0 0!important;color:#667085!important;font-size:14px!important;font-style:normal!important;line-height:1.4!important}
+.td-qa .td-ans{margin:18px 0 0!important;padding:18px 0 0!important;border-top:1px solid #d9eadf!important}
+.td-qa .td-ans p{margin:0 0 14px!important;font-size:16px!important;line-height:1.7!important}
+.td-qa .td-ans>:last-child{margin-bottom:0!important}
+.td-qa .td-ans p.td-who{margin:0 0 10px!important;line-height:1.3!important}
+.td-qa .td-ans p.td-who:not(:first-child){margin-top:22px!important;padding-top:18px!important;border-top:1px dashed #d9eadf!important}
+.td-qa .td-who__name{display:block;color:#151515;font-size:15px;font-weight:700}
+.td-qa .td-who__role{display:block;margin-top:2px;color:#667085;font-size:13px;font-weight:400;line-height:1.35}
+.td-qa .td-qa__by,.td-qa .td-who,.td-qa .td-who *,#content .td-qa .td-qa__by,#content .td-qa .td-who,#content .td-qa .td-who *{font-family:Roboto,Arial,sans-serif!important}
+@media (min-width:768px){.td-qa{padding:24px 28px!important}.td-qa .td-qa__q{font-size:20px!important}.td-qa .td-ans p{font-size:17px!important;line-height:1.75!important}}
+</style>
+                                    <div class="td-qa__head">
+                                    <h2 class="td-qa__q">Thưa luật sư Đặng Minh Khôi, nếu hộ gia đình không phân loại rác thì có bị xử lý không? Và người dân có quyền gì khi rác đã phân loại lại bị thu gom không đúng?</h2>
+                                    <p class="td-qa__by">MC Minh Phương hỏi</p>
+                                    </div>
+                                    <div class="td-ans">
+                                    <p class="td-who"><strong class="td-who__name">Luật sư Đặng Minh Khôi</strong><span class="td-who__role">Đoàn Luật sư tỉnh Thái Nguyên</span></p>
+                                    <p>Luật Bảo vệ môi trường năm 2020 coi phân loại chất thải rắn sinh hoạt là nghĩa vụ của hộ gia đình, cá nhân. Không phân loại có thể bị xử phạt vi phạm hành chính theo quy định của Chính phủ trong lĩnh vực bảo vệ môi trường. Luật cũng cho phép đơn vị thu gom từ chối nhận rác của hộ không phân loại hoặc không dùng bao bì đúng quy định.</p>
+                                    <p>Ở chiều ngược lại, rác đã phân loại thì phải được thu gom, vận chuyển sao cho không bị trộn lẫn trở lại. Nếu thấy điều đó không được bảo đảm, bà con hoàn toàn có thể phản ánh với chính quyền cơ sở để kiểm tra.</p>
+                                    </div>
+                                    </div>
                                     <h2>Để công sức phân loại không bị lãng phí</h2>
                                     <p>
                                         Một băn khoăn chung của nhiều gia đình là rác sau khi phân
                                         loại sẽ được xử lý ra sao, có xứng với công sức bỏ ra hay
                                         không.
                                     </p>
-                                    <section
-                                        class="td-qa"
-                                        id="cau-5"
-                                        aria-labelledby="cau-5-q"
-                                        data-qa
-                                    >
-                                        <div class="td-qa__head">
-                                            <span class="td-disc td-disc--lg" aria-hidden="true">
-                                                5
-                                            </span>
-                                            <div>
-                                                <h2 class="td-qa__q" id="cau-5-q" tabindex="-1">
-                                                    <span class="t:sr-only">Câu 5:</span>
-                                                    Rác tái chế và rác hữu cơ sau khi phân loại sẽ
-                                                    đi về đâu? Liệu công sức của người dân có bị
-                                                    lãng phí?
-                                                </h2>
-                                                <p class="td-qa__by">MC Minh Phương hỏi</p>
-                                            </div>
-                                        </div>
-                                        <div class="td-ans">
-                                            <div class="td-who">
-                                                <img
-                                                    class="td-who__img"
-                                                    src="./images/nguyen-quang-vinh.webp"
-                                                    alt=""
-                                                    width="40"
-                                                    height="40"
-                                                />
-                                                <span>
-                                                    <span class="td-who__name">
-                                                        Ông Nguyễn Quang Vinh
-                                                    </span>
-                                                    <span class="td-who__role">
-                                                        Đại diện đơn vị thu gom, vận chuyển rác
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <p>
-                                                Rác tái chế được chuyển cho các cơ sở thu mua phế
-                                                liệu; giấy, nhựa, kim loại mỗi loại có đầu ra riêng.
-                                                Rác hữu cơ đưa về khu xử lý để làm phân bón. Chỉ
-                                                phần còn lại mới phải chôn lấp hoặc đốt.
-                                            </p>
-                                        </div>
-                                        <div class="td-ans">
-                                            <div class="td-who">
-                                                <img
-                                                    class="td-who__img"
-                                                    src="./images/ts-luong-thu-ha.webp"
-                                                    alt=""
-                                                    width="40"
-                                                    height="40"
-                                                />
-                                                <span>
-                                                    <span class="td-who__name">
-                                                        TS. Lương Thu Hà
-                                                    </span>
-                                                    <span class="td-who__role">
-                                                        Chuyên gia quản lý chất thải rắn
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <p>
-                                                Tôi muốn nói thêm: người dân chỉ giữ được thói quen
-                                                khi thấy công sức của mình có ý nghĩa. Vì vậy, công
-                                                khai rác đã phân loại đi đâu, được xử lý ra sao cũng
-                                                quan trọng không kém việc hướng dẫn cách phân loại.
-                                            </p>
-                                        </div>
-                                    </section>
+                                    <div class="td-qa" data-ms-switch="on" data-no-align>
+                                    <style>
+.td-qa{counter-increment:td-qa;margin:2rem 0!important;padding:18px 16px!important;border:1px solid #d9eadf!important;border-radius:10px!important;background:#f4f9f5!important}
+.td-qa .td-qa__head{display:grid!important;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:start;margin:0!important}
+.td-qa .td-qa__head>*{grid-column:2}
+.td-qa .td-qa__head::before{content:counter(td-qa);grid-column:1;grid-row:1/span 2;display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:34px;height:34px;border:1px solid #d0d5dd;border-radius:50%;background:#fff;color:#667085;font:600 15px/1 Roboto,Arial,sans-serif;font-variant-numeric:tabular-nums;transition:background-color .15s ease-out,border-color .15s ease-out,color .15s ease-out}
+.td-qa .td-qa__q{margin:0!important;padding:0!important;border:0!important;color:#151515!important;font-size:18px!important;font-weight:700!important;line-height:1.5!important}
+.td-qa .td-qa__by{margin:6px 0 0!important;color:#667085!important;font-size:14px!important;font-style:normal!important;line-height:1.4!important}
+.td-qa .td-ans{margin:18px 0 0!important;padding:18px 0 0!important;border-top:1px solid #d9eadf!important}
+.td-qa .td-ans p{margin:0 0 14px!important;font-size:16px!important;line-height:1.7!important}
+.td-qa .td-ans>:last-child{margin-bottom:0!important}
+.td-qa .td-ans p.td-who{margin:0 0 10px!important;line-height:1.3!important}
+.td-qa .td-ans p.td-who:not(:first-child){margin-top:22px!important;padding-top:18px!important;border-top:1px dashed #d9eadf!important}
+.td-qa .td-who__name{display:block;color:#151515;font-size:15px;font-weight:700}
+.td-qa .td-who__role{display:block;margin-top:2px;color:#667085;font-size:13px;font-weight:400;line-height:1.35}
+.td-qa .td-qa__by,.td-qa .td-who,.td-qa .td-who *,#content .td-qa .td-qa__by,#content .td-qa .td-who,#content .td-qa .td-who *{font-family:Roboto,Arial,sans-serif!important}
+@media (min-width:768px){.td-qa{padding:24px 28px!important}.td-qa .td-qa__q{font-size:20px!important}.td-qa .td-ans p{font-size:17px!important;line-height:1.75!important}}
+</style>
+                                    <div class="td-qa__head">
+                                    <h2 class="td-qa__q">Rác tái chế và rác hữu cơ sau khi phân loại sẽ đi về đâu? Liệu công sức của người dân có bị lãng phí?</h2>
+                                    <p class="td-qa__by">MC Minh Phương hỏi</p>
+                                    </div>
+                                    <div class="td-ans">
+                                    <p class="td-who"><strong class="td-who__name">Ông Nguyễn Quang Vinh</strong><span class="td-who__role">Đại diện đơn vị thu gom, vận chuyển rác</span></p>
+                                    <p>Rác tái chế được chuyển cho các cơ sở thu mua phế liệu; giấy, nhựa, kim loại mỗi loại có đầu ra riêng. Rác hữu cơ đưa về khu xử lý để làm phân bón. Chỉ phần còn lại mới phải chôn lấp hoặc đốt.</p>
+                                    <p class="td-who"><strong class="td-who__name">TS. Lương Thu Hà</strong><span class="td-who__role">Chuyên gia quản lý chất thải rắn</span></p>
+                                    <p>Tôi muốn nói thêm: người dân chỉ giữ được thói quen khi thấy công sức của mình có ý nghĩa. Vì vậy, công khai rác đã phân loại đi đâu, được xử lý ra sao cũng quan trọng không kém việc hướng dẫn cách phân loại.</p>
+                                    </div>
+                                    </div>
                                     <p>
                                         Các khách mời cùng cho rằng phân loại rác chỉ bền vững khi
                                         trở thành nếp quen của cả cộng đồng, chứ không dừng ở những
                                         đợt ra quân.
                                     </p>
-                                    <section
-                                        class="td-qa"
-                                        id="cau-6"
-                                        aria-labelledby="cau-6-q"
-                                        data-qa
-                                    >
-                                        <div class="td-qa__head">
-                                            <span class="td-disc td-disc--lg" aria-hidden="true">
-                                                6
-                                            </span>
-                                            <div>
-                                                <h2 class="td-qa__q" id="cau-6-q" tabindex="-1">
-                                                    <span class="t:sr-only">Câu 6:</span>
-                                                    Để phân loại rác trở thành thói quen chứ không
-                                                    chỉ là phong trào, theo các vị, cần bắt đầu từ
-                                                    đâu?
-                                                </h2>
-                                                <p class="td-qa__by">MC Minh Phương hỏi</p>
-                                            </div>
-                                        </div>
-                                        <div class="td-ans">
-                                            <div class="td-who">
-                                                <img
-                                                    class="td-who__img"
-                                                    src="./images/ts-luong-thu-ha.webp"
-                                                    alt=""
-                                                    width="40"
-                                                    height="40"
-                                                />
-                                                <span>
-                                                    <span class="td-who__name">
-                                                        TS. Lương Thu Hà
-                                                    </span>
-                                                    <span class="td-who__role">
-                                                        Chuyên gia quản lý chất thải rắn
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <p>
-                                                Từ những việc rất nhỏ và lặp lại hằng ngày. Ở nhiều
-                                                nơi, chính các cháu học sinh về nhắc ông bà, bố mẹ
-                                                bỏ rác đúng túi. Trường học, tổ dân phố, hội phụ nữ
-                                                là những nơi lan tỏa thói quen nhanh nhất.
-                                            </p>
-                                        </div>
-                                        <div class="td-ans">
-                                            <div class="td-who">
-                                                <img
-                                                    class="td-who__img"
-                                                    src="./images/ls-dang-minh-khoi.webp"
-                                                    alt=""
-                                                    width="40"
-                                                    height="40"
-                                                />
-                                                <span>
-                                                    <span class="td-who__name">
-                                                        Luật sư Đặng Minh Khôi
-                                                    </span>
-                                                    <span class="td-who__role">
-                                                        Đoàn Luật sư tỉnh Thái Nguyên
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <p>
-                                                Song song với vận động là sự nhất quán. Quy định đã
-                                                ban hành thì cần được thực hiện đều đặn, công bằng
-                                                với mọi hộ và có hướng dẫn rõ ràng. Khi ai cũng làm,
-                                                làm đúng thì được ghi nhận, thói quen sẽ tự hình
-                                                thành.
-                                            </p>
-                                        </div>
-                                    </section>
+                                    <div class="td-qa" data-ms-switch="on" data-no-align>
+                                    <style>
+.td-qa{counter-increment:td-qa;margin:2rem 0!important;padding:18px 16px!important;border:1px solid #d9eadf!important;border-radius:10px!important;background:#f4f9f5!important}
+.td-qa .td-qa__head{display:grid!important;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:start;margin:0!important}
+.td-qa .td-qa__head>*{grid-column:2}
+.td-qa .td-qa__head::before{content:counter(td-qa);grid-column:1;grid-row:1/span 2;display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:34px;height:34px;border:1px solid #d0d5dd;border-radius:50%;background:#fff;color:#667085;font:600 15px/1 Roboto,Arial,sans-serif;font-variant-numeric:tabular-nums;transition:background-color .15s ease-out,border-color .15s ease-out,color .15s ease-out}
+.td-qa .td-qa__q{margin:0!important;padding:0!important;border:0!important;color:#151515!important;font-size:18px!important;font-weight:700!important;line-height:1.5!important}
+.td-qa .td-qa__by{margin:6px 0 0!important;color:#667085!important;font-size:14px!important;font-style:normal!important;line-height:1.4!important}
+.td-qa .td-ans{margin:18px 0 0!important;padding:18px 0 0!important;border-top:1px solid #d9eadf!important}
+.td-qa .td-ans p{margin:0 0 14px!important;font-size:16px!important;line-height:1.7!important}
+.td-qa .td-ans>:last-child{margin-bottom:0!important}
+.td-qa .td-ans p.td-who{margin:0 0 10px!important;line-height:1.3!important}
+.td-qa .td-ans p.td-who:not(:first-child){margin-top:22px!important;padding-top:18px!important;border-top:1px dashed #d9eadf!important}
+.td-qa .td-who__name{display:block;color:#151515;font-size:15px;font-weight:700}
+.td-qa .td-who__role{display:block;margin-top:2px;color:#667085;font-size:13px;font-weight:400;line-height:1.35}
+.td-qa .td-qa__by,.td-qa .td-who,.td-qa .td-who *,#content .td-qa .td-qa__by,#content .td-qa .td-who,#content .td-qa .td-who *{font-family:Roboto,Arial,sans-serif!important}
+@media (min-width:768px){.td-qa{padding:24px 28px!important}.td-qa .td-qa__q{font-size:20px!important}.td-qa .td-ans p{font-size:17px!important;line-height:1.75!important}}
+</style>
+                                    <div class="td-qa__head">
+                                    <h2 class="td-qa__q">Để phân loại rác trở thành thói quen chứ không chỉ là phong trào, theo các vị, cần bắt đầu từ đâu?</h2>
+                                    <p class="td-qa__by">MC Minh Phương hỏi</p>
+                                    </div>
+                                    <div class="td-ans">
+                                    <p class="td-who"><strong class="td-who__name">TS. Lương Thu Hà</strong><span class="td-who__role">Chuyên gia quản lý chất thải rắn</span></p>
+                                    <p>Từ những việc rất nhỏ và lặp lại hằng ngày. Ở nhiều nơi, chính các cháu học sinh về nhắc ông bà, bố mẹ bỏ rác đúng túi. Trường học, tổ dân phố, hội phụ nữ là những nơi lan tỏa thói quen nhanh nhất.</p>
+                                    <p class="td-who"><strong class="td-who__name">Luật sư Đặng Minh Khôi</strong><span class="td-who__role">Đoàn Luật sư tỉnh Thái Nguyên</span></p>
+                                    <p>Song song với vận động là sự nhất quán. Quy định đã ban hành thì cần được thực hiện đều đặn, công bằng với mọi hộ và có hướng dẫn rõ ràng. Khi ai cũng làm, làm đúng thì được ghi nhận, thói quen sẽ tự hình thành.</p>
+                                    </div>
+                                    </div>
                                     <p>
                                         Khép lại tọa đàm, các khách mời cùng nhấn mạnh: mỗi túi rác
                                         được bỏ đúng chỗ là một phần việc làm sạch nơi chúng ta đang
