@@ -115,7 +115,9 @@ if (header) {
     syncHeader();
 }
 
-// Form gửi câu hỏi: chỉ kiểm tra và báo thành công tại chỗ, KHÔNG gửi lên server (chưa có API).
+// Form gửi câu hỏi — CHỈ cho mockup index.html: kiểm tra + báo thành công tại chỗ, không gửi server.
+// Trên CMS, form là portlet toa_dam_ask #470 (data-ask-send, khối này không bắt) với external_javascript gửi thật
+// tới worker cauhoi-thainguyen (repo cf_worker/cauhoi-thainguyen).
 const askForm = document.querySelector("[data-ask-form]");
 const askDone = document.querySelector("[data-ask-done]");
 if (askForm && askDone) {
