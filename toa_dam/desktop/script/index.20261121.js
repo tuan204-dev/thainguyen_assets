@@ -16,7 +16,8 @@ sections.forEach((section, i) => {
 if (/^#cau-\d+$/.test(location.hash)) document.querySelector(location.hash)?.scrollIntoView();
 
 if (nav && sections.length) {
-    const links = Array.from(nav.querySelectorAll("[data-toc-link]"));
+    // links[i] = link của khối thứ i, ghép theo href #cau-N chứ không theo vị trí: portlet toa_dam_toc xếp NGƯỢC (câu mới lên đầu).
+    const links = sections.map((section) => nav.querySelector(`[data-toc-link][href="#${section.id}"]`));
     const list = nav.querySelector("[data-toc-list]");
     const toggle = nav.querySelector("[data-toc-toggle]");
     const barNum = nav.querySelector("[data-toc-bar-num]");
@@ -33,6 +34,7 @@ if (nav && sections.length) {
             section.toggleAttribute("data-done", i < index);
         });
         links.forEach((link, i) => {
+            if (!link) return;
             if (i === index) link.setAttribute("aria-current", "true");
             else link.removeAttribute("aria-current");
             link.toggleAttribute("data-done", i < index);
@@ -92,7 +94,7 @@ if (nav && sections.length) {
         toggle.focus();
     });
 
-    links.forEach((link) => {
+    nav.querySelectorAll("[data-toc-link]").forEach((link) => {
         link.addEventListener("click", (event) => {
             const hash = link.getAttribute("href");
             const target = document.querySelector(hash);

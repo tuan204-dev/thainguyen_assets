@@ -132,7 +132,7 @@
    Bố cục tĩnh viết bằng Tailwind ngay trong HTML. Ở đây chỉ còn:
    - thành phần lặp lại trong bản ghi (đĩa số, lượt nói, nút mốc giờ),
      để mỗi khối Hỏi–Đáp gọn khi dựng lại bằng template CMS;
-   - trạng thái do script/index.js bật tắt (aria-current, data-done, is-open, is-current).
+   - trạng thái do script/index.20261121.js bật tắt (aria-current, data-done, is-open, is-current).
    Xanh đậm #1f7a37 dùng cho chữ nhỏ / nền có chữ trắng (#30a14a chỉ đạt 3.3:1 với trắng).
    ============================================================ */
 
@@ -348,7 +348,7 @@ main h1 {
 /* ---------- Box Hỏi–Đáp xen giữa thân bài ----------
    Mỗi box = một lần chèn template editor "Tọa đàm – Hỏi đáp" (thainguyen, nguồn: template-hoi-dap.html).
    HÌNH DÁNG box nằm trong <style> của chính template (bake vào bài, editor cũng thấy). Ở đây chỉ còn phần
-   thuộc về trang Tọa đàm: đếm số, ẩn khối TẮT, trạng thái câu đang đọc (script/index.js), mốc cuộn. */
+   thuộc về trang Tọa đàm: đếm số, ẩn khối TẮT, trạng thái câu đang đọc (script/index.20261121.js), mốc cuộn. */
 
 .article-prose {
     counter-reset: td-qa;
